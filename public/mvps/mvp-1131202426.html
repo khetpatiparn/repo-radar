@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AstryxBrand AI Engine</title><script src="https://cdn.tailwindcss.com"></script></head><body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans"><div class="max-w-4xl mx-auto p-6"><header class="flex justify-between items-center mb-8 border-b border-zinc-800 pb-6"><h1 class="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">AstryxBrand AI</h1><a href="https://github.com/meta/astryx" target="_blank" class="bg-zinc-800 px-4 py-2 rounded-lg text-sm hover:bg-zinc-700 transition">GitHub: meta/astryx</a></header><div class="grid md:grid-cols-2 gap-8"><section class="space-y-4"><h2 class="text-xl font-semibold">ตั้งค่า Theme ของคุณ</h2><div class="flex gap-2"><button onclick="loadPreset('tech')" class="bg-zinc-800 p-2 text-xs rounded hover:bg-emerald-900">ตัวอย่าง: Tech SaaS</button><button onclick="loadPreset('ecom')" class="bg-zinc-800 p-2 text-xs rounded hover:bg-indigo-900">ตัวอย่าง: E-Commerce</button></div><input type="text" id="brandName" placeholder="ชื่อแบรนด์" class="w-full p-3 bg-zinc-900 rounded border border-zinc-700"><input type="color" id="primaryColor" class="w-full h-12 cursor-pointer"><div><label>ความโค้งของปุ่ม (px)</label><input type="range" id="borderRadius" min="0" max="24" value="8" class="w-full"></div><button onclick="generateTheme()" class="w-full bg-emerald-600 p-3 rounded font-bold hover:bg-emerald-500 transition">สร้าง Configuration</button></section><section class="bg-zinc-900 p-6 rounded-xl border border-zinc-800"><h2 class="text-xl font-semibold mb-4">ผลลัพธ์ Config (StyleX)</h2><pre id="output" class="text-xs font-mono bg-black p-4 rounded overflow-auto h-64 border border-zinc-700">// กำลังรอการสร้าง...</pre><button onclick="copyCode()" class="mt-4 w-full border border-zinc-700 p-2 rounded hover:bg-zinc-800">คัดลอกโค้ด</button></section></div></div><script>function loadPreset(type) { if(type === 'tech') { document.getElementById('brandName').value = 'CyberCore'; document.getElementById('primaryColor').value = '#10b981'; } else { document.getElementById('brandName').value = 'ShopifyX'; document.getElementById('primaryColor').value = '#6366f1'; } } function generateTheme() { const name = document.getElementById('brandName').value || 'MyBrand'; const color = document.getElementById('primaryColor').value; const radius = document.getElementById('borderRadius').value; const code = `import * as stylex from '@stylexjs/stylex';
+
+export const tokens = stylex.defineVars({
+  brandName: '${name}',
+  primary: '${color}',
+  radius: '${radius}px',
+  fontFamily: 'system-ui, sans-serif',
+});
+
+export const styles = stylex.create({
+  button: {
+    backgroundColor: tokens.primary,
+    borderRadius: tokens.radius,
+    padding: '8px 16px',
+    color: 'white',
+  }
+});`; document.getElementById('output').textContent = code; } function copyCode() { const text = document.getElementById('output').textContent; navigator.clipboard.writeText(text); alert('คัดลอกแล้ว!'); }</script></body></html>

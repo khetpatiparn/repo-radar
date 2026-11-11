@@ -31,7 +31,13 @@
       "hype_vs_reality": 7
     },
     "quick_start": "npm install @astryxdesign/core @astryxdesign/theme-neutral @stylexjs/stylex\nnpm install -D @astryxdesign/cli\nnpx astryx init",
-    "updated_at": "2026-11-11T15:28:14.201Z"
+    "updated_at": "2026-11-11T15:28:14.201Z",
+    "mvp": {
+      "app_name": "AstryxBrand AI Engine",
+      "tagline": "เครื่องมือปรับแต่ง Design System อัตโนมัติสำหรับแบรนด์ของคุณด้วยพลัง AI",
+      "url": "/mvps/mvp-1131202426.html",
+      "built_at": "2026-11-11T16:27:13.080Z"
+    }
   },
   {
     "id": "1131513930",
@@ -250,7 +256,13 @@
       "hype_vs_reality": 7
     },
     "quick_start": "git clone https://github.com/we-promise/sure.git && cd sure && cp .env.local.example .env.local && bin/setup && bin/dev",
-    "updated_at": "2026-11-11T15:29:28.879Z"
+    "updated_at": "2026-11-11T15:29:28.879Z",
+    "mvp": {
+      "app_name": "SureVault Simulator",
+      "tagline": "เครื่องมือวางแผนสถานะทางการเงินและวิเคราะห์อิสรภาพทางการเงินส่วนบุคคลแบบ Privacy-First",
+      "url": "/mvps/mvp-1024661423.html",
+      "built_at": "2026-11-11T16:27:20.781Z"
+    }
   },
   {
     "id": "1056618941",
@@ -440,7 +452,13 @@
       "hype_vs_reality": 8
     },
     "quick_start": "npx cleanyourtv@latest",
-    "updated_at": "2026-11-11T15:30:14.045Z"
+    "updated_at": "2026-11-11T15:30:14.045Z",
+    "mvp": {
+      "app_name": "DebloatFlow",
+      "tagline": "เครื่องมือวางแผนและสร้างคำสั่ง ADB เพื่อรีดประสิทธิภาพ Android TV ให้ลื่นไหลเหมือนแกะกล่อง",
+      "url": "/mvps/mvp-1423101235.html",
+      "built_at": "2026-11-11T16:27:27.575Z"
+    }
   },
   {
     "id": "1440956372",
