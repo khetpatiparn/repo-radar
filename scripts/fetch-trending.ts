@@ -231,7 +231,7 @@ Provide the output strictly in the following JSON structure:
       generationConfig: { responseMimeType: "application/json" },
     });
 
-    for (let attempt = 1; attempt <= 2; attempt++) {
+    for (let attempt = 1; attempt <= 3; attempt++) {
       try {
         const result = await model.generateContent(prompt);
         const responseText = result.response.text();
@@ -267,18 +267,16 @@ Provide the output strictly in the following JSON structure:
         return RepositorySchema.parse(fullData);
       } catch (error: any) {
         const status = error?.status;
-        const isTransient = status === 503 || status === 429;
+        const isFatalModelError = status === 404 || status === 401 || status === 403;
         console.warn(
-          `[${modelName}] Attempt ${attempt} failed for ${repo.full_name} (status: ${status ?? "unknown"}): ${error?.message || error}`
+          `[${modelName}] Attempt ${attempt} failed for ${repo.full_name} (status: ${status ?? "parse/validation"}): ${error?.message || error}`
         );
-        if (isTransient && attempt < 2) {
-          const delayMs = 3000 * attempt;
+        if (!isFatalModelError && attempt < 3) {
+          const delayMs = 2500 * attempt;
           console.log(`Waiting ${delayMs}ms before retrying ${modelName}...`);
           await new Promise((r) => setTimeout(r, delayMs));
-        } else if (isTransient) {
-          console.log(`Switching to fallback model after ${modelName} failed...`);
-          break;
         } else {
+          console.log(`Switching to fallback model after ${modelName} failed...`);
           break;
         }
       }
