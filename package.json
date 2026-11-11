@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "pipeline": "tsx scripts/fetch-trending.ts"
+    "pipeline": "tsx scripts/fetch-trending.ts",
+    "build:mvp": "tsx scripts/build-mvp.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

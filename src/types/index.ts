@@ -32,6 +32,14 @@ export const RepositorySchema = z.object({
   
   quick_start: z.string(),
   updated_at: z.string(), // ISO String
+  mvp: z
+    .object({
+      app_name: z.string(),
+      tagline: z.string(),
+      url: z.string(),
+      built_at: z.string(),
+    })
+    .optional(),
 });
 
 export type RepositoryData = z.infer<typeof RepositorySchema>;

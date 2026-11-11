@@ -362,6 +362,33 @@ async function main() {
     }
   }
 
+  // Load existing repos and check if already synced within the last 2 hours
+  const existingMvpMap = new Map<string, RepositoryData["mvp"]>();
+  try {
+    const rawOld = await fs.readFile(REPOS_FILE_PATH, "utf-8");
+    const oldRepos = JSON.parse(rawOld) as RepositoryData[];
+    for (const old of oldRepos) {
+      if (old.id && old.mvp) {
+        existingMvpMap.set(old.id, old.mvp);
+      }
+    }
+    if (
+      oldRepos.length >= TARGET_REPO_COUNT &&
+      oldRepos[0]?.updated_at &&
+      process.env.FORCE_SYNC !== "true"
+    ) {
+      const ageMs = Date.now() - new Date(oldRepos[0].updated_at).getTime();
+      if (ageMs >= 0 && ageMs < 2 * 60 * 60 * 1000) {
+        console.log(
+          `⚡ repos.json is already fresh (${Math.round(ageMs / 60000)}m old, ${oldRepos.length} repos). Skipping duplicate fetch.`
+        );
+        return;
+      }
+    }
+  } catch {
+    // Ignore if file doesn't exist
+  }
+
   const repos = await fetchGitHubTrending();
   if (repos.length === 0) {
     console.log("No repos fetched. Pipeline finished.");
@@ -383,6 +410,10 @@ async function main() {
     const processed = await processWithGemini(repo, details.readme, details.issuesContext, hnContext);
     
     if (processed) {
+      const existingMvp = existingMvpMap.get(processed.id);
+      if (existingMvp) {
+        processed.mvp = existingMvp;
+      }
       results.push(processed);
       console.log(`✅ Successfully processed ${repo.full_name}`);
     } else {
