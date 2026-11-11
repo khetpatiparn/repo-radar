@@ -4,8 +4,8 @@
     "name": "build-your-own-x",
     "owner": "codecrafters-io",
     "url": "https://github.com/codecrafters-io/build-your-own-x",
-    "stars": 561763,
-    "stars_today": 189,
+    "stars": 561764,
+    "stars_today": 56,
     "language": "Markdown",
     "topics": [
       "awesome-list",
@@ -17,36 +17,36 @@
     ],
     "license": null,
     "open_issues": 695,
-    "one_liner": "A curated list of step-by-step guides that teach you how to build complex software like databases, search engines, and operating systems from the ground up.",
-    "problem_solved": "It solves the difficulty of finding high-quality, project-based learning resources that teach the 'how' behind deep software architecture instead of just high-level API usage.",
-    "alternative_comparison": "Like a central library of O'Reilly-style 'Build It Yourself' books, but community-maintained and focused on open-source links rather than commercial courses.",
+    "one_liner": "แหล่งรวบรวมคู่มือและบทเรียนสำหรับสร้างเทคโนโลยีชื่อดัง (เช่น Git, Docker, Database, LLMs) ขึ้นมาใหม่ด้วยตัวเองตั้งแต่ศูนย์",
+    "problem_solved": "แก้วิธีการเรียนรู้แบบเดิมๆ ที่นักพัฒนามักใช้เครื่องมือหรือไลบรารีระดับสูงโดยไม่เข้าใจการทำงานภายในเบื้องหลัง (Black Box) โดยรวบรวมบทเรียนแบบลงมือทำจริงเพื่อให้เข้าใจหลักการของซอฟต์แวร์ระดับรากฐานอย่างลึกซึ้ง",
+    "alternative_comparison": "คล้ายกับ Awesome Lists ทั่วไป แต่ต่างตรงที่เน้นเฉพาะการเรียนรู้แบบ Project-based ที่ให้สร้างสิ่งต่างๆ ขึ้นมาเองจริงๆ แทนที่จะเป็นการรวมลิงก์ไลบรารีเพื่อนำไปใช้งาน",
     "maturity_rating": "Production-Ready",
-    "maturity_reason": "The repository is a well-established, community-maintained list that has been active for years with consistent updates to fix dead links and add new content.",
+    "maturity_reason": "เป็นคลังทรัพยากรการเรียนรู้ที่มีชื่อเสียงและได้รับความนิยมอย่างสูง มีการดูแลรักษาและอัปเดตลิงก์บทเรียนที่เสียอยู่เป็นประจำโดยโอเพนซอร์สคอมมูนิตี้",
     "ai_opportunity": {
-      "monetization_idea": "A subscription-based interactive platform that provides automated unit tests and code-validation environments for these specific tutorials.",
-      "stack_synergy": "Pair with a platform like Replit or GitHub Codespaces to provide 'one-click' development environments pre-configured for each specific tutorial project."
+      "monetization_idea": "สร้างแพลตฟอร์มคอร์สเรียน Interactive หรือบริการตาทวนโค้ดอัตโนมัติ (Automated Code Reviewer) สำหรับคนที่ทำโปรเจกต์ตามรายการเหล่านี้ โดยใช้ AI ช่วยตรวจเช็กความถูกต้องและให้คำอธิบายเพิ่มเติม",
+      "stack_synergy": "ใช้ Next.js และ Supabase สร้างเว็บพอร์ตัลสำหรับการเรียนรู้แบบส่วนบุคคล ร่วมกับ LLM API เพื่อทำระบบ AI Mentor คอยใบ้คำตอบและอธิบายโค้ดตามบทเรียน Build Your Own X ต่างๆ"
     },
     "human_vibe_check": {
       "pros": [
-        "Incredibly high density of high-quality educational content",
-        "Excellent for deep-dive learning and portfolio building"
+        "ครอบคลุมหัวข้อสำคัญในวิทยาการคอมพิวเตอร์หลากหลายมาก ตั้งแต่ 3D Renderer ไปจนถึง OS และ AI",
+        "การเรียนรู้ด้วยการลงมือสร้างจริง (Build from Scratch) ช่วยพัฒนาทักษะการแก้ปัญหาและการออกแบบระบบได้อย่างมีประสิทธิภาพสูงสุด"
       ],
       "gotchas_and_traps": [
-        "Many links are external and occasionally break",
-        "Difficulty levels vary wildly between tutorials"
+        "บทเรียนไม่ได้เรียงลำดับความยากง่าย มือใหม่อาจหลงไปทำบทเรียนที่ยากเกินไปจนท้อได้",
+        "บทเรียนบางตัวเป็นเนื้อหาเก่าและอาศัยลิงก์ภายนอก ซึ่งบางครั้งอาจเปิดไม่ได้หรือใช้ไลบรารีเวอร์ชันเก่า"
       ],
       "hype_vs_reality": 9
     },
-    "quick_start": "git clone https://github.com/codecrafters-io/build-your-own-x.git\ncd build-your-own-x\n# Open README.md in your browser or editor to begin",
-    "updated_at": "2026-11-11T15:02:11.191Z"
+    "quick_start": "git clone https://github.com/codecrafters-io/build-your-own-x.git && cd build-your-own-x",
+    "updated_at": "2026-11-11T15:09:16.513Z"
   },
   {
     "id": "54346799",
     "name": "public-apis",
     "owner": "public-apis",
     "url": "https://github.com/public-apis/public-apis",
-    "stars": 498125,
-    "stars_today": 24,
+    "stars": 498127,
+    "stars_today": 101,
     "language": "Python",
     "topics": [
       "api",
@@ -65,36 +65,36 @@
     ],
     "license": "MIT",
     "open_issues": 2646,
-    "one_liner": "This is a giant, community-maintained list of free tools and services that developers can plug into their own software projects.",
-    "problem_solved": "It eliminates the time-consuming process of scouring the web for reliable, free data sources by centralizing them into one curated, searchable directory.",
-    "alternative_comparison": "Like a 'Yellow Pages' for web developers, but crowdsourced and specifically focused on functional API integrations rather than static business contacts.",
+    "one_liner": "เป็นแหล่งรวบรวม API สาธารณะฟรีและมีประโยชน์จำนวนมหาศาล ที่คัดสรรโดยชุมชนเพื่อให้นักพัฒนาเลือกใช้ในการสร้างโปรเจกต์ได้ทันที",
+    "problem_solved": "แก้ปัญหาความยากลำบากในการค้นหาหรือตรวจสอบว่า API ฟรีตัวไหนยังมีชีวิตอยู่และใช้งานได้จริง โดยรวมศูนย์ข้อมูลไว้ในที่เดียวให้ค้นหาง่าย",
+    "alternative_comparison": "คล้ายกับเว็บ Directory อย่าง RapidAPI แต่ต่างตรงที่เน้นรายการที่เป็น Open Source และฟรี ซึ่งชุมชนมีส่วนร่วมดูแลกันเองโดยไม่มีกำแพงกั้น",
     "maturity_rating": "Production-Ready",
-    "maturity_reason": "It is a long-standing, widely cited community resource that serves as a primary reference point for developers globally.",
+    "maturity_reason": "เป็นโปรเจกต์ที่เป็นมาตรฐานอุตสาหกรรมสำหรับนักพัฒนาทั่วโลกมาอย่างยาวนาน แม้มีการดูแลผ่าน Community เป็นหลัก",
     "ai_opportunity": {
-      "monetization_idea": "Build an intelligent API discovery agent that suggests the perfect API for a user's specific app idea by scanning their codebase and matching it against this database.",
-      "stack_synergy": "Pairs perfectly with Next.js and Supabase by allowing developers to rapidly prototype dynamic, data-driven applications without building custom backend data scrapers."
+      "monetization_idea": "สร้างแพลตฟอร์ม API Aggregator หรือเครื่องมือช่วย Monitor API ที่ระบุไว้ในลิสต์นี้ว่าตัวไหน Down หรือ Up พร้อมแจ้งเตือนผ่านช่องทางต่างๆ",
+      "stack_synergy": "ใช้ร่วมกับ Next.js เพื่อทำ API Demo Showcase หรือใช้ Supabase เพื่อเก็บสถิติการใช้งาน API ที่ถูกเรียกผ่านเว็บแอปของคุณ"
     },
     "human_vibe_check": {
       "pros": [
-        "Massive, high-quality collection of resources",
-        "Essential bookmark for every student and junior developer"
+        "ช่วยประหยัดเวลาในการหาข้อมูล API ได้มหาศาล",
+        "มีตัวเลือก API หลากหลายหมวดหมู่ ครอบคลุมเกือบทุก Use Case"
       ],
       "gotchas_and_traps": [
-        "Frequent link rot and broken API endpoints requiring community maintenance",
-        "Heavily influenced by corporate sponsorship (APILayer) which can skew objectivity"
+        "ข้อมูลบางรายการอาจมีการอัปเดตช้าหรือมีลิงก์ที่ตาย (404) อยู่บ้าง",
+        "API บางตัวในรายการอาจเปลี่ยนนโยบายเป็นเสียเงินในภายหลังโดยไม่แจ้งเตือน"
       ],
-      "hype_vs_reality": 8
+      "hype_vs_reality": 9
     },
-    "quick_start": "git clone https://github.com/public-apis/public-apis.git\ncd public-apis\n# Open README.md to browse the full list of available APIs",
-    "updated_at": "2026-11-11T15:02:16.764Z"
+    "quick_start": "git clone https://github.com/public-apis/public-apis.git\n# Navigate to the repo to browse the curated list in README.md\n# Use 'Ctrl+F' to search for specific API domains.",
+    "updated_at": "2026-11-11T15:09:21.809Z"
   },
   {
     "id": "28457823",
     "name": "freeCodeCamp",
     "owner": "freeCodeCamp",
     "url": "https://github.com/freeCodeCamp/freeCodeCamp",
-    "stars": 458984,
-    "stars_today": 160,
+    "stars": 458985,
+    "stars_today": 194,
     "language": "TypeScript",
     "topics": [
       "careers",
@@ -115,36 +115,36 @@
     ],
     "license": "BSD-3-Clause",
     "open_issues": 188,
-    "one_liner": "A free, non-profit website that helps people learn how to build software through structured lessons and hands-on projects.",
-    "problem_solved": "It removes the financial and structural barriers to entry for people looking to pivot into a professional software development career.",
-    "alternative_comparison": "Like a traditional computer science degree program but entirely free, self-paced, and focused exclusively on practical web development skills.",
+    "one_liner": "แพลตฟอร์มการเรียนรู้เขียนโปรแกรมแบบ Interactive ที่ใหญ่ที่สุดในโลก พร้อมบทเรียนและใบรับรองฟรีสำหรับผู้ที่ต้องการเปลี่ยนสายงานเข้าสู่วงการไอที",
+    "problem_solved": "แก้ปัญหาคอร์สเรียนออนไลน์ที่มีราคาแพงและขาดการฝึกปฏิบัติจริง โดยการสร้างระบบสอนเขียนโค้ดที่ให้ผู้เรียนต้องลงมือทำโปรเจกต์จริงผ่านเบราว์เซอร์ เพื่อให้มั่นใจว่าเรียนจบแล้วใช้งานได้จริง",
+    "alternative_comparison": "คล้ายกับ Udemy หรือ Coursera แต่ได้เปรียบตรงที่เป็น Open-source 100% มีระบบตรวจสอบโค้ดแบบ Real-time และให้ใบรับรองฟรีโดยไม่ต้องเสียค่าใช้จ่ายแอบแฝง",
     "maturity_rating": "Production-Ready",
-    "maturity_reason": "It powers a massive, globally active learning platform with a long history of stability and continuous, high-volume curriculum updates.",
+    "maturity_reason": "เป็นแพลตฟอร์มระดับโลกที่ใช้งานจริงโดยผู้เรียนหลายล้านคนทั่วโลก มีระบบ CI/CD และการตรวจสอบมาตรฐานความปลอดภัยที่แน่นหนา",
     "ai_opportunity": {
-      "monetization_idea": "A personalized AI-powered career coach API that analyzes a user's freeCodeCamp project history to generate custom technical interview prep paths and resume critiques.",
-      "stack_synergy": "Pairing this with Supabase for user progress tracking and Next.js for a performant, AI-enhanced learning dashboard that adapts content difficulty based on real-time learner feedback."
+      "monetization_idea": "ทำระบบ AI Tutor ส่วนตัวที่ช่วยวิเคราะห์ Code Review หรือ Debug Error เฉพาะจุดให้ผู้เรียนเป็นรายเดือน (SaaS) เพื่อช่วยให้ผู้เรียนเข้าใจบทเรียนยากๆ ได้เร็วขึ้น",
+      "stack_synergy": "สามารถใช้ Next.js ร่วมกับ AI API เพื่อสร้างระบบสร้างโจทย์แบบไดนามิก หรือทำระบบ Custom Learning Path ที่ปรับเปลี่ยนตามความเร็วในการเรียนรู้ของผู้ใช้แต่ละคน"
     },
     "human_vibe_check": {
       "pros": [
-        "Extremely supportive global community",
-        "Truly free, donor-supported, and non-profit mission"
+        "เข้าถึงบทเรียนและใบรับรองได้ฟรีโดยไม่มีเงื่อนไข",
+        "มีชุมชนที่แข็งแกร่งและช่วยเหลือกันดีมากผ่านทาง Discord และ Forum"
       ],
       "gotchas_and_traps": [
-        "The curriculum is vast and can be overwhelming for beginners",
-        "Relies on self-motivation as it is entirely self-paced"
+        "เนื้อหาในบางบทเรียนอาจมีปริมาณมหาศาลจนทำให้ผู้เรียนมือใหม่รู้สึกท้อหรือหมดไฟได้ง่าย",
+        "การปรับปรุงโปรเจกต์ใน codebase หลักอาจใช้เวลานานเนื่องจากต้องการความมั่นใจสูงในการแก้ไขเนื้อหาหลักสูตร"
       ],
       "hype_vs_reality": 9
     },
-    "quick_start": "git clone https://github.com/freeCodeCamp/freeCodeCamp.git\ncd freeCodeCamp\ncp sample.env .env\nnpm install && npm run develop",
-    "updated_at": "2026-11-11T15:02:24.833Z"
+    "quick_start": "git clone https://github.com/freeCodeCamp/freeCodeCamp.git\ncd freeCodeCamp\nnpm ci && npm run develop",
+    "updated_at": "2026-11-11T15:09:27.720Z"
   },
   {
     "id": "1209966933",
     "name": "rea",
     "owner": "morluto",
     "url": "https://github.com/morluto/rea",
-    "stars": 451810,
-    "stars_today": 98,
+    "stars": 451829,
+    "stars_today": 154,
     "language": "TypeScript",
     "topics": [
       "agent-skills",
@@ -170,69 +170,27 @@
     ],
     "license": "MIT",
     "open_issues": 1698,
-    "one_liner": "A toolkit that helps your AI assistant look at how other apps are built so you can recreate their features.",
-    "problem_solved": "Traditional reverse engineering tools are manual, siloed, and require human expertise; REA bridges these tools into an automated pipeline for AI agents to interpret binary and code logic.",
-    "alternative_comparison": "Like a 'universal translator' for reverse engineering tools (Ghidra, Hopper, IDA), but instead of a UI for humans, it exposes everything as an MCP server for AI agents.",
-    "maturity_rating": "Production-Ready",
-    "maturity_reason": "Frequent releases (e.g., 6.9.0), active maintenance, and a clear npm-based distribution strategy indicate a stable, evolving project.",
+    "one_liner": "เครื่องมือที่เปลี่ยน AI Agent ให้กลายเป็นผู้เชี่ยวชาญด้าน Reverse Engineering โดยสามารถวิเคราะห์โค้ดจากแอปพลิเคชันหรือไบนารีต่างๆ ได้แบบอัตโนมัติ",
+    "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการทำ Reverse Engineering ด้วยตัวเอง ซึ่งต้องสลับใช้เครื่องมือหลายตัว เช่น Ghidra หรือ IDA และต้องใช้ความเชี่ยวชาญสูง ทำให้การทำความเข้าใจ Logic ของซอฟต์แวร์ภายนอกเป็นเรื่องที่ทำได้ยากและเสียเวลา",
+    "alternative_comparison": "คล้ายกับโปรแกรมดั้งเดิมอย่าง Ghidra หรือ IDA แต่เหนือกว่าตรงที่ถูกออกแบบมาให้ AI Agent ใช้งานผ่าน MCP (Model Context Protocol) ทำให้สามารถโต้ตอบเพื่อถาม-ตอบหรือสรุป Logic ของโปรแกรมผ่านแชทได้ทันที",
+    "maturity_rating": "Experimental",
+    "maturity_reason": "มีการอัปเดตเวอร์ชันอย่างต่อเนื่อง (Release บ่อย) และมีการจัดการ Issues อย่างจริงจัง แต่ฟีเจอร์ยังคงเน้นการทดลองใช้งานร่วมกับ AI Agent ที่กำลังเติบโต",
     "ai_opportunity": {
-      "monetization_idea": "A 'Security Audit as a Service' API that automatically scans client-provided app binaries for common vulnerabilities or proprietary logic leakage using REA agents.",
-      "stack_synergy": "Pair it with Next.js and an LLM-based dashboard to visualize and document 'app cloning' workflows or feature-migration paths for legacy codebases."
+      "monetization_idea": "ทำบริการ Automated Security Audit as a Service หรือสร้างเครื่องมือวิเคราะห์ความปลอดภัยของแอปมือถือในรูปแบบ SaaS ที่ช่วยให้ Developer ตรวจสอบว่าแอปตัวเองเผยข้อมูลอะไรออกมาบ้าง",
+      "stack_synergy": "ใช้ร่วมกับ Next.js และ Supabase เพื่อสร้าง Dashboard แสดงผลลัพธ์จากการสแกนไบนารีที่รวบรวมผ่าน Agent ให้กลายเป็นรายงานวิเคราะห์ความปลอดภัยที่อ่านง่ายและจัดเก็บประวัติการตรวจสอบได้"
     },
     "human_vibe_check": {
       "pros": [
-        "Extremely wide compatibility across binaries, JS, .NET, and Electron",
-        "Excellent documentation with extensive multi-language support"
+        "เปลี่ยนงานที่ซับซ้อนอย่าง Reverse Engineering ให้กลายเป็นบทสนทนาโต้ตอบกับ AI",
+        "รองรับเครื่องมือวิเคราะห์ระดับโลกอย่าง Hopper, Ghidra และ IDA ทำให้มีความแม่นยำสูง"
       ],
       "gotchas_and_traps": [
-        "Heavy reliance on external local dependencies like Ghidra/Hopper",
-        "Potential legal risks if used to reverse-engineer proprietary software without authorization"
-      ],
-      "hype_vs_reality": 8
-    },
-    "quick_start": "npx rea-agents setup",
-    "updated_at": "2026-11-11T15:02:30.577Z"
-  },
-  {
-    "id": "1103012935",
-    "name": "openclaw",
-    "owner": "openclaw",
-    "url": "https://github.com/openclaw/openclaw",
-    "stars": 394335,
-    "stars_today": 130,
-    "language": "TypeScript",
-    "topics": [
-      "ai",
-      "assistant",
-      "crustacean",
-      "molty",
-      "openclaw",
-      "own-your-data",
-      "personal"
-    ],
-    "license": "MIT",
-    "open_issues": 8146,
-    "one_liner": "A personal AI assistant that lives on your own computer and talks to you through your existing messaging apps like WhatsApp, Slack, and iMessage.",
-    "problem_solved": "It removes the need to use walled-garden AI chat interfaces, keeping your data and state local while connecting to multiple platforms through a unified gateway.",
-    "alternative_comparison": "Like a local, privacy-first version of Zapier for LLMs that gives you a personal interface for any AI model across all your favorite chat apps.",
-    "maturity_rating": "Production-Ready",
-    "maturity_reason": "The repository shows active maintenance with complex CI/CD pipelines, long-term support for multiple operating systems, and a mature architecture including a dedicated Foundation.",
-    "ai_opportunity": {
-      "monetization_idea": "Create a marketplace of pre-configured 'Agent Blueprints' for specific professional niches (e.g., Legal research, specialized coding agents) that run securely on OpenClaw.",
-      "stack_synergy": "Pair with Supabase for persistent, multi-device vector memory synchronization to keep your local context updated across desktop and mobile OpenClaw instances."
-    },
-    "human_vibe_check": {
-      "pros": [
-        "Total control over data and privacy via a self-hosted gateway.",
-        "Extensive cross-platform support across almost every popular messaging app."
-      ],
-      "gotchas_and_traps": [
-        "Significant potential for friction with major AI providers (Anthropic/Google) who may detect and block API usage via third-party gateways.",
-        "Requires technical maintenance to manage a local daemon on your machine."
+        "ต้องมีการติดตั้งซอฟต์แวร์วิเคราะห์หลัก (เช่น Ghidra) แยกต่างหากเพื่อให้ทำงานได้เต็มประสิทธิภาพ",
+        "การทำงานกับไบนารีระดับลึกต้องใช้ความรู้ความเข้าใจเรื่อง Security และไฟล์ประเภทต่างๆ ในระดับพื้นฐานอยู่บ้าง"
       ],
       "hype_vs_reality": 7
     },
-    "quick_start": "curl -fsSL https://openclaw.ai/install.sh | bash && openclaw onboard --install-daemon",
-    "updated_at": "2026-11-11T15:02:36.484Z"
+    "quick_start": "npx rea-agents setup",
+    "updated_at": "2026-11-11T15:09:33.026Z"
   }
 ]
