@@ -20,11 +20,13 @@ interface GitHubSearchRepoItem {
   owner: { login: string };
   html_url: string;
   stargazers_count: number;
+  stars_today?: number;
   language: string | null;
   topics: string[];
   license: { spdx_id: string } | null;
   open_issues_count: number;
   pushed_at: string;
+  created_at?: string;
 }
 
 interface GithubSearchRepoResponse {
@@ -41,63 +43,122 @@ interface HNSearchResponse {
   hits: HNStory[];
 }
 
+const TARGET_REPO_COUNT = 12;
+
+function isInterestingCodeRepo(name: string, topics: string[] = []): boolean {
+  const lower = name.toLowerCase();
+  const excludedKeywords = ["awesome", "list", "interview", "book", "roadmap", "tutorial", "course"];
+  if (excludedKeywords.some((kw) => lower.includes(kw))) {
+    return false;
+  }
+  if (topics.some((t) => t === "awesome-list" || t === "interview-questions")) {
+    return false;
+  }
+  return true;
+}
+
+function getStarsTodayApprox(repo: GitHubSearchRepoItem): number {
+  if (typeof repo.stars_today === "number" && repo.stars_today > 0) {
+    return repo.stars_today;
+  }
+  const refDate = repo.created_at || repo.pushed_at;
+  if (refDate) {
+    const daysOld = Math.max(1, Math.ceil((Date.now() - new Date(refDate).getTime()) / 86_400_000));
+    return Math.max(10, Math.round(repo.stargazers_count / daysOld));
+  }
+  return 50;
+}
+
 /**
- * Fetch trending repositories from GitHub
- * Filter: pushed within last 90 days, has a license
+ * Fetch trending & breakout repositories:
+ * 1. Real daily trending repositories from https://github.com/trending?since=daily (with real stars today)
+ * 2. Supplement up to TARGET_REPO_COUNT (12) with breakout repositories created within the last 30 days
  */
 async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
-  const ninetyDaysAgo = new Date();
-  ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
-  const dateStr = ninetyDaysAgo.toISOString().split("T")[0];
-
-  // We search for repos created recently with high stars, or simply high stars pushed recently
-  const query = `stars:>500 pushed:>=${dateStr} has:license`;
-  
   const headers: HeadersInit = {
     "Accept": "application/vnd.github.v3+json",
     "User-Agent": "RepoRadar-Script",
   };
-  
+
   if (GITHUB_TOKEN) {
     headers["Authorization"] = `token ${GITHUB_TOKEN}`;
   }
 
-  const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=10`;
-  
-  try {
-    const res = await fetch(url, { headers });
-    if (!res.ok) {
-      if (res.status === 403) {
-        console.warn("GitHub API rate limit exceeded.");
-        return [];
-      }
-      throw new Error(`GitHub API error: ${res.statusText}`);
-    }
-    
-    const data = (await res.json()) as GithubSearchRepoResponse;
-    // Filter out obvious non-code repos (basic heuristic: "awesome-", "-list", "books")
-    return data.items.filter(repo => {
-      const name = repo.name.toLowerCase();
-      return !name.includes("awesome") && 
-             !name.includes("list") && 
-             !name.includes("interview") && 
-             !name.includes("book");
-    }).slice(0, 5); // Limit to top 5 for pipeline speed
-  } catch (error) {
-    console.error("Error fetching GitHub repos:", error);
-    return [];
-  }
-}
+  const collected: GitHubSearchRepoItem[] = [];
+  const seen = new Set<string>();
 
-/**
- * Fetch new stars today (approximate using stargazers endpoint or simplified for now)
- * Actually, to get true "stars today" via API requires paginating /stargazers with timestamps.
- * As a workaround, we'll assign a random/mock value or fetch if possible.
- */
-function getStarsTodayApprox(): number {
-    // In a real robust system, we would hit a specialized trending API or scrape.
-    // For zero-cost stack without scraping, we will mock a reasonable number.
-    return Math.floor(Math.random() * 200) + 10;
+  // 1. Scrape GitHub Daily Trending page for real surging repos & real stars today
+  try {
+    const trendingRes = await fetch("https://github.com/trending?since=daily", {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; RepoRadar/1.0)" },
+    });
+    if (trendingRes.ok) {
+      const html = await trendingRes.text();
+      const articles = html.split('<article class="Box-row">').slice(1);
+
+      for (const article of articles) {
+        if (collected.length >= TARGET_REPO_COUNT) break;
+        const repoMatch = article.match(/<h2[\s\S]*?<a[^>]*href="\/([^/"\s]+\/[^/"\s]+)"/);
+        const todayMatch = article.match(/([\d,]+)\s+stars today/);
+        const fullName = repoMatch?.[1];
+        if (!fullName || seen.has(fullName)) continue;
+
+        const repoName = fullName.split("/")[1] || "";
+        if (!isInterestingCodeRepo(repoName)) continue;
+
+        const starsToday = todayMatch ? parseInt(todayMatch[1].replace(/,/g, ""), 10) : 0;
+
+        try {
+          const metaRes = await fetch(`https://api.github.com/repos/${fullName}`, { headers });
+          if (metaRes.ok) {
+            const repoData = (await metaRes.json()) as GitHubSearchRepoItem;
+            if (!isInterestingCodeRepo(repoData.name, repoData.topics || [])) continue;
+            repoData.stars_today = starsToday > 0 ? starsToday : getStarsTodayApprox(repoData);
+            collected.push(repoData);
+            seen.add(repoData.full_name.toLowerCase());
+          }
+        } catch (err) {
+          console.warn(`Could not fetch metadata for trending repo ${fullName}`);
+        }
+      }
+      console.log(`Fetched ${collected.length} repositories from GitHub Daily Trending.`);
+    }
+  } catch (error) {
+    console.warn("Could not scrape github.com/trending, falling back to search API:", error);
+  }
+
+  // 2. Supplement up to TARGET_REPO_COUNT with breakout repos created in the last 30 days
+  if (collected.length < TARGET_REPO_COUNT) {
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    const dateStr = thirtyDaysAgo.toISOString().split("T")[0];
+
+    const query = `created:>=${dateStr} stars:>200 has:license`;
+    const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=30`;
+
+    try {
+      const res = await fetch(url, { headers });
+      if (res.ok) {
+        const data = (await res.json()) as GithubSearchRepoResponse;
+        for (const repo of data.items || []) {
+          if (collected.length >= TARGET_REPO_COUNT) break;
+          const key = repo.full_name.toLowerCase();
+          if (seen.has(key)) continue;
+          if (!isInterestingCodeRepo(repo.name, repo.topics || [])) continue;
+
+          repo.stars_today = getStarsTodayApprox(repo);
+          collected.push(repo);
+          seen.add(key);
+        }
+      } else {
+        console.warn(`GitHub Search API returned ${res.status}: ${res.statusText}`);
+      }
+    } catch (error) {
+      console.error("Error fetching breakout GitHub repos:", error);
+    }
+  }
+
+  return collected.slice(0, TARGET_REPO_COUNT);
 }
 
 /**
@@ -255,7 +316,7 @@ Provide the output strictly in the following JSON structure:
           owner: repo.owner.login,
           url: repo.html_url,
           stars: repo.stargazers_count,
-          stars_today: getStarsTodayApprox(),
+          stars_today: getStarsTodayApprox(repo),
           language: repo.language,
           topics: repo.topics,
           license: repo.license?.spdx_id || null,
@@ -314,7 +375,7 @@ async function main() {
   for (const repo of repos) {
     console.log(`Processing: ${repo.full_name}...`);
     // Delay slightly to respect rate limits
-    await new Promise(r => setTimeout(r, 2000));
+    await new Promise(r => setTimeout(r, 3500));
     
     const details = await fetchRepoDetails(repo.owner.login, repo.name);
     const hnContext = await fetchHNSentiment(repo.name);
