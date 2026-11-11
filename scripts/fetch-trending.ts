@@ -179,9 +179,9 @@ async function processWithGemini(
 
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
   const modelsToTry = [
-    "gemini-3.5-flash-lite",
     "gemini-3.1-flash-lite",
-    "gemini-2.5-flash-lite",
+    "gemini-3.5-flash-lite",
+    "gemini-3.6-flash",
   ];
   const prompt = `
 You are an expert developer relations engineer and tech analyst.
@@ -233,6 +233,15 @@ Provide the output strictly in the following JSON structure:
 
         // Parse and validate with Zod
         const aiData = JSON.parse(responseText);
+        if (aiData?.human_vibe_check) {
+          if (Array.isArray(aiData.human_vibe_check.pros)) {
+            aiData.human_vibe_check.pros = aiData.human_vibe_check.pros.slice(0, 2);
+          }
+          if (Array.isArray(aiData.human_vibe_check.gotchas_and_traps)) {
+            aiData.human_vibe_check.gotchas_and_traps =
+              aiData.human_vibe_check.gotchas_and_traps.slice(0, 2);
+          }
+        }
 
         // Combine with base data
         const fullData = {
