@@ -10,13 +10,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function RepoCard({
-  repo,
-  onOpenMvp,
-}: {
-  repo: RepositoryData;
-  onOpenMvp?: (repo: RepositoryData) => void;
-}) {
+export function RepoCard({ repo }: { repo: RepositoryData }) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -39,7 +33,7 @@ export function RepoCard({
       {/* Header Section */}
       <div className="p-6 border-b border-zinc-800 flex justify-between items-start gap-4">
         <div>
-          <div className="flex flex-wrap items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-2">
             <h2 className="text-2xl font-bold text-zinc-100 truncate hover:text-emerald-400 transition-colors">
               <a href={repo.url} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                 {repo.owner}/{repo.name}
@@ -52,14 +46,6 @@ export function RepoCard({
               <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-blue-500/20 text-blue-400 border border-blue-500/30">
                 {repo.language}
               </span>
-            )}
-            {repo.mvp && (
-              <button
-                onClick={() => onOpenMvp?.(repo)}
-                className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:bg-emerald-500/30 transition-colors flex items-center gap-1 cursor-pointer"
-              >
-                ✨ มี Live MVP พร้อมเล่น
-              </button>
             )}
           </div>
           <p className="text-lg font-semibold text-zinc-300 leading-snug">
@@ -94,47 +80,16 @@ export function RepoCard({
             <p className="text-sm text-zinc-300 italic">"{repo.alternative_comparison}"</p>
           </div>
 
-          <div className="bg-emerald-950/30 border border-emerald-900/50 rounded-lg p-4 mt-4 space-y-3">
-            <div>
-              <h4 className="flex items-center gap-2 text-sm font-semibold text-emerald-400 mb-2">
-                <Lightbulb className="w-4 h-4" /> 
-                Monetization / Micro-SaaS Idea
-              </h4>
-              <p className="text-sm text-zinc-300">{repo.ai_opportunity.monetization_idea}</p>
-              <div className="mt-2 pt-2 border-t border-emerald-900/30">
-                 <span className="text-xs text-emerald-500/80 font-semibold uppercase">Stack Synergy: </span>
-                 <span className="text-sm text-zinc-400">{repo.ai_opportunity.stack_synergy}</span>
-              </div>
+          <div className="bg-emerald-950/30 border border-emerald-900/50 rounded-lg p-4 mt-4">
+            <h4 className="flex items-center gap-2 text-sm font-semibold text-emerald-400 mb-2">
+              <Lightbulb className="w-4 h-4" /> 
+              Monetization / Micro-SaaS Idea
+            </h4>
+            <p className="text-sm text-zinc-300">{repo.ai_opportunity.monetization_idea}</p>
+            <div className="mt-2 pt-2 border-t border-emerald-900/30">
+               <span className="text-xs text-emerald-500/80 font-semibold uppercase">Stack Synergy: </span>
+               <span className="text-sm text-zinc-400">{repo.ai_opportunity.stack_synergy}</span>
             </div>
-
-            {repo.mvp && (
-              <div className="pt-3 border-t border-emerald-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                <div>
-                  <div className="text-xs font-bold text-emerald-300 flex items-center gap-1.5">
-                    <span>🚀 AI-Built MVP:</span>
-                    <span className="text-white">{repo.mvp.app_name}</span>
-                  </div>
-                  <p className="text-xs text-zinc-400 mt-0.5">{repo.mvp.tagline}</p>
-                </div>
-                <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto">
-                  <button
-                    onClick={() => onOpenMvp?.(repo)}
-                    className="flex-1 sm:flex-none px-3 py-1.5 rounded-md bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs transition-colors cursor-pointer"
-                  >
-                    ✨ เปิดลองเล่น MVP
-                  </button>
-                  <a
-                    href={repo.mvp.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-2.5 py-1.5 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700 flex items-center gap-1"
-                    title="เปิดแอปเต็มจอในแท็บใหม่"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            )}
           </div>
         </div>
 

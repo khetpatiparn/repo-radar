@@ -32,23 +32,16 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run pipeline
 
-      - name: Build Autonomous Daily MVPs
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: npm run build:mvp
-
       - name: Check for changes
         id: git-check
         run: |
-          if [ -n "$(git status --porcelain src/data/repos.json public/mvps)" ]; then
-            echo "changes_exist=true" >> $GITHUB_OUTPUT
-          fi
+          git diff --exit-code src/data/repos.json || echo "changes_exist=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push changes
         if: steps.git-check.outputs.changes_exist == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/repos.json public/mvps
-          git commit -m "chore(data): sync trending repos and build daily MVPs"
+          git add src/data/repos.json
+          git commit -m "chore(data): sync trending repos"
           git push
