@@ -1,11 +1,59 @@
 [
   {
+    "id": "54346799",
+    "name": "public-apis",
+    "owner": "public-apis",
+    "url": "https://github.com/public-apis/public-apis",
+    "stars": 498125,
+    "stars_today": 34,
+    "language": "Python",
+    "topics": [
+      "api",
+      "apis",
+      "dataset",
+      "development",
+      "free",
+      "list",
+      "lists",
+      "open-source",
+      "public",
+      "public-api",
+      "public-apis",
+      "resources",
+      "software"
+    ],
+    "license": "MIT",
+    "open_issues": 2646,
+    "one_liner": "A massive, community-updated directory of free online tools and data sources that developers can use to build their apps.",
+    "problem_solved": "Saves developers hours of hunting across the web for free and reliable data sources or backend services to build their applications.",
+    "alternative_comparison": "Like a massive phone book for the internet's free services, but constantly updated by thousands of developers.",
+    "maturity_rating": "Production-Ready",
+    "maturity_reason": "It is one of the most popular and heavily referenced developer resource repositories on GitHub, maintained over many years.",
+    "ai_opportunity": {
+      "monetization_idea": "An AI-powered API discovery tool that automatically tests endpoints for uptime and recommends the best combination of free APIs for a specific app idea.",
+      "stack_synergy": "Pair it with Next.js, Vercel AI SDK, and Supabase to instantly prototype and scaffold apps using live public data sources."
+    },
+    "human_vibe_check": {
+      "pros": [
+        "Extensive collection covering almost every niche imaginable",
+        "Active community contributions and maintenance"
+      ],
+      "gotchas_and_traps": [
+        "Many listed APIs can become deprecated or broken over time",
+        "Some free tiers have sudden pricing changes or strict rate limits"
+      ],
+      "hype_vs_reality": 8
+    },
+    "quick_start": "git clone https://github.scom/public-apis/public-apis.git",
+    "updated_at": "2026-11-11T14:57:45.813Z"
+  },
+  {
     "id": "28457823",
     "name": "freeCodeCamp",
     "owner": "freeCodeCamp",
     "url": "https://github.com/freeCodeCamp/freeCodeCamp",
-    "stars": 458981,
-    "stars_today": 181,
+    "stars": 458984,
+    "stars_today": 160,
     "language": "TypeScript",
     "topics": [
       "careers",
@@ -26,27 +74,69 @@
     ],
     "license": "BSD-3-Clause",
     "open_issues": 188,
-    "one_liner": "A free, interactive online platform where anyone can learn computer programming, build portfolio projects, and earn certifications.",
-    "problem_solved": "Traditional coding bootcamps and degree programs are cost-prohibitive and rigid, while fragmented video tutorials lack hands-on, test-driven feedback and clear pathways to employment.",
-    "alternative_comparison": "Like Codecademy and LeetCode, but completely free, open-source, non-profit, and project-based.",
+    "one_liner": "A free, non-profit interactive learning platform that teaches people how to code through hands-on projects and certificates.",
+    "problem_solved": "It solves the high cost and lack of hands-on practical experience in traditional computer science education by offering a structured, verified, and completely free pathway to job readiness.",
+    "alternative_comparison": "Like a bootcamp, but fully self-paced, community-driven, and permanently free.",
     "maturity_rating": "Production-Ready",
-    "maturity_reason": "It powers a live global educational site serving millions of active users daily with well-established test suites and structured contribution guidelines.",
+    "maturity_reason": "It is a massive-scale, open-source platform serving millions of users with a long-standing history of consistent maintenance and updates.",
     "ai_opportunity": {
-      "monetization_idea": "An AI-powered synchronous code mentor extension that explains test failures in freeCodeCamp exercises and offers Socratic hints without giving away the solutions.",
-      "stack_synergy": "Pair the curriculum's markdown-based challenges with Next.js and Supabase vector embeddings to build customized internal onboarding paths for engineering teams."
+      "monetization_idea": "An AI-powered interview simulation platform that uses the user's freeCodeCamp project history to generate personalized technical mock interviews.",
+      "stack_synergy": "Pairing this with Supabase for real-time collaborative coding environments or using Next.js to build a personalized 'learning path' generator that integrates with their existing curriculum API."
     },
     "human_vibe_check": {
       "pros": [
-        "Massive, supportive global community and proven track record of career transitions",
-        "Comprehensive, modern curriculum covering full-stack web development, Python, and C#"
+        "Extremely inclusive and beginner-friendly community culture",
+        "Robust, industry-recognized certification system"
       ],
       "gotchas_and_traps": [
-        "Monorepo is massive and can be resource-intensive and slow to set up locally for contributors",
-        "Strict contribution checklists and high issue volume can lead to delayed PR reviews"
+        "Strict academic honesty policy can lead to permanent account bans",
+        "The sheer volume of curriculum can be overwhelming for beginners"
       ],
       "hype_vs_reality": 9
     },
-    "quick_start": "git clone https://github.com/freeCodeCamp/freeCodeCamp.git && cd freeCodeCamp && pnpm install && pnpm run develop",
-    "updated_at": "2026-11-11T14:39:09.753Z"
+    "quick_start": "git clone https://github.com/freeCodeCamp/freeCodeCamp.git\nnpm ci\nnpm run develop",
+    "updated_at": "2026-11-11T14:58:00.423Z"
+  },
+  {
+    "id": "1103012935",
+    "name": "openclaw",
+    "owner": "openclaw",
+    "url": "https://github.com/openclaw/openclaw",
+    "stars": 394335,
+    "stars_today": 116,
+    "language": "TypeScript",
+    "topics": [
+      "ai",
+      "assistant",
+      "crustacean",
+      "molty",
+      "openclaw",
+      "own-your-data",
+      "personal"
+    ],
+    "license": "MIT",
+    "open_issues": 8147,
+    "one_liner": "An AI assistant that lives on your own computer and talks to you across all your favorite chat apps like WhatsApp, Discord, and Slack.",
+    "problem_solved": "Eliminates the risk of private personal data and prompts being locked inside third-party hosted AI cloud services by keeping all memory, state, and credentials entirely on your own local hardware.",
+    "alternative_comparison": "Like having a self-hosted, multi-platform version of ChatGPT that you completely own and control.",
+    "maturity_rating": "Production-Ready",
+    "maturity_reason": "Active multi-gateway deployments, cross-platform native installers, extensive channel support, and robust CI/CD pipelines demonstrate strong real-world usage.",
+    "ai_opportunity": {
+      "monetization_idea": "A managed enterprise security layer and centralized workspace policy dashboard built on top of the open-source gateway.",
+      "stack_synergy": "Pair it with Next.js, Supabase, and local vector embeddings for an entirely self-hosted enterprise knowledge management and agent workflow system."
+    },
+    "human_vibe_check": {
+      "pros": [
+        "Full data privacy and local ownership of your state and memory",
+        "Connects natively to dozens of messaging apps and native desktop/mobile platforms"
+      ],
+      "gotchas_and_traps": [
+        "Major model providers like Anthropic and Google occasionally restrict or flag API/subscription usage through third-party harnesses",
+        "Requires manual setup, local daemon management, and gateway configurations"
+      ],
+      "hype_vs_reality": 8
+    },
+    "quick_start": "curl -fsSL https://openclaw.ai/install.sh | bash",
+    "updated_at": "2026-11-11T14:58:47.269Z"
   }
 ]
