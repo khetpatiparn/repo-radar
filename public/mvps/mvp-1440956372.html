@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Craft Anything — Clean-Room Reverse Engineering & App/Game Rebuilder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans flex flex-col">
+  <!-- Header -->
+  <header class="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur px-4 lg:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-indigo-600 flex items-center justify-center font-black text-black text-base">
+        ⚒️
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold text-base sm:text-lg text-white">Craft Anything — Clean-Room Rebuilder Studio</h1>
+          <span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+            Reverse-Engineer & Rebuild
+          </span>
+        </div>
+        <p class="text-xs text-zinc-400">วิเคราะห์การทำงานของเว็บ แอป หรือเกมต้นฉบับ แล้วสร้างเวอร์ชันของคุณเองแบบ Clean-Room พร้อมลองเล่นจริงทันที</p>
+      </div>
+    </div>
+
+    <a href="https://github.com/storytold/craft-anything" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700">
+      GitHub: storytold/craft-anything ↗
+    </a>
+  </header>
+
+  <!-- Target Selector & Custom URL Clean-Room Bar -->
+  <section class="border-b border-zinc-800 bg-zinc-900/40 p-4">
+    <div class="max-w-7xl mx-auto space-y-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-bold text-zinc-400">🎯 เลือกต้นแบบที่ถอดรหัสและสร้างใหม่เสร็จแล้ว:</span>
+        <button onclick="selectCraftTarget(0)" id="target-btn-0" class="px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer">
+          🎮 1. เกม CyberRunner Arcade (เล่นได้จริง + ปรับฟิสิกส์สด)
+        </button>
+        <button onclick="selectCraftTarget(1)" id="target-btn-1" class="px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer">
+          📋 2. แอป LinearFlow Kanban Board (จัดการงานจริง)
+        </button>
+        <button onclick="selectCraftTarget(2)" id="target-btn-2" class="px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer">
+          🎹 3. สตูดิโอ SynthBeat Sequencer (มีเสียงจริงด้วย WebAudio)
+        </button>
+      </div>
+
+      <!-- Live Custom Clean-Room Rebuilder -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-2">
+        <input id="craft-url" type="text" placeholder="🌐 ใส่ URL เว็บต้นแบบ (เช่น https://news.ycombinator.com หรือเว้นว่างเพื่อสั่งสร้างจากโจทย์)" class="lg:col-span-4 bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500 font-mono" />
+        <input id="craft-prompt" type="text" placeholder="✨ สั่งดัดแปลงเวอร์ชันของคุณเอง (เช่น 'สร้างเป็น Dashboard สรุปข่าว Tech โทน Cyberpunk พร้อมระบบโหวตและบุ๊กมาร์ก')" class="lg:col-span-5 bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500" />
+        <button id="btn-craft-ai" onclick="runLiveCleanRoom()" class="lg:col-span-3 py-2 px-4 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-extrabold text-xs cursor-pointer">
+          🔬 ถอดรหัส & สร้างแอปใหม่ด้วย AI
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-12 gap-5 min-h-0">
+    <!-- Left Column: Clean-Room Reverse-Engineered Specification -->
+    <div class="lg:col-span-4 bg-zinc-900 border border-zinc-800 rounded-xl flex flex-col overflow-hidden">
+      <div class="p-3 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-mono text-cyan-400 uppercase font-bold">Clean-Room Spec Inspector</span>
+          <h2 id="spec-title" class="text-sm font-bold text-white"></h2>
+        </div>
+        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          Zero IP Leak ✓
+        </span>
+      </div>
+
+      <div id="spec-body" class="p-4 space-y-4 overflow-y-auto text-xs flex-1"></div>
+    </div>
+
+    <!-- Right Column: Rebuilt Interactive Product / Game -->
+    <div class="lg:col-span-8 bg-zinc-900 border border-cyan-500/40 rounded-xl flex flex-col overflow-hidden shadow-xl">
+      <div class="p-3 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-cyan-500 text-black font-mono font-bold text-xs">REBUILT LIVE</span>
+          <h2 id="play-title" class="text-sm font-bold text-white"></h2>
+        </div>
+        <span class="text-xs text-emerald-400 font-medium">● ใช้งานและกดเล่นได้จริง</span>
+      </div>
+
+      <div id="play-canvas" class="flex-1 bg-zinc-950 p-5 overflow-y-auto"></div>
+    </div>
+  </main>
+
+  <script>
+    let animFrame = null;
+    let audioTimer = null;
+
+    function stopBackgroundLoops() {
+      if (animFrame) cancelAnimationFrame(animFrame);
+      if (audioTimer) clearInterval(audioTimer);
+      animFrame = null;
+      audioTimer = null;
+    }
+
+    const CRAFT_TARGETS = [
+      {
+        title: "CyberRunner 2077 (Clean-Room Arcade Engine)",
+        spec: {
+          core_loop: "ถอดรหัสลูปเกม 60FPS จากเกมแนว Endless Runner: ใช้สมการความโน้มถ่วง (vy += gravity) การกระโดดข้ามสิ่งกีดขวาง และการตรวจจับการชนแบบ AABB Bounding Box",
+          ui_architecture: ["HTML5 2D Physics Canvas", "Real-Time Physics Parameter Sliders", "High-Score & Combo HUD"],
+          state_variables: ["playerY / velocityY", "obstacleSpeed / spawnInterval", "gravity / jumpForce", "score / bestScore"],
+          improvements: "เพิ่มแผงควบคุม Physics Engine แบบ Real-time ให้ปรับแรงโน้มถ่วงและความเร็วเกมขณะเล่นได้ทันที"
+        },
+        mount: function(container) {
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="grid grid-cols-3 gap-3">
+                <div class="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800">
+                  <label class="text-[11px] text-zinc-400 flex justify-between"><span>แรงโน้มถ่วง (Gravity)</span><span id="lbl-grav" class="text-cyan-400 font-bold">0.55</span></label>
+                  <input id="rng-grav" type="range" min="0.25" max="1.0" step="0.05" value="0.55" class="w-full mt-1 accent-cyan-500" />
+                </div>
+                <div class="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800">
+                  <label class="text-[11px] text-zinc-400 flex justify-between"><span>แรงกระโดด (Jump)</span><span id="lbl-jump" class="text-emerald-400 font-bold">11</span></label>
+                  <input id="rng-jump" type="range" min="7" max="16" step="0.5" value="11" class="w-full mt-1 accent-emerald-500" />
+                </div>
+                <div class="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800">
+                  <label class="text-[11px] text-zinc-400 flex justify-between"><span>ความเร็วเกม (Speed)</span><span id="lbl-spd" class="text-amber-400 font-bold">5.5</span></label>
+                  <input id="rng-spd" type="range" min="3" max="11" step="0.5" value="5.5" class="w-full mt-1 accent-amber-500" />
+                </div>
+              </div>
+
+              <div class="relative rounded-xl overflow-hidden border border-zinc-800 bg-black">
+                <canvas id="runner-canvas" width="720" height="260" class="w-full h-[260px] block cursor-pointer"></canvas>
+                <div class="absolute top-3 left-4 flex items-center gap-4 text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded bg-zinc-900/90 border border-zinc-700 text-emerald-400">SCORE: <b id="g-score">0</b></span>
+                  <span class="px-2.5 py-1 rounded bg-zinc-900/90 border border-zinc-700 text-amber-400">BEST: <b id="g-best">0</b></span>
+                </div>
+                <div class="absolute bottom-3 right-4">
+                  <button id="btn-jump" class="px-4 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs shadow cursor-pointer">
+                    ⬆️ กระโดด (คลิกจอ หรือปุ่ม Spacebar)
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+
+          const canvas = document.getElementById("runner-canvas");
+          const ctx = canvas.getContext("2d");
+          let player = { x: 80, y: 190, w: 28, h: 28, vy: 0, grounded: true };
+          let obstacles = [{ x: 650, w: 24, h: 42 }];
+          let score = 0;
+          let best = 0;
+
+          function jump() {
+            const jumpForce = Number(document.getElementById("rng-jump")?.value || 11);
+            if (player.grounded || player.y > 140) {
+              player.vy = -jumpForce;
+              player.grounded = false;
+            }
+          }
+
+          canvas.onclick = jump;
+          document.getElementById("btn-jump").onclick = jump;
+          window.onkeydown = (e) => {
+            if (e.code === "Space") {
+              e.preventDefault();
+              jump();
+            }
+          };
+
+          function loop() {
+            const gravEl = document.getElementById("rng-grav");
+            if (!gravEl) return;
+            const grav = Number(gravEl.value);
+            const jumpF = Number(document.getElementById("rng-jump").value);
+            const spd = Number(document.getElementById("rng-spd").value);
+            document.getElementById("lbl-grav").textContent = grav;
+            document.getElementById("lbl-jump").textContent = jumpF;
+            document.getElementById("lbl-spd").textContent = spd;
+
+            ctx.fillStyle = "#09090b";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Grid floor
+            ctx.strokeStyle = "#27272a";
+            ctx.beginPath();
+            ctx.moveTo(0, 220);
+            ctx.lineTo(canvas.width, 220);
+            ctx.stroke();
+
+            // Player physics
+            player.vy += grav;
+            player.y += player.vy;
+            if (player.y >= 192) {
+              player.y = 192;
+              player.vy = 0;
+              player.grounded = true;
+            }
+
+            // Draw player
+            ctx.fillStyle = "#06b6d4";
+            ctx.fillRect(player.x, player.y, player.w, player.h);
+
+            // Obstacles
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+              const ob = obstacles[i];
+              ob.x -= spd;
+
+              ctx.fillStyle = "#f43f5e";
+              ctx.fillRect(ob.x, 220 - ob.h, ob.w, ob.h);
+
+              // Collision check
+              if (
+                player.x < ob.x + ob.w &&
+                player.x + player.w > ob.x &&
+                player.y + player.h > 220 - ob.h
+              ) {
+                score = 0;
+                ob.x = canvas.width + 60;
+              } else if (ob.x + ob.w < 0) {
+                obstacles.splice(i, 1);
+                score += 10;
+                if (score > best) best = score;
+              }
+            }
+
+            if (
+              obstacles.length === 0 ||
+              canvas.width - obstacles[obstacles.length - 1].x > 240 + Math.random() * 140
+            ) {
+              obstacles.push({
+                x: canvas.width + 20,
+                w: 20 + Math.floor(Math.random() * 16),
+                h: 30 + Math.floor(Math.random() * 32)
+              });
+            }
+
+            document.getElementById("g-score").textContent = score;
+            document.getElementById("g-best").textContent = best;
+
+            animFrame = requestAnimationFrame(loop);
+          }
+          loop();
+        }
+      },
+      {
+        title: "LinearFlow Clean-Room Issue & Sprint Board",
+        spec: {
+          core_loop: "ถอดรหัสโครงสร้าง State Machine ของระบบจัดการงานสไตล์ Linear: แยกสถานะเป็น Backlog -> In Progress -> Shipped พร้อมการเลื่อนสถานะในคลิกเดียว",
+          ui_architecture: ["3-Column Reactive Kanban Grid", "Priority Tag Filter", "Instant Issue Creator"],
+          state_variables: ["issues: Array<{id, title, priority, status}>", "activePriorityFilter"],
+          improvements: "ทำงานแบบ Zero-latency ทันทีในฝั่ง Client พร้อมคำนวณ Sprint Velocity อัตโนมัติ"
+        },
+        mount: function(container) {
+          let tasks = [
+            { id: "LIN-101", title: "เชื่อมต่อ Gemini 3.1 Flash-Lite สำหรับสรุป Repo ภาษาไทย", priority: "P0", status: "done" },
+            { id: "LIN-102", title: "สร้างระบบ Clean-Room Reverse Engineering Engine", priority: "P1", status: "doing" },
+            { id: "LIN-103", title: "เพิ่ม Live Accessibility Tree Inspector สำหรับ Agent-Browser", priority: "P0", status: "doing" },
+            { id: "LIN-104", title: "ออกแบบ Dark Mode Token ด้วย StyleX", priority: "P2", status: "todo" }
+          ];
+
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex gap-2">
+                <input id="new-task-title" type="text" placeholder="พิมพ์ชื่องานใหม่ (เช่น 'เพิ่มระบบ Export PDF')..." class="flex-1 bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500" />
+                <select id="new-task-prio" class="bg-zinc-900 border border-zinc-700 rounded-lg px-2.5 py-2 text-xs text-white">
+                  <option value="P0">🔥 P0 Urgent</option>
+                  <option value="P1">⚡ P1 High</option>
+                  <option value="P2">📌 P2 Normal</option>
+                </select>
+                <button onclick="addLinearTask()" class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs cursor-pointer">+ เพิ่มงาน</button>
+              </div>
+              <div id="kanban-cols" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+            </div>
+          `;
+
+          window.renderKanban = function() {
+            const cols = [
+              { key: "todo", label: "📥 Backlog", next: "doing", nextLabel: "เริ่มทำ →" },
+              { key: "doing", label: "⚡ In Progress", next: "done", nextLabel: "เสร็จสิ้น ✓" },
+              { key: "done", label: "✅ Shipped", next: "todo", nextLabel: "↺ ย้ายกลับ" }
+            ];
+            document.getElementById("kanban-cols").innerHTML = cols.map(c => {
+              const items = tasks.filter(t => t.status === c.key);
+              return `
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2.5">
+                  <div class="flex items-center justify-between text-xs font-bold text-zinc-300 pb-2 border-b border-zinc-800">
+                    <span>${c.label}</span>
+                    <span class="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400">${items.length}</span>
+                  </div>
+                  <div class="space-y-2">
+                    ${items.map(t => `
+                      <div class="p-2.5 rounded-lg bg-zinc-950 border border-zinc-800 space-y-2">
+                        <div class="flex items-center justify-between text-[10px] font-mono">
+                          <span class="text-zinc-500">${t.id}</span>
+                          <span class="px-1.5 py-0.5 rounded ${t.priority === 'P0' ? 'bg-rose-500/20 text-rose-300' : 'bg-cyan-500/20 text-cyan-300'}">${t.priority}</span>
+                        </div>
+                        <div class="text-xs text-zinc-200 font-medium">${t.title}</div>
+                        <button onclick="moveLinearTask('${t.id}', '${c.next}')" class="w-full py-1 rounded bg-zinc-900 hover:bg-zinc-800 text-[11px] text-cyan-400 border border-zinc-800 cursor-pointer">
+                          ${c.nextLabel}
+                        </button>
+                      </div>
+                    `).join("")}
+                  </div>
+                </div>
+              `;
+            }).join("");
+          };
+
+          window.addLinearTask = function() {
+            const input = document.getElementById("new-task-title");
+            const prio = document.getElementById("new-task-prio").value;
+            if (!input.value.trim()) return;
+            tasks.unshift({
+              id: "LIN-" + (101 + tasks.length),
+              title: input.value.trim(),
+              priority: prio,
+              status: "todo"
+            });
+            input.value = "";
+            window.renderKanban();
+          };
+
+          window.moveLinearTask = function(id, nextStatus) {
+            const item = tasks.find(t => t.id === id);
+            if (item) {
+              item.status = nextStatus;
+              window.renderKanban();
+            }
+          };
+
+          window.renderKanban();
+        }
+      },
+      {
+        title: "PulseSynth 8-Step WebAudio Beat Studio",
+        spec: {
+          core_loop: "ถอดรหัสกลไก Step Sequencer และ Web Audio Synthesizer: ใช้ OscillatorNode และ GainNode สร้างเสียงสังเคราะห์จริงตามจังหวะ BPM โดยไม่ต้องใช้ไฟล์เสียงภายนอก",
+          ui_architecture: ["4-Track x 8-Step Interactive Matrix", "WebAudio Oscillator Engine", "Live BPM Tempo Controller"],
+          state_variables: ["grid: boolean[4][8]", "currentStep: 0..7", "bpm: number", "isPlaying: boolean"],
+          improvements: "ทำงานบนเบราว์เซอร์ได้ทันทีโดยใช้ Web Audio API แท้ 100% กดปุ่ม Play เพื่อฟังเสียงจังหวะจริงได้ทันที"
+        },
+        mount: function(container) {
+          const tracks = [
+            { name: "🎹 Lead Synth (C5)", freq: 523.25, type: "sawtooth" },
+            { name: "🎵 Chord Pad (G4)", freq: 392.00, type: "triangle" },
+            { name: "🎸 Cyber Bass (C3)", freq: 130.81, type: "square" },
+            { name: "🥁 Sub Kick (C2)", freq: 65.41, type: "sine" }
+          ];
+          const grid = [
+            [true, false, true, false, false, true, false, true],
+            [false, true, false, false, true, false, true, false],
+            [true, false, false, true, true, false, false, true],
+            [true, false, true, false, true, false, true, false]
+          ];
+          let step = 0;
+          let playing = false;
+          let audioCtx = null;
+
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                <div class="flex items-center gap-2">
+                  <button id="btn-play-synth" onclick="toggleSynthPlay()" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs cursor-pointer">
+                    ▶️ กดเล่นเสียงจริง (Play Beat)
+                  </button>
+                  <button onclick="randomizeSynthGrid()" class="px-3 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs text-cyan-300 border border-zinc-700 cursor-pointer">
+                    🎲 สุ่มจังหวะใหม่
+                  </button>
+                </div>
+                <div class="flex items-center gap-2 text-xs">
+                  <span class="text-zinc-400">ความเร็ว (BPM):</span>
+                  <input id="synth-bpm" type="range" min="80" max="160" value="120" class="accent-cyan-500" />
+                </div>
+              </div>
+
+              <div id="synth-matrix" class="space-y-2.5"></div>
+            </div>
+          `;
+
+          function playTone(freq, type) {
+            try {
+              if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+              const osc = audioCtx.createOscillator();
+              const gain = audioCtx.createGain();
+              osc.type = type;
+              osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+              gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+              gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.18);
+              osc.connect(gain);
+              gain.connect(audioCtx.destination);
+              osc.start();
+              osc.stop(audioCtx.currentTime + 0.19);
+            } catch {}
+          }
+
+          window.renderSynth = function() {
+            const el = document.getElementById("synth-matrix");
+            if (!el) return;
+            el.innerHTML = tracks.map((tr, r) => `
+              <div class="grid grid-cols-12 gap-2 items-center p-2 rounded-lg bg-zinc-900 border border-zinc-800">
+                <div class="col-span-4 text-xs font-bold text-zinc-200 truncate">${tr.name}</div>
+                <div class="col-span-8 grid grid-cols-8 gap-1.5">
+                  ${grid[r].map((on, c) => `
+                    <button onclick="toggleSynthCell(${r},${c})" class="h-9 rounded-md border transition cursor-pointer ${
+                      on
+                        ? (c === step && playing ? 'bg-amber-400 border-white scale-105' : 'bg-cyan-500 border-cyan-300')
+                        : (c === step && playing ? 'bg-zinc-700 border-zinc-500' : 'bg-zinc-950 border-zinc-800')
+                    }"></button>
+                  `).join("")}
+                </div>
+              </div>
+            `).join("");
+          };
+
+          window.toggleSynthCell = function(r, c) {
+            grid[r][c] = !grid[r][c];
+            if (grid[r][c]) playTone(tracks[r].freq, tracks[r].type);
+            window.renderSynth();
+          };
+
+          window.randomizeSynthGrid = function() {
+            for (let r = 0; r < 4; r++) {
+              for (let c = 0; c < 8; c++) {
+                grid[r][c] = Math.random() > 0.55;
+              }
+            }
+            window.renderSynth();
+          };
+
+          window.toggleSynthPlay = function() {
+            playing = !playing;
+            const btn = document.getElementById("btn-play-synth");
+            if (playing) {
+              btn.textContent = "⏹️ หยุดเล่น (Stop)";
+              btn.className = "px-4 py-2 rounded-lg bg-rose-500 hover:bg-rose-400 text-white font-extrabold text-xs cursor-pointer";
+              const bpm = Number(document.getElementById("synth-bpm")?.value || 120);
+              const interval = Math.round((60 / bpm / 2) * 1000);
+              audioTimer = setInterval(() => {
+                for (let r = 0; r < 4; r++) {
+                  if (grid[r][step]) playTone(tracks[r].freq, tracks[r].type);
+                }
+                window.renderSynth();
+                step = (step + 1) % 8;
+              }, interval);
+            } else {
+              btn.textContent = "▶️ กดเล่นเสียงจริง (Play Beat)";
+              btn.className = "px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs cursor-pointer";
+              if (audioTimer) clearInterval(audioTimer);
+              window.renderSynth();
+            }
+          };
+
+          window.renderSynth();
+        }
+      }
+    ];
+
+    function renderSpecPane(title, spec) {
+      document.getElementById("spec-title").textContent = title;
+      document.getElementById("play-title").textContent = title;
+      document.getElementById("spec-body").innerHTML = `
+        <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1">
+          <div class="font-bold text-cyan-400">⚙️ Reverse-Engineered Core Loop</div>
+          <p class="text-zinc-300 leading-relaxed">${spec.core_loop}</p>
+        </div>
+
+        <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1.5">
+          <div class="font-bold text-emerald-400">🧩 Extracted UI Architecture</div>
+          <ul class="list-disc pl-4 space-y-1 text-zinc-300">
+            ${(spec.ui_architecture || []).map(x => `<li>${x}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800 space-y-1.5">
+          <div class="font-bold text-amber-400">📦 Clean-Room State Variables</div>
+          <div class="flex flex-wrap gap-1.5">
+            ${(spec.state_variables || []).map(v => `<code class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-700 text-[11px] text-amber-300">${v}</code>`).join("")}
+          </div>
+        </div>
+
+        <div class="p-3 rounded-lg bg-emerald-950/30 border border-emerald-500/40 space-y-1">
+          <div class="font-bold text-emerald-300">✨ สิ่งที่ปรับปรุงให้เหนือกว่าต้นฉบับ</div>
+          <p class="text-zinc-300">${spec.improvements}</p>
+        </div>
+      `;
+    }
+
+    function selectCraftTarget(idx) {
+      stopBackgroundLoops();
+      CRAFT_TARGETS.forEach((_, i) => {
+        const btn = document.getElementById(`target-btn-${i}`);
+        if (i === idx) {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-black cursor-pointer";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-medium bg-zinc-800 text-zinc-300 hover:text-white cursor-pointer";
+        }
+      });
+      const target = CRAFT_TARGETS[idx];
+      renderSpecPane(target.title, target.spec);
+      target.mount(document.getElementById("play-canvas"));
+    }
+
+    async function runLiveCleanRoom() {
+      const targetUrl = document.getElementById("craft-url").value.trim();
+      const customPrompt = document.getElementById("craft-prompt").value.trim();
+      if (!targetUrl && !customPrompt) {
+        alert("กรุณาใส่ URL ต้นแบบ หรือพิมพ์คำสั่งดัดแปลงที่ต้องการก่อนครับ!");
+        return;
+      }
+
+      const btn = document.getElementById("btn-craft-ai");
+      btn.disabled = true;
+      btn.textContent = "⏳ กำลังถอดรหัสและสร้างแอป...";
+      stopBackgroundLoops();
+
+      try {
+        const res = await fetch("/api/mvp-engine", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "craft-cleanroom", targetUrl, customPrompt })
+        });
+        const data = await res.json();
+        if (!data.ok || !data.result) {
+          throw new Error(data.error || "ไม่สามารถสร้างได้");
+        }
+        renderSpecPane(data.result.project_title, data.result.clean_room_spec);
+        document.getElementById("play-canvas").innerHTML = `
+          <iframe class="w-full h-[430px] rounded-xl border border-zinc-800 bg-zinc-950" srcdoc="${data.result.html_code.replace(/"/g, '&quot;')}"></iframe>
+        `;
+      } catch (err) {
+        alert(err.message);
+        selectCraftTarget(0);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "🔬 ถอดรหัส & สร้างแอปใหม่ด้วย AI";
+      }
+    }
+
+    selectCraftTarget(0);
+  </script>
+</body>
+</html>

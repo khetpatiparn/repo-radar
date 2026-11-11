@@ -1,1 +1,170 @@
-<!DOCTYPE html><html lang="th" class="bg-zinc-950 text-zinc-100"><head><meta charset="UTF-8"><script src="https://cdn.tailwindcss.com"></script><title>SureVault Simulator</title></head><body class="p-4 md:p-8 max-w-4xl mx-auto"><header class="flex justify-between items-center mb-8"><h1 class="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">SureVault Simulator</h1><a href="https://github.com/we-promise/sure" target="_blank" class="text-xs bg-zinc-800 px-3 py-1 rounded-full hover:bg-zinc-700">GitHub: we-promise/sure</a></header><div class="grid md:grid-cols-2 gap-8"><div class="space-y-4"><h2 class="text-sm uppercase text-zinc-400">ตั้งค่าสถานะทางการเงิน</h2><div class="flex gap-2"><button onclick="loadPreset(1)" class="bg-zinc-800 text-xs px-3 py-1 rounded hover:bg-emerald-900">ลองข้อมูลตัวอย่าง 1</button><button onclick="loadPreset(2)" class="bg-zinc-800 text-xs px-3 py-1 rounded hover:bg-emerald-900">ตัวอย่าง 2</button></div><div><label class="block text-xs mb-1">รายได้ต่อเดือน (บาท)</label><input type="number" id="income" class="w-full bg-zinc-900 border border-zinc-700 p-2 rounded" value="30000"></div><div><label class="block text-xs mb-1">ค่าใช้จ่ายต่อเดือน (บาท)</label><input type="number" id="expenses" class="w-full bg-zinc-900 border border-zinc-700 p-2 rounded" value="20000"></div><div><label class="block text-xs mb-1">สินทรัพย์สะสม (บาท)</label><input type="number" id="assets" class="w-full bg-zinc-900 border border-zinc-700 p-2 rounded" value="100000"></div><button onclick="calculate()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-2 rounded font-bold">คำนวณอิสรภาพทางการเงิน</button></div><div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800"><div id="results" class="space-y-4"><p class="text-zinc-500">กรอกข้อมูลเพื่อดูผลลัพธ์...</p></div><button id="copyBtn" onclick="copyResult()" class="hidden mt-6 w-full text-xs border border-zinc-700 py-2 rounded hover:bg-zinc-800">คัดลอกผลลัพธ์</button></div></div><script>function loadPreset(id){if(id===1){document.getElementById('income').value=50000;document.getElementById('expenses').value=30000;document.getElementById('assets').value=500000;}else{document.getElementById('income').value=100000;document.getElementById('expenses').value=90000;document.getElementById('assets').value=1000000;}}function calculate(){const inc=parseFloat(document.getElementById('income').value);const exp=parseFloat(document.getElementById('expenses').value);const assets=parseFloat(document.getElementById('assets').value);const net=inc-exp;const yearsToFire=(exp*12*25-assets)/Math.max(net*12,1);const html=`<h3 class="text-xl font-bold">สรุปผลการวิเคราะห์</h3><div class="border-b border-zinc-700 py-2">เงินออมต่อเดือน: <span class="text-emerald-400">${net.toLocaleString()} บาท</span></div><div class="border-b border-zinc-700 py-2">สถานะ: ${net>0?'มีกระแสเงินสดบวก':'ติดลบ โปรดตรวจสอบรายจ่าย'}</div><div class="py-2">คาดการณ์เวลาถึงอิสรภาพทางการเงิน: <span class="text-cyan-400 text-2xl">${yearsToFire.toFixed(1)} ปี</span></div>`;document.getElementById('results').innerHTML=html;document.getElementById('copyBtn').classList.remove('hidden');}function copyResult(){const text=document.getElementById('results').innerText;navigator.clipboard.writeText(text);alert('คัดลอกรายงานเรียบร้อยแล้ว!');}</script></body></html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SureWealth Full-Mode Personal Finance & AI CFO Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans flex flex-col">
+  <header class="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-emerald-500 flex items-center justify-center font-black text-black text-base">$</div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold text-lg text-white">SureWealth AI CFO & Net Worth Studio</h1>
+          <span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Self-Hosted Wealth OS</span>
+        </div>
+        <p class="text-xs text-zinc-400">บริหารพอร์ตสินทรัพย์ รายรับ-รายจ่าย จำลองแผนเกษียณ FIRE และวิเคราะห์สุขภาพการเงินด้วย AI</p>
+      </div>
+    </div>
+    <a href="https://github.com/we-promise/sure" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700">
+      GitHub: we-promise/sure ↗
+    </a>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto p-6 space-y-6">
+    <!-- Top KPI Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">
+        <div class="text-xs text-zinc-400">ความมั่งคั่งสุทธิ (Net Worth)</div>
+        <div id="nw-total" class="text-2xl font-black text-emerald-400 mt-1">฿2,850,000</div>
+        <div class="text-[11px] text-zinc-500 mt-1">+12.4% จากปีที่แล้ว</div>
+      </div>
+      <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">
+        <div class="text-xs text-zinc-400">เงินออม/ลงทุนต่อเดือน</div>
+        <div id="nw-save" class="text-2xl font-black text-cyan-400 mt-1">฿35,000</div>
+        <div id="nw-rate" class="text-[11px] text-emerald-400 mt-1">Savings Rate: 41%</div>
+      </div>
+      <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">
+        <div class="text-xs text-zinc-400">เป้าหมาย FIRE (25x รายจ่ายปี)</div>
+        <div id="nw-fire-target" class="text-2xl font-black text-amber-400 mt-1">฿15,000,000</div>
+        <div class="text-[11px] text-zinc-500 mt-1">ตามกฎ 4% Safe Withdrawal</div>
+      </div>
+      <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/40">
+        <div class="text-xs text-emerald-300 font-bold">⏳ อีกกี่ปีถึงอิสรภาพทางการเงิน</div>
+        <div id="nw-years" class="text-2xl font-black text-white mt-1">11.5 ปี</div>
+        <div class="text-[11px] text-emerald-300/80 mt-1">ที่ผลตอบแทนทบต้นเฉลี่ย 8%/ปี</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left: Interactive Controls & Asset Allocator -->
+      <div class="lg:col-span-5 bg-zinc-900 border border-zinc-800 rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="text-sm font-bold text-white">🎛️ ปรับพารามิเตอร์ทางการเงินของคุณ</h2>
+          <div class="flex gap-1.5">
+            <button onclick="loadWealthPreset('starter')" class="px-2 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-emerald-300 cursor-pointer">วัยเริ่มทำงาน</button>
+            <button onclick="loadWealthPreset('senior')" class="px-2 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-cyan-300 cursor-pointer">Senior Dev</button>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div>
+            <label class="flex justify-between text-zinc-300 mb-1"><span>สินทรัพย์สะสมปัจจุบัน (บาท)</span><span id="lbl-assets" class="font-bold text-emerald-400">฿2,850,000</span></label>
+            <input id="in-assets" type="range" min="100000" max="20000000" step="100000" value="2850000" oninput="recalcWealth()" class="w-full accent-emerald-500" />
+          </div>
+          <div>
+            <label class="flex justify-between text-zinc-300 mb-1"><span>รายได้ต่อเดือน (บาท)</span><span id="lbl-inc" class="font-bold text-cyan-400">฿85,000</span></label>
+            <input id="in-inc" type="range" min="20000" max="350000" step="5000" value="85000" oninput="recalcWealth()" class="w-full accent-cyan-500" />
+          </div>
+          <div>
+            <label class="flex justify-between text-zinc-300 mb-1"><span>รายจ่ายต่อเดือน (บาท)</span><span id="lbl-exp" class="font-bold text-rose-400">฿50,000</span></label>
+            <input id="in-exp" type="range" min="10000" max="250000" step="2500" value="50000" oninput="recalcWealth()" class="w-full accent-rose-500" />
+          </div>
+          <div>
+            <label class="flex justify-between text-zinc-300 mb-1"><span>ผลตอบแทนการลงทุนเฉลี่ยต่อปี (%)</span><span id="lbl-roi" class="font-bold text-amber-400">8%</span></label>
+            <input id="in-roi" type="range" min="2" max="15" step="0.5" value="8" oninput="recalcWealth()" class="w-full accent-amber-500" />
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-zinc-800 space-y-2">
+          <div class="text-xs font-bold text-emerald-400">🤖 คำแนะนำจาก Sure AI CFO</div>
+          <p id="ai-cfo-advice" class="text-xs text-zinc-300 leading-relaxed bg-zinc-950 p-3 rounded-lg border border-zinc-800"></p>
+        </div>
+      </div>
+
+      <!-- Right: 10-Year Wealth Projection Chart -->
+      <div class="lg:col-span-7 bg-zinc-900 border border-zinc-800 rounded-xl p-5 flex flex-col justify-between">
+        <div>
+          <h2 class="text-sm font-bold text-white mb-1">📈 กราฟจำลองความมั่งคั่งใน 10 ปีข้างหน้า (Compound Growth)</h2>
+          <p class="text-xs text-zinc-400 mb-4">เปรียบเทียบการเติบโตของพอร์ตเมื่อนำเงินออมรายเดือนไปลงทุนทบต้น</p>
+          <div id="wealth-bars" class="flex items-end gap-2.5 h-56 pt-6"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function loadWealthPreset(type) {
+      if (type === "starter") {
+        document.getElementById("in-assets").value = 400000;
+        document.getElementById("in-inc").value = 45000;
+        document.getElementById("in-exp").value = 27500;
+        document.getElementById("in-roi").value = 8;
+      } else {
+        document.getElementById("in-assets").value = 4500000;
+        document.getElementById("in-inc").value = 140000;
+        document.getElementById("in-exp").value = 65000;
+        document.getElementById("in-roi").value = 9.5;
+      }
+      recalcWealth();
+    }
+
+    function recalcWealth() {
+      const assets = Number(document.getElementById("in-assets").value);
+      const inc = Number(document.getElementById("in-inc").value);
+      const exp = Number(document.getElementById("in-exp").value);
+      const roi = Number(document.getElementById("in-roi").value);
+
+      const monthlySave = Math.max(0, inc - exp);
+      const saveRate = inc > 0 ? Math.round((monthlySave / inc) * 100) : 0;
+      const fireTarget = exp * 12 * 25;
+
+      document.getElementById("lbl-assets").textContent = "฿" + assets.toLocaleString();
+      document.getElementById("lbl-inc").textContent = "฿" + inc.toLocaleString();
+      document.getElementById("lbl-exp").textContent = "฿" + exp.toLocaleString();
+      document.getElementById("lbl-roi").textContent = roi + "%";
+
+      document.getElementById("nw-total").textContent = "฿" + assets.toLocaleString();
+      document.getElementById("nw-save").textContent = "฿" + monthlySave.toLocaleString();
+      document.getElementById("nw-rate").textContent = `Savings Rate: ${saveRate}%`;
+      document.getElementById("nw-fire-target").textContent = "฿" + fireTarget.toLocaleString();
+
+      let bal = assets;
+      let yearsToFire = 0;
+      while (bal < fireTarget && yearsToFire < 50) {
+        bal = bal * (1 + roi / 100) + monthlySave * 12;
+        yearsToFire++;
+      }
+      document.getElementById("nw-years").textContent = monthlySave <= 0 && assets < fireTarget ? "เกิน 50 ปี" : `${yearsToFire} ปี`;
+
+      const projection = [];
+      let cur = assets;
+      for (let y = 1; y <= 10; y++) {
+        cur = Math.round(cur * (1 + roi / 100) + monthlySave * 12);
+        projection.push({ y, val: cur });
+      }
+      const maxVal = Math.max(...projection.map(p => p.val), 1);
+
+      document.getElementById("wealth-bars").innerHTML = projection.map(p => {
+        const h = Math.max(12, Math.round((p.val / maxVal) * 100));
+        return `
+          <div class="flex-1 flex flex-col items-center justify-end h-full gap-1">
+            <span class="text-[10px] font-mono text-zinc-400">${(p.val / 1000000).toFixed(1)}M</span>
+            <div class="w-full rounded-t bg-gradient-to-t from-emerald-600 to-cyan-400" style="height:${h}%"></div>
+            <span class="text-[10px] text-zinc-500">ปีที่ ${p.y}</span>
+          </div>
+        `;
+      }).join("");
+
+      document.getElementById("ai-cfo-advice").textContent =
+        saveRate >= 40
+          ? `ยอดเยี่ยม! อัตราการออมของคุณอยู่ที่ ${saveRate}% (฿${monthlySave.toLocaleString()}/เดือน) หากคงวินัยนี้ไว้ พอร์ตของคุณจะเติบโตเป็น ฿${projection[9].val.toLocaleString()} ในอีก 10 ปีข้างหน้า`
+          : `ปัจจุบันคุณออมได้ ${saveRate}% ของรายได้ แนะนำให้ลดค่าใช้จ่ายแฝงลงอีกเดือนละ ฿5,000 เพื่อร่นระยะเวลาสู่เป้าหมาย FIRE ให้เร็วขึ้นอีก 2-3 ปี`;
+    }
+
+    recalcWealth();
+  </script>
+</body>
+</html>

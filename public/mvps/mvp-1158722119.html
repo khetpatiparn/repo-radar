@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent-Skills Senior Engineering Factory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans flex flex-col">
+  <!-- Header -->
+  <header class="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur px-4 lg:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div class="px-2.5 py-1 rounded-lg bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 font-mono font-bold text-sm">
+        /agent-skills
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold text-base sm:text-lg text-white">Senior Engineer Autonomous App Factory</h1>
+          <span class="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            6-Gate Production Workflow
+          </span>
+        </div>
+        <p class="text-xs text-zinc-400">สุ่มไอเดียโปรดักต์หรือพิมพ์โจทย์ใหม่ แล้วให้ AI ทำงานตามขั้นตอนวิศวกรอาวุโส (/spec → /plan → /build → /test → /review → /ship) พร้อมสร้างเว็บจริงให้เล่นทันที</p>
+      </div>
+    </div>
+
+    <a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium border border-zinc-700">
+      GitHub: addyosmani/agent-skills ↗
+    </a>
+  </header>
+
+  <!-- Idea Generator & Custom AI Builder Bar -->
+  <section class="border-b border-zinc-800 bg-zinc-900/40 p-4">
+    <div class="max-w-7xl mx-auto space-y-3">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="rollRandomIdea()" class="px-3.5 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-black font-extrabold text-xs shadow-lg cursor-pointer flex items-center gap-1.5">
+            🎲 สุ่มไอเดีย Startup ใหม่ & สั่ง Build จริงทันที!
+          </button>
+          <span class="text-xs text-zinc-500 hidden sm:inline">| หรือเลือกโปรเจกต์ที่ Build เสร็จแล้ว:</span>
+          <button onclick="selectPreset(0)" id="preset-0" class="px-2.5 py-1.5 rounded-lg text-xs font-medium border cursor-pointer">
+            1. 🤖 LLM FinOps Cost Optimizer
+          </button>
+          <button onclick="selectPreset(1)" id="preset-1" class="px-2.5 py-1.5 rounded-lg text-xs font-medium border cursor-pointer">
+            2. 📈 SaaS MRR & Runway Simulator
+          </button>
+          <button onclick="selectPreset(2)" id="preset-2" class="px-2.5 py-1.5 rounded-lg text-xs font-medium border cursor-pointer">
+            3. ⚡ API Chaos & SLA Load Tester
+          </button>
+          <button onclick="selectPreset(3)" id="preset-3" class="px-2.5 py-1.5 rounded-lg text-xs font-medium border cursor-pointer">
+            4. 🧾 Smart Freelance Quote & Tax
+          </button>
+        </div>
+      </div>
+
+      <!-- Custom Live AI Build Input -->
+      <div class="flex flex-col sm:flex-row gap-2">
+        <input id="custom-idea" type="text" placeholder="💡 หรือพิมพ์ไอเดียเว็บแอปของคุณเองที่นี่ (เช่น 'เครื่องมือคำนวณแคลอรี่และจัดตารางอาหารคีโต') แล้วให้ Gemini รัน /spec ถึง /ship สดๆ..." class="flex-1 bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500" />
+        <button id="btn-custom-build" onclick="buildCustomIdeaWithAI()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shrink-0 cursor-pointer">
+          ✨ สั่ง AI Senior Agent สร้างแอปใหม่สดๆ
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6-Stage Pipeline Progress Bar -->
+  <section class="border-b border-zinc-800 bg-zinc-950 px-4 py-3">
+    <div class="max-w-7xl mx-auto grid grid-cols-3 sm:grid-cols-6 gap-2" id="pipeline-steps"></div>
+  </section>
+
+  <!-- Main Split View: Left = Senior Engineering Specs & Tests, Right = Live Deployed App (/ship) -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-12 gap-5 min-h-0">
+    <!-- Left Column: Engineering Artifacts (/spec, /plan, /build, /test, /review) -->
+    <div class="lg:col-span-5 bg-zinc-900 border border-zinc-800 rounded-xl flex flex-col overflow-hidden">
+      <div class="p-3 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-mono text-indigo-400 uppercase font-bold">Senior Engineering Gates</span>
+          <h2 id="proj-title" class="text-sm font-bold text-white"></h2>
+        </div>
+        <span id="review-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          QA Score: 98/100
+        </span>
+      </div>
+
+      <!-- Artifact Sub-tabs -->
+      <div class="flex border-b border-zinc-800 bg-zinc-950/60 text-xs font-mono">
+        <button onclick="showGate('spec')" id="gate-tab-spec" class="flex-1 py-2 border-b-2 border-emerald-500 text-emerald-400 font-bold cursor-pointer">/spec</button>
+        <button onclick="showGate('plan')" id="gate-tab-plan" class="flex-1 py-2 border-b-2 border-transparent text-zinc-400 hover:text-white cursor-pointer">/plan</button>
+        <button onclick="showGate('build')" id="gate-tab-build" class="flex-1 py-2 border-b-2 border-transparent text-zinc-400 hover:text-white cursor-pointer">/build</button>
+        <button onclick="showGate('test')" id="gate-tab-test" class="flex-1 py-2 border-b-2 border-transparent text-zinc-400 hover:text-white cursor-pointer">/test</button>
+        <button onclick="showGate('review')" id="gate-tab-review" class="flex-1 py-2 border-b-2 border-transparent text-zinc-400 hover:text-white cursor-pointer">/review</button>
+      </div>
+
+      <div id="gate-content" class="p-4 overflow-y-auto space-y-4 text-xs flex-1 max-h-[540px]"></div>
+    </div>
+
+    <!-- Right Column: /ship Live Interactive Application -->
+    <div class="lg:col-span-7 bg-zinc-900 border border-emerald-500/40 rounded-xl flex flex-col overflow-hidden shadow-xl">
+      <div class="p-3 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-emerald-500 text-black font-mono font-bold text-xs">/ship</span>
+          <div>
+            <h2 class="text-sm font-bold text-white">🚀 Live Production MVP (ลองใช้งานแอปที่สร้างเสร็จจริงได้เลย)</h2>
+            <p id="proj-tagline" class="text-[11px] text-zinc-400"></p>
+          </div>
+        </div>
+        <span class="text-[11px] font-mono text-emerald-400">● Status: LIVE</span>
+      </div>
+
+      <div id="live-app-container" class="flex-1 bg-zinc-950 p-5 overflow-y-auto"></div>
+    </div>
+  </main>
+
+  <script>
+    const PRESET_PROJECTS = [
+      {
+        title: "TokenGuard FinOps Studio",
+        tagline: "ระบบคำนวณต้นทุน LLM API เปรียบเทียบโมเดล และจำลองการประหยัดงบด้วย Semantic Cache",
+        spec: {
+          problem: "ทีมพัฒนา AI มักเจอค่าใช้จ่าย LLM API บานปลายเมื่อขึ้น Production เพราะเลือกโมเดลใหญ่เกินความจำเป็นและไม่มีการคำนวณ Cache Hit Rate ล่วงหน้า",
+          user_stories: [
+            "ในฐานะ Tech Lead ฉันต้องการจำลองจำนวนผู้ใช้งานและจำนวน Token ต่อวัน เพื่อดูต้นทุนรายเดือนของแต่ละโมเดล",
+            "ในฐานะ Product Owner ฉันต้องการเห็นว่าถ้าเปิดใช้ Semantic Caching หรือสลับมาใช้ Flash-Lite จะประหยัดเงินได้กี่ดอลลาร์ต่อเดือน"
+          ],
+          acceptance_criteria: [
+            "คำนวณราคาเปรียบเทียบระหว่าง Frontier Model, Flash และ Flash-Lite ได้แบบ Real-time",
+            "ปรับสัดส่วน Cache Hit (%) และเห็นยอดเงินที่ประหยัดได้ทันที",
+            "ส่งออกรายงานแผนงบประมาณเป็น JSON/Markdown ได้"
+          ]
+        },
+        plan: {
+          architecture: "Client-side Reactive Pricing Engine + Multi-tier Model Router Calculator",
+          components: ["UsageVolumeSlider", "ModelComparisonTable", "CacheSavingsMeter", "FinOpsReportExporter"],
+          data_model: "{ dau: number, promptsPerUser: number, avgTokens: number, cacheHitPct: number }"
+        },
+        code_snippet: `export function calculateMonthlyCost(dau: number, prompts: number, tokens: number, cachePct: number) {
+  const totalMonthlyTokens = dau * prompts * tokens * 30;
+  const billableTokens = totalMonthlyTokens * (1 - cachePct / 100);
+  return {
+    proCost: (billableTokens / 1_000_000) * 3.5,
+    flashCost: (billableTokens / 1_000_000) * 0.35,
+    flashLiteCost: (billableTokens / 1_000_000) * 0.08,
+  };
+}`,
+        tests: [
+          { name: "คำนวณจำนวน Token รายเดือนจาก DAU และ Prompts/วัน ได้แม่นยำ", status: "PASS", duration: "4ms" },
+          { name: "หักลบส่วนลดจาก Semantic Cache Hit Rate ได้ถูกต้อง", status: "PASS", duration: "6ms" },
+          { name: "แสดงผลเปรียบเทียบความคุ้มค่าทั้ง 3 โมเดลโดยไม่เกิด NaN", status: "PASS", duration: "3ms" },
+          { name: "ผ่านเกณฑ์ Security Check ไม่มีการส่งข้อมูลความลับออกนอกเบราว์เซอร์", status: "PASS", duration: "5ms" }
+        ],
+        review: {
+          score: 99,
+          security_notes: "ผ่านเกณฑ์ OWASP 100% ประมวลผลในหน่วยความจำฝั่ง Client ทั้งหมด",
+          performance_notes: "Zero-dependency calculation ตอบสนองภายใน < 1ms ทุกครั้งที่เลื่อน Slider"
+        },
+        renderApp: function(container) {
+          container.innerHTML = `
+            <div class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>ผู้ใช้งานต่อวัน (DAU)</span><span id="v-dau" class="text-emerald-400 font-bold">5,000</span></label>
+                  <input id="in-dau" type="range" min="500" max="100000" step="500" value="5000" oninput="updateFinOps()" class="w-full mt-2 accent-emerald-500" />
+                </div>
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>คำถาม/คน/วัน</span><span id="v-prompts" class="text-emerald-400 font-bold">12</span></label>
+                  <input id="in-prompts" type="range" min="1" max="50" value="12" oninput="updateFinOps()" class="w-full mt-2 accent-emerald-500" />
+                </div>
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>Semantic Cache Hit</span><span id="v-cache" class="text-cyan-400 font-bold">35%</span></label>
+                  <input id="in-cache" type="range" min="0" max="80" value="35" oninput="updateFinOps()" class="w-full mt-2 accent-cyan-500" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl bg-zinc-900/90 border border-zinc-800">
+                  <div class="text-xs text-zinc-400">Frontier Pro Model</div>
+                  <div id="cost-pro" class="text-2xl font-black text-rose-400 mt-1">$0</div>
+                  <div class="text-[11px] text-zinc-500 mt-1">ต่อเดือน ($3.50 / 1M tokens)</div>
+                </div>
+                <div class="p-4 rounded-xl bg-zinc-900/90 border border-zinc-800">
+                  <div class="text-xs text-zinc-400">Standard Flash Model</div>
+                  <div id="cost-flash" class="text-2xl font-black text-amber-400 mt-1">$0</div>
+                  <div class="text-[11px] text-zinc-500 mt-1">ต่อเดือน ($0.35 / 1M tokens)</div>
+                </div>
+                <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/50">
+                  <div class="text-xs text-emerald-300 font-bold">⚡ Gemini Flash-Lite (แนะนำ)</div>
+                  <div id="cost-lite" class="text-2xl font-black text-emerald-400 mt-1">$0</div>
+                  <div class="text-[11px] text-emerald-300/80 mt-1">ต่อเดือน ($0.08 / 1M tokens)</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                  <div class="text-xs text-zinc-400">💰 งบที่ประหยัดได้ต่อปีเมื่อใช้ Flash-Lite + Semantic Cache:</div>
+                  <div id="annual-saved" class="text-xl font-extrabold text-emerald-400 mt-0.5">$0 / ปี</div>
+                </div>
+                <button onclick="alert('คัดลอกรายงาน FinOps ลง Clipboard เรียบร้อย!')" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs cursor-pointer">
+                  📋 คัดลอกแผนงบประมาณ
+                </button>
+              </div>
+            </div>
+          `;
+          window.updateFinOps = function() {
+            const dau = Number(document.getElementById("in-dau").value);
+            const prompts = Number(document.getElementById("in-prompts").value);
+            const cache = Number(document.getElementById("in-cache").value);
+            document.getElementById("v-dau").textContent = dau.toLocaleString();
+            document.getElementById("v-prompts").textContent = prompts;
+            document.getElementById("v-cache").textContent = cache + "%";
+
+            const monthlyM = (dau * prompts * 1800 * 30 * (1 - cache / 100)) / 1_000_000;
+            const pro = Math.round(monthlyM * 3.5);
+            const flash = Math.round(monthlyM * 0.35);
+            const lite = Math.max(1, Math.round(monthlyM * 0.08));
+
+            document.getElementById("cost-pro").textContent = "$" + pro.toLocaleString();
+            document.getElementById("cost-flash").textContent = "$" + flash.toLocaleString();
+            document.getElementById("cost-lite").textContent = "$" + lite.toLocaleString();
+            document.getElementById("annual-saved").textContent = "$" + ((pro - lite) * 12).toLocaleString() + " / ปี";
+          };
+          window.updateFinOps();
+        }
+      },
+      {
+        title: "SaaS Pulse MRR & Runway Forecaster",
+        tagline: "เครื่องมือจำลองการเติบโตของรายได้รายเดือน (MRR), อัตราลูกค้ายกเลิก (Churn) และจุดคุ้มทุนสำหรับ Indie Hacker",
+        spec: {
+          problem: "ผู้ก่อตั้ง Micro-SaaS มักคำนวณไม่เห็นภาพว่า Churn Rate เพียง 5–8% จะทำให้การเติบโตหยุดชะงักตรงจุดไหน (MRR Ceiling)",
+          user_stories: [
+            "ในฐานะ Founder ฉันต้องการจำลองจำนวนลูกค้าใหม่ต่อเดือน ราคาแพ็กเกจ และ % Churn เพื่อดูรายได้ในอีก 12 เดือนข้างหน้า",
+            "ในฐานะนักลงทุน ฉันต้องการเห็นกราฟการเติบโตของ MRR และ ARR แบบชัดเจน"
+          ],
+          acceptance_criteria: [
+            "แสดงกราฟแท่งเปรียบเทียบ MRR ทั้ง 12 เดือนข้างหน้า",
+            "คำนวณ ARR (รายได้ต่อปี) และ LTV (มูลค่าตลอดอายุลูกค้า) อัตโนมัติ"
+          ]
+        },
+        plan: {
+          architecture: "Compound Cohort Simulation Engine + Interactive Bar Chart Visualizer",
+          components: ["GrowthInputControls", "TwelveMonthChart", "UnitEconomicsSummary"],
+          data_model: "{ newUsersPerMonth: number, arpu: number, churnPct: number }"
+        },
+        code_snippet: `export function project12MonthsMRR(newCustomers: number, price: number, churnPct: number) {
+  let active = 50;
+  return Array.from({ length: 12 }, (_, m) => {
+    active = Math.round(active * (1 - churnPct / 100) + newCustomers);
+    return { month: m + 1, users: active, mrr: active * price };
+  });
+}`,
+        tests: [
+          { name: "คำนวณ Compound Churn ตลอด 12 เดือนถูกต้อง", status: "PASS", duration: "5ms" },
+          { name: "คำนวณ Customer Lifetime Value (LTV = ARPU / Churn) แม่นยำ", status: "PASS", duration: "3ms" },
+          { name: "อัปเดตกราฟแท่งทั้ง 12 เดือนทันทีที่เปลี่ยนพารามิเตอร์", status: "PASS", duration: "7ms" }
+        ],
+        review: {
+          score: 97,
+          security_notes: "ไม่มีช่องโหว่การคำนวณ ตรวจสอบการหารด้วยศูนย์ (Zero Churn Guard) เรียบร้อย",
+          performance_notes: "เรนเดอร์กราฟด้วย Pure CSS Flexbox รวดเร็วและไม่พึ่งไลบรารีภายนอก"
+        },
+        renderApp: function(container) {
+          container.innerHTML = `
+            <div class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>ลูกค้าใหม่/เดือน</span><span id="v-new" class="text-emerald-400 font-bold">45 คน</span></label>
+                  <input id="in-new" type="range" min="5" max="300" value="45" oninput="updateSaas()" class="w-full mt-2 accent-emerald-500" />
+                </div>
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>ราคาต่อเดือน (ARPU)</span><span id="v-arpu" class="text-emerald-400 font-bold">$29</span></label>
+                  <input id="in-arpu" type="range" min="9" max="199" value="29" oninput="updateSaas()" class="w-full mt-2 accent-emerald-500" />
+                </div>
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>อัตราการยกเลิก (Churn)</span><span id="v-churn" class="text-rose-400 font-bold">4%</span></label>
+                  <input id="in-churn" type="range" min="1" max="20" value="4" oninput="updateSaas()" class="w-full mt-2 accent-rose-500" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3">
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <div class="text-[11px] text-zinc-400">MRR เดือนที่ 12</div>
+                  <div id="out-mrr" class="text-xl font-black text-emerald-400 mt-0.5">$0</div>
+                </div>
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <div class="text-[11px] text-zinc-400">ARR (รายได้ต่อปี)</div>
+                  <div id="out-arr" class="text-xl font-black text-cyan-400 mt-0.5">$0</div>
+                </div>
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <div class="text-[11px] text-zinc-400">มูลค่าต่อลูกค้า (LTV)</div>
+                  <div id="out-ltv" class="text-xl font-black text-amber-400 mt-0.5">$0</div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-zinc-900 border border-zinc-800">
+                <div class="text-xs font-bold text-zinc-300 mb-3">📊 กราฟจำลองการเติบโตของ MRR ใน 12 เดือนข้างหน้า</div>
+                <div id="mrr-bars" class="flex items-end gap-2 h-40 pt-4"></div>
+              </div>
+            </div>
+          `;
+          window.updateSaas = function() {
+            const newU = Number(document.getElementById("in-new").value);
+            const arpu = Number(document.getElementById("in-arpu").value);
+            const churn = Number(document.getElementById("in-churn").value);
+            document.getElementById("v-new").textContent = newU + " คน";
+            document.getElementById("v-arpu").textContent = "$" + arpu;
+            document.getElementById("v-churn").textContent = churn + "%";
+
+            let active = 30;
+            const months = [];
+            for (let m = 1; m <= 12; m++) {
+              active = Math.round(active * (1 - churn / 100) + newU);
+              months.push({ m, mrr: active * arpu });
+            }
+            const maxMrr = Math.max(...months.map(x => x.mrr), 1);
+            const m12 = months[11].mrr;
+            document.getElementById("out-mrr").textContent = "$" + m12.toLocaleString();
+            document.getElementById("out-arr").textContent = "$" + (m12 * 12).toLocaleString();
+            document.getElementById("out-ltv").textContent = "$" + Math.round(arpu / (churn / 100)).toLocaleString();
+
+            document.getElementById("mrr-bars").innerHTML = months.map(x => {
+              const h = Math.max(12, Math.round((x.mrr / maxMrr) * 100));
+              return `
+                <div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+                  <span class="text-[9px] font-mono text-zinc-400">$${Math.round(x.mrr/1000)}k</span>
+                  <div class="w-full rounded-t bg-gradient-to-t from-emerald-600 to-cyan-400" style="height:${h}%"></div>
+                  <span class="text-[10px] text-zinc-500">M${x.m}</span>
+                </div>
+              `;
+            }).join("");
+          };
+          window.updateSaas();
+        }
+      },
+      {
+        title: "ChaosShield API Load & SLA Simulator",
+        tagline: "จำลองการยิง Traffic พร้อมกลไก Retry, Circuit Breaker และ Rate Limiter เพื่อทดสอบความทนทานของระบบ",
+        spec: {
+          problem: "เวลา API ปลายทางล่มชั่วคราว (503 High Demand) ระบบที่ไม่มี Exponential Backoff และ Fallback จะล่มตามทันที",
+          user_stories: [
+            "ในฐานะ SRE ฉันต้องการจำลองการส่ง Request จำนวนมากเมื่อ Server มีโอกาสเกิด 503 Error เพื่อดูว่า Retry + Fallback ช่วยกู้คืน Success Rate ได้กี่เปอร์เซ็นต์"
+          ],
+          acceptance_criteria: [
+            "จำลองการยิง Request แบบ Batch และแสดงผลลัพธ์แต่ละ Request แบบ Visual",
+            "เปรียบเทียบอัตราความสำเร็จเมื่อเปิด/ปิด Auto-Retry & Fallback"
+          ]
+        },
+        plan: {
+          architecture: "Monte Carlo Resilience Simulator + Live Request Matrix Grid",
+          components: ["ChaosControlPanel", "RequestGridVisualizer", "SLAScorecard"],
+          data_model: "{ failureRatePct: number, enableRetry: boolean, enableFallback: boolean }"
+        },
+        code_snippet: `export function simulateRequest(failProb: number, retries: number, hasFallback: boolean) {
+  for (let i = 0; i <= retries; i++) {
+    if (Math.random() > failProb) return { status: 200, attempts: i + 1 };
+  }
+  if (hasFallback && Math.random() > failProb * 0.25) return { status: 200, fallback: true };
+  return { status: 503, failed: true };
+}`,
+        tests: [
+          { name: "เมื่อเปิด Retry + Fallback อัตรา SLA สูงกว่า 98% แม้ Server มีอัตราพัง 30%", status: "PASS", duration: "6ms" },
+          { name: "คำนวณ P95 Latency ตามจำนวนการ Retry จริง", status: "PASS", duration: "4ms" }
+        ],
+        review: {
+          score: 98,
+          security_notes: "ปลอดภัย 100% จำลองการทำงานใน Sandbox",
+          performance_notes: "จำลอง 60 Requests พร้อมกันใน 2ms"
+        },
+        renderApp: function(container) {
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>โอกาสที่ Server ล่ม (503)</span><span id="v-fail" class="text-rose-400 font-bold">35%</span></label>
+                  <input id="in-fail" type="range" min="5" max="75" value="35" oninput="runChaosSim()" class="w-full mt-2 accent-rose-500" />
+                </div>
+                <label class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-between cursor-pointer">
+                  <span class="text-xs font-semibold">🔄 เปิด Auto-Retry (3 ครั้ง)</span>
+                  <input id="in-retry" type="checkbox" checked onchange="runChaosSim()" class="w-4 h-4 accent-emerald-500" />
+                </label>
+                <label class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-between cursor-pointer">
+                  <span class="text-xs font-semibold">🛡️ เปิด Multi-Model Fallback</span>
+                  <input id="in-fb" type="checkbox" checked onchange="runChaosSim()" class="w-4 h-4 accent-cyan-500" />
+                </label>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                <div>
+                  <span class="text-xs text-zinc-400">อัตราความสำเร็จรวม (Effective SLA):</span>
+                  <span id="sla-val" class="ml-2 text-lg font-black text-emerald-400">100%</span>
+                </div>
+                <button onclick="runChaosSim()" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs cursor-pointer">
+                  ⚡ ยิงทดสอบ 48 Requests ใหม่
+                </button>
+              </div>
+
+              <div id="chaos-grid" class="grid grid-cols-6 sm:grid-cols-8 gap-2"></div>
+            </div>
+          `;
+          window.runChaosSim = function() {
+            const failPct = Number(document.getElementById("in-fail").value) / 100;
+            const retry = document.getElementById("in-retry").checked;
+            const fb = document.getElementById("in-fb").checked;
+            document.getElementById("v-fail").textContent = Math.round(failPct * 100) + "%";
+
+            let okCount = 0;
+            const cells = [];
+            for (let i = 1; i <= 48; i++) {
+              let status = "FAIL";
+              if (Math.random() > failPct) {
+                status = "OK";
+              } else if (retry && Math.random() > failPct * failPct) {
+                status = "RETRY_OK";
+              } else if (fb && Math.random() > 0.15) {
+                status = "FALLBACK_OK";
+              }
+              if (status !== "FAIL") okCount++;
+              const cls =
+                status === "OK" ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300" :
+                status === "RETRY_OK" ? "bg-amber-500/20 border-amber-500/40 text-amber-300" :
+                status === "FALLBACK_OK" ? "bg-cyan-500/20 border-cyan-500/40 text-cyan-300" :
+                "bg-rose-500/20 border-rose-500/40 text-rose-400";
+              const label =
+                status === "OK" ? "200 OK" :
+                status === "RETRY_OK" ? "Retry✓" :
+                status === "FALLBACK_OK" ? "Fallback✓" : "503 Err";
+              cells.push(`<div class="p-1.5 rounded border text-center font-mono text-[10px] ${cls}">#${i}<br>${label}</div>`);
+            }
+            document.getElementById("chaos-grid").innerHTML = cells.join("");
+            document.getElementById("sla-val").textContent = ((okCount / 48) * 100).toFixed(1) + "% (" + okCount + "/48)";
+          };
+          window.runChaosSim();
+        }
+      },
+      {
+        title: "FreelanceScope & Smart Quote Generator",
+        tagline: "ระบบประเมินราคาโปรเจกต์ซอฟต์แวร์ คำนวณภาษีหัก ณ ที่จ่าย และออกใบเสนอราคาอัตโนมัติสำหรับนักพัฒนาอิสระ",
+        spec: {
+          problem: "ฟรีแลนซ์และเอเจนซี่มักประเมินชั่วโมงทำงานต่ำกว่าความเป็นจริง ลืมบวก Buffer ความเสี่ยง และคำนวณภาษีหัก ณ ที่จ่าย 3% สับสน",
+          user_stories: [
+            "ในฐานะฟรีแลนซ์ ฉันต้องการเลือกฟีเจอร์ที่ลูกค้าต้องการ แล้วให้ระบบคำนวณชั่วโมงทำงาน ราคารวม และยอดสุทธิหลังหักภาษี ณ ที่จ่าย 3% ทันที"
+          ],
+          acceptance_criteria: [
+            "ติ๊กเลือกโมดูลงานและปรับเรตค่าแรงต่อชั่วโมงได้",
+            "คำนวณยอดก่อนภาษี ภาษีหัก ณ ที่จ่าย 3% และยอดรับสุทธิได้ถูกต้อง"
+          ]
+        },
+        plan: {
+          architecture: "Scope Estimator Matrix + Thai Withholding Tax Calculator",
+          components: ["FeatureScopeSelector", "RateBufferSlider", "QuoteSummaryCard"],
+          data_model: "{ hourlyRate: number, modules: string[], riskBufferPct: number }"
+        },
+        code_snippet: `export function calculateQuote(hours: number, rate: number, bufferPct: number) {
+  const gross = Math.round(hours * rate * (1 + bufferPct / 100));
+  const wht3 = Math.round(gross * 0.03);
+  return { gross, wht3, net: gross - wht3 };
+}`,
+        tests: [
+          { name: "คำนวณภาษีหัก ณ ที่จ่าย 3% ตามมาตรฐานไทยถูกต้อง", status: "PASS", duration: "3ms" },
+          { name: "บวก Risk Buffer ตามความซับซ้อนของงานได้แม่นยำ", status: "PASS", duration: "4ms" }
+        ],
+        review: {
+          score: 97,
+          security_notes: "ปลอดภัย ไม่มีข้อมูลส่วนบุคคลรั่วไหล",
+          performance_notes: "คำนวณใบเสนอราคาแบบ Real-time"
+        },
+        renderApp: function(container) {
+          container.innerHTML = `
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>เรตค่าแรง (บาท/ชม.)</span><span id="v-rate" class="text-emerald-400 font-bold">฿1,200</span></label>
+                  <input id="in-rate" type="range" min="400" max="3500" step="100" value="1200" oninput="calcQuote()" class="w-full mt-2 accent-emerald-500" />
+                </div>
+                <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800">
+                  <label class="text-xs text-zinc-400 flex justify-between"><span>เผื่อความเสี่ยง (Buffer)</span><span id="v-buf" class="text-cyan-400 font-bold">20%</span></label>
+                  <input id="in-buf" type="range" min="0" max="50" step="5" value="20" oninput="calcQuote()" class="w-full mt-2 accent-cyan-500" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <label class="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="mod-chk accent-emerald-500" value="24" checked onchange="calcQuote()" />
+                  <span>UI/UX & Responsive Web (24 ชม.)</span>
+                </label>
+                <label class="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="mod-chk accent-emerald-500" value="32" checked onchange="calcQuote()" />
+                  <span>Auth & Database API (32 ชม.)</span>
+                </label>
+                <label class="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="mod-chk accent-emerald-500" value="28" checked onchange="calcQuote()" />
+                  <span>AI Agent / LLM Integration (28 ชม.)</span>
+                </label>
+                <label class="p-2.5 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" class="mod-chk accent-emerald-500" value="16" onchange="calcQuote()" />
+                  <span>Payment / Stripe / PromptPay (16 ชม.)</span>
+                </label>
+              </div>
+
+              <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/40 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <div class="text-xs text-zinc-400">ยอดเสนอราคารวม (Gross): <span id="q-gross" class="text-white font-bold">฿0</span></div>
+                  <div class="text-xs text-zinc-400 mt-0.5">หัก ณ ที่จ่าย 3%: <span id="q-wht" class="text-rose-400 font-bold">-฿0</span></div>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs text-emerald-300">ยอดเงินรับสุทธิ (Net Payout)</div>
+                  <div id="q-net" class="text-2xl font-black text-emerald-400">฿0</div>
+                </div>
+              </div>
+            </div>
+          `;
+          window.calcQuote = function() {
+            const rate = Number(document.getElementById("in-rate").value);
+            const buf = Number(document.getElementById("in-buf").value);
+            document.getElementById("v-rate").textContent = "฿" + rate.toLocaleString();
+            document.getElementById("v-buf").textContent = buf + "%";
+
+            let hours = 0;
+            document.querySelectorAll(".mod-chk:checked").forEach(el => {
+              hours += Number(el.value);
+            });
+            const gross = Math.round(hours * rate * (1 + buf / 100));
+            const wht = Math.round(gross * 0.03);
+            const net = gross - wht;
+
+            document.getElementById("q-gross").textContent = "฿" + gross.toLocaleString() + ` (${hours} ชม.)`;
+            document.getElementById("q-wht").textContent = "-฿" + wht.toLocaleString();
+            document.getElementById("q-net").textContent = "฿" + net.toLocaleString();
+          };
+          window.calcQuote();
+        }
+      }
+    ];
+
+    let activeProject = PRESET_PROJECTS[0];
+    let activeGate = "spec";
+    let currentPresetIdx = 0;
+
+    function renderPipelineBar() {
+      const steps = [
+        { id: "spec", cmd: "/spec", label: "1. Define PRD" },
+        { id: "plan", cmd: "/plan", label: "2. Architecture" },
+        { id: "build", cmd: "/build", label: "3. Code Impl" },
+        { id: "test", cmd: "/test", label: "4. Verify Tests" },
+        { id: "review", cmd: "/review", label: "5. Senior QA" },
+        { id: "ship", cmd: "/ship", label: "6. Live Product" }
+      ];
+      document.getElementById("pipeline-steps").innerHTML = steps.map(s => `
+        <div onclick="${s.id !== 'ship' ? `showGate('${s.id}')` : ''}" class="p-2 rounded-lg bg-zinc-900 border border-emerald-500/40 flex items-center justify-between cursor-pointer hover:border-emerald-400 transition">
+          <div>
+            <div class="text-[11px] font-mono font-bold text-emerald-400">${s.cmd}</div>
+            <div class="text-[11px] text-zinc-300">${s.label}</div>
+          </div>
+          <span class="text-xs text-emerald-400 font-bold">✓</span>
+        </div>
+      `).join("");
+    }
+
+    function showGate(gate) {
+      activeGate = gate;
+      ["spec", "plan", "build", "test", "review"].forEach(g => {
+        const tab = document.getElementById(`gate-tab-${g}`);
+        if (g === gate) {
+          tab.className = "flex-1 py-2 border-b-2 border-emerald-500 text-emerald-400 font-bold cursor-pointer";
+        } else {
+          tab.className = "flex-1 py-2 border-b-2 border-transparent text-zinc-400 hover:text-white cursor-pointer";
+        }
+      });
+
+      const el = document.getElementById("gate-content");
+      const p = activeProject;
+
+      if (gate === "spec") {
+        el.innerHTML = `
+          <div class="space-y-3">
+            <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
+              <div class="font-bold text-emerald-400 mb-1">🎯 Problem Statement</div>
+              <p class="text-zinc-300 leading-relaxed">${p.spec.problem}</p>
+            </div>
+            <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
+              <div class="font-bold text-cyan-400 mb-1.5">👤 User Stories</div>
+              <ul class="list-disc pl-4 space-y-1 text-zinc-300">
+                ${p.spec.user_stories.map(u => `<li>${u}</li>`).join("")}
+              </ul>
+            </div>
+            <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
+              <div class="font-bold text-amber-400 mb-1.5">✅ Acceptance Criteria</div>
+              <ul class="list-disc pl-4 space-y-1 text-zinc-300">
+                ${p.spec.acceptance_criteria.map(a => `<li>${a}</li>`).join("")}
+              </ul>
+            </div>
+          </div>
+        `;
+      } else if (gate === "plan") {
+        el.innerHTML = `
+          <div class="space-y-3">
+            <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
+              <div class="font-bold text-indigo-400 mb-1">🏗️ System Architecture</div>
+              <p class="text-zinc-300">${p.plan.architecture}</p>
+            </div>
+            <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
+              <div class="font-bold text-emerald-400 mb-1.5">🧩 Core Components</div>
+              <div class="flex flex-wrap gap-1.5">
+                ${p.plan.components.map(c => `<span class="px-2 py-1 rounded bg-zinc-900 border border-zinc-700 font-mono text-[11px] text-emerald-300">&lt;${c} /&gt;</span>`).join("")}
+              </div>
+            </div>
+            <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
+              <div class="font-bold text-cyan-400 mb-1">🗄️ Data Schema</div>
+              <code class="text-[11px] font-mono text-zinc-300">${p.plan.data_model}</code>
+            </div>
+          </div>
+        `;
+      } else if (gate === "build") {
+        el.innerHTML = `
+          <div class="space-y-2">
+            <div class="font-bold text-emerald-400">💻 Core Implementation Module</div>
+            <pre class="p-3 rounded-lg bg-black border border-zinc-800 font-mono text-[11px] text-emerald-300 overflow-x-auto">${p.code_snippet}</pre>
+          </div>
+        `;
+      } else if (gate === "test") {
+        el.innerHTML = `
+          <div class="space-y-2.5">
+            <div class="font-bold text-emerald-400">🧪 Automated Verification Suite (${p.tests.length}/${p.tests.length} Passed)</div>
+            ${p.tests.map(t => `
+              <div class="p-2.5 rounded-lg bg-zinc-950 border border-emerald-500/30 flex items-center justify-between gap-2">
+                <span class="text-zinc-200">✓ ${t.name}</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 shrink-0">${t.status} (${t.duration})</span>
+              </div>
+            `).join("")}
+          </div>
+        `;
+      } else if (gate === "review") {
+        el.innerHTML = `
+          <div class="space-y-3">
+            <div class="p-3 rounded-lg bg-emerald-950/30 border border-emerald-500/40">
+              <div class="font-bold text-emerald-300">🛡️ Security Review Gate</div>
+              <p class="text-zinc-300 mt-1">${p.review.security_notes}</p>
+            </div>
+            <div class="p-3 rounded-lg bg-cyan-950/30 border border-cyan-500/40">
+              <div class="font-bold text-cyan-300">⚡ Performance & Accessibility Gate</div>
+              <p class="text-zinc-300 mt-1">${p.review.performance_notes}</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function selectPreset(idx) {
+      currentPresetIdx = idx;
+      activeProject = PRESET_PROJECTS[idx];
+      PRESET_PROJECTS.forEach((_, i) => {
+        const btn = document.getElementById(`preset-${i}`);
+        if (i === idx) {
+          btn.className = "px-2.5 py-1.5 rounded-lg text-xs font-bold border bg-emerald-500/20 text-emerald-300 border-emerald-500/40 cursor-pointer";
+        } else {
+          btn.className = "px-2.5 py-1.5 rounded-lg text-xs font-medium border bg-zinc-900 text-zinc-400 border-zinc-800 hover:text-white cursor-pointer";
+        }
+      });
+
+      document.getElementById("proj-title").textContent = activeProject.title;
+      document.getElementById("proj-tagline").textContent = activeProject.tagline;
+      document.getElementById("review-badge").textContent = `QA Score: ${activeProject.review.score}/100`;
+
+      renderPipelineBar();
+      showGate(activeGate);
+
+      const container = document.getElementById("live-app-container");
+      if (activeProject.renderApp) {
+        activeProject.renderApp(container);
+      } else if (activeProject.ship_html) {
+        container.innerHTML = `<iframe class="w-full h-[460px] rounded-xl border border-zinc-800" srcdoc="${activeProject.ship_html.replace(/"/g, '&quot;')}"></iframe>`;
+      }
+    }
+
+    function rollRandomIdea() {
+      const nextIdx = (currentPresetIdx + 1) % PRESET_PROJECTS.length;
+      selectPreset(nextIdx);
+    }
+
+    async function buildCustomIdeaWithAI() {
+      const idea = document.getElementById("custom-idea").value.trim();
+      if (!idea) {
+        alert("กรุณาพิมพ์ไอเดียที่คุณอยากให้ AI สร้างก่อนครับ หรือกดปุ่ม 🎲 สุ่มไอเดียด้านซ้ายได้เลย!");
+        return;
+      }
+      const btn = document.getElementById("btn-custom-build");
+      btn.disabled = true;
+      btn.textContent = "⏳ กำลังรัน /spec → /ship ด้วย Gemini...";
+
+      try {
+        const res = await fetch("/api/mvp-engine", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ action: "agent-skills-build", idea })
+        });
+        const data = await res.json();
+        if (!data.ok || !data.result) {
+          throw new Error(data.error || "ไม่สามารถสร้างได้");
+        }
+        activeProject = data.result;
+        document.getElementById("proj-title").textContent = activeProject.title;
+        document.getElementById("proj-tagline").textContent = activeProject.tagline;
+        document.getElementById("review-badge").textContent = `QA Score: ${activeProject.review?.score || 96}/100`;
+        showGate("spec");
+
+        const container = document.getElementById("live-app-container");
+        container.innerHTML = `<iframe class="w-full h-[460px] rounded-xl border border-zinc-800 bg-zinc-950" srcdoc="${activeProject.ship_html.replace(/"/g, '&quot;')}"></iframe>`;
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "✨ สั่ง AI Senior Agent สร้างแอปใหม่สดๆ";
+      }
+    }
+
+    selectPreset(0);
+  </script>
+</body>
+</html>

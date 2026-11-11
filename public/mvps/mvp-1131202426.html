@@ -1,17 +1,729 @@
-<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AstryxBrand AI Engine</title><script src="https://cdn.tailwindcss.com"></script></head><body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans"><div class="max-w-4xl mx-auto p-6"><header class="flex justify-between items-center mb-8 border-b border-zinc-800 pb-6"><h1 class="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">AstryxBrand AI</h1><a href="https://github.com/meta/astryx" target="_blank" class="bg-zinc-800 px-4 py-2 rounded-lg text-sm hover:bg-zinc-700 transition">GitHub: meta/astryx</a></header><div class="grid md:grid-cols-2 gap-8"><section class="space-y-4"><h2 class="text-xl font-semibold">ตั้งค่า Theme ของคุณ</h2><div class="flex gap-2"><button onclick="loadPreset('tech')" class="bg-zinc-800 p-2 text-xs rounded hover:bg-emerald-900">ตัวอย่าง: Tech SaaS</button><button onclick="loadPreset('ecom')" class="bg-zinc-800 p-2 text-xs rounded hover:bg-indigo-900">ตัวอย่าง: E-Commerce</button></div><input type="text" id="brandName" placeholder="ชื่อแบรนด์" class="w-full p-3 bg-zinc-900 rounded border border-zinc-700"><input type="color" id="primaryColor" class="w-full h-12 cursor-pointer"><div><label>ความโค้งของปุ่ม (px)</label><input type="range" id="borderRadius" min="0" max="24" value="8" class="w-full"></div><button onclick="generateTheme()" class="w-full bg-emerald-600 p-3 rounded font-bold hover:bg-emerald-500 transition">สร้าง Configuration</button></section><section class="bg-zinc-900 p-6 rounded-xl border border-zinc-800"><h2 class="text-xl font-semibold mb-4">ผลลัพธ์ Config (StyleX)</h2><pre id="output" class="text-xs font-mono bg-black p-4 rounded overflow-auto h-64 border border-zinc-700">// กำลังรอการสร้าง...</pre><button onclick="copyCode()" class="mt-4 w-full border border-zinc-700 p-2 rounded hover:bg-zinc-800">คัดลอกโค้ด</button></section></div></div><script>function loadPreset(type) { if(type === 'tech') { document.getElementById('brandName').value = 'CyberCore'; document.getElementById('primaryColor').value = '#10b981'; } else { document.getElementById('brandName').value = 'ShopifyX'; document.getElementById('primaryColor').value = '#6366f1'; } } function generateTheme() { const name = document.getElementById('brandName').value || 'MyBrand'; const color = document.getElementById('primaryColor').value; const radius = document.getElementById('borderRadius').value; const code = `import * as stylex from '@stylexjs/stylex';
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astryx Full-Mode Design System & Live Web Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --astryx-primary: #10b981;
+      --astryx-accent: #06b6d4;
+      --astryx-bg: #09090b;
+      --astryx-surface: #18181b;
+      --astryx-border: #27272a;
+      --astryx-text: #f4f4f5;
+      --astryx-muted: #a1a1aa;
+      --astryx-radius: 12px;
+      --astryx-pad: 20px;
+      --astryx-glow: 0.22;
+    }
+    body {
+      background-color: var(--astryx-bg);
+      color: var(--astryx-text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    .astryx-card {
+      background-color: var(--astryx-surface);
+      border: 1px solid var(--astryx-border);
+      border-radius: var(--astryx-radius);
+      padding: var(--astryx-pad);
+      transition: all 0.2s ease;
+    }
+    .astryx-card:hover {
+      border-color: var(--astryx-primary);
+      box-shadow: 0 8px 30px -10px color-mix(in srgb, var(--astryx-primary) 35%, transparent);
+    }
+    .astryx-btn-primary {
+      background: linear-gradient(135deg, var(--astryx-primary), var(--astryx-accent));
+      color: #050505;
+      font-weight: 700;
+      border-radius: calc(var(--astryx-radius) * 0.75);
+      transition: all 0.18s ease;
+    }
+    .astryx-btn-primary:hover {
+      filter: brightness(1.12);
+      transform: translateY(-1px);
+    }
+    .astryx-btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--astryx-border);
+      color: var(--astryx-text);
+      border-radius: calc(var(--astryx-radius) * 0.75);
+      transition: all 0.18s ease;
+    }
+    .astryx-btn-outline:hover {
+      border-color: var(--astryx-primary);
+      color: var(--astryx-primary);
+    }
+    .astryx-badge {
+      background-color: color-mix(in srgb, var(--astryx-primary) 18%, transparent);
+      color: var(--astryx-primary);
+      border: 1px solid color-mix(in srgb, var(--astryx-primary) 40%, transparent);
+      border-radius: 9999px;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .astryx-input {
+      background-color: color-mix(in srgb, var(--astryx-bg) 70%, var(--astryx-surface));
+      border: 1px solid var(--astryx-border);
+      color: var(--astryx-text);
+      border-radius: calc(var(--astryx-radius) * 0.65);
+      padding: 8px 12px;
+      outline: none;
+    }
+    .astryx-input:focus {
+      border-color: var(--astryx-primary);
+    }
+    .astryx-accent-text {
+      color: var(--astryx-primary);
+    }
+    .astryx-gradient-text {
+      background: linear-gradient(135deg, var(--astryx-primary), var(--astryx-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <!-- Top Studio Header -->
+  <header class="border-b border-zinc-800 bg-zinc-950/90 backdrop-blur sticky top-0 z-30 px-4 lg:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg flex items-center justify-center font-black text-black text-lg" style="background: linear-gradient(135deg, var(--astryx-primary), var(--astryx-accent));">
+        A
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold text-base sm:text-lg text-white">Astryx Design System Studio</h1>
+          <span class="astryx-badge">React 19 + StyleX Full Mode</span>
+        </div>
+        <p class="text-xs text-zinc-400">ปรับแต่ง Design Tokens แบบ Real-time แล้วดูผลลัพธ์บนตัวอย่างเว็บไซต์จริงทั้ง 4 รูปแบบ</p>
+      </div>
+    </div>
 
-export const tokens = stylex.defineVars({
-  brandName: '${name}',
-  primary: '${color}',
-  radius: '${radius}px',
-  fontFamily: 'system-ui, sans-serif',
-});
+    <!-- Screen Switcher Tabs -->
+    <div class="flex flex-wrap items-center gap-1.5 bg-zinc-900 p-1 rounded-xl border border-zinc-800">
+      <button onclick="switchTab('saas')" id="tab-saas" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer bg-emerald-500 text-black">
+        📊 1. เว็บ AI SaaS Dashboard
+      </button>
+      <button onclick="switchTab('ecom')" id="tab-ecom" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer text-zinc-300 hover:text-white">
+        🛍️ 2. เว็บ E-Commerce Store
+      </button>
+      <button onclick="switchTab('fintech')" id="tab-fintech" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer text-zinc-300 hover:text-white">
+        💳 3. แอป FinTech & Crypto
+      </button>
+      <button onclick="switchTab('system')" id="tab-system" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer text-zinc-300 hover:text-white">
+        🧩 4. Component Matrix & โค้ด StyleX
+      </button>
+    </div>
 
-export const styles = stylex.create({
-  button: {
-    backgroundColor: tokens.primary,
-    borderRadius: tokens.radius,
-    padding: '8px 16px',
-    color: 'white',
-  }
-});`; document.getElementById('output').textContent = code; } function copyCode() { const text = document.getElementById('output').textContent; navigator.clipboard.writeText(text); alert('คัดลอกแล้ว!'); }</script></body></html>
+    <div class="flex items-center gap-2">
+      <a href="https://github.com/meta/astryx" target="_blank" rel="noreferrer" class="px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 text-xs font-medium border border-zinc-800">
+        GitHub: meta/astryx ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-0">
+    <!-- Left Sidebar: Live Token Customizer -->
+    <aside class="lg:col-span-3 border-b lg:border-b-0 lg:border-r border-zinc-800 bg-zinc-950/70 p-4 space-y-5 overflow-y-auto">
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2.5">🎨 1. เลือก Preset ธีมแบรนด์</h2>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="applyPreset('cyber')" class="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-left flex items-center gap-2 cursor-pointer">
+            <span class="w-4 h-4 rounded-full bg-emerald-400 shrink-0"></span>
+            <span class="text-xs font-medium text-zinc-200 truncate">Emerald Cyber</span>
+          </button>
+          <button onclick="applyPreset('meta')" class="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-left flex items-center gap-2 cursor-pointer">
+            <span class="w-4 h-4 rounded-full bg-indigo-500 shrink-0"></span>
+            <span class="text-xs font-medium text-zinc-200 truncate">Meta Horizon</span>
+          </button>
+          <button onclick="applyPreset('sunset')" class="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-left flex items-center gap-2 cursor-pointer">
+            <span class="w-4 h-4 rounded-full bg-rose-500 shrink-0"></span>
+            <span class="text-xs font-medium text-zinc-200 truncate">Sunset Coral</span>
+          </button>
+          <button onclick="applyPreset('gold')" class="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-left flex items-center gap-2 cursor-pointer">
+            <span class="w-4 h-4 rounded-full bg-amber-400 shrink-0"></span>
+            <span class="text-xs font-medium text-zinc-200 truncate">Solana Amber</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-3 pt-3 border-t border-zinc-800/80">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-zinc-400">⚡ 2. ปรับแต่ง Design Tokens สด</h2>
+
+        <div>
+          <label class="text-xs text-zinc-300 flex justify-between mb-1">
+            <span>แบรนด์ของคุณ (Brand Name)</span>
+          </label>
+          <input id="ctrl-brand" type="text" value="NexusAI Cloud" oninput="syncTokens()" class="astryx-input w-full text-xs" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs text-zinc-400 block mb-1">สีหลัก (Primary)</label>
+            <input id="ctrl-primary" type="color" value="#10b981" oninput="syncTokens()" class="w-full h-9 rounded cursor-pointer bg-zinc-900 border border-zinc-700 p-0.5" />
+          </div>
+          <div>
+            <label class="text-xs text-zinc-400 block mb-1">สีรอง (Accent)</label>
+            <input id="ctrl-accent" type="color" value="#06b6d4" oninput="syncTokens()" class="w-full h-9 rounded cursor-pointer bg-zinc-900 border border-zinc-700 p-0.5" />
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs text-zinc-300 flex justify-between mb-1">
+            <span>ความโค้งมน (Corner Radius)</span>
+            <span id="val-radius" class="font-mono text-emerald-400">12px</span>
+          </label>
+          <input id="ctrl-radius" type="range" min="0" max="28" value="12" oninput="syncTokens()" class="w-full accent-emerald-500 cursor-pointer" />
+        </div>
+
+        <div>
+          <label class="text-xs text-zinc-300 flex justify-between mb-1">
+            <span>ความหนาแน่น (Layout Density)</span>
+            <span id="val-pad" class="font-mono text-emerald-400">20px</span>
+          </label>
+          <input id="ctrl-pad" type="range" min="12" max="32" value="20" oninput="syncTokens()" class="w-full accent-emerald-500 cursor-pointer" />
+        </div>
+
+        <div>
+          <label class="text-xs text-zinc-300 block mb-1.5">โหมดพื้นหลัง (Surface Mode)</label>
+          <div class="grid grid-cols-3 gap-1.5">
+            <button onclick="setSurfaceMode('dark')" class="py-1.5 px-2 rounded bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-xs cursor-pointer">🌑 Dark</button>
+            <button onclick="setSurfaceMode('midnight')" class="py-1.5 px-2 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs cursor-pointer">🌌 Midnight</button>
+            <button onclick="setSurfaceMode('light')" class="py-1.5 px-2 rounded bg-zinc-200 hover:bg-white text-zinc-900 font-medium text-xs cursor-pointer">☀️ Light</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Token Summary Box -->
+      <div class="pt-3 border-t border-zinc-800/80 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">📦 StyleX Token Output</span>
+          <button onclick="copyStylexCode()" id="btn-copy-token" class="text-[11px] px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-emerald-400 border border-zinc-700 cursor-pointer">
+            คัดลอกโค้ด
+          </button>
+        </div>
+        <pre id="token-preview" class="text-[11px] font-mono bg-black/90 text-emerald-300 p-3 rounded-lg border border-zinc-800 overflow-x-auto max-h-48"></pre>
+      </div>
+    </aside>
+
+    <!-- Right Canvas: Live Multi-App Preview -->
+    <main class="lg:col-span-9 p-4 sm:p-6 overflow-y-auto space-y-6">
+      <!-- Simulated Browser Top Bar -->
+      <div class="astryx-card !p-3 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+          <span id="browser-url" class="ml-2 text-xs font-mono px-3 py-1 rounded bg-black/40 border border-zinc-800 text-zinc-400">
+            https://app.nexusai.cloud/dashboard
+          </span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="astryx-badge">⚡ Zero-Runtime CSS via StyleX</span>
+        </div>
+      </div>
+
+      <!-- VIEW 1: AI SaaS Analytics & Agent Control Center -->
+      <div id="view-saas" class="space-y-6">
+        <!-- App Navbar -->
+        <div class="astryx-card flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-black" style="background: linear-gradient(135deg, var(--astryx-primary), var(--astryx-accent));">
+              ✦
+            </div>
+            <div>
+              <h2 class="font-bold text-lg brand-title">NexusAI Cloud</h2>
+              <p class="text-xs" style="color: var(--astryx-muted);">Enterprise Autonomous Agent Fleet & Telemetry</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <input type="text" placeholder="ค้นหา Agent หรือ Log..." oninput="filterAgents(this.value)" class="astryx-input text-xs w-44 sm:w-56" />
+            <button onclick="deployNewAgent()" class="astryx-btn-primary px-3.5 py-2 text-xs cursor-pointer">
+              + สร้าง AI Agent ใหม่
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI Metrics Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="astryx-card">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-medium" style="color: var(--astryx-muted);">Active AI Agents</span>
+              <span class="astryx-badge">+18.4%</span>
+            </div>
+            <div id="kpi-agents" class="text-2xl font-extrabold astryx-gradient-text">24 ตัว</div>
+            <p class="text-[11px] mt-1" style="color: var(--astryx-muted);">ทำงานอัตโนมัติสำเร็จ 99.4%</p>
+          </div>
+
+          <div class="astryx-card">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-medium" style="color: var(--astryx-muted);">Requests / วินาที</span>
+              <span class="astryx-badge">Real-time</span>
+            </div>
+            <div class="text-2xl font-extrabold">14,820</div>
+            <p class="text-[11px] mt-1" style="color: var(--astryx-muted);">P95 Latency: 38ms (StyleX SSR)</p>
+          </div>
+
+          <div class="astryx-card">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-medium" style="color: var(--astryx-muted);">งบประมาณที่ประหยัดได้</span>
+              <span class="astryx-badge">-42% Cost</span>
+            </div>
+            <div class="text-2xl font-extrabold">$12,450</div>
+            <p class="text-[11px] mt-1" style="color: var(--astryx-muted);">จากการใช้ Flash-Lite Routing</p>
+          </div>
+
+          <div class="astryx-card">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-medium" style="color: var(--astryx-muted);">Design System Score</span>
+              <span class="astryx-badge">WCAG AAA</span>
+            </div>
+            <div class="text-2xl font-extrabold">100 / 100</div>
+            <p class="text-[11px] mt-1" style="color: var(--astryx-muted);">Atomic CSS Bundle: 4.2 KB</p>
+          </div>
+        </div>
+
+        <!-- Chart + Interactive Agent Fleet Table -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-5 astryx-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-sm">📈 ปริมาณงานที่ AI ประมวลผลรายวัน</h3>
+                <span class="astryx-badge">7 วันล่าสุด</span>
+              </div>
+              <div class="flex items-end gap-3 h-44 pt-6 px-2">
+                <div class="flex-1 flex flex-col items-center gap-1.5">
+                  <div class="w-full rounded-t transition-all duration-300" style="height: 55%; background: var(--astryx-primary); opacity: 0.5;"></div>
+                  <span class="text-[10px]" style="color: var(--astryx-muted);">จ.</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5">
+                  <div class="w-full rounded-t transition-all duration-300" style="height: 70%; background: var(--astryx-primary); opacity: 0.65;"></div>
+                  <span class="text-[10px]" style="color: var(--astryx-muted);">อ.</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5">
+                  <div class="w-full rounded-t transition-all duration-300" style="height: 62%; background: var(--astryx-primary); opacity: 0.75;"></div>
+                  <span class="text-[10px]" style="color: var(--astryx-muted);">พ.</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5">
+                  <div class="w-full rounded-t transition-all duration-300" style="height: 85%; background: var(--astryx-primary); opacity: 0.85;"></div>
+                  <span class="text-[10px]" style="color: var(--astryx-muted);">พฤ.</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5">
+                  <div class="w-full rounded-t transition-all duration-300" style="height: 92%; background: linear-gradient(to top, var(--astryx-primary), var(--astryx-accent));"></div>
+                  <span class="text-[10px]" style="color: var(--astryx-muted);">ศ.</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5">
+                  <div class="w-full rounded-t transition-all duration-300" style="height: 78%; background: var(--astryx-accent); opacity: 0.85;"></div>
+                  <span class="text-[10px]" style="color: var(--astryx-muted);">ส.</span>
+                </div>
+                <div class="flex-1 flex flex-col items-center gap-1.5">
+                  <div class="w-full rounded-t transition-all duration-300" style="height: 100%; background: linear-gradient(to top, var(--astryx-primary), var(--astryx-accent));"></div>
+                  <span class="text-[10px] font-bold astryx-accent-text">อา.</span>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 mt-4 border-t border-zinc-800/60 flex items-center justify-between text-xs">
+              <span style="color: var(--astryx-muted);">อัตราการตอบสนองเฉลี่ยเร็วขึ้น 2.4 เท่า</span>
+              <button onclick="simulateTrafficSpike()" class="astryx-btn-outline px-2.5 py-1 text-xs cursor-pointer">⚡ จำลอง Traffic พุ่ง</button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 astryx-card">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-bold text-sm">🤖 รายการ Autonomous Agents ที่กำลังทำงาน</h3>
+              <span class="text-xs" style="color: var(--astryx-muted);">คลิกปุ่มเพื่อสลับสถานะจริง</span>
+            </div>
+            <div id="agent-list" class="space-y-2.5"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: E-Commerce Storefront -->
+      <div id="view-ecom" class="hidden space-y-6">
+        <div class="astryx-card flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="astryx-badge">Astryx Commerce Kit</span>
+            <h2 class="text-2xl font-extrabold mt-2 brand-title">Storefront ที่ออกแบบด้วย Astryx Tokens</h2>
+            <p class="text-xs mt-1" style="color: var(--astryx-muted);">ลองกดหยิบสินค้าใส่ตะกร้า และเปลี่ยนสี/ความโค้งมนจากแถบซ้ายมือได้แบบ Real-time</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="astryx-card !p-3 flex items-center gap-3">
+              <span class="text-lg">🛒</span>
+              <div>
+                <div class="text-xs" style="color: var(--astryx-muted);">ตะกร้าสินค้า</div>
+                <div id="cart-summary" class="text-sm font-bold astryx-accent-text">0 ชิ้น (฿0)</div>
+              </div>
+              <button onclick="checkoutCart()" class="astryx-btn-primary px-3 py-1.5 text-xs cursor-pointer">ชำระเงิน</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+      </div>
+
+      <!-- VIEW 3: FinTech & Crypto Portfolio App -->
+      <div id="view-fintech" class="hidden space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Virtual Card & Balance -->
+          <div class="lg:col-span-5 astryx-card space-y-5">
+            <div class="p-6 rounded-2xl text-black shadow-xl relative overflow-hidden" style="background: linear-gradient(135deg, var(--astryx-primary), var(--astryx-accent)); border-radius: var(--astryx-radius);">
+              <div class="flex justify-between items-center">
+                <span class="font-black tracking-wider text-sm uppercase brand-title">NexusAI Black Card</span>
+                <span class="text-xs font-bold px-2 py-0.5 rounded bg-black/20 text-white">VISA INFINITE</span>
+              </div>
+              <div class="my-6">
+                <div class="text-xs opacity-75">ยอดสินทรัพย์รวม (Total Net Worth)</div>
+                <div id="wallet-balance" class="text-3xl font-black tracking-tight mt-1">฿1,485,200.00</div>
+              </div>
+              <div class="flex justify-between items-end text-xs font-mono">
+                <span>4532 •••• •••• 8891</span>
+                <span>EXP 09/30</span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h4 class="text-sm font-bold">⚡ โอนเงินด่วน / สลับสินทรัพย์ (Quick Swap)</h4>
+              <div class="grid grid-cols-2 gap-2">
+                <input id="transfer-to" type="text" placeholder="ผู้รับ (เช่น @satoshi)" value="@dev_treasury" class="astryx-input text-xs" />
+                <input id="transfer-amount" type="number" placeholder="จำนวนเงิน (฿)" value="15000" class="astryx-input text-xs" />
+              </div>
+              <button onclick="executeTransfer()" class="astryx-btn-primary w-full py-2.5 text-xs cursor-pointer">
+                ยืนยันการโอนเงินทันที
+              </button>
+            </div>
+          </div>
+
+          <!-- Transactions & Allocation -->
+          <div class="lg:col-span-7 astryx-card space-y-4">
+            <div class="flex justify-between items-center">
+              <h3 class="font-bold text-sm">📋 ประวัติธุรกรรมล่าสุด (Live Ledger)</h3>
+              <span class="astryx-badge">Instant Settlement</span>
+            </div>
+            <div id="tx-list" class="space-y-2.5"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 4: Component Matrix & StyleX Code -->
+      <div id="view-system" class="hidden space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="astryx-card space-y-4">
+            <h3 class="font-bold text-sm">🔘 Astryx Button & Badge Primitives</h3>
+            <div class="flex flex-wrap gap-2.5">
+              <button class="astryx-btn-primary px-4 py-2 text-xs cursor-pointer">Primary Action</button>
+              <button class="astryx-btn-outline px-4 py-2 text-xs cursor-pointer">Secondary Outline</button>
+              <button class="px-4 py-2 text-xs rounded-lg bg-rose-500/20 text-rose-400 border border-rose-500/30 font-semibold">Destructive</button>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="astryx-badge">Production-Ready</span>
+              <span class="astryx-badge">StyleX Atomic CSS</span>
+              <span class="astryx-badge">React 19 Server Components</span>
+            </div>
+          </div>
+
+          <div class="astryx-card space-y-4">
+            <h3 class="font-bold text-sm">📝 Astryx Form Controls & Interactive States</h3>
+            <div class="space-y-2.5">
+              <input type="text" value="ตัวอย่าง Input ที่ผูกกับ Design Token อัตโนมัติ" class="astryx-input w-full text-xs" />
+              <div class="flex items-center justify-between p-3 rounded-lg border border-zinc-800">
+                <span class="text-xs">เปิดใช้งาน AI Auto-Optimization</span>
+                <input type="checkbox" checked class="accent-emerald-500 w-4 h-4" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="astryx-card space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-sm">💻 โค้ด React 19 + @astryxdesign/core สำหรับธีมปัจจุบันของคุณ</h3>
+            <button onclick="copyStylexCode()" class="astryx-btn-primary px-3 py-1 text-xs cursor-pointer">คัดลอกโค้ดทั้งหมด</button>
+          </div>
+          <pre id="full-code-preview" class="text-xs font-mono bg-black p-4 rounded-xl border border-zinc-800 overflow-x-auto text-zinc-300"></pre>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const agents = [
+      { id: 1, name: "Security-Auditor-Agent", role: "ตรวจช่องโหว่ PR อัตโนมัติ", reqs: "4,210 req/m", active: true },
+      { id: 2, name: "StyleX-UI-Synthesizer", role: "สร้าง Component จาก Figma", reqs: "3,890 req/m", active: true },
+      { id: 3, name: "DB-Query-Optimizer", role: "วิเคราะห์ Slow Query ใน Postgres", reqs: "2,150 req/m", active: true },
+      { id: 4, name: "Customer-Triage-Bot", role: "ตอบปัญหาลูกค้าพร้อมแนบวิธีแก้", reqs: "4,570 req/m", active: false }
+    ];
+
+    const products = [
+      { id: 1, name: "Astryx Pro UI Kit", desc: "ชุด Component กว่า 120 ชิ้น รองรับ React 19 และ StyleX เต็มรูปแบบ", price: 2900, tag: "Bestseller" },
+      { id: 2, name: "Agentic Workflow Engine", desc: "ระบบเชื่อมต่อ AI Agent เข้ากับ Design System ขององค์กร", price: 4500, tag: "New Release" },
+      { id: 3, name: "Zero-Runtime Theme Compiler", desc: "ปลั๊กอินแปลง Design Tokens จาก Figma เป็น StyleX อัตโนมัติ", price: 1900, tag: "Popular" }
+    ];
+
+    const transactions = [
+      { title: "ชำระค่า Cloud GPU Cluster", to: "AWS Compute", amount: -24500, time: "10 นาทีที่แล้ว" },
+      { title: "รายรับจากลูกค้า Enterprise SaaS", to: "Stripe Payout", amount: +128000, time: "2 ชั่วโมงที่แล้ว" },
+      { title: "โอนเข้ากองทุน AI R&D", to: "@dev_treasury", amount: -15000, time: "เมื่อวานนี้" }
+    ];
+
+    let cartCount = 0;
+    let cartTotal = 0;
+    let walletBalance = 1485200;
+    let filterText = "";
+
+    function renderAgents() {
+      const container = document.getElementById("agent-list");
+      const filtered = agents.filter(a =>
+        a.name.toLowerCase().includes(filterText.toLowerCase()) ||
+        a.role.toLowerCase().includes(filterText.toLowerCase())
+      );
+      container.innerHTML = filtered.map(a => `
+        <div class="p-3 rounded-lg border border-zinc-800/90 flex items-center justify-between gap-3 bg-black/20">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full ${a.active ? 'bg-emerald-400' : 'bg-zinc-600'}"></span>
+              <span class="text-xs font-bold">${a.name}</span>
+              <span class="text-[11px] font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300">${a.reqs}</span>
+            </div>
+            <p class="text-xs mt-0.5" style="color: var(--astryx-muted);">${a.role}</p>
+          </div>
+          <button onclick="toggleAgent(${a.id})" class="${a.active ? 'astryx-btn-primary' : 'astryx-btn-outline'} px-3 py-1 text-xs cursor-pointer">
+            ${a.active ? 'กำลังทำงาน' : 'หยุดชั่วคราว'}
+          </button>
+        </div>
+      `).join("");
+      document.getElementById("kpi-agents").textContent = `${agents.filter(a => a.active).length * 8} ตัว`;
+    }
+
+    function toggleAgent(id) {
+      const target = agents.find(a => a.id === id);
+      if (target) {
+        target.active = !target.active;
+        renderAgents();
+      }
+    }
+
+    function filterAgents(val) {
+      filterText = val;
+      renderAgents();
+    }
+
+    function deployNewAgent() {
+      const id = agents.length + 1;
+      agents.unshift({
+        id,
+        name: `Auto-Agent-v${id}.0`,
+        role: "สร้างขึ้นใหม่จาก Astryx Dashboard พร้อมทำงานทันที",
+        reqs: `${Math.floor(Math.random() * 3000 + 1000)} req/m`,
+        active: true
+      });
+      renderAgents();
+    }
+
+    function simulateTrafficSpike() {
+      agents.forEach(a => {
+        a.reqs = `${Math.floor(Math.random() * 9000 + 5000)} req/m`;
+      });
+      renderAgents();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById("product-grid");
+      grid.innerHTML = products.map(p => `
+        <div class="astryx-card flex flex-col justify-between gap-4">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="astryx-badge">${p.tag}</span>
+              <span class="text-sm font-extrabold astryx-accent-text">฿${p.price.toLocaleString()}</span>
+            </div>
+            <h3 class="font-bold text-base">${p.name}</h3>
+            <p class="text-xs mt-1" style="color: var(--astryx-muted);">${p.desc}</p>
+          </div>
+          <button onclick="addToCart(${p.price})" class="astryx-btn-primary w-full py-2 text-xs cursor-pointer">
+            + หยิบใส่ตะกร้า (฿${p.price.toLocaleString()})
+          </button>
+        </div>
+      `).join("");
+    }
+
+    function addToCart(price) {
+      cartCount++;
+      cartTotal += price;
+      document.getElementById("cart-summary").textContent = `${cartCount} ชิ้น (฿${cartTotal.toLocaleString()})`;
+    }
+
+    function checkoutCart() {
+      if (cartCount === 0) {
+        alert("กรุณาเลือกสินค้าลงตะกร้าก่อนครับ!");
+        return;
+      }
+      alert(`สั่งซื้อสำเร็จ! ยอดรวมทั้งหมด ฿${cartTotal.toLocaleString()} (จำลองผ่าน Astryx Commerce Kit)`);
+      cartCount = 0;
+      cartTotal = 0;
+      document.getElementById("cart-summary").textContent = `0 ชิ้น (฿0)`;
+    }
+
+    function renderTransactions() {
+      const list = document.getElementById("tx-list");
+      list.innerHTML = transactions.map(t => `
+        <div class="p-3 rounded-lg border border-zinc-800/80 flex items-center justify-between bg-black/20">
+          <div>
+            <div class="text-xs font-bold">${t.title}</div>
+            <div class="text-[11px]" style="color: var(--astryx-muted);">คู่สัญญา: ${t.to} · ${t.time}</div>
+          </div>
+          <div class="text-xs font-mono font-bold ${t.amount >= 0 ? 'text-emerald-400' : 'text-rose-400'}">
+            ${t.amount >= 0 ? '+' : ''}฿${Math.abs(t.amount).toLocaleString()}
+          </div>
+        </div>
+      `).join("");
+      document.getElementById("wallet-balance").textContent = `฿${walletBalance.toLocaleString()}.00`;
+    }
+
+    function executeTransfer() {
+      const to = document.getElementById("transfer-to").value || "@recipient";
+      const amt = parseInt(document.getElementById("transfer-amount").value || "0", 10);
+      if (amt <= 0) return;
+      walletBalance -= amt;
+      transactions.unshift({
+        title: "โอนเงินด่วนผ่าน Astryx QuickSwap",
+        to,
+        amount: -amt,
+        time: "เมื่อสักครู่นี้"
+      });
+      renderTransactions();
+    }
+
+    function switchTab(tab) {
+      ["saas", "ecom", "fintech", "system"].forEach(t => {
+        document.getElementById(`view-${t}`).classList.toggle("hidden", t !== tab);
+        const btn = document.getElementById(`tab-${t}`);
+        if (t === tab) {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer bg-emerald-500 text-black";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer text-zinc-300 hover:text-white";
+        }
+      });
+      const urls = {
+        saas: "https://app.nexusai.cloud/dashboard",
+        ecom: "https://store.nexusai.cloud/catalog",
+        fintech: "https://vault.nexusai.cloud/portfolio",
+        system: "https://design.nexusai.cloud/stylex-tokens"
+      };
+      document.getElementById("browser-url").textContent = urls[tab];
+    }
+
+    function applyPreset(name) {
+      const presets = {
+        cyber: { brand: "NexusAI Cloud", primary: "#10b981", accent: "#06b6d4", radius: 12, pad: 20 },
+        meta: { brand: "Meta Horizon OS", primary: "#6366f1", accent: "#a855f7", radius: 18, pad: 22 },
+        sunset: { brand: "Pulse Studio", primary: "#f43f5e", accent: "#fb923c", radius: 8, pad: 18 },
+        gold: { brand: "Solana Vault Pro", primary: "#f59e0b", accent: "#10b981", radius: 4, pad: 16 }
+      };
+      const p = presets[name];
+      if (!p) return;
+      document.getElementById("ctrl-brand").value = p.brand;
+      document.getElementById("ctrl-primary").value = p.primary;
+      document.getElementById("ctrl-accent").value = p.accent;
+      document.getElementById("ctrl-radius").value = p.radius;
+      document.getElementById("ctrl-pad").value = p.pad;
+      syncTokens();
+    }
+
+    function setSurfaceMode(mode) {
+      const root = document.documentElement;
+      if (mode === "dark") {
+        root.style.setProperty("--astryx-bg", "#09090b");
+        root.style.setProperty("--astryx-surface", "#18181b");
+        root.style.setProperty("--astryx-border", "#27272a");
+        root.style.setProperty("--astryx-text", "#f4f4f5");
+        root.style.setProperty("--astryx-muted", "#a1a1aa");
+      } else if (mode === "midnight") {
+        root.style.setProperty("--astryx-bg", "#020617");
+        root.style.setProperty("--astryx-surface", "#0f172a");
+        root.style.setProperty("--astryx-border", "#1e293b");
+        root.style.setProperty("--astryx-text", "#f8fafc");
+        root.style.setProperty("--astryx-muted", "#94a3b8");
+      } else if (mode === "light") {
+        root.style.setProperty("--astryx-bg", "#f4f4f5");
+        root.style.setProperty("--astryx-surface", "#ffffff");
+        root.style.setProperty("--astryx-border", "#e4e4e7");
+        root.style.setProperty("--astryx-text", "#18181b");
+        root.style.setProperty("--astryx-muted", "#52525b");
+      }
+      syncTokens();
+    }
+
+    function syncTokens() {
+      const brand = document.getElementById("ctrl-brand").value || "AstryxApp";
+      const primary = document.getElementById("ctrl-primary").value;
+      const accent = document.getElementById("ctrl-accent").value;
+      const radius = document.getElementById("ctrl-radius").value;
+      const pad = document.getElementById("ctrl-pad").value;
+
+      const root = document.documentElement;
+      root.style.setProperty("--astryx-primary", primary);
+      root.style.setProperty("--astryx-accent", accent);
+      root.style.setProperty("--astryx-radius", `${radius}px`);
+      root.style.setProperty("--astryx-pad", `${pad}px`);
+
+      document.getElementById("val-radius").textContent = `${radius}px`;
+      document.getElementById("val-pad").textContent = `${pad}px`;
+
+      document.querySelectorAll(".brand-title").forEach(el => {
+        el.textContent = brand;
+      });
+
+      const tokenCode = `import * as stylex from '@stylexjs/stylex';
+
+export const astryxTokens = stylex.defineVars({
+  brandName: '${brand}',
+  colorPrimary: '${primary}',
+  colorAccent: '${accent}',
+  radiusBase: '${radius}px',
+  spacingCard: '${pad}px',
+});`;
+
+      const fullCode = `${tokenCode}
+
+import { Card, Button, Badge } from '@astryxdesign/core';
+
+export function ${brand.replace(/[^a-zA-Z0-9]/g, "") || "App"}Dashboard() {
+  return (
+    <Card style={styles.container}>
+      <Badge tone="primary">Built with meta/astryx</Badge>
+      <h1>${brand}</h1>
+      <Button variant="primary">Launch Autonomous Agent</Button>
+    </Card>
+  );
+}
+
+const styles = stylex.create({
+  container: {
+    borderRadius: astryxTokens.radiusBase,
+    padding: astryxTokens.spacingCard,
+    borderColor: astryxTokens.colorPrimary,
+  },
+});`;
+
+      document.getElementById("token-preview").textContent = tokenCode;
+      document.getElementById("full-code-preview").textContent = fullCode;
+    }
+
+    function copyStylexCode() {
+      const code = document.getElementById("full-code-preview").textContent;
+      navigator.clipboard.writeText(code);
+      const btn = document.getElementById("btn-copy-token");
+      btn.textContent = "✓ คัดลอกแล้ว!";
+      setTimeout(() => { btn.textContent = "คัดลอกโค้ด"; }, 2000);
+    }
+
+    renderAgents();
+    renderProducts();
+    renderTransactions();
+    syncTokens();
+  </script>
+</body>
+</html>

@@ -33,10 +33,10 @@
     "quick_start": "npm install @astryxdesign/core @astryxdesign/theme-neutral @stylexjs/stylex\nnpm install -D @astryxdesign/cli\nnpx astryx init",
     "updated_at": "2026-11-11T15:28:14.201Z",
     "mvp": {
-      "app_name": "AstryxBrand AI Engine",
-      "tagline": "เครื่องมือปรับแต่ง Design System อัตโนมัติสำหรับแบรนด์ของคุณด้วยพลัง AI",
+      "app_name": "Astryx Full-Mode Design System Studio",
+      "tagline": "ปรับแต่ง Design Tokens สด พร้อมดูตัวอย่างเว็บจริง 4 รูปแบบ (AI SaaS, E-Commerce, FinTech, StyleX Matrix)",
       "url": "/mvps/mvp-1131202426.html",
-      "built_at": "2026-11-11T16:27:13.080Z"
+      "built_at": "2026-11-11T16:57:45.345Z"
     }
   },
   {
@@ -188,7 +188,13 @@
       "hype_vs_reality": 8
     },
     "quick_start": "npx skills add addyosmani/agent-skills",
-    "updated_at": "2026-11-11T15:28:52.827Z"
+    "updated_at": "2026-11-11T15:28:52.827Z",
+    "mvp": {
+      "app_name": "Agent-Skills Senior Engineer Factory",
+      "tagline": "สุ่มไอเดีย Startup หรือพิมพ์โจทย์ใหม่ แล้วให้ AI รัน 6 ขั้นตอน (/spec → /plan → /build → /test → /review → /ship) พร้อมเว็บจริงให้เล่นทันที",
+      "url": "/mvps/mvp-1158722119.html",
+      "built_at": "2026-11-11T16:57:45.345Z"
+    }
   },
   {
     "id": "1132001614",
@@ -222,7 +228,13 @@
       "hype_vs_reality": 7
     },
     "quick_start": "npm install -g agent-browser\nagent-browser install\nagent-browser open example.com && agent-browser snapshot -i",
-    "updated_at": "2026-11-11T15:29:01.621Z"
+    "updated_at": "2026-11-11T15:29:01.621Z",
+    "mvp": {
+      "app_name": "Agent-Browser Live Web & A11y Playground",
+      "tagline": "เปิดหน้าเว็บจริงจาก Server แปลงเป็น Accessibility Tree (@e1, @e2) พร้อมสั่งคลิกและให้ AI วิเคราะห์หน้าเว็บสด",
+      "url": "/mvps/mvp-1132001614.html",
+      "built_at": "2026-11-11T16:57:45.345Z"
+    }
   },
   {
     "id": "1024661423",
@@ -258,10 +270,10 @@
     "quick_start": "git clone https://github.com/we-promise/sure.git && cd sure && cp .env.local.example .env.local && bin/setup && bin/dev",
     "updated_at": "2026-11-11T15:29:28.879Z",
     "mvp": {
-      "app_name": "SureVault Simulator",
-      "tagline": "เครื่องมือวางแผนสถานะทางการเงินและวิเคราะห์อิสรภาพทางการเงินส่วนบุคคลแบบ Privacy-First",
+      "app_name": "SureWealth — AI CFO & FIRE Retirement Studio",
+      "tagline": "จำลองพอร์ตความมั่งคั่ง 10 ปี คำนวณเป้าหมายเกษียณ FIRE (25x) และรับคำแนะนำจาก AI CFO แบบ Real-time",
       "url": "/mvps/mvp-1024661423.html",
-      "built_at": "2026-11-11T16:27:20.781Z"
+      "built_at": "2026-11-11T16:59:32.758Z"
     }
   },
   {
@@ -454,10 +466,10 @@
     "quick_start": "npx cleanyourtv@latest",
     "updated_at": "2026-11-11T15:30:14.045Z",
     "mvp": {
-      "app_name": "DebloatFlow",
-      "tagline": "เครื่องมือวางแผนและสร้างคำสั่ง ADB เพื่อรีดประสิทธิภาพ Android TV ให้ลื่นไหลเหมือนแกะกล่อง",
+      "app_name": "CleanYourTV — Smart TV Debloater & Live Simulator",
+      "tagline": "จำลองหน้าจอทีวีก่อน-หลังลบโฆษณา คำนวณ RAM ที่ได้คืน และสร้างสคริปต์ ADB แบบไม่ต้อง Root",
       "url": "/mvps/mvp-1423101235.html",
-      "built_at": "2026-11-11T16:27:27.575Z"
+      "built_at": "2026-11-11T16:59:32.758Z"
     }
   },
   {
@@ -492,6 +504,12 @@
       "hype_vs_reality": 7
     },
     "quick_start": "git clone https://github.com/storytold/craft-anything\ncd craft-anything\ncargo run -- --help",
-    "updated_at": "2026-11-11T15:30:25.783Z"
+    "updated_at": "2026-11-11T15:30:25.783Z",
+    "mvp": {
+      "app_name": "Craft Anything — Clean-Room Rebuilder Studio",
+      "tagline": "ถอดรหัสกลไกเว็บ แอป และเกม (Arcade Game, Linear Kanban, WebAudio Synth) พร้อมสั่ง AI สร้างเวอร์ชันใหม่จาก URL จริง",
+      "url": "/mvps/mvp-1440956372.html",
+      "built_at": "2026-11-11T16:57:45.345Z"
+    }
   }
 ]
