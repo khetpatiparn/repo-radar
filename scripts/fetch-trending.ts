@@ -179,7 +179,7 @@ async function processWithGemini(
 
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
   // Using gemini-1.5-flash for speed/cost (since it's a zero cost stack)
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest", generationConfig: { responseMimeType: "application/json" } });
+  const model = genAI.getGenerativeModel({ model: "gemini-3.8-flash", generationConfig: { responseMimeType: "application/json" } });
   const prompt = `
 You are an expert developer relations engineer and tech analyst.
 Analyze the following GitHub repository and community context to provide a JSON response strictly adhering to the requested schema.
