@@ -178,8 +178,11 @@ async function processWithGemini(
   }
 
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  // Using gemini-1.5-flash for speed/cost (since it's a zero cost stack)
-  const model = genAI.getGenerativeModel({ model: "gemini-3.8-flash", generationConfig: { responseMimeType: "application/json" } });
+  const modelsToTry = [
+    "gemini-3.5-flash-lite",
+    "gemini-3.1-flash-lite",
+    "gemini-2.5-flash-lite",
+  ];
   const prompt = `
 You are an expert developer relations engineer and tech analyst.
 Analyze the following GitHub repository and community context to provide a JSON response strictly adhering to the requested schema.
@@ -217,34 +220,59 @@ Provide the output strictly in the following JSON structure:
 }
 `;
 
-  try {
-    const result = await model.generateContent(prompt);
-    const responseText = result.response.text();
-    
-    // Parse and validate with Zod
-    const aiData = JSON.parse(responseText);
-    
-    // Combine with base data
-    const fullData = {
-      id: repo.id.toString(),
-      name: repo.name,
-      owner: repo.owner.login,
-      url: repo.html_url,
-      stars: repo.stargazers_count,
-      stars_today: getStarsTodayApprox(),
-      language: repo.language,
-      topics: repo.topics,
-      license: repo.license?.spdx_id || null,
-      open_issues: repo.open_issues_count,
-      updated_at: new Date().toISOString(),
-      ...aiData
-    };
+  for (const modelName of modelsToTry) {
+    const model = genAI.getGenerativeModel({
+      model: modelName,
+      generationConfig: { responseMimeType: "application/json" },
+    });
 
-    return RepositorySchema.parse(fullData);
-  } catch (error) {
-    console.error(`Failed to process ${repo.full_name} with Gemini:`, error);
-    return null;
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        const result = await model.generateContent(prompt);
+        const responseText = result.response.text();
+
+        // Parse and validate with Zod
+        const aiData = JSON.parse(responseText);
+
+        // Combine with base data
+        const fullData = {
+          id: repo.id.toString(),
+          name: repo.name,
+          owner: repo.owner.login,
+          url: repo.html_url,
+          stars: repo.stargazers_count,
+          stars_today: getStarsTodayApprox(),
+          language: repo.language,
+          topics: repo.topics,
+          license: repo.license?.spdx_id || null,
+          open_issues: repo.open_issues_count,
+          updated_at: new Date().toISOString(),
+          ...aiData,
+        };
+
+        return RepositorySchema.parse(fullData);
+      } catch (error: any) {
+        const status = error?.status;
+        const isTransient = status === 503 || status === 429;
+        console.warn(
+          `[${modelName}] Attempt ${attempt} failed for ${repo.full_name} (status: ${status ?? "unknown"}): ${error?.message || error}`
+        );
+        if (isTransient && attempt < 2) {
+          const delayMs = 3000 * attempt;
+          console.log(`Waiting ${delayMs}ms before retrying ${modelName}...`);
+          await new Promise((r) => setTimeout(r, delayMs));
+        } else if (isTransient) {
+          console.log(`Switching to fallback model after ${modelName} failed...`);
+          break;
+        } else {
+          break;
+        }
+      }
+    }
   }
+
+  console.error(`Failed to process ${repo.full_name} with all Gemini models.`);
+  return null;
 }
 
 async function main() {
