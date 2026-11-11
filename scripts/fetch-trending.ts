@@ -187,6 +187,11 @@ async function processWithGemini(
 You are an expert developer relations engineer and tech analyst.
 Analyze the following GitHub repository and community context to provide a JSON response strictly adhering to the requested schema.
 
+IMPORTANT LANGUAGE REQUIREMENT:
+All descriptive text fields (one_liner, problem_solved, alternative_comparison, maturity_reason, monetization_idea, stack_synergy, pros, gotchas_and_traps) MUST be written in **Thai (ภาษาไทย)** using natural, clear developer language (technical terms like API, CLI, Next.js, Supabase, Docker, LLM, etc. can remain in English).
+Keep "maturity_rating" strictly in English as one of: "Production-Ready", "Experimental", or "PoC".
+Keep "quick_start" as executable terminal commands or code snippets.
+
 Repository: ${repo.full_name}
 Topics: ${repo.topics.join(", ")}
 Language: ${repo.language}
@@ -202,18 +207,18 @@ ${hnContext}
 
 Provide the output strictly in the following JSON structure:
 {
-  "one_liner": "A 1-sentence ELI5 summary of what it does, no jargon.",
-  "problem_solved": "The clear pain point this solves that old tools couldn't.",
-  "alternative_comparison": "Comparison with existing tools (e.g. 'Like X but Y').",
+  "one_liner": "สรุปสั้นๆ 1 ประโยคแบบเข้าใจง่ายที่สุด (ELI5) ว่าโปรเจกต์นี้ทำอะไรได้ (ภาษาไทย)",
+  "problem_solved": "อธิบาย Pain point หรือปัญหาหลักที่เครื่องมือนี้เข้ามาช่วยแก้ ซึ่งเครื่องมือเดิมๆ ทำได้ไม่ดีพอ (ภาษาไทย)",
+  "alternative_comparison": "เปรียบเทียบกับเครื่องมืออื่นที่คล้ายกัน เช่น 'คล้ายกับ X แต่ดีกว่าตรงที่ Y' (ภาษาไทย)",
   "maturity_rating": "One of: 'Production-Ready', 'Experimental', 'PoC'",
-  "maturity_reason": "1 sentence reason based on commits/tests/issues.",
+  "maturity_reason": "เหตุผลสั้นๆ 1 ประโยคที่ประเมินจากความถี่ในการอัปเดต เทสต์ หรือ Issues (ภาษาไทย)",
   "ai_opportunity": {
-    "monetization_idea": "A tangible Micro-SaaS/API business idea.",
-    "stack_synergy": "How to pair this with modern stacks (Next.js, Supabase, etc)."
+    "monetization_idea": "ไอเดียการนำไปต่อยอดสร้างรายได้ ทำ Micro-SaaS หรือ API Service ที่จับต้องได้ (ภาษาไทย)",
+    "stack_synergy": "แนวทางการนำไปใช้ร่วมกับ Modern Stack เช่น Next.js, Supabase, Vercel ฯลฯ (ภาษาไทย)"
   },
   "human_vibe_check": {
-    "pros": ["Pro 1", "Pro 2"],
-    "gotchas_and_traps": ["Trap/Gotcha 1", "Trap/Gotcha 2"],
+    "pros": ["จุดเด่นที่คนชอบ ข้อที่ 1 (ภาษาไทย)", "จุดเด่นที่คนชอบ ข้อที่ 2 (ภาษาไทย)"],
+    "gotchas_and_traps": ["ข้อควรระวังหรือข้อจำกัด ข้อที่ 1 (ภาษาไทย)", "ข้อควรระวังหรือข้อจำกัด ข้อที่ 2 (ภาษาไทย)"],
     "hype_vs_reality": <number between 0 and 10>
   },
   "quick_start": "The shortest terminal command or 3-line code snippet to run this."
