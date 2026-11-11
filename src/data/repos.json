@@ -1,86 +1,52 @@
 [
   {
-    "id": "1",
-    "name": "langchain",
-    "owner": "langchain-ai",
-    "url": "https://github.com/langchain-ai/langchain",
-    "stars": 80000,
-    "stars_today": 150,
-    "language": "Python",
-    "topics": ["llm", "ai", "python"],
-    "license": "MIT",
-    "open_issues": 350,
-    "one_liner": "Building applications with LLMs through composability.",
-    "problem_solved": "Simplifies creating applications that use large language models by providing a standard interface for chains, agents, and memory.",
-    "alternative_comparison": "Like a powerful standard library for LLMs compared to raw API calls.",
-    "maturity_rating": "Production-Ready",
-    "maturity_reason": "Widely used in production, extensive documentation and community support.",
-    "ai_opportunity": {
-      "monetization_idea": "Build vertical-specific AI agents (e.g., legal or medical document analyzers) as paid services.",
-      "stack_synergy": "Pair with Next.js for frontend and Supabase for vector storage."
-    },
-    "human_vibe_check": {
-      "pros": ["Incredible ecosystem and integrations", "Fastest way to prototype LLM apps"],
-      "gotchas_and_traps": ["API changes frequently, breaking backward compatibility", "Can be overly abstracted and hard to debug"],
-      "hype_vs_reality": 8
-    },
-    "quick_start": "pip install langchain\nfrom langchain.llms import OpenAI\nllm = OpenAI(temperature=0.9)",
-    "updated_at": "2023-11-15T12:00:00Z"
-  },
-  {
-    "id": "2",
-    "name": "bun",
-    "owner": "oven-sh",
-    "url": "https://github.com/oven-sh/bun",
-    "stars": 55000,
-    "stars_today": 80,
-    "language": "Zig",
-    "topics": ["javascript", "runtime", "zig"],
-    "license": "MIT",
-    "open_issues": 1200,
-    "one_liner": "A fast all-in-one JavaScript runtime, bundler, transpiler and package manager.",
-    "problem_solved": "Replaces Node.js, npm, yarn, esbuild, and webpack with a single incredibly fast binary.",
-    "alternative_comparison": "Node.js but 3x-10x faster and with zero-config TypeScript support out of the box.",
-    "maturity_rating": "Experimental",
-    "maturity_reason": "Version 1.0 released recently, but still finding edge cases in complex node APIs.",
-    "ai_opportunity": {
-      "monetization_idea": "Create ultra-fast edge deployment services optimized specifically for Bun.",
-      "stack_synergy": "Excellent drop-in replacement for any Next.js or React full-stack project backend."
-    },
-    "human_vibe_check": {
-      "pros": ["Blazingly fast package installation", "Native TypeScript execution is a game-changer"],
-      "gotchas_and_traps": ["Some obscure npm packages still fail to run", "Windows support has historically been spotty"],
-      "hype_vs_reality": 7
-    },
-    "quick_start": "curl -fsSL https://bun.sh/install | bash\nbun run index.ts",
-    "updated_at": "2023-11-15T12:00:00Z"
-  },
-  {
-    "id": "3",
-    "name": "ui",
-    "owner": "shadcn",
-    "url": "https://github.com/shadcn-ui/ui",
-    "stars": 45000,
-    "stars_today": 200,
+    "id": "28457823",
+    "name": "freeCodeCamp",
+    "owner": "freeCodeCamp",
+    "url": "https://github.com/freeCodeCamp/freeCodeCamp",
+    "stars": 458981,
+    "stars_today": 181,
     "language": "TypeScript",
-    "topics": ["react", "tailwind", "components"],
-    "license": "MIT",
-    "open_issues": 150,
-    "one_liner": "Beautifully designed components that you can copy and paste into your apps.",
-    "problem_solved": "Provides high-quality UI components without the bloat of an npm package, giving you full control over the code.",
-    "alternative_comparison": "Unlike Material UI or Chakra, you own the component code instead of importing it from a library.",
+    "topics": [
+      "careers",
+      "certification",
+      "community",
+      "curriculum",
+      "d3",
+      "education",
+      "freecodecamp",
+      "javascript",
+      "learn-to-code",
+      "math",
+      "nodejs",
+      "nonprofits",
+      "programming",
+      "react",
+      "teachers"
+    ],
+    "license": "BSD-3-Clause",
+    "open_issues": 188,
+    "one_liner": "A free, interactive online platform where anyone can learn computer programming, build portfolio projects, and earn certifications.",
+    "problem_solved": "Traditional coding bootcamps and degree programs are cost-prohibitive and rigid, while fragmented video tutorials lack hands-on, test-driven feedback and clear pathways to employment.",
+    "alternative_comparison": "Like Codecademy and LeetCode, but completely free, open-source, non-profit, and project-based.",
     "maturity_rating": "Production-Ready",
-    "maturity_reason": "Extremely stable since it relies on copying headless radix-ui components and tailwind classes.",
+    "maturity_reason": "It powers a live global educational site serving millions of active users daily with well-established test suites and structured contribution guidelines.",
     "ai_opportunity": {
-      "monetization_idea": "Sell premium templates and complex layouts built on top of these base components.",
-      "stack_synergy": "The absolute best companion for Next.js 14 App Router and Tailwind CSS."
+      "monetization_idea": "An AI-powered synchronous code mentor extension that explains test failures in freeCodeCamp exercises and offers Socratic hints without giving away the solutions.",
+      "stack_synergy": "Pair the curriculum's markdown-based challenges with Next.js and Supabase vector embeddings to build customized internal onboarding paths for engineering teams."
     },
     "human_vibe_check": {
-      "pros": ["Ultimate customization freedom", "Looks fantastic by default with great accessibility"],
-      "gotchas_and_traps": ["Can bloat your source code directory quickly", "Updating components later requires manual diffing"],
+      "pros": [
+        "Massive, supportive global community and proven track record of career transitions",
+        "Comprehensive, modern curriculum covering full-stack web development, Python, and C#"
+      ],
+      "gotchas_and_traps": [
+        "Monorepo is massive and can be resource-intensive and slow to set up locally for contributors",
+        "Strict contribution checklists and high issue volume can lead to delayed PR reviews"
+      ],
       "hype_vs_reality": 9
     },
-    "quick_start": "npx shadcn-ui@latest init\nnpx shadcn-ui@latest add button",
-    "updated_at": "2023-11-15T12:00:00Z"
+    "quick_start": "git clone https://github.com/freeCodeCamp/freeCodeCamp.git && cd freeCodeCamp && pnpm install && pnpm run develop",
+    "updated_at": "2026-11-11T14:39:09.753Z"
   }
 ]
