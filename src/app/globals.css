@@ -1,18 +1,62 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans: var(--font-sarabun), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), var(--font-serif-thai), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-@layer base {
-  :root {
-    --background: #000000;
-    --foreground: #ffffff;
-  }
+:root {
+  --paper-bg: #f6f1e7;
+  --paper-sheet: #fbf9f4;
+  --paper-subtle: #ede6d8;
+  --paper-ink: #191715;
+  --paper-body: #2c2925;
+  --paper-muted: #665f55;
+  --paper-rule: #d5ccb9;
+  --paper-rule-strong: #23201c;
+  --paper-accent: #8e2424;
+  --paper-accent-soft: #f5e6e4;
+  --paper-green: #1d523d;
+  --paper-green-soft: #e3efe9;
+  --paper-amber: #8a5612;
+  --paper-amber-soft: #f7eedb;
+}
+
+.theme-night {
+  --paper-bg: #151412;
+  --paper-sheet: #1d1b18;
+  --paper-subtle: #26231f;
+  --paper-ink: #ede6da;
+  --paper-body: #d2cabd;
+  --paper-muted: #91887b;
+  --paper-rule: #34302b;
+  --paper-rule-strong: #6e665c;
+  --paper-accent: #e06d53;
+  --paper-accent-soft: #2e1e1b;
+  --paper-green: #63c193;
+  --paper-green-soft: #192b23;
+  --paper-amber: #e6b35a;
+  --paper-amber-soft: #2c2417;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--paper-bg);
+  color: var(--paper-body);
+  font-family: var(--font-sans);
+  line-height: 1.75;
 }
+
+.font-editorial {
+  font-family: var(--font-serif-thai), var(--font-playfair), Georgia, serif;
+}
+
+.font-masthead {
+  font-family: var(--font-playfair), var(--font-serif-thai), Georgia, serif;
+}
+
+/* Smooth scrolling for TOC links */
+html {
+  scroll-behavior: smooth;
+}
+

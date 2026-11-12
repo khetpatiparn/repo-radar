@@ -41,3 +41,73 @@ export interface ReposFeedData {
   yesterday: RepositoryData[];
 }
 
+export const PAPER_CATEGORIES = [
+  "AI Agents & Memory",
+  "LLM & Reasoning",
+  "Vision, Audio & Multimodal",
+  "Infra, Speed & Quantization",
+  "Coding, Data & Benchmarks",
+  "Applied AI & Science",
+] as const;
+
+export type PaperCategory = (typeof PAPER_CATEGORIES)[number];
+
+export const PaperUseCaseSchema = z.object({
+  title: z.string(),
+  role: z.string(),
+  description: z.string(),
+  example: z.string(),
+});
+
+export const PaperSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  authors: z.array(z.string()),
+  organization: z.string().nullable(),
+  upvotes: z.number(),
+  num_comments: z.number(),
+  published_date: z.string(), // YYYY-MM-DD (daily paper date)
+  updated_at: z.string(), // ISO string
+  arxiv_url: z.string(),
+  pdf_url: z.string(),
+  hf_url: z.string(),
+  github_url: z.string().nullable(),
+  github_stars: z.number().nullable(),
+  project_url: z.string().nullable(),
+  thumbnail_url: z.string(),
+  media_urls: z.array(z.string()),
+  category: z.enum(PAPER_CATEGORIES),
+  reading_time_minutes: z.number(),
+
+  // Thai Editorial Content (เนื้อหาสรุปเจาะลึกภาษาไทย)
+  hook_headline: z.string(),
+  short_teaser: z.string(),
+  tldr_takeaways: z.array(z.string()),
+  layman_story: z.array(z.string()), // 2-3 paragraphs in plain Thai
+  impact_comparison: z.object({
+    before: z.string(),
+    after: z.string(),
+    why_it_matters: z.string(),
+  }),
+  use_cases: z.array(PaperUseCaseSchema),
+  community_pulse: z.object({
+    summary: z.string(),
+    praises: z.array(z.string()),
+    critiques: z.array(z.string()),
+    hype_score: z.number().min(0).max(10),
+  }),
+});
+
+export type PaperData = z.infer<typeof PaperSchema>;
+
+export interface PaperDayBatch {
+  date: string; // YYYY-MM-DD
+  papers: PaperData[];
+}
+
+export interface PapersFeedData {
+  updated_at: string;
+  days: PaperDayBatch[]; // Rolling 7 days, newest first (days[0] = today, days[1] = yesterday, etc.)
+}
+
+
