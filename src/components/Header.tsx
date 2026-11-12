@@ -21,8 +21,9 @@ export function Header({ updatedAt, totalRepos, avgHype, onSearch }: HeaderProps
 
   return (
     <header className="sticky top-0 z-10 bg-zinc-900/80 backdrop-blur border-b border-zinc-800 text-zinc-100 py-4 px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div className="flex items-center gap-2">
-        <Radar className="w-8 h-8 text-emerald-400" />
+      <div className="flex items-center gap-3">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo.svg" alt="RepoRadar Logo" className="w-9 h-9 rounded-lg shadow-md shrink-0" />
         <div>
           <h1 className="text-xl font-bold tracking-tight">RepoRadar <span className="text-zinc-500 font-normal">// GitHub Trending Intelligence</span></h1>
           <p className="text-xs text-zinc-400">อัปเดตล่าสุดเมื่อ {relativeTime}</p>
