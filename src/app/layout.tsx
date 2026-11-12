@@ -17,10 +17,12 @@ export const metadata: Metadata = {
   description: "Automated insights and strategic analysis of GitHub trending repositories.",
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
       { url: "/logo.svg", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/logo.svg" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
 };
