@@ -5,12 +5,12 @@
       "name": "astryx",
       "owner": "meta",
       "url": "https://github.com/meta/astryx",
-      "stars": 24423,
-      "stars_today": 2842,
+      "stars": 25708,
+      "stars_today": 2776,
       "language": "TypeScript",
       "topics": [],
       "license": "MIT",
-      "open_issues": 660,
+      "open_issues": 655,
       "one_liner": "ระบบ Design System ที่ปรับแต่งได้เต็มที่จาก Meta ซึ่งออกแบบมาให้มนุษย์และ AI ใช้งานร่วมกันได้อย่างลงตัว",
       "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการใช้ Design System ทั่วไปที่มักถูก Lock-in ด้วยสไตล์เฉพาะตัว ทำให้ปรับแต่งยากและไม่เป็นมิตรต่อเครื่องมืออัตโนมัติหรือ AI Coding Agent",
       "alternative_comparison": "คล้ายกับ Radix UI หรือ Headless UI แต่ดีกว่าตรงที่เป็นระบบที่ครบวงจรพร้อม Theme และรองรับการทำงานร่วมกับ AI ได้ดีกว่าผ่าน CLI ที่ออกแบบมาเฉพาะ",
@@ -32,15 +32,15 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npm install @astryxdesign/core @astryxdesign/theme-neutral @stylexjs/stylex\nnpm install -D @astryxdesign/cli\nnpx astryx init",
-      "updated_at": "2026-11-11T15:28:14.201Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1131513930",
       "name": "daily_stock_analysis",
       "owner": "ZhuLinsen",
       "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
-      "stars": 69932,
-      "stars_today": 429,
+      "stars": 70871,
+      "stars_today": 278,
       "language": "Python",
       "topics": [
         "a-stock",
@@ -52,7 +52,7 @@
         "quantitative-trading"
       ],
       "license": "MIT",
-      "open_issues": 47,
+      "open_issues": 53,
       "one_liner": "ระบบ AI อัจฉริยะที่ช่วยวิเคราะห์หุ้นหลายตลาดทั่วโลกโดยอัตโนมัติ พร้อมสรุปรายงานและแจ้งเตือนผ่านโซเชียลมีเดียในรูปแบบ Dashboard ที่อ่านง่าย",
       "problem_solved": "แก้ปัญหาความยุ่งยากในการรวบรวมข้อมูลหุ้นจากหลายแหล่งและการวิเคราะห์ด้วยตัวเองที่ใช้เวลานาน โดยเปลี่ยนจากข้อมูลดิบจำนวนมหาศาลให้เป็นบทสรุปเชิงกลยุทธ์ที่นำไปใช้ตัดสินใจลงทุนได้ทันที",
       "alternative_comparison": "คล้ายกับบริการ Bloomberg Terminal หรือแพลตฟอร์ม Quant ขนาดใหญ่ แต่เข้าถึงง่ายกว่าด้วยการทำงานผ่าน GitHub Actions และรองรับการปรับแต่ง Prompt ผ่าน LLM ได้ตามความต้องการของผู้ใช้รายย่อย",
@@ -74,19 +74,19 @@
         "hype_vs_reality": 8
       },
       "quick_start": "docker run -d -p 8000:8000 --env-file .env zhulinsen/daily_stock_analysis:latest",
-      "updated_at": "2026-11-11T15:28:22.259Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1143633223",
       "name": "modern-web-guidance-src",
       "owner": "GoogleChrome",
       "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
-      "stars": 1519,
-      "stars_today": 133,
+      "stars": 2084,
+      "stars_today": 159,
       "language": "TypeScript",
       "topics": [],
       "license": "Apache-2.0",
-      "open_issues": 362,
+      "open_issues": 374,
       "one_liner": "เครื่องมือช่วยเพิ่มความฉลาดให้ AI Coding Agents ให้เขียนโค้ดโดยใช้มาตรฐานเว็บสมัยใหม่แทนเทคนิคเก่าๆ",
       "problem_solved": "แก้ปัญหาที่ AI มักเขียนโค้ดโดยอิงจากข้อมูลเก่าในปี 2019 ทำให้ผลลัพธ์ที่ได้มีขนาดใหญ่เกินความจำเป็นและไม่ได้ใช้ประโยชน์จาก Browser API ใหม่ๆ ที่มีประสิทธิภาพและเข้าถึงได้ง่ายกว่า",
       "alternative_comparison": "คล้ายกับ Linter อย่าง ESLint หรือ Prettier แต่เปลี่ยนจากการตรวจสอบ Syntax มาเป็นการให้คำแนะนำเชิงกลยุทธ์ (Context-aware guidance) เพื่อให้ AI เลือกใช้ Native Web Platform แทนไลบรารีภายนอก",
@@ -108,19 +108,19 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npx modern-web-guidance@latest search \"animate a dialog modal backdrop\"",
-      "updated_at": "2026-11-11T15:28:37.526Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1264986626",
       "name": "improve",
       "owner": "shadcn",
       "url": "https://github.com/shadcn/improve",
-      "stars": 10554,
-      "stars_today": 333,
+      "stars": 11247,
+      "stars_today": 361,
       "language": null,
       "topics": [],
       "license": "MIT",
-      "open_issues": 17,
+      "open_issues": 18,
       "one_liner": "ตัวช่วยอัจฉริยะที่ทำหน้าที่เป็น 'สถาปนิกซอฟต์แวร์' คอยตรวจสอบ Codebase และวางแผนงานอย่างละเอียดเพื่อให้ AI ตัวอื่นนำไปเขียนโค้ดต่อได้จริง",
       "problem_solved": "แก้ปัญหาที่ AI เขียนโค้ดได้สะเปะสะปะหรือไม่เข้าใจภาพรวมของโปรเจกต์ ด้วยการแยกส่วน 'การคิดและวางแผน' (ซึ่งต้องใช้โมเดลฉลาดๆ) ออกจากการ 'ลงมือเขียนโค้ด' (ซึ่งใช้โมเดลราคาถูกได้) ทำให้งานมีระเบียบและลดความผิดพลาด",
       "alternative_comparison": "คล้ายกับการทำ Code Review ทั่วไป แต่ต่างตรงที่เป็น Agent อัตโนมัติที่ช่วยเขียน Step-by-step Implementation Plan ให้เสร็จสรรพ ไม่ใช่แค่บอกว่าอะไรผิด",
@@ -142,15 +142,15 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npx skills add shadcn/improve\n/improve",
-      "updated_at": "2026-11-11T15:28:44.808Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1158722119",
       "name": "agent-skills",
       "owner": "addyosmani",
       "url": "https://github.com/addyosmani/agent-skills",
-      "stars": 115662,
-      "stars_today": 788,
+      "stars": 116236,
+      "stars_today": 787,
       "language": "JavaScript",
       "topics": [
         "agent-skills",
@@ -161,7 +161,7 @@
         "skills"
       ],
       "license": "MIT",
-      "open_issues": 135,
+      "open_issues": 136,
       "one_liner": "เป็นชุดคำสั่งและ Workflow มาตรฐานสำหรับ AI coding agents เพื่อให้ทำงานได้อย่างมีคุณภาพเหมือนวิศวกรซอฟต์แวร์ระดับอาวุโส",
       "problem_solved": "แก้ปัญหา AI เขียนโค้ดแบบสะเปะสะปะ ขาดมาตรฐานการจัดการ (Best practices) และไม่ได้คำนึงถึงวงจรการพัฒนาแบบมืออาชีพ เช่น การทำ Test-driven development หรือการทำ Code Review อย่างเป็นระบบ",
       "alternative_comparison": "คล้ายกับ System Prompts ทั่วไป แต่ต่างตรงที่มีความเป็นระเบียบและเป็น modular มากกว่า โดยถูกออกแบบมาให้เป็น plugin ที่ติดตั้งง่ายและสอดประสานกับเครื่องมืออย่าง Claude Code หรือ Cursor ได้โดยตรง",
@@ -183,15 +183,15 @@
         "hype_vs_reality": 8
       },
       "quick_start": "npx skills add addyosmani/agent-skills",
-      "updated_at": "2026-11-11T15:28:52.827Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1132001614",
       "name": "agent-browser",
       "owner": "vercel-labs",
       "url": "https://github.com/vercel-labs/agent-browser",
-      "stars": 49671,
-      "stars_today": 712,
+      "stars": 50108,
+      "stars_today": 708,
       "language": "Rust",
       "topics": [],
       "license": "Apache-2.0",
@@ -217,19 +217,19 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npm install -g agent-browser\nagent-browser install\nagent-browser open example.com && agent-browser snapshot -i",
-      "updated_at": "2026-11-11T15:29:01.621Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1024661423",
       "name": "sure",
       "owner": "we-promise",
       "url": "https://github.com/we-promise/sure",
-      "stars": 12635,
-      "stars_today": 1079,
+      "stars": 13308,
+      "stars_today": 1078,
       "language": "Ruby",
       "topics": [],
       "license": "AGPL-3.0",
-      "open_issues": 894,
+      "open_issues": 890,
       "one_liner": "แอปพลิเคชันบริหารจัดการการเงินส่วนบุคคลแบบ Open-source ที่ช่วยให้คุณติดตามสินทรัพย์ รายได้ และค่าใช้จ่ายได้ด้วยตัวเองอย่างปลอดภัย",
       "problem_solved": "แก้ปัญหาความเป็นส่วนตัวและความยั่งยืนของแอปการเงินทั่วไป ที่มักจะปิดตัวลงหรือขายข้อมูลผู้ใช้ โดยโปรเจกต์นี้เปิดโอกาสให้ผู้ใช้ติดตั้งและควบคุมข้อมูลการเงินของตนเองได้แบบ 100% บนเซิร์ฟเวอร์ส่วนตัว",
       "alternative_comparison": "คล้ายกับ Mint หรือ YNAB (You Need A Budget) แต่ได้เปรียบตรงที่เป็น Open-source, self-host ได้, ไม่มีการขายข้อมูล และไม่มีค่าสมาชิกรายเดือนที่ผูกมัด",
@@ -251,15 +251,15 @@
         "hype_vs_reality": 7
       },
       "quick_start": "git clone https://github.com/we-promise/sure.git && cd sure && cp .env.local.example .env.local && bin/setup && bin/dev",
-      "updated_at": "2026-11-11T15:29:28.879Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1056618941",
       "name": "ha-mcp",
       "owner": "homeassistant-ai",
       "url": "https://github.com/homeassistant-ai/ha-mcp",
-      "stars": 7067,
-      "stars_today": 640,
+      "stars": 7600,
+      "stars_today": 645,
       "language": "Python",
       "topics": [
         "ai",
@@ -272,7 +272,7 @@
         "model-context-protocol"
       ],
       "license": "MIT",
-      "open_issues": 18,
+      "open_issues": 19,
       "one_liner": "เชื่อมต่อระบบ Smart Home ของคุณเข้ากับ AI ทำให้สามารถสั่งการหรือตั้งค่าบ้านผ่าน LLM อย่าง Claude หรือ ChatGPT ได้โดยตรง",
       "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการสร้าง Automation ที่ซับซ้อนผ่าน UI เดิมๆ ของ Home Assistant โดยเปิดให้ AI ช่วยเขียน Logic, จัดการ Integration, หรือตอบคำถามเกี่ยวกับสถานะอุปกรณ์ในบ้านได้อย่างเป็นธรรมชาติ",
       "alternative_comparison": "คล้ายกับ Home Assistant REST API ทั่วไป แต่ดีกว่าตรงที่เป็นมาตรฐาน MCP (Model Context Protocol) ทำให้ AI เข้าใจเครื่องมือ (Tools) ของบ้านได้โดยอัตโนมัติโดยไม่ต้องเขียน Prompt สั่งงานที่ยาวเหยียด",
@@ -294,15 +294,15 @@
         "hype_vs_reality": 8
       },
       "quick_start": "1. ติดตั้งผ่าน HACS หรือ Marketplace ใน Home Assistant\n2. ไปที่ Settings -> Devices -> Add Integration -> HA-MCP Server\n3. สร้าง Long-lived access token หรือใช้บัญชีแยกสำหรับ AI แล้วใส่ใน Config",
-      "updated_at": "2026-11-11T15:29:46.532Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1299769220",
       "name": "codex-security",
       "owner": "openai",
       "url": "https://github.com/openai/codex-security",
-      "stars": 11496,
-      "stars_today": 20,
+      "stars": 11984,
+      "stars_today": 52,
       "language": "TypeScript",
       "topics": [
         "ai-security",
@@ -322,7 +322,7 @@
         "vulnerability-scanning"
       ],
       "license": "Apache-2.0",
-      "open_issues": 141,
+      "open_issues": 140,
       "one_liner": "เครื่องมือจาก OpenAI สำหรับสแกน ตรวจสอบ และแก้ไขช่องโหว่ด้านความปลอดภัยในซอร์สโค้ดด้วยพลัง AI",
       "problem_solved": "เครื่องมือ Static Analysis ทั่วไปมักมี False Positive สูงและขาดบริบทความเข้าใจในตรรกะธุรกิจ ทำให้ยากต่อการแก้ไข แต่เครื่องมือนี้ใช้ AI ช่วยวิเคราะห์เจาะลึกและสร้าง Patch ให้โดยตรง",
       "alternative_comparison": "คล้ายกับ Snyk หรือ Semgrep แต่โดดเด่นกว่าตรงที่สามารถสร้าง Patch อัตโนมัติและมี Context-aware ผ่าน AI ในการวิเคราะห์ลำดับการทำงานของโค้ดที่ซับซ้อนได้ดีกว่า",
@@ -344,15 +344,15 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npm install --global @openai/codex-security\ncs login\ncs scan .",
-      "updated_at": "2026-11-11T15:29:54.031Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "63477660",
       "name": "Java",
       "owner": "TheAlgorithms",
       "url": "https://github.com/TheAlgorithms/Java",
-      "stars": 66910,
-      "stars_today": 39,
+      "stars": 67181,
+      "stars_today": 51,
       "language": "Java",
       "topics": [
         "algorithm",
@@ -367,7 +367,7 @@
         "sorting-algorithms"
       ],
       "license": "MIT",
-      "open_issues": 28,
+      "open_issues": 31,
       "one_liner": "แหล่งรวมอัลกอริทึมและโครงสร้างข้อมูลที่เขียนด้วยภาษา Java สำหรับการศึกษาและการฝึกฝนทักษะการเขียนโปรแกรม",
       "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการค้นหาตัวอย่างโค้ดอัลกอริทึมที่ได้มาตรฐานและเข้าใจง่าย เพราะตำราเรียนมักมีตัวอย่างที่ไม่สมบูรณ์หรือไม่มี source code ให้ทดสอบจริง",
       "alternative_comparison": "คล้ายกับ GeeksforGeeks หรือ LeetCode ในรูปแบบ open-source แต่ดีกว่าตรงที่เน้น source code ที่อ่านง่ายและร่วมมือกันพัฒนาโดย community ทำให้เห็นวิธีคิดที่หลากหลายกว่า",
@@ -389,15 +389,15 @@
         "hype_vs_reality": 8
       },
       "quick_start": "git clone https://github.com/TheAlgorithms/Java.git\ncd Java\n./gradlew build",
-      "updated_at": "2026-11-11T15:30:04.835Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1423101235",
       "name": "cleanyourtv",
       "owner": "Gathin23",
       "url": "https://github.com/Gathin23/cleanyourtv",
-      "stars": 56330,
-      "stars_today": 2167,
+      "stars": 56721,
+      "stars_today": 2101,
       "language": "Python",
       "topics": [
         "adb",
@@ -419,7 +419,7 @@
         "xiaomi"
       ],
       "license": "NOASSERTION",
-      "open_issues": 183,
+      "open_issues": 212,
       "one_liner": "เครื่องมือช่วยลบโฆษณาและ Bloatware ออกจาก Android/Google TV เพื่อเปลี่ยนหน้าจอให้สะอาดและเร็วเหมือน Apple TV โดยไม่ต้อง Root เครื่อง",
       "problem_solved": "ช่วยแก้ปัญหาหน้าจอหลักของ Smart TV ที่เต็มไปด้วยโฆษณาจากผู้ผลิตและเนื้อหาแนะนำที่กินทรัพยากรเครื่อง ทำให้ทีวีอืดและประสบการณ์การใช้งานแย่ลง",
       "alternative_comparison": "คล้ายกับการใช้ ADB สั่งลบแอปด้วยตัวเอง แต่ดีกว่าตรงที่กระบวนการเป็นอัตโนมัติ มีสคริปต์สำรองข้อมูลให้ และมีตัวเลือก Launcher ที่ออกแบบมาเพื่อความเป็นส่วนตัวโดยเฉพาะ",
@@ -441,19 +441,19 @@
         "hype_vs_reality": 8
       },
       "quick_start": "npx cleanyourtv@latest",
-      "updated_at": "2026-11-11T15:30:14.045Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     },
     {
       "id": "1440956372",
       "name": "craft-anything",
       "owner": "storytold",
       "url": "https://github.com/storytold/craft-anything",
-      "stars": 27994,
-      "stars_today": 2333,
+      "stars": 29067,
+      "stars_today": 2422,
       "language": "Rust",
       "topics": [],
       "license": "Apache-2.0",
-      "open_issues": 308,
+      "open_issues": 325,
       "one_liner": "เครื่องมือที่ใช้ AI วิเคราะห์และแกะรอยการทำงานของซอฟต์แวร์หรือเว็บไซต์ เพื่อสร้างโปรเจกต์ใหม่ที่เลียนแบบการทำงานนั้นขึ้นมาโดยอัตโนมัติ",
       "problem_solved": "แก้ปัญหาความยุ่งยากในการ Reverse Engineering ซอฟต์แวร์ที่ต้องใช้ความพยายามสูงและเสียเวลาทำความเข้าใจโครงสร้างด้วยตัวเอง โดยเปลี่ยนขั้นตอนการเรียนรู้และการเขียนโค้ดให้เป็นระบบอัตโนมัติที่แม่นยำและตรวจสอบผลลัพธ์ได้",
       "alternative_comparison": "คล้ายกับเครื่องมือจำพวก Web Scraping หรือ Code Generation ทั่วไป แต่เหนือกว่าตรงที่เป็นระบบปิดที่เน้น 'การตรวจทาน' (Verification) ผลลัพธ์เทียบกับต้นฉบับอย่างเป็นขั้นตอน ทำให้ได้โค้ดที่ใกล้เคียงความจริงมากกว่าแค่การเดาของ LLM",
@@ -475,7 +475,7 @@
         "hype_vs_reality": 7
       },
       "quick_start": "git clone https://github.com/storytold/craft-anything\ncd craft-anything\ncargo run -- --help",
-      "updated_at": "2026-11-11T15:30:25.783Z"
+      "updated_at": "2026-11-12T09:16:17.097Z"
     }
   ],
   "yesterday": [
