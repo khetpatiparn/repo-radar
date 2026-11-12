@@ -46,7 +46,7 @@ An automated "Zero-Cost Stack" web application that fetches GitHub trending repo
 
 ## Deployment & Automation
 
-This project uses **GitHub Actions** to run a daily Cron job (`0 6 * * *`) that updates the trending repositories.
+This project uses **GitHub Actions** to run a daily Cron job (`0 0 * * *` / 07:00 AM ICT) that updates the trending repositories.
 
 ### Required GitHub Secrets
 Go to your repository settings on GitHub: **Settings > Secrets and variables > Actions > New repository secret**.

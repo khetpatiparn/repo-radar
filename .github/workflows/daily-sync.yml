@@ -2,7 +2,7 @@ name: Daily Trending Sync
 
 on:
   schedule:
-    - cron: '0 6 * * *' # Run daily at 06:00 UTC
+    - cron: '0 0 * * *' # Run daily at 00:00 UTC (07:00 AM ICT / เวลาไทย)
   workflow_dispatch: # Allow manual trigger
 
 jobs:
