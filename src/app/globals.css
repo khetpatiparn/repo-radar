@@ -58,5 +58,21 @@ body {
 /* Smooth scrolling for TOC links */
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
+
+/* Hide scrollbar on horizontal swipeable ribbons */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch target comfort */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 
