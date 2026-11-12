@@ -348,19 +348,63 @@ Provide the output strictly in the following JSON structure:
   return null;
 }
 
+async function loadPreviousFeed(): Promise<{
+  yesterdayRepos: RepositoryData[];
+  cachedById: Map<string, RepositoryData>;
+}> {
+  const cachedById = new Map<string, RepositoryData>();
+  let yesterdayRepos: RepositoryData[] = [];
+
+  try {
+    const raw = await fs.readFile(REPOS_FILE_PATH, "utf-8");
+    const parsed = JSON.parse(raw);
+
+    if (Array.isArray(parsed)) {
+      // Legacy flat array -> treat as yesterday's data on migration
+      yesterdayRepos = parsed as RepositoryData[];
+      for (const r of yesterdayRepos) {
+        cachedById.set(r.id, r);
+        cachedById.set(`${r.owner}/${r.name}`.toLowerCase(), r);
+      }
+    } else if (parsed && typeof parsed === "object") {
+      const prevToday: RepositoryData[] = Array.isArray(parsed.today) ? parsed.today : [];
+      const prevYesterday: RepositoryData[] = Array.isArray(parsed.yesterday) ? parsed.yesterday : [];
+
+      for (const r of [...prevYesterday, ...prevToday]) {
+        cachedById.set(r.id, r);
+        cachedById.set(`${r.owner}/${r.name}`.toLowerCase(), r);
+      }
+
+      const prevDate = prevToday[0]?.updated_at?.slice(0, 10);
+      const currDate = new Date().toISOString().slice(0, 10);
+
+      // Rotate prevToday into yesterday if it's a new day or yesterday is empty
+      if ((prevDate && prevDate !== currDate) || prevYesterday.length === 0) {
+        yesterdayRepos = prevToday;
+      } else {
+        yesterdayRepos = prevYesterday;
+      }
+    }
+  } catch (err) {
+    console.warn("Could not read existing repos.json, starting fresh.");
+  }
+
+  return { yesterdayRepos, cachedById };
+}
+
 async function main() {
   console.log("Starting RepoRadar Data Pipeline...");
   
   if (!GITHUB_TOKEN || !GEMINI_API_KEY) {
     console.warn("Missing GITHUB_TOKEN or GEMINI_API_KEY. The pipeline requires both to fetch and process real data.");
     console.warn("Make sure they are set in .env.local or environment variables.");
-    // In CI without secrets or local test without keys, we just use mock.
-    // For this build, if secrets aren't here, we'll exit cleanly so we don't overwrite good mock data with nothing.
     if (!process.env.CI) {
       console.log("Exiting gracefully. Mock data will be used.");
       return;
     }
   }
+
+  const { yesterdayRepos, cachedById } = await loadPreviousFeed();
 
   const repos = await fetchGitHubTrending();
   if (repos.length === 0) {
@@ -373,6 +417,29 @@ async function main() {
   const results: RepositoryData[] = [];
 
   for (const repo of repos) {
+    const existing =
+      cachedById.get(repo.id.toString()) ||
+      cachedById.get(repo.full_name.toLowerCase());
+
+    if (existing) {
+      console.log(`♻️ Reusing existing AI analysis for ${repo.full_name} & updating live stats...`);
+      results.push({
+        ...existing,
+        id: repo.id.toString(),
+        name: repo.name,
+        owner: repo.owner.login,
+        url: repo.html_url,
+        stars: repo.stargazers_count,
+        stars_today: getStarsTodayApprox(repo),
+        language: repo.language,
+        topics: repo.topics,
+        license: repo.license?.spdx_id || existing.license || null,
+        open_issues: repo.open_issues_count,
+        updated_at: new Date().toISOString(),
+      });
+      continue;
+    }
+
     console.log(`Processing: ${repo.full_name}...`);
     // Delay slightly to respect rate limits
     await new Promise(r => setTimeout(r, 3500));
@@ -391,12 +458,18 @@ async function main() {
   }
 
   if (results.length > 0) {
-    // Write to file
-    await fs.writeFile(REPOS_FILE_PATH, JSON.stringify(results, null, 2));
-    console.log(`Successfully wrote ${results.length} repositories to ${REPOS_FILE_PATH}`);
+    const payload = {
+      today: results,
+      yesterday: yesterdayRepos,
+    };
+    await fs.writeFile(REPOS_FILE_PATH, JSON.stringify(payload, null, 2));
+    console.log(
+      `Successfully wrote ${results.length} today repos and ${yesterdayRepos.length} yesterday repos to ${REPOS_FILE_PATH}`
+    );
   } else {
     console.log("No repositories were successfully processed. Keeping existing data.");
   }
 }
 
 main().catch(console.error);
+

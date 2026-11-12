@@ -35,3 +35,9 @@ export const RepositorySchema = z.object({
 });
 
 export type RepositoryData = z.infer<typeof RepositorySchema>;
+
+export interface ReposFeedData {
+  today: RepositoryData[];
+  yesterday: RepositoryData[];
+}
+

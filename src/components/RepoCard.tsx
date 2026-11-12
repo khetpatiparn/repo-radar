@@ -10,7 +10,21 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function RepoCard({ repo }: { repo: RepositoryData }) {
+export interface RepoCardProps {
+  repo: RepositoryData;
+  isTwoDayStreak?: boolean;
+  starsAddedSinceYesterday?: number;
+  isYesterdayView?: boolean;
+  stillTrendingToday?: boolean;
+}
+
+export function RepoCard({
+  repo,
+  isTwoDayStreak = false,
+  starsAddedSinceYesterday = 0,
+  isYesterdayView = false,
+  stillTrendingToday = false,
+}: RepoCardProps) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -29,16 +43,31 @@ export function RepoCard({ repo }: { repo: RepositoryData }) {
   };
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-lg transition-all hover:border-zinc-700">
+    <div className={cn(
+      "bg-zinc-900 border rounded-xl overflow-hidden shadow-lg transition-all",
+      isTwoDayStreak
+        ? "border-amber-500/40 hover:border-amber-400/60"
+        : "border-zinc-800 hover:border-zinc-700"
+    )}>
       {/* Header Section */}
       <div className="p-6 border-b border-zinc-800 flex justify-between items-start gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex flex-wrap items-center gap-2 mb-2">
             <h2 className="text-2xl font-bold text-zinc-100 truncate hover:text-emerald-400 transition-colors">
               <a href={repo.url} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                 {repo.owner}/{repo.name}
               </a>
             </h2>
+            {isTwoDayStreak && (
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1 shadow-sm">
+                🔥 ติดเทรนด์ 2 วันซ้อน
+              </span>
+            )}
+            {isYesterdayView && stillTrendingToday && (
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
+                📈 วันนี้ก็ยังติดเทรนด์
+              </span>
+            )}
             <span className={cn("px-2 py-0.5 rounded-full text-xs font-medium border", getMaturityColor(repo.maturity_rating))}>
               {repo.maturity_rating}
             </span>
@@ -57,7 +86,16 @@ export function RepoCard({ repo }: { repo: RepositoryData }) {
             <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
             {(repo.stars / 1000).toFixed(1)}k
           </div>
-          <span className="text-xs text-emerald-400 mt-1 font-medium">+{repo.stars_today} today</span>
+          <span className="text-xs text-emerald-400 mt-1 font-medium">
+            +{repo.stars_today.toLocaleString()} {isYesterdayView ? "เมื่อวาน" : "วันนี้"}
+          </span>
+          {isTwoDayStreak && (
+            <span className="text-[11px] text-amber-300 mt-1 font-medium bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
+              {starsAddedSinceYesterday > 0
+                ? `▲ +${starsAddedSinceYesterday.toLocaleString()} ดาวจากเมื่อวาน`
+                : `▲ ฮิตต่อเนื่องจากเมื่อวาน`}
+            </span>
+          )}
         </div>
       </div>
 
