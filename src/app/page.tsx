@@ -74,6 +74,9 @@ export default function Home() {
     return result;
   }, [searchQuery, selectedLang, selectedMaturity, selectedCategory, sortBy]);
 
+  // Repos with AI-built MVPs
+  const topRepoName = allRepos.length > 0 ? `${allRepos[0].owner}/${allRepos[0].name}` : undefined;
+
   return (
     <div className="min-h-screen bg-black text-zinc-300 font-sans selection:bg-emerald-500/30">
       <Header 
@@ -81,6 +84,7 @@ export default function Home() {
         totalRepos={allRepos.length}
         avgHype={avgHype}
         onSearch={setSearchQuery}
+        topRepoName={topRepoName}
       />
 
       <main className="max-w-6xl mx-auto p-6 space-y-8">

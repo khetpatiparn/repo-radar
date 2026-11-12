@@ -59,3 +59,20 @@ Add the following:
 1. Import this repository into Vercel or Cloudflare Pages.
 2. The platform will automatically detect Next.js.
 3. Every time the GitHub Action successfully updates `src/data/repos.json` and pushes to `main`, the hosting provider will automatically rebuild and deploy the statically generated site.
+
+## Windows Notifications
+
+RepoRadar รองรับการแจ้งเตือนบน Windows 2 รูปแบบ:
+
+1. **Web Push / Browser Notification (Chrome / Edge / Firefox บน Windows 10 & 11)**:
+   - เข้าหน้าเว็บ [RepoRadar](https://repo-radar-lyart.vercel.app/)
+   - กดปุ่ม **"เปิดแจ้งเตือน Windows"** ที่แถบเมนูด้านบน แล้วกด "Allow"
+   - เมื่อมีเทรนด์ใหม่ ระบบจะเด้งเป็น Windows Toast Notification ที่มุมขวาล่างทันที และสามารถกดปุ่มเพื่อทดสอบแจ้งเตือนได้ทุกเมื่อ
+
+2. **Windows PowerShell Native Toast (`scripts/notify-windows.ps1`)**:
+   - รันแจ้งเตือนแบบ Native ทันทีโดยไม่ต้องเปิดเว็บ:
+     ```powershell
+     powershell -ExecutionPolicy Bypass -File .\scripts\notify-windows.ps1
+     ```
+   - สามารถนำไปตั้งใน **Windows Task Scheduler** เพื่อให้เด้งเตือนอัตโนมัติทุกเช้าได้
+
