@@ -23,9 +23,17 @@ import {
   AlertTriangle,
   BookOpen,
   Newspaper,
+  Building2,
+  Flame,
 } from "lucide-react";
 
 type FontSizeScale = "normal" | "large" | "xlarge";
+
+interface TocItem {
+  id: string;
+  num: string;
+  label: string;
+}
 
 interface ArticleReaderProps {
   paper?: PaperData | null;
@@ -36,6 +44,167 @@ interface ArticleReaderProps {
   onBack: () => void;
   isTwoDayStreak?: boolean;
   starsAddedSinceYesterday?: number;
+}
+
+function ReaderTopBar({
+  onBack,
+  fontSize,
+  setFontSize,
+  isSaved,
+  onToggleSave,
+}: {
+  onBack: () => void;
+  fontSize: FontSizeScale;
+  setFontSize: (scale: FontSizeScale) => void;
+  isSaved: boolean;
+  onToggleSave: () => void;
+}) {
+  return (
+    <div className="pb-4 mb-8 border-b-4 border-ink flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <button
+        type="button"
+        onClick={onBack}
+        className="inline-flex items-center gap-2 min-h-[38px] text-sm font-editorial-label text-ink hover:text-accent transition-colors duration-[var(--dur-micro)] cursor-pointer self-start whitespace-nowrap"
+      >
+        <ArrowLeft className="w-4 h-4 shrink-0" />
+        <span>กลับไปหน้าหนังสือพิมพ์</span>
+      </button>
+
+      <div className="flex items-center justify-between sm:justify-end gap-3">
+        <div className="flex items-center border border-rule-2 bg-paper text-xs font-editorial-label">
+          <span className="px-2.5 py-1.5 text-muted border-r border-rule whitespace-nowrap">
+            ขนาดอักษร
+          </span>
+          <button
+            type="button"
+            aria-pressed={fontSize === "normal"}
+            onClick={() => setFontSize("normal")}
+            className={`min-h-[34px] px-3 py-1 cursor-pointer transition-colors duration-[var(--dur-micro)] whitespace-nowrap ${
+              fontSize === "normal"
+                ? "bg-ink text-paper"
+                : "text-ink-2 hover:bg-paper-2"
+            }`}
+          >
+            ก
+          </button>
+          <button
+            type="button"
+            aria-pressed={fontSize === "large"}
+            onClick={() => setFontSize("large")}
+            className={`min-h-[34px] px-3 py-1 cursor-pointer transition-colors duration-[var(--dur-micro)] border-l border-rule whitespace-nowrap ${
+              fontSize === "large"
+                ? "bg-ink text-paper"
+                : "text-ink-2 hover:bg-paper-2"
+            }`}
+          >
+            ก+
+          </button>
+          <button
+            type="button"
+            aria-pressed={fontSize === "xlarge"}
+            onClick={() => setFontSize("xlarge")}
+            className={`min-h-[34px] px-3 py-1 cursor-pointer transition-colors duration-[var(--dur-micro)] border-l border-rule whitespace-nowrap ${
+              fontSize === "xlarge"
+                ? "bg-ink text-paper"
+                : "text-ink-2 hover:bg-paper-2"
+            }`}
+          >
+            ก++
+          </button>
+        </div>
+
+        <button
+          type="button"
+          onClick={onToggleSave}
+          aria-pressed={isSaved}
+          className={`inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 whitespace-nowrap ${
+            isSaved
+              ? "bg-accent text-accent-ink border-accent"
+              : "bg-paper text-ink border-ink hover:bg-paper-2"
+          }`}
+        >
+          {isSaved ? (
+            <>
+              <BookmarkCheck className="w-4 h-4 shrink-0" />
+              <span>คั่นแล้ว</span>
+            </>
+          ) : (
+            <>
+              <Bookmark className="w-4 h-4 shrink-0" />
+              <span>คั่นหน้า</span>
+            </>
+          )}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ReaderDesktopToc({
+  title,
+  items,
+}: {
+  title: string;
+  items: TocItem[];
+}) {
+  return (
+    <div className="p-5 border border-rule bg-paper">
+      <div className="flex items-center gap-2 text-sm font-editorial-label text-ink pb-3 mb-3 border-b border-rule-2">
+        <BookOpen className="w-4 h-4 text-accent shrink-0" />
+        <span>{title}</span>
+      </div>
+      <nav className="space-y-1.5 text-sm font-editorial-body">
+        {items.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className="flex items-start gap-2.5 py-1 text-muted hover:text-ink"
+          >
+            <span className="font-editorial-label text-xs text-accent mt-0.5 shrink-0 num">
+              {item.num}
+            </span>
+            <span className="leading-snug">{item.label}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  );
+}
+
+function ReaderMobileToc({
+  summaryLabel,
+  countText,
+  items,
+}: {
+  summaryLabel: string;
+  countText: string;
+  items: TocItem[];
+}) {
+  return (
+    <details className="lg:hidden mb-6 editorial-well p-4 text-sm">
+      <summary className="font-editorial-label text-ink cursor-pointer flex items-center justify-between select-none">
+        <span className="flex items-center gap-2">
+          <BookOpen className="w-4 h-4 text-accent shrink-0" />
+          <span>{summaryLabel}</span>
+        </span>
+        <span className="text-xs text-muted">{countText}</span>
+      </summary>
+      <nav className="mt-3 pt-3 border-t border-rule space-y-2">
+        {items.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className="flex items-center gap-2.5 py-1 text-ink-2 hover:text-accent"
+          >
+            <span className="font-editorial-label text-xs text-accent num">
+              {item.num}
+            </span>
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </nav>
+    </details>
+  );
 }
 
 export function ArticleReader({
@@ -60,7 +229,7 @@ export function ArticleReader({
       : "text-[17px] leading-8";
 
   if (paper) {
-    const tocItems = [
+    const tocItems: TocItem[] = [
       { id: "sec-tldr", num: "01", label: "สรุปใจความสำคัญ (TL;DR)" },
       { id: "sec-figure", num: "02", label: "ภาพประกอบจากงานวิจัย" },
       { id: "sec-story", num: "03", label: "เจาะลึกแบบภาษาคนทั่วไป" },
@@ -71,196 +240,104 @@ export function ArticleReader({
     ];
 
     return (
-      <article className="w-full px-4 sm:px-8 lg:px-10 py-5 sm:py-8">
-        {/* Top Reader Bar */}
-        <div className="pb-4 mb-6 sm:mb-8 border-b-2 border-[var(--paper-rule-strong)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <button
-            onClick={onBack}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--paper-ink)] hover:text-[var(--paper-accent)] transition cursor-pointer active:scale-95 self-start"
-          >
-            <ArrowLeft className="w-4 h-4 shrink-0" />
-            <span>กลับไปหน้าหนังสือพิมพ์</span>
-          </button>
+      <article className="container py-6 sm:py-10">
+        <ReaderTopBar
+          onBack={onBack}
+          fontSize={fontSize}
+          setFontSize={setFontSize}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
 
-          <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3">
-            {/* Font Size Controls for Eye Comfort */}
-            <div className="flex items-center border border-[var(--paper-rule)] rounded bg-[var(--paper-sheet)] overflow-hidden text-xs">
-              <span className="px-2 py-1 text-[var(--paper-muted)] border-r border-[var(--paper-rule)] text-[11px] sm:text-xs">
-                ขนาดอักษร
-              </span>
-              <button
-                onClick={() => setFontSize("normal")}
-                className={`px-2.5 py-1 font-medium cursor-pointer transition ${
-                  fontSize === "normal"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
-                }`}
-              >
-                ก
-              </button>
-              <button
-                onClick={() => setFontSize("large")}
-                className={`px-2.5 py-1 font-semibold cursor-pointer transition ${
-                  fontSize === "large"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
-                }`}
-              >
-                ก+
-              </button>
-              <button
-                onClick={() => setFontSize("xlarge")}
-                className={`px-2.5 py-1 font-bold cursor-pointer transition ${
-                  fontSize === "xlarge"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
-                }`}
-              >
-                ก++
-              </button>
-            </div>
-
-            <button
-              onClick={onToggleSave}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold border transition cursor-pointer active:scale-95 shrink-0 ${
-                isSaved
-                  ? "bg-[var(--paper-accent)] text-white border-[var(--paper-accent)]"
-                  : "bg-[var(--paper-sheet)] text-[var(--paper-ink)] border-[var(--paper-rule)] hover:border-[var(--paper-rule-strong)]"
-              }`}
-            >
-              {isSaved ? (
-                <>
-                  <BookmarkCheck className="w-3.5 h-3.5" />
-                  <span>คั่นแล้ว</span>
-                </>
-              ) : (
-                <>
-                  <Bookmark className="w-3.5 h-3.5" />
-                  <span>คั่นหน้า</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-          {/* Left Sticky Sidebar: Table of Contents (Desktop lg: only) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+          {/* Left Sticky Sidebar */}
           <aside className="hidden lg:block lg:col-span-3">
             <div className="sticky top-6 space-y-6">
-              <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-sheet)] shadow-2xs">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--paper-ink)] pb-3 mb-3 border-b border-[var(--paper-rule)]">
-                  <BookOpen className="w-3.5 h-3.5 text-[var(--paper-accent)]" />
-                  <span>สารบัญบทความ (TOC)</span>
-                </div>
-                <nav className="space-y-1.5 text-xs sm:text-sm">
-                  {tocItems.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      className="flex items-start gap-2 py-1 text-[var(--paper-muted)] hover:text-[var(--paper-ink)] transition"
-                    >
-                      <span className="font-mono text-xs text-[var(--paper-accent)] mt-0.5 shrink-0">
-                        {item.num}
-                      </span>
-                      <span className="leading-snug">{item.label}</span>
-                    </a>
-                  ))}
-                </nav>
-              </div>
+              <ReaderDesktopToc title="สารบัญบทความ (TOC)" items={tocItems} />
 
-              {/* Paper Metadata Card */}
-              <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/60 text-xs space-y-2.5">
-                <div className="font-bold text-[var(--paper-ink)] uppercase tracking-wider">
+              <div className="p-5 editorial-well text-xs sm:text-sm space-y-2.5">
+                <div className="font-editorial-label text-ink pb-2 border-b border-rule">
                   ข้อมูลจำเพาะของเปเปอร์
                 </div>
-                <div>
-                  <span className="text-[var(--paper-muted)]">รหัส arXiv: </span>
-                  <span className="font-mono text-[var(--paper-ink)] font-semibold">
-                    {paper.id}
-                  </span>
-                </div>
-                {paper.organization && (
+                <dl className="space-y-2 font-editorial-body">
                   <div>
-                    <span className="text-[var(--paper-muted)]">สถาบัน/ทีมวิจัย: </span>
-                    <span className="font-semibold text-[var(--paper-ink)]">
-                      {paper.organization}
-                    </span>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      รหัส arXiv:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-ink num">{paper.id}</dd>
                   </div>
-                )}
-                <div>
-                  <span className="text-[var(--paper-muted)]">คะแนนโหวตชุมชน: </span>
-                  <span className="font-semibold text-[var(--paper-ink)]">
-                    ▲ {paper.upvotes} Upvotes
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[var(--paper-muted)]">คะแนนความน่าจับตา: </span>
-                  <span className="font-semibold text-[var(--paper-green)]">
-                    {paper.community_pulse.hype_score}/10
-                  </span>
-                </div>
+                  {paper.organization && (
+                    <div>
+                      <dt className="text-muted text-xs font-editorial-label inline">
+                        สถาบัน/ทีมวิจัย:{" "}
+                      </dt>
+                      <dd className="inline font-medium text-ink">
+                        {paper.organization}
+                      </dd>
+                    </div>
+                  )}
+                  <div>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      คะแนนโหวตชุมชน:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-ink num">
+                      {paper.upvotes} Upvotes
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      คะแนนความน่าจับตา:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-success num">
+                      {paper.community_pulse.hype_score}/10
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
           </aside>
 
           {/* Main Editorial Reading Column */}
-          <div className="lg:col-span-9 bg-[var(--paper-sheet)] border border-[var(--paper-rule)] rounded p-4 sm:p-8 md:p-10 shadow-xs">
-            {/* Mobile / Tablet Quick Collapsible Table of Contents */}
-            <details className="lg:hidden mb-6 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/70 p-3 sm:p-4 text-xs sm:text-sm">
-              <summary className="font-bold text-[var(--paper-ink)] cursor-pointer flex items-center justify-between select-none">
-                <span className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-[var(--paper-accent)]" />
-                  <span>สารบัญบทความ (แตะเพื่อกระโดดไปยังหัวข้อ)</span>
-                </span>
-                <span className="text-xs text-[var(--paper-muted)]">7 หัวข้อ</span>
-              </summary>
-              <nav className="mt-3 pt-3 border-t border-[var(--paper-rule)] space-y-2">
-                {tocItems.map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="flex items-center gap-2 py-1 text-[var(--paper-body)] hover:text-[var(--paper-accent)]"
-                  >
-                    <span className="font-mono text-xs text-[var(--paper-accent)]">
-                      {item.num}
-                    </span>
-                    <span>{item.label}</span>
-                  </a>
-                ))}
-              </nav>
-            </details>
+          <div className="lg:col-span-9 bg-paper border-t border-rule-2 pt-2 lg:pl-6">
+            <ReaderMobileToc
+              summaryLabel="สารบัญบทความ (แตะเพื่อกระโดดไปยังหัวข้อ)"
+              countText="7 หัวข้อ"
+              items={tocItems}
+            />
 
             {/* Article Header */}
-            <header className="pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-[var(--paper-rule)]">
-              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs mb-3 sm:mb-4">
-                <span className="px-2.5 py-0.5 rounded font-bold uppercase tracking-wider bg-[var(--paper-accent-soft)] text-[var(--paper-accent)]">
-                  {paper.category}
-                </span>
-                {paper.organization && (
-                  <span className="px-2.5 py-0.5 rounded font-semibold bg-[var(--paper-subtle)] text-[var(--paper-ink)]">
-                    🏛️ {paper.organization}
-                  </span>
-                )}
-                {paper.github_url && (
-                  <span className="px-2.5 py-0.5 rounded font-semibold bg-[var(--paper-green-soft)] text-[var(--paper-green)]">
-                    💻 มีโค้ด GitHub
-                  </span>
-                )}
-                <span className="text-[var(--paper-muted)] flex items-center gap-1 sm:ml-auto">
-                  <Clock className="w-3.5 h-3.5" />
-                  อ่าน {paper.reading_time_minutes} นาที
-                </span>
-              </div>
-
-              <h1 className="font-editorial text-xl sm:text-3xl md:text-4xl font-bold text-[var(--paper-ink)] leading-snug mb-3 sm:mb-4">
+            <header className="pb-6 sm:pb-8 mb-8 border-b border-rule space-y-4">
+              <h1 className="font-editorial-display text-2xl sm:text-4xl md:text-[2.6rem] text-ink leading-tight max-w-none">
                 {paper.hook_headline}
               </h1>
 
-              <p className="text-sm sm:text-base text-[var(--paper-muted)] font-serif italic mb-4">
+              <p className="text-sm sm:text-base text-muted font-editorial-body italic max-w-3xl">
                 ชื่อเปเปอร์ต้นฉบับ: &ldquo;{paper.title}&rdquo;
               </p>
 
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--paper-rule)] text-xs text-[var(--paper-muted)]">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-editorial-label">
+                <span className="px-2.5 py-0.5 bg-accent text-accent-ink whitespace-nowrap">
+                  {paper.category}
+                </span>
+                {paper.organization && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-paper-2 border border-rule text-ink whitespace-nowrap">
+                    <Building2 className="w-3.5 h-3.5 text-muted shrink-0" />
+                    <span>{paper.organization}</span>
+                  </span>
+                )}
+                {paper.github_url && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-success-soft border border-rule text-success whitespace-nowrap">
+                    <Code2 className="w-3.5 h-3.5 shrink-0" />
+                    <span>มีโค้ด GitHub</span>
+                  </span>
+                )}
+                <span className="text-muted inline-flex items-center gap-1 sm:ml-auto num">
+                  <Clock className="w-3.5 h-3.5 shrink-0" />
+                  <span>อ่าน {paper.reading_time_minutes} นาที</span>
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-rule text-xs sm:text-sm font-editorial-label text-muted">
                 <div>
                   {paper.authors.length > 0 && (
                     <span>
@@ -269,35 +346,36 @@ export function ArticleReader({
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3 font-medium text-[var(--paper-ink)] text-[11px] sm:text-xs">
-                  <span className="flex items-center gap-1">
-                    <ThumbsUp className="w-3 h-3 text-[var(--paper-accent)]" />
-                    {paper.upvotes} โหวตบน HF
+                <div className="flex items-center gap-4 text-ink num">
+                  <span className="inline-flex items-center gap-1.5">
+                    <ThumbsUp className="w-3.5 h-3.5 text-accent shrink-0" />
+                    <span>{paper.upvotes} โหวตบน HF</span>
                   </span>
-                  <span>•</span>
-                  <span>{paper.published_date}</span>
+                  <span className="border-l border-rule pl-4">
+                    {paper.published_date}
+                  </span>
                 </div>
               </div>
             </header>
 
-            {/* Body Content with Adjustable Font Scale */}
-            <div className={`space-y-10 text-[var(--paper-body)] ${fontSizeClass}`}>
+            {/* Body Content */}
+            <div className={`space-y-10 text-ink-2 font-editorial-body ${fontSizeClass}`}>
               {/* Section 01: TL;DR */}
               <section
                 id="sec-tldr"
-                className="p-6 rounded bg-[var(--paper-subtle)]/70 border-l-4 border-[var(--paper-accent)]"
+                className="p-6 editorial-well border-t-2 border-t-ink"
               >
-                <h2 className="font-editorial text-lg font-bold text-[var(--paper-ink)] mb-3 flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl text-ink mb-3 flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     01 //
                   </span>
                   <span>สรุปใจความสำคัญใน 30 วินาที (Key Takeaways)</span>
                 </h2>
-                <ul className="space-y-2.5 text-base">
+                <ul className="space-y-2.5 text-base max-w-[68ch]">
                   {paper.tldr_takeaways.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <span className="font-bold text-[var(--paper-accent)] shrink-0">
-                        •
+                      <span className="font-bold text-accent shrink-0" aria-hidden="true">
+                        &rsaquo;
                       </span>
                       <span>{point}</span>
                     </li>
@@ -305,29 +383,29 @@ export function ArticleReader({
                 </ul>
               </section>
 
-              {/* Section 02: Paper Visual Preview */}
+              {/* Section 02: Figure */}
               <section id="sec-figure" className="space-y-3">
-                <h2 className="font-editorial text-xl font-bold text-[var(--paper-ink)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     02 //
                   </span>
                   <span>ภาพประกอบและแผนผังจากงานวิจัย</span>
                 </h2>
                 {!imgError && paper.thumbnail_url ? (
-                  <figure className="border border-[var(--paper-rule)] rounded overflow-hidden bg-white p-3">
+                  <figure className="editorial-photo border border-rule bg-paper-2 p-3">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={paper.thumbnail_url}
                       alt={paper.title}
                       onError={() => setImgError(true)}
-                      className="w-full max-h-[420px] object-contain mx-auto rounded"
+                      className="w-full max-h-[420px] object-contain mx-auto"
                     />
-                    <figcaption className="text-xs text-center text-stone-600 mt-2.5 pt-2 border-t border-stone-200 font-sans">
+                    <figcaption className="text-xs text-center text-muted mt-2.5 pt-2 border-t border-rule font-editorial-label">
                       ภาพตัวอย่างจากเอกสารงานวิจัย {paper.title} (arXiv:{paper.id})
                     </figcaption>
                   </figure>
                 ) : (
-                  <div className="p-6 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/40 text-sm text-[var(--paper-muted)]">
+                  <div className="p-6 editorial-well text-sm text-muted">
                     ดูแผนผังสถาปัตยกรรมและตารางผลการทดลองฉบับเต็มได้ในเอกสาร PDF ด้านล่างของบทความ
                   </div>
                 )}
@@ -335,49 +413,49 @@ export function ArticleReader({
 
               {/* Section 03: Deep Layman Explanation */}
               <section id="sec-story" className="space-y-5">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     03 //
                   </span>
                   <span>เจาะลึกเรื่องราวแบบคนทั่วไปเข้าใจง่าย</span>
                 </h2>
-                <p className="font-semibold text-[var(--paper-ink)]">
+                <p className="lead text-ink font-medium max-w-[65ch]">
                   {paper.short_teaser}
                 </p>
                 {paper.layman_story.map((paragraph, idx) => (
-                  <p key={idx} className="text-[var(--paper-body)]">
+                  <p key={idx} className="text-ink-2 max-w-[68ch]">
                     {paragraph}
                   </p>
                 ))}
               </section>
 
-              {/* Section 04: Before vs After & Impact */}
+              {/* Section 04: Before vs After */}
               <section id="sec-impact" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     04 //
                   </span>
                   <span>เปรียบเทียบวิธีเดิม vs วิธีใหม่ และผลกระทบ</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)]">
-                    <div className="text-xs font-bold uppercase tracking-wider text-[var(--paper-muted)] mb-2">
+                  <div className="p-5 border border-rule bg-paper">
+                    <div className="text-xs font-editorial-label text-muted mb-2">
                       ข้อจำกัดของวิธีแบบเดิม (Before)
                     </div>
                     <p>{paper.impact_comparison.before}</p>
                   </div>
 
-                  <div className="p-5 rounded border border-[var(--paper-green)]/40 bg-[var(--paper-green-soft)]/50">
-                    <div className="text-xs font-bold uppercase tracking-wider text-[var(--paper-green)] mb-2">
+                  <div className="p-5 border border-success bg-success-soft">
+                    <div className="text-xs font-editorial-label text-success mb-2">
                       สิ่งที่เปลี่ยนไปจากเปเปอร์นี้ (After)
                     </div>
-                    <p>{paper.impact_comparison.after}</p>
+                    <p className="text-ink">{paper.impact_comparison.after}</p>
                   </div>
                 </div>
 
-                <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/50 text-base">
-                  <span className="font-bold text-[var(--paper-ink)]">
+                <div className="p-5 editorial-well text-base">
+                  <span className="font-bold text-ink">
                     ทำไมเรื่องนี้ถึงสำคัญต่ออนาคต:{" "}
                   </span>
                   <span>{paper.impact_comparison.why_it_matters}</span>
@@ -386,32 +464,27 @@ export function ArticleReader({
 
               {/* Section 05: 3 Concrete Use Cases */}
               <section id="sec-usecases" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     05 //
                   </span>
                   <span>แนวทางการนำไปประยุกต์ใช้จริง (3 ยูสเคส)</span>
                 </h2>
 
-                <div className="space-y-4 text-base">
+                <div className="divide-y divide-rule border-t border-b border-rule text-base">
                   {paper.use_cases.map((uc, idx) => (
-                    <div
-                      key={idx}
-                      className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)]"
-                    >
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <h3 className="font-editorial font-bold text-lg text-[var(--paper-ink)]">
+                    <div key={idx} className="py-5 space-y-2">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h3 className="font-editorial-display text-lg text-ink max-w-none">
                           ยูสเคสที่ {idx + 1}: {uc.title}
                         </h3>
-                        <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-[var(--paper-subtle)] text-[var(--paper-ink)]">
+                        <span className="px-2.5 py-0.5 text-xs font-editorial-label bg-paper-2 border border-rule text-ink whitespace-nowrap">
                           {uc.role}
                         </span>
                       </div>
-                      <p className="mb-2">{uc.description}</p>
-                      <div className="text-sm text-[var(--paper-muted)] pt-2 border-t border-[var(--paper-rule)]">
-                        <strong className="text-[var(--paper-ink)]">
-                          ตัวอย่างการใช้งานจริง:{" "}
-                        </strong>
+                      <p className="max-w-[68ch]">{uc.description}</p>
+                      <div className="text-sm text-muted pt-1">
+                        <strong className="text-ink">ตัวอย่างการใช้งานจริง: </strong>
                         {uc.example}
                       </div>
                     </div>
@@ -421,46 +494,42 @@ export function ArticleReader({
 
               {/* Section 06: Community Pulse */}
               <section id="sec-community" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     06 //
                   </span>
                   <span>เสียงสะท้อนจากนักวิจัยและข้อควรระวัง</span>
                 </h2>
 
-                <p className="text-base italic text-[var(--paper-muted)]">
+                <p className="text-base italic text-muted max-w-[68ch]">
                   &ldquo;{paper.community_pulse.summary}&rdquo;
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)] space-y-2">
-                    <div className="font-bold text-sm text-[var(--paper-green)] flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4" />
+                  <div className="p-5 border border-rule bg-paper space-y-2">
+                    <div className="font-editorial-label text-sm text-success flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 shrink-0" />
                       <span>จุดเด่นที่คนในวงการชื่นชม</span>
                     </div>
                     <ul className="space-y-2 text-sm">
                       {paper.community_pulse.praises.map((p, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-[var(--paper-green)] font-bold">
-                            +
-                          </span>
+                          <span className="text-success font-bold shrink-0">+</span>
                           <span>{p}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)] space-y-2">
-                    <div className="font-bold text-sm text-[var(--paper-amber)] flex items-center gap-1.5">
-                      <AlertTriangle className="w-4 h-4" />
+                  <div className="p-5 border border-rule bg-paper space-y-2">
+                    <div className="font-editorial-label text-sm text-warn flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 shrink-0" />
                       <span>ข้อจำกัดและสิ่งที่ต้องระวัง</span>
                     </div>
                     <ul className="space-y-2 text-sm">
                       {paper.community_pulse.critiques.map((c, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-[var(--paper-amber)] font-bold">
-                            !
-                          </span>
+                          <span className="text-warn font-bold shrink-0">!</span>
                           <span>{c}</span>
                         </li>
                       ))}
@@ -469,20 +538,17 @@ export function ArticleReader({
                 </div>
               </section>
 
-              {/* Section 07: External Source Links (Only clicked when user wants raw PDF/Repo) */}
-              <section
-                id="sec-sources"
-                className="pt-6 border-t-2 border-[var(--paper-rule-strong)] space-y-4"
-              >
-                <h2 className="font-editorial text-xl font-bold text-[var(--paper-ink)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+              {/* Section 07: External Sources */}
+              <section id="sec-sources" className="editorial-opens space-y-4">
+                <h2 className="font-editorial-display text-xl text-ink flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     07 //
                   </span>
                   <span>เอกสารต้นทางและซอร์สโค้ด (สำหรับผู้ที่ต้องการศึกษาฉบับเต็ม)</span>
                 </h2>
-                <p className="text-sm text-[var(--paper-muted)]">
+                <p className="text-sm text-muted max-w-[65ch]">
                   คุณสามารถกดปุ่มด้านล่างเพื่อเปิดดูไฟล์ PDF ต้นฉบับบน arXiv,
-                  ร่วมพูดคุยบน Hugging Face, หรือดาวน์โหลดโค้ดบน GitHub ได้โดยตรง:
+                  ร่วมพูดคุยบน Hugging Face หรือดาวน์โหลดโค้ดบน GitHub ได้โดยตรง
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 pt-1">
@@ -491,11 +557,11 @@ export function ArticleReader({
                       href={paper.github_url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold bg-[var(--paper-ink)] text-[var(--paper-sheet)] hover:opacity-90 transition"
+                      className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label bg-ink text-paper border border-ink hover:bg-ink-2 whitespace-nowrap"
                     >
-                      <Code2 className="w-4 h-4" />
+                      <Code2 className="w-4 h-4 shrink-0" />
                       <span>เปิด GitHub Repository ของเปเปอร์นี้</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                     </a>
                   )}
 
@@ -503,21 +569,21 @@ export function ArticleReader({
                     href={paper.pdf_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold border border-[var(--paper-rule-strong)] bg-[var(--paper-bg)] text-[var(--paper-ink)] hover:bg-[var(--paper-subtle)] transition"
+                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label border border-ink bg-paper text-ink hover:bg-paper-2 whitespace-nowrap"
                   >
-                    <FileText className="w-4 h-4" />
+                    <FileText className="w-4 h-4 shrink-0" />
                     <span>อ่านเปเปอร์ต้นฉบับ (arXiv PDF)</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                   </a>
 
                   <a
                     href={paper.hf_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold border border-[var(--paper-rule)] bg-[var(--paper-bg)] text-[var(--paper-body)] hover:bg-[var(--paper-subtle)] transition"
+                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label border border-rule-2 bg-paper text-ink-2 hover:bg-paper-2 whitespace-nowrap"
                   >
                     <span>หน้าพูดคุยบน Hugging Face</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                   </a>
 
                   {paper.project_url && (
@@ -525,10 +591,10 @@ export function ArticleReader({
                       href={paper.project_url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold border border-[var(--paper-rule)] bg-[var(--paper-bg)] text-[var(--paper-body)] hover:bg-[var(--paper-subtle)] transition"
+                      className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label border border-rule-2 bg-paper text-ink-2 hover:bg-paper-2 whitespace-nowrap"
                     >
                       <span>เว็บไซต์โปรเจกต์ / Demo</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                     </a>
                   )}
                 </div>
@@ -541,7 +607,7 @@ export function ArticleReader({
   }
 
   if (repo) {
-    const repoToc = [
+    const repoToc: TocItem[] = [
       { id: "repo-overview", num: "01", label: "บทนำ & ปัญหาที่โปรเจกต์นี้เข้ามาแก้" },
       { id: "repo-compare", num: "02", label: "เปรียบเทียบกับเครื่องมืออื่นในตลาด" },
       { id: "repo-saas", num: "03", label: "ไอเดียต่อยอดสร้างรายได้ / Micro-SaaS" },
@@ -556,203 +622,122 @@ export function ArticleReader({
     };
 
     return (
-      <article className="w-full px-4 sm:px-8 lg:px-10 py-5 sm:py-8">
-        {/* Top Reader Bar */}
-        <div className="pb-4 mb-6 sm:mb-8 border-b-2 border-[var(--paper-rule-strong)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <button
-            onClick={onBack}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--paper-ink)] hover:text-[var(--paper-accent)] transition cursor-pointer active:scale-95 self-start"
-          >
-            <ArrowLeft className="w-4 h-4 shrink-0" />
-            <span>กลับไปหน้าหนังสือพิมพ์</span>
-          </button>
+      <article className="container py-6 sm:py-10">
+        <ReaderTopBar
+          onBack={onBack}
+          fontSize={fontSize}
+          setFontSize={setFontSize}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
 
-          <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3">
-            <div className="flex items-center border border-[var(--paper-rule)] rounded bg-[var(--paper-sheet)] overflow-hidden text-xs">
-              <span className="px-2 py-1 text-[var(--paper-muted)] border-r border-[var(--paper-rule)] text-[11px] sm:text-xs">
-                ขนาดอักษร
-              </span>
-              <button
-                onClick={() => setFontSize("normal")}
-                className={`px-2.5 py-1 font-medium cursor-pointer ${
-                  fontSize === "normal"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)]"
-                }`}
-              >
-                ก
-              </button>
-              <button
-                onClick={() => setFontSize("large")}
-                className={`px-2.5 py-1 font-semibold cursor-pointer ${
-                  fontSize === "large"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)]"
-                }`}
-              >
-                ก+
-              </button>
-              <button
-                onClick={() => setFontSize("xlarge")}
-                className={`px-2.5 py-1 font-bold cursor-pointer ${
-                  fontSize === "xlarge"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)]"
-                }`}
-              >
-                ก++
-              </button>
-            </div>
-
-            <button
-              onClick={onToggleSave}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold border transition cursor-pointer active:scale-95 shrink-0 ${
-                isSaved
-                  ? "bg-[var(--paper-accent)] text-white border-[var(--paper-accent)]"
-                  : "bg-[var(--paper-sheet)] text-[var(--paper-ink)] border-[var(--paper-rule)]"
-              }`}
-            >
-              {isSaved ? (
-                <>
-                  <BookmarkCheck className="w-3.5 h-3.5" />
-                  <span>คั่นแล้ว</span>
-                </>
-              ) : (
-                <>
-                  <Bookmark className="w-3.5 h-3.5" />
-                  <span>คั่นหน้า</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-          {/* Left Sticky TOC (Desktop lg: only) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           <aside className="hidden lg:block lg:col-span-3">
             <div className="sticky top-6 space-y-6">
-              <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-sheet)] shadow-2xs">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--paper-ink)] pb-3 mb-3 border-b border-[var(--paper-rule)]">
-                  <BookOpen className="w-3.5 h-3.5 text-[var(--paper-accent)]" />
-                  <span>สารบัญบทวิเคราะห์</span>
-                </div>
-                <nav className="space-y-1.5 text-xs sm:text-sm">
-                  {repoToc.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      className="flex items-start gap-2 py-1 text-[var(--paper-muted)] hover:text-[var(--paper-ink)] transition"
-                    >
-                      <span className="font-mono text-xs text-[var(--paper-accent)] mt-0.5 shrink-0">
-                        {item.num}
-                      </span>
-                      <span className="leading-snug">{item.label}</span>
-                    </a>
-                  ))}
-                </nav>
-              </div>
+              <ReaderDesktopToc title="สารบัญบทวิเคราะห์" items={repoToc} />
 
-              <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/60 text-xs space-y-2.5">
-                <div className="font-bold text-[var(--paper-ink)] uppercase tracking-wider">
+              <div className="p-5 editorial-well text-xs sm:text-sm space-y-2.5">
+                <div className="font-editorial-label text-ink pb-2 border-b border-rule">
                   สถิติ GitHub ล่าสุด
                 </div>
-                <div>
-                  <span className="text-[var(--paper-muted)]">ชื่อเต็ม: </span>
-                  <span className="font-mono font-semibold text-[var(--paper-ink)]">
-                    {repo.owner}/{repo.name}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[var(--paper-muted)]">ดาวทั้งหมด: </span>
-                  <span className="font-semibold text-[var(--paper-ink)]">
-                    ⭐ {repo.stars.toLocaleString()} (+{repo.stars_today.toLocaleString()} วันนี้)
-                  </span>
-                </div>
-                {isTwoDayStreak && (
-                  <div className="text-[var(--paper-amber)] font-semibold">
-                    🔥 ติดเทรนด์ 2 วันซ้อน
-                    {starsAddedSinceYesterday > 0
-                      ? ` (+${starsAddedSinceYesterday.toLocaleString()} ดาว)`
-                      : ""}
+                <dl className="space-y-2 font-editorial-body">
+                  <div>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      ชื่อเต็ม:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-ink">
+                      {repo.owner}/{repo.name}
+                    </dd>
                   </div>
-                )}
-                <div>
-                  <span className="text-[var(--paper-muted)]">ความพร้อมใช้งาน: </span>
-                  <span className="font-semibold text-[var(--paper-ink)]">
-                    {repo.maturity_rating}
-                  </span>
-                </div>
+                  <div>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      ดาวทั้งหมด:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-ink num">
+                      {repo.stars.toLocaleString()} (+{repo.stars_today.toLocaleString()} วันนี้)
+                    </dd>
+                  </div>
+                  {isTwoDayStreak && (
+                    <div className="text-accent font-editorial-label inline-flex items-center gap-1.5">
+                      <Flame className="w-3.5 h-3.5 shrink-0" />
+                      <span>
+                        ติดเทรนด์ 2 วันซ้อน
+                        {starsAddedSinceYesterday > 0
+                          ? ` (+${starsAddedSinceYesterday.toLocaleString()} ดาว)`
+                          : ""}
+                      </span>
+                    </div>
+                  )}
+                  <div>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      ความพร้อมใช้งาน:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-ink">
+                      {repo.maturity_rating}
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
           </aside>
 
-          {/* Main Reading Sheet */}
-          <div className="lg:col-span-9 bg-[var(--paper-sheet)] border border-[var(--paper-rule)] rounded p-4 sm:p-8 md:p-10 shadow-xs">
-            {/* Mobile / Tablet Quick Collapsible Table of Contents */}
-            <details className="lg:hidden mb-6 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/70 p-3 sm:p-4 text-xs sm:text-sm">
-              <summary className="font-bold text-[var(--paper-ink)] cursor-pointer flex items-center justify-between select-none">
-                <span className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-[var(--paper-accent)]" />
-                  <span>สารบัญบทวิเคราะห์ (แตะเพื่อกระโดดไปยังหัวข้อ)</span>
-                </span>
-                <span className="text-xs text-[var(--paper-muted)]">5 หัวข้อ</span>
-              </summary>
-              <nav className="mt-3 pt-3 border-t border-[var(--paper-rule)] space-y-2">
-                {repoToc.map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="flex items-center gap-2 py-1 text-[var(--paper-body)] hover:text-[var(--paper-accent)]"
-                  >
-                    <span className="font-mono text-xs text-[var(--paper-accent)]">
-                      {item.num}
-                    </span>
-                    <span>{item.label}</span>
-                  </a>
-                ))}
-              </nav>
-            </details>
+          <div className="lg:col-span-9 bg-paper border-t border-rule-2 pt-2 lg:pl-6">
+            <ReaderMobileToc
+              summaryLabel="สารบัญบทวิเคราะห์ (แตะเพื่อกระโดดไปยังหัวข้อ)"
+              countText="5 หัวข้อ"
+              items={repoToc}
+            />
 
-            <header className="pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-[var(--paper-rule)]">
-              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs mb-3 sm:mb-4">
-                <span className="px-2.5 py-0.5 rounded font-bold uppercase tracking-wider bg-[var(--paper-accent-soft)] text-[var(--paper-accent)]">
-                  {repo.language || "Open Source"}
-                </span>
-                <span className="px-2.5 py-0.5 rounded font-semibold bg-[var(--paper-subtle)] text-[var(--paper-ink)]">
-                  {repo.maturity_rating}
-                </span>
-                {isTwoDayStreak && (
-                  <span className="px-2.5 py-0.5 rounded font-semibold bg-[var(--paper-amber-soft)] text-[var(--paper-amber)]">
-                    🔥 ติดเทรนด์ 2 วันซ้อน
-                  </span>
-                )}
-                <span className="sm:ml-auto flex items-center gap-1 font-semibold text-[var(--paper-ink)]">
-                  <Star className="w-3.5 h-3.5 text-[var(--paper-amber)] fill-[var(--paper-amber)]" />
-                  {repo.stars.toLocaleString()} (+{repo.stars_today.toLocaleString()} วันนี้)
-                </span>
-              </div>
-
-              <h1 className="font-editorial text-xl sm:text-3xl md:text-4xl font-bold text-[var(--paper-ink)] leading-snug mb-3">
+            <header className="pb-6 sm:pb-8 mb-8 border-b border-rule space-y-4">
+              <h1 className="font-editorial-display text-2xl sm:text-4xl md:text-[2.6rem] text-ink leading-tight max-w-none">
                 {repo.one_liner}
               </h1>
 
-              <p className="font-mono text-xs sm:text-sm text-[var(--paper-muted)]">
-                Repository: {repo.owner}/{repo.name} • สัญญาอนุญาต:{" "}
-                {repo.license || "ไม่ระบุ"} • Issues เปิดอยู่: {repo.open_issues}
-              </p>
+              <div className="flex flex-wrap items-center gap-2 text-xs font-editorial-label">
+                <span className="px-2.5 py-0.5 bg-accent text-accent-ink whitespace-nowrap">
+                  {repo.language || "Open Source"}
+                </span>
+                <span className="px-2.5 py-0.5 bg-paper-2 border border-rule text-ink whitespace-nowrap">
+                  {repo.maturity_rating}
+                </span>
+                {isTwoDayStreak && (
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-warn-soft border border-rule text-warn whitespace-nowrap">
+                    <Flame className="w-3.5 h-3.5 shrink-0" />
+                    <span>ติดเทรนด์ 2 วันซ้อน</span>
+                  </span>
+                )}
+                <span className="sm:ml-auto inline-flex items-center gap-1.5 font-medium text-ink num">
+                  <Star className="w-3.5 h-3.5 text-accent shrink-0" />
+                  <span>
+                    {repo.stars.toLocaleString()} (+{repo.stars_today.toLocaleString()} วันนี้)
+                  </span>
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs sm:text-sm font-editorial-label text-muted pt-2 border-t border-rule">
+                <span>
+                  Repository: <strong className="text-ink">{repo.owner}/{repo.name}</strong>
+                </span>
+                <span className="border-l border-rule pl-4">
+                  สัญญาอนุญาต: {repo.license || "ไม่ระบุ"}
+                </span>
+                <span className="border-l border-rule pl-4 num">
+                  Issues เปิดอยู่: {repo.open_issues}
+                </span>
+              </div>
             </header>
 
-            <div className={`space-y-10 text-[var(--paper-body)] ${fontSizeClass}`}>
+            <div className={`space-y-10 text-ink-2 font-editorial-body ${fontSizeClass}`}>
               <section id="repo-overview" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     01 //
                   </span>
                   <span>ทำไมโปรเจกต์นี้ถึงเกิดมา และช่วยแก้ปัญหาอะไร?</span>
                 </h2>
-                <p>{repo.problem_solved}</p>
-                <div className="p-4 rounded bg-[var(--paper-subtle)]/60 text-base">
-                  <strong className="text-[var(--paper-ink)]">
+                <p className="max-w-[68ch]">{repo.problem_solved}</p>
+                <div className="p-4 editorial-well text-base">
+                  <strong className="text-ink">
                     เหตุผลประเมินความพร้อม ({repo.maturity_rating}):{" "}
                   </strong>
                   <span>{repo.maturity_reason}</span>
@@ -760,70 +745,72 @@ export function ArticleReader({
               </section>
 
               <section id="repo-compare" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     02 //
                   </span>
                   <span>เปรียบเทียบกับเครื่องมืออื่นที่ใกล้เคียงกัน</span>
                 </h2>
-                <blockquote className="p-5 rounded border-l-4 border-[var(--paper-accent)] bg-[var(--paper-subtle)]/50 italic">
+                <blockquote className="p-5 border-t-2 border-t-ink editorial-well italic max-w-[68ch]">
                   &ldquo;{repo.alternative_comparison}&rdquo;
                 </blockquote>
               </section>
 
               <section id="repo-saas" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     03 //
                   </span>
                   <span>แนวทางนำไปต่อยอดสร้างธุรกิจ / Micro-SaaS</span>
                 </h2>
-                <div className="p-6 rounded border border-[var(--paper-green)]/40 bg-[var(--paper-green-soft)]/50 space-y-3 text-base">
-                  <div className="font-bold text-[var(--paper-green)] flex items-center gap-2">
-                    <Sparkles className="w-4 h-4" />
+                <div className="p-6 border border-success bg-success-soft space-y-3 text-base">
+                  <div className="font-editorial-label text-success flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 shrink-0" />
                     <span>ไอเดียสร้างรายได้ (Monetization Idea)</span>
                   </div>
-                  <p>{repo.ai_opportunity.monetization_idea}</p>
-                  <div className="pt-3 border-t border-[var(--paper-rule)] text-sm">
-                    <strong className="text-[var(--paper-ink)]">
-                      การใช้ร่วมกับ Modern Stack:{" "}
-                    </strong>
+                  <p className="text-ink max-w-[68ch]">{repo.ai_opportunity.monetization_idea}</p>
+                  <div className="pt-3 border-t border-rule text-sm">
+                    <strong className="text-ink">การใช้ร่วมกับ Modern Stack: </strong>
                     <span>{repo.ai_opportunity.stack_synergy}</span>
                   </div>
                 </div>
               </section>
 
               <section id="repo-vibe" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     04 //
                   </span>
-                  <span>เสียงสะท้อนจากนักพัฒนาจริง (Vibe Check: {repo.human_vibe_check.hype_vs_reality}/10)</span>
+                  <span>
+                    เสียงสะท้อนจากนักพัฒนาจริง (Vibe Check: {repo.human_vibe_check.hype_vs_reality}/10)
+                  </span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)] space-y-2">
-                    <div className="font-bold text-sm text-[var(--paper-green)]">
-                      👍 จุดเด่นที่คนชอบ
+                  <div className="p-5 border border-rule bg-paper space-y-2">
+                    <div className="font-editorial-label text-sm text-success flex items-center gap-1.5">
+                      <ThumbsUp className="w-4 h-4 shrink-0" />
+                      <span>จุดเด่นที่คนชอบ</span>
                     </div>
                     <ul className="space-y-2 text-sm">
                       {repo.human_vibe_check.pros.map((p, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-[var(--paper-green)] font-bold">+</span>
+                          <span className="text-success font-bold shrink-0">+</span>
                           <span>{p}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)] space-y-2">
-                    <div className="font-bold text-sm text-[var(--paper-amber)]">
-                      ⚠️ ข้อควรระวัง / ข้อจำกัด
+                  <div className="p-5 border border-rule bg-paper space-y-2">
+                    <div className="font-editorial-label text-sm text-warn flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 shrink-0" />
+                      <span>ข้อควรระวัง / ข้อจำกัด</span>
                     </div>
                     <ul className="space-y-2 text-sm">
                       {repo.human_vibe_check.gotchas_and_traps.map((g, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-[var(--paper-amber)] font-bold">!</span>
+                          <span className="text-warn font-bold shrink-0">!</span>
                           <span>{g}</span>
                         </li>
                       ))}
@@ -832,33 +819,31 @@ export function ArticleReader({
                 </div>
               </section>
 
-              <section
-                id="repo-quickstart"
-                className="pt-6 border-t-2 border-[var(--paper-rule-strong)] space-y-4"
-              >
-                <h2 className="font-editorial text-xl font-bold text-[var(--paper-ink)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+              <section id="repo-quickstart" className="editorial-opens space-y-4">
+                <h2 className="font-editorial-display text-xl text-ink flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     05 //
                   </span>
-                  <span>คำสั่งเริ่มต้นใช้งาน (Quick Start) & ลิงก์ต้นทาง</span>
+                  <span>คำสั่งเริ่มต้นใช้งาน (Quick Start) &amp; ลิงก์ต้นทาง</span>
                 </h2>
 
-                <div className="flex items-center justify-between gap-2 p-4 rounded bg-[var(--paper-bg)] border border-[var(--paper-rule)] font-mono text-xs overflow-x-auto">
-                  <pre className="whitespace-pre-wrap text-[var(--paper-ink)]">
+                <div className="flex items-center justify-between gap-2 p-4 bg-paper-2 border border-rule-2 overflow-x-auto">
+                  <pre className="font-mono text-xs whitespace-pre-wrap text-ink">
                     {repo.quick_start}
                   </pre>
                   <button
+                    type="button"
                     onClick={copyQuickStart}
-                    className="px-3 py-1.5 rounded border border-[var(--paper-rule)] bg-[var(--paper-sheet)] text-[var(--paper-ink)] hover:bg-[var(--paper-subtle)] shrink-0 cursor-pointer flex items-center gap-1"
+                    className="px-3 py-1.5 border border-rule-2 bg-paper text-ink hover:bg-paper-3 shrink-0 cursor-pointer inline-flex items-center gap-1.5 text-xs font-editorial-label whitespace-nowrap"
                   >
                     {copiedCode ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-[var(--paper-green)]" />
+                        <Check className="w-3.5 h-3.5 text-success shrink-0" />
                         <span>คัดลอกแล้ว</span>
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3.5 h-3.5" />
+                        <Copy className="w-3.5 h-3.5 shrink-0" />
                         <span>คัดลอกคำสั่ง</span>
                       </>
                     )}
@@ -870,21 +855,21 @@ export function ArticleReader({
                     href={repo.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold bg-[var(--paper-ink)] text-[var(--paper-sheet)] hover:opacity-90 transition"
+                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label bg-ink text-paper border border-ink hover:bg-ink-2 whitespace-nowrap"
                   >
-                    <Code2 className="w-4 h-4" />
+                    <Code2 className="w-4 h-4 shrink-0" />
                     <span>เปิด GitHub Repository ({repo.owner}/{repo.name})</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                   </a>
 
                   <a
                     href={`${repo.url}/issues`}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold border border-[var(--paper-rule)] bg-[var(--paper-bg)] text-[var(--paper-ink)] hover:bg-[var(--paper-subtle)] transition"
+                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label border border-rule-2 bg-paper text-ink hover:bg-paper-2 whitespace-nowrap"
                   >
-                    <span>ดู Issues & ปัญหาที่พบ ({repo.open_issues})</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>ดู Issues &amp; ปัญหาที่พบ ({repo.open_issues})</span>
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                   </a>
                 </div>
               </section>
@@ -896,7 +881,7 @@ export function ArticleReader({
   }
 
   if (news) {
-    const newsToc = [
+    const newsToc: TocItem[] = [
       { id: "news-tldr", num: "01", label: "สรุปใจความสำคัญ (TL;DR)" },
       { id: "news-figure", num: "02", label: "ภาพประกอบข่าว" },
       { id: "news-story", num: "03", label: "เจาะลึกข่าวแบบเข้าใจง่าย" },
@@ -907,130 +892,52 @@ export function ArticleReader({
     ];
 
     return (
-      <article className="w-full px-4 sm:px-8 lg:px-10 py-5 sm:py-8">
-        {/* Top Reader Bar */}
-        <div className="pb-4 mb-6 sm:mb-8 border-b-2 border-[var(--paper-rule-strong)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <button
-            onClick={onBack}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--paper-ink)] hover:text-[var(--paper-accent)] transition cursor-pointer active:scale-95 self-start"
-          >
-            <ArrowLeft className="w-4 h-4 shrink-0" />
-            <span>กลับไปหน้าหนังสือพิมพ์</span>
-          </button>
+      <article className="container py-6 sm:py-10">
+        <ReaderTopBar
+          onBack={onBack}
+          fontSize={fontSize}
+          setFontSize={setFontSize}
+          isSaved={isSaved}
+          onToggleSave={onToggleSave}
+        />
 
-          <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3">
-            <div className="flex items-center border border-[var(--paper-rule)] rounded bg-[var(--paper-sheet)] overflow-hidden text-xs">
-              <span className="px-2 py-1 text-[var(--paper-muted)] border-r border-[var(--paper-rule)] text-[11px] sm:text-xs">
-                ขนาดอักษร
-              </span>
-              <button
-                onClick={() => setFontSize("normal")}
-                className={`px-2.5 py-1 font-medium cursor-pointer transition ${
-                  fontSize === "normal"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
-                }`}
-              >
-                ก
-              </button>
-              <button
-                onClick={() => setFontSize("large")}
-                className={`px-2.5 py-1 font-semibold cursor-pointer transition ${
-                  fontSize === "large"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
-                }`}
-              >
-                ก+
-              </button>
-              <button
-                onClick={() => setFontSize("xlarge")}
-                className={`px-2.5 py-1 font-bold cursor-pointer transition ${
-                  fontSize === "xlarge"
-                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
-                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
-                }`}
-              >
-                ก++
-              </button>
-            </div>
-
-            <button
-              onClick={onToggleSave}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold border transition cursor-pointer active:scale-95 shrink-0 ${
-                isSaved
-                  ? "bg-[var(--paper-accent)] text-white border-[var(--paper-accent)]"
-                  : "bg-[var(--paper-sheet)] text-[var(--paper-ink)] border-[var(--paper-rule)] hover:border-[var(--paper-rule-strong)]"
-              }`}
-            >
-              {isSaved ? (
-                <>
-                  <BookmarkCheck className="w-3.5 h-3.5" />
-                  <span>คั่นแล้ว</span>
-                </>
-              ) : (
-                <>
-                  <Bookmark className="w-3.5 h-3.5" />
-                  <span>คั่นหน้า</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
-          {/* Left Sticky Sidebar: Table of Contents (Desktop lg: only) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           <aside className="hidden lg:block lg:col-span-3">
             <div className="sticky top-6 space-y-6">
-              <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-sheet)] shadow-2xs">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--paper-ink)] pb-3 mb-3 border-b border-[var(--paper-rule)]">
-                  <BookOpen className="w-3.5 h-3.5 text-[var(--paper-accent)]" />
-                  <span>สารบัญบทความ (TOC)</span>
-                </div>
-                <nav className="space-y-1.5 text-xs sm:text-sm">
-                  {newsToc.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      className="flex items-start gap-2 py-1 text-[var(--paper-muted)] hover:text-[var(--paper-ink)] transition"
-                    >
-                      <span className="font-mono text-xs text-[var(--paper-accent)] mt-0.5 shrink-0">
-                        {item.num}
-                      </span>
-                      <span className="leading-snug">{item.label}</span>
-                    </a>
-                  ))}
-                </nav>
-              </div>
+              <ReaderDesktopToc title="สารบัญบทความ (TOC)" items={newsToc} />
 
-              <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/60 text-xs space-y-2.5">
-                <div className="font-bold text-[var(--paper-ink)] uppercase tracking-wider">
+              <div className="p-5 editorial-well text-xs sm:text-sm space-y-2.5">
+                <div className="font-editorial-label text-ink pb-2 border-b border-rule">
                   ข้อมูลข่าวสารจาก AI Lab
                 </div>
-                <div>
-                  <span className="text-[var(--paper-muted)]">แหล่งข่าว: </span>
-                  <span className="font-semibold text-[var(--paper-ink)]">
-                    {news.source}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[var(--paper-muted)]">หมวดหมู่: </span>
-                  <span className="font-semibold text-[var(--paper-accent)]">
-                    {news.category}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[var(--paper-muted)]">วันที่เผยแพร่: </span>
-                  <span className="font-mono font-semibold text-[var(--paper-ink)]">
-                    {news.published_date}
-                  </span>
-                </div>
+                <dl className="space-y-2 font-editorial-body">
+                  <div>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      แหล่งข่าว:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-ink">{news.source}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      หมวดหมู่:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-accent">{news.category}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-muted text-xs font-editorial-label inline">
+                      วันที่เผยแพร่:{" "}
+                    </dt>
+                    <dd className="inline font-medium text-ink num">
+                      {news.published_date}
+                    </dd>
+                  </div>
+                </dl>
                 {news.rss_categories.length > 0 && (
-                  <div className="flex flex-wrap gap-1 pt-1">
+                  <div className="flex flex-wrap gap-1.5 pt-2">
                     {news.rss_categories.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 rounded bg-[var(--paper-sheet)] border border-[var(--paper-rule)] text-[10px] text-[var(--paper-muted)]"
+                        className="px-2 py-0.5 bg-paper border border-rule text-xs font-editorial-label text-muted"
                       >
                         {tag}
                       </span>
@@ -1041,58 +948,37 @@ export function ArticleReader({
             </div>
           </aside>
 
-          {/* Main Editorial Reading Column */}
-          <div className="lg:col-span-9 bg-[var(--paper-sheet)] border border-[var(--paper-rule)] rounded p-4 sm:p-8 md:p-10 shadow-xs">
-            {/* Mobile / Tablet Quick Collapsible Table of Contents */}
-            <details className="lg:hidden mb-6 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/70 p-3 sm:p-4 text-xs sm:text-sm">
-              <summary className="font-bold text-[var(--paper-ink)] cursor-pointer flex items-center justify-between select-none">
-                <span className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-[var(--paper-accent)]" />
-                  <span>สารบัญข่าว (แตะเพื่อกระโดดไปยังหัวข้อ)</span>
-                </span>
-                <span className="text-xs text-[var(--paper-muted)]">7 หัวข้อ</span>
-              </summary>
-              <nav className="mt-3 pt-3 border-t border-[var(--paper-rule)] space-y-2">
-                {newsToc.map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="flex items-center gap-2 py-1 text-[var(--paper-body)] hover:text-[var(--paper-accent)]"
-                  >
-                    <span className="font-mono text-xs text-[var(--paper-accent)]">
-                      {item.num}
-                    </span>
-                    <span>{item.label}</span>
-                  </a>
-                ))}
-              </nav>
-            </details>
+          <div className="lg:col-span-9 bg-paper border-t border-rule-2 pt-2 lg:pl-6">
+            <ReaderMobileToc
+              summaryLabel="สารบัญข่าว (แตะเพื่อกระโดดไปยังหัวข้อ)"
+              countText="7 หัวข้อ"
+              items={newsToc}
+            />
 
-            {/* Article Header */}
-            <header className="pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-[var(--paper-rule)]">
-              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs mb-3 sm:mb-4">
-                <span className="px-2.5 py-0.5 rounded font-bold uppercase tracking-wider bg-[var(--paper-accent-soft)] text-[var(--paper-accent)]">
-                  {news.category}
-                </span>
-                <span className="px-2.5 py-0.5 rounded font-semibold bg-[var(--paper-subtle)] text-[var(--paper-ink)] inline-flex items-center gap-1">
-                  <Newspaper className="w-3 h-3 text-[var(--paper-accent)]" />
-                  {news.source}
-                </span>
-                <span className="text-[var(--paper-muted)] flex items-center gap-1 sm:ml-auto">
-                  <Clock className="w-3.5 h-3.5" />
-                  อ่าน {news.reading_time_minutes} นาที
-                </span>
-              </div>
-
-              <h1 className="font-editorial text-xl sm:text-3xl md:text-4xl font-bold text-[var(--paper-ink)] leading-snug mb-3 sm:mb-4">
+            <header className="pb-6 sm:pb-8 mb-8 border-b border-rule space-y-4">
+              <h1 className="font-editorial-display text-2xl sm:text-4xl md:text-[2.6rem] text-ink leading-tight max-w-none">
                 {news.hook_headline}
               </h1>
 
-              <p className="text-sm sm:text-base text-[var(--paper-muted)] font-serif italic mb-4">
+              <p className="text-sm sm:text-base text-muted font-editorial-body italic max-w-3xl">
                 หัวข้อข่าวต้นฉบับ: &ldquo;{news.title}&rdquo;
               </p>
 
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--paper-rule)] text-xs text-[var(--paper-muted)]">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-editorial-label">
+                <span className="px-2.5 py-0.5 bg-accent text-accent-ink whitespace-nowrap">
+                  {news.category}
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-paper-2 border border-rule text-ink whitespace-nowrap">
+                  <Newspaper className="w-3.5 h-3.5 text-accent shrink-0" />
+                  <span>{news.source}</span>
+                </span>
+                <span className="text-muted inline-flex items-center gap-1 sm:ml-auto num">
+                  <Clock className="w-3.5 h-3.5 shrink-0" />
+                  <span>อ่าน {news.reading_time_minutes} นาที</span>
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-rule text-xs sm:text-sm font-editorial-label text-muted">
                 <div>
                   {news.authors.length > 0 ? (
                     <span>ผู้เขียน: {news.authors.join(", ")}</span>
@@ -1100,29 +986,27 @@ export function ArticleReader({
                     <span>เผยแพร่โดย: {news.source}</span>
                   )}
                 </div>
-                <div className="font-medium text-[var(--paper-ink)] text-[11px] sm:text-xs">
-                  {news.published_date}
-                </div>
+                <div className="font-medium text-ink num">{news.published_date}</div>
               </div>
             </header>
 
-            <div className={`space-y-10 text-[var(--paper-body)] ${fontSizeClass}`}>
+            <div className={`space-y-10 text-ink-2 font-editorial-body ${fontSizeClass}`}>
               {/* 01: TL;DR */}
               <section
                 id="news-tldr"
-                className="p-6 rounded bg-[var(--paper-subtle)]/70 border-l-4 border-[var(--paper-accent)]"
+                className="p-6 editorial-well border-t-2 border-t-ink"
               >
-                <h2 className="font-editorial text-lg font-bold text-[var(--paper-ink)] mb-3 flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl text-ink mb-3 flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     01 //
                   </span>
                   <span>สรุปใจความสำคัญใน 30 วินาที (Key Takeaways)</span>
                 </h2>
-                <ul className="space-y-2.5 text-base">
+                <ul className="space-y-2.5 text-base max-w-[68ch]">
                   {news.tldr_takeaways.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <span className="font-bold text-[var(--paper-accent)] shrink-0">
-                        •
+                      <span className="font-bold text-accent shrink-0" aria-hidden="true">
+                        &rsaquo;
                       </span>
                       <span>{point}</span>
                     </li>
@@ -1132,27 +1016,27 @@ export function ArticleReader({
 
               {/* 02: Figure */}
               <section id="news-figure" className="space-y-3">
-                <h2 className="font-editorial text-xl font-bold text-[var(--paper-ink)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     02 //
                   </span>
                   <span>ภาพประกอบข่าวจากประกาศทางการ</span>
                 </h2>
                 {!imgError && news.thumbnail_url ? (
-                  <figure className="border border-[var(--paper-rule)] rounded overflow-hidden bg-white p-3">
+                  <figure className="editorial-photo border border-rule bg-paper-2 p-3">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={news.thumbnail_url}
                       alt={news.title}
                       onError={() => setImgError(true)}
-                      className="w-full max-h-[420px] object-contain mx-auto rounded"
+                      className="w-full max-h-[420px] object-contain mx-auto"
                     />
-                    <figcaption className="text-xs text-center text-stone-600 mt-2.5 pt-2 border-t border-stone-200 font-sans">
+                    <figcaption className="text-xs text-center text-muted mt-2.5 pt-2 border-t border-rule font-editorial-label">
                       ภาพประกอบจาก {news.source}: {news.title}
                     </figcaption>
                   </figure>
                 ) : (
-                  <div className="p-6 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/40 text-sm text-[var(--paper-muted)]">
+                  <div className="p-6 editorial-well text-sm text-muted">
                     ติดตามภาพประกอบเพิ่มเติมและวิดีโอสาธิตได้ในประกาศฉบับเต็มจากลิงก์ Google Blog ด้านล่าง
                   </div>
                 )}
@@ -1160,17 +1044,17 @@ export function ArticleReader({
 
               {/* 03: Layman Story */}
               <section id="news-story" className="space-y-5">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     03 //
                   </span>
                   <span>เจาะลึกข่าวและประเด็นสำคัญแบบเข้าใจง่าย</span>
                 </h2>
-                <p className="font-semibold text-[var(--paper-ink)]">
+                <p className="lead text-ink font-medium max-w-[65ch]">
                   {news.short_teaser}
                 </p>
                 {news.layman_story.map((paragraph, idx) => (
-                  <p key={idx} className="text-[var(--paper-body)]">
+                  <p key={idx} className="text-ink-2 max-w-[68ch]">
                     {paragraph}
                   </p>
                 ))}
@@ -1178,31 +1062,31 @@ export function ArticleReader({
 
               {/* 04: Before vs After */}
               <section id="news-impact" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     04 //
                   </span>
                   <span>เปรียบเทียบก่อนอัปเดต vs หลังอัปเดต</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)]">
-                    <div className="text-xs font-bold uppercase tracking-wider text-[var(--paper-muted)] mb-2">
+                  <div className="p-5 border border-rule bg-paper">
+                    <div className="text-xs font-editorial-label text-muted mb-2">
                       ก่อนอัปเดต (Before)
                     </div>
                     <p>{news.impact_comparison.before}</p>
                   </div>
 
-                  <div className="p-5 rounded border border-[var(--paper-green)]/40 bg-[var(--paper-green-soft)]/50">
-                    <div className="text-xs font-bold uppercase tracking-wider text-[var(--paper-green)] mb-2">
+                  <div className="p-5 border border-success bg-success-soft">
+                    <div className="text-xs font-editorial-label text-success mb-2">
                       หลังอัปเดต (After)
                     </div>
-                    <p>{news.impact_comparison.after}</p>
+                    <p className="text-ink">{news.impact_comparison.after}</p>
                   </div>
                 </div>
 
-                <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/50 text-base">
-                  <span className="font-bold text-[var(--paper-ink)]">
+                <div className="p-5 editorial-well text-base">
+                  <span className="font-bold text-ink">
                     ทำไมอัปเดตนี้ถึงสำคัญ:{" "}
                   </span>
                   <span>{news.impact_comparison.why_it_matters}</span>
@@ -1211,32 +1095,27 @@ export function ArticleReader({
 
               {/* 05: Actionable Playbook */}
               <section id="news-playbook" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     05 //
                   </span>
                   <span>3 แนวทางการนำไปใช้ประโยชน์จริง (Actionable Playbook)</span>
                 </h2>
 
-                <div className="space-y-4 text-base">
+                <div className="divide-y divide-rule border-t border-b border-rule text-base">
                   {news.actionable_playbook.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)]"
-                    >
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <h3 className="font-editorial font-bold text-lg text-[var(--paper-ink)]">
+                    <div key={idx} className="py-5 space-y-2">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h3 className="font-editorial-display text-lg text-ink max-w-none">
                           แนวทางที่ {idx + 1}: {item.title}
                         </h3>
-                        <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-[var(--paper-subtle)] text-[var(--paper-ink)]">
+                        <span className="px-2.5 py-0.5 text-xs font-editorial-label bg-paper-2 border border-rule text-ink whitespace-nowrap">
                           {item.role}
                         </span>
                       </div>
-                      <p className="mb-2">{item.description}</p>
-                      <div className="text-sm text-[var(--paper-muted)] pt-2 border-t border-[var(--paper-rule)]">
-                        <strong className="text-[var(--paper-ink)]">
-                          ตัวอย่างการใช้งานจริง:{" "}
-                        </strong>
+                      <p className="max-w-[68ch]">{item.description}</p>
+                      <div className="text-sm text-muted pt-1">
+                        <strong className="text-ink">ตัวอย่างการใช้งานจริง: </strong>
                         {item.example}
                       </div>
                     </div>
@@ -1246,42 +1125,38 @@ export function ArticleReader({
 
               {/* 06: Highlights & Watchouts */}
               <section id="news-highlights" className="space-y-4">
-                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     06 //
                   </span>
                   <span>จุดเด่นที่เปิดตัว &amp; ข้อควรจับตา</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)] space-y-2">
-                    <div className="font-bold text-sm text-[var(--paper-green)] flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4" />
+                  <div className="p-5 border border-rule bg-paper space-y-2">
+                    <div className="font-editorial-label text-sm text-success flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 shrink-0" />
                       <span>สิ่งใหม่ที่โดดเด่น</span>
                     </div>
                     <ul className="space-y-2 text-sm">
                       {news.key_highlights.whats_new.map((w, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-[var(--paper-green)] font-bold">
-                            +
-                          </span>
+                          <span className="text-success font-bold shrink-0">+</span>
                           <span>{w}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)] space-y-2">
-                    <div className="font-bold text-sm text-[var(--paper-amber)] flex items-center gap-1.5">
-                      <AlertTriangle className="w-4 h-4" />
+                  <div className="p-5 border border-rule bg-paper space-y-2">
+                    <div className="font-editorial-label text-sm text-warn flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 shrink-0" />
                       <span>ข้อจำกัดและสิ่งที่ต้องติดตาม</span>
                     </div>
                     <ul className="space-y-2 text-sm">
                       {news.key_highlights.watchouts.map((c, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-[var(--paper-amber)] font-bold">
-                            !
-                          </span>
+                          <span className="text-warn font-bold shrink-0">!</span>
                           <span>{c}</span>
                         </li>
                       ))}
@@ -1291,29 +1166,27 @@ export function ArticleReader({
               </section>
 
               {/* 07: Source link */}
-              <section
-                id="news-source"
-                className="pt-6 border-t-2 border-[var(--paper-rule-strong)] space-y-4"
-              >
-                <h2 className="font-editorial text-xl font-bold text-[var(--paper-ink)] flex items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+              <section id="news-source" className="editorial-opens space-y-4">
+                <h2 className="font-editorial-display text-xl text-ink flex items-center gap-2 max-w-none">
+                  <span className="font-editorial-label text-xs text-accent num">
                     07 //
                   </span>
                   <span>อ่านประกาศต้นฉบับจาก {news.source}</span>
                 </h2>
-                <p className="text-sm text-[var(--paper-muted)]">
-                  กดปุ่มด้านล่างเพื่อเปิดอ่านบทความต้นฉบับฉบับเต็ม รูปภาพเพิ่มเติม หรือวิดีโอเปิดตัวจาก Google Official Blog:
+                <p className="text-sm text-muted max-w-[65ch]">
+                  กดปุ่มด้านล่างเพื่อเปิดอ่านบทความต้นฉบับฉบับเต็ม รูปภาพเพิ่มเติม
+                  หรือวิดีโอเปิดตัวจาก Google Official Blog
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-1">
                   <a
                     href={news.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold bg-[var(--paper-ink)] text-[var(--paper-sheet)] hover:opacity-90 transition"
+                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label bg-ink text-paper border border-ink hover:bg-ink-2 whitespace-nowrap"
                   >
-                    <Newspaper className="w-4 h-4" />
+                    <Newspaper className="w-4 h-4 shrink-0" />
                     <span>เปิดอ่านประกาศต้นฉบับบน Google Blog</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                   </a>
                 </div>
               </section>

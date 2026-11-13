@@ -20,7 +20,7 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     fireEvent.click(reposTab);
 
     // Verify view switched to repos
-    expect(screen.getByText(/🔥 มาแรงวันนี้/)).toBeDefined();
+    expect(screen.getByText(/มาแรงวันนี้/)).toBeDefined();
 
     // Switch to Saved tab
     const nav = screen.getByRole("navigation", { name: "หมวดหมู่หลักของวารสาร" });
@@ -40,26 +40,26 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     render(<Home />);
 
     // Click Yesterday edition button
-    const yesterdayBtn = screen.getByRole("button", { name: /📅 เมื่อวาน/i });
+    const yesterdayBtn = screen.getByRole("button", { name: /เมื่อวาน/i });
     fireEvent.click(yesterdayBtn);
-    expect(yesterdayBtn.className).toContain("bg-[var(--paper-ink)]");
+    expect(yesterdayBtn.className).toContain("bg-ink");
 
     // Click All 7 Days edition button
-    const all7Btn = screen.getByRole("button", { name: /🗓️ รวมย้อนหลัง/i });
+    const all7Btn = screen.getByRole("button", { name: /รวมย้อนหลัง/i });
     fireEvent.click(all7Btn);
-    expect(all7Btn.className).toContain("bg-[var(--paper-ink)]");
+    expect(all7Btn.className).toContain("bg-ink");
 
     // Click Category filter (e.g. AI Agents & Memory)
     const agentCatBtn = screen.getByRole("button", {
       name: /AI Agents & Memory/i,
     });
     fireEvent.click(agentCatBtn);
-    expect(agentCatBtn.className).toContain("bg-[var(--paper-accent)]");
+    expect(agentCatBtn.className).toContain("bg-accent");
 
     // Click 'ทั้งหมด' to reset category
     const allCatBtn = screen.getByRole("button", { name: /ทั้งหมด/i });
     fireEvent.click(allCatBtn);
-    expect(allCatBtn.className).toContain("bg-[var(--paper-accent)]");
+    expect(allCatBtn.className).toContain("bg-accent");
   });
 
   it("E2E Journey 3: Real-Time Keyword Search", () => {
@@ -99,7 +99,7 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     render(<Home />);
 
     // Select All 7 Days so we have multiple pages
-    const all7Btn = screen.getByRole("button", { name: /🗓️ รวมย้อนหลัง/i });
+    const all7Btn = screen.getByRole("button", { name: /รวมย้อนหลัง/i });
     fireEvent.click(all7Btn);
 
     // Check pagination exists
@@ -108,7 +108,7 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
       fireEvent.click(nextBtn);
       // Verify page 2 is active
       const page2Btn = screen.getByRole("button", { name: "2" });
-      expect(page2Btn.className).toContain("bg-[var(--paper-ink)]");
+      expect(page2Btn.className).toContain("bg-ink");
     }
   });
 
@@ -130,7 +130,7 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     // Test font size switcher
     const fontLargeBtn = screen.getByRole("button", { name: "ก+" });
     fireEvent.click(fontLargeBtn);
-    expect(fontLargeBtn.className).toContain("bg-[var(--paper-ink)]");
+    expect(fontLargeBtn.className).toContain("bg-ink");
 
     const fontXLargeBtn = screen.getByRole("button", { name: "ก++" });
     if (fontXLargeBtn) fireEvent.click(fontXLargeBtn);
@@ -159,7 +159,7 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     fireEvent.click(savedNavBtn);
 
     // Verify bookmarked item is listed
-    expect(screen.getByText(/📄 เปเปอร์วิจัยที่คั่นไว้ \(1\)/i)).toBeDefined();
+    expect(screen.getByText(/เปเปอร์วิจัยที่คั่นไว้ \(1\)/i)).toBeDefined();
 
     // Click remove button
     const removeBtn = screen.getByRole("button", { name: /ลบออก/i });
@@ -169,19 +169,22 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     expect(screen.getByText(/ยังไม่มีบทความที่คั่นหน้าไว้/i)).toBeDefined();
   });
 
-  it("E2E Journey 8: Eye-Comfort Paper vs Night Mode Theme Toggle", () => {
+  it("E2E Journey 8: Editorial Single-Mode & Accessible Filter State Controls", () => {
     render(<Home />);
 
-    const themeToggleBtn = screen.getByTitle(/สลับโหมดสีกระดาษถนอมสายตา/i);
-    expect(themeToggleBtn).toBeDefined();
+    // Verify single-mode Editorial surface without night-mode toggle
+    expect(
+      screen.queryByTitle(/สลับโหมดสีกระดาษถนอมสายตา/i)
+    ).toBeNull();
 
-    // Toggle to Night mode
-    fireEvent.click(themeToggleBtn);
-    expect(screen.getByText(/กระดาษถนอมสายตา/i)).toBeDefined();
+    // Verify interactive buttons expose aria-pressed state cleanly
+    const todayBtn = screen.getByRole("button", { name: /วันนี้/i });
+    expect(todayBtn.getAttribute("aria-pressed")).toBe("true");
 
-    // Toggle back to Paper mode
-    fireEvent.click(themeToggleBtn);
-    expect(screen.getByText(/โหมดอ่านกลางคืน/i)).toBeDefined();
+    const withCodeBtn = screen.getByRole("button", { name: /มีโค้ด GitHub/i });
+    expect(withCodeBtn.getAttribute("aria-pressed")).toBe("false");
+    fireEvent.click(withCodeBtn);
+    expect(withCodeBtn.getAttribute("aria-pressed")).toBe("true");
   });
 
   it("E2E Journey 9: AI Lab News (Google Blog RSS) Column, Subcategories & Full Reader", () => {
@@ -205,11 +208,11 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
       name: /Gemini & Models/i,
     });
     fireEvent.click(geminiCatBtn);
-    expect(geminiCatBtn.className).toContain("bg-[var(--paper-accent)]");
+    expect(geminiCatBtn.className).toContain("bg-accent");
 
     const allNewsBtn = screen.getByRole("button", { name: /ทั้งหมด/i });
     fireEvent.click(allNewsBtn);
-    expect(allNewsBtn.className).toContain("bg-[var(--paper-accent)]");
+    expect(allNewsBtn.className).toContain("bg-accent");
 
     // Test Compact Digest toggle in AI Lab News
     const compactBtn = screen.getByTitle(/มุมมองสารบัญด่วน/i);
@@ -237,11 +240,10 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
 
     const savedTab = within(nav).getByRole("button", { name: /คั่นหน้า/i });
     fireEvent.click(savedTab);
-    expect(screen.getByText(/📰 ข่าวสาร AI Lab ที่คั่นไว้ \(1\)/i)).toBeDefined();
+    expect(screen.getByText(/ข่าวสาร AI Lab ที่คั่นไว้ \(1\)/i)).toBeDefined();
 
     const removeBtn = screen.getByRole("button", { name: /ลบออก/i });
     fireEvent.click(removeBtn);
     expect(screen.getByText(/ยังไม่มีบทความที่คั่นหน้าไว้/i)).toBeDefined();
   });
 });
-

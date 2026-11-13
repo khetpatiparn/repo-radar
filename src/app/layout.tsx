@@ -1,39 +1,57 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
+  Bricolage_Grotesque,
+  Source_Serif_4,
+  Noto_Sans_Thai,
   Noto_Serif_Thai,
-  Playfair_Display,
-  Sarabun,
   JetBrains_Mono,
 } from "next/font/google";
 import "./globals.css";
 
-const notoSerifThai = Noto_Serif_Thai({
-  variable: "--font-serif-thai",
-  subsets: ["thai", "latin"],
-  weight: ["400", "600", "700"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["500", "700", "800"],
+  display: "swap",
 });
 
-const sarabun = Sarabun({
-  variable: "--font-sarabun",
-  subsets: ["thai", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const notoSansThai = Noto_Sans_Thai({
+  variable: "--font-thai-sans",
+  subsets: ["thai"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+const notoSerifThai = Noto_Serif_Thai({
+  variable: "--font-thai-serif",
+  subsets: ["thai"],
+  weight: ["400", "500", "700"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });
 
+export const viewport: Viewport = {
+  colorScheme: "light",
+};
+
 export const metadata: Metadata = {
-  title: "THE REPO RADAR // วารสารวิเคราะห์งานวิจัย AI และโอเพนซอร์สรายวัน",
+  title: "THE REPO RADAR: วารสารวิเคราะห์งานวิจัย AI และโอเพนซอร์สรายวัน",
   description:
-    "วารสารข่าวเทคโนโลยี เปเปอร์วิจัย AI มาแรงจาก Hugging Face และ GitHub Trending สรุปเจาะลึกเป็นภาษาไทยในรูปแบบหนังสือพิมพ์และหนังสือที่อ่านสบายตา",
+    "วารสารข่าวเทคโนโลยี เปเปอร์วิจัย AI มาแรงจาก Hugging Face และ GitHub Trending สรุปเจาะลึกเป็นภาษาไทยในรูปแบบสิ่งพิมพ์ร่วมสมัย",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -54,11 +72,10 @@ export default function RootLayout({
   return (
     <html lang="th">
       <body
-        className={`${sarabun.variable} ${notoSerifThai.variable} ${playfair.variable} ${jetbrainsMono.variable} antialiased min-h-screen`}
+        className={`${bricolage.variable} ${sourceSerif.variable} ${notoSansThai.variable} ${notoSerifThai.variable} ${jetbrainsMono.variable} min-h-screen antialiased`}
       >
         {children}
       </body>
     </html>
   );
 }
-

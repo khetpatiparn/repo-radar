@@ -1,78 +1,124 @@
+/* Hallmark · shape: app screen · genre: editorial · theme: Editorial (deal 3/3, seed thai-research-papers-trending-c55e·a25d5437·2026-11-13·r0) · redesign: full
+ * nav: masthead-and-tab-rail · signature: heavy-rule-lead-and-editorial-rows · states: empty, filtered-empty, full
+ * axes: light/display-condensed/chromatic-green · posture: restrained · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S4 R5 V5 · weakest: S, generic card chrome replaced with Editorial 4px ink rules, square photography, and tabular index rows */
+/* Hallmark · finish-review: in-thread · 16 findings across Floor/Reflex/Warn · 16 resolved · gap: render tier skipped (no puppeteer-core) */
+/* Hallmark · dismissed 49 · verified every Header button carries whitespace-nowrap and globals.css enforces header button nowrap, with sm:hidden short mobile labels */
+/* Hallmark · dropped night-mode-toggle, onToggleNightMode, toggleNightMode · user selected single-mode Editorial light palette and requested updating E2E Journey 8 */
+/* Hallmark · reworded "setSelectedLang" to "onChangeLang" · extracted repo filters into modular ReposSection component */
+/* Hallmark · reworded "setSelectedMaturity" to "onChangeMaturity" · extracted repo filters into modular ReposSection component */
+/* Hallmark · reworded "handlePageChange" to "onPageChange" · extracted pagination into modular PapersSection and NewsSection components */
+/* Hallmark · reworded "openNewsReader" to "onOpenNews" · extracted news reader trigger into NewsSection component */
+/* Hallmark · reworded "openPaperReader" to "onOpenPaper" · extracted paper reader trigger into PapersSection component */
+/* Hallmark · reworded "openRepoReader" to "onOpenRepo" · extracted repo reader trigger into ReposSection component */
+/* Hallmark · reworded "setOnlyRepoStreak" to "onToggleOnlyRepoStreak" · extracted streak toggle into ReposSection component */
+/* Hallmark · reworded "setViewMode" to "onChangeViewMode" · extracted view mode toggle into PapersSection and NewsSection components */
+/* Hallmark · reworded "setOnlyWithCode" to "onToggleOnlyWithCode" · extracted GitHub code filter into PapersSection component */
+/* Hallmark · reworded "setPaperEdition" to "onChangeEdition" · extracted edition switcher into PapersSection component */
+/* Hallmark · reworded "setRepoDay" to "onChangeRepoDay" · extracted day switcher into ReposSection component */
+/* Hallmark · reworded "setSelectedNewsCategory" to "onChangeCategory" · extracted news category filter into NewsSection component */
+/* Hallmark · reworded "setSelectedPaperCategory" to "onChangeCategory" · extracted paper category filter into PapersSection component */
+/* Hallmark · reworded "toggleSaveNews" to "onToggleSaveNews" · extracted news bookmark toggle into NewsSection and ArticleReader */
+/* Hallmark · reworded "toggleSavePaper" to "onToggleSavePaper" · extracted paper bookmark toggle into PapersSection and ArticleReader */
+/* Hallmark · reworded "toggleSaveRepo" to "onToggleSaveRepo" · extracted repo bookmark toggle into ReposSection and ArticleReader */
+/* Hallmark · reworded "scrollToTop" to "onClick={scrollToTop}" · preserved scrollToTop back-to-top handler in page.tsx */
+/* Hallmark · reworded "handleSectionSelect" to "onSelectSection" · preserved section navigation callback passed to Header */
+/* Hallmark · reworded "setReadingNews" to "onBack" · preserved closing news reader via onBack prop */
+/* Hallmark · reworded "setReadingPaper" to "onBack" · preserved closing paper reader via onBack prop */
+/* Hallmark · reworded "setReadingRepo" to "onBack" · preserved closing repo reader via onBack prop */
+/* Hallmark · reworded "setSearchQuery" to "onSearch" · preserved real-time search handler passed to Header */
 @import "tailwindcss";
+@import "./tokens.css";
+@import "./base.css" layer(base);
 
-@theme {
-  --font-sans: var(--font-sarabun), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), var(--font-serif-thai), Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+.font-editorial-display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 75, "opsz" 96;
+  font-weight: var(--display-weight);
+  letter-spacing: var(--tracking-display);
 }
 
-:root {
-  --paper-bg: #f6f1e7;
-  --paper-sheet: #fbf9f4;
-  --paper-subtle: #ede6d8;
-  --paper-ink: #191715;
-  --paper-body: #2c2925;
-  --paper-muted: #665f55;
-  --paper-rule: #d5ccb9;
-  --paper-rule-strong: #23201c;
-  --paper-accent: #8e2424;
-  --paper-accent-soft: #f5e6e4;
-  --paper-green: #1d523d;
-  --paper-green-soft: #e3efe9;
-  --paper-amber: #8a5612;
-  --paper-amber-soft: #f7eedb;
+.font-editorial-label {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 12;
+  font-weight: 500;
 }
 
-.theme-night {
-  --paper-bg: #151412;
-  --paper-sheet: #1d1b18;
-  --paper-subtle: #26231f;
-  --paper-ink: #ede6da;
-  --paper-body: #d2cabd;
-  --paper-muted: #91887b;
-  --paper-rule: #34302b;
-  --paper-rule-strong: #6e665c;
-  --paper-accent: #e06d53;
-  --paper-accent-soft: #2e1e1b;
-  --paper-green: #63c193;
-  --paper-green-soft: #192b23;
-  --paper-amber: #e6b35a;
-  --paper-amber-soft: #2c2417;
+.font-editorial-body {
+  font-family: var(--font-body);
 }
 
-body {
-  background-color: var(--paper-bg);
-  color: var(--paper-body);
-  font-family: var(--font-sans);
-  line-height: 1.75;
+.editorial-opens {
+  border-top: var(--rule-heavy) solid var(--color-ink);
+  padding-top: var(--space-lg);
 }
 
-.font-editorial {
-  font-family: var(--font-serif-thai), var(--font-playfair), Georgia, serif;
+.editorial-well {
+  background: var(--color-paper-2);
+  border-top: var(--rule-hair) solid var(--color-rule-2);
 }
 
-.font-masthead {
-  font-family: var(--font-playfair), var(--font-serif-thai), Georgia, serif;
+.editorial-photo > img {
+  outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent);
+  outline-offset: -1px;
+  filter: saturate(0.9) contrast(1.04);
 }
 
-/* Smooth scrolling for TOC links */
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+/* Scrollability edge fade for horizontal filter/nav ribbons */
+@property --fade-start {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
 }
 
-/* Hide scrollbar on horizontal swipeable ribbons */
-.no-scrollbar::-webkit-scrollbar {
+@property --fade-end {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+.rail-fade {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-padding-inline: var(--space-lg);
+}
+
+.rail-fade::-webkit-scrollbar {
   display: none;
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+@supports (animation-timeline: scroll()) and (mask: linear-gradient(black, black) no-clip subtract) {
+  .rail-fade {
+    --fade-size: 2rem;
+    mask:
+      linear-gradient(black, black) no-clip subtract,
+      linear-gradient(to right, black, transparent) 0 0 / var(--fade-start) 100% no-repeat no-clip,
+      linear-gradient(to right, transparent, black) 100% 0 / var(--fade-end) 100% no-repeat no-clip;
+    animation: rail-fade-start linear both, rail-fade-end linear both;
+    animation-timeline: scroll(self inline);
+    animation-range: 0 var(--fade-size), calc(100% - var(--fade-size)) 100%;
+  }
+
+  @keyframes rail-fade-start {
+    to {
+      --fade-start: var(--fade-size);
+    }
+  }
+
+  @keyframes rail-fade-end {
+    from {
+      --fade-end: var(--fade-size);
+    }
+  }
 }
 
-/* Touch target comfort */
 button, a {
   -webkit-tap-highlight-color: transparent;
 }
 
-
+.whitespace-nowrap,
+header button,
+nav button {
+  white-space: nowrap;
+}
