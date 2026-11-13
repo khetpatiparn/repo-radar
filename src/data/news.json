@@ -1,0 +1,1047 @@
+{
+  "updated_at": "2026-11-13T06:26:42.211Z",
+  "articles": [
+    {
+      "id": "google-labs-new-google-flow-tools-d8a095",
+      "title": "5 new Google Flow Tools designed by visual artists",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/new-google-flow-tools/",
+      "source": "Google Labs",
+      "published_date": "2026-11-12",
+      "published_at": "2026-11-12T20:30:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Arathi Sethumadhavan"
+      ],
+      "rss_categories": [
+        "Google Labs"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Nov_Cohort_Hero_4.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google Labs เปิดตัว 5 เครื่องมือ Google Flow Tools ใหม่ ออกแบบร่วมกับศิลปินและผู้กำกับภาพยนตร์",
+      "short_teaser": "Google Labs ร่วมมือกับผู้กำกับและศิลปินสายวิชวล เปิดตัวเครื่องมือ AI ใหม่ 5 ตัวในชุด Google Flow Tools เพื่อช่วยให้การเล่าเรื่องและผลิตงานภาพยนตร์ทำได้ลื่นไหลขึ้น",
+      "tldr_takeaways": [
+        "เปิดตัว 5 ฟีเจอร์ใหม่ใน Google Flow Tools ที่พัฒนาร่วมกับผู้กำกับภาพยนตร์และ Visual Artists ตัวจริง",
+        "เน้นการควบคุมองค์ประกอบภาพ มุมกล้อง และความต่อเนื่องของฉากให้เหมาะกับเวิร์กโฟลว์สายโปรดักชัน",
+        "ช่วยให้ครีเอเตอร์เปลี่ยนไอเดียจากสตอรีบอร์ดเป็นฉากเคลื่อนไหวได้เร็วขึ้นโดยยังคงลายเซ็นทางศิลปะ"
+      ],
+      "layman_story": [
+        "ที่ผ่านมาเครื่องมือสร้างวิดีโอและภาพด้วย AI มักเก่งเรื่องการเสกภาพสวยๆ แบบสุ่ม แต่พอเอามาใช้เล่าเรื่องเป็นฉากต่อเนื่องในงานภาพยนตร์หรือแอนิเมชันจริง ศิลปินกลับควบคุมมุมกล้อง แสง และอารมณ์ของตัวละครให้ตรงใจได้ยาก",
+        "Google Labs จึงชวนผู้กำกับและศิลปินสายวิชวลมาร่วมออกแบบ 5 เครื่องมือใหม่ใน Google Flow Tools โดยปรับวิธีคิดจาก 'การพิมพ์พรอมต์เดาผลลัพธ์' มาเป็นเครื่องมือที่เข้าใจภาษาภาพยนตร์ ทั้งการจัดวางเฟรม การกำหนดจังหวะ และความสม่ำเสมอของสไตล์ข้ามฉาก",
+        "ผลลัพธ์คือครีเอเตอร์อิสระและสตูดิโอขนาดเล็กสามารถทดลองเล่าเรื่อง วางภาพ Pre-visualization และสร้างงานวิดีโอคุณภาพสูงได้เร็วขึ้นมาก โดยที่ AI ทำหน้าที่เป็นผู้ช่วยฝ่ายศิลป์ไม่ใช่ตัวแทนจินตนาการ"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: การสร้างวิดีโอ AI มักควบคุมความต่อเนื่องข้ามซีนและองค์ประกอบภาพตามภาษาภาพยนตร์ได้จำกัด",
+        "after": "หลังอัปเดต: มีเครื่องมือเฉพาะทาง 5 ตัวที่ออกแบบตามเวิร์กโฟลว์ของผู้กำกับและ Visual Artists ทำให้คุมโทนเรื่องได้แม่นขึ้น",
+        "why_it_matters": "แสดงให้เห็นทิศทางของ Google Labs ที่พัฒนา AI จากของเล่นทดลองให้กลายเป็นเครื่องมือโปรดักชันระดับมืออาชีพ"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทดลองทำ Pre-visualization ก่อนถ่ายจริง",
+          "role": "สำหรับผู้กำกับ / ครีเอเตอร์",
+          "description": "ใช้ Flow Tools สร้างภาพเคลื่อนไหวต้นแบบจากบทหรือสตอรีบอร์ดเพื่อคุยงานกับทีมกล้องและทีมแสง",
+          "example": "สร้างทีเซอร์แนวคิดโปรเจกต์ 30 วินาทีเพื่อเสนอลูกค้าหรือขอทุนผลิตจริง"
+        },
+        {
+          "title": "ประยุกต์ใช้ในแคมเปญการตลาดและวิดีโอแบรนด์",
+          "role": "สำหรับทีม Creative / Marketing",
+          "description": "ลดเวลาผลิตวิดีโอคอนเซปต์หลายเวอร์ชันสำหรับทดสอบ A/B Testing บนโซเชียลมีเดีย",
+          "example": "ผลิตสปอตเปิดตัวสินค้า 3 โทนภาพที่แตกต่างกันภายในวันเดียว"
+        },
+        {
+          "title": "ศึกษาแนวคิด UI แบบ Human-in-the-loop",
+          "role": "สำหรับนักพัฒนา / Product Designer",
+          "description": "สังเกตวิธีที่ Google ออกแบบเครื่องมือให้ผู้ใช้ควบคุม AI แบบละเอียดแทนการพึ่งพา Prompt ล้วนๆ",
+          "example": "นำแนวคิด Control Panel มาปรับใช้ในแอป Generative AI ของทีมตัวเอง"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เครื่องมือใหม่ 5 ชิ้นใน Google Flow Tools ที่ร่วมพัฒนากับศิลปินตัวจริง",
+          "รองรับการควบคุมสไตล์และจังหวะการเล่าเรื่องได้ละเอียดขึ้น"
+        ],
+        "watchouts": [
+          "ฟีเจอร์บางส่วนอาจเปิดให้ทดลองผ่าน Google Labs แบบจำกัดภูมิภาคก่อน",
+          "ควรตรวจสอบสิทธิ์การใช้งานเชิงพาณิชย์ของสื่อที่สร้างในแต่ละแพ็กเกจ"
+        ]
+      }
+    },
+    {
+      "id": "search-gemini-4-hydrogen-search-upgrade-459a57",
+      "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-12",
+      "published_at": "2026-11-12T18:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Robby Stein"
+      ],
+      "rss_categories": [
+        "Search",
+        "Gemini models",
+        "AI"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/HydrogenUI_socialshare.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google Search อัปเกรดใหญ่ระดับโลกด้วยขุมพลัง Gemini 4 Hydrogen ตอบคำถามเป็นภาพและเข้าใจง่ายขึ้น",
+      "short_teaser": "Google นำโมเดล Gemini 4 Hydrogen เข้ามาขับเคลื่อน Google Search ทั่วโลก เพื่อเปลี่ยนหน้าผลลัพธ์การค้นหาให้โต้ตอบฉลาดขึ้น เห็นภาพชัดขึ้น และตรงจุดกว่าเดิม",
+      "tldr_takeaways": [
+        "Google Search ทั่วโลกได้รับการอัปเกรดด้วยโมเดลรุ่นใหม่ Gemini 4 Hydrogen",
+        "เน้นการสรุปคำตอบที่ช่วยตัดสินใจได้จริง พร้อมการจัดวางข้อมูลเชิงภาพ (Visual) และคำอธิบายที่เข้าใจง่าย",
+        "รองรับคำถามซับซ้อนหลายขั้นตอนได้ดีขึ้น ลดเวลาที่ผู้ใช้ต้องเปิดเทียบหลายแท็บ"
+      ],
+      "layman_story": [
+        "เวลาเราค้นหาเรื่องที่ซับซ้อนบน Google เช่น การวางแผนทริป เทียบสเปกอุปกรณ์ หรือแก้ปัญหาเทคนิค เรามักต้องคลิกเปิดลิงก์หลายสิบหน้าแล้วมานั่งปะติดปะต่อข้อมูลเอง ซึ่งเสียเวลาและชวนสับสน",
+        "การอัปเกรด Google Search ด้วย Gemini 4 Hydrogen ช่วยให้ระบบค้นหาเข้าใจบริบทเชิงลึกของคำถามมากขึ้น และนำข้อมูลมาเรียบเรียงเป็นคำตอบที่มีโครงสร้างชัดเจน พร้อมองค์ประกอบเชิงภาพที่ช่วยให้สแกนทำความเข้าใจได้ทันที",
+        "ความเปลี่ยนแปลงนี้ยกระดับ Search จาก 'สารบัญลิงก์' ไปสู่ 'ผู้ช่วยวิเคราะห์ข้อมูลแบบเรียลไทม์' ซึ่งส่งผลโดยตรงต่อทั้งพฤติกรรมผู้ใช้งานทั่วไปและการทำ SEO/Content ของธุรกิจ"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: การค้นหาคำถามซับซ้อนมักต้องเปิดหลายเว็บและอ่านเทียบข้อมูลเองทีละหน้า",
+        "after": "หลังอัปเดต: Gemini 4 Hydrogen ช่วยสังเคราะห์คำตอบพร้อมภาพและโครงสร้างที่อ่านเข้าใจทันทีในหน้าค้นหา",
+        "why_it_matters": "เป็นการอัปเกรดแกนหลักของ Google Search ที่เข้าถึงผู้ใช้งานหลายพันล้านคนพร้อมกันทั่วโลก"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ปรับกลยุทธ์คอนเทนต์ให้ตอบโจทย์คำถามเชิงลึก",
+          "role": "สำหรับทีม Content / SEO",
+          "description": "เน้นสร้างเนื้อหาที่มีข้อมูลเฉพาะทาง ตารางเปรียบเทียบ และมุมมองจากประสบการณ์จริงที่ AI สรุปอ้างอิงได้ง่าย",
+          "example": "จัดทำคู่มือแก้ปัญหาเฉพาะทางพร้อม Structured Data ที่ชัดเจนบนเว็บไซต์"
+        },
+        {
+          "title": "ใช้ Search สำหรับการวิจัยตลาดและเทคโนโลยีแบบรวดเร็ว",
+          "role": "สำหรับผู้ประกอบการ / นักวิเคราะห์",
+          "description": "ตั้งคำถามแบบเปรียบเทียบหลายเงื่อนไขในครั้งเดียวเพื่อประหยัดเวลาสืบค้นเบื้องต้น",
+          "example": "ค้นหาเปรียบเทียบโซลูชัน Cloud หรือกฎระเบียบเฉพาะทางพร้อมจุดต่างสำคัญ"
+        },
+        {
+          "title": "ออกแบบผลิตภัณฑ์ให้ทำงานร่วมกับ AI Search",
+          "role": "สำหรับนักพัฒนาเว็บ / E-commerce",
+          "description": "ตรวจเช็กข้อมูลสินค้า ราคา และรีวิวในรูปแบบ Schema Markup เพื่อให้แสดงผลในคำตอบเชิงภาพได้ครบถ้วน",
+          "example": "เพิ่ม Product Schema และ FAQ Schema ให้หน้าสินค้าหลักของร้าน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ผสาน Gemini 4 Hydrogen เข้ากับ Google Search ระดับ Global",
+          "ปรับการแสดงผลให้เน้น Visual และความเข้าใจง่าย (Intuitive Responses)"
+        ],
+        "watchouts": [
+          "เว็บไซต์ข่าวและบล็อกต้องปรับตัวรับทราฟฟิกที่อาจเปลี่ยนไปจาก AI Overview",
+          "ความแม่นยำในคำถามเฉพาะทางระดับลึกยังควรตรวจสอบจากแหล่งอ้างอิงต้นทาง"
+        ]
+      }
+    },
+    {
+      "id": "developers-tools-build-with-gemini-4-hydrogen-7954da",
+      "title": "Gemini 4 Hydrogen: everyday coding and agentic workflows for developers",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/",
+      "source": "Google Developers",
+      "published_date": "2026-11-12",
+      "published_at": "2026-11-12T18:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [],
+      "rss_categories": [
+        "Gemini models",
+        "Developer tools"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hydrogen_socialshare.max-600x600.format-webp.webp",
+      "reading_time_minutes": 4,
+      "hook_headline": "เจาะลึก Gemini 4 Hydrogen สำหรับนักพัฒนา: โมเดลคู่ใจสาย Agentic Coding ที่เร็วและประหยัดต้นทุน",
+      "short_teaser": "Google เปิดให้ใช้งาน Gemini 4 Hydrogen บน Google AI Studio แล้ว ชูจุดเด่นด้านการเขียนโค้ด การดีบัก และเวิร์กโฟลว์แบบ Agent ที่คุ้มค่าต้นทุนสำหรับใช้งานทุกวัน",
+      "tldr_takeaways": [
+        "Gemini 4 Hydrogen ออกแบบมาเพื่อเป็น 'Daily Driver' สำหรับงาน Coding, Debugging และ Agentic Workflows",
+        "เน้นสมดุลระหว่างความฉลาด ความเร็ว และต้นทุนต่อโทเคนที่ต่ำลง",
+        "พร้อมใช้งานทันทีผ่าน Google AI Studio และ Gemini API"
+      ],
+      "layman_story": [
+        "นักพัฒนาที่สร้าง AI Agent หรือใช้ AI ช่วยเขียนโค้ดทุกวันมักเจอปัญหาคอขวดสองอย่าง คือโมเดลตัวใหญ่ที่สุดก็ช้าและแพงเกินกว่าจะรันวนลูปหลายรอบ ส่วนโมเดลตัวเล็กก็มักหลงบริบทเวลาเจอโค้ดหลายไฟล์",
+        "Gemini 4 Hydrogen ถูกวางตำแหน่งมาแก้โจทย์นี้โดยตรงในฐานะ 'โมเดลใช้งานประจำวันสำหรับงาน Agent' มันถูกจูนให้เรียกใช้เครื่องมือ (Tool Calling) อ่านไฟล์โค้ด และไล่หาจุดผิดพลาดในเทอร์มินัลได้อย่างต่อเนื่องโดยไม่เปลืองงบ",
+        "สำหรับทีมพัฒนาซอฟต์แวร์และสาย Micro-SaaS นี่คือโมเดลที่น่าจับตามากสำหรับการนำไปทำ Backend Agent, ระบบ Automated Code Review หรือผู้ช่วยเขียนโค้ดที่ต้องรันคำขอจำนวนมากทุกวัน"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: งาน Agentic Coding ที่ต้องรันหลายขั้นตอนมักติดปัญหาค่า API แพงหรือความหน่วงสูงเมื่อใช้โมเดลใหญ่",
+        "after": "หลังอัปเดต: ได้โมเดลที่จูนมาเฉพาะทางสำหรับ Coding และ Agent Loops โดยยังคงต้นทุนที่รันได้จริงในโปรดักชัน",
+        "why_it_matters": "ช่วยให้นักพัฒนาสามารถขยายระบบ AI Agent จากต้นแบบทดลองไปสู่ระบบจริงที่รับโหลดสูงได้"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทดสอบแทนโมเดลเดิมใน Coding & Tool-use Pipeline",
+          "role": "สำหรับ AI Engineer / Backend Dev",
+          "description": "ลองสลับ Endpoint ใน Google AI Studio เพื่อเทียบความแม่นยำและต้นทุนกับเวิร์กโฟลว์เดิมของทีม",
+          "example": "ใช้ Gemini 4 Hydrogen รันสคริปต์ตรวจ Pull Request และสร้าง Unit Test อัตโนมัติ"
+        },
+        {
+          "title": "สร้างระบบ Multi-step Agent ที่ต้นทุนควบคุมได้",
+          "role": "สำหรับผู้สร้าง Micro-SaaS",
+          "description": "ใช้ Hydrogen เป็น Worker Model สำหรับงานย่อยที่ต้องเรียก Tool หลายรอบ เช่น ค้นข้อมูล วิเคราะห์ และจัดรูปแบบ",
+          "example": "สร้างบอทสรุปรายงานการขายหรือช่วยตอบ Ticket ลูกค้าที่ต่อเข้ากับฐานข้อมูลภายใน"
+        },
+        {
+          "title": "ใช้ช่วยไล่บั๊กและ Refactor โค้ดประจำวัน",
+          "role": "สำหรับ Full-stack Developer",
+          "description": "เชื่อมต่อผ่าน API เข้ากับ IDE หรือ CLI เพื่อช่วยดีบัก Error Log และเสนอแพตช์แก้ไขอย่างรวดเร็ว",
+          "example": "รันวิเคราะห์ Stack Trace พร้อมไฟล์ที่เกี่ยวข้องเพื่อหาสาเหตุของบั๊ก"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดตัว Gemini 4 Hydrogen ใน Google AI Studio สำหรับนักพัฒนา",
+          "เน้นประสิทธิภาพด้าน Agentic Coding, Debugging และความคุ้มค่าต่อ Token"
+        ],
+        "watchouts": [
+          "งานที่ต้องการการวางแผนเชิงลึกขั้นสูงสุดอาจยังต้องสลับใช้รุ่น Flagship อย่าง Gemini 4 Carbon",
+          "ควรตั้ง Benchmark วัดผลกับชุดทดสอบเฉพาะงานของทีมก่อนเปลี่ยนระบบทั้งหมด"
+        ]
+      }
+    },
+    {
+      "id": "gemini-models-introducing-gemini-4-hydrogen-ec9fd4",
+      "title": "Introducing Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-12",
+      "published_at": "2026-11-12T18:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Koray Kavukcuoglu"
+      ],
+      "rss_categories": [
+        "Gemini models"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-element-hydrogen-light.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "รู้จัก Gemini 4 Hydrogen: โมเดลตระกูล Gemini 4 รุ่นคล่องตัวสำหรับงาน Agentic ยุคใหม่",
+      "short_teaser": "Google เปิดตัว Gemini 4 Hydrogen อย่างเป็นทางการในฐานะโมเดลหลักสำหรับงานประจำวัน (Daily Driver) ที่เน้นความฉลาดรอบด้านและความคล่องตัวในการทำงานแบบ Agentic",
+      "tldr_takeaways": [
+        "Gemini 4 Hydrogen เป็นรุ่นน้องที่เน้นความคล่องตัวในตระกูล Gemini 4 ต่อจาก Gemini 4 Carbon",
+        "ออกแบบมาให้รับมือกับงาน Agentic Workflows ที่ต้องคิด วางแผน และลงมือทำต่อเนื่องได้ลื่นไหล",
+        "ถูกนำไปใช้ทั้งในผลิตภัณฑ์ของ Google เองและเปิดให้ผู้พัฒนาเข้าถึงพร้อมกัน"
+      ],
+      "layman_story": [
+        "ในยุคที่ AI ไม่ได้แค่ 'ตอบคำถามหนึ่งประโยคแล้วจบ' แต่ต้องรับหน้าที่เป็นตัวแทนทำงานหลายขั้นตอนต่อเนื่อง เช่น ค้นหาข้อมูล เปิดเว็บ อ่านเอกสาร แล้วสรุปส่งรายงาน โมเดล AI จึงต้องทั้งฉลาดและตอบสนองไว",
+        "Gemini 4 Hydrogen ถูกออกแบบมาให้เป็นโมเดลสายสมดุลของเจเนอเรชัน Gemini 4 ไม่หนักเกินไปจนช้าเหมือนรุ่นท็อป แต่เก่งพอจะทำงานเป็น Agent ประจำวันได้อย่างน่าเชื่อถือ",
+        "การเปิดตัวรุ่นนี้ควบคู่ไปกับการอัปเกรด Google Search และ Google AI Studio สะท้อนว่า Google กำลังผลักดันสถาปัตยกรรม Gemini 4 เข้าสู่การใช้งานระดับแมสอย่างเต็มรูปแบบ"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: ผู้ใช้ต้องเลือกระหว่างโมเดลรุ่นใหญ่ที่ช้ากว่า กับรุ่นเบาที่ความสามารถด้าน Agent ยังไม่นิ่ง",
+        "after": "หลังอัปเดต: Gemini 4 Hydrogen เติมช่องว่างตรงกลางให้เป็นโมเดลประจำวันที่รองรับงาน Agentic ได้เต็มตัว",
+        "why_it_matters": "กำหนดมาตรฐานใหม่ของโมเดลระดับกลาง-สูงที่พร้อมรันในแอปพลิเคชันจริงจำนวนมาก"
+      },
+      "actionable_playbook": [
+        {
+          "title": "แบ่งชั้นการใช้โมเดล (Model Routing) ในระบบ",
+          "role": "สำหรับสถาปนิกระบบ AI",
+          "description": "ใช้ Gemini 4 Hydrogen จัดการงาน 80% ประจำวัน และส่งต่อเฉพาะโจทย์ซับซ้อนมากให้ Gemini 4 Carbon",
+          "example": "ตั้ง Router แยกคำถามทั่วไปกับการวิเคราะห์เอกสารกฎหมายหรือการเงินเชิงลึก"
+        },
+        {
+          "title": "อัปเกรดเวิร์กโฟลว์อัตโนมัติในองค์กร",
+          "role": "สำหรับหัวหน้าทีม Tech / Ops",
+          "description": "นำความสามารถด้าน Agentic มาใช้คัดกรองอีเมล สรุปรายงาน และสร้าง Ticket งานอัตโนมัติ",
+          "example": "เชื่อมระบบแจ้งปัญหาลูกค้าให้ AI สรุปสาเหตุและส่งต่อทีมที่รับผิดชอบทันที"
+        },
+        {
+          "title": "เรียนรู้ความต่างของตระกูล Gemini 4",
+          "role": "สำหรับผู้สนใจเทคโนโลยี AI",
+          "description": "เปรียบเทียบสเปกและจุดเด่นระหว่าง Gemini 4 Carbon กับ Hydrogen เพื่อเลือกใช้ให้เหมาะกับงาน",
+          "example": "อ่าน Blog ต้นทางเพื่อดูผลทดสอบและกรณีศึกษาจาก Google"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดตัว Gemini 4 Hydrogen อย่างเป็นทางการในตระกูล Gemini 4",
+          "วางบทบาทเป็น Daily Driver สำหรับงาน Agentic Workflows"
+        ],
+        "watchouts": [
+          "ติดตามรายละเอียด Rate Limit และโครงสร้างราคาในแต่ละแพลตฟอร์ม",
+          "ตรวจสอบความเข้ากันได้ของ SDK เวอร์ชันล่าสุดก่อนอัปเกรด"
+        ]
+      }
+    },
+    {
+      "id": "sustainability-saving-giant-kelp-australia-956cf2",
+      "title": "Scientists are using Google AI to help restore giant kelp forests.",
+      "url": "https://blog.google/company-news/outreach-and-initiatives/sustainability/saving-giant-kelp-australia/",
+      "source": "Google Research",
+      "published_date": "2026-11-12",
+      "published_at": "2026-11-12T17:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [],
+      "rss_categories": [
+        "Google Research",
+        "Sustainability"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Kelp_for_Social_Share.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "นักวิทยาศาสตร์ใช้ Google AI ช่วยฟื้นฟูป่าสาหร่ายยักษ์ใต้ทะเลที่กำลังวิกฤตจากโลกร้อน",
+      "short_teaser": "Google Research ร่วมกับนักวิทยาศาสตร์ทางทะเลนำ AI เข้ามาวิเคราะห์ภาพถ่ายใต้น้ำและข้อมูลสภาพมหาสมุทร เพื่อเร่งฟื้นฟูป่าสาหร่ายเคลป์ยักษ์ในออสเตรเลีย",
+      "tldr_takeaways": [
+        "ป่าสาหร่ายยักษ์ (Giant Kelp) เป็นระบบนิเวศสำคัญที่ช่วยปกป้องชายฝั่งและดูดซับคาร์บอน แต่กำลังลดลงจากน้ำทะเลอุ่นขึ้น",
+        "นักวิจัยใช้ Google AI ช่วยประมวลผลภาพสำรวจและติดตามสุขภาพของป่าสาหร่ายได้แม่นยำและเร็วขึ้น",
+        "เป็นอีกหนึ่งตัวอย่างการใช้ AI เพื่อสิ่งแวดล้อมและวิทยาศาสตร์ทางทะเล (AI for Sustainability)"
+      ],
+      "layman_story": [
+        "ใต้ผืนน้ำทะเลนอกชายฝั่งออสเตรเลีย ป่าสาหร่ายยักษ์เคยเติบโตสูงตระหง่านเหมือนป่าดิบชื้นใต้น้ำ เป็นบ้านของสัตว์ทะเลนับพันชนิดและช่วยลดแรงคลื่นกัดเซาะชายฝั่ง แต่ภาวะโลกร้อนทำให้น้ำทะเลอุ่นขึ้นจนป่าเหล่านี้หายไปอย่างรวดเร็ว",
+        "ปัญหาของนักอนุรักษ์คือการสำรวจใต้ทะเลทำได้ยากและใช้เวลานานในการดูภาพถ่ายนับหมื่นภาพ Google Research จึงร่วมนำ AI มาช่วยจำแนกสายพันธุ์ ตรวจจับพื้นที่ฟื้นตัว และคาดการณ์จุดที่เหมาะสมต่อการปลูกฟื้นฟู",
+        "เมื่อการวิเคราะห์ข้อมูลที่เคยใช้เวลาหลายสัปดาห์ลดลงเหลือไม่กี่ชั่วโมง ทีมนักวิทยาศาสตร์จึงสามารถวางแผนฟื้นฟูแนวสาหร่ายได้อย่างตรงจุดและทันท่วงทีมากขึ้น"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: การสำรวจและวิเคราะห์ภาพถ่ายระบบนิเวศใต้ทะเลต้องใช้แรงคนตรวจนับนานและครอบคลุมพื้นที่ได้น้อย",
+        "after": "หลังอัปเดต: ใช้ AI ช่วยตรวจจับและประเมินการฟื้นตัวของป่าสาหร่ายจากข้อมูลภาพและสิ่งแวดล้อมได้รวดเร็ว",
+        "why_it_matters": "ตอกย้ำบทบาทของ AI ในการแก้ปัญหาสิ่งแวดล้อมและการอนุรักษ์ทรัพยากรธรรมชาติจริง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ประยุกต์ใช้ Vision AI กับงานสำรวจสิ่งแวดล้อม",
+          "role": "สำหรับนักวิจัย / องค์กรสิ่งแวดล้อม",
+          "description": "นำแนวคิด Computer Vision มาตรวจนับประชากรสัตว์ พืช หรือความเปลี่ยนแปลงของแนวปะการังและป่าชายเลน",
+          "example": "ใช้โดรนหรือกล้องใต้น้ำถ่ายภาพแล้วให้โมเดล AI ช่วยแยกชนิดและพื้นที่เสื่อมโทรม"
+        },
+        {
+          "title": "พัฒนาโปรเจกต์ AI for Social Good ในไทย",
+          "role": "สำหรับนักศึกษา / นักพัฒนา",
+          "description": "ศึกษา Case Study จาก Google Research เพื่อต่อยอดทำโปรเจกต์ติดตามทรัพยากรธรรมชาติในท้องถิ่น",
+          "example": "สร้างระบบตรวจจับไฟป่าหรือขยะทะเลจากภาพถ่ายดาวเทียมและโดรน"
+        },
+        {
+          "title": "สื่อสารข้อมูลสิ่งแวดล้อมด้วย Visual Storytelling",
+          "role": "สำหรับองค์กรด้านความยั่งยืน (ESG)",
+          "description": "ใช้ข้อมูลที่ AI วิเคราะห์ได้มาสร้างแดชบอร์ดแสดงผลความคืบหน้าโครงการฟื้นฟูธรรมชาติอย่างโปร่งใส",
+          "example": "รายงานผลการดูดซับคาร์บอนและการฟื้นตัวของระบบนิเวศรายไตรมาส"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ความร่วมมือใช้ Google AI ช่วยติดตามและฟื้นฟูป่าสาหร่ายยักษ์ในออสเตรเลีย",
+          "เชื่อมโยงงานวิจัย AI เข้ากับการอนุรักษ์ระบบนิเวศทางทะเลรับการประชุม COP31"
+        ],
+        "watchouts": [
+          "โมเดลวิเคราะห์ภาพใต้น้ำต้องอาศัยการปรับจูนตามความขุ่นของน้ำและแสงในแต่ละพื้นที่",
+          "การฟื้นฟูจริงยังต้องทำควบคู่กับการลดอุณหภูมิน้ำทะเลและมลภาวะชายฝั่ง"
+        ]
+      }
+    },
+    {
+      "id": "gemini-app-research-with-gemini-in-chrome-7bc6a3",
+      "title": "Get quick answers from Gemini on any website.",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/research-with-gemini-in-chrome/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-12",
+      "published_at": "2026-11-12T17:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [],
+      "rss_categories": [
+        "Gemini App"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_in_Chrome_OZMdZhz.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Gemini ใน Google Chrome อัปเกรดใหม่: สรุปบทความ เทียบสินค้า และถามตอบจากหน้าเว็บได้ทันทีใน Side Panel",
+      "short_teaser": "Google เพิ่มความสามารถให้ Gemini ในแถบด้านข้างของ Chrome สามารถอ่านและสรุปหน้าเว็บใดก็ได้ เปรียบเทียบข้อมูล และอธิบายเรื่องยากให้เข้าใจทันทีโดยไม่ต้องสลับแท็บ",
+      "tldr_takeaways": [
+        "เรียกใช้ Gemini ผ่าน Side Panel ใน Chrome เพื่อสรุปบทความยาวๆ บนหน้าเว็บที่กำลังเปิดอยู่",
+        "ช่วยเปรียบเทียบข้อมูลสินค้าหรือบริการ รวมถึงอธิบายศัพท์เทคนิคที่พบในหน้าเว็บ",
+        "ลดการสลับหน้าต่างไปมาระหว่างเว็บที่อ่านกับแชตบอท AI"
+      ],
+      "layman_story": [
+        "เวลาอ่านบทความภาษาอังกฤษยาวๆ รายงาน PDF ออนไลน์ หรือหน้าสเปกสินค้าที่มีรายละเอียดเยอะ หลายคนมักต้องก๊อปปี้ข้อความแล้วสลับแท็บไปวางในแอป AI เพื่อขอให้ช่วยสรุป ซึ่งขัดจังหวะการอ่านมาก",
+        "ฟีเจอร์ Gemini ใน Chrome แก้ปัญหานี้ด้วยการฝังผู้ช่วยไว้ในแถบด้านข้าง (Side Panel) ของเบราว์เซอร์โดยตรง เพียงคลิกเดียว Gemini จะเข้าใจบริบทของหน้าเว็บที่เปิดอยู่ พร้อมสรุปประเด็นสำคัญ ตอบคำถามเจาะลึก หรือช่วยเทียบตัวเลือกให้ทันที",
+        "สำหรับคนที่ต้องอ่านข่าว หาข้อมูลทำงาน หรือช้อปปิ้งออนไลน์ทุกวัน นี่คือการนำ AI เข้าไปอยู่ในจุดที่คนใช้เวลาอยู่จริงมากที่สุดอย่างเว็บเบราว์เซอร์"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: ต้องคัดลอกข้อความหรือลิงก์จากหน้าเว็บไปวางในหน้าต่าง AI แยกต่างหาก",
+        "after": "หลังอัปเดต: ถามตอบ สรุป และวิเคราะห์เนื้อหาบนหน้าเว็บได้ทันทีใน Side Panel ของ Chrome",
+        "why_it_matters": "ลดแรงเสียดทานในการใช้งาน AI ประจำวัน ทำให้คนทั่วไปเข้าถึงความสามารถของ Gemini ได้เป็นธรรมชาติขึ้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "สรุปบทความวิจัยและเอกสารเทคนิคระหว่างทำงาน",
+          "role": "สำหรับนักพัฒนา / นักวิจัย",
+          "description": "เปิด Documentation หรือบทความต่างประเทศแล้วให้ Side Panel ช่วยดึงเฉพาะขั้นตอนติดตั้งหรือจุดสำคัญ",
+          "example": "ถาม Gemini บนหน้าเอกสาร API ว่ามี Breaking Changes อะไรบ้างเทียบกับเวอร์ชันเก่า"
+        },
+        {
+          "title": "เปรียบเทียบสเปกเครื่องมือหรือบริการ SaaS",
+          "role": "สำหรับผู้บริหาร / จัดซื้อ",
+          "description": "ใช้ช่วยสรุปตารางราคา ข้อจำกัด และจุดเด่นของซอฟต์แวร์หลายตัวขณะเปิดอ่านหน้า Pricing",
+          "example": "ขอให้สรุปความแตกต่างของแพ็กเกจ Enterprise ในหน้าเว็บผู้ให้บริการ"
+        },
+        {
+          "title": "ช่วยเรียนรู้ภาษาและเรื่องใหม่ที่ซับซ้อน",
+          "role": "สำหรับผู้ใช้งานทั่วไป / นักเรียน",
+          "description": "ไฮไลต์ส่วนที่ไม่เข้าใจแล้วสั่งให้อธิบายเป็นภาษาไทยง่ายๆ พร้อมยกตัวอย่างประกอบ",
+          "example": "เปิดข่าวการเงินหรือวิทยาศาสตร์ต่างประเทศแล้วให้สรุปเป็น 5 ข้ออ่านเร็ว"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Gemini Side Panel ใน Chrome อ่านและสรุปหน้าเว็บได้แบบเรียลไทม์",
+          "รองรับการถามต่อยอด เทียบข้อมูล และอธิบายหัวข้อซับซ้อนบนหน้าเว็บ"
+        ],
+        "watchouts": [
+          "ตรวจสอบการตั้งค่าความเป็นส่วนตัวว่าอนุญาตให้แชร์เนื้อหาหน้าเว็บใดกับ AI บ้าง",
+          "หลีกเลี่ยงการใช้สรุปหน้าเว็บที่มีข้อมูลความลับภายในหรือข้อมูลส่วนบุคคลอ่อนไหวโดยไม่ได้รับอนุญาต"
+        ]
+      }
+    },
+    {
+      "id": "safety-security-intelligent-eyewear-privacy-prot-045415",
+      "title": "Designing for privacy on intelligent eyewear",
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/intelligent-eyewear-privacy-protections/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-12",
+      "published_at": "2026-11-12T14:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Shahram Izadi"
+      ],
+      "rss_categories": [
+        "Android",
+        "Safety & Security",
+        "XR and AR"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Banner_bnCZOSz.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "เบื้องหลังระบบความเป็นส่วนตัวบนแว่นตาอัจฉริยะ Google Intelligent Eyewear ก่อนวางขายจริง",
+      "short_teaser": "Google เผยแนวทางออกแบบระบบรักษาความเป็นส่วนตัวและความปลอดภัยบนแว่นตา AI รุ่นใหม่ เพื่อสร้างความมั่นใจทั้งผู้สวมใส่และคนรอบข้าง",
+      "tldr_takeaways": [
+        "เปิดเผยกรอบการออกแบบ Privacy สำหรับแว่นตาอัจฉริยะที่มีกล้อง ไมโครโฟน และ AI บนตัวเครื่อง",
+        "เน้นความโปร่งใสต่อคนรอบข้าง เช่น ไฟสถานะชัดเจนเมื่อมีการบันทึกภาพหรือประมวลผล",
+        "วางมาตรการควบคุมสิทธิ์ข้อมูลและเปิดปิดเซนเซอร์ได้ทันทีจากตัวผู้สวมใส่"
+      ],
+      "layman_story": [
+        "แว่นตาอัจฉริยะที่ติดกล้องและ AI คอยมองเห็นโลกพร้อมกับเรามีประโยชน์มาก เช่น ช่วยแปลป้ายภาษาต่างประเทศหรือแนะนำเส้นทาง แต่ความกังวลใหญ่ที่สุดของสังคมตั้งแต่ยุค Google Glass คือ 'ความเป็นส่วนตัวของคนรอบข้าง'",
+        "ในบทความนี้ Google อธิบายหลักการออกแบบระบบ Privacy Protections ตั้งแต่ระดับฮาร์ดแวร์และซอฟต์แวร์บนแว่นตาอัจฉริยะรุ่นใหม่ ไม่ว่าจะเป็นสัญญาณไฟแจ้งเตือนที่มองเห็นได้ชัด การประมวลผลข้อมูลบนอุปกรณ์ (On-device) เท่าที่จำเป็น และการคุมสิทธิ์การแชร์ข้อมูลของแอป",
+        "การสื่อสารเรื่องความเป็นส่วนตัวควบคู่กับการเปิดจองแว่นตาอัจฉริยะสะท้อนว่า Google ต้องการพิสูจน์ว่าเทคโนโลยี AI Wearables รุ่นใหม่สามารถอยู่ร่วมกับสังคมได้อย่างปลอดภัยและน่าเชื่อถือ"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: อุปกรณ์สวมใส่มีกล้องมักถูกตั้งคำถามเรื่องการแอบบันทึกภาพและความไม่ชัดเจนในการเก็บข้อมูล",
+        "after": "หลังอัปเดต: มีมาตรฐานการออกแบบที่บังคับความโปร่งใส สัญญาณแจ้งเตือน และการควบคุมข้อมูลจากผู้ใช้โดยตรง",
+        "why_it_matters": "ความเป็นส่วนตัวคือกุญแจสำคัญที่จะชี้ชะตาว่าแว่นตา AI จะได้รับการยอมรับในชีวิตประจำวันหรือไม่"
+      },
+      "actionable_playbook": [
+        {
+          "title": "นำหลัก Privacy-by-Design ไปใช้กับแอป AI Camera/Audio",
+          "role": "สำหรับนักพัฒนาฮาร์ดแวร์ / Mobile Dev",
+          "description": "ออกแบบระบบแจ้งเตือนสถานะเซนเซอร์และการประมวลผลข้อมูลบนเครื่องให้ชัดเจนตั้งแต่ต้น",
+          "example": "แสดง Indicator ชัดเจนทุกครั้งที่แอปเปิดกล้องวิเคราะห์ภาพด้วย AI"
+        },
+        {
+          "title": "วางนโยบายการใช้งาน AI Wearables ในองค์กร",
+          "role": "สำหรับฝ่าย IT Security / HR",
+          "description": "เตรียมแนวทางกำหนดพื้นที่ห้ามบันทึกภาพหรือการใช้แว่นตาอัจฉริยะในห้องประชุมลับ",
+          "example": "อัปเดตนโยบายความปลอดภัยข้อมูลครอบคลุมอุปกรณ์ Smart Glasses รุ่นใหม่"
+        },
+        {
+          "title": "ประเมินความพร้อมก่อนเลือกซื้อแว่นตา AI",
+          "role": "สำหรับผู้บริโภค",
+          "description": "ตรวจสอบว่าอุปกรณ์มีสวิตช์ปิดกล้อง/ไมค์ และวิธีจัดการประวัติข้อมูลที่ชัดเจนเพียงพอหรือไม่",
+          "example": "อ่านคู่มือการตั้งค่า Privacy ก่อนเชื่อมต่อบัญชีหลักเข้ากับอุปกรณ์สวมใส่"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดเผยสถาปัตยกรรมและหลักการปกป้องความเป็นส่วนตัวสำหรับ Intelligent Eyewear",
+          "เน้นความโปร่งใสต่อทั้งผู้ใช้งานและบุคคลรอบข้าง"
+        ],
+        "watchouts": [
+          "กฎหมายเรื่องการบันทึกภาพในที่สาธารณะแตกต่างกันไปในแต่ละประเทศ",
+          "การใช้งานร่วมกับแอป Third-party ยังต้องคอยตรวจสอบการขอสิทธิ์เข้าถึงข้อมูล"
+        ]
+      }
+    },
+    {
+      "id": "xr-ar-google-intelligent-eyewear-collections-pre-6514a9",
+      "title": "See our intelligent eyewear lineup and pre-order your pair",
+      "url": "https://blog.google/innovation-and-ai/technology/xr-ar/google-intelligent-eyewear-collections-pre-order/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-12",
+      "published_at": "2026-11-12T14:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Shahram Izadi"
+      ],
+      "rss_categories": [
+        "XR and AR"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog1_Banner.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google เปิดให้พรีออเดอร์แว่นตาอัจฉริยะ XR/AI ดีไซน์โดย Warby Parker และ Gentle Monster ร่วมสร้างกับ Samsung",
+      "short_teaser": "Google เผยโฉมคอลเลกชันแว่นตาอัจฉริยะที่ร่วมออกแบบกับแบรนด์แฟชั่นดัง Warby Parker และ Gentle Monster พร้อมวิศวกรรมจาก Samsung และเปิดให้สั่งจองล่วงหน้าแล้ว",
+      "tldr_takeaways": [
+        "เปิด Pre-order แว่นตาอัจฉริยะคอลเลกชันแรกของ Google อย่างเป็นทางการ",
+        "ได้พาร์ทเนอร์แฟชั่นอย่าง Warby Parker และ Gentle Monster มาออกแบบให้ใส่ได้จริงในชีวิตประจำวัน",
+        "พัฒนาฮาร์ดแวร์ร่วมกับ Samsung พร้อมระบบ Android XR และผู้ช่วย Gemini ในตัว"
+      ],
+      "layman_story": [
+        "เหตุผลที่แว่นตาอัจฉริยะในอดีตไม่ค่อยติดตลาด ไม่ใช่แค่เรื่องซอฟต์แวร์ แต่เพราะหน้าตามันดูเหมือนอุปกรณ์ไซไฟมากกว่าแว่นตาที่คนอยากใส่เดินไปทำงานหรือนั่งคาเฟ่",
+        "Google จึงแก้เกมด้วยการจับมือกับแบรนด์แว่นตาชื่อดังอย่าง Warby Parker และ Gentle Monster เพื่อออกแบบกรอบแว่นให้สวยเบาเหมือนแว่นแฟชั่นทั่วไป ส่วนไส้ในพัฒนาด้านวิศวกรรมร่วมกับ Samsung ให้รองรับผู้ช่วย Gemini และประสบการณ์ XR/AR",
+        "การเปิดให้พรีออเดอร์ครั้งนี้ถือเป็นหมุดหมายสำคัญของสงครามอุปกรณ์ AI Wearable ที่จะมาแข่งกับ Meta Ray-Ban และอุปกรณ์รุ่นใหม่ในตลาดโลก"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: แว่นตา AR/AI ส่วนใหญ่ยังมีรูปทรงเทอะทะหรือเป็นเพียงรุ่นต้นแบบสำหรับนักพัฒนา",
+        "after": "หลังอัปเดต: มีคอลเลกชันแฟชั่นที่ใส่ได้จริงในชีวิตประจำวันพร้อมระบบนิเวศ Gemini และ Android XR",
+        "why_it_matters": "อาจเป็นจุดเริ่มต้นของการเปลี่ยนผ่านจากสมาร์ตโฟนไปสู่อุปกรณ์ AI แบบสวมใส่ที่เข้าถึงคนทั่วไป"
+      },
+      "actionable_playbook": [
+        {
+          "title": "เตรียมออกแบบประสบการณ์แอปแบบ Hands-free / Voice-first",
+          "role": "สำหรับนักพัฒนา Android / XR",
+          "description": "คิดฟีเจอร์ที่ทำงานได้ด้วยเสียง การมองเห็นสั้นๆ หรือบริบทรอบตัวของผู้ใช้",
+          "example": "สร้างแอปช่วยบอกข้อมูลสินค้า การนำทางเดินเท้า หรือแปลภาษาแบบเรียลไทม์"
+        },
+        {
+          "title": "ติดตามโอกาสทางการตลาดของสาย Wearable AI",
+          "role": "สำหรับแบรนด์และธุรกิจค้าปลีก",
+          "description": "วิเคราะห์พฤติกรรมผู้บริโภคเมื่อการค้นหาข้อมูลเกิดขึ้นผ่านมุมมองสายตาและเสียงพูด",
+          "example": "เตรียมข้อมูลหน้าร้านและเวลาเปิดปิดให้ค้นหาด้วยเสียงได้แม่นยำ"
+        },
+        {
+          "title": "เปรียบเทียบสเปกกับแว่น AI คู่แข่งในตลาด",
+          "role": "สำหรับผู้สนใจเทคโนโลยี",
+          "description": "เช็กน้ำหนัก แบตเตอรี่ การรองรับเลนส์สายตา และฟีเจอร์ที่ใช้งานได้จริงในประเทศที่รองรับ",
+          "example": "ดูรายละเอียดคอลเลกชันระหว่างรุ่นของ Warby Parker กับ Gentle Monster"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดให้ Pre-order แว่นตาอัจฉริยะของ Google อย่างเป็นทางการ",
+          "ความร่วมมือ 3 ประสานระหว่าง Google, Samsung และแบรนด์แว่นตาแฟชั่นระดับโลก"
+        ],
+        "watchouts": [
+          "การวางจำหน่ายระยะแรกมักจำกัดเฉพาะบางประเทศและต้องตรวจสอบการรองรับภาษาไทย",
+          "อายุการใช้งานแบตเตอรี่เมื่อเปิด AI ต่อเนื่องยังเป็นจุดที่ต้องรอดูรีวิวใช้งานจริง"
+        ]
+      }
+    },
+    {
+      "id": "developers-tools-gemini-decisions-api-8e4104",
+      "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+      "source": "Google Developers",
+      "published_date": "2026-11-11",
+      "published_at": "2026-11-11T18:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Min Choi",
+        "Felix Yu"
+      ],
+      "rss_categories": [
+        "Developer tools",
+        "AI"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": null,
+      "reading_time_minutes": 4,
+      "hook_headline": "Google เปิดตัว Gemini Decisions API: API ตัดสินใจแบบ Multimodal ที่เร็วและคาลิเบรตความมั่นใจมาอย่างแม่นยำ",
+      "short_teaser": "พบกับ Gemini Decisions API ที่ขับเคลื่อนด้วยโมเดล Gemini Decision สำหรับงานตัดสินใจ วิเคราะห์ภาพ-ข้อความ และจัดหมวดหมู่แบบความหน่วงต่ำที่เชื่อถือได้",
+      "tldr_takeaways": [
+        "Gemini Decisions API ถูกสร้างมาเพื่องานตัดสินใจ (Classification, Routing, Verification) ที่ต้องการความเร็วสูง",
+        "จุดเด่นคือ 'Calibrated Multimodal Decisions' ให้ค่าความน่าจะเป็นหรือความมั่นใจที่เชื่อถือได้ทั้งจากข้อความและภาพ",
+        "เหมาะสำหรับระบบ Moderate เนื้อหา, ตรวจจับความผิดปกติ, และตัวตัดสินใจใน Agent Pipeline"
+      ],
+      "layman_story": [
+        "ในระบบซอฟต์แวร์จริง ไม่ได้มีแค่งานที่ให้ AI เขียนเรียงความยาวๆ แต่งานสำคัญมากอีกกลุ่มคือ 'การตัดสินใจแบบใช่หรือไม่ใช่ / หมวดไหน / ปลอดภัยไหม' เช่น รูปนี้ผ่านเกณฑ์ไหม อีเมลนี้ควรส่งให้แผนกไหน หรือเอกสารนี้ตรงเงื่อนไขหรือไม่",
+        "ที่ผ่านมาการเอาโมเดล LLM ทั่วไปมาทำงานแบบนี้มักช้าเกินไป และค่าความมั่นใจ (Confidence) ไม่เสถียร ทำให้ตั้ง Threshold ลำบาก Google จึงเปิดตัว Gemini Decisions API พร้อมโมเดลเฉพาะทางชื่อ Gemini Decision ที่ตอบสนองไวและคาลิเบรตความมั่นใจของคำตอบมาอย่างแม่นยำ",
+        "สำหรับทีมวิศวกร AI นี่ช่วยลดความซับซ้อนในการเทรนโมเดล Classifier เอง และสามารถนำไปเสียบเป็นด่านตรวจคุณภาพ (Guardrails & Routing) ในระบบขนาดใหญ่ได้ทันที"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: ต้องใช้ LLM ทั่วไปที่ช้า หรือต้องสะสมข้อมูลมาเทรนโมเดล Classification เฉพาะทางเอง",
+        "after": "หลังอัปเดต: เรียกใช้ API เดียวได้ผลตัดสินใจแบบ Multimodal ที่รวดเร็วและค่าความมั่นใจเชื่อถือได้",
+        "why_it_matters": "ช่วยให้ระบบ AI ในโปรดักชันมี Guardrails และ Router ที่แม่นยำ รวดเร็ว และคุ้มค่ามากขึ้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ใช้เป็นด่านคัดกรอง (Guardrails & Router) ก่อนส่งเข้าโมเดลใหญ่",
+          "role": "สำหรับ AI Engineer",
+          "description": "ประเมินเจตนาหรือความปลอดภัยของอินพุตทั้งข้อความและภาพก่อนส่งต่อไปประมวลผลขั้นสูง",
+          "example": "คัดกรองรูปสลิปโอนเงินหรือเอกสารยืนยันตัวตนเบื้องต้นแบบเรียลไทม์"
+        },
+        {
+          "title": "ปรับปรุงระบบ Content Moderation และ QA",
+          "role": "สำหรับทีม Trust & Safety / Product",
+          "description": "ใช้ค่า Calibration เพื่อตั้งเกณฑ์ว่ากรณีไหนผ่านอัตโนมัติ และกรณีไหนส่งให้คนตรวจซ้ำ",
+          "example": "ตั้ง Rule ว่าถ้าความมั่นใจต่ำกว่า 85% ให้ส่งเข้าคิวแอดมินตรวจสอบ"
+        },
+        {
+          "title": "ลดต้นทุนจากการเทรนและดูแลโมเดล Classifier เอง",
+          "role": "สำหรับทีมขนาดเล็ก / Startup",
+          "description": "เริ่มต้นใช้งาน Multimodal Classification ได้ทันทีโดยไม่ต้องมีทีม ML ดูแล Infrastructure เอง",
+          "example": "จัดหมวดหมู่สินค้าจากรูปถ่ายและคำอธิบายอัตโนมัติในแพลตฟอร์ม Marketplace"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดตัว Gemini Decisions API ขับเคลื่อนด้วยโมเดล Gemini Decision",
+          "เน้นความเร็วและผลลัพธ์แบบ Calibrated Multimodal Decisions"
+        ],
+        "watchouts": [
+          "ควรทดสอบ Threshold ของค่าความมั่นใจกับข้อมูลจริงของธุรกิจก่อนเปิดใช้งานอัตโนมัติ 100%",
+          "ตรวจสอบ Latency และราคาต่อ Request เทียบกับปริมาณทราฟฟิกของระบบ"
+        ]
+      }
+    },
+    {
+      "id": "google-cloud-cybersecurity-2027-2ab224",
+      "title": "Google Cloud leaders share what to expect in cybersecurity for 2027.",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cybersecurity-2027/",
+      "source": "Google Cloud",
+      "published_date": "2026-11-11",
+      "published_at": "2026-11-11T17:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [],
+      "rss_categories": [
+        "Google Cloud",
+        "Safety & Security"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Security_social-share.max-600x600.format-webp.webp",
+      "reading_time_minutes": 4,
+      "hook_headline": "Google Cloud และ Mandiant เผยรายงาน Cybersecurity 2027: เทรนด์ภัยไซเบอร์และแนวทางป้องกันยุค AI",
+      "short_teaser": "ผู้บริหารด้านความปลอดภัยจาก Google, Google Cloud และ Mandiant ร่วมวิเคราะห์แนวโน้มสำคัญที่จะกำหนดทิศทางการป้องกันภัยไซเบอร์ในปี 2027",
+      "tldr_takeaways": [
+        "รายงาน Security 2027 วิเคราะห์การเปลี่ยนแปลงของภัยคุกคามไซเบอร์เมื่อทั้งฝ่ายโจมตีและฝ่ายป้องกันต่างใช้ AI",
+        "เน้นการยกระดับ Security Operations ด้วยระบบอัตโนมัติและการตรวจจับเชิงรุกแบบเรียลไทม์",
+        "สรุปบทเรียนจากข่าวกรองภัยคุกคามระดับโลกของ Mandiant และโครงสร้างพื้นฐาน Google Cloud"
+      ],
+      "layman_story": [
+        "เมื่อ AI ทำให้การเขียนโค้ดและทำงานอัตโนมัติง่ายขึ้น ฝั่งผู้ไม่หวังดีก็ใช้ AI ช่วยหาช่องโหว่และสร้างการโจมตีที่ซับซ้อนขึ้นตามไปด้วย ทีม Security แบบดั้งเดิมที่ใช้คนคอยไล่อ่าน Log จึงรับมือไม่ทันอีกต่อไป",
+        "ในรายงาน Security 2027 ทีมผู้นำของ Google, Google Cloud และ Mandiant ได้สรุปภาพอนาคตของการป้องกันภัยไซเบอร์ เช่น การใช้ AI Agent ช่วยคัดกรองและตอบสนองต่อเหตุผิดปกติ การป้องกันระบบ Cloud-native และความปลอดภัยของตัวโมเดล AI เอง",
+        "รายงานนี้เป็นเข็มทิศสำคัญสำหรับ CTO, CISO และทีม DevSecOps ในการวางงบประมาณและเตรียมสถาปัตยกรรมความปลอดภัยล่วงหน้าสำหรับปีถัดไป"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: ทีมความปลอดภัยต้องพึ่งพาการไล่ตรวจสอบ Alert ด้วยมือและรับมือเหตุการณ์หลังเกิดการโจมตี",
+        "after": "หลังอัปเดต: มุ่งสู่ Agentic Defense ที่ใช้ AI วิเคราะห์ข่าวกรองภัยคุกคามและปิดช่องโหว่เชิงรุกอัตโนมัติ",
+        "why_it_matters": "ช่วยให้องค์กรเตรียมพร้อมรับมือภัยคุกคามยุค AI-powered Attacks ได้อย่างเป็นระบบ"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทบทวนความปลอดภัยของ AI Pipeline และ API",
+          "role": "สำหรับทีม DevSecOps / Cloud Architect",
+          "description": "ตรวจสอบสิทธิ์การเข้าถึงข้อมูล (IAM) และจุดเสี่ยงจาก Prompt Injection หรือข้อมูลรั่วไหลในแอป AI",
+          "example": "แยกสิทธิ์ Service Account ของ AI Agent ให้เข้าถึงเฉพาะฐานข้อมูลที่จำเป็นเท่านั้น"
+        },
+        {
+          "title": "วางแผนนำ AI มาช่วยลดภาระทีม SOC",
+          "role": "สำหรับผู้บริหารด้าน IT / CISO",
+          "description": "ประเมินเครื่องมือวิเคราะห์ Log และ Threat Intelligence เพื่อลดเวลา Mean Time to Detect (MTTD)",
+          "example": "ตั้งระบบสรุป Security Alert อัตโนมัติพร้อมแนะนำขั้นตอนแก้ไขเบื้องต้น"
+        },
+        {
+          "title": "อัปเดตทักษะทีมวิศวกรด้าน Cloud Security",
+          "role": "สำหรับทีมพัฒนาซอฟต์แวร์",
+          "description": "นำ Checklist ความปลอดภัยปี 2027 มาจัดอบรมสั้นๆ ในทีมเพื่อป้องกันช่องโหว่ตั้งแต่ขั้นตอนเขียนโค้ด",
+          "example": "เพิ่มระบบสแกน Secret และ Dependency Vulnerability ใน CI/CD Pipeline"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เผยแพร่รายงานวิเคราะห์แนวโน้มความปลอดภัยไซเบอร์ Security 2027",
+          "รวมมุมมองจากทั้ง Google, Google Cloud และทีมข่าวกรอง Mandiant"
+        ],
+        "watchouts": [
+          "รายงานเป็นภาพรวมเชิงกลยุทธ์ องค์กรต้องนำไปปรับให้เข้ากับบริบทและกฎหมาย PDPA/Compliance ของตนเอง",
+          "การใช้ AI ด้าน Security ต้องมีขั้นตอนอนุมัติจากมนุษย์ (Human Approval) ในคำสั่งที่มีผลกระทบสูง"
+        ]
+      }
+    },
+    {
+      "id": "google-cloud-professional-agentic-architect-322b72",
+      "title": "Get certified as a Google Cloud Professional Agentic Architect.",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/professional-agentic-architect/",
+      "source": "Google Cloud",
+      "published_date": "2026-11-11",
+      "published_at": "2026-11-11T17:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Gary Eimerman"
+      ],
+      "rss_categories": [
+        "Google Cloud",
+        "Creating opportunity"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/google_cloud_certified_social.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google Cloud เปิดตัวใบรับรองใหม่ 'Professional Agentic Architect' ปั้นสายงานออกแบบระบบ AI Agent มืออาชีพ",
+      "short_teaser": "Google Cloud ประกาศเปิดตัวใบรับรองวิชาชีพใหม่ Professional Agentic Architect เพื่อรับรองความเชี่ยวชาญด้านการออกแบบและวางระบบ AI Agent ระดับองค์กร",
+      "tldr_takeaways": [
+        "Google Cloud ออกใบรับรองใหม่เฉพาะทาง: Professional Agentic Architect",
+        "สะท้อนว่าตลาดองค์กรต้องการสถาปนิกที่ออกแบบระบบ Multi-agent, Tool Use และความปลอดภัยบน Cloud ได้จริง",
+        "ช่วยกำหนดมาตรฐานทักษะสำหรับวิศวกร AI และ Cloud Architect ในยุค Agentic AI"
+      ],
+      "layman_story": [
+        "แค่เรียก API ของ ChatGPT หรือ Gemini มาตอบคำถามพื้นฐานใครๆ ก็ทำได้ แต่การออกแบบระบบ 'AI Agent' ที่ทำงานซับซ้อน เชื่อมต่อฐานข้อมูลองค์กร ควบคุมต้นทุน และปลอดภัยไม่หลอนในระดับโปรดักชัน ต้องอาศัยทักษะเชิงสถาปัตยกรรมที่เฉพาะทางมาก",
+        "Google Cloud จึงเปิดตัวใบรับรอง Professional Agentic Architect ขึ้นมาเป็นมาตรฐานใหม่ในการวัดผลทักษะการออกแบบระบบ Agentic ตั้งแต่การเลือกโมเดล การจัดการ Memory/RAG ไปจนถึงการสังเกตการณ์ (Observability) และ Governance",
+        "สำหรับสาย Cloud Engineer และ AI Developer ใบรับรองนี้จะกลายเป็นอีกหนึ่งแต้มต่อสำคัญในสายอาชีพยุคที่องค์กรกำลังเปลี่ยนผ่านจาก Chatbot ไปสู่ Agentic Systems"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: ยังไม่มีใบรับรองระดับ Cloud Professional ที่วัดทักษะการออกแบบระบบ Agentic AI โดยเฉพาะ",
+        "after": "หลังอัปเดต: มีเส้นทางเรียนรู้และใบรับรองมาตรฐานสำหรับ Agentic Systems Architect บน Google Cloud",
+        "why_it_matters": "ยืนยันว่าตำแหน่ง Agentic Architect กำลังกลายเป็นทักษะหลักที่องค์กรต้องการตัวมากที่สุด"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ศึกษา Exam Guide เพื่ออัปสกิลสถาปัตยกรรม Agent",
+          "role": "สำหรับ Cloud / AI Engineer",
+          "description": "นำหัวข้อสอบของ Professional Agentic Architect มาใช้เป็น Roadmap การเรียนรู้แม้ยังไม่สมัครสอบทันที",
+          "example": "ทบทวนเรื่อง Agent Evaluation, Guardrails, RAG และ Vertex AI Agent Builder"
+        },
+        {
+          "title": "ใช้วางกรอบการพัฒนาทีมวิศวกรในบริษัท",
+          "role": "สำหรับ Tech Lead / Engineering Manager",
+          "description": "กำหนดมาตรฐานการออกแบบระบบ AI ในองค์กรให้สอดคล้องกับแนวทางปฏิบัติระดับ Enterprise",
+          "example": "ตั้งเป้าหมายให้ทีมศึกษาคู่มือสถาปัตยกรรม Agentic เพื่อลด Technical Debt ในโปรเจกต์ใหม่"
+        },
+        {
+          "title": "เตรียมพอร์ตโฟลิโอโปรเจกต์ Multi-agent จริง",
+          "role": "สำหรับผู้ที่กำลังเปลี่ยนสายงานเข้าสู่วงการ AI",
+          "description": "สร้างตัวอย่างระบบ Agent ที่มีการทดสอบความแม่นยำและการควบคุมความปลอดภัยประกอบกับความรู้ตามหลักสูตร",
+          "example": "สร้าง Demo ระบบผู้ช่วยวิเคราะห์เอกสารที่มี Tracing และ Evaluation ชัดเจน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดตัวใบรับรองใหม่ Google Cloud Professional Agentic Architect",
+          "มุ่งเน้นทักษะการออกแบบระบบ AI Agent ที่เสถียรและปลอดภัยในระดับองค์กร"
+        ],
+        "watchouts": [
+          "ตรวจสอบวันเปิดสอบจริง เอกสารเตรียมสอบ และค่าธรรมเนียมจากหน้า Google Cloud Certification",
+          "เน้นลงมือสร้างระบบจริงควบคู่กับการอ่านทฤษฎีเพื่อให้ใช้งานได้จริง"
+        ]
+      }
+    },
+    {
+      "id": "google-labs-tabletop-97adab",
+      "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+      "source": "Google Labs",
+      "published_date": "2026-11-11",
+      "published_at": "2026-11-11T16:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Roman Nurik"
+      ],
+      "rss_categories": [
+        "Google Labs",
+        "AI"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/labs_tabletop_blog_image_2784x1.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "ลองใช้ Tabletop จาก Google Labs: พื้นที่ทำงานร่วมกันแบบปรับแต่งได้สำหรับวางแผน โหวต และจัดทริปเป็นกลุ่ม",
+      "short_teaser": "Google Labs เปิดตัว Tabletop การทดลองใหม่ที่รวมพื้นที่ทำงานร่วมกันแบบยืดหยุ่น ให้ทีมหรือกลุ่มเพื่อนสร้างแผนการเดินทาง โพลโหวต และตารางแข่งขันได้ในที่เดียว",
+      "tldr_takeaways": [
+        "Tabletop คือโปรเจกต์ทดลองใหม่จาก Google Labs สำหรับการทำงานและวางแผนร่วมกันเป็นกลุ่ม",
+        "สร้าง Interactive Itineraries (แผนเดินทาง), Polls (โพลโหวต) และ Brackets (สายแข่งขัน) ได้ในพื้นที่เดียว",
+        "เปิดให้ลงทะเบียนเข้าร่วม Waitlist เพื่อทดลองใช้งานแล้ว"
+      ],
+      "layman_story": [
+        "เวลาจะนัดเพื่อนไปเที่ยว หรือให้ทีมช่วยกันเลือกไอเดียและจัดตารางกิจกรรม เรามักต้องกระโดดข้ามไปมาระหว่างแชตกลุ่ม Google Docs ฟอร์มโหวต และสเปรดชีต จนข้อมูลกระจัดกระจายและสรุปไม่ได้สักที",
+        "Tabletop จาก Google Labs ออกแบบมาเป็น 'โต๊ะทำงานดิจิทัลสำหรับกลุ่ม' ที่ปรับเปลี่ยนชิ้นส่วนได้ตามสถานการณ์ อยากใส่ตารางแพลนเที่ยว อยากตั้งโพลโหวตเลือกร้านอาหาร หรืออยากทำตารางโหวตแบบทัวร์นาเมนต์ก็หยิบมาวางร่วมกันได้ทันที",
+        "แม้จะเป็นผลิตภัณฑ์ระดับ Labs แต่แนวคิดการรวม Collaboration Blocks แบบเบาสบายเข้าด้วยกันน่าสนใจมากสำหรับสาย Productivity และเครื่องมือทำงานเป็นทีม"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: การวางแผนกลุ่มต้องเปิดหลายแอปสลับกัน ทั้งแชต เอกสาร และเครื่องมือทำโพลแยกส่วน",
+        "after": "หลังอัปเดต: รวมแผนการ โพลโหวต และโมดูลโต้ตอบไว้ในพื้นที่เดียวที่ปรับแต่งได้ง่าย",
+        "why_it_matters": "แสดงให้เห็นการทดลอง UX รูปแบบใหม่ของ Google Labs ในหมวด Social Productivity"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ลงทะเบียน Waitlist เพื่อทดลองใช้กับทีมขนาดเล็ก",
+          "role": "สำหรับผู้ใช้งานทั่วไป / ทีมงาน",
+          "description": "สมัครคิวทดลองใช้สำหรับกิจกรรมวางแผนทริปทีมหรือโหวตหัวข้องาน Hackathon",
+          "example": "ใช้จัดโพลเลือกวันและกิจกรรม Outing ประจำปีของทีม"
+        },
+        {
+          "title": "ศึกษาโครงสร้าง Modular UI สำหรับแอป Collaboration",
+          "role": "สำหรับ Product Manager / UX Designer",
+          "description": "สังเกตวิธีออกแบบ Interactive Blocks (Itinerary, Poll, Bracket) ให้ใช้งานง่ายไม่ซับซ้อน",
+          "example": "นำแนวคิด Widget แบบหยิบวางมาปรับปรุงหน้า Dashboard ของทีม"
+        },
+        {
+          "title": "ประยุกต์ใช้ในการจัดเวิร์กชอปและการเรียนการสอน",
+          "role": "สำหรับวิทยากร / อาจารย์",
+          "description": "ใช้โมดูลโหวตและจัดอันดับช่วยกระตุ้นการมีส่วนร่วมของผู้เรียนในห้อง",
+          "example": "ให้ผู้เรียนร่วมโหวตไอเดียโปรเจกต์ที่ดีที่สุดแบบเรียลไทม์"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดตัว Tabletop บน Google Labs สำหรับ Group Collaboration",
+          "รองรับโมดูล Interactive Itineraries, Polls และ Brackets"
+        ],
+        "watchouts": [
+          "ยังอยู่ในสถานะ Google Labs Experiment และเปิดผ่าน Waitlist",
+          "ฟีเจอร์ทดลองอาจมีการปรับเปลี่ยนหรือจำกัดภูมิภาคในระยะแรก"
+        ]
+      }
+    },
+    {
+      "id": "gemini-models-multimodal-knowledge-agent-benchma-5140ae",
+      "title": "Introducing the Multimodal Knowledge Agent benchmark",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-10",
+      "published_at": "2026-11-10T16:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Rohan Doshi",
+        "Ben Caine"
+      ],
+      "rss_categories": [
+        "Gemini models"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/01_Hero_MKA_Benchmark_2784x1566.png",
+      "reading_time_minutes": 4,
+      "hook_headline": "Google เปิดตัว 'Multimodal Knowledge Agent' Benchmark วัดความสามารถ AI Agent ในงานวิเคราะห์ภาพและเอกสารซับซ้อน",
+      "short_teaser": "Google เปิดตัวชุดทดสอบมาตรฐานใหม่ Multimodal Knowledge Agent เพื่อประเมินว่า AI Agent สามารถให้เหตุผลข้ามข้อมูลภาพ ตาราง และความรู้ที่ซับซ้อนได้แม่นยำแค่ไหน",
+      "tldr_takeaways": [
+        "เปิดตัว Multimodal Knowledge Agent Benchmark สำหรับวัดผล AI Agent ยุคใหม่โดยเฉพาะ",
+        "เน้นโจทย์ที่ต้องใช้การให้เหตุผลข้ามสื่อ (Visually-complex Multimodal Tasks) ไม่ใช่แค่ถามตอบข้อความ",
+        "ช่วยให้ชุมชนวิจัยและนักพัฒนามีเกณฑ์กลางในการวัดความก้าวหน้าของ Agent ได้สมจริงขึ้น"
+      ],
+      "layman_story": [
+        "ทุกวันนี้เกณฑ์วัดผล AI แบบเดิมที่เป็นข้อสอบตัวเลือกข้อความล้วนเริ่มวัดความเก่งในโลกจริงได้น้อยลง เพราะงานจริงของคนทำงานมักเต็มไปด้วยสไลด์ แผนภาพ กราฟ ตาราง และเอกสารหลายหน้าที่ต้องอ่านเชื่อมโยงกัน",
+        "Google จึงเปิดตัว Benchmark ตัวใหม่ชื่อ Multimodal Knowledge Agent เพื่อจำลองโจทย์ที่ซับซ้อนและต้องใช้สายตาการตีความภาพร่วมกับการสืบค้นความรู้หลายขั้นตอน ซึ่งถือเป็นด่านทดสอบที่ท้าทายมากสำหรับ AI Agent",
+        "การเปิดชุดทดสอบที่ยากและใกล้เคียงงานจริงมากขึ้น จะช่วยผลักดันให้นักวิจัยพัฒนาโมเดลที่เก่งเรื่องการอ่านเอกสารภาพและวิเคราะห์ข้อมูลเชิงลึกได้จริง ไม่ใช่แค่ทำคะแนนข้อสอบเก่าได้ดี"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: เกณฑ์วัดผลจำนวนมากเน้นข้อความล้วนหรือคำถามภาพเดี่ยวๆ ที่ยังไม่สะท้อนงาน Agent ซับซ้อน",
+        "after": "หลังอัปเดต: มี Benchmark เฉพาะทางสำหรับวัดความสามารถของ Multimodal Agent บนโจทย์ภาพที่ซับซ้อน",
+        "why_it_matters": "ยกระดับมาตรฐานการประเมินผลโมเดล AI ให้สอดคล้องกับงานเอกสารและงานวิจัยจริงมากขึ้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "นำโจทย์จาก Benchmark มาใช้วัดผล Agent ของทีม",
+          "role": "สำหรับ AI Researcher / ML Engineer",
+          "description": "ใช้ชุดทดสอบนี้เทียบประสิทธิภาพโมเดลเมื่อต้องอ่าน PDF ที่มีกราฟและตารางซับซ้อน",
+          "example": "เปรียบเทียบความแม่นยำระหว่าง Pipeline แบบ OCR แยกส่วน กับ Multimodal Vision โดยตรง"
+        },
+        {
+          "title": "ออกแบบระบบ Evaluation ภายในให้ครอบคลุมงานภาพ",
+          "role": "สำหรับทีมพัฒนา Document AI",
+          "description": "เพิ่มชุดทดสอบที่บังคับให้ระบบต้องเชื่อมโยงข้อมูลจากทั้งรูปภาพและข้อความก่อนตอบ",
+          "example": "ทดสอบบอทวิเคราะห์รายงานทางการเงินที่มีทั้งกราฟแท่งและหมายเหตุประกอบงบ"
+        },
+        {
+          "title": "ติดตาม Leaderboard เพื่อเลือกโมเดลที่เหมาะกับงาน",
+          "role": "สำหรับ Tech Lead",
+          "description": "ดูคะแนนของโมเดลต่างๆ บน Multimodal Agent Benchmark ก่อนตัดสินใจเลือกใช้ในโปรดักชัน",
+          "example": "เลือกโมเดลที่เด่นด้าน Visual Reasoning สำหรับระบบตรวจแบบวิศวกรรมหรือเอกสารแพทย์"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดตัว Multimodal Knowledge Agent Benchmark จากทีม Google",
+          "เน้นการทดสอบ Reasoning ข้ามข้อมูลภาพและองค์ความรู้ที่ซับซ้อน"
+        ],
+        "watchouts": [
+          "คะแนน Benchmark สูงไม่ได้การันตีความเร็วหรือต้นทุนที่เหมาะกับทุกโปรดักชัน ต้องเทสต์ร่วมกัน",
+          "เอกสารภาษาไทยหรือบริบทเฉพาะถิ่นอาจยังต้องสร้างชุดทดสอบเสริมเอง"
+        ]
+      }
+    },
+    {
+      "id": "gemini-models-gemini-4-carbon-now-available-e884d1",
+      "title": "Gemini 4 Carbon is now available",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-10",
+      "published_at": "2026-11-10T16:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [
+        "Koray Kavukcuoglu"
+      ],
+      "rss_categories": [
+        "Gemini models"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_4_carbon_key_art_16-9_lo.max-600x600.format-webp.webp",
+      "reading_time_minutes": 4,
+      "hook_headline": "Gemini 4 Carbon เปิดให้ใช้งานทั่วไปแล้ว ทั้งสำหรับนักพัฒนา องค์กร นักวิทยาศาสตร์ และผู้ใช้ทั่วไป",
+      "short_teaser": "Google ประกาศเปิดให้บริการ Gemini 4 Carbon โมเดลเรือธงรุ่นล่าสุดอย่างเป็นทางการครอบคลุมทุกกลุ่มผู้ใช้งาน ตั้งแต่งานวิจัยขั้นสูงไปจนถึงแอปพลิเคชันระดับองค์กร",
+      "tldr_takeaways": [
+        "Gemini 4 Carbon เปิดให้บริการอย่างเป็นทางการแล้ว (Generally Available)",
+        "เป็นโมเดลเรือธงระดับ Frontier ที่เน้นงานใช้เหตุผลเชิงลึก งานวิทยาศาสตร์ และงานระยะยาว (Long-horizon)",
+        "เข้าถึงได้พร้อมกันทั้งนักพัฒนา องค์กร นักวิจัย และผู้ใช้งานทั่วไปผ่านผลิตภัณฑ์ของ Google"
+      ],
+      "layman_story": [
+        "หลังจากประกาศเปิดตัวตระกูล Gemini 4 ไปก่อนหน้านี้ ล่าสุด Google ก็ผลักดันรุ่นเรือธงอย่าง Gemini 4 Carbon ออกมาให้ทุกคนใช้งานได้จริงแล้ว ไม่ใช่แค่พรีวิวในวงจำกัด",
+        "จุดเด่นของ Gemini 4 Carbon คือความสามารถในการคิดวิเคราะห์ปัญหาที่ซับซ้อนและยาวนาน (Long-horizon tasks) เช่น การไล่วิเคราะห์โค้ดขนาดใหญ่ งานความปลอดภัยไซเบอร์ และงานวิจัยทางวิทยาศาสตร์ที่ต้องการความแม่นยำสูง",
+        "เมื่อรวมพลังกับรุ่นพี่-น้องอย่าง Gemini 4 Hydrogen ที่เน้นความเร็วและคุ้มค่า ทำให้นักพัฒนาและองค์กรมีชุดโมเดลครบช่วงตั้งแต่รุ่นใช้งานประจำวันไปจนถึงรุ่นใหญ่ระดับ Frontier"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: โมเดลระดับ Frontier รุ่นล่าสุดยังอยู่ในช่วงทดสอบจำกัดหรือเข้าถึงได้เฉพาะบางกลุ่ม",
+        "after": "หลังอัปเดต: เปิดให้ใช้งาน Gemini 4 Carbon ครอบคลุมทั้ง Consumer, Developer และ Enterprise",
+        "why_it_matters": "ปลดล็อกขีดความสามารถด้าน Deep Reasoning และ Cybersecurity ระดับท็อปสู่การใช้งานจริงในวงกว้าง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ใช้แก้โจทย์วิเคราะห์ซับซ้อนหรืองานวิจัยเชิงลึก",
+          "role": "สำหรับนักวิทยาศาสตร์ / นักวิเคราะห์",
+          "description": "มอบหมายงานที่ต้องเชื่อมโยงข้อมูลยาวๆ หรือหาจุดผิดพลาดเชิงตรรกะที่โมเดลเล็กมักพลาด",
+          "example": "วิเคราะห์โครงสร้างงานวิจัยหลายฉบับเทียบกันเพื่อหาช่องว่างในการทดลองใหม่"
+        },
+        {
+          "title": "ยกระดับระบบ Enterprise AI ที่ต้องการความแม่นยำสูงสุด",
+          "role": "สำหรับองค์กร / Enterprise Architect",
+          "description": "นำ Gemini 4 Carbon ไปใช้ในงานที่ความผิดพลาดมีต้นทุนสูง เช่น กฎหมาย การเงิน หรือ Security Audit",
+          "example": "ใช้ตรวจสอบความสอดคล้องของสัญญาและนโยบายความปลอดภัยในองค์กร"
+        },
+        {
+          "title": "จัดสรรการใช้งานคู่กับ Gemini 4 Hydrogen",
+          "role": "สำหรับทีมพัฒนาโปรดักชัน",
+          "description": "ใช้ Carbon เฉพาะงานวางแผนหลักหรือแก้ปัญหาที่ยากที่สุด เพื่อคุมงบประมาณรวมของระบบให้คุ้มค่า",
+          "example": "ให้ Carbon วางแผนสถาปัตยกรรมโค้ด แล้วให้ Hydrogen ลงมือเขียนและทดสอบโค้ดย่อย"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Gemini 4 Carbon เปิดใช้งานทั่วไปครบทุกกลุ่มเป้าหมาย",
+          "โดดเด่นด้าน Frontier Reasoning, Cybersecurity และ Long-horizon Capabilities"
+        ],
+        "watchouts": [
+          "โมเดลระดับเรือธงมักมีต้นทุนต่อ Token และ Latency สูงกว่ารุ่น Hydrogen",
+          "ควรตั้ง Rate Limit และ Budget Alert เมื่อเชื่อมต่อใช้งานในองค์กร"
+        ]
+      }
+    },
+    {
+      "id": "google-cloud-gemini-for-healthcare-155d33",
+      "title": "Google Cloud launches Gemini for healthcare.",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
+      "source": "Google Cloud",
+      "published_date": "2026-11-10",
+      "published_at": "2026-11-10T13:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [],
+      "rss_categories": [
+        "Google Cloud",
+        "AI"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/social_share_NWQpgus.max-600x600.format-webp.webp",
+      "reading_time_minutes": 4,
+      "hook_headline": "Google Cloud เปิดตัว 'Gemini for healthcare' เชื่อมข้อมูลคลินิกและลดภาระงานเอกสารให้บุคลากรแพทย์",
+      "short_teaser": "Google Cloud เปิดตัวโซลูชัน Gemini for healthcare เพื่อรวมศูนย์ข้อมูลทางคลินิกและทำงานเอกสารอัตโนมัติ ช่วยลดภาวะหมดไฟของแพทย์และเจ้าหน้าที่สาธารณสุข",
+      "tldr_takeaways": [
+        "เปิดตัว Gemini for healthcare บน Google Cloud สำหรับโรงพยาบาลและองค์กรสาธารณสุข",
+        "ช่วยรวมข้อมูลผู้ป่วยจากหลายระบบและสรุปบันทึกทางการแพทย์อัตโนมัติ (Workflow Automation)",
+        "เป้าหมายหลักคือลดภาระงานแอดมิน (Administrative Burnout) ให้แพทย์มีเวลาดูแลผู้ป่วยมากขึ้น"
+      ],
+      "layman_story": [
+        "ปัญหาใหญ่ที่สุดอย่างหนึ่งในโรงพยาบาลทั่วโลกคือ แพทย์และพยาบาลต้องใช้เวลาครึ่งหนึ่งของวันไปกับการกรอกแบบฟอร์ม ค้นประวัติผู้ป่วยที่กระจัดกระจายอยู่หลายระบบ และทำเอกสารเบิกจ่าย จนเหลือเวลาคุยกับคนไข้น้อยลงและเกิดภาวะหมดไฟ",
+        "Google Cloud จึงพัฒนา Gemini for healthcare ขึ้นมาเพื่อช่วยเชื่อมโยงข้อมูลทางคลินิกที่ซับซ้อน (ทั้งบันทึกแพทย์ ผลแล็บ และเอกสาร) ให้ค้นหาและสรุปได้ทันที รวมถึงช่วยร่างเอกสารและดำเนินขั้นตอนเวิร์กโฟลว์เบื้องหลังอัตโนมัติ",
+        "โซลูชันเฉพาะอุตสาหกรรมแบบนี้แสดงให้เห็นว่า AI ยุคนี้กำลังเจาะลึกเข้าสู่ Vertical Industry ที่มีกฎระเบียบเข้มงวดอย่างการแพทย์ เพื่อสร้างผลลัพธ์ที่จับต้องได้จริง"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: ข้อมูลคลินิกแยกเก็บหลายระบบ แพทย์ต้องเสียเวลาค้นประวัติและพิมพ์เอกสารสรุปจำนวนมากเอง",
+        "after": "หลังอัปเดต: มีแพลตฟอร์ม AI เฉพาะทางช่วยรวมศูนย์ข้อมูลและทำเอกสาร/เวิร์กโฟลว์อัตโนมัติ",
+        "why_it_matters": "ช่วยลดภาระงานแอดมินในวงการสาธารณสุขและเป็นต้นแบบของ Enterprise Vertical AI"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ศึกษาสถาปัตยกรรม Data Unification สำหรับงานเฉพาะทาง",
+          "role": "สำหรับทีม HealthTech / Cloud Engineer",
+          "description": "ดูแนวทางเชื่อมข้อมูลรูปแบบต่างๆ เช่น FHIR, เอกสารสแกน และโน้ตแพทย์เข้าด้วยกันอย่างปลอดภัย",
+          "example": "ออกแบบระบบสรุปประวัติผู้ป่วยก่อนเข้าห้องตรวจสำหรับคลินิกในเครือ"
+        },
+        {
+          "title": "ประเมินโครงการลดงานเอกสารในโรงพยาบาล",
+          "role": "สำหรับผู้บริหารสถานพยาบาล / IT โรงพยาบาล",
+          "description": "เริ่มจากจุดที่ลดเวลาทำงานได้ชัดที่สุดและมีความเสี่ยงต่ำ เช่น การสรุปเอกสารแอดมินและการนัดหมาย",
+          "example": "ใช้ AI ช่วยร่างใบสรุปการจำหน่ายผู้ป่วยโดยให้แพทย์เป็นผู้ตรวจทานและลงนาม"
+        },
+        {
+          "title": "ให้ความสำคัญกับ Compliance และความปลอดภัยข้อมูลผู้ป่วย",
+          "role": "สำหรับทีม Legal / Security",
+          "description": "ตรวจสอบมาตรฐานการเก็บรักษาข้อมูลสุขภาพ (เช่น HIPAA, PDPA ข้อมูลอ่อนไหว) ก่อนเชื่อมต่อระบบ Cloud",
+          "example": "ตั้งระบบ Audit Log และการเข้ารหัสข้อมูลส่วนบุคคลทุกขั้นตอน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เปิดตัว Gemini for healthcare บน Google Cloud",
+          "โฟกัสการรวมข้อมูลคลินิกและลดภาระงานเอกสารทางการแพทย์"
+        ],
+        "watchouts": [
+          "การนำไปใช้จริงในไทยต้องสอดคล้องกับกฎหมายข้อมูลสุขภาพและ PDPA อย่างเคร่งครัด",
+          "ผลลัพธ์ทางการแพทย์ทุกชิ้นต้องอยู่ภายใต้การตรวจสอบและตัดสินใจของแพทย์เสมอ"
+        ]
+      }
+    },
+    {
+      "id": "developers-tools-build-google-maps-platform-ai-s-09e044",
+      "title": "Developers can now build with Google Maps Platform in AI Studio.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-google-maps-platform-ai-studio/",
+      "source": "Google Developers",
+      "published_date": "2026-11-09",
+      "published_at": "2026-11-09T17:00:00.000Z",
+      "updated_at": "2026-11-13T06:26:42.211Z",
+      "authors": [],
+      "rss_categories": [
+        "Maps",
+        "Developer tools"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Studio_blog_social.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "นักพัฒนาเชื่อมต่อ Google Maps Platform สร้างแอป AI เชิงพื้นที่ใน Google AI Studio ได้โดยตรงแล้ว",
+      "short_teaser": "Google เปิดให้นักพัฒนาสามารถใช้ข้อมูลและเครื่องมือจาก Google Maps Platform ร่วมกับการสร้างแอป AI ภายใน Google AI Studio ได้อย่างสะดวกรวดเร็วขึ้น",
+      "tldr_takeaways": [
+        "ผสาน Google Maps Platform เข้ากับ Google AI Studio สำหรับนักพัฒนา",
+        "ช่วยให้แอป AI มีความเข้าใจพิกัด สถานที่ เส้นทาง และข้อมูลภูมิศาสตร์จริง (Location-aware AI)",
+        "ลดขั้นตอนการเขียนโค้ดเชื่อมต่อเพื่อสร้างต้นแบบแอปแผนที่อัจฉริยะ"
+      ],
+      "layman_story": [
+        "แอป AI ที่เก่งแค่คุยโต้ตอบข้อความมักไปต่อไม่ได้เมื่อผู้ใช้ถามเรื่องที่เกี่ยวกับโลกจริง เช่น 'ช่วยวางแผนเส้นทางส่งของที่ประหยัดเวลาสุดในกรุงเทพฯ' หรือ 'หาร้านที่จอดรถสะดวกใกล้จุดนัดพบ'",
+        "การที่ Google เปิดให้นักพัฒนาสร้างแอปโดยเรียกใช้ Google Maps Platform ได้โดยตรงจาก Google AI Studio ช่วยปลดล็อกให้ AI สามารถอ้างอิงข้อมูลสถานที่จริง พิกัด และระยะทางจากแผนที่ระดับโลกของ Google ได้ทันที",
+        "นี่เป็นโอกาสทองสำหรับสาย Startup และนักพัฒนาแอปท่องเที่ยว โลจิสติกส์ อสังหาริมทรัพย์ และบริการเดลิเวอรี ในการสร้างฟีเจอร์อัจฉริยะที่แม่นยำกับสถานที่จริง"
+      ],
+      "impact_comparison": {
+        "before": "ก่อนอัปเดต: นักพัฒนาต้องเขียน Glue Code และจัดการ API ระหว่าง LLM กับระบบแผนที่แยกกันเองทั้งหมด",
+        "after": "หลังอัปเดต: ทดลองสร้างและเชื่อมต่อ Google Maps Platform กับโมเดล Gemini ได้ใน Google AI Studio ทันที",
+        "why_it_matters": "เปิดประตูสู่แอป Location-based AI ที่ตอบสนองกับข้อมูลโลกจริงได้แม่นยำไม่หลอนพิกัด"
+      },
+      "actionable_playbook": [
+        {
+          "title": "สร้าง AI Travel Planner หรือผู้ช่วยแนะนำสถานที่",
+          "role": "สำหรับนักพัฒนาแอป / Startup",
+          "description": "ผสาน Gemini เข้ากับข้อมูลสถานที่และเวลาเปิด-ปิดจริงจาก Google Maps Platform",
+          "example": "สร้างเว็บวางแผนทริปที่คำนวณเวลาเดินทางจริงและแนะนำจุดแวะพักตามเส้นทาง"
+        },
+        {
+          "title": "ยกระดับระบบโลจิสติกส์และงานภาคสนาม",
+          "role": "สำหรับธุรกิจ SME / E-commerce",
+          "description": "ใช้ AI ช่วยจัดกลุ่มคำสั่งซื้อตามพื้นที่และแนะนำเส้นทางให้ทีมจัดส่ง",
+          "example": "ให้แชตบอทช่วยเช็กพิกัดจัดส่งและประเมินค่าขนส่งจากระยะทางจริง"
+        },
+        {
+          "title": "ทำ Grounding ป้องกัน AI มั่วชื่อร้านหรือที่อยู่",
+          "role": "สำหรับ AI Engineer",
+          "description": "บังคับให้โมเดลตรวจสอบชื่อสถานที่และพิกัดผ่าน Maps Platform ก่อนแสดงคำตอบให้ผู้ใช้",
+          "example": "ระบบแนะนำอสังหาริมทรัพย์ที่บอกระยะทางถึงรถไฟฟ้าและโรงเรียนใกล้เคียงได้แม่นยำ"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "รองรับการใช้งาน Google Maps Platform ภายใน Google AI Studio แล้ว",
+          "ช่วยให้การสร้างแอป Location-aware AI ทำได้เร็วขึ้นตั้งแต่ขั้น Prototype"
+        ],
+        "watchouts": [
+          "ตรวจสอบโครงสร้างค่าบริการของ Google Maps Platform API เมื่อขยายสเกลผู้ใช้จริง",
+          "คำนึงถึงเงื่อนไขการใช้งานข้อมูลแผนที่และการแสดงผล Attribution ตามข้อกำหนดของ Google"
+        ]
+      }
+    }
+  ]
+}

@@ -74,9 +74,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/repos.json src/data/papers.json
+          git add src/data/repos.json src/data/papers.json src/data/news.json
           # ห้ามใส่ [skip ci] เพราะ Vercel จะข้ามการ deploy commit นั้น
-          git commit -m "chore(data): sync daily trending repos and AI research papers"
+          git commit -m "chore(data): sync daily trending repos, AI papers, and lab news"
           # main อาจมี commit ใหม่ระหว่างที่ pipeline รัน (~8-10 นาที) -> rebase ก่อน push
           # -X theirs = ถ้าไฟล์ data ชนกัน ให้ใช้ข้อมูลชุดใหม่ของบอท
           for i in 1 2 3; do

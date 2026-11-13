@@ -110,4 +110,58 @@ export interface PapersFeedData {
   days: PaperDayBatch[]; // Rolling 7 days, newest first (days[0] = today, days[1] = yesterday, etc.)
 }
 
+export const NEWS_CATEGORIES = [
+  "Gemini & Models",
+  "Google Research & Labs",
+  "Cloud & Developer Tools",
+  "AI Products & Ecosystem",
+] as const;
+
+export type NewsCategory = (typeof NEWS_CATEGORIES)[number];
+
+export const NewsPlaybookItemSchema = z.object({
+  title: z.string(),
+  role: z.string(),
+  description: z.string(),
+  example: z.string(),
+});
+
+export const NewsArticleSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  url: z.string(),
+  source: z.string(),
+  published_date: z.string(), // YYYY-MM-DD
+  published_at: z.string(), // ISO string
+  updated_at: z.string(), // ISO string
+  authors: z.array(z.string()),
+  rss_categories: z.array(z.string()),
+  category: z.enum(NEWS_CATEGORIES),
+  thumbnail_url: z.string().nullable(),
+  reading_time_minutes: z.number(),
+
+  // Thai Editorial Content
+  hook_headline: z.string(),
+  short_teaser: z.string(),
+  tldr_takeaways: z.array(z.string()),
+  layman_story: z.array(z.string()),
+  impact_comparison: z.object({
+    before: z.string(),
+    after: z.string(),
+    why_it_matters: z.string(),
+  }),
+  actionable_playbook: z.array(NewsPlaybookItemSchema),
+  key_highlights: z.object({
+    whats_new: z.array(z.string()),
+    watchouts: z.array(z.string()),
+  }),
+});
+
+export type NewsArticleData = z.infer<typeof NewsArticleSchema>;
+
+export interface NewsFeedData {
+  updated_at: string;
+  articles: NewsArticleData[];
+}
+
 

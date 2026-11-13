@@ -183,4 +183,65 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     fireEvent.click(themeToggleBtn);
     expect(screen.getByText(/โหมดอ่านกลางคืน/i)).toBeDefined();
   });
+
+  it("E2E Journey 9: AI Lab News (Google Blog RSS) Column, Subcategories & Full Reader", () => {
+    render(<Home />);
+
+    // Switch to AI Lab News tab
+    const nav = screen.getByRole("navigation", { name: "หมวดหมู่หลักของวารสาร" });
+    const newsTab = within(nav).getByRole("button", { name: /ข่าว AI Lab/i });
+    fireEvent.click(newsTab);
+
+    // Verify AI Lab News column rendered
+    expect(
+      screen.getByRole("heading", { name: /คอลัมน์ข่าวสาร AI Lab/i })
+    ).toBeDefined();
+    expect(
+      screen.getByText(/ข่าวประกาศทางการจาก Google Official Blog/i)
+    ).toBeDefined();
+
+    // Test subcategory filtering
+    const geminiCatBtn = screen.getByRole("button", {
+      name: /Gemini & Models/i,
+    });
+    fireEvent.click(geminiCatBtn);
+    expect(geminiCatBtn.className).toContain("bg-[var(--paper-accent)]");
+
+    const allNewsBtn = screen.getByRole("button", { name: /ทั้งหมด/i });
+    fireEvent.click(allNewsBtn);
+    expect(allNewsBtn.className).toContain("bg-[var(--paper-accent)]");
+
+    // Test Compact Digest toggle in AI Lab News
+    const compactBtn = screen.getByTitle(/มุมมองสารบัญด่วน/i);
+    fireEvent.click(compactBtn);
+    expect(screen.getByText(/สารบัญด่วนข่าว AI Lab/i)).toBeDefined();
+
+    const cardsBtn = screen.getByTitle(/มุมมองการ์ดข่าว/i);
+    fireEvent.click(cardsBtn);
+
+    // Open lead news article in Full Reader mode
+    const readNewsBtn = screen.getByText(/กดอ่านข่าวเจาะลึก/i);
+    fireEvent.click(readNewsBtn);
+
+    // Verify full reader TOC & sections
+    expect(screen.getByText(/สารบัญบทความ \(TOC\)/i)).toBeDefined();
+    expect(screen.getByText(/เปรียบเทียบก่อนอัปเดต vs หลังอัปเดต/i)).toBeDefined();
+    expect(screen.getByText(/3 แนวทางการนำไปใช้ประโยชน์จริง/i)).toBeDefined();
+    expect(screen.getByText(/เปิดอ่านประกาศต้นฉบับบน Google Blog/i)).toBeDefined();
+
+    // Bookmark the news article from reader and verify in Saved section
+    const articleEl = screen.getByRole("article");
+    const saveBtn = within(articleEl).getByRole("button", { name: /คั่นหน้า/i });
+    fireEvent.click(saveBtn);
+    expect(within(articleEl).getByRole("button", { name: /คั่นแล้ว/i })).toBeDefined();
+
+    const savedTab = within(nav).getByRole("button", { name: /คั่นหน้า/i });
+    fireEvent.click(savedTab);
+    expect(screen.getByText(/📰 ข่าวสาร AI Lab ที่คั่นไว้ \(1\)/i)).toBeDefined();
+
+    const removeBtn = screen.getByRole("button", { name: /ลบออก/i });
+    fireEvent.click(removeBtn);
+    expect(screen.getByText(/ยังไม่มีบทความที่คั่นหน้าไว้/i)).toBeDefined();
+  });
 });
+

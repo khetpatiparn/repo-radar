@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { type PaperData, type RepositoryData } from "../types";
+import {
+  type PaperData,
+  type RepositoryData,
+  type NewsArticleData,
+} from "../types";
 import {
   ArrowLeft,
   Bookmark,
@@ -18,6 +22,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   BookOpen,
+  Newspaper,
 } from "lucide-react";
 
 type FontSizeScale = "normal" | "large" | "xlarge";
@@ -25,6 +30,7 @@ type FontSizeScale = "normal" | "large" | "xlarge";
 interface ArticleReaderProps {
   paper?: PaperData | null;
   repo?: RepositoryData | null;
+  news?: NewsArticleData | null;
   isSaved: boolean;
   onToggleSave: () => void;
   onBack: () => void;
@@ -35,6 +41,7 @@ interface ArticleReaderProps {
 export function ArticleReader({
   paper,
   repo,
+  news,
   isSaved,
   onToggleSave,
   onBack,
@@ -877,6 +884,435 @@ export function ArticleReader({
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold border border-[var(--paper-rule)] bg-[var(--paper-bg)] text-[var(--paper-ink)] hover:bg-[var(--paper-subtle)] transition"
                   >
                     <span>ดู Issues & ปัญหาที่พบ ({repo.open_issues})</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </article>
+    );
+  }
+
+  if (news) {
+    const newsToc = [
+      { id: "news-tldr", num: "01", label: "สรุปใจความสำคัญ (TL;DR)" },
+      { id: "news-figure", num: "02", label: "ภาพประกอบข่าว" },
+      { id: "news-story", num: "03", label: "เจาะลึกข่าวแบบเข้าใจง่าย" },
+      { id: "news-impact", num: "04", label: "ก่อน vs หลังอัปเดต & ผลกระทบ" },
+      { id: "news-playbook", num: "05", label: "แนวทางนำไปใช้ประโยชน์จริง" },
+      { id: "news-highlights", num: "06", label: "สิ่งใหม่ที่โดดเด่น & ข้อควรระวัง" },
+      { id: "news-source", num: "07", label: "ลิงก์ประกาศต้นฉบับ" },
+    ];
+
+    return (
+      <article className="w-full px-4 sm:px-8 lg:px-10 py-5 sm:py-8">
+        {/* Top Reader Bar */}
+        <div className="pb-4 mb-6 sm:mb-8 border-b-2 border-[var(--paper-rule-strong)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <button
+            onClick={onBack}
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--paper-ink)] hover:text-[var(--paper-accent)] transition cursor-pointer active:scale-95 self-start"
+          >
+            <ArrowLeft className="w-4 h-4 shrink-0" />
+            <span>กลับไปหน้าหนังสือพิมพ์</span>
+          </button>
+
+          <div className="flex items-center justify-between sm:justify-end gap-2 sm:gap-3">
+            <div className="flex items-center border border-[var(--paper-rule)] rounded bg-[var(--paper-sheet)] overflow-hidden text-xs">
+              <span className="px-2 py-1 text-[var(--paper-muted)] border-r border-[var(--paper-rule)] text-[11px] sm:text-xs">
+                ขนาดอักษร
+              </span>
+              <button
+                onClick={() => setFontSize("normal")}
+                className={`px-2.5 py-1 font-medium cursor-pointer transition ${
+                  fontSize === "normal"
+                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
+                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
+                }`}
+              >
+                ก
+              </button>
+              <button
+                onClick={() => setFontSize("large")}
+                className={`px-2.5 py-1 font-semibold cursor-pointer transition ${
+                  fontSize === "large"
+                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
+                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
+                }`}
+              >
+                ก+
+              </button>
+              <button
+                onClick={() => setFontSize("xlarge")}
+                className={`px-2.5 py-1 font-bold cursor-pointer transition ${
+                  fontSize === "xlarge"
+                    ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
+                    : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
+                }`}
+              >
+                ก++
+              </button>
+            </div>
+
+            <button
+              onClick={onToggleSave}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-semibold border transition cursor-pointer active:scale-95 shrink-0 ${
+                isSaved
+                  ? "bg-[var(--paper-accent)] text-white border-[var(--paper-accent)]"
+                  : "bg-[var(--paper-sheet)] text-[var(--paper-ink)] border-[var(--paper-rule)] hover:border-[var(--paper-rule-strong)]"
+              }`}
+            >
+              {isSaved ? (
+                <>
+                  <BookmarkCheck className="w-3.5 h-3.5" />
+                  <span>คั่นแล้ว</span>
+                </>
+              ) : (
+                <>
+                  <Bookmark className="w-3.5 h-3.5" />
+                  <span>คั่นหน้า</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+          {/* Left Sticky Sidebar: Table of Contents (Desktop lg: only) */}
+          <aside className="hidden lg:block lg:col-span-3">
+            <div className="sticky top-6 space-y-6">
+              <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-sheet)] shadow-2xs">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--paper-ink)] pb-3 mb-3 border-b border-[var(--paper-rule)]">
+                  <BookOpen className="w-3.5 h-3.5 text-[var(--paper-accent)]" />
+                  <span>สารบัญบทความ (TOC)</span>
+                </div>
+                <nav className="space-y-1.5 text-xs sm:text-sm">
+                  {newsToc.map((item) => (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className="flex items-start gap-2 py-1 text-[var(--paper-muted)] hover:text-[var(--paper-ink)] transition"
+                    >
+                      <span className="font-mono text-xs text-[var(--paper-accent)] mt-0.5 shrink-0">
+                        {item.num}
+                      </span>
+                      <span className="leading-snug">{item.label}</span>
+                    </a>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/60 text-xs space-y-2.5">
+                <div className="font-bold text-[var(--paper-ink)] uppercase tracking-wider">
+                  ข้อมูลข่าวสารจาก AI Lab
+                </div>
+                <div>
+                  <span className="text-[var(--paper-muted)]">แหล่งข่าว: </span>
+                  <span className="font-semibold text-[var(--paper-ink)]">
+                    {news.source}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[var(--paper-muted)]">หมวดหมู่: </span>
+                  <span className="font-semibold text-[var(--paper-accent)]">
+                    {news.category}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[var(--paper-muted)]">วันที่เผยแพร่: </span>
+                  <span className="font-mono font-semibold text-[var(--paper-ink)]">
+                    {news.published_date}
+                  </span>
+                </div>
+                {news.rss_categories.length > 0 && (
+                  <div className="flex flex-wrap gap-1 pt-1">
+                    {news.rss_categories.slice(0, 4).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 rounded bg-[var(--paper-sheet)] border border-[var(--paper-rule)] text-[10px] text-[var(--paper-muted)]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </aside>
+
+          {/* Main Editorial Reading Column */}
+          <div className="lg:col-span-9 bg-[var(--paper-sheet)] border border-[var(--paper-rule)] rounded p-4 sm:p-8 md:p-10 shadow-xs">
+            {/* Mobile / Tablet Quick Collapsible Table of Contents */}
+            <details className="lg:hidden mb-6 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/70 p-3 sm:p-4 text-xs sm:text-sm">
+              <summary className="font-bold text-[var(--paper-ink)] cursor-pointer flex items-center justify-between select-none">
+                <span className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-[var(--paper-accent)]" />
+                  <span>สารบัญข่าว (แตะเพื่อกระโดดไปยังหัวข้อ)</span>
+                </span>
+                <span className="text-xs text-[var(--paper-muted)]">7 หัวข้อ</span>
+              </summary>
+              <nav className="mt-3 pt-3 border-t border-[var(--paper-rule)] space-y-2">
+                {newsToc.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="flex items-center gap-2 py-1 text-[var(--paper-body)] hover:text-[var(--paper-accent)]"
+                  >
+                    <span className="font-mono text-xs text-[var(--paper-accent)]">
+                      {item.num}
+                    </span>
+                    <span>{item.label}</span>
+                  </a>
+                ))}
+              </nav>
+            </details>
+
+            {/* Article Header */}
+            <header className="pb-6 sm:pb-8 mb-6 sm:mb-8 border-b border-[var(--paper-rule)]">
+              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs mb-3 sm:mb-4">
+                <span className="px-2.5 py-0.5 rounded font-bold uppercase tracking-wider bg-[var(--paper-accent-soft)] text-[var(--paper-accent)]">
+                  {news.category}
+                </span>
+                <span className="px-2.5 py-0.5 rounded font-semibold bg-[var(--paper-subtle)] text-[var(--paper-ink)] inline-flex items-center gap-1">
+                  <Newspaper className="w-3 h-3 text-[var(--paper-accent)]" />
+                  {news.source}
+                </span>
+                <span className="text-[var(--paper-muted)] flex items-center gap-1 sm:ml-auto">
+                  <Clock className="w-3.5 h-3.5" />
+                  อ่าน {news.reading_time_minutes} นาที
+                </span>
+              </div>
+
+              <h1 className="font-editorial text-xl sm:text-3xl md:text-4xl font-bold text-[var(--paper-ink)] leading-snug mb-3 sm:mb-4">
+                {news.hook_headline}
+              </h1>
+
+              <p className="text-sm sm:text-base text-[var(--paper-muted)] font-serif italic mb-4">
+                หัวข้อข่าวต้นฉบับ: &ldquo;{news.title}&rdquo;
+              </p>
+
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--paper-rule)] text-xs text-[var(--paper-muted)]">
+                <div>
+                  {news.authors.length > 0 ? (
+                    <span>ผู้เขียน: {news.authors.join(", ")}</span>
+                  ) : (
+                    <span>เผยแพร่โดย: {news.source}</span>
+                  )}
+                </div>
+                <div className="font-medium text-[var(--paper-ink)] text-[11px] sm:text-xs">
+                  {news.published_date}
+                </div>
+              </div>
+            </header>
+
+            <div className={`space-y-10 text-[var(--paper-body)] ${fontSizeClass}`}>
+              {/* 01: TL;DR */}
+              <section
+                id="news-tldr"
+                className="p-6 rounded bg-[var(--paper-subtle)]/70 border-l-4 border-[var(--paper-accent)]"
+              >
+                <h2 className="font-editorial text-lg font-bold text-[var(--paper-ink)] mb-3 flex items-center gap-2">
+                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                    01 //
+                  </span>
+                  <span>สรุปใจความสำคัญใน 30 วินาที (Key Takeaways)</span>
+                </h2>
+                <ul className="space-y-2.5 text-base">
+                  {news.tldr_takeaways.map((point, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <span className="font-bold text-[var(--paper-accent)] shrink-0">
+                        •
+                      </span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {/* 02: Figure */}
+              <section id="news-figure" className="space-y-3">
+                <h2 className="font-editorial text-xl font-bold text-[var(--paper-ink)] flex items-center gap-2">
+                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                    02 //
+                  </span>
+                  <span>ภาพประกอบข่าวจากประกาศทางการ</span>
+                </h2>
+                {!imgError && news.thumbnail_url ? (
+                  <figure className="border border-[var(--paper-rule)] rounded overflow-hidden bg-white p-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={news.thumbnail_url}
+                      alt={news.title}
+                      onError={() => setImgError(true)}
+                      className="w-full max-h-[420px] object-contain mx-auto rounded"
+                    />
+                    <figcaption className="text-xs text-center text-stone-600 mt-2.5 pt-2 border-t border-stone-200 font-sans">
+                      ภาพประกอบจาก {news.source}: {news.title}
+                    </figcaption>
+                  </figure>
+                ) : (
+                  <div className="p-6 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/40 text-sm text-[var(--paper-muted)]">
+                    ติดตามภาพประกอบเพิ่มเติมและวิดีโอสาธิตได้ในประกาศฉบับเต็มจากลิงก์ Google Blog ด้านล่าง
+                  </div>
+                )}
+              </section>
+
+              {/* 03: Layman Story */}
+              <section id="news-story" className="space-y-5">
+                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
+                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                    03 //
+                  </span>
+                  <span>เจาะลึกข่าวและประเด็นสำคัญแบบเข้าใจง่าย</span>
+                </h2>
+                <p className="font-semibold text-[var(--paper-ink)]">
+                  {news.short_teaser}
+                </p>
+                {news.layman_story.map((paragraph, idx) => (
+                  <p key={idx} className="text-[var(--paper-body)]">
+                    {paragraph}
+                  </p>
+                ))}
+              </section>
+
+              {/* 04: Before vs After */}
+              <section id="news-impact" className="space-y-4">
+                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
+                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                    04 //
+                  </span>
+                  <span>เปรียบเทียบก่อนอัปเดต vs หลังอัปเดต</span>
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)]">
+                    <div className="text-xs font-bold uppercase tracking-wider text-[var(--paper-muted)] mb-2">
+                      ก่อนอัปเดต (Before)
+                    </div>
+                    <p>{news.impact_comparison.before}</p>
+                  </div>
+
+                  <div className="p-5 rounded border border-[var(--paper-green)]/40 bg-[var(--paper-green-soft)]/50">
+                    <div className="text-xs font-bold uppercase tracking-wider text-[var(--paper-green)] mb-2">
+                      หลังอัปเดต (After)
+                    </div>
+                    <p>{news.impact_comparison.after}</p>
+                  </div>
+                </div>
+
+                <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-subtle)]/50 text-base">
+                  <span className="font-bold text-[var(--paper-ink)]">
+                    ทำไมอัปเดตนี้ถึงสำคัญ:{" "}
+                  </span>
+                  <span>{news.impact_comparison.why_it_matters}</span>
+                </div>
+              </section>
+
+              {/* 05: Actionable Playbook */}
+              <section id="news-playbook" className="space-y-4">
+                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
+                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                    05 //
+                  </span>
+                  <span>3 แนวทางการนำไปใช้ประโยชน์จริง (Actionable Playbook)</span>
+                </h2>
+
+                <div className="space-y-4 text-base">
+                  {news.actionable_playbook.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)]"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <h3 className="font-editorial font-bold text-lg text-[var(--paper-ink)]">
+                          แนวทางที่ {idx + 1}: {item.title}
+                        </h3>
+                        <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-[var(--paper-subtle)] text-[var(--paper-ink)]">
+                          {item.role}
+                        </span>
+                      </div>
+                      <p className="mb-2">{item.description}</p>
+                      <div className="text-sm text-[var(--paper-muted)] pt-2 border-t border-[var(--paper-rule)]">
+                        <strong className="text-[var(--paper-ink)]">
+                          ตัวอย่างการใช้งานจริง:{" "}
+                        </strong>
+                        {item.example}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* 06: Highlights & Watchouts */}
+              <section id="news-highlights" className="space-y-4">
+                <h2 className="font-editorial text-2xl font-bold text-[var(--paper-ink)] pb-2 border-b border-[var(--paper-rule)] flex items-center gap-2">
+                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                    06 //
+                  </span>
+                  <span>จุดเด่นที่เปิดตัว &amp; ข้อควรจับตา</span>
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)] space-y-2">
+                    <div className="font-bold text-sm text-[var(--paper-green)] flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4" />
+                      <span>สิ่งใหม่ที่โดดเด่น</span>
+                    </div>
+                    <ul className="space-y-2 text-sm">
+                      {news.key_highlights.whats_new.map((w, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-[var(--paper-green)] font-bold">
+                            +
+                          </span>
+                          <span>{w}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="p-5 rounded border border-[var(--paper-rule)] bg-[var(--paper-bg)] space-y-2">
+                    <div className="font-bold text-sm text-[var(--paper-amber)] flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4" />
+                      <span>ข้อจำกัดและสิ่งที่ต้องติดตาม</span>
+                    </div>
+                    <ul className="space-y-2 text-sm">
+                      {news.key_highlights.watchouts.map((c, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-[var(--paper-amber)] font-bold">
+                            !
+                          </span>
+                          <span>{c}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* 07: Source link */}
+              <section
+                id="news-source"
+                className="pt-6 border-t-2 border-[var(--paper-rule-strong)] space-y-4"
+              >
+                <h2 className="font-editorial text-xl font-bold text-[var(--paper-ink)] flex items-center gap-2">
+                  <span className="font-mono text-xs text-[var(--paper-accent)]">
+                    07 //
+                  </span>
+                  <span>อ่านประกาศต้นฉบับจาก {news.source}</span>
+                </h2>
+                <p className="text-sm text-[var(--paper-muted)]">
+                  กดปุ่มด้านล่างเพื่อเปิดอ่านบทความต้นฉบับฉบับเต็ม รูปภาพเพิ่มเติม หรือวิดีโอเปิดตัวจาก Google Official Blog:
+                </p>
+                <div className="flex flex-wrap items-center gap-3 pt-1">
+                  <a
+                    href={news.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded text-sm font-semibold bg-[var(--paper-ink)] text-[var(--paper-sheet)] hover:opacity-90 transition"
+                  >
+                    <Newspaper className="w-4 h-4" />
+                    <span>เปิดอ่านประกาศต้นฉบับบน Google Blog</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>

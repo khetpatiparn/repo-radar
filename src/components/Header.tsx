@@ -11,10 +11,11 @@ import {
   BookOpen,
   Code2,
   Bookmark,
+  Newspaper,
 } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 
-export type MainSection = "papers" | "repos" | "saved";
+export type MainSection = "papers" | "repos" | "news" | "saved";
 
 interface HeaderProps {
   updatedAt: string;
@@ -222,8 +223,8 @@ export function Header({
           </div>
 
           <p className="mt-2 text-xs sm:text-sm md:text-base text-[var(--paper-muted)] max-w-2xl mx-auto font-editorial px-2 leading-relaxed">
-            วารสารสรุปงานวิจัย AI มาแรงจาก Hugging Face และโปรเจกต์ GitHub
-            Trending — ย่อยเรื่องยากให้เป็นภาษาคนทั่วไป อ่านสบายตาเหมือนอ่านหนังสือ
+            วารสารสรุปงานวิจัย AI มาแรงจาก Hugging Face, โปรเจกต์ GitHub
+            Trending และข่าวสาร AI Lab จาก Google Blog — อ่านสบายตาเหมือนอ่านหนังสือ
           </p>
         </div>
 
@@ -258,6 +259,19 @@ export function Header({
               <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span className="hidden sm:inline">คอลัมน์โอเพนซอร์ส (GitHub Repos)</span>
               <span className="sm:hidden">GitHub Repos</span>
+            </button>
+
+            <button
+              onClick={() => onSelectSection("news")}
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded text-xs sm:text-sm font-semibold transition shrink-0 cursor-pointer active:scale-95 ${
+                activeSection === "news"
+                  ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)] shadow-xs"
+                  : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
+              }`}
+            >
+              <Newspaper className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+              <span className="hidden sm:inline">คอลัมน์ข่าวสาร AI Lab (Google Blog)</span>
+              <span className="sm:hidden">ข่าว AI Lab</span>
             </button>
 
             <button

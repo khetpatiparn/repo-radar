@@ -3,12 +3,16 @@
 import { useState, useMemo, useEffect } from "react";
 import reposData from "../data/repos.json";
 import papersData from "../data/papers.json";
+import newsData from "../data/news.json";
 import {
   PAPER_CATEGORIES,
+  NEWS_CATEGORIES,
   type RepositoryData,
   type ReposFeedData,
   type PaperData,
   type PapersFeedData,
+  type NewsArticleData,
+  type NewsFeedData,
 } from "../types";
 import { Header, type MainSection } from "../components/Header";
 import { ArticleReader } from "../components/ArticleReader";
@@ -26,6 +30,7 @@ import {
   ChevronUp,
   ChevronLeft,
   ChevronRight,
+  Newspaper,
 } from "lucide-react";
 
 // Parse Repos Feed
@@ -41,8 +46,15 @@ const yesterdayRepos: RepositoryData[] = Array.isArray(rawReposFeed)
 const rawPapersFeed = papersData as unknown as PapersFeedData;
 const paperDays = Array.isArray(rawPapersFeed?.days) ? rawPapersFeed.days : [];
 
+// Parse AI Lab News Feed
+const rawNewsFeed = newsData as unknown as NewsFeedData;
+const allNewsArticles: NewsArticleData[] = Array.isArray(rawNewsFeed?.articles)
+  ? rawNewsFeed.articles
+  : [];
+
 const SAVED_PAPERS_KEY = "reporadar_saved_papers_v1";
 const SAVED_REPOS_KEY = "reporadar_saved_repos_v1";
+const SAVED_NEWS_KEY = "reporadar_saved_news_v1";
 const NIGHT_MODE_KEY = "reporadar_night_mode_v1";
 const ITEMS_PER_PAGE = 12;
 
@@ -67,13 +79,18 @@ export default function Home() {
   const [selectedLang, setSelectedLang] = useState<string>("All");
   const [selectedMaturity, setSelectedMaturity] = useState<string>("All");
 
+  // AI Lab News Filters
+  const [selectedNewsCategory, setSelectedNewsCategory] = useState<string>("All");
+
   // Reader View State (Full-page book/article reader)
   const [readingPaper, setReadingPaper] = useState<PaperData | null>(null);
   const [readingRepo, setReadingRepo] = useState<RepositoryData | null>(null);
+  const [readingNews, setReadingNews] = useState<NewsArticleData | null>(null);
 
   // Saved Bookmarks (Persisted permanently in localStorage)
   const [savedPapersMap, setSavedPapersMap] = useState<Record<string, PaperData>>({});
   const [savedReposMap, setSavedReposMap] = useState<Record<string, RepositoryData>>({});
+  const [savedNewsMap, setSavedNewsMap] = useState<Record<string, NewsArticleData>>({});
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -82,6 +99,8 @@ export default function Home() {
       if (sp) setSavedPapersMap(JSON.parse(sp));
       const sr = localStorage.getItem(SAVED_REPOS_KEY);
       if (sr) setSavedReposMap(JSON.parse(sr));
+      const sn = localStorage.getItem(SAVED_NEWS_KEY);
+      if (sn) setSavedNewsMap(JSON.parse(sn));
       const nm = localStorage.getItem(NIGHT_MODE_KEY);
       if (nm === "true") setIsNightMode(true);
     } catch (e) {
@@ -137,8 +156,25 @@ export default function Home() {
     });
   };
 
+  const toggleSaveNews = (article: NewsArticleData, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    setSavedNewsMap((prev) => {
+      const next = { ...prev };
+      if (next[article.id]) {
+        delete next[article.id];
+      } else {
+        next[article.id] = article;
+      }
+      if (typeof window !== "undefined") {
+        localStorage.setItem(SAVED_NEWS_KEY, JSON.stringify(next));
+      }
+      return next;
+    });
+  };
+
   const openPaperReader = (paper: PaperData) => {
     setReadingRepo(null);
+    setReadingNews(null);
     setReadingPaper(paper);
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -147,7 +183,17 @@ export default function Home() {
 
   const openRepoReader = (repo: RepositoryData) => {
     setReadingPaper(null);
+    setReadingNews(null);
     setReadingRepo(repo);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const openNewsReader = (article: NewsArticleData) => {
+    setReadingPaper(null);
+    setReadingRepo(null);
+    setReadingNews(article);
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -281,6 +327,30 @@ export default function Home() {
     searchQuery,
   ]);
 
+  // Filtered AI Lab News
+  const filteredNews = useMemo(() => {
+    let result = [...allNewsArticles];
+
+    if (selectedNewsCategory !== "All") {
+      result = result.filter((a) => a.category === selectedNewsCategory);
+    }
+
+    if (searchQuery.trim() !== "") {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(
+        (a) =>
+          a.title.toLowerCase().includes(q) ||
+          a.hook_headline.toLowerCase().includes(q) ||
+          a.short_teaser.toLowerCase().includes(q) ||
+          a.category.toLowerCase().includes(q) ||
+          a.source.toLowerCase().includes(q) ||
+          a.rss_categories.some((t) => t.toLowerCase().includes(q))
+      );
+    }
+
+    return result;
+  }, [selectedNewsCategory, searchQuery]);
+
   // Pagination calculation for papers to prevent scroll fatigue
   const totalPaperPages = Math.max(1, Math.ceil(filteredPapers.length / ITEMS_PER_PAGE));
   const safeCurrentPaperPage = Math.min(currentPage, totalPaperPages);
@@ -289,12 +359,23 @@ export default function Home() {
     return filteredPapers.slice(start, start + ITEMS_PER_PAGE);
   }, [filteredPapers, safeCurrentPaperPage]);
 
+  // Pagination calculation for AI Lab News
+  const totalNewsPages = Math.max(1, Math.ceil(filteredNews.length / ITEMS_PER_PAGE));
+  const safeCurrentNewsPage = Math.min(currentPage, totalNewsPages);
+  const pagedNews = useMemo(() => {
+    const start = (safeCurrentNewsPage - 1) * ITEMS_PER_PAGE;
+    return filteredNews.slice(start, start + ITEMS_PER_PAGE);
+  }, [filteredNews, safeCurrentNewsPage]);
+
   const savedPapersList = Object.values(savedPapersMap);
   const savedReposList = Object.values(savedReposMap);
-  const totalSavedCount = savedPapersList.length + savedReposList.length;
+  const savedNewsList = Object.values(savedNewsMap);
+  const totalSavedCount =
+    savedPapersList.length + savedReposList.length + savedNewsList.length;
 
   const latestUpdate =
     rawPapersFeed?.updated_at ||
+    rawNewsFeed?.updated_at ||
     todayRepos[0]?.updated_at ||
     "2026-11-12T00:00:00Z";
 
@@ -302,6 +383,7 @@ export default function Home() {
     setActiveSection(sec);
     setReadingPaper(null);
     setReadingRepo(null);
+    setReadingNews(null);
     setCurrentPage(1);
   };
 
@@ -321,6 +403,8 @@ export default function Home() {
         totalItems={
           activeSection === "papers"
             ? filteredPapers.length
+            : activeSection === "news"
+            ? filteredNews.length
             : filteredRepos.length
         }
         activeSection={activeSection}
@@ -330,9 +414,10 @@ export default function Home() {
         onSearch={(q) => {
           setSearchQuery(q);
           setCurrentPage(1);
-          if (readingPaper || readingRepo) {
+          if (readingPaper || readingRepo || readingNews) {
             setReadingPaper(null);
             setReadingRepo(null);
+            setReadingNews(null);
           }
         }}
         isNightMode={isNightMode}
@@ -369,6 +454,13 @@ export default function Home() {
                 )?.stars ||
                 readingRepo.stars)
           )}
+        />
+      ) : readingNews ? (
+        <ArticleReader
+          news={readingNews}
+          isSaved={Boolean(savedNewsMap[readingNews.id])}
+          onToggleSave={() => toggleSaveNews(readingNews)}
+          onBack={() => setReadingNews(null)}
         />
       ) : (
         /* Newspaper Front Page View (Full-Width Edge-to-Edge) */
@@ -1057,7 +1149,409 @@ export default function Home() {
             </>
           )}
 
-          {/* ==================== SECTION 3: SAVED BOOKMARKS ==================== */}
+          {/* ==================== SECTION 3: AI LAB NEWS (GOOGLE BLOG RSS) ==================== */}
+          {activeSection === "news" && (
+            <>
+              {/* Sticky Filter & View Controller Bar */}
+              <div className="sticky top-0 z-20 backdrop-blur-md bg-[var(--paper-sheet)]/95 border border-[var(--paper-rule)] rounded p-3.5 space-y-3 shadow-2xs">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2.5 border-b border-[var(--paper-rule)]">
+                  <div className="flex items-center gap-2 text-xs text-[var(--paper-muted)]">
+                    <Newspaper className="w-4 h-4 text-[var(--paper-accent)] shrink-0" />
+                    <span className="font-bold text-[var(--paper-ink)]">
+                      ข่าวประกาศทางการจาก Google Official Blog &amp; AI Labs
+                    </span>
+                    <span className="hidden md:inline">• อัปเดตจาก RSS ทุกเช้า 07:00 น.</span>
+                  </div>
+
+                  {/* Anti-Scroll Fatigue View Mode Switcher */}
+                  <div className="flex items-center border border-[var(--paper-rule)] rounded bg-[var(--paper-bg)] p-0.5 text-xs self-end sm:self-auto">
+                    <button
+                      onClick={() => setViewMode("cards")}
+                      className={`flex items-center gap-1 px-2.5 py-1 rounded transition cursor-pointer font-medium ${
+                        viewMode === "cards"
+                          ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
+                          : "text-[var(--paper-muted)] hover:text-[var(--paper-ink)]"
+                      }`}
+                      title="มุมมองการ์ดข่าว (รูปภาพและไฮไลต์)"
+                    >
+                      <LayoutGrid className="w-3.5 h-3.5" />
+                      <span className="hidden xs:inline">การ์ด</span>
+                    </button>
+                    <button
+                      onClick={() => setViewMode("compact")}
+                      className={`flex items-center gap-1 px-2.5 py-1 rounded transition cursor-pointer font-medium ${
+                        viewMode === "compact"
+                          ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)]"
+                          : "text-[var(--paper-muted)] hover:text-[var(--paper-ink)]"
+                      }`}
+                      title="มุมมองสารบัญด่วน (กะทัดรัด ไม่ต้องเลื่อนเยอะ)"
+                    >
+                      <List className="w-3.5 h-3.5" />
+                      <span className="hidden xs:inline">สารบัญด่วน</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* News Subcategory Filters */}
+                <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+                  <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[var(--paper-muted)] mr-1 shrink-0">
+                    หมวดข่าว:
+                  </span>
+                  <button
+                    onClick={() => {
+                      setSelectedNewsCategory("All");
+                      setCurrentPage(1);
+                    }}
+                    className={`px-3 py-1 rounded text-xs font-semibold transition shrink-0 cursor-pointer active:scale-95 ${
+                      selectedNewsCategory === "All"
+                        ? "bg-[var(--paper-accent)] text-white shadow-xs"
+                        : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
+                    }`}
+                  >
+                    ทั้งหมด ({allNewsArticles.length})
+                  </button>
+                  {NEWS_CATEGORIES.map((cat) => {
+                    const count = allNewsArticles.filter(
+                      (a) => a.category === cat
+                    ).length;
+                    return (
+                      <button
+                        key={cat}
+                        onClick={() => {
+                          setSelectedNewsCategory(cat);
+                          setCurrentPage(1);
+                        }}
+                        className={`px-3 py-1 rounded text-xs font-semibold transition shrink-0 cursor-pointer active:scale-95 ${
+                          selectedNewsCategory === cat
+                            ? "bg-[var(--paper-accent)] text-white shadow-xs"
+                            : "text-[var(--paper-body)] hover:bg-[var(--paper-subtle)]"
+                        }`}
+                      >
+                        {cat} ({count})
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {filteredNews.length > 0 ? (
+                <>
+                  {/* LEAD FRONT-PAGE AI LAB NEWS STORY */}
+                  {safeCurrentNewsPage === 1 && viewMode === "cards" && (
+                    (() => {
+                      const lead = filteredNews[0];
+                      const isSaved = Boolean(savedNewsMap[lead.id]);
+                      return (
+                        <section
+                          onClick={() => openNewsReader(lead)}
+                          className="group cursor-pointer bg-[var(--paper-sheet)] border-2 border-[var(--paper-rule-strong)] rounded p-5 sm:p-7 md:p-8 transition hover:shadow-md"
+                        >
+                          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+                            <div className={`${lead.thumbnail_url ? "lg:col-span-8" : "lg:col-span-12"} space-y-3 sm:space-y-4`}>
+                              <div className="flex flex-wrap items-center gap-2 text-xs">
+                                <span className="px-2.5 py-0.5 rounded font-bold uppercase tracking-wider bg-[var(--paper-accent)] text-white text-[11px] sm:text-xs">
+                                  ข่าวเด่น AI Lab
+                                </span>
+                                <span className="px-2.5 py-0.5 rounded font-bold uppercase tracking-wider bg-[var(--paper-accent-soft)] text-[var(--paper-accent)] text-[11px] sm:text-xs">
+                                  {lead.category}
+                                </span>
+                                <span className="font-semibold text-[var(--paper-ink)] text-[11px] sm:text-xs">
+                                  • 📰 {lead.source}
+                                </span>
+                                <span className="text-[var(--paper-muted)] text-[11px] sm:text-xs">
+                                  • {lead.published_date}
+                                </span>
+                              </div>
+
+                              <h2 className="font-editorial text-2xl xs:text-3xl sm:text-4xl font-bold text-[var(--paper-ink)] leading-snug group-hover:text-[var(--paper-accent)] transition-colors">
+                                {lead.hook_headline}
+                              </h2>
+
+                              <p className="text-xs sm:text-sm font-serif italic text-[var(--paper-muted)] line-clamp-1">
+                                &ldquo;{lead.title}&rdquo;
+                              </p>
+
+                              <p className="text-sm sm:text-base text-[var(--paper-body)] leading-relaxed line-clamp-3">
+                                {lead.short_teaser}
+                              </p>
+
+                              <div className="p-4 rounded bg-[var(--paper-subtle)]/60 border-l-3 border-[var(--paper-accent)] space-y-1.5 text-xs sm:text-sm">
+                                <div className="font-bold text-[11px] sm:text-xs uppercase tracking-wider text-[var(--paper-ink)]">
+                                  สรุปประเด็นสำคัญ:
+                                </div>
+                                {lead.tldr_takeaways.slice(0, 2).map((t, idx) => (
+                                  <div key={idx} className="flex items-start gap-2">
+                                    <span className="text-[var(--paper-accent)] font-bold">
+                                      •
+                                    </span>
+                                    <span>{t}</span>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <div className="pt-2 flex flex-wrap items-center justify-between gap-3 sm:gap-4">
+                                <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--paper-accent)] group-hover:translate-x-1 transition-transform">
+                                  <span>กดอ่านข่าวเจาะลึก ({lead.reading_time_minutes} นาที)</span>
+                                  <ArrowRight className="w-4 h-4" />
+                                </div>
+
+                                <button
+                                  onClick={(e) => toggleSaveNews(lead, e)}
+                                  className={`inline-flex items-center gap-1 px-3 py-1 rounded text-xs font-semibold border transition cursor-pointer active:scale-95 ${
+                                    isSaved
+                                      ? "bg-[var(--paper-accent)] text-white border-[var(--paper-accent)]"
+                                      : "bg-[var(--paper-bg)] text-[var(--paper-ink)] border-[var(--paper-rule)] hover:border-[var(--paper-rule-strong)]"
+                                  }`}
+                                >
+                                  {isSaved ? (
+                                    <>
+                                      <BookmarkCheck className="w-3.5 h-3.5" />
+                                      <span>คั่นแล้ว</span>
+                                    </>
+                                  ) : (
+                                    <>
+                                      <Bookmark className="w-3.5 h-3.5" />
+                                      <span>คั่นหน้า</span>
+                                    </>
+                                  )}
+                                </button>
+                              </div>
+                            </div>
+
+                            {lead.thumbnail_url && (
+                              <div className="lg:col-span-4">
+                                <div className="border border-[var(--paper-rule)] rounded bg-white p-3 shadow-2xs">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={lead.thumbnail_url}
+                                    alt={lead.title}
+                                    className="w-full h-56 sm:h-64 object-cover rounded"
+                                  />
+                                  <div className="mt-2 pt-2 border-t border-stone-200 flex items-center justify-between text-[11px] text-stone-500 font-sans">
+                                    <span>{lead.source}</span>
+                                    <span>แตะเพื่ออ่านข่าว</span>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </section>
+                      );
+                    })()
+                  )}
+
+                  {/* NEWS CARDS GRID */}
+                  {viewMode === "cards" && (
+                    <section className="space-y-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b-2 border-[var(--paper-rule-strong)] pb-2">
+                        <h3 className="font-editorial text-lg font-bold text-[var(--paper-ink)]">
+                          คอลัมน์ข่าวสาร AI Lab ({filteredNews.length} ข่าว • หน้า {safeCurrentNewsPage}/{totalNewsPages})
+                        </h3>
+                        <span className="text-xs text-[var(--paper-muted)]">
+                          แหล่งข้อมูล: Google Official Blog RSS • แตะที่การ์ดเพื่อเปิดโหมดอ่านเต็มหน้าจอ
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 sm:gap-6">
+                        {(safeCurrentNewsPage === 1 ? filteredNews.slice(1, ITEMS_PER_PAGE) : pagedNews).map((article, idx) => {
+                          const isSaved = Boolean(savedNewsMap[article.id]);
+                          const itemIndex = safeCurrentNewsPage === 1 ? idx + 2 : (safeCurrentNewsPage - 1) * ITEMS_PER_PAGE + idx + 1;
+                          return (
+                            <article
+                              key={article.id}
+                              onClick={() => openNewsReader(article)}
+                              className="group cursor-pointer bg-[var(--paper-sheet)] border border-[var(--paper-rule)] hover:border-[var(--paper-rule-strong)] rounded p-5 flex flex-col justify-between transition hover:shadow-xs active:scale-[0.99]"
+                            >
+                              <div className="space-y-3">
+                                <div className="flex items-center justify-between gap-2 text-xs">
+                                  <span className="px-2 py-0.5 rounded font-bold uppercase tracking-wider bg-[var(--paper-subtle)] text-[var(--paper-accent)] text-[11px] truncate max-w-[200px]">
+                                    {article.category}
+                                  </span>
+                                  <div className="flex items-center gap-1.5 shrink-0">
+                                    <span className="text-[11px] text-[var(--paper-muted)] font-mono">
+                                      {article.published_date}
+                                    </span>
+                                    <button
+                                      onClick={(e) => toggleSaveNews(article, e)}
+                                      className="p-1 rounded hover:bg-[var(--paper-subtle)] text-[var(--paper-muted)] hover:text-[var(--paper-ink)] cursor-pointer"
+                                      title="คั่นหน้าข่าวนี้"
+                                    >
+                                      {isSaved ? (
+                                        <BookmarkCheck className="w-4 h-4 text-[var(--paper-accent)]" />
+                                      ) : (
+                                        <Bookmark className="w-4 h-4" />
+                                      )}
+                                    </button>
+                                  </div>
+                                </div>
+
+                                <h4 className="font-editorial text-lg font-bold text-[var(--paper-ink)] leading-snug group-hover:text-[var(--paper-accent)] transition-colors">
+                                  <span className="font-mono text-xs text-[var(--paper-muted)] mr-1.5">
+                                    #{itemIndex}
+                                  </span>
+                                  {article.hook_headline}
+                                </h4>
+
+                                <p className="text-xs font-serif italic text-[var(--paper-muted)] line-clamp-1">
+                                  {article.title}
+                                </p>
+
+                                <p className="text-xs sm:text-sm text-[var(--paper-body)] line-clamp-3 leading-relaxed">
+                                  {article.short_teaser}
+                                </p>
+                              </div>
+
+                              <div className="pt-3 mt-3 border-t border-[var(--paper-rule)] flex items-center justify-between text-xs">
+                                <div className="flex items-center gap-2 text-[var(--paper-muted)] text-[11px]">
+                                  <span className="flex items-center gap-1">
+                                    <Clock className="w-3 h-3" />
+                                    {article.reading_time_minutes} นาที
+                                  </span>
+                                  <span className="px-1.5 py-0.5 rounded bg-[var(--paper-subtle)] text-[var(--paper-ink)] font-semibold text-[10px]">
+                                    {article.source}
+                                  </span>
+                                </div>
+
+                                <span className="font-bold text-[var(--paper-accent)] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform text-xs">
+                                  อ่านข่าว <ArrowRight className="w-3.5 h-3.5" />
+                                </span>
+                              </div>
+                            </article>
+                          );
+                        })}
+                      </div>
+                    </section>
+                  )}
+
+                  {/* NEWS COMPACT DIGEST MODE */}
+                  {viewMode === "compact" && (
+                    <section className="space-y-3">
+                      <div className="flex items-center justify-between border-b-2 border-[var(--paper-rule-strong)] pb-2">
+                        <h3 className="font-editorial text-base sm:text-lg font-bold text-[var(--paper-ink)]">
+                          สารบัญด่วนข่าว AI Lab (สแกนเร็วในหน้าเดียว • {filteredNews.length} ข่าว • หน้า {safeCurrentNewsPage}/{totalNewsPages})
+                        </h3>
+                        <span className="text-xs text-[var(--paper-muted)]">
+                          คลิกที่แถวเพื่อเปิดอ่านข่าว
+                        </span>
+                      </div>
+
+                      <div className="border border-[var(--paper-rule)] rounded bg-[var(--paper-sheet)] divide-y divide-[var(--paper-rule)] overflow-hidden">
+                        {pagedNews.map((article, idx) => {
+                          const isSaved = Boolean(savedNewsMap[article.id]);
+                          const itemIndex = (safeCurrentNewsPage - 1) * ITEMS_PER_PAGE + idx + 1;
+                          return (
+                            <div
+                              key={article.id}
+                              onClick={() => openNewsReader(article)}
+                              className="group cursor-pointer p-3 sm:p-4 hover:bg-[var(--paper-subtle)]/70 transition flex flex-col md:flex-row md:items-center justify-between gap-3"
+                            >
+                              <div className="flex items-start gap-3 min-w-0 flex-1">
+                                <span className="font-mono text-xs font-bold text-[var(--paper-accent)] mt-0.5 shrink-0">
+                                  #{itemIndex}
+                                </span>
+                                <div className="space-y-1 min-w-0">
+                                  <div className="flex items-center gap-2 flex-wrap">
+                                    <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-[var(--paper-subtle)] text-[var(--paper-accent)]">
+                                      {article.category}
+                                    </span>
+                                    <span className="text-xs text-[var(--paper-muted)]">
+                                      📰 {article.source}
+                                    </span>
+                                    <span className="text-[11px] font-mono text-[var(--paper-muted)]">
+                                      {article.published_date}
+                                    </span>
+                                  </div>
+                                  <h4 className="font-editorial font-bold text-sm sm:text-base text-[var(--paper-ink)] group-hover:text-[var(--paper-accent)] transition-colors leading-snug">
+                                    {article.hook_headline}
+                                  </h4>
+                                  <p className="text-xs text-[var(--paper-muted)] line-clamp-1 font-serif">
+                                    {article.title}
+                                  </p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-center gap-4 shrink-0 self-end md:self-center text-xs">
+                                <span className="text-[var(--paper-muted)] hidden sm:inline">
+                                  {article.reading_time_minutes} นาที
+                                </span>
+                                <button
+                                  onClick={(e) => toggleSaveNews(article, e)}
+                                  className="p-1 rounded text-[var(--paper-muted)] hover:text-[var(--paper-ink)] cursor-pointer"
+                                  title="คั่นหน้าข่าวนี้"
+                                >
+                                  {isSaved ? (
+                                    <BookmarkCheck className="w-4 h-4 text-[var(--paper-accent)]" />
+                                  ) : (
+                                    <Bookmark className="w-4 h-4" />
+                                  )}
+                                </button>
+                                <span className="font-bold text-[var(--paper-accent)] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                                  อ่าน <ArrowRight className="w-3.5 h-3.5" />
+                                </span>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </section>
+                  )}
+
+                  {/* News Pagination */}
+                  {totalNewsPages > 1 && (
+                    <div className="pt-4 border-t border-[var(--paper-rule)] flex items-center justify-between gap-4 text-xs">
+                      <button
+                        disabled={safeCurrentNewsPage <= 1}
+                        onClick={() => handlePageChange(safeCurrentNewsPage - 1)}
+                        className={`inline-flex items-center gap-1 px-3 py-1.5 rounded border border-[var(--paper-rule)] transition font-medium cursor-pointer ${
+                          safeCurrentNewsPage <= 1
+                            ? "opacity-40 cursor-not-allowed bg-[var(--paper-subtle)]"
+                            : "bg-[var(--paper-sheet)] hover:bg-[var(--paper-subtle)] text-[var(--paper-ink)] active:scale-95"
+                        }`}
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                        <span>หน้าก่อนหน้า</span>
+                      </button>
+
+                      <div className="flex items-center gap-1.5">
+                        {Array.from({ length: totalNewsPages }, (_, i) => i + 1).map((p) => (
+                          <button
+                            key={p}
+                            onClick={() => handlePageChange(p)}
+                            className={`w-7 h-7 rounded text-xs font-semibold transition cursor-pointer ${
+                              safeCurrentNewsPage === p
+                                ? "bg-[var(--paper-ink)] text-[var(--paper-sheet)] shadow-xs"
+                                : "hover:bg-[var(--paper-subtle)] text-[var(--paper-body)]"
+                            }`}
+                          >
+                            {p}
+                          </button>
+                        ))}
+                      </div>
+
+                      <button
+                        disabled={safeCurrentNewsPage >= totalNewsPages}
+                        onClick={() => handlePageChange(safeCurrentNewsPage + 1)}
+                        className={`inline-flex items-center gap-1 px-3 py-1.5 rounded border border-[var(--paper-rule)] transition font-medium cursor-pointer ${
+                          safeCurrentNewsPage >= totalNewsPages
+                            ? "opacity-40 cursor-not-allowed bg-[var(--paper-subtle)]"
+                            : "bg-[var(--paper-sheet)] hover:bg-[var(--paper-subtle)] text-[var(--paper-ink)] active:scale-95"
+                        }`}
+                      >
+                        <span>หน้าถัดไป</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="p-16 text-center bg-[var(--paper-sheet)] border border-[var(--paper-rule)] rounded text-[var(--paper-muted)] text-sm">
+                  ไม่พบข่าวสาร AI Lab ที่ตรงกับคำค้นหาหรือหมวดหมู่ที่เลือก
+                </div>
+              )}
+            </>
+          )}
+
+          {/* ==================== SECTION 4: SAVED BOOKMARKS ==================== */}
           {activeSection === "saved" && (
             <div className="space-y-6">
               <div className="border-b-2 border-[var(--paper-rule-strong)] pb-3">
@@ -1077,7 +1571,7 @@ export default function Home() {
                     ยังไม่มีบทความที่คั่นหน้าไว้
                   </div>
                   <p className="text-sm text-[var(--paper-muted)]">
-                    กดปุ่ม &ldquo;คั่นหน้า&rdquo; บนเปเปอร์วิจัยหรือโปรเจกต์โอเพนซอร์สที่คุณสนใจเพื่อเก็บไว้อ่านภายหลัง
+                    กดปุ่ม &ldquo;คั่นหน้า&rdquo; บนเปเปอร์วิจัย โปรเจกต์โอเพนซอร์ส หรือข่าวสาร AI Lab ที่คุณสนใจเพื่อเก็บไว้อ่านภายหลัง
                   </p>
                 </div>
               ) : (
@@ -1151,6 +1645,41 @@ export default function Home() {
                       </div>
                     </section>
                   )}
+
+                  {savedNewsList.length > 0 && (
+                    <section className="space-y-4">
+                      <h3 className="font-editorial text-lg font-bold text-[var(--paper-ink)]">
+                        📰 ข่าวสาร AI Lab ที่คั่นไว้ ({savedNewsList.length})
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        {savedNewsList.map((article) => (
+                          <article
+                            key={article.id}
+                            onClick={() => openNewsReader(article)}
+                            className="cursor-pointer bg-[var(--paper-sheet)] border border-[var(--paper-rule)] hover:border-[var(--paper-rule-strong)] rounded p-5 space-y-3"
+                          >
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="px-2 py-0.5 rounded font-bold bg-[var(--paper-subtle)] text-[var(--paper-accent)]">
+                                {article.category}
+                              </span>
+                              <button
+                                onClick={(e) => toggleSaveNews(article, e)}
+                                className="text-xs text-[var(--paper-accent)] font-semibold cursor-pointer"
+                              >
+                                ลบออก
+                              </button>
+                            </div>
+                            <h4 className="font-editorial text-lg font-bold text-[var(--paper-ink)] leading-snug">
+                              {article.hook_headline}
+                            </h4>
+                            <p className="text-sm text-[var(--paper-body)] line-clamp-2">
+                              {article.short_teaser}
+                            </p>
+                          </article>
+                        ))}
+                      </div>
+                    </section>
+                  )}
                 </>
               )}
             </div>
@@ -1177,8 +1706,8 @@ export default function Home() {
             <strong className="font-masthead text-sm text-[var(--paper-ink)]">
               THE REPO RADAR
             </strong>{" "}
-            — วารสารสรุปงานวิจัย AI จาก Hugging Face Daily Papers และ GitHub
-            Trending ฉบับภาษาไทย
+            — วารสารสรุปงานวิจัย AI จาก Hugging Face Daily Papers, GitHub
+            Trending และ Google Official Blog ฉบับภาษาไทย
           </div>
           <div>
             ซิงก์ข้อมูลอัตโนมัติทุกเช้า 07:00 น. • ออกแบบเพื่อการอ่านที่สบายตาและลดการเลื่อนหน้าจอ

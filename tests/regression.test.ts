@@ -1,13 +1,17 @@
 import { describe, it, expect } from "vitest";
 import reposData from "../src/data/repos.json";
 import papersData from "../src/data/papers.json";
+import newsData from "../src/data/news.json";
 import {
   RepositorySchema,
   PaperSchema,
+  NewsArticleSchema,
   PAPER_CATEGORIES,
+  NEWS_CATEGORIES,
   type RepositoryData,
   type ReposFeedData,
   type PapersFeedData,
+  type NewsFeedData,
 } from "../src/types";
 
 describe("Regression Tests: Data Schemas & Pipeline Integrity", () => {
@@ -110,4 +114,37 @@ describe("Regression Tests: Data Schemas & Pipeline Integrity", () => {
       expect(PAPER_CATEGORIES).toContain(cat);
     }
   });
+
+  it("should validate news.json against NewsArticleSchema and official subcategories", () => {
+    const feed = newsData as unknown as NewsFeedData;
+    expect(feed).toBeDefined();
+    expect(Array.isArray(feed.articles)).toBe(true);
+    expect(feed.articles.length).toBeGreaterThanOrEqual(10);
+
+    const seenIds = new Set<string>();
+    const seenUrls = new Set<string>();
+
+    for (const article of feed.articles) {
+      const parsed = NewsArticleSchema.safeParse(article);
+      expect(
+        parsed.success,
+        `News article ${article.id} failed NewsArticleSchema: ${parsed.error?.message}`
+      ).toBe(true);
+
+      expect(seenIds.has(article.id)).toBe(false);
+      expect(seenUrls.has(article.url)).toBe(false);
+      seenIds.add(article.id);
+      seenUrls.add(article.url);
+
+      expect(NEWS_CATEGORIES).toContain(article.category);
+      expect(article.hook_headline.length).toBeGreaterThan(10);
+      expect(article.short_teaser.length).toBeGreaterThan(15);
+      expect(article.tldr_takeaways.length).toBeGreaterThanOrEqual(2);
+      expect(article.layman_story.length).toBeGreaterThanOrEqual(2);
+      expect(article.actionable_playbook.length).toBe(3);
+      expect(article.key_highlights.whats_new.length).toBeGreaterThanOrEqual(1);
+      expect(article.key_highlights.watchouts.length).toBeGreaterThanOrEqual(1);
+    }
+  });
 });
+

@@ -10,8 +10,9 @@
     "test": "vitest run",
     "test:e2e": "vitest run tests/e2e-user-flows.test.tsx",
     "test:regression": "vitest run tests/regression.test.ts",
-    "pipeline": "tsx scripts/fetch-trending.ts && tsx scripts/fetch-papers.ts",
-    "pipeline:papers": "tsx scripts/fetch-papers.ts"
+    "pipeline": "tsx scripts/fetch-trending.ts && tsx scripts/fetch-papers.ts && tsx scripts/fetch-news.ts",
+    "pipeline:papers": "tsx scripts/fetch-papers.ts",
+    "pipeline:news": "tsx scripts/fetch-news.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
