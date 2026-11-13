@@ -18,6 +18,9 @@ export type MainSection = "papers" | "repos" | "news" | "saved";
 interface HeaderProps {
   updatedAt: string;
   totalItems: number;
+  papersCount?: number;
+  reposCount?: number;
+  newsCount?: number;
   activeSection: MainSection;
   onSelectSection: (section: MainSection) => void;
   savedCount: number;
@@ -29,6 +32,9 @@ interface HeaderProps {
 export function Header({
   updatedAt,
   totalItems,
+  papersCount,
+  reposCount,
+  newsCount,
   activeSection,
   onSelectSection,
   savedCount,
@@ -121,19 +127,20 @@ export function Header({
   };
 
   return (
-    <header className="w-full bg-paper border-b border-rule">
-      <div className="container">
-        {/* Top Dateline & Notification Strip */}
-        <div className="py-2.5 border-b border-rule flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-editorial-label text-muted">
+    <header className="w-full bg-paper border-b-2 border-ink">
+      {/* Dark Ink Edition Dateline Bar */}
+      <div className="w-full bg-ink text-paper border-b border-rule-2">
+        <div className="container py-2 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-editorial-label">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 min-w-0">
-            <span className="text-ink font-medium truncate">
-              {thaiDateStr ? `ฉบับประจำ${thaiDateStr}` : "ฉบับประจำวันนี้"}
+            <span className="inline-flex items-center gap-2 font-medium text-paper truncate">
+              <span className="inline-block w-2 h-2 bg-accent shrink-0" aria-hidden="true" />
+              <span>{thaiDateStr ? `ฉบับประจำ${thaiDateStr}` : "ฉบับประจำวันนี้"}</span>
             </span>
-            <span className="hidden sm:inline border-l border-rule pl-4">
+            <span className="hidden sm:inline border-l border-paper-3/25 pl-4 text-paper-2">
               ตีพิมพ์อัตโนมัติทุกเช้า 07:00 น.
             </span>
             {relativeTime && (
-              <span className="hidden md:inline border-l border-rule pl-4">
+              <span className="hidden md:inline border-l border-paper-3/25 pl-4 text-paper-2">
                 ซิงก์ข้อมูล {relativeTime}
               </span>
             )}
@@ -143,17 +150,17 @@ export function Header({
             <button
               type="button"
               onClick={handleNotificationClick}
-              className="inline-flex items-center gap-1.5 min-h-[36px] px-3 py-1 border border-rule-2 bg-paper text-ink hover:bg-paper-2 transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap text-xs sm:text-sm font-editorial-label"
+              className="inline-flex items-center gap-1.5 min-h-[34px] px-3 py-1 border border-paper/40 bg-ink-2 text-paper hover:bg-accent hover:border-accent hover:text-accent-ink transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap text-xs sm:text-sm font-editorial-label"
             >
               {notifPermission === "granted" ? (
                 <>
-                  <BellRing className="w-3.5 h-3.5 text-accent shrink-0" />
+                  <BellRing className="w-3.5 h-3.5 text-accent-ink shrink-0" />
                   <span className="hidden sm:inline">รับข่าวเช้า: เปิด</span>
                   <span className="sm:hidden">เปิด</span>
                 </>
               ) : (
                 <>
-                  <Bell className="w-3.5 h-3.5 text-muted shrink-0" />
+                  <Bell className="w-3.5 h-3.5 shrink-0" />
                   <span className="hidden sm:inline">แจ้งเตือนฉบับเช้า</span>
                   <span className="sm:hidden">แจ้งเตือน</span>
                 </>
@@ -163,28 +170,30 @@ export function Header({
             {toastMsg && (
               <div
                 role="status"
-                className="absolute right-0 top-full mt-2 z-50 whitespace-nowrap bg-ink text-paper text-xs px-3 py-1.5 flex items-center gap-1.5"
+                className="absolute right-0 top-full mt-2 z-50 whitespace-nowrap bg-ink text-paper border border-paper-2 text-xs px-3 py-1.5 flex items-center gap-1.5"
               >
-                <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-accent" />
                 <span>{toastMsg}</span>
               </div>
             )}
           </div>
         </div>
+      </div>
 
-        {/* Masthead */}
-        <div className="py-5 sm:py-7 flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b-4 border-ink">
-          <div className="space-y-2 min-w-0">
-            <div className="flex items-center gap-3">
+      {/* Masthead with Editorial Figure Ledger */}
+      <div className="container">
+        <div className="py-6 sm:py-8 flex flex-col xl:flex-row xl:items-end justify-between gap-6 border-b-4 border-ink">
+          <div className="space-y-2.5 min-w-0">
+            <div className="flex items-center gap-3.5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/logo.svg"
                 alt="RepoRadar Seal"
-                width={38}
-                height={38}
-                className="w-8 h-8 sm:w-9 sm:h-9 shrink-0"
+                width={44}
+                height={44}
+                className="w-9 h-9 sm:w-11 sm:h-11 shrink-0"
               />
-              <h1 className="font-editorial-display text-3xl sm:text-5xl md:text-6xl leading-none text-ink max-w-none">
+              <h1 className="font-editorial-display text-4xl sm:text-6xl leading-[0.94] text-ink max-w-none">
                 THE REPO RADAR
               </h1>
             </div>
@@ -194,15 +203,37 @@ export function Header({
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-xs sm:text-sm font-editorial-label text-muted shrink-0">
-            <span>ฉบับปี 2026</span>
-            <span className="border-l border-rule pl-4">AI Research &amp; Open Source</span>
-            <span className="border-l border-rule pl-4">Thai Edition</span>
+          {/* Issue Telemetry Ledger (Editorial figures parted by hairlines) */}
+          <div className="grid grid-cols-3 border-t-2 border-ink pt-3 gap-0 divide-x divide-rule shrink-0 xl:min-w-[360px]">
+            <div className="pr-4 sm:pr-6">
+              <div className="font-editorial-display text-2xl sm:text-3xl text-ink leading-none num">
+                {papersCount ?? totalItems}
+              </div>
+              <div className="text-xs font-editorial-label text-muted mt-1 whitespace-nowrap">
+                เปเปอร์วันนี้
+              </div>
+            </div>
+            <div className="px-4 sm:px-6">
+              <div className="font-editorial-display text-2xl sm:text-3xl text-ink leading-none num">
+                {reposCount ?? 0}
+              </div>
+              <div className="text-xs font-editorial-label text-muted mt-1 whitespace-nowrap">
+                Repos มาแรง
+              </div>
+            </div>
+            <div className="pl-4 sm:pl-6">
+              <div className="font-editorial-display text-2xl sm:text-3xl text-accent leading-none num">
+                {newsCount ?? 0}
+              </div>
+              <div className="text-xs font-editorial-label text-muted mt-1 whitespace-nowrap">
+                ข่าว AI Lab
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Primary Navigation Rail & Search */}
-        <div className="py-3 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+        <div className="py-3 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 bg-paper">
           <nav
             aria-label="หมวดหมู่หลักของวารสาร"
             className="flex items-center gap-1.5 rail-fade py-0.5"
@@ -213,7 +244,7 @@ export function Header({
               className={`inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "papers"
                   ? "bg-ink text-paper border-ink"
-                  : "bg-paper text-ink-2 border-transparent hover:bg-paper-2 hover:border-rule"
+                  : "bg-paper-2 text-ink border-rule hover:border-ink"
               }`}
             >
               <BookOpen className="w-4 h-4 shrink-0" />
@@ -227,7 +258,7 @@ export function Header({
               className={`inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "repos"
                   ? "bg-ink text-paper border-ink"
-                  : "bg-paper text-ink-2 border-transparent hover:bg-paper-2 hover:border-rule"
+                  : "bg-paper-2 text-ink border-rule hover:border-ink"
               }`}
             >
               <Code2 className="w-4 h-4 shrink-0" />
@@ -241,7 +272,7 @@ export function Header({
               className={`inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "news"
                   ? "bg-ink text-paper border-ink"
-                  : "bg-paper text-ink-2 border-transparent hover:bg-paper-2 hover:border-rule"
+                  : "bg-paper-2 text-ink border-rule hover:border-ink"
               }`}
             >
               <Newspaper className="w-4 h-4 shrink-0" />
@@ -255,7 +286,7 @@ export function Header({
               className={`inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "saved"
                   ? "bg-accent text-accent-ink border-accent"
-                  : "bg-paper text-ink-2 border-transparent hover:bg-paper-2 hover:border-rule"
+                  : "bg-paper-2 text-ink border-rule hover:border-ink"
               }`}
             >
               <Bookmark className="w-4 h-4 shrink-0" />
@@ -266,7 +297,7 @@ export function Header({
 
           {/* Editorial Search Input */}
           <div className="relative w-full md:w-64 lg:w-72 shrink-0">
-            <Search className="w-4 h-4 text-muted absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-ink-2 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="search"
               name="search"
@@ -274,7 +305,7 @@ export function Header({
               value={searchQuery}
               onChange={(e) => onSearch(e.target.value)}
               placeholder="ค้นหาบทความ, หัวข้อ, ภาษา..."
-              className="w-full min-h-[40px] pl-9 pr-3 py-1.5 text-sm font-editorial-label border border-rule-2 bg-paper text-ink placeholder:text-muted focus:border-ink"
+              className="w-full min-h-[40px] pl-9 pr-3 py-1.5 text-sm font-editorial-label border border-ink bg-paper-2 text-ink placeholder:text-muted focus:bg-paper focus:border-accent"
             />
           </div>
         </div>

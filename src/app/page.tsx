@@ -394,6 +394,9 @@ export default function Home() {
             ? filteredNews.length
             : filteredRepos.length
         }
+        papersCount={todayPaperBatch.length}
+        reposCount={todayRepos.length}
+        newsCount={allNewsArticles.length}
         activeSection={activeSection}
         onSelectSection={handleSectionSelect}
         savedCount={totalSavedCount}

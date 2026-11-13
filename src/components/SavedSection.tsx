@@ -70,7 +70,7 @@ export function SavedSection({
                   <article
                     key={paper.id}
                     onClick={() => onOpenPaper(paper)}
-                    className="cursor-pointer bg-paper border border-rule hover:border-ink transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="cursor-pointer bg-paper border-t-2 border-t-ink border-x border-b border-rule hover:bg-paper-2 transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
@@ -111,7 +111,7 @@ export function SavedSection({
                   <article
                     key={repo.id}
                     onClick={() => onOpenRepo(repo)}
-                    className="cursor-pointer bg-paper border border-rule hover:border-ink transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="cursor-pointer bg-paper border-t-2 border-t-ink border-x border-b border-rule hover:bg-paper-2 transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
@@ -150,7 +150,7 @@ export function SavedSection({
                   <article
                     key={article.id}
                     onClick={() => onOpenNews(article)}
-                    className="cursor-pointer bg-paper border border-rule hover:border-ink transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="cursor-pointer bg-paper border-t-2 border-t-ink border-x border-b border-rule hover:bg-paper-2 transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
