@@ -1,6 +1,490 @@
 {
   "today": [
     {
+      "id": "1143633223",
+      "name": "modern-web-guidance-src",
+      "owner": "GoogleChrome",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "stars": 3242,
+      "stars_today": 739,
+      "language": "TypeScript",
+      "topics": [],
+      "license": "Apache-2.0",
+      "open_issues": 385,
+      "one_liner": "เครื่องมือช่วยเพิ่มความฉลาดให้ AI Coding Agents ให้เขียนโค้ดโดยใช้มาตรฐานเว็บสมัยใหม่แทนเทคนิคเก่าๆ",
+      "problem_solved": "แก้ปัญหาที่ AI มักเขียนโค้ดโดยอิงจากข้อมูลเก่าในปี 2019 ทำให้ผลลัพธ์ที่ได้มีขนาดใหญ่เกินความจำเป็นและไม่ได้ใช้ประโยชน์จาก Browser API ใหม่ๆ ที่มีประสิทธิภาพและเข้าถึงได้ง่ายกว่า",
+      "alternative_comparison": "คล้ายกับ Linter อย่าง ESLint หรือ Prettier แต่เปลี่ยนจากการตรวจสอบ Syntax มาเป็นการให้คำแนะนำเชิงกลยุทธ์ (Context-aware guidance) เพื่อให้ AI เลือกใช้ Native Web Platform แทนไลบรารีภายนอก",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่อง มีระบบ Eval Grader ที่ซับซ้อน แต่ยังอยู่ในช่วงการทดลองและปรับปรุงข้อมูลในฐานความรู้อย่างเข้มข้น",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างเป็น Plugin สำหรับ IDE หรือ SaaS ที่วิเคราะห์ Codebase เพื่อแนะนำการ Refactor โค้ดเก่าให้เป็น Modern Web ประหยัดเวลาและเพิ่มประสิทธิภาพให้โปรเจกต์ของลูกค้า",
+        "stack_synergy": "ใช้ร่วมกับ Next.js หรือ React เพื่อลดขนาด Bundle size โดยให้ระบบช่วยแนะนำการเปลี่ยนจากการใช้ Library จัดการ UI หนักๆ มาใช้ native Popover API หรือ View Transitions API"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ลดการเขียนโค้ดที่เกินความจำเป็น (Bloated code) ได้อย่างเห็นผล",
+          "มีชุดข้อมูลที่ผ่านการตรวจสอบจากทีม Google Chrome โดยตรง เชื่อถือได้สูง"
+        ],
+        "gotchas_and_traps": [
+          "ยังคงต้องมีการตรวจสอบผลลัพธ์จาก AI อยู่ดี ไม่ได้เป็นอัตโนมัติ 100% ในการแก้ Code",
+          "ต้องระวังเรื่อง Browser Support หากกลุ่มผู้ใช้หลักของผู้พัฒนาเป็นเบราว์เซอร์เวอร์ชันเก่า"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "npx modern-web-guidance@latest search \"animate a dialog modal backdrop\"",
+      "updated_at": "2026-11-13T03:04:44.945Z"
+    },
+    {
+      "id": "1299769220",
+      "name": "codex-security",
+      "owner": "openai",
+      "url": "https://github.com/openai/codex-security",
+      "stars": 12522,
+      "stars_today": 643,
+      "language": "TypeScript",
+      "topics": [
+        "ai-security",
+        "application-security",
+        "cli",
+        "code-scanning",
+        "codex",
+        "codex-security",
+        "cybersecurity",
+        "devsecops",
+        "nodejs",
+        "npm",
+        "openai",
+        "sdk",
+        "security",
+        "typescript",
+        "vulnerability-scanning"
+      ],
+      "license": "Apache-2.0",
+      "open_issues": 144,
+      "one_liner": "เครื่องมือจาก OpenAI สำหรับสแกน ตรวจสอบ และแก้ไขช่องโหว่ด้านความปลอดภัยในซอร์สโค้ดด้วยพลัง AI",
+      "problem_solved": "เครื่องมือ Static Analysis ทั่วไปมักมี False Positive สูงและขาดบริบทความเข้าใจในตรรกะธุรกิจ ทำให้ยากต่อการแก้ไข แต่เครื่องมือนี้ใช้ AI ช่วยวิเคราะห์เจาะลึกและสร้าง Patch ให้โดยตรง",
+      "alternative_comparison": "คล้ายกับ Snyk หรือ Semgrep แต่โดดเด่นกว่าตรงที่สามารถสร้าง Patch อัตโนมัติและมี Context-aware ผ่าน AI ในการวิเคราะห์ลำดับการทำงานของโค้ดที่ซับซ้อนได้ดีกว่า",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "ยังอยู่ในช่วงการทดสอบและพัฒนาฟีเจอร์เชิงรุกผ่าน OpenAI โดยมีการอัปเดตแก้บั๊กและเพิ่มฟีเจอร์ต่อเนื่อง แต่ยังไม่แนะนำสำหรับสภาพแวดล้อม Enterprise ที่เข้มงวดมากนัก",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการ Automated Security Remediation ที่เน้นการส่ง Patch เข้าสู่ระบบ CI/CD โดยตรงสำหรับบริษัทขนาดกลางที่ไม่มีทีม Security เต็มตัว",
+        "stack_synergy": "รวมเข้ากับ CI/CD pipeline ของ Vercel หรือ GitHub Actions เพื่อสแกนโค้ดทันทีที่ Push และใช้ Supabase เก็บประวัติการ Scan และสถานะการแก้ไขช่องโหว่"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการทำ Patch อัตโนมัติซึ่งประหยัดเวลาของนักพัฒนาได้มหาศาล",
+          "มี Workflow การจัดการช่องโหว่ที่เชื่อมต่อกับ Jira และ Linear ได้สะดวก"
+        ],
+        "gotchas_and_traps": [
+          "ต้องการทรัพยากรอย่าง Node.js และ Python เวอร์ชันที่ค่อนข้างเฉพาะเจาะจง",
+          "มีความเสี่ยงเรื่องข้อมูลรั่วไหลหากบริษัทมีนโยบายห้ามนำโค้ดไปวิเคราะห์บน Public AI"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "npm install --global @openai/codex-security\ncs login\ncs scan .",
+      "updated_at": "2026-11-13T03:04:44.945Z"
+    },
+    {
+      "id": "612230",
+      "name": "nvm",
+      "owner": "nvm-sh",
+      "url": "https://github.com/nvm-sh/nvm",
+      "stars": 96029,
+      "stars_today": 63,
+      "language": "Shell",
+      "topics": [
+        "bash",
+        "install",
+        "lts",
+        "node",
+        "node-js",
+        "nodejs",
+        "nvm",
+        "nvmrc",
+        "posix",
+        "posix-compliant",
+        "shell",
+        "version-manager",
+        "zsh"
+      ],
+      "license": "MIT",
+      "open_issues": 374,
+      "one_liner": "เครื่องมือจัดการเวอร์ชันของ Node.js ที่ช่วยให้คุณสลับเวอร์ชันไปมาได้ง่ายๆ ภายใน Shell ของคุณ",
+      "problem_solved": "แก้ปัญหาความยุ่งยากในการใช้ Node.js หลายเวอร์ชันในเครื่องเดียวสำหรับโปรเจกต์ที่ต่างกัน และหลีกเลี่ยงปัญหา Permission ที่มักเกิดจากการติดตั้ง Node.js ผ่านตัวจัดการแพ็กเกจของระบบ (System Manager)",
+      "alternative_comparison": "คล้ายกับ n, fnm หรือ volta แต่ nvm มีประวัติการใช้งานยาวนานที่สุด เป็นมาตรฐานอุตสาหกรรม และรองรับ POSIX shell ได้กว้างขวางที่สุด",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "เป็นเครื่องมือมาตรฐานที่ได้รับการยอมรับและใช้งานอย่างแพร่หลายทั่วโลกในสภาพแวดล้อม Production มานานหลายปี",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการ Automated Dev Environment Provisioning ที่ช่วยเตรียมสภาพแวดล้อม Node.js ให้ตรงกับโปรเจกต์อัตโนมัติเมื่อทีมงานเริ่มต้นโปรเจกต์ใหม่",
+        "stack_synergy": "ช่วยให้ CI/CD Pipeline หรือ Development Container ของ Next.js และ Supabase สามารถระบุเวอร์ชัน Node.js ที่ต้องการได้อย่างแม่นยำผ่านไฟล์ .nvmrc เพื่อให้สภาพแวดล้อม Dev กับ Prod ตรงกันเป๊ะ"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการใช้งานผ่านไฟล์ .nvmrc ทำให้สลับเวอร์ชันอัตโนมัติตามโปรเจกต์ได้",
+          "ไม่ต้องใช้สิทธิ์ sudo ในการติดตั้ง Node.js เพราะติดตั้งในระดับ User"
+        ],
+        "gotchas_and_traps": [
+          "อาจทำให้ Shell เริ่มต้นทำงานช้าลงหากมีการโหลดสคริปต์ NVM ขนาดใหญ่ทุกครั้งที่เปิด Terminal",
+          "มีปัญหาความเข้ากันได้กับ Shell บางประเภท หรือการตั้งค่า PATH ที่ทับซ้อนกันหากไม่ได้ตั้งค่าอย่างถูกต้อง"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash\n# Restart terminal or source your profile\nnvm install --lts\nnvm use --lts",
+      "updated_at": "2026-11-13T03:04:53.846Z"
+    },
+    {
+      "id": "903349957",
+      "name": "HermesEnabler",
+      "owner": "pookjw",
+      "url": "https://github.com/pookjw/HermesEnabler",
+      "stars": 1580,
+      "stars_today": 218,
+      "language": "Objective-C",
+      "topics": [],
+      "license": "MIT",
+      "open_issues": 56,
+      "one_liner": "เครื่องมือที่ช่วยปลดล็อกการใช้งานหน้าปัดพิเศษ (Hermes Watch Faces) บน Apple Watch รุ่นที่ไม่ใช่รุ่น Hermes",
+      "problem_solved": "ช่วยให้ผู้ใช้ Apple Watch รุ่นทั่วไปสามารถเข้าถึงหน้าปัดนาฬิกาที่เป็น Exclusive เฉพาะรุ่น Hermes โดยการแก้ไขค่า MobileGestalt ใน sandbox ของ watchOS",
+      "alternative_comparison": "คล้ายกับ Jailbreak tweak ในสมัยก่อน แต่มาในรูปแบบของ Sideloaded App ที่ใช้งานได้โดยไม่ต้องทำการ Jailbreak ตัวเครื่องโดยตรง",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "เครื่องมือนี้พึ่งพาช่องโหว่ของระบบที่เฉพาะเจาะจงมากและมีความเสี่ยงสูงที่จะถูกอัปเดตระบบของ Apple ปิดกั้น",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการช่วยจัดการและติดตั้ง Watch Faces แบบ Custom หรือสร้างแพลตฟอร์ม Community เพื่อแชร์ไฟล์ Config สำหรับการปรับแต่งหน้าปัดนาฬิกา",
+        "stack_synergy": "ใช้ Supabase เพื่อทำระบบ User Profile และ Cloud Backup เก็บค่าสถานะของหน้าปัดที่ปรับแต่งแล้ว และใช้ Next.js ทำ Dashboard แสดงสถานะความเข้ากันได้ของอุปกรณ์"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ปลดล็อกฟีเจอร์พรีเมียมโดยไม่ต้องซื้อรุ่นพิเศษที่มีราคาสูง",
+          "มีคู่มือการติดตั้งครอบคลุมทั้ง macOS และ Windows"
+        ],
+        "gotchas_and_traps": [
+          "รองรับเฉพาะ watchOS เวอร์ชันที่จำกัดมาก หากเผลออัปเดตระบบอาจทำให้ใช้งานไม่ได้ทันที",
+          "มีความเสี่ยงที่แอปจะหายไปหรือข้อมูล Backup สูญหายหากมีการอัปเดตตัวแอปหรือจัดการ Signing ไม่ถูกต้อง"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "1. ดาวน์โหลด IPA จากหน้า Releases\n2. ติดตั้งผ่าน Sideloadly (ต้องปิดฟีเจอร์ Automatic Bundle ID)\n3. เปิดแอปบน Apple Watch แล้วทำตามคำแนะนำในหน้าจอ",
+      "updated_at": "2026-11-13T03:05:01.989Z"
+    },
+    {
+      "id": "1024661423",
+      "name": "sure",
+      "owner": "we-promise",
+      "url": "https://github.com/we-promise/sure",
+      "stars": 14010,
+      "stars_today": 967,
+      "language": "Ruby",
+      "topics": [],
+      "license": "AGPL-3.0",
+      "open_issues": 910,
+      "one_liner": "แอปพลิเคชันบริหารจัดการการเงินส่วนบุคคลแบบ Open-source ที่ช่วยให้คุณติดตามสินทรัพย์ รายได้ และค่าใช้จ่ายได้ด้วยตัวเองอย่างปลอดภัย",
+      "problem_solved": "แก้ปัญหาความเป็นส่วนตัวและความยั่งยืนของแอปการเงินทั่วไป ที่มักจะปิดตัวลงหรือขายข้อมูลผู้ใช้ โดยโปรเจกต์นี้เปิดโอกาสให้ผู้ใช้ติดตั้งและควบคุมข้อมูลการเงินของตนเองได้แบบ 100% บนเซิร์ฟเวอร์ส่วนตัว",
+      "alternative_comparison": "คล้ายกับ Mint หรือ YNAB (You Need A Budget) แต่ได้เปรียบตรงที่เป็น Open-source, self-host ได้, ไม่มีการขายข้อมูล และไม่มีค่าสมาชิกรายเดือนที่ผูกมัด",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "เป็นโปรเจกต์ที่ Fork มาจากแอปที่พัฒนามาอย่างยาวนานและมีฟีเจอร์ที่สมบูรณ์พร้อมใช้งานจริง แม้จะเปลี่ยนมือผู้ดูแลแต่ชุมชนยังคงอัปเดตต่อเนื่อง",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างบริการ 'Managed Hosting' สำหรับผู้ใช้ที่ไม่ต้องการดูแล Server เอง หรือทำบริการ API Gateway เพื่อเชื่อมต่อข้อมูลการเงินเข้ากับ LLM ภายในองค์กรหรือแอปส่วนตัว",
+        "stack_synergy": "สามารถนำข้อมูลจาก Sure ไปทำ Data Pipeline เชื่อมต่อกับ Supabase เพื่อทำ Dashboard วิเคราะห์ทางการเงินที่ปรับแต่งได้เอง (Custom Visualization) โดยใช้ Next.js ในการแสดงผล"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ไม่ต้องกังวลเรื่องข้อมูลส่วนตัวถูกนำไปขายต่อ",
+          "มีชุมชนช่วยกันดูแล (Community-driven) ต่อจากโปรเจกต์ที่ปิดตัวไป"
+        ],
+        "gotchas_and_traps": [
+          "การ Self-host ต้องใช้ความรู้ด้าน Docker และการจัดการ Server เบื้องต้น",
+          "ต้องระมัดระวังเรื่องความปลอดภัยในการตั้งค่า Network หากต้องการเข้าถึงจากภายนอกบ้าน"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "git clone https://github.com/we-promise/sure.git && cd sure && cp .env.local.example .env.local && bin/setup && bin/dev",
+      "updated_at": "2026-11-13T03:05:01.989Z"
+    },
+    {
+      "id": "1008713177",
+      "name": "qwen-code",
+      "owner": "QwenLM",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "stars": 29875,
+      "stars_today": 151,
+      "language": "TypeScript",
+      "topics": [
+        "agentic",
+        "ai",
+        "ai-agent",
+        "ai-coding",
+        "cli",
+        "coding-agent",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "qwen",
+        "terminal",
+        "typescript"
+      ],
+      "license": "Apache-2.0",
+      "open_issues": 2226,
+      "one_liner": "AI Coding Agent ที่ช่วยเขียนโค้ดและจัดการงานพัฒนาซอฟต์แวร์แบบครบวงจรผ่าน Terminal และ Editor ของคุณ",
+      "problem_solved": "แก้ปัญหาที่นักพัฒนาต้องสลับไปมาระหว่าง LLM ในเว็บเบราว์เซอร์กับ IDE ทำให้การนำ Context ของโปรเจกต์ไปใช้งานทำได้ยากและไม่ต่อเนื่อง",
+      "alternative_comparison": "คล้ายกับ Cursor หรือ Roo Code แต่โดดเด่นกว่าด้วยการเป็น Open-source และออกแบบมาให้รองรับการทำงานแบบ Agentic ที่ยืดหยุ่นผ่านโปรโตคอลมาตรฐานอย่าง MCP",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องและรวดเร็ว พร้อมกับการทดลองใช้ AI ของตัวเองในการทำ PR และรีวิวโค้ด",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างบริการ Enterprise-grade ที่รองรับการทำ On-premise AI coding agent สำหรับทีมขนาดใหญ่ที่กังวลเรื่องความปลอดภัยของข้อมูล",
+        "stack_synergy": "สามารถเชื่อมต่อกับ Supabase เพื่อเก็บ Log หรือประวัติการสนทนาของ Agent และใช้ Vercel ในการ Deploy ระบบ Dashboard ที่แสดงสถานะการทำงานของ Agent"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการใช้งานแบบ Agentic อย่างเต็มรูปแบบ เช่น การสร้าง Sub-agents และการจัดการ Memory เอง",
+          "มีความเป็นมิตรกับผู้พัฒนาด้วยการรองรับเครื่องมือหลากหลาย ตั้งแต่ Terminal, VS Code จนถึงแอป Desktop"
+        ],
+        "gotchas_and_traps": [
+          "ตัวซอฟต์แวร์ยังอยู่ในช่วงการพัฒนาอย่างรวดเร็ว (Active iteration) อาจพบ Bug หรือการเปลี่ยนแปลงที่กระทบต่อการใช้งานได้",
+          "การตั้งค่าให้ได้ประสิทธิภาพสูงสุดอาจต้องอาศัยการปรับแต่ง API Provider และโมเดลให้เหมาะสมกับงาน"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "npx @qwen-code/qwen-code@latest\nqwen",
+      "updated_at": "2026-11-13T03:05:16.594Z"
+    },
+    {
+      "id": "1274723381",
+      "name": "TensorFold",
+      "owner": "ashhart",
+      "url": "https://github.com/ashhart/TensorFold",
+      "stars": 1969,
+      "stars_today": 54,
+      "language": "Zig",
+      "topics": [
+        "ai",
+        "ai-tools",
+        "llm",
+        "llm-inference",
+        "llm-tools"
+      ],
+      "license": "Apache-2.0",
+      "open_issues": 554,
+      "one_liner": "TensorFold คือเอนจินรัน LLM ประสิทธิภาพสูงที่เขียนด้วยภาษา Zig ช่วยให้คุณรันโมเดลภาษาบน Apple Silicon และ NVIDIA GPU ได้โดยตรงโดยไม่ต้องง้อ Python",
+      "problem_solved": "แก้ปัญหาความซับซ้อนในการติดตั้งสภาพแวดล้อม ML ขนาดใหญ่ (Python dependency hell) และลด Overhead ของการใช้ Framework ที่กินทรัพยากรเครื่องสูง ช่วยให้การ Deploy โมเดลในระดับ Edge หรือ Local ทำได้ง่ายและเร็วกว่าเดิมมาก",
+      "alternative_comparison": "คล้ายกับ Ollama หรือ llama.cpp แต่จุดเด่นคือการใช้ Zig ที่มีประสิทธิภาพสูงและการจัดการ Memory ที่เน้นประสิทธิภาพของฮาร์ดแวร์โดยเฉพาะโดยไม่มี Layer ของ Python มากั้น",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการเคลื่อนไหวของ Issue ที่เน้นการทำ Feature เฉพาะทางและการ optimize ระดับลึกอย่างต่อเนื่อง แต่ยังมีโครงสร้างที่ซับซ้อนและต้องอาศัยการตั้งค่าที่ค่อนข้างละเอียด",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการ Dedicated Inference API สำหรับธุรกิจขนาดเล็กที่ต้องการรันโมเดลเฉพาะทางบนฮาร์ดแวร์ตัวเองเพื่อรักษาความเป็นส่วนตัวของข้อมูล",
+        "stack_synergy": "ใช้เป็น Local Inference Engine ร่วมกับ Next.js/Supabase เพื่อสร้างแอปที่ทำงานแบบ Private-first โดยไม่ต้องส่งข้อมูลผู้ใช้ไปยัง Cloud API ภายนอก"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ไม่ต้องติดตั้ง Python หรือ MLX runtime ให้วุ่นวาย",
+          "ใช้ภาษา Zig ทำให้รันได้เร็วและกินทรัพยากรต่ำมาก"
+        ],
+        "gotchas_and_traps": [
+          "เครื่องมือมี Learning Curve ค่อนข้างสูงในการจัดการ Dependency",
+          "การสนับสนุน Driver GPU ของ NVIDIA ค่อนข้างจุกจิกและต้องเป็นเวอร์ชันใหม่เท่านั้น"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "brew install ashhart/tensorfold/tensorfold\ntensorfold pull mlx-community/Qwen3.5-2B-MLX-4bit@93760be4f1f69842a46bc13dbdc0f19e291392a3\ntensorfold serve mlx-community/Qwen3.5-2B-MLX-4bit --name local-model",
+      "updated_at": "2026-11-13T03:05:28.105Z"
+    },
+    {
+      "id": "27193779",
+      "name": "node",
+      "owner": "nodejs",
+      "url": "https://github.com/nodejs/node",
+      "stars": 123614,
+      "stars_today": 62,
+      "language": "JavaScript",
+      "topics": [
+        "javascript",
+        "js",
+        "linux",
+        "macos",
+        "mit",
+        "node",
+        "nodejs",
+        "runtime",
+        "windows"
+      ],
+      "license": "NOASSERTION",
+      "open_issues": 1335,
+      "one_liner": "Node.js คือ Runtime ที่ช่วยให้เราสามารถรัน JavaScript นอกเบราว์เซอร์บนฝั่ง Server ได้",
+      "problem_solved": "เข้ามาแก้ปัญหาการรันโค้ดฝั่ง Server ด้วยภาษาเดียวกับหน้าบ้าน (JavaScript) ช่วยให้การพัฒนา Full-stack ทำได้รวดเร็วและใช้ I/O แบบ non-blocking ทำให้รับ Request จำนวนมากได้ดีกว่าเทคโนโลยีในยุคก่อน",
+      "alternative_comparison": "คล้ายกับ Deno หรือ Bun แต่มีความเป็นมาตรฐานและมีระบบนิเวศ (Ecosystem) ของไลบรารีบน npm ที่ใหญ่และเสถียรที่สุดในโลก",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "เป็นมาตรฐานอุตสาหกรรมที่มีการใช้งานอย่างแพร่หลายในองค์กรระดับโลกและมีการดูแลรักษาอย่างต่อเนื่องโดย OpenJS Foundation",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างแพลตฟอร์ม Runtime-as-a-Service สำหรับการรัน AI Agents ที่ต้องการความเร็วสูงและรองรับโปรโตคอลการสื่อสารแบบ Real-time",
+        "stack_synergy": "ใช้ Node.js เป็น Backend ร่วมกับ Next.js สำหรับการจัดการ API ที่ซับซ้อน หรือเชื่อมต่อกับ Supabase เพื่อทำ Real-time Database สำหรับแอปพลิเคชัน AI"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "มี Package มหาศาลบน npm ทำให้หา Library มาแก้ปัญหาได้เกือบทุกอย่าง",
+          "มีชุมชนขนาดใหญ่มาก ทำให้หาคำตอบบน Stack Overflow หรือ GitHub ได้ง่าย"
+        ],
+        "gotchas_and_traps": [
+          "เนื่องจากเป็น Single-threaded หากเขียนโค้ดที่ประมวลผลหนักเกินไป (CPU Intensive) จะทำให้ Event Loop ติดขัดได้",
+          "การจัดการ Dependency ของ npm ที่อาจมีความปลอดภัยต่ำหากไม่ตรวจสอบแพ็กเกจแปลกปลอม"
+        ],
+        "hype_vs_reality": 9
+      },
+      "quick_start": "nvm install node && node -e 'console.log(\"Hello Node.js\")'",
+      "updated_at": "2026-11-13T03:05:37.699Z"
+    },
+    {
+      "id": "1158722119",
+      "name": "agent-skills",
+      "owner": "addyosmani",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "stars": 116745,
+      "stars_today": 816,
+      "language": "JavaScript",
+      "topics": [
+        "agent-skills",
+        "antigravity",
+        "claude-code",
+        "codex",
+        "cursor",
+        "skills"
+      ],
+      "license": "MIT",
+      "open_issues": 137,
+      "one_liner": "เป็นชุดคำสั่งและ Workflow มาตรฐานสำหรับ AI coding agents เพื่อให้ทำงานได้อย่างมีคุณภาพเหมือนวิศวกรซอฟต์แวร์ระดับอาวุโส",
+      "problem_solved": "แก้ปัญหา AI เขียนโค้ดแบบสะเปะสะปะ ขาดมาตรฐานการจัดการ (Best practices) และไม่ได้คำนึงถึงวงจรการพัฒนาแบบมืออาชีพ เช่น การทำ Test-driven development หรือการทำ Code Review อย่างเป็นระบบ",
+      "alternative_comparison": "คล้ายกับ System Prompts ทั่วไป แต่ต่างตรงที่มีความเป็นระเบียบและเป็น modular มากกว่า โดยถูกออกแบบมาให้เป็น plugin ที่ติดตั้งง่ายและสอดประสานกับเครื่องมืออย่าง Claude Code หรือ Cursor ได้โดยตรง",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "มีการใช้งานจริงในวงกว้าง มี Community รองรับ และมีการอัปเดตแก้ปัญหาเชิงโครงสร้างอย่างต่อเนื่อง",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการรับจ้างตั้งค่า Agent Infrastructure ให้องค์กร โดยใช้ Agent Skills เหล่านี้เป็นมาตรฐานกลางเพื่อเร่งความเร็วและเพิ่มคุณภาพการพัฒนาในทีม",
+        "stack_synergy": "ใช้งานร่วมกับ Next.js และ Supabase ได้ดีโดยใช้ทักษะด้าน API และ Frontend ที่ติดตั้งผ่านตัวโปรเจกต์ เพื่อให้ Agent เขียนโค้ดตามมาตรฐานการรักษาความปลอดภัยและประสิทธิภาพที่กำหนดไว้"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "มี Workflow มาตรฐานที่ครอบคลุมตั้งแต่การวางแผนไปจนถึงการ Deploy",
+          "ติดตั้งง่ายและรองรับ Agent หลากหลายตัวในตลาด"
+        ],
+        "gotchas_and_traps": [
+          "การติดตั้งราย Skill อาจทำให้ฟีเจอร์บางอย่างที่อ้างอิงไฟล์ในโฟลเดอร์ references ใช้งานไม่ได้",
+          "อาจมีความขัดแย้งหากใช้คู่กับ Agent ที่มีกฎเกณฑ์ภายในตัวอยู่แล้ว"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "npx skills add addyosmani/agent-skills",
+      "updated_at": "2026-11-13T03:05:37.699Z"
+    },
+    {
+      "id": "1131202426",
+      "name": "astryx",
+      "owner": "meta",
+      "url": "https://github.com/meta/astryx",
+      "stars": 26687,
+      "stars_today": 1830,
+      "language": "TypeScript",
+      "topics": [],
+      "license": "MIT",
+      "open_issues": 618,
+      "one_liner": "ระบบ Design System ที่ปรับแต่งได้เต็มที่จาก Meta ซึ่งออกแบบมาให้มนุษย์และ AI ใช้งานร่วมกันได้อย่างลงตัว",
+      "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการใช้ Design System ทั่วไปที่มักถูก Lock-in ด้วยสไตล์เฉพาะตัว ทำให้ปรับแต่งยากและไม่เป็นมิตรต่อเครื่องมืออัตโนมัติหรือ AI Coding Agent",
+      "alternative_comparison": "คล้ายกับ Radix UI หรือ Headless UI แต่ดีกว่าตรงที่เป็นระบบที่ครบวงจรพร้อม Theme และรองรับการทำงานร่วมกับ AI ได้ดีกว่าผ่าน CLI ที่ออกแบบมาเฉพาะ",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "อยู่ในสถานะ Beta และเน้นการพัฒนาฟีเจอร์เชิงลึกสำหรับประสบการณ์ผู้ใช้ในระดับสูง จึงยังต้องรอการพิสูจน์ความเสถียรในโปรเจกต์ขนาดใหญ่ภายนอก Meta",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างบริการ 'Design System as a Service' ที่ช่วยให้บริษัทต่างๆ ปรับแต่ง UI Kit นี้ด้วย Brand Identity ของตนเองผ่าน AI Agent แบบอัตโนมัติ",
+        "stack_synergy": "ใช้งานร่วมกับ Next.js และ Vercel ได้อย่างดีเยี่ยม โดยเฉพาะเมื่อใช้คู่กับ AI Workflow อย่าง v0 หรือ Cursor เพื่อให้ได้ UI ที่สอดคล้องกับมาตรฐานของ Meta"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "สถาปัตยกรรมมีความยืดหยุ่นสูง สามารถ Eject ซอร์สโค้ดออกมาเป็นของตัวเองได้เมื่อต้องการแก้ไขลึกๆ",
+          "ออกแบบมาโดยคำนึงถึง AI Agent เป็นหลัก ทำให้การเขียนโค้ดร่วมกับ AI สะดวกและแม่นยำขึ้นมาก"
+        ],
+        "gotchas_and_traps": [
+          "บังคับใช้ React 19+ ซึ่งอาจจะเป็นข้อจำกัดสำหรับโปรเจกต์เดิมที่ยังใช้ React เวอร์ชันเก่าอยู่",
+          "เป็นระบบที่เน้นการทำงานตามแนวทางของ Meta อาจต้องใช้เวลาเรียนรู้ Pattern เฉพาะตัวของ Library"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "npm install @astryxdesign/core @astryxdesign/theme-neutral @stylexjs/stylex\nnpm install -D @astryxdesign/cli\nnpx astryx init",
+      "updated_at": "2026-11-13T03:05:37.699Z"
+    },
+    {
+      "id": "1336502227",
+      "name": "OpenBot",
+      "owner": "CopilotKit",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "stars": 11683,
+      "stars_today": 298,
+      "language": "TypeScript",
+      "topics": [
+        "ag-ui",
+        "agent-governance",
+        "ai-agents",
+        "browser-automation",
+        "copilotkit",
+        "generative-ui",
+        "mcp"
+      ],
+      "license": "MIT",
+      "open_issues": 89,
+      "one_liner": "OpenBot คือแพลตฟอร์ม Workspace แบบ Modular ที่ช่วยให้คุณบริหารจัดการ AI Agents หลายตัวให้ทำงานร่วมกันเหมือนเพื่อนร่วมงานในองค์กรได้อย่างปลอดภัย",
+      "problem_solved": "แก้ปัญหาการกระจัดกระจายของ AI Agents ที่ไม่มีศูนย์กลางในการสั่งการ ไม่มีการตรวจสอบสิทธิ์ (Audit) และขาดกระบวนการอนุมัติงาน (Approval) ทำให้ยากต่อการนำ AI มาใช้จริงในระดับองค์กร",
+      "alternative_comparison": "คล้ายกับ AutoGPT หรือ LangChain แต่โดดเด่นกว่าตรงที่เน้นเรื่อง Workflow การทำงานแบบทีม (Agent-to-Agent) และมี UI ที่พร้อมสำหรับการใช้งานในระดับ Business มากกว่า",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการเคลื่อนไหวของฟีเจอร์อย่างรวดเร็วและกำลังพัฒนาโครงสร้างพื้นฐานสำหรับ Business version ทำให้ฟีเจอร์บางอย่างอาจยังมีความไม่นิ่ง",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการ Managed Agent Hub สำหรับองค์กรที่ต้องการให้พนักงานในบริษัทเข้าถึง AI Tools ภายในบริษัทโดยมีระบบ Log และประเมินผล (Compliance dashboard) ที่ตรวจสอบได้",
+        "stack_synergy": "สามารถเชื่อมต่อกับ Next.js และ Supabase เพื่อทำระบบ Auth และเก็บประวัติการสนทนาของ Agent รวมถึงใช้ Vercel ในการ Deploy ตัวหน้า Interface ได้อย่างรวดเร็ว"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการทำงานหลาย Agent และสามารถโอนงานต่อกันได้เหมือนคนจริง",
+          "มี UI ที่ใช้งานง่าย ไม่ต้องมีความรู้เรื่อง Code ก็สามารถจัดการ AI ได้"
+        ],
+        "gotchas_and_traps": [
+          "การตั้งค่า Agent ให้ทำงานได้อย่างแม่นยำยังคงต้องใช้ความเชี่ยวชาญในการทำ Prompt Engineering",
+          "ระบบยังอยู่ในช่วงการพัฒนาอย่างหนัก ความเสถียรในระยะยาวของ API อาจมีการเปลี่ยนแปลง"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "git clone https://github.com/CopilotKit/OpenBot.git\ncd OpenBot\ndocker compose up",
+      "updated_at": "2026-11-13T03:05:46.341Z"
+    },
+    {
+      "id": "1144520675",
+      "name": "free-claude-code",
+      "owner": "Alishahryar1",
+      "url": "https://github.com/Alishahryar1/free-claude-code",
+      "stars": 69397,
+      "stars_today": 415,
+      "language": "Python",
+      "topics": [],
+      "license": "NOASSERTION",
+      "open_issues": 395,
+      "one_liner": "เครื่องมือที่ช่วยเชื่อมต่อโปรแกรมเขียนโค้ด (Coding Agents) ยอดนิยมเข้ากับ Provider AI กว่า 60 รายแบบไม่ต้องผูกติดกับเจ้าเดียว",
+      "problem_solved": "ช่วยแก้ปัญหาเรื่องค่าใช้จ่ายและข้อจำกัดการใช้งานของ AI Provider เฉพาะค่าย โดยให้ผู้ใช้สามารถสลับใช้งานโมเดลฟรีหรือโมเดลที่ถูกกว่าได้โดยไม่ต้องเปลี่ยน Tool ในการทำงาน",
+      "alternative_comparison": "คล้ายกับโปรเจกต์อย่าง OpenRouter หรือ Gateway ทั่วไป แต่เน้นเจาะจงไปที่การทำ Routing สำหรับเครื่องมือสาย Coding (Harnesses) โดยเฉพาะ ทำให้ใช้กับ Aider หรือ Claude Code ได้ทันทีโดยไม่ต้องตั้งค่าใหม่",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการพัฒนาอย่างรวดเร็วและมี Issue ที่รายงานเข้ามาอย่างต่อเนื่องจากการรองรับ Provider จำนวนมาก ซึ่งส่งผลต่อความเสถียรในระยะยาว",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการเป็น Managed Proxy สำหรับองค์กรที่ต้องการทำ Policy Control หรือ Audit การใช้งาน AI ในทีมพัฒนาผ่านแดชบอร์ดส่วนตัว",
+        "stack_synergy": "สามารถนำไปรวมเข้ากับระบบหลังบ้านอย่าง Supabase เพื่อเก็บ Log การใช้งานหรือทำสถิติ Cost Optimization ของทีม Dev ในองค์กรผ่าน Next.js Dashboard"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับ Coding Agents หลากหลายมาก ช่วยให้ไม่ต้องติดล็อคกับเครื่องมือตัวเดียว",
+          "มีระบบ Fallback อัตโนมัติเมื่อ Provider หลักมีปัญหา ช่วยให้ทำงานได้ไม่สะดุด"
+        ],
+        "gotchas_and_traps": [
+          "มีความเสี่ยงเรื่องความไม่เสถียร เนื่องจากต้องพึ่งพา API ของ Provider ภายนอกจำนวนมากที่อาจปรับเปลี่ยน TOS ได้ตลอดเวลา",
+          "การดีบั๊กทำได้ยากเมื่อเกิดข้อผิดพลาดในการเชื่อมต่อ (Request failed) เนื่องจากมีเลเยอร์ซ้อนทับกันหลายชั้น"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "curl -fsSL \"https://raw.githubusercontent.com/Alishahryar1/free-claude-code/main/scripts/install.sh\" | sh",
+      "updated_at": "2026-11-13T03:05:56.940Z"
+    }
+  ],
+  "yesterday": [
+    {
       "id": "1131202426",
       "name": "astryx",
       "owner": "meta",
@@ -476,485 +960,6 @@
       },
       "quick_start": "git clone https://github.com/storytold/craft-anything\ncd craft-anything\ncargo run -- --help",
       "updated_at": "2026-11-12T09:16:17.097Z"
-    }
-  ],
-  "yesterday": [
-    {
-      "id": "1131202426",
-      "name": "astryx",
-      "owner": "meta",
-      "url": "https://github.com/meta/astryx",
-      "stars": 24423,
-      "stars_today": 2842,
-      "language": "TypeScript",
-      "topics": [],
-      "license": "MIT",
-      "open_issues": 660,
-      "one_liner": "ระบบ Design System ที่ปรับแต่งได้เต็มที่จาก Meta ซึ่งออกแบบมาให้มนุษย์และ AI ใช้งานร่วมกันได้อย่างลงตัว",
-      "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการใช้ Design System ทั่วไปที่มักถูก Lock-in ด้วยสไตล์เฉพาะตัว ทำให้ปรับแต่งยากและไม่เป็นมิตรต่อเครื่องมืออัตโนมัติหรือ AI Coding Agent",
-      "alternative_comparison": "คล้ายกับ Radix UI หรือ Headless UI แต่ดีกว่าตรงที่เป็นระบบที่ครบวงจรพร้อม Theme และรองรับการทำงานร่วมกับ AI ได้ดีกว่าผ่าน CLI ที่ออกแบบมาเฉพาะ",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "อยู่ในสถานะ Beta และเน้นการพัฒนาฟีเจอร์เชิงลึกสำหรับประสบการณ์ผู้ใช้ในระดับสูง จึงยังต้องรอการพิสูจน์ความเสถียรในโปรเจกต์ขนาดใหญ่ภายนอก Meta",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างบริการ 'Design System as a Service' ที่ช่วยให้บริษัทต่างๆ ปรับแต่ง UI Kit นี้ด้วย Brand Identity ของตนเองผ่าน AI Agent แบบอัตโนมัติ",
-        "stack_synergy": "ใช้งานร่วมกับ Next.js และ Vercel ได้อย่างดีเยี่ยม โดยเฉพาะเมื่อใช้คู่กับ AI Workflow อย่าง v0 หรือ Cursor เพื่อให้ได้ UI ที่สอดคล้องกับมาตรฐานของ Meta"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "สถาปัตยกรรมมีความยืดหยุ่นสูง สามารถ Eject ซอร์สโค้ดออกมาเป็นของตัวเองได้เมื่อต้องการแก้ไขลึกๆ",
-          "ออกแบบมาโดยคำนึงถึง AI Agent เป็นหลัก ทำให้การเขียนโค้ดร่วมกับ AI สะดวกและแม่นยำขึ้นมาก"
-        ],
-        "gotchas_and_traps": [
-          "บังคับใช้ React 19+ ซึ่งอาจจะเป็นข้อจำกัดสำหรับโปรเจกต์เดิมที่ยังใช้ React เวอร์ชันเก่าอยู่",
-          "เป็นระบบที่เน้นการทำงานตามแนวทางของ Meta อาจต้องใช้เวลาเรียนรู้ Pattern เฉพาะตัวของ Library"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npm install @astryxdesign/core @astryxdesign/theme-neutral @stylexjs/stylex\nnpm install -D @astryxdesign/cli\nnpx astryx init",
-      "updated_at": "2026-11-11T15:28:14.201Z"
-    },
-    {
-      "id": "1131513930",
-      "name": "daily_stock_analysis",
-      "owner": "ZhuLinsen",
-      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
-      "stars": 69932,
-      "stars_today": 429,
-      "language": "Python",
-      "topics": [
-        "a-stock",
-        "ai-agent",
-        "aigc",
-        "llm",
-        "quant",
-        "quantitative-finance",
-        "quantitative-trading"
-      ],
-      "license": "MIT",
-      "open_issues": 47,
-      "one_liner": "ระบบ AI อัจฉริยะที่ช่วยวิเคราะห์หุ้นหลายตลาดทั่วโลกโดยอัตโนมัติ พร้อมสรุปรายงานและแจ้งเตือนผ่านโซเชียลมีเดียในรูปแบบ Dashboard ที่อ่านง่าย",
-      "problem_solved": "แก้ปัญหาความยุ่งยากในการรวบรวมข้อมูลหุ้นจากหลายแหล่งและการวิเคราะห์ด้วยตัวเองที่ใช้เวลานาน โดยเปลี่ยนจากข้อมูลดิบจำนวนมหาศาลให้เป็นบทสรุปเชิงกลยุทธ์ที่นำไปใช้ตัดสินใจลงทุนได้ทันที",
-      "alternative_comparison": "คล้ายกับบริการ Bloomberg Terminal หรือแพลตฟอร์ม Quant ขนาดใหญ่ แต่เข้าถึงง่ายกว่าด้วยการทำงานผ่าน GitHub Actions และรองรับการปรับแต่ง Prompt ผ่าน LLM ได้ตามความต้องการของผู้ใช้รายย่อย",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการพัฒนาอย่างต่อเนื่อง มีการทำ CI/CD พร้อมรองรับ Docker และมีเอกสารประกอบที่ละเอียดมากสำหรับผู้ใช้ทั่วไปและนักพัฒนา",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการ Subscription-based AI Financial Advisor โดยส่งบทวิเคราะห์หุ้นเฉพาะรายบุคคลผ่านแอปแชท หรือสร้าง API ที่จ่ายเงินตามจำนวนครั้งที่ประมวลผล (Pay-per-request)",
-        "stack_synergy": "สามารถเชื่อมต่อกับ Next.js และ Supabase เพื่อทำหน้า Dashboard แสดงผลพอร์ตการลงทุนแบบ Real-time ร่วมกับฟีเจอร์การแจ้งเตือนจากระบบนี้ได้"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับตลาดหุ้นหลากหลายทั่วโลก ทั้ง A-stock, US, HK, JP, TW และอื่นๆ",
-          "ติดตั้งและใช้งานง่ายผ่าน GitHub Actions โดยไม่ต้องมี Server ส่วนตัว"
-        ],
-        "gotchas_and_traps": [
-          "การใช้ข้อมูลจากแหล่งฟรี (Free API) อาจมีความเสถียรต่ำและถูกจำกัดจำนวนครั้งการเรียกใช้",
-          "การวิเคราะห์จาก AI เป็นเพียงเครื่องมือสนับสนุนการตัดสินใจ ไม่สามารถการันตีผลกำไรหรือความถูกต้องแม่นยำ 100% ได้"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "docker run -d -p 8000:8000 --env-file .env zhulinsen/daily_stock_analysis:latest",
-      "updated_at": "2026-11-11T15:28:22.259Z"
-    },
-    {
-      "id": "1143633223",
-      "name": "modern-web-guidance-src",
-      "owner": "GoogleChrome",
-      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
-      "stars": 1519,
-      "stars_today": 133,
-      "language": "TypeScript",
-      "topics": [],
-      "license": "Apache-2.0",
-      "open_issues": 362,
-      "one_liner": "เครื่องมือช่วยเพิ่มความฉลาดให้ AI Coding Agents ให้เขียนโค้ดโดยใช้มาตรฐานเว็บสมัยใหม่แทนเทคนิคเก่าๆ",
-      "problem_solved": "แก้ปัญหาที่ AI มักเขียนโค้ดโดยอิงจากข้อมูลเก่าในปี 2019 ทำให้ผลลัพธ์ที่ได้มีขนาดใหญ่เกินความจำเป็นและไม่ได้ใช้ประโยชน์จาก Browser API ใหม่ๆ ที่มีประสิทธิภาพและเข้าถึงได้ง่ายกว่า",
-      "alternative_comparison": "คล้ายกับ Linter อย่าง ESLint หรือ Prettier แต่เปลี่ยนจากการตรวจสอบ Syntax มาเป็นการให้คำแนะนำเชิงกลยุทธ์ (Context-aware guidance) เพื่อให้ AI เลือกใช้ Native Web Platform แทนไลบรารีภายนอก",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่อง มีระบบ Eval Grader ที่ซับซ้อน แต่ยังอยู่ในช่วงการทดลองและปรับปรุงข้อมูลในฐานความรู้อย่างเข้มข้น",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างเป็น Plugin สำหรับ IDE หรือ SaaS ที่วิเคราะห์ Codebase เพื่อแนะนำการ Refactor โค้ดเก่าให้เป็น Modern Web ประหยัดเวลาและเพิ่มประสิทธิภาพให้โปรเจกต์ของลูกค้า",
-        "stack_synergy": "ใช้ร่วมกับ Next.js หรือ React เพื่อลดขนาด Bundle size โดยให้ระบบช่วยแนะนำการเปลี่ยนจากการใช้ Library จัดการ UI หนักๆ มาใช้ native Popover API หรือ View Transitions API"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ลดการเขียนโค้ดที่เกินความจำเป็น (Bloated code) ได้อย่างเห็นผล",
-          "มีชุดข้อมูลที่ผ่านการตรวจสอบจากทีม Google Chrome โดยตรง เชื่อถือได้สูง"
-        ],
-        "gotchas_and_traps": [
-          "ยังคงต้องมีการตรวจสอบผลลัพธ์จาก AI อยู่ดี ไม่ได้เป็นอัตโนมัติ 100% ในการแก้ Code",
-          "ต้องระวังเรื่อง Browser Support หากกลุ่มผู้ใช้หลักของผู้พัฒนาเป็นเบราว์เซอร์เวอร์ชันเก่า"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npx modern-web-guidance@latest search \"animate a dialog modal backdrop\"",
-      "updated_at": "2026-11-11T15:28:37.526Z"
-    },
-    {
-      "id": "1264986626",
-      "name": "improve",
-      "owner": "shadcn",
-      "url": "https://github.com/shadcn/improve",
-      "stars": 10554,
-      "stars_today": 333,
-      "language": null,
-      "topics": [],
-      "license": "MIT",
-      "open_issues": 17,
-      "one_liner": "ตัวช่วยอัจฉริยะที่ทำหน้าที่เป็น 'สถาปนิกซอฟต์แวร์' คอยตรวจสอบ Codebase และวางแผนงานอย่างละเอียดเพื่อให้ AI ตัวอื่นนำไปเขียนโค้ดต่อได้จริง",
-      "problem_solved": "แก้ปัญหาที่ AI เขียนโค้ดได้สะเปะสะปะหรือไม่เข้าใจภาพรวมของโปรเจกต์ ด้วยการแยกส่วน 'การคิดและวางแผน' (ซึ่งต้องใช้โมเดลฉลาดๆ) ออกจากการ 'ลงมือเขียนโค้ด' (ซึ่งใช้โมเดลราคาถูกได้) ทำให้งานมีระเบียบและลดความผิดพลาด",
-      "alternative_comparison": "คล้ายกับการทำ Code Review ทั่วไป แต่ต่างตรงที่เป็น Agent อัตโนมัติที่ช่วยเขียน Step-by-step Implementation Plan ให้เสร็จสรรพ ไม่ใช่แค่บอกว่าอะไรผิด",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "เป็นโปรเจกต์เชิงทดลองที่มีการพัฒนาฟีเจอร์ใหม่ต่อเนื่องและเน้นการใช้งานผ่าน Agent Skills ที่ยังคงมีการปรับปรุงเรื่อง Security และ Workflow อยู่",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการ Automated Refactoring Service สำหรับองค์กร โดยคิดค่าบริการเป็นรายโปรเจกต์หรือรายเดือนในการตรวจสอบ Tech Debt และจัดทำ Roadmap การพัฒนาอัตโนมัติ",
-        "stack_synergy": "นำไปใช้ใน CI/CD Pipeline ร่วมกับ Vercel หรือ GitHub Actions เพื่อทำ Auto-Audit โค้ดทุกครั้งที่เปิด PR ก่อนให้ทีมพัฒนาเข้าไปตรวจทาน"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ช่วยลดค่าใช้จ่ายในการใช้โมเดลราคาแพงเพราะแยกส่วนงานวางแผนกับงานเขียนโค้ด",
-          "แผนงานที่ได้มีคุณภาพสูงเพราะอ้างอิงจากบริบทของโปรเจกต์จริง (ADR, PRD, Context)"
-        ],
-        "gotchas_and_traps": [
-          "ต้องระวังเรื่อง Security ในการให้ Agent เข้าถึงไฟล์ภายในโปรเจกต์",
-          "ผลลัพธ์อาจจะยังต้องอาศัยการกำกับดูแลจากมนุษย์ในการตรวจสอบความถูกต้องก่อนสั่ง Execute"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npx skills add shadcn/improve\n/improve",
-      "updated_at": "2026-11-11T15:28:44.808Z"
-    },
-    {
-      "id": "1158722119",
-      "name": "agent-skills",
-      "owner": "addyosmani",
-      "url": "https://github.com/addyosmani/agent-skills",
-      "stars": 115662,
-      "stars_today": 788,
-      "language": "JavaScript",
-      "topics": [
-        "agent-skills",
-        "antigravity",
-        "claude-code",
-        "codex",
-        "cursor",
-        "skills"
-      ],
-      "license": "MIT",
-      "open_issues": 135,
-      "one_liner": "เป็นชุดคำสั่งและ Workflow มาตรฐานสำหรับ AI coding agents เพื่อให้ทำงานได้อย่างมีคุณภาพเหมือนวิศวกรซอฟต์แวร์ระดับอาวุโส",
-      "problem_solved": "แก้ปัญหา AI เขียนโค้ดแบบสะเปะสะปะ ขาดมาตรฐานการจัดการ (Best practices) และไม่ได้คำนึงถึงวงจรการพัฒนาแบบมืออาชีพ เช่น การทำ Test-driven development หรือการทำ Code Review อย่างเป็นระบบ",
-      "alternative_comparison": "คล้ายกับ System Prompts ทั่วไป แต่ต่างตรงที่มีความเป็นระเบียบและเป็น modular มากกว่า โดยถูกออกแบบมาให้เป็น plugin ที่ติดตั้งง่ายและสอดประสานกับเครื่องมืออย่าง Claude Code หรือ Cursor ได้โดยตรง",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการใช้งานจริงในวงกว้าง มี Community รองรับ และมีการอัปเดตแก้ปัญหาเชิงโครงสร้างอย่างต่อเนื่อง",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการรับจ้างตั้งค่า Agent Infrastructure ให้องค์กร โดยใช้ Agent Skills เหล่านี้เป็นมาตรฐานกลางเพื่อเร่งความเร็วและเพิ่มคุณภาพการพัฒนาในทีม",
-        "stack_synergy": "ใช้งานร่วมกับ Next.js และ Supabase ได้ดีโดยใช้ทักษะด้าน API และ Frontend ที่ติดตั้งผ่านตัวโปรเจกต์ เพื่อให้ Agent เขียนโค้ดตามมาตรฐานการรักษาความปลอดภัยและประสิทธิภาพที่กำหนดไว้"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "มี Workflow มาตรฐานที่ครอบคลุมตั้งแต่การวางแผนไปจนถึงการ Deploy",
-          "ติดตั้งง่ายและรองรับ Agent หลากหลายตัวในตลาด"
-        ],
-        "gotchas_and_traps": [
-          "การติดตั้งราย Skill อาจทำให้ฟีเจอร์บางอย่างที่อ้างอิงไฟล์ในโฟลเดอร์ references ใช้งานไม่ได้",
-          "อาจมีความขัดแย้งหากใช้คู่กับ Agent ที่มีกฎเกณฑ์ภายในตัวอยู่แล้ว"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "npx skills add addyosmani/agent-skills",
-      "updated_at": "2026-11-11T15:28:52.827Z"
-    },
-    {
-      "id": "1132001614",
-      "name": "agent-browser",
-      "owner": "vercel-labs",
-      "url": "https://github.com/vercel-labs/agent-browser",
-      "stars": 49671,
-      "stars_today": 712,
-      "language": "Rust",
-      "topics": [],
-      "license": "Apache-2.0",
-      "open_issues": 583,
-      "one_liner": "เครื่องมือ CLI ที่เขียนด้วย Rust สำหรับช่วยให้ AI Agent สามารถสั่งงานเบราว์เซอร์ได้เหมือนมนุษย์ผ่านการอ่านโครงสร้างหน้าเว็บและส่งคำสั่งโต้ตอบ",
-      "problem_solved": "แก้ปัญหาที่ AI มักจะสับสนกับ HTML ที่ซับซ้อนเกินไป โดยเปลี่ยนหน้าเว็บให้เป็นข้อความที่กระชับและระบุตำแหน่งด้วย Ref (เช่น @e1) ทำให้ AI สั่งงานเบราว์เซอร์ได้อย่างแม่นยำและเป็นขั้นตอน",
-      "alternative_comparison": "คล้ายกับ Selenium หรือ Playwright แต่เน้นการใช้งานสำหรับ AI Agents โดยเฉพาะ เพราะมีระบบ snapshot ที่ช่วยลด Token ในการส่งข้อมูลให้ LLM และรองรับการทำงานแบบโต้ตอบทีละคำสั่ง",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่อง เช่น การขยายรองรับ Firefox และการปรับปรุงระบบ flow แต่ API และความเสถียรในเชิงโปรดักชันยังต้องได้รับการทดสอบอีกมาก",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการ Automated Web Testing-as-a-Service สำหรับ AI ที่ช่วยตรวจสอบและรายงานผลบั๊กบนหน้าเว็บอัตโนมัติรายเดือน",
-        "stack_synergy": "ใช้งานร่วมกับ Next.js ในฐานะระบบหลังบ้านที่ควบคุม Agent เพื่อทำ Web Scraping หรือ Data Extraction ที่ซับซ้อนแล้วแสดงผลในแดชบอร์ดที่สร้างด้วย Next.js"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ลด Token ที่ต้องใช้ในการส่ง HTML ให้ LLM ช่วยให้ค่าใช้จ่าย API ถูกลง",
-          "มีระบบ Daemon ในตัว ทำให้เบราว์เซอร์ไม่ถูกปิดทิ้งระหว่างคำสั่ง ช่วยให้ทำงานต่อเนื่องได้ดี"
-        ],
-        "gotchas_and_traps": [
-          "การเปลี่ยนแปลงของ DOM อาจทำให้ Refs ที่เคยใช้ไม่ได้ผล ต้องคอยกด snapshot ใหม่เสมอ",
-          "การจัดการกับหน้าเว็บที่มีการบล็อกบอทหรือ Anti-bot measures ยังคงเป็นเรื่องที่ท้าทายแม้จะมีเครื่องมือช่วย"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npm install -g agent-browser\nagent-browser install\nagent-browser open example.com && agent-browser snapshot -i",
-      "updated_at": "2026-11-11T15:29:01.621Z"
-    },
-    {
-      "id": "1024661423",
-      "name": "sure",
-      "owner": "we-promise",
-      "url": "https://github.com/we-promise/sure",
-      "stars": 12635,
-      "stars_today": 1079,
-      "language": "Ruby",
-      "topics": [],
-      "license": "AGPL-3.0",
-      "open_issues": 894,
-      "one_liner": "แอปพลิเคชันบริหารจัดการการเงินส่วนบุคคลแบบ Open-source ที่ช่วยให้คุณติดตามสินทรัพย์ รายได้ และค่าใช้จ่ายได้ด้วยตัวเองอย่างปลอดภัย",
-      "problem_solved": "แก้ปัญหาความเป็นส่วนตัวและความยั่งยืนของแอปการเงินทั่วไป ที่มักจะปิดตัวลงหรือขายข้อมูลผู้ใช้ โดยโปรเจกต์นี้เปิดโอกาสให้ผู้ใช้ติดตั้งและควบคุมข้อมูลการเงินของตนเองได้แบบ 100% บนเซิร์ฟเวอร์ส่วนตัว",
-      "alternative_comparison": "คล้ายกับ Mint หรือ YNAB (You Need A Budget) แต่ได้เปรียบตรงที่เป็น Open-source, self-host ได้, ไม่มีการขายข้อมูล และไม่มีค่าสมาชิกรายเดือนที่ผูกมัด",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "เป็นโปรเจกต์ที่ Fork มาจากแอปที่พัฒนามาอย่างยาวนานและมีฟีเจอร์ที่สมบูรณ์พร้อมใช้งานจริง แม้จะเปลี่ยนมือผู้ดูแลแต่ชุมชนยังคงอัปเดตต่อเนื่อง",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างบริการ 'Managed Hosting' สำหรับผู้ใช้ที่ไม่ต้องการดูแล Server เอง หรือทำบริการ API Gateway เพื่อเชื่อมต่อข้อมูลการเงินเข้ากับ LLM ภายในองค์กรหรือแอปส่วนตัว",
-        "stack_synergy": "สามารถนำข้อมูลจาก Sure ไปทำ Data Pipeline เชื่อมต่อกับ Supabase เพื่อทำ Dashboard วิเคราะห์ทางการเงินที่ปรับแต่งได้เอง (Custom Visualization) โดยใช้ Next.js ในการแสดงผล"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ไม่ต้องกังวลเรื่องข้อมูลส่วนตัวถูกนำไปขายต่อ",
-          "มีชุมชนช่วยกันดูแล (Community-driven) ต่อจากโปรเจกต์ที่ปิดตัวไป"
-        ],
-        "gotchas_and_traps": [
-          "การ Self-host ต้องใช้ความรู้ด้าน Docker และการจัดการ Server เบื้องต้น",
-          "ต้องระมัดระวังเรื่องความปลอดภัยในการตั้งค่า Network หากต้องการเข้าถึงจากภายนอกบ้าน"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "git clone https://github.com/we-promise/sure.git && cd sure && cp .env.local.example .env.local && bin/setup && bin/dev",
-      "updated_at": "2026-11-11T15:29:28.879Z"
-    },
-    {
-      "id": "1056618941",
-      "name": "ha-mcp",
-      "owner": "homeassistant-ai",
-      "url": "https://github.com/homeassistant-ai/ha-mcp",
-      "stars": 7067,
-      "stars_today": 640,
-      "language": "Python",
-      "topics": [
-        "ai",
-        "claude",
-        "hacs",
-        "home-assistant",
-        "home-automation",
-        "llm",
-        "mcp",
-        "model-context-protocol"
-      ],
-      "license": "MIT",
-      "open_issues": 18,
-      "one_liner": "เชื่อมต่อระบบ Smart Home ของคุณเข้ากับ AI ทำให้สามารถสั่งการหรือตั้งค่าบ้านผ่าน LLM อย่าง Claude หรือ ChatGPT ได้โดยตรง",
-      "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการสร้าง Automation ที่ซับซ้อนผ่าน UI เดิมๆ ของ Home Assistant โดยเปิดให้ AI ช่วยเขียน Logic, จัดการ Integration, หรือตอบคำถามเกี่ยวกับสถานะอุปกรณ์ในบ้านได้อย่างเป็นธรรมชาติ",
-      "alternative_comparison": "คล้ายกับ Home Assistant REST API ทั่วไป แต่ดีกว่าตรงที่เป็นมาตรฐาน MCP (Model Context Protocol) ทำให้ AI เข้าใจเครื่องมือ (Tools) ของบ้านได้โดยอัตโนมัติโดยไม่ต้องเขียน Prompt สั่งงานที่ยาวเหยียด",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการอัปเดตสม่ำเสมอ มีการทดสอบ E2E และเป็นมาตรฐานที่เชื่อมเข้ากับ HACS ได้อย่างแนบเนียน พร้อมรองรับฟีเจอร์ระดับ Core",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการ 'Smart Home Automation-as-a-Service' รับปรึกษาและเขียน AI Agent ส่วนตัวเพื่อควบคุมบ้านอัจฉริยะสำหรับกลุ่มลูกค้าที่ไม่เชี่ยวชาญเทคนิค",
-        "stack_synergy": "ใช้ร่วมกับ Next.js และ Edge Functions บน Vercel เพื่อสร้าง Dashboard ควบคุมบ้านที่มี AI ช่วยวิเคราะห์พฤติกรรมผู้ใช้และแนะนำการประหยัดพลังงาน"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับการติดตั้งผ่าน HACS หรือ Marketplace โดยตรง ทำให้ตั้งค่าได้ง่ายมาก",
-          "มีเครื่องมือ (Tools) ให้ AI เรียกใช้จำนวนมาก (87+) ครอบคลุมเกือบทุกส่วนของ Home Assistant"
-        ],
-        "gotchas_and_traps": [
-          "ต้องระมัดระวังเรื่องการให้สิทธิ์ (Permissions) แก่ AI เพราะหากตั้งค่าพลาดอาจส่งผลกระทบต่ออุปกรณ์ความปลอดภัยในบ้าน",
-          "การเปลี่ยนแปลงในเวอร์ชันล่าสุดอาจทำให้คำสั่งเก่าบางอย่างต้องย้ายไปอยู่ในส่วน Beta"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "1. ติดตั้งผ่าน HACS หรือ Marketplace ใน Home Assistant\n2. ไปที่ Settings -> Devices -> Add Integration -> HA-MCP Server\n3. สร้าง Long-lived access token หรือใช้บัญชีแยกสำหรับ AI แล้วใส่ใน Config",
-      "updated_at": "2026-11-11T15:29:46.532Z"
-    },
-    {
-      "id": "1299769220",
-      "name": "codex-security",
-      "owner": "openai",
-      "url": "https://github.com/openai/codex-security",
-      "stars": 11496,
-      "stars_today": 20,
-      "language": "TypeScript",
-      "topics": [
-        "ai-security",
-        "application-security",
-        "cli",
-        "code-scanning",
-        "codex",
-        "codex-security",
-        "cybersecurity",
-        "devsecops",
-        "nodejs",
-        "npm",
-        "openai",
-        "sdk",
-        "security",
-        "typescript",
-        "vulnerability-scanning"
-      ],
-      "license": "Apache-2.0",
-      "open_issues": 141,
-      "one_liner": "เครื่องมือจาก OpenAI สำหรับสแกน ตรวจสอบ และแก้ไขช่องโหว่ด้านความปลอดภัยในซอร์สโค้ดด้วยพลัง AI",
-      "problem_solved": "เครื่องมือ Static Analysis ทั่วไปมักมี False Positive สูงและขาดบริบทความเข้าใจในตรรกะธุรกิจ ทำให้ยากต่อการแก้ไข แต่เครื่องมือนี้ใช้ AI ช่วยวิเคราะห์เจาะลึกและสร้าง Patch ให้โดยตรง",
-      "alternative_comparison": "คล้ายกับ Snyk หรือ Semgrep แต่โดดเด่นกว่าตรงที่สามารถสร้าง Patch อัตโนมัติและมี Context-aware ผ่าน AI ในการวิเคราะห์ลำดับการทำงานของโค้ดที่ซับซ้อนได้ดีกว่า",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "ยังอยู่ในช่วงการทดสอบและพัฒนาฟีเจอร์เชิงรุกผ่าน OpenAI โดยมีการอัปเดตแก้บั๊กและเพิ่มฟีเจอร์ต่อเนื่อง แต่ยังไม่แนะนำสำหรับสภาพแวดล้อม Enterprise ที่เข้มงวดมากนัก",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการ Automated Security Remediation ที่เน้นการส่ง Patch เข้าสู่ระบบ CI/CD โดยตรงสำหรับบริษัทขนาดกลางที่ไม่มีทีม Security เต็มตัว",
-        "stack_synergy": "รวมเข้ากับ CI/CD pipeline ของ Vercel หรือ GitHub Actions เพื่อสแกนโค้ดทันทีที่ Push และใช้ Supabase เก็บประวัติการ Scan และสถานะการแก้ไขช่องโหว่"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับการทำ Patch อัตโนมัติซึ่งประหยัดเวลาของนักพัฒนาได้มหาศาล",
-          "มี Workflow การจัดการช่องโหว่ที่เชื่อมต่อกับ Jira และ Linear ได้สะดวก"
-        ],
-        "gotchas_and_traps": [
-          "ต้องการทรัพยากรอย่าง Node.js และ Python เวอร์ชันที่ค่อนข้างเฉพาะเจาะจง",
-          "มีความเสี่ยงเรื่องข้อมูลรั่วไหลหากบริษัทมีนโยบายห้ามนำโค้ดไปวิเคราะห์บน Public AI"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npm install --global @openai/codex-security\ncs login\ncs scan .",
-      "updated_at": "2026-11-11T15:29:54.031Z"
-    },
-    {
-      "id": "63477660",
-      "name": "Java",
-      "owner": "TheAlgorithms",
-      "url": "https://github.com/TheAlgorithms/Java",
-      "stars": 66910,
-      "stars_today": 39,
-      "language": "Java",
-      "topics": [
-        "algorithm",
-        "algorithm-challenges",
-        "algorithms",
-        "algorithms-datastructures",
-        "data-structures",
-        "hacktoberfest",
-        "java",
-        "search",
-        "sort",
-        "sorting-algorithms"
-      ],
-      "license": "MIT",
-      "open_issues": 28,
-      "one_liner": "แหล่งรวมอัลกอริทึมและโครงสร้างข้อมูลที่เขียนด้วยภาษา Java สำหรับการศึกษาและการฝึกฝนทักษะการเขียนโปรแกรม",
-      "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการค้นหาตัวอย่างโค้ดอัลกอริทึมที่ได้มาตรฐานและเข้าใจง่าย เพราะตำราเรียนมักมีตัวอย่างที่ไม่สมบูรณ์หรือไม่มี source code ให้ทดสอบจริง",
-      "alternative_comparison": "คล้ายกับ GeeksforGeeks หรือ LeetCode ในรูปแบบ open-source แต่ดีกว่าตรงที่เน้น source code ที่อ่านง่ายและร่วมมือกันพัฒนาโดย community ทำให้เห็นวิธีคิดที่หลากหลายกว่า",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "เป็นโปรเจกต์ที่มี community ขนาดใหญ่และมีการดูแลรักษาอย่างสม่ำเสมอผ่าน Pull Requests และ CI/CD ที่แข็งแกร่ง",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างแพลตฟอร์ม EdTech หรือ Interactive Course ที่นำอัลกอริทึมเหล่านี้มาทำเป็นคอร์สออนไลน์พร้อมระบบ Auto-grading สำหรับผู้เรียน",
-        "stack_synergy": "สามารถนำไปใช้เป็นฐานข้อมูลความรู้ให้ LLM พัฒนาเป็น Copilot สำหรับช่วยสอน Data Structures ให้กับนักศึกษาผ่าน Next.js และ Supabase Edge Functions"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "มีตัวอย่างอัลกอริทึมครอบคลุมตั้งแต่พื้นฐานจนถึงขั้นสูง",
-          "โค้ดมีโครงสร้างสะอาดและเขียนตามมาตรฐาน Clean Code ทำให้อ่านเข้าใจง่าย"
-        ],
-        "gotchas_and_traps": [
-          "เน้นเพื่อการเรียนรู้เป็นหลัก ไม่ได้เน้นการทำ Performance Optimization เพื่อใช้ในงาน Production จริง",
-          "บางอัลกอริทึมอาจมีความซับซ้อนเกินจำเป็นเมื่อเทียบกับการใช้ Java Standard Library"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "git clone https://github.com/TheAlgorithms/Java.git\ncd Java\n./gradlew build",
-      "updated_at": "2026-11-11T15:30:04.835Z"
-    },
-    {
-      "id": "1423101235",
-      "name": "cleanyourtv",
-      "owner": "Gathin23",
-      "url": "https://github.com/Gathin23/cleanyourtv",
-      "stars": 56330,
-      "stars_today": 2167,
-      "language": "Python",
-      "topics": [
-        "adb",
-        "adblock",
-        "android-tv",
-        "android-tv-launcher",
-        "apple-tv",
-        "bloatware-removal",
-        "claude-code",
-        "debloat",
-        "fire-tv",
-        "google-tv",
-        "launcher",
-        "privacy",
-        "smart-tv",
-        "sony-bravia",
-        "tcl",
-        "vibe-coding",
-        "xiaomi"
-      ],
-      "license": "NOASSERTION",
-      "open_issues": 183,
-      "one_liner": "เครื่องมือช่วยลบโฆษณาและ Bloatware ออกจาก Android/Google TV เพื่อเปลี่ยนหน้าจอให้สะอาดและเร็วเหมือน Apple TV โดยไม่ต้อง Root เครื่อง",
-      "problem_solved": "ช่วยแก้ปัญหาหน้าจอหลักของ Smart TV ที่เต็มไปด้วยโฆษณาจากผู้ผลิตและเนื้อหาแนะนำที่กินทรัพยากรเครื่อง ทำให้ทีวีอืดและประสบการณ์การใช้งานแย่ลง",
-      "alternative_comparison": "คล้ายกับการใช้ ADB สั่งลบแอปด้วยตัวเอง แต่ดีกว่าตรงที่กระบวนการเป็นอัตโนมัติ มีสคริปต์สำรองข้อมูลให้ และมีตัวเลือก Launcher ที่ออกแบบมาเพื่อความเป็นส่วนตัวโดยเฉพาะ",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการพัฒนาอย่างต่อเนื่อง มีการจัดการ Crash, รองรับหลายอุปกรณ์ และมีชุมชนผู้ใช้งานขนาดใหญ่ที่คอยสนับสนุน",
-      "ai_opportunity": {
-        "monetization_idea": "ทำแพลตฟอร์ม Subscription สำหรับบริการ 'Optimized TV Config' ที่ช่วยปรับแต่งทีวีรุ่นเฉพาะเจาะจงให้ลื่นที่สุดตามพฤติกรรมการใช้งานของผู้ใช้",
-        "stack_synergy": "ใช้ Supabase จัดเก็บ Profile ของรุ่นทีวีแต่ละแบรนด์ และใช้ Next.js ทำ Dashboard ให้ผู้ใช้เลือก Config ที่ต้องการก่อนสั่งรันผ่าน Web-based ADB API"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ไม่ต้อง Root เครื่อง ไม่ต้องแกะเครื่อง และกู้คืนค่าเดิมได้ง่ายด้วยคำสั่งเดียว",
-          "ช่วยลดการใช้ทรัพยากรเครื่องทำให้ทีวีรุ่นเก่ากลับมาทำงานได้ลื่นไหลขึ้นอย่างเห็นได้ชัด"
-        ],
-        "gotchas_and_traps": [
-          "ต้องเปิดโหมด Developer Options ในทีวี ซึ่งผู้ใช้อาจไม่คุ้นเคยในครั้งแรก",
-          "การอัปเดต Firmware ของทีวีอาจทำให้การตั้งค่า Bloatware ที่ปิดไว้ถูกเปิดกลับมาเหมือนเดิม"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "npx cleanyourtv@latest",
-      "updated_at": "2026-11-11T15:30:14.045Z"
-    },
-    {
-      "id": "1440956372",
-      "name": "craft-anything",
-      "owner": "storytold",
-      "url": "https://github.com/storytold/craft-anything",
-      "stars": 27994,
-      "stars_today": 2333,
-      "language": "Rust",
-      "topics": [],
-      "license": "Apache-2.0",
-      "open_issues": 308,
-      "one_liner": "เครื่องมือที่ใช้ AI วิเคราะห์และแกะรอยการทำงานของซอฟต์แวร์หรือเว็บไซต์ เพื่อสร้างโปรเจกต์ใหม่ที่เลียนแบบการทำงานนั้นขึ้นมาโดยอัตโนมัติ",
-      "problem_solved": "แก้ปัญหาความยุ่งยากในการ Reverse Engineering ซอฟต์แวร์ที่ต้องใช้ความพยายามสูงและเสียเวลาทำความเข้าใจโครงสร้างด้วยตัวเอง โดยเปลี่ยนขั้นตอนการเรียนรู้และการเขียนโค้ดให้เป็นระบบอัตโนมัติที่แม่นยำและตรวจสอบผลลัพธ์ได้",
-      "alternative_comparison": "คล้ายกับเครื่องมือจำพวก Web Scraping หรือ Code Generation ทั่วไป แต่เหนือกว่าตรงที่เป็นระบบปิดที่เน้น 'การตรวจทาน' (Verification) ผลลัพธ์เทียบกับต้นฉบับอย่างเป็นขั้นตอน ทำให้ได้โค้ดที่ใกล้เคียงความจริงมากกว่าแค่การเดาของ LLM",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "แม้มีฟีเจอร์ที่น่าสนใจและมีการพัฒนาต่อเนื่อง แต่สถานะโครงการยังอยู่ในช่วง early alpha ซึ่งยังต้องอาศัยการทดสอบในสภาวะที่ซับซ้อนอีกมาก",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างแพลตฟอร์มรับทำ 'Legacy Code Migration' หรือ 'Prototyping as a Service' สำหรับบริษัทที่ต้องการย้ายระบบเก่าไปสู่เทคโนโลยีใหม่ได้อย่างรวดเร็ว",
-        "stack_synergy": "ใช้ร่วมกับ Next.js เพื่อสร้าง UI ที่ตรวจสอบได้ และผสานกับ Supabase ในการจัดเก็บผลการสแกนและสถานะของโปรเจกต์เพื่อทำเป็นแดชบอร์ดจัดการงานอัตโนมัติ"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "มีเครื่องมือตรวจสอบ (Inspection tools) ที่ครอบคลุมหลายแพลตฟอร์ม",
-          "มีระบบ Verify โค้ดที่สร้างขึ้นจริง เทียบกับต้นฉบับ ไม่ใช่แค่การเจนโค้ดทิ้งไว้"
-        ],
-        "gotchas_and_traps": [
-          "ยังอยู่ในช่วงเริ่มต้น ฟีเจอร์อาจยังไม่เสถียรสำหรับงานที่ซับซ้อนมากๆ",
-          "การรัน AI Agents จำนวนมากอาจมีค่าใช้จ่าย API ที่สูงหากไม่ได้ปรับแต่งดีพอ"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "git clone https://github.com/storytold/craft-anything\ncd craft-anything\ncargo run -- --help",
-      "updated_at": "2026-11-11T15:30:25.783Z"
     }
   ]
 }
