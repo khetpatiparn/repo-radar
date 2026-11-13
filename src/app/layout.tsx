@@ -1,57 +1,40 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Bricolage_Grotesque,
-  Source_Serif_4,
+  Wix_Madefor_Display,
+  Wix_Madefor_Text,
   Noto_Sans_Thai,
-  Noto_Serif_Thai,
-  JetBrains_Mono,
 } from "next/font/google";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const wixDisplay = Wix_Madefor_Display({
+  variable: "--font-wix-display",
   subsets: ["latin"],
-  weight: ["500", "700", "800"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
+const wixText = Wix_Madefor_Text({
+  variable: "--font-wix-text",
   subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 const notoSansThai = Noto_Sans_Thai({
   variable: "--font-thai-sans",
   subsets: ["thai"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-});
-
-const notoSerifThai = Noto_Serif_Thai({
-  variable: "--font-thai-serif",
-  subsets: ["thai"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  colorScheme: "light",
+  colorScheme: "dark",
 };
 
 export const metadata: Metadata = {
   title: "THE REPO RADAR: วารสารวิเคราะห์งานวิจัย AI และโอเพนซอร์สรายวัน",
   description:
-    "วารสารข่าวเทคโนโลยี เปเปอร์วิจัย AI มาแรงจาก Hugging Face และ GitHub Trending สรุปเจาะลึกเป็นภาษาไทยในรูปแบบสิ่งพิมพ์ร่วมสมัย",
+    "วารสารข่าวเทคโนโลยี เปเปอร์วิจัย AI มาแรงจาก Hugging Face และ GitHub Trending สรุปเจาะลึกเป็นภาษาไทย",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -72,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="th">
       <body
-        className={`${bricolage.variable} ${sourceSerif.variable} ${notoSansThai.variable} ${notoSerifThai.variable} ${jetbrainsMono.variable} min-h-screen antialiased`}
+        className={`${wixDisplay.variable} ${wixText.variable} ${notoSansThai.variable} min-h-screen antialiased`}
       >
         {children}
       </body>

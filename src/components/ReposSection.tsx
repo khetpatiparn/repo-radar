@@ -54,20 +54,20 @@ export function ReposSection({
 }: ReposSectionProps) {
   return (
     <div className="space-y-8">
-      {/* Editorial Repo Filter Bar */}
-      <div className="bg-paper-2 border-t-2 border-b border-ink p-3.5 sm:p-4 flex flex-wrap items-center justify-between gap-4">
+      {/* Dusk Repo Filter Bar */}
+      <div className="bg-paper-2 border border-rule rounded-[var(--radius-card)] p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs sm:text-sm font-editorial-label text-ink font-bold mr-1 whitespace-nowrap">
+          <span className="text-xs sm:text-sm font-editorial-label text-muted mr-1 whitespace-nowrap">
             ฉบับ:
           </span>
           <button
             type="button"
             aria-pressed={repoDay === "today"}
             onClick={() => onChangeRepoDay("today")}
-            className={`inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] whitespace-nowrap cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] whitespace-nowrap cursor-pointer ${
               repoDay === "today"
                 ? "bg-ink text-paper border-ink"
-                : "bg-paper text-ink border-rule-2 hover:border-ink"
+                : "bg-paper-3 text-ink-2 border-rule hover:border-accent hover:text-ink"
             }`}
           >
             <Flame className="w-3.5 h-3.5 shrink-0" />
@@ -78,10 +78,10 @@ export function ReposSection({
             type="button"
             aria-pressed={repoDay === "yesterday"}
             onClick={() => onChangeRepoDay("yesterday")}
-            className={`inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] whitespace-nowrap cursor-pointer ${
+            className={`inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] whitespace-nowrap cursor-pointer ${
               repoDay === "yesterday"
                 ? "bg-ink text-paper border-ink"
-                : "bg-paper text-ink border-rule-2 hover:border-ink"
+                : "bg-paper-3 text-ink-2 border-rule hover:border-accent hover:text-ink"
             }`}
           >
             <Calendar className="w-3.5 h-3.5 shrink-0" />
@@ -93,10 +93,10 @@ export function ReposSection({
               type="button"
               aria-pressed={onlyRepoStreak}
               onClick={onToggleOnlyRepoStreak}
-              className={`inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] whitespace-nowrap cursor-pointer ${
                 onlyRepoStreak
                   ? "bg-accent text-accent-ink border-accent"
-                  : "bg-warn-soft text-warn border-warn hover:border-ink"
+                  : "bg-paper-3 text-accent-2 border-rule hover:border-accent-2"
               }`}
             >
               <Sparkles className="w-3.5 h-3.5 shrink-0" />
@@ -107,11 +107,11 @@ export function ReposSection({
 
         <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-editorial-label">
           <label className="flex items-center gap-2">
-            <span className="text-ink font-bold whitespace-nowrap">ภาษา:</span>
+            <span className="text-muted whitespace-nowrap">ภาษา:</span>
             <select
               value={selectedLang}
               onChange={(e) => onChangeLang(e.target.value)}
-              className="min-h-[38px] px-2.5 py-1 border border-ink bg-paper text-ink focus:border-accent"
+              className="min-h-[36px] px-3 py-1 rounded-full border border-rule-2 bg-paper-3 text-ink focus:border-accent"
             >
               {repoLanguages.map((l) => (
                 <option key={l || "unknown"} value={l || "unknown"}>
@@ -122,11 +122,11 @@ export function ReposSection({
           </label>
 
           <label className="flex items-center gap-2">
-            <span className="text-ink font-bold whitespace-nowrap">ความพร้อม:</span>
+            <span className="text-muted whitespace-nowrap">ความพร้อม:</span>
             <select
               value={selectedMaturity}
               onChange={(e) => onChangeMaturity(e.target.value)}
-              className="min-h-[38px] px-2.5 py-1 border border-ink bg-paper text-ink focus:border-accent"
+              className="min-h-[36px] px-3 py-1 rounded-full border border-rule-2 bg-paper-3 text-ink focus:border-accent"
             >
               {["All", "Production-Ready", "Experimental", "PoC"].map((m) => (
                 <option key={m} value={m}>
@@ -138,7 +138,7 @@ export function ReposSection({
         </div>
       </div>
 
-      {/* Editorial Columns for GitHub Repos */}
+      {/* Dusk Repo Cards */}
       {filteredRepos.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {filteredRepos.map((repo, idx) => {
@@ -156,12 +156,12 @@ export function ReposSection({
               <article
                 key={`${repoDay}-${repo.id}`}
                 onClick={() => onOpenRepo(repo)}
-                className="group cursor-pointer bg-paper border-t-2 border-t-ink border-x border-b border-rule hover:bg-paper-2 transition-colors duration-[var(--dur-micro)] p-5 sm:p-6 flex flex-col justify-between"
+                className="group cursor-pointer bg-paper-2 border border-rule hover:border-accent hover:bg-paper-3 rounded-[var(--radius-card)] transition-colors duration-[var(--dur-micro)] p-5 sm:p-6 flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-editorial-display text-xl sm:text-2xl text-ink leading-snug group-hover:text-accent transition-colors duration-[var(--dur-micro)]">
-                      <span className="font-editorial-display text-2xl text-accent mr-2 num">
+                    <h3 className="font-editorial-display text-lg sm:text-xl text-ink leading-snug group-hover:text-accent transition-colors duration-[var(--dur-micro)]">
+                      <span className="font-editorial-display text-base text-accent mr-2 num">
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                       {repo.one_liner}
@@ -170,7 +170,7 @@ export function ReposSection({
                       type="button"
                       aria-pressed={isSaved}
                       onClick={(e) => onToggleSaveRepo(repo, e)}
-                      className="p-1.5 border border-transparent hover:border-rule-2 text-muted hover:text-ink cursor-pointer shrink-0"
+                      className="p-1.5 rounded-full border border-transparent hover:border-rule-2 text-muted hover:text-ink cursor-pointer shrink-0"
                       title="คั่นหน้าโปรเจกต์นี้"
                     >
                       {isSaved ? (
@@ -183,16 +183,16 @@ export function ReposSection({
 
                   <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-editorial-label">
                     <div className="flex flex-wrap items-center gap-2 min-w-0">
-                      <span className="font-bold text-ink truncate">
+                      <span className="font-medium text-ink truncate">
                         {repo.owner}/{repo.name}
                       </span>
                       {repo.language && (
-                        <span className="px-2 py-0.5 bg-paper-2 border border-rule-2 text-ink whitespace-nowrap">
+                        <span className="px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2 whitespace-nowrap">
                           {repo.language}
                         </span>
                       )}
                       {isStreak && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-warn-soft border border-warn text-warn whitespace-nowrap">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-accent-2 whitespace-nowrap">
                           <Flame className="w-3 h-3 shrink-0" />
                           <span>
                             ติดเทรนด์ 2 วันซ้อน
@@ -204,7 +204,7 @@ export function ReposSection({
                       )}
                     </div>
 
-                    <span className="px-2 py-0.5 bg-ink text-paper inline-flex items-center gap-1 num shrink-0">
+                    <span className="px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-accent-2 inline-flex items-center gap-1 num shrink-0">
                       <Star className="w-3 h-3 shrink-0" />
                       <span>
                         {(repo.stars / 1000).toFixed(1)}k (+
@@ -217,8 +217,8 @@ export function ReposSection({
                     {repo.problem_solved}
                   </p>
 
-                  <div className="p-3.5 editorial-well text-xs font-editorial-body">
-                    <div className="inline-flex items-center gap-1.5 font-editorial-label text-accent font-bold mb-1">
+                  <div className="p-3.5 rounded-[var(--radius-inner)] bg-paper border border-rule text-xs font-editorial-body">
+                    <div className="inline-flex items-center gap-1.5 font-editorial-label text-accent mb-1">
                       <Lightbulb className="w-3.5 h-3.5 shrink-0" />
                       <span>ไอเดียต่อยอด SaaS:</span>
                     </div>
@@ -231,13 +231,16 @@ export function ReposSection({
                 <div className="pt-4 mt-4 border-t border-rule flex items-center justify-between gap-2 text-xs font-editorial-label">
                   <div className="flex items-center gap-3 text-muted min-w-0">
                     <span className="truncate">
-                      ความพร้อม: <strong className="text-ink">{repo.maturity_rating}</strong>
+                      ความพร้อม:{" "}
+                      <strong className="text-ink font-medium">
+                        {repo.maturity_rating}
+                      </strong>
                     </span>
-                    <span className="border-l border-rule-2 pl-3 whitespace-nowrap num">
+                    <span className="border-l border-rule pl-3 whitespace-nowrap num">
                       Hype {repo.human_vibe_check.hype_vs_reality}/10
                     </span>
                   </div>
-                  <span className="text-ink group-hover:text-accent font-bold inline-flex items-center gap-1 whitespace-nowrap shrink-0">
+                  <span className="text-accent group-hover:text-accent-hi font-medium inline-flex items-center gap-1 whitespace-nowrap shrink-0">
                     <span>อ่านบทวิเคราะห์</span>
                     <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                   </span>
@@ -247,7 +250,7 @@ export function ReposSection({
           })}
         </div>
       ) : (
-        <div className="p-12 sm:p-16 text-center editorial-well text-muted text-sm font-editorial-body">
+        <div className="p-12 sm:p-16 text-center bg-paper-2 border border-rule rounded-[var(--radius-card)] text-muted text-sm font-editorial-body">
           ไม่พบโปรเจกต์ที่ตรงกับเงื่อนไขการค้นหา
         </div>
       )}

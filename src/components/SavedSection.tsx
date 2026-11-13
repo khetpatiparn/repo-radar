@@ -36,7 +36,7 @@ export function SavedSection({
 
   return (
     <div className="space-y-8">
-      <div className="editorial-opens pb-4 border-b border-rule space-y-1.5">
+      <div className="pb-4 border-b border-rule space-y-1.5">
         <h2 className="font-editorial-display text-2xl sm:text-3xl text-ink max-w-none">
           คลังบทความและโปรเจกต์ที่คุณคั่นหน้าไว้ ({totalSavedCount})
         </h2>
@@ -47,8 +47,8 @@ export function SavedSection({
       </div>
 
       {totalSavedCount === 0 ? (
-        <div className="p-12 sm:p-16 text-center editorial-well space-y-3">
-          <Bookmark className="w-8 h-8 text-muted mx-auto" />
+        <div className="p-12 sm:p-16 text-center bg-paper-2 border border-rule rounded-[var(--radius-card)] space-y-3">
+          <Bookmark className="w-8 h-8 text-accent mx-auto" />
           <div className="font-editorial-display text-xl text-ink">
             ยังไม่มีบทความที่คั่นหน้าไว้
           </div>
@@ -61,7 +61,7 @@ export function SavedSection({
         <div className="space-y-8">
           {savedPapers.length > 0 && (
             <section className="space-y-4">
-              <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2 max-w-none">
+              <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2.5 max-w-none">
                 <FileText className="w-4 h-4 text-accent shrink-0" />
                 <span>เปเปอร์วิจัยที่คั่นไว้ ({savedPapers.length})</span>
               </h3>
@@ -70,7 +70,7 @@ export function SavedSection({
                   <article
                     key={paper.id}
                     onClick={() => onOpenPaper(paper)}
-                    className="cursor-pointer bg-paper border-t-2 border-t-ink border-x border-b border-rule hover:bg-paper-2 transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="cursor-pointer bg-paper-2 border border-rule hover:border-accent hover:bg-paper-3 rounded-[var(--radius-card)] transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
@@ -80,7 +80,7 @@ export function SavedSection({
                         <button
                           type="button"
                           onClick={(e) => onRemovePaper(paper, e)}
-                          className="text-xs font-editorial-label text-error hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>
@@ -90,7 +90,7 @@ export function SavedSection({
                       </p>
                     </div>
                     <div className="pt-3 border-t border-rule text-xs font-editorial-label">
-                      <span className="px-2 py-0.5 bg-paper-2 border border-rule text-ink">
+                      <span className="px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2">
                         {paper.category}
                       </span>
                     </div>
@@ -102,7 +102,7 @@ export function SavedSection({
 
           {savedRepos.length > 0 && (
             <section className="space-y-4">
-              <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2 max-w-none">
+              <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2.5 max-w-none">
                 <Code2 className="w-4 h-4 text-accent shrink-0" />
                 <span>โปรเจกต์ GitHub ที่คั่นไว้ ({savedRepos.length})</span>
               </h3>
@@ -111,7 +111,7 @@ export function SavedSection({
                   <article
                     key={repo.id}
                     onClick={() => onOpenRepo(repo)}
-                    className="cursor-pointer bg-paper border-t-2 border-t-ink border-x border-b border-rule hover:bg-paper-2 transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="cursor-pointer bg-paper-2 border border-rule hover:border-accent hover:bg-paper-3 rounded-[var(--radius-card)] transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
@@ -121,7 +121,7 @@ export function SavedSection({
                         <button
                           type="button"
                           onClick={(e) => onRemoveRepo(repo, e)}
-                          className="text-xs font-editorial-label text-error hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>
@@ -130,7 +130,7 @@ export function SavedSection({
                         {repo.problem_solved}
                       </p>
                     </div>
-                    <div className="pt-3 border-t border-rule text-xs font-editorial-label font-bold text-ink">
+                    <div className="pt-3 border-t border-rule text-xs font-editorial-label font-medium text-accent">
                       {repo.owner}/{repo.name}
                     </div>
                   </article>
@@ -141,7 +141,7 @@ export function SavedSection({
 
           {savedNews.length > 0 && (
             <section className="space-y-4">
-              <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2 max-w-none">
+              <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2.5 max-w-none">
                 <Newspaper className="w-4 h-4 text-accent shrink-0" />
                 <span>ข่าวสาร AI Lab ที่คั่นไว้ ({savedNews.length})</span>
               </h3>
@@ -150,7 +150,7 @@ export function SavedSection({
                   <article
                     key={article.id}
                     onClick={() => onOpenNews(article)}
-                    className="cursor-pointer bg-paper border-t-2 border-t-ink border-x border-b border-rule hover:bg-paper-2 transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="cursor-pointer bg-paper-2 border border-rule hover:border-accent hover:bg-paper-3 rounded-[var(--radius-card)] transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
@@ -160,7 +160,7 @@ export function SavedSection({
                         <button
                           type="button"
                           onClick={(e) => onRemoveNews(article, e)}
-                          className="text-xs font-editorial-label text-error hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>
@@ -170,7 +170,7 @@ export function SavedSection({
                       </p>
                     </div>
                     <div className="pt-3 border-t border-rule text-xs font-editorial-label">
-                      <span className="px-2 py-0.5 bg-paper-2 border border-rule text-ink">
+                      <span className="px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2">
                         {article.category}
                       </span>
                     </div>

@@ -558,12 +558,12 @@ export default function Home() {
         </main>
       )}
 
-      {/* Square Editorial Back-to-Top Button */}
+      {/* Dusk Smoked-Glass Back-to-Top Pill */}
       {showBackToTop && (
         <button
           type="button"
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-1.5 min-h-[38px] px-3.5 py-2 border border-ink bg-paper text-ink text-xs sm:text-sm font-editorial-label hover:bg-ink hover:text-paper transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap"
+          className="dusk-glass fixed bottom-6 right-6 z-40 inline-flex items-center gap-1.5 min-h-[38px] px-4 py-2 border border-rule-2 text-ink text-xs sm:text-sm font-editorial-label rounded-full hover:border-accent hover:text-accent transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap"
           title="เลื่อนกลับขึ้นด้านบนสุด"
         >
           <ChevronUp className="w-4 h-4 shrink-0" />
@@ -571,22 +571,36 @@ export default function Home() {
         </button>
       )}
 
-      {/* Editorial Colophon Footer */}
-      <footer className="mt-16 border-t-4 border-ink bg-paper-2 py-8 text-xs sm:text-sm font-editorial-label text-muted w-full">
+      {/* Dusk Calm Slate Footer with Photo Credit */}
+      <footer className="mt-16 border-t border-rule bg-paper-2 py-8 text-xs sm:text-sm font-editorial-label text-muted w-full">
         <div className="container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <strong className="font-editorial-display text-base text-ink block sm:inline sm:mr-3">
-              THE REPO RADAR
-            </strong>
-            <span className="font-editorial-body text-ink-2">
-              วารสารสรุปงานวิจัย AI จาก Hugging Face Daily Papers, GitHub
-              Trending และ Google Official Blog ฉบับภาษาไทย
-            </span>
+          <div className="space-y-1.5">
+            <div>
+              <strong className="font-editorial-display text-base text-ink block sm:inline sm:mr-3">
+                THE REPO RADAR
+              </strong>
+              <span className="font-editorial-body text-ink-2">
+                วารสารสรุปงานวิจัย AI จาก Hugging Face Daily Papers, GitHub
+                Trending และ Google Official Blog ฉบับภาษาไทย
+              </span>
+            </div>
+            <div className="text-xs text-muted">
+              Photographs:{" "}
+              <a
+                href="https://commons.wikimedia.org/wiki/File:Sunset_at_Acheloos_river_delta_01.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-accent"
+              >
+                Dimitrios Tzortzis
+              </a>{" "}
+              (CC BY-SA 4.0, Wikimedia Commons)
+            </div>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>ซิงก์ข้อมูลอัตโนมัติทุกเช้า 07:00 น.</span>
-            <span className="border-l border-rule-2 pl-4">
-              ออกแบบเพื่อการอ่านในสไตล์สิ่งพิมพ์
+            <span className="border-l border-rule pl-4">
+              Dusk Edition
             </span>
           </div>
         </div>

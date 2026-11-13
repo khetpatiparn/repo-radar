@@ -1,10 +1,10 @@
-/* Hallmark · shape: app screen · genre: editorial · theme: Editorial (deal 3/3, seed thai-research-papers-trending-c55e·a25d5437·2026-11-13·r0) · redesign: full
- * nav: masthead-and-tab-rail · signature: heavy-rule-lead-and-editorial-rows · states: empty, filtered-empty, full
- * axes: light/display-condensed/chromatic-green · posture: restrained · contrast: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P5 H5 E5 S4 R5 V5 · weakest: S, generic card chrome replaced with Editorial 4px ink rules, square photography, and tabular index rows */
-/* Hallmark · finish-review: in-thread · 16 findings across Floor/Reflex/Warn · 16 resolved · gap: render tier skipped (no puppeteer-core) */
-/* Hallmark · dismissed 49 · verified every Header button carries whitespace-nowrap and globals.css enforces header button nowrap, with sm:hidden short mobile labels */
-/* Hallmark · dropped night-mode-toggle, onToggleNightMode, toggleNightMode · user selected single-mode Editorial light palette and requested updating E2E Journey 8 */
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: Dusk (by request) · redesign: full
+ * nav: slate-glass-rail · signature: dusk-horizon-lead-and-smoked-glass-ledger · states: empty, filtered-empty, full · dusk: shore/periwinkle-apricot/glass
+ * axes: dark/grotesk-sans/cool · posture: committed · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · weakest: R, dropped dual-mode toggles and nested glass to keep single smoked-glass and bone-well discipline */
+/* Hallmark · dismissed 29 · Dusk theme explicitly specifies smoked glass (--glass) with lit top edge (--glass-hi) on .dusk-glass and .dusk-nav-glass without glow behind glass */
+/* Hallmark · dismissed 49 · verified every Header button carries whitespace-nowrap and globals.css enforces header button nowrap, with lg:hidden short mobile labels */
+/* Hallmark · dropped night-mode-toggle, onToggleNightMode, toggleNightMode · Dusk commits to calm slate dark palette and bone wells */
 /* Hallmark · reworded "setSelectedLang" to "onChangeLang" · extracted repo filters into modular ReposSection component */
 /* Hallmark · reworded "setSelectedMaturity" to "onChangeMaturity" · extracted repo filters into modular ReposSection component */
 /* Hallmark · reworded "handlePageChange" to "onPageChange" · extracted pagination into modular PapersSection and NewsSection components */
@@ -33,14 +33,12 @@
 
 .font-editorial-display {
   font-family: var(--font-display);
-  font-variation-settings: "wdth" 75, "opsz" 96;
   font-weight: var(--display-weight);
   letter-spacing: var(--tracking-display);
 }
 
 .font-editorial-label {
-  font-family: var(--font-display);
-  font-variation-settings: "opsz" 12;
+  font-family: var(--font-body);
   font-weight: 500;
 }
 
@@ -48,20 +46,113 @@
   font-family: var(--font-body);
 }
 
+/* Dusk Smoked Glass surface with lit top edge (no glass on glass) */
+.dusk-glass {
+  background: var(--glass);
+  border-radius: var(--radius-card);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+  box-shadow: var(--glass-hi), var(--shadow-card);
+}
+
+.dusk-nav-glass {
+  background: color-mix(in oklab, var(--color-paper) 84%, transparent);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+  backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+  box-shadow: inset 0 -1px 0 var(--color-rule);
+}
+
+.dusk-well {
+  background: var(--color-well);
+  color: var(--color-well-ink);
+  border-radius: var(--radius-card);
+  border: var(--rule-hair) solid var(--color-well-rule);
+}
+
+.dusk-well-card {
+  background: var(--color-card);
+  color: var(--color-well-ink);
+  border-radius: var(--radius-inner);
+  border: var(--rule-hair) solid var(--color-well-rule);
+}
+
 .editorial-opens {
-  border-top: var(--rule-heavy) solid var(--color-ink);
+  border-top: var(--rule-hair) solid var(--color-rule);
   padding-top: var(--space-lg);
 }
 
 .editorial-well {
   background: var(--color-paper-2);
-  border-top: var(--rule-hair) solid var(--color-rule-2);
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: var(--radius-card);
+}
+
+.editorial-photo {
+  background: var(--color-well);
+  color: var(--color-well-ink);
+  border-radius: var(--radius-card);
+  border: var(--rule-hair) solid var(--color-well-rule);
 }
 
 .editorial-photo > img {
-  outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent);
-  outline-offset: -1px;
-  filter: saturate(0.9) contrast(1.04);
+  border-radius: var(--radius-inner);
+  background: var(--color-card);
+  filter: contrast(1.04) saturate(1.03);
+}
+
+.dusk-pill-primary {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border-radius: var(--radius-pill);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--color-light) 35%, transparent);
+}
+
+.dusk-pill-primary:hover {
+  background: var(--color-accent-hi);
+}
+
+.dusk-pill-ghost {
+  background: color-mix(in oklab, var(--color-light) 4%, transparent);
+  color: var(--color-ink);
+  border-radius: var(--radius-pill);
+  border: var(--rule-hair) solid var(--color-rule-2);
+}
+
+.dusk-pill-ghost:hover {
+  background: color-mix(in oklab, var(--color-light) 8%, transparent);
+  border-color: var(--color-accent);
+}
+
+.dusk-hero-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: var(--rule-hair) solid var(--color-rule);
+  background: linear-gradient(
+    135deg,
+    var(--color-paper-2) 0%,
+    var(--color-paper-3) 55%,
+    var(--color-paper) 100%
+  );
+}
+
+.dusk-hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--color-paper) 92%, transparent) 0%,
+      color-mix(in oklab, var(--color-paper) 78%, transparent) 55%,
+      color-mix(in oklab, var(--color-paper) 56%, transparent) 100%
+    ),
+    linear-gradient(to bottom, transparent 60%, var(--color-paper) 100%);
+}
+
+.dusk-photo > img {
+  filter: contrast(1.04) saturate(1.03);
 }
 
 .rail-fade {

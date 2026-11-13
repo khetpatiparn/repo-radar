@@ -60,29 +60,29 @@ function ReaderTopBar({
   onToggleSave: () => void;
 }) {
   return (
-    <div className="pb-4 mb-8 border-b-4 border-ink flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div className="pb-4 mb-8 border-b border-rule flex flex-col sm:flex-row sm:items-center justify-between gap-3">
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-2 min-h-[38px] text-sm font-editorial-label text-ink hover:text-accent transition-colors duration-[var(--dur-micro)] cursor-pointer self-start whitespace-nowrap"
+        className="dusk-pill-ghost inline-flex items-center gap-2 min-h-[38px] px-4 py-1.5 text-sm font-editorial-label transition-colors duration-[var(--dur-micro)] cursor-pointer self-start whitespace-nowrap"
       >
         <ArrowLeft className="w-4 h-4 shrink-0" />
         <span>กลับไปหน้าหนังสือพิมพ์</span>
       </button>
 
       <div className="flex items-center justify-between sm:justify-end gap-3">
-        <div className="flex items-center border border-rule-2 bg-paper text-xs font-editorial-label">
-          <span className="px-2.5 py-1.5 text-muted border-r border-rule whitespace-nowrap">
+        <div className="flex items-center rounded-full border border-rule bg-paper-2 p-0.5 text-xs font-editorial-label">
+          <span className="px-3 py-1 text-muted whitespace-nowrap">
             ขนาดอักษร
           </span>
           <button
             type="button"
             aria-pressed={fontSize === "normal"}
             onClick={() => setFontSize("normal")}
-            className={`min-h-[34px] px-3 py-1 cursor-pointer transition-colors duration-[var(--dur-micro)] whitespace-nowrap ${
+            className={`min-h-[32px] px-3 py-1 rounded-full cursor-pointer transition-colors duration-[var(--dur-micro)] whitespace-nowrap ${
               fontSize === "normal"
                 ? "bg-ink text-paper"
-                : "text-ink-2 hover:bg-paper-2"
+                : "text-ink-2 hover:text-ink"
             }`}
           >
             ก
@@ -91,10 +91,10 @@ function ReaderTopBar({
             type="button"
             aria-pressed={fontSize === "large"}
             onClick={() => setFontSize("large")}
-            className={`min-h-[34px] px-3 py-1 cursor-pointer transition-colors duration-[var(--dur-micro)] border-l border-rule whitespace-nowrap ${
+            className={`min-h-[32px] px-3 py-1 rounded-full cursor-pointer transition-colors duration-[var(--dur-micro)] whitespace-nowrap ${
               fontSize === "large"
                 ? "bg-ink text-paper"
-                : "text-ink-2 hover:bg-paper-2"
+                : "text-ink-2 hover:text-ink"
             }`}
           >
             ก+
@@ -103,10 +103,10 @@ function ReaderTopBar({
             type="button"
             aria-pressed={fontSize === "xlarge"}
             onClick={() => setFontSize("xlarge")}
-            className={`min-h-[34px] px-3 py-1 cursor-pointer transition-colors duration-[var(--dur-micro)] border-l border-rule whitespace-nowrap ${
+            className={`min-h-[32px] px-3 py-1 rounded-full cursor-pointer transition-colors duration-[var(--dur-micro)] whitespace-nowrap ${
               fontSize === "xlarge"
                 ? "bg-ink text-paper"
-                : "text-ink-2 hover:bg-paper-2"
+                : "text-ink-2 hover:text-ink"
             }`}
           >
             ก++
@@ -117,10 +117,10 @@ function ReaderTopBar({
           type="button"
           onClick={onToggleSave}
           aria-pressed={isSaved}
-          className={`inline-flex items-center gap-1.5 min-h-[36px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 whitespace-nowrap ${
+          className={`inline-flex items-center gap-1.5 min-h-[38px] px-4 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 whitespace-nowrap ${
             isSaved
               ? "bg-accent text-accent-ink border-accent"
-              : "bg-paper text-ink border-ink hover:bg-paper-2"
+              : "dusk-pill-ghost"
           }`}
         >
           {isSaved ? (
@@ -148,8 +148,8 @@ function ReaderDesktopToc({
   items: TocItem[];
 }) {
   return (
-    <div className="p-5 border border-rule bg-paper">
-      <div className="flex items-center gap-2 text-sm font-editorial-label text-ink pb-3 mb-3 border-b border-rule-2">
+    <div className="p-5 border border-rule bg-paper-2 rounded-[var(--radius-card)]">
+      <div className="flex items-center gap-2 text-sm font-editorial-label text-ink pb-3 mb-3 border-b border-rule">
         <BookOpen className="w-4 h-4 text-accent shrink-0" />
         <span>{title}</span>
       </div>
@@ -557,7 +557,7 @@ export function ArticleReader({
                       href={paper.github_url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label bg-ink text-paper border border-ink hover:bg-ink-2 whitespace-nowrap"
+                      className="dusk-pill-primary inline-flex items-center gap-2 min-h-[44px] px-5 py-2 text-sm font-editorial-label whitespace-nowrap"
                     >
                       <Code2 className="w-4 h-4 shrink-0" />
                       <span>เปิด GitHub Repository ของเปเปอร์นี้</span>
@@ -569,7 +569,7 @@ export function ArticleReader({
                     href={paper.pdf_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label border border-ink bg-paper text-ink hover:bg-paper-2 whitespace-nowrap"
+                    className="dusk-pill-ghost inline-flex items-center gap-2 min-h-[44px] px-5 py-2 text-sm font-editorial-label whitespace-nowrap"
                   >
                     <FileText className="w-4 h-4 shrink-0" />
                     <span>อ่านเปเปอร์ต้นฉบับ (arXiv PDF)</span>
@@ -580,7 +580,7 @@ export function ArticleReader({
                     href={paper.hf_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label border border-rule-2 bg-paper text-ink-2 hover:bg-paper-2 whitespace-nowrap"
+                    className="dusk-pill-ghost inline-flex items-center gap-2 min-h-[44px] px-5 py-2 text-sm font-editorial-label text-ink-2 whitespace-nowrap"
                   >
                     <span>หน้าพูดคุยบน Hugging Face</span>
                     <ExternalLink className="w-3.5 h-3.5 shrink-0" />
@@ -591,7 +591,7 @@ export function ArticleReader({
                       href={paper.project_url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label border border-rule-2 bg-paper text-ink-2 hover:bg-paper-2 whitespace-nowrap"
+                      className="dusk-pill-ghost inline-flex items-center gap-2 min-h-[44px] px-5 py-2 text-sm font-editorial-label text-ink-2 whitespace-nowrap"
                     >
                       <span>เว็บไซต์โปรเจกต์ / Demo</span>
                       <ExternalLink className="w-3.5 h-3.5 shrink-0" />
@@ -827,14 +827,14 @@ export function ArticleReader({
                   <span>คำสั่งเริ่มต้นใช้งาน (Quick Start) &amp; ลิงก์ต้นทาง</span>
                 </h2>
 
-                <div className="flex items-center justify-between gap-2 p-4 bg-paper-2 border border-rule-2 overflow-x-auto">
+                <div className="flex items-center justify-between gap-2 p-4 bg-paper-2 border border-rule-2 rounded-[var(--radius-inner)] overflow-x-auto">
                   <pre className="font-mono text-xs whitespace-pre-wrap text-ink">
                     {repo.quick_start}
                   </pre>
                   <button
                     type="button"
                     onClick={copyQuickStart}
-                    className="px-3 py-1.5 border border-rule-2 bg-paper text-ink hover:bg-paper-3 shrink-0 cursor-pointer inline-flex items-center gap-1.5 text-xs font-editorial-label whitespace-nowrap"
+                    className="dusk-pill-ghost px-3.5 py-1.5 shrink-0 cursor-pointer inline-flex items-center gap-1.5 text-xs font-editorial-label whitespace-nowrap"
                   >
                     {copiedCode ? (
                       <>
@@ -855,7 +855,7 @@ export function ArticleReader({
                     href={repo.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label bg-ink text-paper border border-ink hover:bg-ink-2 whitespace-nowrap"
+                    className="dusk-pill-primary inline-flex items-center gap-2 min-h-[44px] px-5 py-2 text-sm font-editorial-label whitespace-nowrap"
                   >
                     <Code2 className="w-4 h-4 shrink-0" />
                     <span>เปิด GitHub Repository ({repo.owner}/{repo.name})</span>
@@ -866,7 +866,7 @@ export function ArticleReader({
                     href={`${repo.url}/issues`}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label border border-rule-2 bg-paper text-ink hover:bg-paper-2 whitespace-nowrap"
+                    className="dusk-pill-ghost inline-flex items-center gap-2 min-h-[44px] px-5 py-2 text-sm font-editorial-label whitespace-nowrap"
                   >
                     <span>ดู Issues &amp; ปัญหาที่พบ ({repo.open_issues})</span>
                     <ExternalLink className="w-3.5 h-3.5 shrink-0" />
@@ -1182,7 +1182,7 @@ export function ArticleReader({
                     href={news.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2 text-sm font-editorial-label bg-ink text-paper border border-ink hover:bg-ink-2 whitespace-nowrap"
+                    className="dusk-pill-primary inline-flex items-center gap-2 min-h-[44px] px-5 py-2 text-sm font-editorial-label whitespace-nowrap"
                   >
                     <Newspaper className="w-4 h-4 shrink-0" />
                     <span>เปิดอ่านประกาศต้นฉบับบน Google Blog</span>

@@ -127,20 +127,25 @@ export function Header({
   };
 
   return (
-    <header className="w-full bg-paper border-b-2 border-ink">
-      {/* Dark Ink Edition Dateline Bar */}
-      <div className="w-full bg-ink text-paper border-b border-rule-2">
+    <header className="w-full dusk-nav-glass sticky top-0 z-[var(--z-sticky-nav)]">
+      {/* Calm Slate Dateline Bar */}
+      <div className="w-full bg-paper-2 border-b border-rule">
         <div className="container py-2 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-editorial-label">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 min-w-0">
-            <span className="inline-flex items-center gap-2 font-medium text-paper truncate">
-              <span className="inline-block w-2 h-2 bg-accent shrink-0" aria-hidden="true" />
-              <span>{thaiDateStr ? `ฉบับประจำ${thaiDateStr}` : "ฉบับประจำวันนี้"}</span>
+            <span className="inline-flex items-center gap-2 font-medium text-ink truncate">
+              <span
+                className="inline-block w-2 h-2 rounded-full bg-accent shrink-0"
+                aria-hidden="true"
+              />
+              <span>
+                {thaiDateStr ? `ฉบับประจำ${thaiDateStr}` : "ฉบับประจำวันนี้"}
+              </span>
             </span>
-            <span className="hidden sm:inline border-l border-paper-3/25 pl-4 text-paper-2">
+            <span className="hidden sm:inline border-l border-rule pl-4 text-muted">
               ตีพิมพ์อัตโนมัติทุกเช้า 07:00 น.
             </span>
             {relativeTime && (
-              <span className="hidden md:inline border-l border-paper-3/25 pl-4 text-paper-2">
+              <span className="hidden md:inline border-l border-rule pl-4 text-muted">
                 ซิงก์ข้อมูล {relativeTime}
               </span>
             )}
@@ -150,17 +155,21 @@ export function Header({
             <button
               type="button"
               onClick={handleNotificationClick}
-              className="inline-flex items-center gap-1.5 min-h-[34px] px-3 py-1 border border-paper/40 bg-ink-2 text-paper hover:bg-accent hover:border-accent hover:text-accent-ink transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap text-xs sm:text-sm font-editorial-label"
+              className={`inline-flex items-center gap-1.5 min-h-[34px] px-3.5 py-1 transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap text-xs sm:text-sm font-editorial-label ${
+                notifPermission === "granted"
+                  ? "dusk-pill-primary"
+                  : "dusk-pill-ghost"
+              }`}
             >
               {notifPermission === "granted" ? (
                 <>
-                  <BellRing className="w-3.5 h-3.5 text-accent-ink shrink-0" />
+                  <BellRing className="w-3.5 h-3.5 shrink-0" />
                   <span className="hidden sm:inline">รับข่าวเช้า: เปิด</span>
                   <span className="sm:hidden">เปิด</span>
                 </>
               ) : (
                 <>
-                  <Bell className="w-3.5 h-3.5 shrink-0" />
+                  <Bell className="w-3.5 h-3.5 text-accent shrink-0" />
                   <span className="hidden sm:inline">แจ้งเตือนฉบับเช้า</span>
                   <span className="sm:hidden">แจ้งเตือน</span>
                 </>
@@ -170,7 +179,7 @@ export function Header({
             {toastMsg && (
               <div
                 role="status"
-                className="absolute right-0 top-full mt-2 z-50 whitespace-nowrap bg-ink text-paper border border-paper-2 text-xs px-3 py-1.5 flex items-center gap-1.5"
+                className="dusk-glass absolute right-0 top-full mt-2 z-50 whitespace-nowrap text-ink border border-rule-2 text-xs px-3.5 py-2 flex items-center gap-1.5"
               >
                 <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-accent" />
                 <span>{toastMsg}</span>
@@ -180,20 +189,20 @@ export function Header({
         </div>
       </div>
 
-      {/* Masthead with Editorial Figure Ledger */}
+      {/* Dusk Masthead & Ruled Telemetry Tally */}
       <div className="container">
-        <div className="py-6 sm:py-8 flex flex-col xl:flex-row xl:items-end justify-between gap-6 border-b-4 border-ink">
-          <div className="space-y-2.5 min-w-0">
-            <div className="flex items-center gap-3.5">
+        <div className="py-5 sm:py-6 flex flex-col xl:flex-row xl:items-end justify-between gap-5 border-b border-rule">
+          <div className="space-y-2 min-w-0">
+            <div className="flex items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/logo.svg"
                 alt="RepoRadar Seal"
-                width={44}
-                height={44}
-                className="w-9 h-9 sm:w-11 sm:h-11 shrink-0"
+                width={40}
+                height={40}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-[var(--radius-inner)] shrink-0"
               />
-              <h1 className="font-editorial-display text-4xl sm:text-6xl leading-[0.94] text-ink max-w-none">
+              <h1 className="font-editorial-display text-3xl sm:text-5xl leading-[1.02] text-ink max-w-none">
                 THE REPO RADAR
               </h1>
             </div>
@@ -203,27 +212,45 @@ export function Header({
             </p>
           </div>
 
-          {/* Issue Telemetry Ledger (Editorial figures parted by hairlines) */}
-          <div className="grid grid-cols-3 border-t-2 border-ink pt-3 gap-0 divide-x divide-rule shrink-0 xl:min-w-[360px]">
+          {/* Ruled Dusk Figure Tally (no boxed stat tiles) */}
+          <div className="grid grid-cols-3 border-t border-rule pt-3 gap-0 divide-x divide-rule shrink-0 xl:min-w-[360px]">
             <div className="pr-4 sm:pr-6">
-              <div className="font-editorial-display text-2xl sm:text-3xl text-ink leading-none num">
-                {papersCount ?? totalItems}
+              <div className="flex items-baseline gap-2">
+                <span className="font-editorial-display text-2xl sm:text-3xl text-ink leading-none num">
+                  {papersCount ?? totalItems}
+                </span>
+                <span
+                  className="w-2 h-2 rounded-full bg-accent shrink-0"
+                  aria-hidden="true"
+                />
               </div>
               <div className="text-xs font-editorial-label text-muted mt-1 whitespace-nowrap">
                 เปเปอร์วันนี้
               </div>
             </div>
             <div className="px-4 sm:px-6">
-              <div className="font-editorial-display text-2xl sm:text-3xl text-ink leading-none num">
-                {reposCount ?? 0}
+              <div className="flex items-baseline gap-2">
+                <span className="font-editorial-display text-2xl sm:text-3xl text-ink leading-none num">
+                  {reposCount ?? 0}
+                </span>
+                <span
+                  className="w-2 h-2 rounded-full bg-accent-2 shrink-0"
+                  aria-hidden="true"
+                />
               </div>
               <div className="text-xs font-editorial-label text-muted mt-1 whitespace-nowrap">
                 Repos มาแรง
               </div>
             </div>
             <div className="pl-4 sm:pl-6">
-              <div className="font-editorial-display text-2xl sm:text-3xl text-accent leading-none num">
-                {newsCount ?? 0}
+              <div className="flex items-baseline gap-2">
+                <span className="font-editorial-display text-2xl sm:text-3xl text-accent leading-none num">
+                  {newsCount ?? 0}
+                </span>
+                <span
+                  className="w-2 h-2 rounded-full bg-accent shrink-0"
+                  aria-hidden="true"
+                />
               </div>
               <div className="text-xs font-editorial-label text-muted mt-1 whitespace-nowrap">
                 ข่าว AI Lab
@@ -232,61 +259,67 @@ export function Header({
           </div>
         </div>
 
-        {/* Primary Navigation Rail & Search */}
-        <div className="py-3 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 bg-paper">
+        {/* Navigation Pill Rail & Search Pill */}
+        <div className="py-3 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
           <nav
             aria-label="หมวดหมู่หลักของวารสาร"
-            className="flex items-center gap-1.5 rail-fade py-0.5"
+            className="flex items-center gap-2 rail-fade py-0.5"
           >
             <button
               type="button"
               onClick={() => onSelectSection("papers")}
-              className={`inline-flex items-center gap-2 min-h-[40px] px-3 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-2 min-h-[38px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "papers"
                   ? "bg-ink text-paper border-ink"
-                  : "bg-paper-2 text-ink border-rule hover:border-ink"
+                  : "bg-paper-2 text-ink-2 border-rule hover:border-accent hover:text-ink"
               }`}
             >
               <BookOpen className="w-4 h-4 shrink-0" />
-              <span className="hidden lg:inline">เปเปอร์วิจัย AI (Daily Papers)</span>
+              <span className="hidden lg:inline">
+                เปเปอร์วิจัย AI (Daily Papers)
+              </span>
               <span className="lg:hidden">เปเปอร์วิจัย AI</span>
             </button>
 
             <button
               type="button"
               onClick={() => onSelectSection("repos")}
-              className={`inline-flex items-center gap-2 min-h-[40px] px-3 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-2 min-h-[38px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "repos"
                   ? "bg-ink text-paper border-ink"
-                  : "bg-paper-2 text-ink border-rule hover:border-ink"
+                  : "bg-paper-2 text-ink-2 border-rule hover:border-accent hover:text-ink"
               }`}
             >
               <Code2 className="w-4 h-4 shrink-0" />
-              <span className="hidden lg:inline">โอเพนซอร์ส (GitHub Repos)</span>
+              <span className="hidden lg:inline">
+                โอเพนซอร์ส (GitHub Repos)
+              </span>
               <span className="lg:hidden">GitHub Repos</span>
             </button>
 
             <button
               type="button"
               onClick={() => onSelectSection("news")}
-              className={`inline-flex items-center gap-2 min-h-[40px] px-3 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-2 min-h-[38px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "news"
                   ? "bg-ink text-paper border-ink"
-                  : "bg-paper-2 text-ink border-rule hover:border-ink"
+                  : "bg-paper-2 text-ink-2 border-rule hover:border-accent hover:text-ink"
               }`}
             >
               <Newspaper className="w-4 h-4 shrink-0" />
-              <span className="hidden lg:inline">ข่าว AI Lab (Google Blog)</span>
+              <span className="hidden lg:inline">
+                ข่าว AI Lab (Google Blog)
+              </span>
               <span className="lg:hidden">ข่าว AI Lab</span>
             </button>
 
             <button
               type="button"
               onClick={() => onSelectSection("saved")}
-              className={`inline-flex items-center gap-2 min-h-[40px] px-3 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-2 min-h-[38px] px-3.5 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "saved"
                   ? "bg-accent text-accent-ink border-accent"
-                  : "bg-paper-2 text-ink border-rule hover:border-ink"
+                  : "bg-paper-2 text-ink-2 border-rule hover:border-accent hover:text-ink"
               }`}
             >
               <Bookmark className="w-4 h-4 shrink-0" />
@@ -295,9 +328,9 @@ export function Header({
             </button>
           </nav>
 
-          {/* Editorial Search Input */}
+          {/* Dusk Search Pill */}
           <div className="relative w-full md:w-56 lg:w-64 shrink-0">
-            <Search className="w-4 h-4 text-ink-2 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-muted absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="search"
               name="search"
@@ -305,7 +338,7 @@ export function Header({
               value={searchQuery}
               onChange={(e) => onSearch(e.target.value)}
               placeholder="ค้นหาบทความ, หัวข้อ, ภาษา..."
-              className="w-full min-h-[40px] pl-9 pr-3 py-1.5 text-sm font-editorial-label border border-ink bg-paper-2 text-ink placeholder:text-muted focus:bg-paper focus:border-accent"
+              className="w-full min-h-[38px] pl-10 pr-4 py-1.5 text-sm font-editorial-label rounded-full border border-rule-2 bg-paper-2 text-ink placeholder:text-muted focus:bg-paper-3 focus:border-accent"
             />
           </div>
         </div>
