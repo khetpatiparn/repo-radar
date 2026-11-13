@@ -241,62 +241,62 @@ export function Header({
             <button
               type="button"
               onClick={() => onSelectSection("papers")}
-              className={`inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-2 min-h-[40px] px-3 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "papers"
                   ? "bg-ink text-paper border-ink"
                   : "bg-paper-2 text-ink border-rule hover:border-ink"
               }`}
             >
               <BookOpen className="w-4 h-4 shrink-0" />
-              <span className="hidden sm:inline">คอลัมน์เปเปอร์วิจัย AI (Daily Papers)</span>
-              <span className="sm:hidden">เปเปอร์วิจัย AI</span>
+              <span className="hidden lg:inline">เปเปอร์วิจัย AI (Daily Papers)</span>
+              <span className="lg:hidden">เปเปอร์วิจัย AI</span>
             </button>
 
             <button
               type="button"
               onClick={() => onSelectSection("repos")}
-              className={`inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-2 min-h-[40px] px-3 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "repos"
                   ? "bg-ink text-paper border-ink"
                   : "bg-paper-2 text-ink border-rule hover:border-ink"
               }`}
             >
               <Code2 className="w-4 h-4 shrink-0" />
-              <span className="hidden sm:inline">คอลัมน์โอเพนซอร์ส (GitHub Repos)</span>
-              <span className="sm:hidden">GitHub Repos</span>
+              <span className="hidden lg:inline">โอเพนซอร์ส (GitHub Repos)</span>
+              <span className="lg:hidden">GitHub Repos</span>
             </button>
 
             <button
               type="button"
               onClick={() => onSelectSection("news")}
-              className={`inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-2 min-h-[40px] px-3 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "news"
                   ? "bg-ink text-paper border-ink"
                   : "bg-paper-2 text-ink border-rule hover:border-ink"
               }`}
             >
               <Newspaper className="w-4 h-4 shrink-0" />
-              <span className="hidden sm:inline">คอลัมน์ข่าวสาร AI Lab (Google Blog)</span>
-              <span className="sm:hidden">ข่าว AI Lab</span>
+              <span className="hidden lg:inline">ข่าว AI Lab (Google Blog)</span>
+              <span className="lg:hidden">ข่าว AI Lab</span>
             </button>
 
             <button
               type="button"
               onClick={() => onSelectSection("saved")}
-              className={`inline-flex items-center gap-2 min-h-[40px] px-3.5 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+              className={`inline-flex items-center gap-2 min-h-[40px] px-3 py-2 text-xs sm:text-sm font-editorial-label border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                 activeSection === "saved"
                   ? "bg-accent text-accent-ink border-accent"
                   : "bg-paper-2 text-ink border-rule hover:border-ink"
               }`}
             >
               <Bookmark className="w-4 h-4 shrink-0" />
-              <span className="hidden sm:inline">ที่คั่นหน้าไว้ ({savedCount})</span>
-              <span className="sm:hidden">คั่นหน้า ({savedCount})</span>
+              <span className="hidden lg:inline">ที่คั่นหน้า ({savedCount})</span>
+              <span className="lg:hidden">คั่นหน้า ({savedCount})</span>
             </button>
           </nav>
 
           {/* Editorial Search Input */}
-          <div className="relative w-full md:w-64 lg:w-72 shrink-0">
+          <div className="relative w-full md:w-56 lg:w-64 shrink-0">
             <Search className="w-4 h-4 text-ink-2 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="search"
