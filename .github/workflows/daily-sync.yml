@@ -2,12 +2,21 @@ name: Daily Trending Sync
 
 on:
   schedule:
-    - cron: '15 0 * * *' # Run daily at 00:15 UTC (07:15 AM ICT / เวลาไทย เลี่ยงช่วงคิวชนตอนต้นชั่วโมง)
-  workflow_dispatch: # Allow manual trigger
+    # GitHub อาจดีเลย์หรือ "ทิ้ง" scheduled run ได้เมื่อโหลดสูง (โดยเฉพาะช่วงต้นชั่วโมง)
+    # จึงตั้งรอบหลัก + รอบสำรอง โดยรอบสำรองจะข้ามเองถ้าวันนี้ซิงก์สำเร็จไปแล้ว
+    - cron: '37 23 * * *' # รอบหลัก   06:37 น. เวลาไทย (23:37 UTC ของวันก่อน)
+    - cron: '23 1 * * *'  # รอบสำรอง 1 08:23 น. เวลาไทย
+    - cron: '47 2 * * *'  # รอบสำรอง 2 09:47 น. เวลาไทย
+  workflow_dispatch: # กดรันเองได้เสมอ (บังคับซิงก์)
+
+concurrency:
+  group: daily-sync
+  cancel-in-progress: false
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       contents: write
 
@@ -18,33 +27,60 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
+      - name: Skip if already synced today (Asia/Bangkok)
+        id: guard
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "Manual run -> always sync"
+            echo "skip=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          TODAY=$(TZ=Asia/Bangkok date +%F)
+          LAST=$(git log -1 --author="github-actions\[bot\]" --format=%cI -- src/data/ || true)
+          LAST_DAY=$( [ -n "$LAST" ] && TZ=Asia/Bangkok date -d "$LAST" +%F || echo none )
+          echo "Today (ICT): $TODAY | Last bot data sync (ICT): $LAST_DAY"
+          if [ "$LAST_DAY" = "$TODAY" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Setup Node.js
+        if: steps.guard.outputs.skip != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
+        if: steps.guard.outputs.skip != 'true'
         run: npm ci --legacy-peer-deps
 
       - name: Run Data Pipeline
+        if: steps.guard.outputs.skip != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run pipeline
 
       - name: Check for changes
+        if: steps.guard.outputs.skip != 'true'
         id: git-check
         run: |
           git diff --exit-code src/data/ || echo "changes_exist=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push changes
-        if: steps.git-check.outputs.changes_exist == 'true'
+        if: steps.guard.outputs.skip != 'true' && steps.git-check.outputs.changes_exist == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/repos.json src/data/papers.json
-          git commit -m "chore(data): sync daily trending repos and AI research papers [skip ci]"
-          git pull --rebase origin main
-          git push origin main
-
+          # ห้ามใส่ [skip ci] เพราะ Vercel จะข้ามการ deploy commit นั้น
+          git commit -m "chore(data): sync daily trending repos and AI research papers"
+          # main อาจมี commit ใหม่ระหว่างที่ pipeline รัน (~8-10 นาที) -> rebase ก่อน push
+          # -X theirs = ถ้าไฟล์ data ชนกัน ให้ใช้ข้อมูลชุดใหม่ของบอท
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push origin main && exit 0
+            echo "Push attempt $i failed, retrying..."; sleep 5
+          done
+          exit 1
