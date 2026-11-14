@@ -1,6 +1,138 @@
 {
-  "updated_at": "2026-11-13T06:26:42.211Z",
+  "updated_at": "2026-11-14T03:40:50.494Z",
   "articles": [
+    {
+      "id": "developers-tools-google-cloud-credits-gdp-ai-stu-4207b3",
+      "title": "Claim your Google Cloud Credits in Google AI Studio",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-cloud-credits-gdp-ai-studio/",
+      "source": "Google Developers",
+      "published_date": "2026-11-13",
+      "published_at": "2026-11-13T20:30:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.488Z",
+      "authors": [
+        "Bala Muthukrishnan",
+        "Seth Odoom"
+      ],
+      "rss_categories": [
+        "Developer tools"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Studio_BlogBanner_990x556.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "นักพัฒนาเฮ! Google เปิดทางเคลม Google Cloud Credits ง่ายๆ ตรงจาก AI Studio",
+      "short_teaser": "Google ปรับปรุงประสบการณ์นักพัฒนาด้วยการรวมระบบเบิกใช้เครดิต Cloud เข้าไว้ใน Google AI Studio ช่วยลดความซับซ้อนในการเข้าถึงทรัพยากรประมวลผลสำหรับงาน AI ให้สะดวกยิ่งขึ้น",
+      "tldr_takeaways": [
+        "นักพัฒนาสามารถกดรับ Google Cloud Credits ได้โดยตรงผ่านหน้าจอ Google AI Studio",
+        "ช่วยลดขั้นตอนการสลับแพลตฟอร์มเพื่อบริหารจัดการงบประมาณค่า Cloud",
+        "สนับสนุนให้นักพัฒนานำโมเดลไปต่อยอดใช้งานบนระบบ Production ของ Google Cloud ได้ทันที"
+      ],
+      "layman_story": [
+        "ที่ผ่านมานักพัฒนาที่สร้างต้นแบบบน Google AI Studio มักประสบปัญหาความยุ่งยากในการเชื่อมต่อและขอรับสิทธิ์สนับสนุนค่าใช้จ่ายเพื่อขยายผลงานไปสู่ระดับการผลิต ทำให้ขั้นตอนการเปลี่ยนจากโปรเจกต์ทดลองไปสู่แอปพลิเคชันจริงมีความติดขัด",
+        "การอัปเดตครั้งนี้เป็นการรวมเอาหน้าจัดการ Google Cloud Credits มาไว้ใน Google AI Studio โดยตรง ช่วยให้นักพัฒนาสามารถดูสถานะและกดใช้เครดิตเพื่อครอบคลุมค่าบริการบน Google Cloud ได้ทันทีผ่าน Interface ที่คุ้นเคย",
+        "ความเปลี่ยนแปลงนี้สะท้อนถึงกลยุทธ์ของ Google ที่ต้องการลด Friction สำหรับนักพัฒนา AI ช่วยให้เหล่า Builders สามารถโฟกัสกับการเขียน Prompt หรือจูนโมเดลได้โดยไม่ต้องพะวงเรื่องการจัดการงบประมาณในหลายจุด เป็นสัญญาณว่า Google กำลังผลักดันให้ AI Studio เป็นจุดเริ่มต้นของทุกโปรเจกต์ AI"
+      ],
+      "impact_comparison": {
+        "before": "นักพัฒนาต้องสลับหน้าจอระหว่างเครื่องมือ AI Studio กับ Google Cloud Console เพื่อจัดการงบและเครดิต",
+        "after": "เคลมและจัดการเครดิตผ่านหน้าต่างเดียวได้ทันที เพิ่มความลื่นไหลในการพัฒนา",
+        "why_it_matters": "ช่วยประหยัดเวลาการทำงานของ DevOps และนักพัฒนา ทำให้การ Scale งานจากโมเดลทดลองไปสู่ระบบใหญ่ทำได้รวดเร็วขึ้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ตรวจสอบสิทธิ์ใน AI Studio",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ล็อกอินเข้าสู่ Google AI Studio และเข้าไปที่ส่วนการจัดการ Credits เพื่อดูว่าบัญชีของคุณได้รับสิทธิ์ในการเคลมเครดิตหรือไม่",
+          "example": "ใช้เครดิตที่ได้เริ่มทดสอบยิง API ไปยังโมเดล Gemini บนระบบ Production เพื่อดูประสิทธิภาพจริง"
+        },
+        {
+          "title": "คำนวณต้นทุนการใช้งาน (Cost Modeling)",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "วางแผนการใช้เครดิตให้สอดคล้องกับการขยายฟีเจอร์ AI ในระยะยาว",
+          "example": "ประเมินจำนวน Token ที่ต้องการใช้ต่อเดือนและนำเครดิตที่ได้รับไปหักลบค่าใช้จ่ายเบื้องต้นในช่วง Beta"
+        },
+        {
+          "title": "บริหารจัดการโปรเจกต์ผ่าน Dashboard",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใช้หน้าจอของ AI Studio ในการควบคุมการใช้ทรัพยากรของทั้งทีมในที่เดียว",
+          "example": "ตรวจสอบว่ามีการใช้งาน API เกินกว่างบประมาณที่กำหนดไว้หรือไม่ผ่านเมนู Credits โดยตรง"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ระบบการเคลม Cloud Credits ภายในหน้าจอ AI Studio",
+          "การเชื่อมโยงข้อมูลการใช้งานระหว่าง AI Studio และ Google Cloud โปรเจกต์"
+        ],
+        "watchouts": [
+          "เงื่อนไขการให้เครดิตอาจขึ้นอยู่กับระดับของโปรเจกต์และภูมิภาค",
+          "ต้องตรวจสอบข้อกำหนดการใช้งานเครดิตให้ดีก่อนกดยืนยัน"
+        ]
+      }
+    },
+    {
+      "id": "gemini-app-google-wallet-gemini-app-12b921",
+      "title": "Connect Google Wallet to Gemini for personal finance insights",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-13",
+      "published_at": "2026-11-13T17:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [
+        "News from Google Team"
+      ],
+      "rss_categories": [
+        "Gemini App",
+        "Google Pay"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Personal_Intelligence_Wallet_27.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Gemini ฉลาดขึ้นอีกขั้น! เชื่อมต่อ Google Wallet วิเคราะห์การเงินส่วนบุคคลให้คุณแล้ว",
+      "short_teaser": "ผู้ใช้ Gemini ในสหรัฐฯ สามารถเชื่อมต่อข้อมูลการใช้จ่ายจาก Google Wallet เพื่อรับข้อมูลเชิงลึกด้านการเงินส่วนบุคคลได้แบบ Real-time",
+      "tldr_takeaways": [
+        "Gemini สามารถดึงข้อมูลพฤติกรรมการใช้จ่ายมาเป็นบริบทในการตอบคำถาม",
+        "เพิ่มขีดความสามารถในการช่วยวางแผนการเงินหรือให้คำแนะนำการใช้จ่ายที่เหมาะสม",
+        "เน้นความเป็นส่วนตัวโดยผู้ใช้สามารถเลือกเชื่อมต่อหรือยกเลิกได้เอง"
+      ],
+      "layman_story": [
+        "เดิมที AI แชทบอทมักไม่รู้เรื่องเกี่ยวกับสถานะการเงินส่วนตัวของเรา ทำให้คำแนะนำที่ได้รับเป็นเพียงข้อมูลทั่วไปที่ไม่ได้ปรับเข้ากับความเป็นจริงของตัวเราเอง เช่น การวางแผนงบประมาณที่ไม่ได้อิงจากยอดใช้จ่ายจริงที่เกิดขึ้น",
+        "ด้วยการเชื่อมต่อ Google Wallet เข้ากับ Gemini ระบบจะนำข้อมูลการใช้จ่ายมาวิเคราะห์เพื่อประมวลผลคำตอบที่เฉพาะเจาะจงมากขึ้น เช่น การตั้งคำถามว่า 'เดือนนี้ฉันใช้จ่ายค่ากาแฟไปเท่าไหร่แล้ว' หรือ 'ช่วยสรุปยอดใช้จ่ายหมวดหมู่บันเทิงให้หน่อย' โดย Gemini จะสรุปออกมาให้แบบอ่านง่าย",
+        "ฟีเจอร์นี้ก้าวข้ามจากการเป็นแค่ตัวช่วยพิมพ์ข้อความมาสู่การเป็น 'ผู้ช่วยส่วนตัวทางการเงิน' ซึ่งส่งผลดีต่อวินัยการเงินของผู้ใช้ และในอนาคตเราอาจเห็นการเตือนให้ประหยัดเมื่อใกล้ถึงขีดจำกัดงบประมาณ หรือการสรุปรายจ่ายแบบสรุปผลลัพธ์รายสัปดาห์โดยอัตโนมัติ"
+      ],
+      "impact_comparison": {
+        "before": "การตรวจสอบรายจ่ายต้องทำผ่านแอป Google Wallet เท่านั้น และการสรุปข้อมูลต้องทำเองด้วยมือ",
+        "after": "พูดคุยถาม-ตอบเรื่องการเงินกับ Gemini ได้เลย เหมือนมีผู้ช่วยส่วนตัวมานั่งสรุปบัญชีให้",
+        "why_it_matters": "เปลี่ยนรูปแบบการจัดการการเงินจากเชิงรับ (Reactive) เป็นเชิงรุก (Proactive) ผ่านการสนทนา"
+      },
+      "actionable_playbook": [
+        {
+          "title": "สอบถามพฤติกรรมการใช้จ่าย",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ทดลองถามคำถามซับซ้อนที่ต้องใช้การวิเคราะห์ข้อมูลหลายหมวดหมู่",
+          "example": "ถามว่า 'ฉันใช้จ่ายไปกับหมวดหมู่ใดมากที่สุดในช่วง 30 วันที่ผ่านมา และเปรียบเทียบกับเดือนที่แล้วอย่างไร'"
+        },
+        {
+          "title": "วิเคราะห์โอกาสในการประหยัด",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "นำข้อมูลมาสรุปเพื่อหาแนวทางในการจัดการสภาพคล่องส่วนตัว",
+          "example": "ให้ Gemini ช่วยจัดกลุ่มรายการจ่ายรายเดือนเพื่อดูว่า Subscription ตัวไหนที่ควรยกเลิก"
+        },
+        {
+          "title": "ตั้งค่าการใช้งานส่วนบุคคล",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "เปิดใช้งานการเข้าถึงข้อมูล Wallet ในการตั้งค่า Gemini และทดสอบถามคำถามง่ายๆ ก่อน",
+          "example": "ถามว่า 'สรุปยอดใช้จ่ายทั้งหมดเมื่อสุดสัปดาห์ที่ผ่านมาให้หน่อย'"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Integration ระหว่าง Gemini และ Google Wallet",
+          "การวิเคราะห์พฤติกรรมการใช้จ่ายเพื่อสรุปข้อมูลส่วนบุคคล"
+        ],
+        "watchouts": [
+          "ฟีเจอร์นี้จำกัดเฉพาะผู้ใช้ในสหรัฐฯ ในช่วงแรก",
+          "ต้องระมัดระวังเรื่องการแบ่งปันข้อมูลส่วนตัวกับ AI ในเชิงความปลอดภัย"
+        ]
+      }
+    },
     {
       "id": "google-labs-new-google-flow-tools-d8a095",
       "title": "5 new Google Flow Tools designed by visual artists",
@@ -8,7 +140,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T20:30:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Arathi Sethumadhavan"
       ],
@@ -73,7 +205,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Robby Stein"
       ],
@@ -140,7 +272,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [],
       "rss_categories": [
         "Gemini models",
@@ -204,7 +336,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Koray Kavukcuoglu"
       ],
@@ -269,7 +401,7 @@
       "source": "Google Research",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T17:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [],
       "rss_categories": [
         "Google Research",
@@ -333,7 +465,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T17:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [],
       "rss_categories": [
         "Gemini App"
@@ -396,7 +528,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T14:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Shahram Izadi"
       ],
@@ -463,7 +595,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T14:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Shahram Izadi"
       ],
@@ -528,7 +660,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T18:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Min Choi",
         "Felix Yu"
@@ -595,7 +727,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud",
@@ -659,7 +791,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Gary Eimerman"
       ],
@@ -719,13 +851,78 @@
       }
     },
     {
+      "id": "gemini-app-gemini-on-apple-carplay-845b20",
+      "title": "Talk it through with Gemini, now on Apple CarPlay",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-11",
+      "published_at": "2026-11-11T17:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [
+        "Karan Daryanani"
+      ],
+      "rss_categories": [
+        "Gemini App"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Carplay_hero_image.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "ขับรถก็คุยกับ Gemini ได้! Google ส่ง Gemini ขึ้น Apple CarPlay อย่างเป็นทางการ",
+      "short_teaser": "ผู้ใช้ iPhone สามารถเรียกใช้ความสามารถของ Gemini ผ่านหน้าจอ Apple CarPlay ในรถยนต์ได้แล้ว ช่วยให้การเดินทางสะดวกและปลอดภัยยิ่งขึ้น",
+      "tldr_takeaways": [
+        "Gemini เข้ามาเป็นผู้ช่วยบนรถผ่านหน้าจอ Apple CarPlay",
+        "ช่วยตอบคำถาม นำทาง หรือช่วยงานเบื้องต้นระหว่างขับขี่ได้โดยไม่ต้องจับสมาร์ทโฟน",
+        "ยกระดับประสบการณ์การเชื่อมต่อระหว่างมือถือและระบบความบันเทิงในรถยนต์"
+      ],
+      "layman_story": [
+        "การใช้ AI ในรถยนต์มักมีข้อจำกัดด้านความปลอดภัยและความสะดวกในการสั่งงาน การต้องคอยมองหน้าจอมือถือขณะขับรถถือเป็นเรื่องอันตรายและไม่เอื้อต่อการใช้งานจริงอย่างต่อเนื่อง",
+        "การที่ Gemini มาปรากฏบน Apple CarPlay ช่วยให้ผู้ใช้งานสามารถสั่งงานหรือโต้ตอบกับ AI ได้ผ่านหน้าจอหลักของรถยนต์โดยตรง ไม่ว่าจะเป็นการถามทาง การสรุปเนื้อหา หรือแม้แต่การสอบถามข้อมูลต่างๆ ช่วยให้คนขับมีสมาธิอยู่กับท้องถนนได้มากกว่าเดิม",
+        "นี่คือการขยายขอบเขตของ Gemini ออกจากแค่ในแอปมือถือเข้าสู่ Ecosystem ของยานยนต์ ทำให้ AI กลายเป็นส่วนหนึ่งของการเดินทาง ไม่ใช่แค่อุปกรณ์ในมือ และในอนาคตอาจเชื่อมต่อกับระบบควบคุมภายในรถมากขึ้น"
+      ],
+      "impact_comparison": {
+        "before": "การใช้งาน AI ระหว่างขับรถทำได้ลำบาก หรือจำกัดอยู่เพียงระบบสั่งงานด้วยเสียงมาตรฐาน",
+        "after": "ใช้พลังของ Gemini ช่วยแก้ปัญหาหรือวางแผนเส้นทางผ่านหน้าจอ CarPlay ได้เลย",
+        "why_it_matters": "เป็นการขยายตัวของ AI เข้าสู่ทุกพื้นที่การใช้ชีวิต รวมถึงพื้นที่ส่วนตัวอย่างรถยนต์"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทดลองใช้คำสั่งเสียงบนรถ",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ทดลองว่าการตอบโต้ของ Gemini บน CarPlay มีความเร็วและแม่นยำแค่ไหนเมื่อเทียบกับบนมือถือ",
+          "example": "สั่งงานด้วยเสียงให้ Gemini ช่วยสรุปข่าววันนี้ขณะติดไฟแดง"
+        },
+        {
+          "title": "วางแผนการเดินทางอัจฉริยะ",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "สำรวจโอกาสในการเชื่อมต่อบริการข้อมูลท้องถิ่นเข้ากับ AI บนรถยนต์",
+          "example": "ทดลองให้ Gemini ค้นหาจุดแวะพักหรือร้านอาหารตามเส้นทางที่ขับอยู่"
+        },
+        {
+          "title": "เพิ่มประสิทธิภาพการเดินทาง",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ปรับตัวให้เข้ากับการใช้งาน AI ระหว่างเดินทางเพื่อลดภาระในชีวิตประจำวัน",
+          "example": "ใช้ Gemini ช่วยร่างอีเมลหรือโน้ตสรุปการประชุมสั้นๆ ระหว่างรอถึงจุดหมาย"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "การรองรับ Gemini บนแพลตฟอร์ม Apple CarPlay",
+          "อินเทอร์เฟซที่ถูกปรับแต่งให้เหมาะกับการใช้งานในรถยนต์"
+        ],
+        "watchouts": [
+          "อาจยังมีข้อจำกัดด้านฟีเจอร์เมื่อเทียบกับบนมือถือโดยตรง",
+          "ควรใช้งานด้วยความระมัดระวังเพื่อความปลอดภัยบนท้องถนน"
+        ]
+      }
+    },
+    {
       "id": "google-labs-tabletop-97adab",
       "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
       "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
       "source": "Google Labs",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T16:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Roman Nurik"
       ],
@@ -785,13 +982,81 @@
       }
     },
     {
+      "id": "android-gemini-intelligence-november-features-de-ac5a66",
+      "title": "Gemini Intelligence: New features, on more devices",
+      "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-10",
+      "published_at": "2026-11-10T19:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [
+        "Karthik Thirumalai"
+      ],
+      "rss_categories": [
+        "Gemini App",
+        "Android",
+        "Gemini Notebook",
+        "AI"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Intelligence_Signature27.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "อัปเดตยกแผง! Gemini Intelligence พร้อมลุยบนอุปกรณ์ Android มากขึ้นแล้ว",
+      "short_teaser": "Google ขยายขีดความสามารถของ Gemini Intelligence ไปยังอุปกรณ์ Android รุ่นต่างๆ เพิ่มเติม พร้อมฟีเจอร์ใหม่ที่เน้นการใช้งานจริงและประสิทธิภาพที่ดีขึ้น",
+      "tldr_takeaways": [
+        "Gemini Intelligence เพิ่มการรองรับบนอุปกรณ์ Android หลากหลายรุ่นมากขึ้น",
+        "เพิ่มฟีเจอร์ใหม่ๆ ที่ช่วยให้การทำงานบนมือถือฉลาดและตอบโจทย์ขึ้น",
+        "ผสานรวม Gemini Notebook ให้ทำงานร่วมกับข้อมูลในเครื่องได้ดีขึ้น"
+      ],
+      "layman_story": [
+        "อุปกรณ์ Android มีความหลากหลายสูง ทำให้ผู้ใช้งานส่วนใหญ่อาจไม่ได้สัมผัสกับฟีเจอร์ใหม่ล่าสุดของ Gemini ในเวลาเดียวกัน Google จึงต้องพยายามปรับแต่งเทคโนโลยีเพื่อให้นำพลังของ AI ไปสู่ผู้ใช้จำนวนมากขึ้นได้สำเร็จ",
+        "การอัปเดตครั้งนี้เพิ่มความสามารถในการประมวลผลผ่าน Gemini Intelligence ให้กับมือถือรุ่นที่หลากหลายขึ้น รวมถึงการปรับปรุงให้ Gemini Notebook ทำงานได้ลื่นไหลขึ้น ทำให้ผู้ใช้สามารถจดบันทึก สรุปเนื้อหา และจัดการข้อมูลส่วนตัวได้โดยที่ AI เข้าใจบริบทของผู้ใช้ผ่านตัวเครื่อง Android ได้ดีขึ้นกว่าเดิม",
+        "นี่คือการปูทางไปสู่ยุคที่สมาร์ทโฟนกลายเป็น AI-First อย่างเต็มตัว การเพิ่มจำนวนอุปกรณ์ที่รองรับแสดงให้เห็นว่า Google พร้อมที่จะนำ AI มาเป็นมาตรฐานใหม่บนระบบปฏิบัติการ Android ไม่ว่าคุณจะใช้เครื่องรุ่นไหนก็ตาม"
+      ],
+      "impact_comparison": {
+        "before": "ฟีเจอร์ระดับสูงบางตัวจำกัดอยู่แค่ในสมาร์ทโฟนเรือธงรุ่นท็อปเท่านั้น",
+        "after": "ผู้ใช้ Android รุ่นทั่วไปสามารถเข้าถึงพลังของ Gemini ได้ใกล้เคียงกับรุ่นท็อปมากขึ้น",
+        "why_it_matters": "ช่วยให้ Ecosystem ของ Android แข็งแกร่งขึ้นด้วยพลังของ AI ที่เข้าถึงได้ทุกคน"
+      },
+      "actionable_playbook": [
+        {
+          "title": "อัปเดตและสำรวจฟีเจอร์ใหม่",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ทดลองใช้ฟีเจอร์ใหม่ผ่านแอป Google บนมือถือของคุณเพื่อดูความแตกต่าง",
+          "example": "ทดสอบฟีเจอร์สรุปเนื้อหาบน Gemini Notebook ว่าทำได้ดีขึ้นแค่ไหนกับโน้ตยาวๆ"
+        },
+        {
+          "title": "สร้างฟีเจอร์ใหม่โดยอิงจาก Gemini",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ปรับแต่ง UX ของแอปพลิเคชันให้ทำงานร่วมกับ Gemini ได้ง่ายขึ้น",
+          "example": "รองรับการเรียกใช้ฟีเจอร์ของ Gemini เพื่อสรุปข้อมูลภายในแอปธุรกิจของคุณ"
+        },
+        {
+          "title": "เพิ่มประสิทธิภาพการจัดการโน้ต",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใช้ Gemini Notebook ในการช่วยจัดการข้อมูลในสมาร์ทโฟนให้เป็นระเบียบ",
+          "example": "รวบรวมโน้ตการประชุมและให้ Gemini ช่วยสรุปเป็นลิสต์สิ่งที่ต้องทำ (Action Items)"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "การรองรับ Gemini Intelligence บน Android ที่กว้างขวางขึ้น",
+          "ฟีเจอร์ใหม่ที่เน้นการประมวลผลโน้ตและข้อมูลในเครื่อง"
+        ],
+        "watchouts": [
+          "ฟีเจอร์บางอย่างอาจต้องการสเปกเครื่องขั้นต่ำที่แตกต่างกัน",
+          "ควรหมั่นอัปเดต Google Play Services เพื่อให้เข้าถึงฟีเจอร์ล่าสุดได้ทันที"
+        ]
+      }
+    },
+    {
       "id": "gemini-models-multimodal-knowledge-agent-benchma-5140ae",
       "title": "Introducing the Multimodal Knowledge Agent benchmark",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
       "source": "Google Official Blog",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T16:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Rohan Doshi",
         "Ben Caine"
@@ -800,7 +1065,7 @@
         "Gemini models"
       ],
       "category": "Gemini & Models",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/01_Hero_MKA_Benchmark_2784x1566.png",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/01_Hero_MKA_Benchmark_2784x1566.max-600x600.format-webp.webp",
       "reading_time_minutes": 4,
       "hook_headline": "Google เปิดตัว 'Multimodal Knowledge Agent' Benchmark วัดความสามารถ AI Agent ในงานวิเคราะห์ภาพและเอกสารซับซ้อน",
       "short_teaser": "Google เปิดตัวชุดทดสอบมาตรฐานใหม่ Multimodal Knowledge Agent เพื่อประเมินว่า AI Agent สามารถให้เหตุผลข้ามข้อมูลภาพ ตาราง และความรู้ที่ซับซ้อนได้แม่นยำแค่ไหน",
@@ -857,7 +1122,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T16:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [
         "Koray Kavukcuoglu"
       ],
@@ -916,13 +1181,145 @@
       }
     },
     {
+      "id": "developers-tools-gemini-4-carbon-developers-8951a4",
+      "title": "Gemini 4 Carbon is now available for developers.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-4-carbon-developers/",
+      "source": "Google Developers",
+      "published_date": "2026-11-10",
+      "published_at": "2026-11-10T16:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [],
+      "rss_categories": [
+        "Developer tools"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/CarbonLogo_Socialshare.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google เปิดตัว Gemini 4 Carbon: โมเดลทรงพลังที่สุดเพื่อการรักษาความปลอดภัยไซเบอร์และงานระยะยาว",
+      "short_teaser": "Gemini 4 Carbon มาพร้อมกับขีดความสามารถในการวิเคราะห์ข้อมูลซับซ้อนที่แม่นยำขึ้น รองรับงานระยะยาวได้อย่างมีประสิทธิภาพ พร้อมเน้นความเป็นมิตรต่อสิ่งแวดล้อมในการประมวลผล",
+      "tldr_takeaways": [
+        "Gemini 4 Carbon คือโมเดลระดับแนวหน้า (Frontier Model) ที่เน้นประสิทธิภาพด้าน Cybersecurity",
+        "รองรับการประมวลผลงานแบบ long-horizon ที่ซับซ้อนและใช้เวลานานได้ดีเยี่ยม",
+        "การออกแบบสถาปัตยกรรมมุ่งเน้นความยั่งยืนและการใช้พลังงานที่มีประสิทธิภาพ"
+      ],
+      "layman_story": [
+        "ในโลกปัจจุบันที่ภัยคุกคามทางไซเบอร์ซับซ้อนขึ้นเรื่อยๆ นักพัฒนาต้องการโมเดลที่มากกว่าแค่การตอบคำถามทั่วไป แต่ต้องสามารถวิเคราะห์ตรรกะที่ลึกซึ้งและตรวจจับความผิดปกติที่ซ่อนอยู่ในข้อมูลจำนวนมหาศาลได้ ซึ่งเป็นปัญหาใหญ่ของโมเดลรุ่นก่อน",
+        "Gemini 4 Carbon ถูกพัฒนาขึ้นเพื่อแก้โจทย์นี้โดยเฉพาะ ด้วยความสามารถในการประมวลผลระยะยาว (long-horizon) ทำให้มันเข้าใจบริบทของงานที่ต้องใช้ความต่อเนื่องได้แม่นยำ ไม่ว่าจะเป็นการไล่ตรวจ Codebases ขนาดใหญ่ หรือการติดตามช่องโหว่ความปลอดภัยที่ซับซ้อน",
+        "นอกจากความฉลาดแล้ว Google ยังให้ความสำคัญกับเรื่องความยั่งยืน ทำให้นักพัฒนาที่ใช้โมเดลนี้สามารถลดภาระด้านพลังงานในการคำนวณลงได้ ถือเป็นก้าวสำคัญที่เปลี่ยนผ่าน AI ให้เข้าสู่ยุคที่ทั้ง 'ฉลาด' และ 'รับผิดชอบ' ต่อโลกไปพร้อมกัน"
+      ],
+      "impact_comparison": {
+        "before": "การวิเคราะห์ Code ขนาดใหญ่หรือความปลอดภัยมักเจออาการ 'ลืมบริบท' หรือความแม่นยำลดลงเมื่อเจองานที่ต้องใช้เหตุผลต่อเนื่องยาวนาน",
+        "after": "Gemini 4 Carbon จัดการงานที่มีความซับซ้อนได้ลึกซึ้งขึ้น โดยยังรักษาความแม่นยำตลอดทั้ง Workflow",
+        "why_it_matters": "นี่คือเครื่องมือสำคัญที่ช่วยให้ Security Operations ประหยัดเวลาในการตรวจสอบด้วยตนเอง และเพิ่มความปลอดภัยให้กับซอฟต์แวร์ระดับองค์กร"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ปรับแต่งระบบ Threat Detection",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "นำ Gemini 4 Carbon ไปต่อยอดกับ pipeline ตรวจสอบช่องโหว่ของระบบ",
+          "example": "ใช้โมเดลวิเคราะห์ Log ไฟล์ขนาดใหญ่เพื่อค้นหา Pattern ของการโจมตีที่ซับซ้อน"
+        },
+        {
+          "title": "เพิ่มประสิทธิภาพการจัดการ Codebases",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ใช้เป็นเครื่องมือช่วย Refactor และ Audit โค้ดในโครงการขนาดใหญ่",
+          "example": "การทำ Automated Code Review ที่เน้นความปลอดภัยเป็นสำคัญ"
+        },
+        {
+          "title": "วางแผนกลยุทธ์ AI ที่ยั่งยืน",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "เปลี่ยนผ่านการใช้โมเดล AI มาสู่โมเดลที่เน้นประสิทธิภาพพลังงาน (Carbon efficiency)",
+          "example": "การคำนวณต้นทุนและการประหยัดพลังงานเมื่อเปลี่ยนมาใช้ Gemini 4 Carbon"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ยกระดับขีดความสามารถด้าน Cybersecurity แบบ Native",
+          "รองรับงานต่อเนื่องระยะยาวได้อย่างคงเส้นคงวา"
+        ],
+        "watchouts": [
+          "ความต้องการทรัพยากรระบบสำหรับการ Fine-tuning",
+          "การเปรียบเทียบค่าใช้จ่ายรายหน่วยเมื่อเทียบกับรุ่นก่อนหน้า"
+        ]
+      }
+    },
+    {
+      "id": "company-announcements-adobe-google-partnership-i-c5fffc",
+      "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.",
+      "url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/",
+      "source": "Google DeepMind",
+      "published_date": "2026-11-10",
+      "published_at": "2026-11-10T14:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [],
+      "rss_categories": [
+        "Google DeepMind",
+        "Company announcements (DEPRECATED)",
+        "Google Workspace",
+        "Google Cloud",
+        "AI",
+        "Gemini App",
+        "Gemini models"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Adobe_snippet_hero.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google จับมือ Adobe ผสานพลังเครื่องมือสร้างสรรค์เข้าสู่ Workspace อย่างไร้รอยต่อ",
+      "short_teaser": "ความร่วมมือครั้งใหม่ที่ให้คุณจัดการ PDF และงานเอกสารผ่าน Adobe ได้โดยตรงใน Google Drive พร้อมเสริมความฉลาดด้วย Adobe AI ใน Gemini",
+      "tldr_takeaways": [
+        "แก้ไขไฟล์ PDF ได้ทันทีใน Google Drive โดยใช้เครื่องมือระดับโลกของ Adobe",
+        "ผสานความสามารถ Adobe AI เข้ากับ Google Gemini เพื่อการทำงานที่ทรงพลังยิ่งขึ้น",
+        "เพิ่มประสิทธิภาพเวิร์กโฟลว์ให้กับคนทำงานสร้างสรรค์และองค์กร"
+      ],
+      "layman_story": [
+        "การทำงานในอดีตนั้นกระจัดกระจาย ผู้ใช้งานมักจะต้องสลับไปมาระหว่าง Google Drive เพื่อจัดเก็บข้อมูล และ Adobe เพื่อแก้ไขไฟล์เอกสาร หรือใช้เครื่องมือ AI แยกส่วนกัน ทำให้เกิดปัญหาด้านความต่อเนื่องในการทำงาน",
+        "ความร่วมมือใหม่นี้ทลายกำแพงดังกล่าวลง ด้วยการนำ Adobe มาฝังตัวอยู่ภายใน Google Workspace คุณสามารถแก้ไข PDF ได้โดยตรงจาก Drive ไม่ต้องเสียเวลาดาวน์โหลด-อัปโหลดไฟล์ใหม่ แถมยังสามารถเรียกใช้ Adobe AI ผ่านทาง Gemini เพื่อวิเคราะห์ข้อมูลเชิงลึกในเอกสารได้ทันที",
+        "สิ่งนี้ถือเป็นการยกระดับ Ecosystem ที่ชัดเจน ทั้ง Adobe และ Google กำลังสร้างประสบการณ์ 'ทำงานที่ไหนก็ได้' อย่างแท้จริง โดยเชื่อมโยงโลกของการจัดการเอกสารระดับมืออาชีพเข้ากับความฉลาดของ AI อย่างเต็มรูปแบบ"
+      ],
+      "impact_comparison": {
+        "before": "ต้องสลับโปรแกรมและดาวน์โหลดไฟล์เข้า-ออกระหว่าง Google Drive กับ Adobe",
+        "after": "แก้ไขไฟล์และเรียกใช้ AI ได้ในที่เดียวบน Google Workspace",
+        "why_it_matters": "ลดแรงเสียดทานในการทำงาน (Friction) เพิ่ม Productivity ให้กับทีมที่ต้องจัดการเอกสารจำนวนมาก"
+      },
+      "actionable_playbook": [
+        {
+          "title": "เร่งความเร็วการจัดการเอกสาร",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "เชื่อมต่อ Adobe API เข้ากับ Google App Script เพื่อทำระบบเอกสารอัตโนมัติ",
+          "example": "การสร้างระบบแปลงไฟล์และสรุปเอกสารอัตโนมัติจาก Drive ลงในฐานข้อมูล"
+        },
+        {
+          "title": "เพิ่มประสิทธิภาพทีม Creative",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "นำชุดเครื่องมือใหม่นี้ไปปรับปรุงขั้นตอนการ Approval เอกสารภายในทีม",
+          "example": "ใช้ Adobe AI ใน Gemini เพื่อตรวจทานเอกสารสัญญาหรือดีไซน์ก่อนส่งออก"
+        },
+        {
+          "title": "บริหารจัดการเอกสารประจำวัน",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใช้ฟีเจอร์ใน Google Drive เพื่อจัดการ PDF โดยตรง",
+          "example": "การแก้ไขข้อความในสัญญา PDF บน Google Drive โดยไม่ต้องเปิดโปรแกรม Adobe อื่น"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Adobe-powered PDF editing directly inside Google Drive",
+          "Integration of Adobe AI into Gemini interface"
+        ],
+        "watchouts": [
+          "การตรวจสอบสิทธิ์การใช้งาน (Subscription) ที่อาจแตกต่างกัน",
+          "ความพร้อมให้บริการในบางภูมิภาคสำหรับฟีเจอร์ใหม่"
+        ]
+      }
+    },
+    {
       "id": "google-cloud-gemini-for-healthcare-155d33",
       "title": "Google Cloud launches Gemini for healthcare.",
       "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
       "source": "Google Cloud",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T13:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud",
@@ -986,7 +1383,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-09",
       "published_at": "2026-11-09T17:00:00.000Z",
-      "updated_at": "2026-11-13T06:26:42.211Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
       "authors": [],
       "rss_categories": [
         "Maps",
@@ -1040,6 +1437,1187 @@
         "watchouts": [
           "ตรวจสอบโครงสร้างค่าบริการของ Google Maps Platform API เมื่อขยายสเกลผู้ใช้จริง",
           "คำนึงถึงเงื่อนไขการใช้งานข้อมูลแผนที่และการแสดงผล Attribution ตามข้อกำหนดของ Google"
+        ]
+      }
+    },
+    {
+      "id": "workspace-omni-1-2-flash-google-vids-137f54",
+      "title": "Generate longer AI videos with Omni 1.2 Flash in Google Vids at no cost.",
+      "url": "https://blog.google/products-and-platforms/products/workspace/omni-1-2-flash-google-vids/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-05",
+      "published_at": "2026-11-05T20:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [],
+      "rss_categories": [
+        "Google Workspace"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/pics-blog-header-2784x1566.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "Google Vids อัปเกรดความเจ๋งด้วยโมเดล Omni 1.2 Flash สร้างวิดีโอ AI ยาวขึ้นได้ฟรี",
+      "short_teaser": "Google Workspace เปิดโอกาสให้ทุกคนสร้างวิดีโอ AI ได้นานถึง 15 วินาทีด้วย Omni 1.2 Flash พร้อมความคมชัดและสม่ำเสมอของฉากที่ดียิ่งขึ้นโดยไม่มีค่าใช้จ่ายเพิ่มเติม",
+      "tldr_takeaways": [
+        "ใช้งานโมเดล Omni 1.2 Flash ใน Google Vids ได้ฟรี",
+        "สร้างคลิปวิดีโอได้นานสูงสุด 15 วินาที",
+        "ปรับปรุงเรื่องความต่อเนื่องของฉาก (Consistent scenes) ให้เนียนตามากขึ้น"
+      ],
+      "layman_story": [
+        "การทำวิดีโอคอนเทนต์ในองค์กรเป็นเรื่องท้าทาย ทั้งในเรื่องเวลาและต้นทุนที่สูง Google Vids จึงเข้ามาแก้ปัญหาด้วยการใช้ AI ช่วยสร้างสรรค์วิดีโอจากการใส่คำสั่ง (Prompt) ซึ่งแต่เดิมยังมีข้อจำกัดเรื่องความยาวและคุณภาพของภาพ",
+        "อัปเดตล่าสุดด้วยโมเดล Omni 1.2 Flash เข้ามาจัดการเรื่องความยาวคลิปที่เพิ่มขึ้นเป็น 15 วินาที และที่สำคัญคือการคงความสม่ำเสมอของฉาก ทำให้ภาพที่ถูกเจนออกมามีความสมจริงและดูไม่สะดุดเมื่อนำมาตัดต่อรวมกัน",
+        "นี่เป็นข่าวดีสำหรับนักการตลาดหรือทีมคอนเทนต์ที่ต้องทำงานแข่งกับเวลา การที่ Google เปิดให้ใช้งานฟีเจอร์นี้ได้ฟรีใน Google Vids จะเป็นการเปลี่ยนสนามการแข่งขันในการสร้างวิดีโอให้น่าตื่นเต้นและรวดเร็วกว่าเดิม"
+      ],
+      "impact_comparison": {
+        "before": "สร้างได้เพียงคลิปสั้นๆ ที่อาจมีปัญหาเรื่องความต่อเนื่องของภาพในแต่ละฉาก",
+        "after": "สร้างคลิปได้ยาวขึ้นถึง 15 วินาที พร้อมความสมจริงที่มากขึ้น",
+        "why_it_matters": "ช่วยลดต้นทุนการผลิตวิดีโอและเปิดโอกาสให้ทุกคนเป็น Creator ได้ง่ายขึ้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทดลองสร้าง Video Pitching",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ใช้ Google Vids สร้าง Prototype ของสื่อนำเสนองาน",
+          "example": "การสร้างวิดีโออธิบายฟีเจอร์แอปพลิเคชันสั้นๆ โดยใช้ Prompt"
+        },
+        {
+          "title": "ลดต้นทุน Content Marketing",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ใช้ Google Vids ในการสร้างสื่อการตลาดเบื้องต้น (MVPs)",
+          "example": "การทำคลิปวิดีโอสั้นเพื่อรีวิวสินค้าหรือสื่อภายในบริษัท"
+        },
+        {
+          "title": "ประหยัดเวลาทำ Presentation",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใส่คลิป AI ลงใน Slide เพื่อสร้างความน่าสนใจในการนำเสนอ",
+          "example": "สร้างวิดีโอ 15 วินาทีสรุปรายงานรายเดือนเพื่อใส่ลงใน Google Slides"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ความยาวคลิปเพิ่มขึ้นเป็น 15 วินาที",
+          "ความสม่ำเสมอของฉาก (Visual Consistency) ดีขึ้น"
+        ],
+        "watchouts": [
+          "ข้อจำกัดในเรื่องสไตล์ภาพที่อาจยังต้องการการปรับแต่ง",
+          "การใช้งานจำกัดอยู่ในฟีเจอร์ของ Google Workspace เท่านั้น"
+        ]
+      }
+    },
+    {
+      "id": "developers-tools-introducing-gemini-omni-1-2-fla-63c3d5",
+      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "source": "Google Developers",
+      "published_date": "2026-11-05",
+      "published_at": "2026-11-05T17:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [
+        "Anish Nangia"
+      ],
+      "rss_categories": [
+        "Gemini models",
+        "Developer tools",
+        "AI"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "เปิดตัว Gemini Omni 1.2 Flash: เร็ว แรง และถูกกว่าเดิม 30% สำหรับงานสร้างวิดีโอ AI",
+      "short_teaser": "โมเดลใหม่ที่ออกแบบมาเพื่อนักพัฒนาโดยเฉพาะ มาพร้อมความสามารถในการเจนวิดีโอ 15 วินาทีในตัว พร้อมลดราคาการใช้งานลงอีก 30% ทั่วโลก",
+      "tldr_takeaways": [
+        "Gemini Omni 1.2 Flash เน้นความเร็วและประสิทธิภาพด้านต้นทุน",
+        "รองรับการเจนวิดีโอและแก้ไข (Editing) ในตัวระดับ 15 วินาที",
+        "ลดราคาค่า API ลง 30% ช่วยให้นักพัฒนาสร้างแอปที่ขยายขนาดได้ง่ายขึ้น"
+      ],
+      "layman_story": [
+        "ก่อนหน้านี้ นักพัฒนาที่ต้องการสร้างระบบ AI วิดีโอ มักเจอปัญหาค่าใช้จ่ายที่สูงเกินไปหากต้องประมวลผลวิดีโอจำนวนมาก ทำให้การสร้างแอปพลิเคชันวิดีโอที่เข้าถึงผู้ใช้ทุกคนเป็นเรื่องยาก",
+        "Gemini Omni 1.2 Flash ถูกปรับจูนมาเพื่อแก้ปัญหานี้ ทั้งในแง่ของความเร็วในการเจนวิดีโอ และความสามารถในการแก้ไขวิดีโอแบบเนทีฟ ทำให้ลดขั้นตอนที่ซับซ้อนไปได้เยอะ นอกจากนี้การลดราคา 30% ยังเป็นการเปิดช่องให้นักพัฒนาสามารถรันโปรเจกต์ขนาดใหญ่ได้โดยไม่ต้องกังวลเรื่องงบประมาณ",
+        "ทิศทางต่อจากนี้คือการที่นักพัฒนาจะสามารถนำโมเดลนี้ไปสร้างแอปพลิเคชันที่รองรับการสร้างสรรค์วิดีโอแบบเรียลไทม์ได้มากขึ้น ซึ่งจะช่วยให้เกิดเครื่องมือใหม่ๆ ในวงการสื่อออนไลน์และการสื่อสารขององค์กรอย่างรวดเร็ว"
+      ],
+      "impact_comparison": {
+        "before": "การใช้ API วิดีโอมีราคาสูงและมีข้อจำกัดในการประมวลผลคลิปยาว",
+        "after": "ราคาถูกลง 30% พร้อมขีดความสามารถการแก้ไขในตัว",
+        "why_it_matters": "ช่วยให้ต้นทุนการพัฒนาแอปพลิเคชัน AI วิดีโอต่ำลง เพิ่มโอกาสให้เกิดนวัตกรรมใหม่ๆ"
+      },
+      "actionable_playbook": [
+        {
+          "title": "สร้างแอปสื่อสารด้วย AI",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "เชื่อมต่อ API ของ Gemini Omni 1.2 Flash เข้ากับแอปของคุณ",
+          "example": "สร้างระบบอัตโนมัติที่เจนวิดีโอสรุปข่าวประจำวันให้ผู้ใช้งาน"
+        },
+        {
+          "title": "ปรับโมเดลธุรกิจตามต้นทุนที่ลดลง",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "นำต้นทุน API ที่ลดลง 30% ไปทำ Pricing Strategy ที่แข่งกับตลาดได้ดีขึ้น",
+          "example": "จัดแพ็กเกจให้ผู้ใช้งานสร้างวิดีโอได้มากขึ้นในราคาเท่าเดิม"
+        },
+        {
+          "title": "ทดลองใช้เครื่องมือใหม่ผ่าน Google AI Studio",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "เข้าไปทดลอง Prompt ผ่าน Google AI Studio โดยตรง",
+          "example": "ทดสอบสร้างวิดีโอ 15 วินาทีเพื่อดูคุณภาพและนำไปปรับใช้ในแผนงาน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Native Video Generation & Editing (15 seconds)",
+          "30% cost reduction for developers"
+        ],
+        "watchouts": [
+          "การบริหารจัดการความเร็วการตอบสนองของ API",
+          "ความสม่ำเสมอของผลลัพธ์วิดีโอที่ต้องมีการทำ Prompt Engineering"
+        ]
+      }
+    },
+    {
+      "id": "research-partnering-singapore-advance-scientific-7fc878",
+      "title": "Advancing research and partnering with universities in Singapore",
+      "url": "https://blog.google/innovation-and-ai/technology/research/partnering-singapore-advance-scientific-discovery/",
+      "source": "Google Research",
+      "published_date": "2026-11-03",
+      "published_at": "2026-11-03T04:30:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [
+        "Yossi Matias"
+      ],
+      "rss_categories": [
+        "Google Research"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_post_hero_owiy2Mr.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google จับมือสิงคโปร์ เดินหน้ายกระดับการวิจัย AI เพื่อวิทยาศาสตร์ขั้นสูง",
+      "short_teaser": "Google ประกาศลงทุนในโครงการวิจัยและเสริมสร้างศักยภาพนักวิจัยในสิงคโปร์ เพื่อผลักดันนวัตกรรม AI ด้านวิทยาศาสตร์ในระดับภูมิภาค",
+      "tldr_takeaways": [
+        "มอบทุนวิจัยและสร้างความร่วมมือกับมหาวิทยาลัยชั้นนำในสิงคโปร์",
+        "เน้นการใช้ AI เพื่อเร่งความเร็วในการค้นพบทางวิทยาศาสตร์ (AI for Science)",
+        "พัฒนาทักษะและความพร้อมให้แก่บุคลากรสายวิจัยรุ่นใหม่"
+      ],
+      "layman_story": [
+        "ในอดีต งานวิจัยทางวิทยาศาสตร์มักติดข้อจำกัดเรื่องการประมวลผลข้อมูลมหาศาลและการวิเคราะห์ที่ซับซ้อน Google มองเห็นว่าสิงคโปร์เป็นศูนย์กลางเทคโนโลยีสำคัญ จึงริเริ่มโครงการนี้เพื่อแก้ปัญหาช่องว่างระหว่างงานวิจัยต้นน้ำและการประยุกต์ใช้จริง",
+        "Google ได้นำโครงสร้างพื้นฐาน AI ของตนเองมาสนับสนุนนักวิจัย พร้อมให้ทุนเพื่อยกระดับงานวิจัยด้านวิทยาศาสตร์กายภาพและชีวภาพ การทำงานร่วมกันนี้ช่วยให้นักวิจัยสามารถเทรนโมเดล AI เฉพาะทางเพื่อจำลองการทดลองในห้องแล็บที่ทำได้ยากในโลกความจริง",
+        "ความเคลื่อนไหวนี้จะช่วยผลักดันให้เกิดนวัตกรรมใหม่ๆ เช่น ยารักษาโรคใหม่ หรือวัสดุศาสตร์ขั้นสูง นักพัฒนาและนักศึกษาจะมีโอกาสเข้าถึงทรัพยากรระดับโลก ซึ่งจะช่วยเปลี่ยนให้สิงคโปร์กลายเป็นฐานทัพสำคัญของ AI for Science ในเอเชีย"
+      ],
+      "impact_comparison": {
+        "before": "งานวิจัยจำกัดอยู่ในวงแคบ ขาดการสนับสนุนด้านพลังประมวลผล AI และการเชื่อมต่อกับภาคอุตสาหกรรม",
+        "after": "นักวิจัยเข้าถึงเครื่องมือ AI ของ Google ได้โดยตรง ช่วยเร่งกระบวนการค้นพบและลดเวลาทำวิจัยได้อย่างมหาศาล",
+        "why_it_matters": "เป็นการสร้างระบบนิเวศการวิจัยที่แข็งแกร่ง ซึ่งจะกลายเป็นรากฐานของนวัตกรรมที่จะส่งผลกระทบต่อเศรษฐกิจระดับภูมิภาค"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ขอทุนและเข้าร่วมโครงการ",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ติดตามประกาศการรับสมัครทุนวิจัยจาก Google ร่วมกับมหาวิทยาลัยในเครือข่าย",
+          "example": "สมัครเข้าร่วมโปรแกรมวิจัยเพื่อใช้ TPU ในการเทรนโมเดลวิทยาศาสตร์ของคุณ"
+        },
+        {
+          "title": "ความร่วมมือด้านงานวิจัย",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "สำรวจโอกาสในการร่วมงานวิจัยเพื่อนำมาพัฒนาเป็นสินค้าเชิงพาณิชย์",
+          "example": "การร่วมมือกับแล็บในสิงคโปร์เพื่อทำ Proof of Concept ด้านการจำลองข้อมูล"
+        },
+        {
+          "title": "ติดตามความก้าวหน้า",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ศึกษาเคสตัวอย่างจากความร่วมมือนี้มาประยุกต์ใช้ในองค์กร",
+          "example": "นำงานวิจัยที่เปิดเผยมาทำความเข้าใจแนวโน้มอุตสาหกรรมในอีก 3-5 ปีข้างหน้า"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "โครงการสนับสนุนงานวิจัยที่เชื่อมโยงระหว่าง AI และวิทยาศาสตร์",
+          "การให้ความสำคัญกับกลุ่มนักวิจัยและนวัตกรในภูมิภาคเอเชียตะวันออกเฉียงใต้"
+        ],
+        "watchouts": [
+          "โครงการเน้นเฉพาะมหาวิทยาลัยที่ได้รับเลือกในสิงคโปร์",
+          "ต้องใช้ความเชี่ยวชาญระดับสูงในการนำงานวิจัยไปพัฒนาเป็นสินค้าจริง"
+        ]
+      }
+    },
+    {
+      "id": "ai-google-ai-updates-october-2026-b81003",
+      "title": "The latest AI news we announced in October 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+      "source": "Google DeepMind",
+      "published_date": "2026-11-02",
+      "published_at": "2026-11-02T17:45:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [
+        "Blog Team"
+      ],
+      "rss_categories": [
+        "Google DeepMind",
+        "Quantum computing",
+        "AI",
+        "Gemini App",
+        "Gemini models",
+        "Fitbit",
+        "Google Research"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Oct_AI_Recap_social.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "สรุปอัปเดตใหญ่ Google AI เดือนตุลาคม 2026: ครบเครื่องตั้งแต่อุปกรณ์ยันโมเดล",
+      "short_teaser": "Google รวบตึงอัปเดตล่าสุด ทั้งการอัปเกรด Gemini รุ่นใหม่ และฟีเจอร์ AI ในกลุ่มผลิตภัณฑ์ที่ใกล้ตัวผู้ใช้งานมากขึ้น",
+      "tldr_takeaways": [
+        "เปิดตัวความสามารถใหม่ของ Gemini models ที่แม่นยำและตอบสนองไวกว่าเดิม",
+        "ผสานพลัง AI เข้ากับ Fitbit และอุปกรณ์สวมใส่เพื่อสุขภาพ",
+        "ความก้าวหน้าด้าน Quantum computing และการวิจัยใหม่ๆ ของ Google DeepMind"
+      ],
+      "layman_story": [
+        "ผู้ใช้งานยุคปัจจุบันมีความต้องการเครื่องมือ AI ที่ทำงานได้ครอบคลุมและเชื่อมโยงกันมากขึ้น Google จึงต้องเร่งอัปเดต AI ecosystem เพื่อให้ Gemini ไม่ได้เป็นเพียงแชทบอท แต่เป็นผู้ช่วยที่เข้าใจข้อมูลจากทั้งอุปกรณ์ส่วนตัวและงานวิจัยเชิงลึก",
+        "ในการอัปเดตเดือนตุลาคมนี้ Google ได้ปรับปรุง Gemini ให้ประมวลผลซับซ้อนได้ดีขึ้น รวมถึงการนำ AI ไปวิเคราะห์ข้อมูลสุขภาพเชิงลึกใน Fitbit ทำให้ผู้ใช้ได้รับคำแนะนำด้านสุขภาพที่เฉพาะเจาะจงมากกว่าแค่การนับก้าวเดินทั่วไป",
+        "การอัปเดตนี้ส่งผลให้ผู้พัฒนาสามารถเข้าถึง API ที่เสถียรขึ้น ส่วนผู้ใช้ทั่วไปก็ได้รับประสบการณ์ AI ที่แนบเนียนไปกับชีวิตประจำวัน และแสดงให้เห็นว่า Google กำลังผลักดัน AI เข้าสู่ทุกมิติของอุปกรณ์ที่มนุษย์สวมใส่"
+      ],
+      "impact_comparison": {
+        "before": "การทำงานของ AI แยกส่วนกัน ระหว่างแอปแชท อุปกรณ์สวมใส่ และงานวิจัย",
+        "after": "ระบบนิเวศ AI ที่มีการเชื่อมโยงข้อมูลและประสบการณ์ผู้ใช้ให้เป็นหนึ่งเดียวกันมากขึ้น",
+        "why_it_matters": "พิสูจน์ให้เห็นว่า Google สามารถส่งมอบคุณค่าจากงานวิจัยสู่ผลิตภัณฑ์ผู้ใช้จริงได้อย่างรวดเร็ว"
+      },
+      "actionable_playbook": [
+        {
+          "title": "อัปเดตการใช้งาน Gemini API",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ตรวจสอบเอกสาร API ใหม่เพื่อปรับปรุงฟังก์ชันในแอปของคุณ",
+          "example": "ทดสอบฟีเจอร์การประมวลผลที่ไวขึ้นด้วย Model ใหม่"
+        },
+        {
+          "title": "ขยายขอบเขตการใช้งาน",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ประเมินฟีเจอร์ใหม่ของ AI เพื่อนำมาทำ User Experience บนอุปกรณ์",
+          "example": "ใช้ข้อมูลจาก Fitbit AI มาทำฟีเจอร์แนะนำสุขภาพในแอปบริษัท"
+        },
+        {
+          "title": "ปรับตัวสู่ AI ใช้งานจริง",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ทดลองใช้ Gemini บนแอปมือถือเพื่อจัดการตารางงานและข้อมูลสุขภาพ",
+          "example": "เริ่มใช้ Gemini ช่วยสรุปข้อมูลจากอีเมลและตารางสุขภาพพร้อมกัน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Gemini models ประสิทธิภาพสูงขึ้นในด้านการประมวลผล",
+          "ฟีเจอร์ AI-driven wellness บน Fitbit"
+        ],
+        "watchouts": [
+          "ความสามารถใหม่บางอย่างอาจเริ่มให้บริการในบางประเทศก่อน",
+          "การปรับตัวให้ทันรอบอัปเดตถี่ๆ ของโมเดล AI"
+        ]
+      }
+    },
+    {
+      "id": "google-research-project-suncatcher-satellite-res-c3f186",
+      "title": "We’ve received our first response from the Project Suncatcher prototype satellite.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
+      "source": "Google Research",
+      "published_date": "2026-10-30",
+      "published_at": "2026-10-30T17:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [
+        "Travis Beals"
+      ],
+      "rss_categories": [
+        "Google Research"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://i.ytimg.com/vi_webp/epqzfAi16us/maxresdefault.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "ประวัติศาสตร์หน้าใหม่: Google ส่ง TPU ขึ้นสู่อวกาศ สำเร็จการทดสอบแรกแล้ว!",
+      "short_teaser": "Google ประกาศความสำเร็จ 'Hello World' ของดาวเทียมต้นแบบ Project Suncatcher ที่มาพร้อมพลังการประมวลผลระดับ Data Center ในวงโคจร",
+      "tldr_takeaways": [
+        "Google ทดสอบการนำ AI accelerator (TPU) ไปใช้งานบนอวกาศสำเร็จ",
+        "เป็นก้าวแรกของการประมวลผลข้อมูล AI ณ จุดที่เกิดเหตุบนชั้นบรรยากาศ",
+        "เปิดประตูสู่ยุคใหม่ของการวิเคราะห์ข้อมูลดาวเทียมแบบเรียลไทม์"
+      ],
+      "layman_story": [
+        "ปกติการประมวลผลข้อมูลภาพถ่ายดาวเทียมต้องส่งข้อมูลดิบกลับมาที่โลกเพื่อประมวลผล ซึ่งใช้เวลานานและมีข้อจำกัดด้านแบนด์วิดท์ Google จึงพัฒนา Project Suncatcher เพื่อนำพลังประมวลผล TPU ไปไว้บนวงโคจรโดยตรง",
+        "การทดสอบครั้งนี้เปรียบเสมือนการนำซูเปอร์คอมพิวเตอร์ไปไว้บนดาวเทียม เพื่อให้อุปกรณ์สามารถคัดกรอง วิเคราะห์ และประมวลผลภาพจากอวกาศได้ทันทีโดยไม่ต้องรอส่งกลับมาที่ศูนย์ข้อมูลบนโลก ทำให้การตัดสินใจเชิงวิเคราะห์ทำได้แทบจะทันที",
+        "นี่คือจุดเปลี่ยนสำคัญที่จะส่งผลต่อการติดตามสภาพอากาศ ภัยพิบัติ และความมั่นคง หากเทคโนโลยีนี้สมบูรณ์ เราจะสามารถติดตามโลกผ่านมุมมอง AI บนอวกาศที่ฉลาดและแม่นยำอย่างที่ไม่เคยเป็นมาก่อน"
+      ],
+      "impact_comparison": {
+        "before": "การวิเคราะห์ข้อมูลอวกาศมีดีเลย์สูง ต้องรอการส่งข้อมูลปริมาณมหาศาลกลับมาที่โลก",
+        "after": "การประมวลผลข้อมูลเชิงลึกเกิดขึ้นบนดาวเทียม ทำให้ได้ผลลัพธ์ในเสี้ยววินาที",
+        "why_it_matters": "ช่วยให้เราตอบสนองต่อวิกฤตการณ์โลก เช่น การเปลี่ยนแปลงสภาพภูมิอากาศ ได้อย่างรวดเร็วและแม่นยำขึ้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ติดตามสถานะโครงการ",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ติดตามเอกสารวิจัยที่ออกมาจากโปรเจกต์ Suncatcher เพื่อศึกษาการย่อโมเดล AI",
+          "example": "ศึกษาวิธีการ Optimize โมเดลให้ทำงานได้บน Hardware ข้อจำกัดสูง"
+        },
+        {
+          "title": "มองหาโอกาสในอุตสาหกรรมอวกาศ",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "วิเคราะห์ความเป็นไปได้ในการนำ Edge Computing มาใช้ในธุรกิจ Data",
+          "example": "ใช้แนวคิด 'Edge AI' มาประยุกต์กับธุรกิจที่ต้องการการตัดสินใจหน้างาน"
+        },
+        {
+          "title": "สร้างความตระหนักรู้",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ศึกษาการนำภาพถ่ายดาวเทียมมาช่วยในธุรกิจ เช่น เกษตรกรรมแม่นยำ",
+          "example": "ติดตามข่าวสารว่าเทคโนโลยีนี้จะช่วยคาดการณ์สภาพอากาศท้องถิ่นได้ดีขึ้นอย่างไร"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "TPU ในระดับดาวเทียมครั้งแรกของโลก",
+          "ความสำเร็จในการทำ AI processing ณ จุดที่รับข้อมูล"
+        ],
+        "watchouts": [
+          "เป็นเทคโนโลยีในระดับต้นแบบ (Prototype)",
+          "ค่าใช้จ่ายในการทำโครงการอวกาศยังคงอยู่ในระดับที่สูงมาก"
+        ]
+      }
+    },
+    {
+      "id": "safety-security-google-security-checkup-c055cd",
+      "title": "See who has access to your Gmail inbox in 2 minutes.",
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/google-security-checkup/",
+      "source": "Google Official Blog",
+      "published_date": "2026-10-30",
+      "published_at": "2026-10-30T16:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.493Z",
+      "authors": [],
+      "rss_categories": [
+        "Google Workspace",
+        "Safety & Security"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Security-Checkup-Thumbnail_Phon.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "เช็กด่วน! ใครเข้าถึง Gmail ของคุณอยู่? ปลอดภัยได้ใน 2 นาที",
+      "short_teaser": "Google เปิดตัวฟีเจอร์ Google Security Checkup ช่วยให้คุณจัดการการเข้าถึงอีเมลและข้อมูลส่วนตัวได้ง่ายขึ้นใน 3 ขั้นตอน",
+      "tldr_takeaways": [
+        "เครื่องมือเช็กความปลอดภัยแบบด่วน (2 นาที)",
+        "จัดการสิทธิ์การเข้าถึง Gmail และบัญชี Google ได้เบ็ดเสร็จ",
+        "สร้างเกราะป้องกันข้อมูลรั่วไหลผ่านการตรวจสอบสิทธิ์เชิงรุก"
+      ],
+      "layman_story": [
+        "บ่อยครั้งที่ผู้ใช้งานลืมถอนสิทธิ์แอปหรืออุปกรณ์ที่เคยล็อกอินไว้ในอดีต ซึ่งกลายเป็นช่องโหว่ให้ผู้ไม่หวังดีเข้าถึงข้อมูลใน Gmail ได้ Google จึงพัฒนาเครื่องมือ Security Checkup ให้ใช้งานง่ายขึ้นเพื่อแก้ปัญหานี้",
+        "ฟีเจอร์นี้จะรวบรวมรายการอุปกรณ์ที่ล็อกอินอยู่ และแอปภายนอกที่ขอเข้าถึงข้อมูลอีเมลของคุณ โดยใช้ AI ช่วยคัดกรองสิ่งที่น่าสงสัยมาแนะนำให้เราจัดการ ผู้ใช้แค่กดยืนยันหรือลบสิทธิ์ที่ไม่ใช้งานออก ก็เท่ากับปิดประตูหลังบ้านที่อาจเปิดค้างไว้",
+        "นี่เป็นการกระตุ้นให้ผู้ใช้งานตระหนักถึงความสำคัญของ Digital Hygiene ในอนาคตเราอาจเห็นระบบรักษาความปลอดภัยที่ฉลาดขึ้นในการบล็อกการเข้าถึงโดยไม่ต้องรอผู้ใช้มากดเช็กด้วยตนเอง"
+      ],
+      "impact_comparison": {
+        "before": "การจัดการสิทธิ์การเข้าถึงเป็นเรื่องซับซ้อนและคนส่วนใหญ่ละเลย",
+        "after": "การเช็กความปลอดภัยกลายเป็นเรื่องง่าย ทำจบได้ใน 2 นาทีแบบเข้าใจง่าย",
+        "why_it_matters": "ช่วยเพิ่มความปลอดภัยของข้อมูลส่วนบุคคลและข้อมูลธุรกิจในยุคที่มีการโจมตีทางไซเบอร์เพิ่มขึ้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทำ Security Checkup เดี๋ยวนี้",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ตรวจสอบบัญชี Google ของคุณเพื่อความปลอดภัยของโปรเจกต์",
+          "example": "ลบสิทธิ์แอปทดสอบที่ไม่ได้ใช้แล้วออกทันที"
+        },
+        {
+          "title": "สร้างนโยบายความปลอดภัย",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "แนะนำให้พนักงานในบริษัททำตามขั้นตอนนี้เพื่อลดความเสี่ยงข้อมูลองค์กร",
+          "example": "ทำ Workshop สั้นๆ ให้พนักงานเช็กความปลอดภัยบัญชีบริษัท"
+        },
+        {
+          "title": "จัดการความเป็นส่วนตัว",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ตั้งเตือนตัวเองให้ทำ Security Checkup ทุกๆ 3 เดือน",
+          "example": "ใช้เวลาว่าง 2 นาทีจัดการบัญชี Google ให้สะอาดและปลอดภัย"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "หน้า Dashboard การตรวจสอบที่สรุปข้อมูลได้ง่ายขึ้น",
+          "การแจ้งเตือนและการแนะนำที่เน้นความเป็นส่วนตัว"
+        ],
+        "watchouts": [
+          "ต้องหมั่นเข้าไปตรวจสอบเป็นระยะ ไม่ควรทำเพียงครั้งเดียว",
+          "ระวังการลบสิทธิ์แอปสำคัญที่ยังต้องใช้งานอยู่โดยไม่ได้ตั้งใจ"
+        ]
+      }
+    },
+    {
+      "id": "gemini-models-introducing-gemini-4-carbon-185e55",
+      "title": "Gemini 4 Carbon: our next frontier model",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "source": "Google Official Blog",
+      "published_date": "2026-10-28",
+      "published_at": "2026-10-28T17:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Koray Kavukcuoglu"
+      ],
+      "rss_categories": [
+        "Gemini models"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_carbon_102726_header.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "ยกระดับความปลอดภัยไปอีกขั้น: พบกับ Gemini 4 Carbon โมเดล AI รุ่นใหม่ที่แกร่งที่สุดจาก Google",
+      "short_teaser": "Google เปิดตัว Gemini 4 Carbon มุ่งเน้นไปที่ความปลอดภัยทางไซเบอร์ขั้นสูงและขีดความสามารถในการวิเคราะห์ข้อมูลระยะยาว. นี่คือโมเดลที่จะเปลี่ยนมาตรฐานการประมวลผล AI ขององค์กรไปตลอดกาล",
+      "tldr_takeaways": [
+        "Gemini 4 Carbon เป็นโมเดลที่แข็งแกร่งที่สุดของ Google ในขณะนี้",
+        "ชูจุดเด่นด้านความปลอดภัยทางไซเบอร์ (Cybersecurity) ระดับรัฐ",
+        "โดดเด่นในการจัดการงานที่มีความซับซ้อนและต้องใช้การวิเคราะห์ข้อมูลต่อเนื่องยาวนาน (Long Horizon)"
+      ],
+      "layman_story": [
+        "ในโลกที่ภัยคุกคามไซเบอร์ทวีความรุนแรงขึ้น การใช้ AI แบบเดิมๆ อาจไม่เพียงพอต่อการรับมือกับความซับซ้อนของโครงสร้างพื้นฐานดิจิทัล Google จึงพัฒนา Gemini 4 Carbon ขึ้นมาเพื่อแก้ปัญหาการขาดแคลนเครื่องมือที่ทั้ง 'ฉลาด' และ 'ปลอดภัย' จนถึงระดับวิกฤต",
+        "Gemini 4 Carbon มาพร้อมกับสถาปัตยกรรมใหม่ที่เน้นความทนทานต่อการโจมตีทางไซเบอร์ พร้อมความสามารถ Long Horizon ที่ทำให้ AI สามารถจดจำและวิเคราะห์ขั้นตอนการทำงานที่มีความยาวและซับซ้อนได้โดยไม่หลุดโฟกัส เหมือนมีผู้เชี่ยวชาญด้านความปลอดภัยมานั่งเฝ้าหน้าจอให้ตลอด 24 ชั่วโมง",
+        "การเปิดตัวครั้งนี้ส่งผลกระทบโดยตรงต่อกลุ่มธุรกิจและองค์กรที่ต้องการความปลอดภัยสูง โดยทิศทางต่อไปคือการรวมโมเดลนี้เข้ากับ Google Cloud เพื่อสร้างระบบป้องกันที่ปกป้องข้อมูลในระดับเชิงลึกและอัตโนมัติ"
+      ],
+      "impact_comparison": {
+        "before": "การตรวจสอบช่องโหว่ต้องพึ่งพาซอฟต์แวร์สแกนแบบตายตัวที่มักจะพลาดภัยคุกคามใหม่ๆ",
+        "after": "ใช้ AI ที่เข้าใจพฤติกรรมผิดปกติและวิเคราะห์ความเสี่ยงได้แบบ Real-time",
+        "why_it_matters": "นี่คือจุดเปลี่ยนที่ทำให้ AI กลายเป็นเกราะป้องกันทางไซเบอร์ที่ปรับตัวได้จริง ไม่ใช่แค่โปรแกรมตามคำสั่ง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "บูรณาการกับระบบความปลอดภัย",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "นำ API ของ Gemini 4 Carbon ไปเชื่อมต่อกับระบบ Log วิเคราะห์พฤติกรรมผู้ใช้เพื่อหาความผิดปกติ",
+          "example": "ใช้โมเดลวิเคราะห์ทราฟฟิกเครือข่ายเพื่อตรวจจับการบุกรุกที่ซับซ้อนโดยอัตโนมัติ"
+        },
+        {
+          "title": "อัปเกรดมาตรฐานความปลอดภัยองค์กร",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ประเมินการนำ Gemini 4 Carbon มาใช้แทนที่เครื่องมือตรวจสอบความปลอดภัยเดิมเพื่อลดความเสี่ยงจากการหลุดรอดของข้อมูล",
+          "example": "สร้างบอทเฝ้าระวังความปลอดภัยที่สรุปสถานการณ์ฉุกเฉินให้ผู้บริหารทันที"
+        },
+        {
+          "title": "สร้างระบบ Automation ที่ยาวนาน",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใช้ความสามารถ Long Horizon ในการจัดการ Project Workflow ขนาดใหญ่ที่ซับซ้อน",
+          "example": "ให้ AI ช่วยสรุปรายงานความปลอดภัยรายเดือนจากข้อมูลนับล้านบรรทัด"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "สถาปัตยกรรมเน้นความปลอดภัยทางไซเบอร์แบบ Native",
+          "ขีดความสามารถการวิเคราะห์ Long Horizon ที่แม่นยำขึ้น"
+        ],
+        "watchouts": [
+          "การปรับจูนความไว (Sensitivity) ให้เข้ากับสภาพแวดล้อมเฉพาะตัว",
+          "ค่าใช้จ่ายในการประมวลผลโมเดลระดับสูง"
+        ]
+      }
+    },
+    {
+      "id": "developers-tools-connected-apps-one-place-d532f8",
+      "title": "Build and manage Connected Apps in one place",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/",
+      "source": "Google Developers",
+      "published_date": "2026-10-28",
+      "published_at": "2026-10-28T17:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Chips Mistry",
+        "Mai Lowe"
+      ],
+      "rss_categories": [
+        "Search",
+        "Gemini App",
+        "Developer tools"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_ConnectedApps_1027_2.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "จบปัญหาแอปกระจัดกระจาย! Google เปิดตัวแพลตฟอร์มใหม่เชื่อมต่อแอปทั้งหมดได้ในที่เดียว",
+      "short_teaser": "Google ประกาศเปิดตัวระบบจัดการ Connected Apps ช่วยให้นักพัฒนาสร้างและติดตามสถานะแอปได้ผ่านจุดศูนย์กลางเดียว. หมดเวลากับการสลับหน้าจอไปมาเพื่อดูแลโปรเจกต์ของคุณ",
+      "tldr_takeaways": [
+        "ระบบรวมศูนย์สำหรับจัดการ Connected Apps และ Partner",
+        "เพิ่มความสะดวกในการติดตามสถานะแอปผ่านหน้า Dashboard เดียว",
+        "ช่วยให้นักพัฒนาเชื่อมต่อบริการของ Google เข้ากับแอปของตนได้ราบรื่นยิ่งขึ้น"
+      ],
+      "layman_story": [
+        "นักพัฒนาและทีมโปรดักต์มักเผชิญกับความปวดหัวเมื่อต้องจัดการแอปหลายตัวที่เชื่อมต่อกับบริการของ Google ไม่ว่าจะเป็นเรื่องสถานะการเชื่อมต่อ การอัปเดต หรือการจัดการ API ที่กระจัดกระจายอยู่ในหลายหน้าจอ",
+        "ฟีเจอร์ใหม่นี้เปรียบเสมือน 'ห้องควบคุมส่วนกลาง' ที่เปิดโอกาสให้นักพัฒนาเข้ามาดูภาพรวมของทุกแอปที่เชื่อมต่ออยู่ รวมถึงดูสถานะการทำงานของ Partner ได้ทันที ช่วยลดความสับสนและประหยัดเวลาในการบริหารจัดการทรัพยากรลงอย่างมหาศาล",
+        "นี่คือทิศทางของ Google ที่มุ่งหวังจะทำให้นักพัฒนาทำงานง่ายขึ้น (Developer Experience) และผลักดันให้เกิดระบบนิเวศ (Ecosystem) ที่เชื่อมโยงกันอย่างเป็นระเบียบ ซึ่งจะช่วยให้ผู้ใช้ทั่วไปได้รับประสบการณ์การใช้งานแอปที่ไหลลื่นและปลอดภัยขึ้น"
+      ],
+      "impact_comparison": {
+        "before": "ต้องเข้าหลายระบบ หลายหน้าจอ เพื่อตรวจสอบสถานะการเชื่อมต่อของแอป",
+        "after": "ดูทุกอย่างได้ในที่เดียวผ่าน Dashboard รวมศูนย์ที่เดียวจบ",
+        "why_it_matters": "ช่วยเพิ่ม Productivity ของทีมพัฒนาอย่างเห็นได้ชัดและลดความผิดพลาดในการจัดการ"
+      },
+      "actionable_playbook": [
+        {
+          "title": "รวมศูนย์การจัดการ App",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "นำแอปของคุณเข้าสู่ระบบ Connected Apps Dashboard เพื่อติดตาม API usage และสถานะการเชื่อมต่อ",
+          "example": "ใช้ Dashboard ตรวจสอบว่าแอปที่คุณเชื่อมต่อกับ Gemini ทำงานได้ถูกต้องหรือไม่"
+        },
+        {
+          "title": "ขยาย Partnership",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ใช้แพลตฟอร์มนี้เพื่อเชื่อมต่อและทดสอบแอปกับ Partner รายใหม่ๆ ที่ Google รองรับ",
+          "example": "สร้างฟีเจอร์ที่เชื่อมข้อมูลแอปของคุณเข้ากับบริการอื่นๆ ของ Google อย่างไร้รอยต่อ"
+        },
+        {
+          "title": "บริหารจัดการ Workflow",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใช้งาน Dashboard เพื่อดูสถานะการเชื่อมต่อของแอปในองค์กรว่าทำงานเป็นปกติไหม",
+          "example": "เช็กสถานะการ Sync ข้อมูลระหว่างแอปใน Google Ecosystem"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "หน้าจัดการ Dashboard แบบรวมศูนย์ (One-stop shop)",
+          "รองรับการเชื่อมต่อกับ Partner หลากหลายขึ้น"
+        ],
+        "watchouts": [
+          "การตั้งค่าสิทธิ์การเข้าถึง (Permissions) ที่ละเอียดขึ้น",
+          "การเรียนรู้เครื่องมือใหม่ในหน้า Dashboard"
+        ]
+      }
+    },
+    {
+      "id": "google-deepmind-introducing-genie-4-cd6ab1",
+      "title": "We’re announcing Genie 4, our new world model for real-time interactive simulation.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
+      "source": "Google DeepMind",
+      "published_date": "2026-10-27",
+      "published_at": "2026-10-27T16:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [],
+      "rss_categories": [
+        "Google DeepMind"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/genie-3__blog__social-og.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "ล้ำหน้าไปอีกระดับ! พบกับ Genie 4 โมเดลโลกเสมือนที่ตอบโต้ได้แบบ Real-time พร้อมเสียงสมจริง",
+      "short_teaser": "Google DeepMind เผยโฉม Genie 4 โมเดลที่สร้างโลกเสมือนแบบ Interactive ได้ทันที. ความเจ๋งอยู่ที่การนำ 'เสียง' มาเป็นส่วนหนึ่งของโลกจำลอง ทำให้ประสบการณ์ AI สมจริงที่สุดเท่าที่เคยมีมา",
+      "tldr_takeaways": [
+        "Genie 4 คือโมเดลโลกเสมือน (World Model) เจเนอเรชันล่าสุดจาก Google DeepMind",
+        "รองรับการโต้ตอบแบบ Real-time พร้อมเพิ่มระบบ 'เสียง' เข้ามาช่วยเสริมความสมจริง",
+        "ยกระดับการจำลองสภาพแวดล้อมให้ใกล้เคียงความจริงมากขึ้นกว่าเดิม"
+      ],
+      "layman_story": [
+        "ก่อนหน้านี้โมเดล AI มักสร้างได้แค่ภาพหรือวิดีโอแบบนิ่งๆ แต่การจะสร้างโลกที่ตอบโต้ได้จริง (Interactive Simulation) นั้นยากกว่ามาก ปัญหาคือความไม่ต่อเนื่องและความสมจริงที่มักจะหายไปเมื่อสภาพแวดล้อมเปลี่ยนแปลงอย่างรวดเร็ว",
+        "Genie 4 แก้ปัญหานี้ด้วยเทคโนโลยี World Model ที่สามารถเข้าใจและตอบสนองต่อผู้ใช้งานแบบ Real-time เหมือนกำลังอยู่ในเกมหรือโลกจำลอง ที่พิเศษสุดคือการใส่ระบบเสียง (Native Audio) เข้าไปแบบซิงค์กับเหตุการณ์ ทำให้เมื่อเราแตะหรือเปลี่ยนฉาก เสียงรอบข้างจะปรับเปลี่ยนตามทันทีอย่างเป็นธรรมชาติ",
+        "ความก้าวหน้านี้มีผลกระทบใหญ่ต่ออุตสาหกรรมเกม การจำลองสถานการณ์เพื่อฝึกฝน (Simulation Training) และงานศิลปะดิจิทัล ต่อไปเราอาจเห็นแอปพลิเคชันที่สร้างโลกเสมือนได้จากการพิมพ์เพียงไม่กี่คำ"
+      ],
+      "impact_comparison": {
+        "before": "การสร้าง simulation มักใช้เวลาประมวลผลนานและไม่มีเสียงประกอบที่สมจริงตามเหตุการณ์",
+        "after": "สร้างโลกจำลองที่ตอบโต้ได้ทันทีพร้อมระบบเสียงที่สมจริงแบบ Real-time",
+        "why_it_matters": "นี่คือหัวใจสำคัญของการสร้างโลกเสมือนจริงที่ AI สามารถทำได้เองในเวลาอันสั้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทดลองสร้างโลกเสมือน",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ใช้ API ของ Genie 4 เพื่อสร้างสภาพแวดล้อมสำหรับการทดสอบซอฟต์แวร์หรือเกม",
+          "example": "สร้างโลกจำลองสำหรับการทดสอบรถยนต์ไร้คนขับในสถานการณ์จำลอง"
+        },
+        {
+          "title": "สร้างฟีเจอร์ Interactive ใหม่ๆ",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "นำเทคโนโลยีการสร้างฉากเสมือนมาใช้ในงานด้านความบันเทิงหรือสื่อการสอน",
+          "example": "สร้างเกมแนว Interactive Storytelling ที่ผู้เล่นกำหนดโลกได้เอง"
+        },
+        {
+          "title": "การเรียนรู้ผ่าน Simulation",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใช้ Genie 4 ในการฝึกฝนทักษะการตัดสินใจในโลกจำลอง",
+          "example": "จำลองเหตุการณ์ฉุกเฉินในที่ทำงานเพื่อการฝึกซ้อมของพนักงาน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "การประมวลผลโลกเสมือนแบบ Interactive Real-time",
+          "การบูรณาการระบบ Native Audio เข้ากับวัตถุในโลกจำลอง"
+        ],
+        "watchouts": [
+          "ทรัพยากรประมวลผลที่อาจต้องใช้สูงมาก",
+          "ความแม่นยำในการสร้างรายละเอียดในสภาพแวดล้อมที่ซับซ้อน"
+        ]
+      }
+    },
+    {
+      "id": "education-ai-quests-polar-peaks-be77c9",
+      "title": "Our newest AI Quest: Mapping the human brain",
+      "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
+      "source": "Google Research",
+      "published_date": "2026-10-26",
+      "published_at": "2026-10-26T16:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Ronit Levavi Morad"
+      ],
+      "rss_categories": [
+        "Learning & Education",
+        "Google Research",
+        "AI"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/social_sharing_updated.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "เปลี่ยนเรื่องยากให้เป็นเรื่องสนุก! เรียนรู้ระบบสมองมนุษย์ผ่าน AI Quest: Polar Peaks",
+      "short_teaser": "Google เปิดตัวบทเรียน AI Quest ใหม่ล่าสุด 'Polar Peaks' ที่จะพาคุณดำดิ่งสู่โลกของประสาทวิทยา. พัฒนาทักษะความฉลาดทาง AI (AI Literacy) ผ่านการเดินทางที่น่าตื่นเต้น",
+      "tldr_takeaways": [
+        "AI Quest เป็นเครื่องมือสอนทักษะ AI Literacy ผ่านการผจญภัย",
+        "ตอนล่าสุด 'Polar Peaks' เน้นความรู้ด้านประสาทวิทยา (Neuroscience)",
+        "เรียนรู้ผ่านการทำภารกิจและแก้ปัญหาจริงที่เกี่ยวข้องกับการทำงานของสมอง"
+      ],
+      "layman_story": [
+        "การเรียนรู้เรื่อง AI หรือวิทยาศาสตร์เชิงลึกมักจะน่าเบื่อและยากต่อการทำความเข้าใจสำหรับคนทั่วไป Google จึงแก้ปัญหานี้ด้วยการสร้าง 'AI Quest' ซึ่งเป็นการเรียนรู้ในรูปแบบเกมที่เปลี่ยนเนื้อหาที่ซับซ้อนให้กลายเป็นภารกิจที่น่าสนใจ",
+        "ในตอน 'Polar Peaks' ผู้เรียนจะได้จำลองสถานการณ์การสำรวจขั้วโลกที่เชื่อมโยงเข้ากับการเรียนรู้ว่าสมองมนุษย์ทำงานอย่างไรและ AI นำเอาหลักการทำงานของสมองมาพัฒนาเทคโนโลยีได้อย่างไร เป็นการเรียนผ่านการทำ (Learning by Doing) ที่ให้ภาพชัดเจนกว่าการนั่งอ่านตำรา",
+        "โครงการนี้ส่งผลโดยตรงต่อการยกระดับความเข้าใจด้าน AI ของผู้คนในทุกระดับ และเป็นทิศทางที่ Google จะเน้นมากขึ้นในการเตรียมความพร้อมให้ทุกคนเท่าทันยุคสมัยของ AI"
+      ],
+      "impact_comparison": {
+        "before": "การเรียนรู้อะไรที่เกี่ยวกับ AI มักจะเน้นทฤษฎีจ๋าๆ เข้าใจยากและไม่เห็นภาพ",
+        "after": "เปลี่ยนการเรียนเป็นเกมที่สนุก เข้าใจระบบสมองและ AI ได้ในเวลาเดียวกัน",
+        "why_it_matters": "เป็นการสร้าง AI Literacy ในรูปแบบที่เข้าถึงคนได้ทุกกลุ่มและใช้งานได้จริง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ฝึกทักษะ AI Literacy",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ลองเข้าไปเล่น AI Quest เพื่อเข้าใจแนวคิดการเลียนแบบระบบสมอง (Neural Networks) ในเชิงลึก",
+          "example": "ใช้ความรู้เรื่องสมองที่ได้จากบทเรียนไปประยุกต์ใช้ในการเขียนโค้ด AI"
+        },
+        {
+          "title": "ใช้เป็นเครื่องมือสอนพนักงาน",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "นำ AI Quest ไปใช้ในกิจกรรม Team Building เพื่อให้พนักงานเข้าใจพื้นฐาน AI",
+          "example": "จัดกิจกรรมแข่งขันเล่น Polar Peaks ภายในทีมเพื่อสร้างความสนุกและได้ความรู้"
+        },
+        {
+          "title": "เพิ่มพูนความรู้รอบตัว",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใช้ช่วงเวลาว่างทำบทเรียน AI Quest เพื่อเสริมความเข้าใจเรื่องเทคโนโลยี",
+          "example": "นำบทเรียนไปแบ่งปันให้ลูกหลานเพื่อสร้างความเข้าใจ AI ตั้งแต่ต้น"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "บทเรียนหัวข้อประสาทวิทยา (Neuroscience) แบบใหม่",
+          "ระบบการเรียนรู้แบบโต้ตอบ (Gamified Learning)"
+        ],
+        "watchouts": [
+          "อาจใช้เวลาในการเคลียร์ภารกิจเพื่อให้ได้เนื้อหาครบถ้วน",
+          "ความลึกของเนื้อหาที่อาจต้องใช้ความสนใจระดับหนึ่ง"
+        ]
+      }
+    },
+    {
+      "id": "research-google-beam-uso-docuseries-service-memb-a9b0b9",
+      "title": "How Google Beam connects military families globally",
+      "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-uso-docuseries-service-members/",
+      "source": "Google Research",
+      "published_date": "2026-10-26",
+      "published_at": "2026-10-26T13:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Josh Woodward"
+      ],
+      "rss_categories": [
+        "Google Research"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Beam_x_USO_Rodriguez.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google Beam พลิกโฉมการสื่อสาร เชื่อมโยงครอบครัวทหารผ่านเทคโนโลยีสุดล้ำ",
+      "short_teaser": "Google ร่วมกับ USO เปิดตัวโปรเจกต์ Google Beam ขยายจุดเชื่อมต่อกว่า 20 แห่งทั่วโลก เพื่อลดช่องว่างทางระยะทางให้กับครอบครัวของทหารที่ต้องไปปฏิบัติภารกิจไกลบ้าน",
+      "tldr_takeaways": [
+        "ใช้เทคโนโลยีการสื่อสารคุณภาพสูงเชื่อมโยงครอบครัวทหารที่อยู่ห่างไกล",
+        "ขยายโครงข่ายรองรับกว่า 20 พื้นที่ยุทธศาสตร์ทั่วโลก",
+        "ตอกย้ำการใช้เทคโนโลยีเพื่อมนุษยธรรมและสร้างสายสัมพันธ์ที่แน่นแฟ้น"
+      ],
+      "layman_story": [
+        "ปัญหาเดิมที่ครอบครัวทหารต้องเผชิญคือข้อจำกัดด้านการสื่อสารเมื่อต้องประจำการในพื้นที่ห่างไกล ทำให้การพูดคุยแบบเห็นหน้าทำได้ยากและไม่เสถียร ส่งผลกระทบต่อกำลังใจของทั้งทหารและครอบครัว",
+        "Google Beam เข้ามาแก้ไขปัญหานี้ด้วยระบบเชื่อมต่อความหน่วงต่ำที่มีความคมชัดสูง ช่วยให้การวิดีโอคอลรู้สึกเหมือนอยู่ใกล้กันจริงๆ โดยไม่ต้องกังวลเรื่องคุณภาพสัญญาณในพื้นที่ที่มีข้อจำกัด",
+        "ก้าวต่อไปของ Google คือการขยายขอบเขตของโครงการนี้ให้ครอบคลุมมากขึ้น เพื่อให้มั่นใจว่าเทคโนโลยีจะช่วยรักษาความสัมพันธ์ของบุคลากรที่เสียสละตนเองให้คงอยู่อย่างมั่นคง"
+      ],
+      "impact_comparison": {
+        "before": "การสื่อสารผ่านสัญญาณอินเทอร์เน็ตที่ติดขัดและขาดความเสถียรในค่ายทหาร",
+        "after": "ระบบสื่อสารที่ไร้รอยต่อ ให้ความรู้สึกใกล้ชิดผ่านเทคโนโลยีระดับสูง",
+        "why_it_matters": "แสดงให้เห็นว่าเทคโนโลยีของ Google สามารถสร้างผลกระทบเชิงบวกต่อสังคมในระดับฐานราก"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ปรับแต่งระบบ Network สำหรับงานพื้นที่ห่างไกล",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ศึกษาการจัดการความหน่วงในระบบเครือข่ายจำกัด",
+          "example": "นำเทคนิคการบีบอัดวิดีโอมาปรับใช้กับแอปพลิเคชัน Real-time อื่นๆ"
+        },
+        {
+          "title": "วิเคราะห์การใช้ Tech เพื่อ Social Impact",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ถอดบทเรียนการสร้าง Brand Trust ผ่านโครงการเพื่อสังคม",
+          "example": "การทำโครงการ CSR ที่ใช้ Core Business เข้ามาช่วยแก้ปัญหาจริง"
+        },
+        {
+          "title": "ติดตามโครงการพัฒนาคุณภาพชีวิต",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ใช้เป็นโมเดลในการเลือกโซลูชันสื่อสารสำหรับองค์กรที่ต้องทำงานทางไกล",
+          "example": "ประยุกต์ใช้แพลตฟอร์มสื่อสารในพื้นที่ห่างไกลให้มีประสิทธิภาพดีขึ้น"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ระบบการเชื่อมต่อคุณภาพสูงใน 20 พื้นที่ใหม่",
+          "Docuseries ที่ถ่ายทอดเรื่องราวการเชื่อมต่อของครอบครัวทหาร"
+        ],
+        "watchouts": [
+          "การควบคุมโครงสร้างพื้นฐานในพื้นที่จำกัด",
+          "ความเป็นส่วนตัวและความปลอดภัยของข้อมูลในเครือข่ายทหาร"
+        ]
+      }
+    },
+    {
+      "id": "google-asia-e-conomy-sea-report-2026-1778fb",
+      "title": "Southeast Asia’s digital economy to hit $368 billion",
+      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/",
+      "source": "Google Official Blog",
+      "published_date": "2026-10-21",
+      "published_at": "2026-10-21T04:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Nitin Gajria"
+      ],
+      "rss_categories": [
+        "Google in Asia",
+        "AI"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/e-Conomy_SEA_hero.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "เศรษฐกิจดิจิทัลเอเชียตะวันออกเฉียงใต้ทะลุ 3.68 แสนล้านดอลลาร์ แรงขับเคลื่อนหลักคือ AI",
+      "short_teaser": "รายงานล่าสุดจาก Google เผยศักยภาพเศรษฐกิจดิจิทัลในภูมิภาค SEA ที่เติบโตอย่างก้าวกระโดด โดยมี AI เป็นตัวเร่งสำคัญสู่มูลค่า 1 ล้านล้านดอลลาร์ภายในปี 2035",
+      "tldr_takeaways": [
+        "คาดการณ์เศรษฐกิจดิจิทัล SEA แตะระดับ 3.68 แสนล้านดอลลาร์ในปี 2026",
+        "AI คือหัวใจสำคัญในการเพิ่มประสิทธิภาพและนวัตกรรมธุรกิจ",
+        "เส้นทางสู่ 1 ล้านล้านดอลลาร์ในปี 2035 ดูมีความเป็นไปได้สูง"
+      ],
+      "layman_story": [
+        "ภูมิภาคเอเชียตะวันออกเฉียงใต้กำลังก้าวเข้าสู่ยุคดิจิทัลอย่างเต็มตัว แต่เดิมธุรกิจต่างๆ ยังติดปัญหาการเพิ่มผลิตภาพ (Productivity) และการขยายตลาดที่ซับซ้อน",
+        "ด้วยการนำ AI มาใช้ในวงกว้าง ทั้งในระดับองค์กรและ SME ทำให้สามารถลดต้นทุนและสร้างนวัตกรรมได้เร็วขึ้นแบบทวีคูณ ส่งผลให้ภาพรวมเศรษฐกิจพุ่งทะยานอย่างรวดเร็ว",
+        "ทิศทางต่อจากนี้ ผู้ประกอบการและนักลงทุนต้องเร่งปรับตัวเพื่อคว้าโอกาสในยุค AI First หากไม่ต้องการตกขบวนในตลาดที่กำลังขยายตัวอย่างมหาศาลนี้"
+      ],
+      "impact_comparison": {
+        "before": "การเติบโตแบบปกติ (Linear Growth) ที่พึ่งพาแรงงานและช่องทางออนไลน์ดั้งเดิม",
+        "after": "การเติบโตแบบก้าวกระโดด (Exponential Growth) ด้วยพลังจาก Generative AI",
+        "why_it_matters": "ยืนยันว่าภูมิภาค SEA คือสนามรบสำคัญทางเทคโนโลยีของโลก"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ปรับพอร์ตลงทุนและโฟกัสโปรดักต์ AI",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "เน้นพัฒนาโซลูชันที่ช่วยลดต้นทุนให้ธุรกิจขนาดกลางและเล็ก",
+          "example": "สร้าง AI Agent ที่ช่วย Automate งานหลังบ้านของร้านค้าออนไลน์"
+        },
+        {
+          "title": "กำหนดกลยุทธ์ AI-first Business",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ใช้ข้อมูลในรายงานนี้มาปรับแผนการทำ Digital Transformation",
+          "example": "นำ AI มาวิเคราะห์พฤติกรรมลูกค้าเพื่อเพิ่ม Conversion Rate"
+        },
+        {
+          "title": "Upskill เพื่อคว้าโอกาสในตลาดงาน",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "เตรียมความพร้อมด้วยทักษะ AI Literacy",
+          "example": "ฝึกใช้เครื่องมือ Gemini เพื่อเพิ่มประสิทธิภาพในการทำงานประจำวัน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ข้อมูลเชิงลึกเกี่ยวกับมูลค่าเศรษฐกิจดิจิทัลปี 2026",
+          "เป้าหมายเชิงกลยุทธ์ของภูมิภาคในปี 2035"
+        ],
+        "watchouts": [
+          "การเข้าถึงเทคโนโลยีที่อาจไม่เท่าเทียมกันในบางกลุ่ม",
+          "ความจำเป็นด้านกฎระเบียบ AI ในระดับภูมิภาค"
+        ]
+      }
+    },
+    {
+      "id": "google-research-amie-clinical-study-e2a496",
+      "title": "Ask a Scientist: How can AI help doctors spend more time on collaborative care?",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-clinical-study/",
+      "source": "Google Research",
+      "published_date": "2026-10-20",
+      "published_at": "2026-10-20T16:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Lindsey Lanquist"
+      ],
+      "rss_categories": [
+        "Google Research"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AskAScientist_AMIE_Thumb_003_ss.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "ยกระดับการแพทย์ด้วย AI: AMIE ผู้ช่วยอัจฉริยะที่ช่วยคุณหมอทำงานได้ลึกซึ้งขึ้น",
+      "short_teaser": "Google เผยผลการศึกษา AMIE ระบบ AI ที่ออกแบบมาเพื่อรวบรวมข้อมูลสุขภาพเบื้องต้น ช่วยให้แพทย์มีเวลาเหลือเฟือในการดูแลคนไข้แบบเข้มข้นขึ้น",
+      "tldr_takeaways": [
+        "AMIE ช่วยคัดกรองประวัติผู้ป่วยอย่างแม่นยำก่อนพบแพทย์",
+        "ลดภาระงานเอกสารให้แพทย์เพื่อให้มีเวลาปฏิสัมพันธ์กับคนไข้จริง",
+        "ผลการทดสอบแสดงความสามารถเทียบเท่าหรือเหนือกว่าในแง่ข้อมูล"
+      ],
+      "layman_story": [
+        "ปัญหาใหญ่ในวงการแพทย์คือแพทย์มีเวลาจำกัดในการคุยกับคนไข้ เพราะต้องเสียเวลาไปกับการจดบันทึกและซักประวัติซ้ำซ้อน ทำให้ความสัมพันธ์เชิงรักษาลดน้อยลง",
+        "AMIE เป็น AI ที่ผ่านการฝึกฝนมาเพื่อพูดคุยกับผู้ป่วยโดยเฉพาะ ระบบจะทำการซักประวัติอย่างละเอียดและสรุปข้อมูลให้แพทย์อย่างเป็นระบบ ทำให้เมื่อพบกันจริงๆ แพทย์สามารถโฟกัสที่การรักษาได้ทันที",
+        "ผลลัพธ์นี้เปลี่ยนแนวทาง AI ในการแพทย์ จากแค่ 'ตัวช่วยงาน' สู่การเป็น 'เพื่อนร่วมทาง' ที่เพิ่มประสิทธิภาพในการรักษา ซึ่งเป็นก้าวสำคัญสู่อนาคตที่คนไข้ได้รับการดูแลที่ดียิ่งขึ้น"
+      ],
+      "impact_comparison": {
+        "before": "การเก็บข้อมูลด้วยมือที่เสียเวลาและมีโอกาสตกหล่น",
+        "after": "ระบบบันทึกอัจฉริยะที่แม่นยำและรวดเร็ว",
+        "why_it_matters": "AMIE พิสูจน์ให้เห็นว่า AI สามารถช่วยยกระดับคุณภาพชีวิตของผู้ป่วยได้จริง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "พัฒนา AI ในโซลูชัน Healthcare",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ศึกษาการออกแบบบทสนทนา (Conversation Design) สำหรับเคสที่ละเอียดอ่อน",
+          "example": "สร้างระบบ Chatbot สุขภาพที่รองรับการสรุปอาการเบื้องต้น"
+        },
+        {
+          "title": "ประเมินโอกาสในตลาด MedTech",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ใช้ผลการศึกษานี้ในการ Pitch บริการสุขภาพที่ใช้ AI",
+          "example": "นำระบบ AI มาใช้ในระบบการจองคิวและคัดกรองคนไข้ในคลินิก"
+        },
+        {
+          "title": "ศึกษาแนวทางการสื่อสารกับเครื่องจักร",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "เตรียมความพร้อมในการให้ข้อมูลแก่ระบบอัตโนมัติอย่างถูกต้อง",
+          "example": "การสรุปประวัติสุขภาพให้สั้นและเข้าใจง่ายแก่ AI คัดกรอง"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ความสามารถในการซักประวัติผู้ป่วยแบบเนียนตา",
+          "ผลงานวิจัยที่พิสูจน์ประสิทธิภาพในคลินิก"
+        ],
+        "watchouts": [
+          "จริยธรรมและการรักษาความลับข้อมูลผู้ป่วย",
+          "ความเชื่อมั่นในคำตอบของ AI ที่ยังต้องการการตรวจสอบ"
+        ]
+      }
+    },
+    {
+      "id": "quantum-computing-magic-state-cultivation-quantu-ec9d86",
+      "title": "Bringing the magic: Google breaks open a bottleneck in quantum computing",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/quantum-computing/magic-state-cultivation-quantum-computing/",
+      "source": "Google Research",
+      "published_date": "2026-10-15",
+      "published_at": "2026-10-15T18:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Emma Rosenfeld",
+        "Craig Gidney"
+      ],
+      "rss_categories": [
+        "Quantum computing",
+        "Google Research"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/magic_state_still_2.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google ทลายกำแพง Quantum Computing! ประสบความสำเร็จในการทำ Magic State Cultivation",
+      "short_teaser": "Google พิสูจน์ความสำเร็จในการแก้ปัญหาคอขวดด้านคอมพิวเตอร์ควอนตัมบนฮาร์ดแวร์จริง นับเป็นก้าวสำคัญสู่ยุคของ Fault-Tolerant Quantum Computing",
+      "tldr_takeaways": [
+        "ประสบความสำเร็จในการทำ Magic State Cultivation บนฮาร์ดแวร์จริง",
+        "เป็นคำตอบสำหรับข้อจำกัดด้านความเร็วและความเสถียรของควอนตัม",
+        "เผยแพร่ผลงานในวารสาร Science ตอกย้ำความเป็นผู้นำด้านควอนตัม"
+      ],
+      "layman_story": [
+        "คอมพิวเตอร์ควอนตัมในอดีตมักจะเจอกับปัญหา 'Noise' หรือสัญญาณรบกวนที่ทำให้คำนวณผิดพลาดได้ง่าย และการจะจัดการปัญหานี้ต้องใช้พลังงานและทรัพยากรอย่างมหาศาล",
+        "Magic State Cultivation เป็นเทคนิคที่เปรียบเสมือนการกรองสิ่งเจือปนออกจากกระบวนการคำนวณ ทำให้เครื่องคอมพิวเตอร์สามารถทำงานได้อย่างแม่นยำขึ้น โดย Google ได้ทดสอบจนสำเร็จบนชิปควอนตัมจริง",
+        "นี่คือจุดเริ่มต้นของการสร้างระบบที่เชื่อถือได้จริง (Fault-Tolerant) ซึ่งในอนาคตจะช่วยให้เราแก้ปัญหาที่ซับซ้อนเกินกว่าคอมพิวเตอร์ปกติทำได้ เช่น การค้นพบวัสดุใหม่ หรือการจำลองปฏิกิริยาเคมีขั้นสูง"
+      ],
+      "impact_comparison": {
+        "before": "การทำงานที่เปราะบางและมีข้อผิดพลาดสูงจากการรบกวนของสภาวะแวดล้อม",
+        "after": "ระบบควอนตัมที่มีความเสถียรและพร้อมต่อการนำไปใช้งานจริง",
+        "why_it_matters": "เป็นการเปิดประตูสู่ยุคใหม่ที่คอมพิวเตอร์ควอนตัมจะมีพลังในการคำนวณมหาศาล"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ติดตามเทรนด์ Quantum Algorithms",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "เตรียมตัวเขียนโค้ดสำหรับระบบที่รองรับ Quantum Error Correction",
+          "example": "ทดลองใช้ Qiskit หรือเครื่องมือจำลองใน Google Cloud"
+        },
+        {
+          "title": "เตรียมกลยุทธ์ธุรกิจรับมือยุคหลังควอนตัม",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ศึกษาผลกระทบด้านความปลอดภัย (Cryptography) และโอกาสใหม่ในอุตสาหกรรม",
+          "example": "ประเมินผลกระทบที่อาจเกิดกับระบบรักษาความปลอดภัยขององค์กร"
+        },
+        {
+          "title": "สร้างความเข้าใจพื้นฐานเชิงทฤษฎี",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "เรียนรู้พื้นฐาน Qubits เพื่อทำความเข้าใจทิศทางอนาคต",
+          "example": "อ่านรายงานวิจัยสรุปของ Google เพื่อเข้าใจบทบาทของฮาร์ดแวร์"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เทคนิค Magic State Cultivation บนฮาร์ดแวร์จริง",
+          "งานวิจัยที่ได้รับการรับรองระดับสากลจากวารสาร Science"
+        ],
+        "watchouts": [
+          "ยังต้องใช้เวลาอีกหลายปีกว่าจะเป็นคอมพิวเตอร์ระดับแมส",
+          "ต้นทุนการพัฒนาที่ยังคงสูงมากในปัจจุบัน"
+        ]
+      }
+    },
+    {
+      "id": "google-research-crisis-resilience-white-paper-c164e0",
+      "title": "How we're helping the world prepare for natural disasters",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/crisis-resilience-white-paper/",
+      "source": "Google Research",
+      "published_date": "2026-10-15",
+      "published_at": "2026-10-15T16:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Yossi Matias",
+        "Kate Brandt"
+      ],
+      "rss_categories": [
+        "Google Research"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": null,
+      "reading_time_minutes": 3,
+      "hook_headline": "ภารกิจใหม่จาก Google: ใช้ AI เปลี่ยนความไม่แน่นอนจากภัยพิบัติให้กลายเป็นสิ่งที่รับมือได้",
+      "short_teaser": "Google ปล่อย White Paper ฉบับใหม่เผยพิมพ์เขียวการใช้ AI เพื่อแจ้งเตือนภัยธรรมชาติแม่นยำขึ้น หวังลดผลกระทบต่อชีวิตผู้คนทั่วโลก",
+      "tldr_takeaways": [
+        "AI ช่วยพยากรณ์และแจ้งเตือนภัยธรรมชาติล่วงหน้าเพื่อลดความสูญเสีย",
+        "การใช้ข้อมูลเชิงลึกผ่านแบบจำลองขั้นสูงเพื่อการเตรียมพร้อมเชิงรุก",
+        "เป้าหมายสูงสุดคือการสร้างโลกที่ไม่มีใครต้องเผชิญกับภัยพิบัติโดยไม่รู้ตัว"
+      ],
+      "layman_story": [
+        "ภัยธรรมชาติเป็นสิ่งที่คาดเดาได้ยากและสร้างความเสียหายรุนแรงในวงกว้าง ปัญหาเดิมที่หลายประเทศเผชิญคือระบบแจ้งเตือนที่ล่าช้าหรือขาดความละเอียดของข้อมูล ทำให้การอพยพหรือรับมือไม่ทันท่วงที Google จึงมองหาวิธีใช้ AI มาปิดช่องว่างนี้",
+        "ด้วยการใช้พลังการประมวลผลของโมเดล AI ขั้นสูง Google สามารถวิเคราะห์ข้อมูลจากดาวเทียม สภาพอากาศ และข้อมูลทางประวัติศาสตร์เพื่อทำนายทิศทางของภัยพิบัติ เช่น น้ำท่วม หรือไฟป่า ได้แม่นยำกว่าการพยากรณ์แบบดั้งเดิมหลายเท่าตัว",
+        "นวัตกรรมนี้เปลี่ยนผ่านจากการ 'ตั้งรับ' เป็น 'การเตรียมตัว' ซึ่งจะเป็นประโยชน์อย่างมากต่อภาครัฐและองค์กรบรรเทาสาธารณภัย ในอนาคตเราอาจเห็นระบบป้องกันที่เตือนภัยล่วงหน้าได้ผ่านสมาร์ทโฟนของทุกคนอย่างแม่นยำและฉับไว"
+      ],
+      "impact_comparison": {
+        "before": "การคาดการณ์ภัยพิบัติพึ่งพาโมเดลทางสถิติแบบดั้งเดิมที่มีความคลาดเคลื่อนสูงและใช้เวลานานในการประมวลผล",
+        "after": "ระบบ AI ที่สามารถจำลองสถานการณ์และให้ข้อมูลเชิงลึกในระดับพื้นที่ได้แบบเกือบเรียลไทม์",
+        "why_it_matters": "นี่คือการพิสูจน์ว่า AI สามารถใช้เพื่อประโยชน์สาธารณะและช่วยลดความเหลื่อมล้ำในการเข้าถึงข้อมูลความปลอดภัย"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ศึกษาแนวทางการประมวลผลข้อมูล",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "ศึกษารายงาน White Paper เพื่อเรียนรู้การประยุกต์ใช้ Geospatial Data ร่วมกับ AI",
+          "example": "ใช้ชุดข้อมูลเปิดจาก Google Earth Engine ร่วมกับ Gemini ในการสร้างระบบวิเคราะห์พื้นที่เสี่ยงภัยเบื้องต้น"
+        },
+        {
+          "title": "ร่วมมือกับหน่วยงานท้องถิ่น",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "นำเครื่องมือพยากรณ์ภัยพิบัติมาเป็นฟีเจอร์เสริมในแอปพลิเคชันสำหรับชุมชน",
+          "example": "สร้างบริการแจ้งเตือนภัยเฉพาะจุด (Hyper-local alert) สำหรับธุรกิจเกษตรหรือโลจิสติกส์"
+        },
+        {
+          "title": "ติดตามช่องทางแจ้งเตือนของรัฐ",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ปรับใช้เทคโนโลยี Google Maps และ Google Search เพื่อรับการแจ้งเตือนจากระบบที่รองรับ AI",
+          "example": "เปิดรับการแจ้งเตือนตำแหน่งที่ตั้งในแอป Google Maps เพื่อรับการเตือนภัยน้ำท่วมหรือพายุในละแวกบ้าน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "แนวคิดเชิงกลยุทธ์ผ่าน White Paper ที่มุ่งเน้นการรับมือภัยพิบัติระดับโลก",
+          "การบูรณาการโมเดล AI ล่าสุดเข้ากับชุดข้อมูลพยากรณ์อากาศที่ซับซ้อน"
+        ],
+        "watchouts": [
+          "ความเป็นส่วนตัวของข้อมูลพื้นที่และข้อจำกัดในการเข้าถึงข้อมูลในบางภูมิภาค",
+          "ความจำเป็นในการตรวจสอบผลลัพธ์จาก AI โดยผู้เชี่ยวชาญด้านอุตุนิยมวิทยา"
+        ]
+      }
+    },
+    {
+      "id": "google-deepmind-synthid-time-best-inventions-cc17f1",
+      "title": "TIME has named Google SynthID one of the Best Inventions of 2026.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/synthid-time-best-inventions/",
+      "source": "Google DeepMind",
+      "published_date": "2026-10-15",
+      "published_at": "2026-10-15T13:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [],
+      "rss_categories": [
+        "Google DeepMind"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Labs_SynthID_Social1920x1080.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "การันตีด้วยรางวัล! Google SynthID ขึ้นแท่นสุดยอดสิ่งประดิษฐ์จาก TIME",
+      "short_teaser": "นวัตกรรมลายน้ำดิจิทัล SynthID ของ Google DeepMind ได้รับการยกย่องจาก TIME ให้เป็นหนึ่งใน Best Inventions of 2026 แก้ปัญหา Deepfake และ AI Verification",
+      "tldr_takeaways": [
+        "SynthID คือเทคโนโลยีฝังลายน้ำที่มองไม่เห็นเพื่อระบุตัวตนคอนเทนต์ที่สร้างโดย AI",
+        "ได้รับการยอมรับในระดับสากลจากนิตยสาร TIME ว่าเป็นนวัตกรรมที่เปลี่ยนเกมความเชื่อมั่นดิจิทัล",
+        "ช่วยให้นักพัฒนาและผู้สร้างคอนเทนต์รักษาความโปร่งใสในยุค AI เฟื่องฟู"
+      ],
+      "layman_story": [
+        "ท่ามกลางความก้าวหน้าของ AI ที่สร้างภาพและเสียงได้อย่างสมจริง ปัญหาใหญ่ที่ตามมาคือการปลอมแปลงคอนเทนต์ (Deepfake) ทำให้แยกไม่ออกว่าอะไรคือเรื่องจริงหรือเรื่องที่ AI สร้างขึ้น",
+        "Google SynthID เข้ามาแก้ไขปัญหานี้ด้วยการฝังลายน้ำ (Watermark) ที่ถูกเข้ารหัสไว้ลึกในระดับพิกเซลหรือสัญญาณเสียง ซึ่งแม้จะแก้ไขภาพหรือบีบอัดไฟล์ ลายน้ำนี้ก็ยังอยู่ ทำให้สามารถตรวจจับได้ว่าคอนเทนต์นั้นสร้างมาจากโมเดลของ Google",
+        "รางวัลจาก TIME ตอกย้ำว่าโซลูชันนี้คือมาตรฐานใหม่ของอุตสาหกรรม นักพัฒนาและแพลตฟอร์มต่างๆ จะเริ่มนำแนวทางนี้ไปใช้เพื่อสร้างความปลอดภัยและสร้างระบบนิเวศข้อมูลที่เชื่อถือได้ในอนาคต"
+      ],
+      "impact_comparison": {
+        "before": "การแยกแยะคอนเทนต์ AI ต้องใช้การสังเกตด้วยตาเปล่าหรือระบบตรวจสอบที่ถูกทำลายได้ง่าย",
+        "after": "เทคโนโลยีลายน้ำที่แนบเนียนและคงทนต่อการแก้ไขไฟล์ ช่วยให้การยืนยันที่มาทำได้แม่นยำ",
+        "why_it_matters": "เพิ่มความเชื่อมั่นให้กับผู้ใช้งานโซเชียลมีเดียและช่วยป้องกันการบิดเบือนข้อมูลในระดับวงกว้าง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ปรับใช้ API ของ SynthID",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "นำเทคโนโลยี SynthID เข้าไปรวมใน Pipeline การผลิตคอนเทนต์ AI ของบริษัท",
+          "example": "ใช้ SynthID กับผลงานภาพที่สร้างจาก Image Generation API เพื่อยืนยันลิขสิทธิ์และที่มา"
+        },
+        {
+          "title": "สร้างกลยุทธ์ Trust & Safety",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "ใช้ SynthID เป็นส่วนหนึ่งของนโยบายความโปร่งใสในการผลิตสื่อ",
+          "example": "ระบุให้ชัดเจนในแพลตฟอร์มว่ารูปภาพได้รับการรับรองความปลอดภัยผ่านเทคโนโลยีของ Google"
+        },
+        {
+          "title": "คัดกรองข้อมูลก่อนเชื่อ",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ฝึกสังเกตสัญลักษณ์การระบุตัวตนคอนเทนต์จาก AI ในแพลตฟอร์มต่างๆ",
+          "example": "ตรวจสอบข้อมูลจากแหล่งที่มาที่น่าเชื่อถือซึ่งแสดงป้ายกำกับ AI-Generated"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ได้รับการจัดอันดับโดยนิตยสาร TIME เป็นหนึ่งในสิ่งประดิษฐ์ที่ดีที่สุดแห่งปี 2026",
+          "การพิสูจน์ความทนทานของลายน้ำดิจิทัลในสถานการณ์ที่ซับซ้อน"
+        ],
+        "watchouts": [
+          "เทคโนโลยียังเป็นมาตรฐานในระดับโมเดลที่จำกัดอยู่ภายใต้ Google",
+          "ผู้ไม่หวังดีอาจพยายามหาวิธีใหม่ๆ ในการหลบเลี่ยงการตรวจสอบ"
+        ]
+      }
+    },
+    {
+      "id": "research-research-capabilities-intelligence-2026-1a350f",
+      "title": "Research@ 2026: Novel capabilities and intelligence",
+      "url": "https://blog.google/innovation-and-ai/technology/research/research-capabilities-intelligence-2026/",
+      "source": "Google Research",
+      "published_date": "2026-10-14",
+      "published_at": "2026-10-14T16:15:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Google Research"
+      ],
+      "rss_categories": [
+        "Google Research"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Research-at.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "เผยขุมพลังงานวิจัยใหม่จาก Google: ยกระดับความอัจฉริยะสู่ขีดสุดในปี 2026",
+      "short_teaser": "Google Research เปิดตัวความสามารถ AI รูปแบบใหม่ เน้นความฉลาดและการประมวลผลซับซ้อน เตรียมพร้อมส่งต่อให้กับนักวิจัยและผู้พัฒนาทั่วโลก",
+      "tldr_takeaways": [
+        "เปิดตัวความสามารถใหม่ทางด้าน AI Intelligence และความสามารถในการวิจัยเชิงลึก",
+        "มุ่งเน้นการเพิ่มประสิทธิภาพการทำงานของโมเดลผ่านงานวิจัยระดับแนวหน้า",
+        "เป้าหมายคือการทำให้นักวิจัยและนักพัฒนาสามารถสร้างนวัตกรรมที่เหนือกว่าเดิมได้"
+      ],
+      "layman_story": [
+        "ในโลกที่ AI พัฒนาไปอย่างรวดเร็ว ปัญหาที่นักวิจัยพบคือ 'ขีดจำกัด' ของโมเดลเดิมที่ไม่สามารถรองรับงานที่มีความซับซ้อนสูงหรือการเชื่อมโยงข้อมูลหลายรูปแบบได้อย่างมีประสิทธิภาพ",
+        "งานวิจัยล่าสุดจาก Google Research ได้ก้าวข้ามผ่านสิ่งเหล่านั้นด้วยการเปิดตัวความสามารถด้าน Intelligence แบบใหม่ที่ช่วยให้โมเดลประมวลผลเชิงตรรกะได้ลึกขึ้น เข้าใจบริบทที่ซับซ้อนและให้ผลลัพธ์ที่ใกล้เคียงกับความคิดของมนุษย์มากยิ่งขึ้น",
+        "ความสำเร็จนี้เปรียบเสมือนการปลดล็อกศักยภาพให้นักพัฒนาทั่วโลกสามารถสร้างแอปพลิเคชันที่ 'คิดเองได้' เก่งขึ้น และรองรับการทำงานในระดับองค์กรที่ท้าทายกว่าเดิมได้ดีกว่าที่เคย"
+      ],
+      "impact_comparison": {
+        "before": "การพัฒนา AI จำกัดอยู่แค่การทำตามคำสั่งในรูปแบบเดิมๆ (Pattern Matching)",
+        "after": "AI ที่สามารถคิดเชิงตรรกะและจัดการงานซับซ้อนด้วย Intelligence ระดับสูงขึ้น",
+        "why_it_matters": "นี่คือจุดเปลี่ยนสำคัญในการพัฒนา Agentic AI ที่จะช่วยประหยัดเวลาและเพิ่มขีดความสามารถให้ธุรกิจ"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ติดตามงานวิจัยผ่าน Google Research",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "อ่านบทความเจาะลึกเพื่อนำเทคนิคการปรับปรุงโมเดลไปใช้กับโปรเจกต์ของตนเอง",
+          "example": "ประยุกต์ใช้เทคนิคใหม่จาก Paper เพื่อเพิ่มความแม่นยำในการทำ Reasoning ให้กับ LLM"
+        },
+        {
+          "title": "ปรับกลยุทธ์การลงทุนด้าน AI",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "เตรียมทีมงานให้พร้อมสำหรับความสามารถใหม่ที่จะเข้ามาเปลี่ยนโครงสร้างของซอฟต์แวร์",
+          "example": "ทดลองสร้างฟีเจอร์ที่อาศัยความสามารถด้านตรรกะขั้นสูงของโมเดลใหม่ในงานวิเคราะห์ธุรกิจ"
+        },
+        {
+          "title": "อัปเดตความรู้ด้าน AI Intelligence",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ทำความเข้าใจว่า AI ยุคใหม่เปลี่ยนจากการถาม-ตอบ เป็นการทำงานร่วมกันอย่างไร",
+          "example": "เตรียมทีมในองค์กรให้คุ้นเคยกับการใช้ AI เป็นผู้ช่วยในกระบวนการทำงานที่ซับซ้อน"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "นวัตกรรมใหม่ด้าน AI Intelligence ที่ช่วยเพิ่มประสิทธิภาพการประมวลผลเชิงตรรกะ",
+          "การส่งมอบเครื่องมือการวิจัยและพัฒนาสู่มือของผู้เชี่ยวชาญทั่วโลก"
+        ],
+        "watchouts": [
+          "ความซับซ้อนในการนำไปใช้งานสำหรับผู้เริ่มต้นที่ยังไม่มีพื้นฐานด้าน Machine Learning",
+          "จำเป็นต้องติดตามการทดสอบผลกระทบต่อจริยธรรมของ AI ในระดับที่สูงขึ้น"
+        ]
+      }
+    },
+    {
+      "id": "google-deepmind-were-powering-european-scientifi-2c4a2f",
+      "title": "We’re powering European scientific discovery with advanced AI compute and frontier models.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/",
+      "source": "Google DeepMind",
+      "published_date": "2026-10-14",
+      "published_at": "2026-10-14T08:00:00.000Z",
+      "updated_at": "2026-11-14T03:40:50.494Z",
+      "authors": [
+        "Maureen Costello"
+      ],
+      "rss_categories": [
+        "Google Cloud",
+        "Google DeepMind"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/ireland-innovation-companies-st.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google ทุ่มงบหนุนนักวิจัยยุโรป ปูพรมใช้ AI เปลี่ยนโลกวิทยาศาสตร์",
+      "short_teaser": "Google DeepMind และ Google Cloud มอบพลังการประมวลผลและโมเดล AI ล้ำสมัยให้นักวิทยาศาสตร์ชั้นนำในยุโรป หวังเร่งความเร็วการค้นพบทางวิทยาศาสตร์ใหม่ๆ",
+      "tldr_takeaways": [
+        "สนับสนุนนักวิจัยชั้นนำยุโรป 200 คนด้วยพลังคำนวณและโมเดล AI ระดับแนวหน้า",
+        "มอบงบประมาณกว่า $3 ล้านสำหรับการใช้งาน Google Cloud เพื่อเร่งงานวิจัย",
+        "มุ่งเน้นการใช้ AI เพื่อแก้ปัญหาความท้าทายระดับโลกด้านวิทยาศาสตร์"
+      ],
+      "layman_story": [
+        "การค้นพบทางวิทยาศาสตร์ใหม่ๆ ไม่ว่าจะเป็นยาตัวใหม่หรือวัสดุศาสตร์มักใช้เวลาหลายปีและงบประมาณมหาศาล ปัญหาที่นักวิจัยหลายคนเจอคือการขาดแคลนทรัพยากรประมวลผลที่แรงพอจะจำลองข้อมูลซับซ้อนได้",
+        "Google จึงยื่นมือเข้ามาสนับสนุนด้วยการให้เข้าถึงโมเดล AI ขั้นสูง (Frontier Models) พร้อมกับมอบเครดิตการใช้งาน Google Cloud มูลค่ามหาศาล ทำให้นักวิทยาศาสตร์สามารถทำ Simulation ที่แต่ก่อนต้องใช้เวลานาน ให้เสร็จสิ้นได้ในเวลาอันสั้น",
+        "ผลกระทบที่จะเกิดขึ้นคือการย่นระยะเวลาการค้นพบสิ่งใหม่ๆ ให้รวดเร็วขึ้นอย่างมหาศาล นี่ไม่ใช่แค่เรื่องของเทคโนโลยี แต่เป็นก้าวกระโดดที่สำคัญของมนุษยชาติในการจัดการปัญหาสุขภาพและสิ่งแวดล้อม"
+      ],
+      "impact_comparison": {
+        "before": "งานวิจัยทางวิทยาศาสตร์ต้องติดขัดด้วยข้อจำกัดด้านงบประมาณและพลังการประมวลผล",
+        "after": "นักวิจัยมีเครื่องมือระดับ Frontier เข้ามาเสริมทัพให้งานที่ยากลำบากกลายเป็นเรื่องที่ทำได้เร็วขึ้น",
+        "why_it_matters": "เป็นการสร้างระบบนิเวศการวิจัยที่แข็งแกร่งขึ้นโดยมี AI เป็นเครื่องยนต์หลัก"
+      },
+      "actionable_playbook": [
+        {
+          "title": "สมัครโครงการวิจัยผ่าน Cloud Credit",
+          "role": "สำหรับนักพัฒนา / AI Builder",
+          "description": "หากทำวิจัยเกี่ยวกับ AI และวิทยาศาสตร์ ลองติดตามโครงการให้ทุนของ Google Cloud",
+          "example": "ยื่นข้อเสนอโครงการวิจัยที่ใช้ Google Cloud ในการทดสอบโมเดล AI ร่วมกับข้อมูลงานวิจัยจริง"
+        },
+        {
+          "title": "เชื่อมโยงงานวิจัยสู่เชิงพาณิชย์",
+          "role": "สำหรับทีม Product / ธุรกิจ",
+          "description": "สำรวจโอกาสในการนำผลงานวิจัย AI มาปรับใช้กับงานในอุตสาหกรรม",
+          "example": "จับมือกับมหาวิทยาลัยเพื่อสร้างผลิตภัณฑ์บนพื้นฐานของงานวิจัยที่ใช้ AI ช่วยค้นพบโมเลกุลยาใหม่"
+        },
+        {
+          "title": "ติดตามความก้าวหน้าในระดับโลก",
+          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
+          "description": "ติดตามข่าวสารว่างานวิจัยที่ใช้ AI เหล่านี้สร้างประโยชน์อย่างไรให้กับสังคม",
+          "example": "อ่านรายงานผลลัพธ์ของงานวิจัยที่เป็นความร่วมมือระหว่าง Google DeepMind และสถาบันวิทยาศาสตร์ยุโรป"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "การสนับสนุนแบบจัดเต็มทั้งพลังประมวลผลและโมเดล AI ล้ำสมัยสำหรับนักวิจัย",
+          "ความร่วมมือระหว่าง Google DeepMind และ Google Cloud เพื่อสนับสนุนวิทยาศาสตร์โดยตรง"
+        ],
+        "watchouts": [
+          "การคัดเลือกผู้เข้าร่วมโครงการอาจมีความเข้มข้นและเน้นเฉพาะสาขาที่มีความสำคัญสูง",
+          "การติดตามผลลัพธ์ที่จะเกิดขึ้นในอีก 1-2 ปีข้างหน้าว่าจะมีผลงานชิ้นโบแดงอย่างไร"
         ]
       }
     }
