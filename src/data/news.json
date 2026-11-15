@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T03:07:56.099Z",
+  "updated_at": "2026-11-15T09:01:27.378Z",
   "articles": [
     {
       "id": "developers-tools-google-cloud-credits-gdp-ai-stu-4207b3",
@@ -8,7 +8,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-13",
       "published_at": "2026-11-13T20:30:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Bala Muthukrishnan",
         "Seth Odoom"
@@ -74,7 +74,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-13",
       "published_at": "2026-11-13T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "News from Google Team"
       ],
@@ -140,7 +140,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T20:30:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Arathi Sethumadhavan"
       ],
@@ -205,7 +205,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Robby Stein"
       ],
@@ -272,7 +272,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Gemini models",
@@ -336,7 +336,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Koray Kavukcuoglu"
       ],
@@ -401,7 +401,7 @@
       "source": "Google Research",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Google Research",
@@ -465,7 +465,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Gemini App"
@@ -528,7 +528,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T14:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Shahram Izadi"
       ],
@@ -595,7 +595,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T14:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Shahram Izadi"
       ],
@@ -660,7 +660,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T18:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Min Choi",
         "Felix Yu"
@@ -727,7 +727,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud",
@@ -791,7 +791,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Gary Eimerman"
       ],
@@ -857,7 +857,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Karan Daryanani"
       ],
@@ -922,7 +922,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Roman Nurik"
       ],
@@ -988,7 +988,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T19:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Karthik Thirumalai"
       ],
@@ -1056,7 +1056,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Rohan Doshi",
         "Ben Caine"
@@ -1122,7 +1122,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Koray Kavukcuoglu"
       ],
@@ -1187,7 +1187,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Developer tools"
@@ -1250,7 +1250,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T14:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Google DeepMind",
@@ -1319,7 +1319,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-10",
       "published_at": "2026-11-10T13:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud",
@@ -1383,7 +1383,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-09",
       "published_at": "2026-11-09T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Maps",
@@ -1447,7 +1447,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-05",
       "published_at": "2026-11-05T20:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Google Workspace"
@@ -1510,7 +1510,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-05",
       "published_at": "2026-11-05T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Anish Nangia"
       ],
@@ -1577,7 +1577,7 @@
       "source": "Google Research",
       "published_date": "2026-11-03",
       "published_at": "2026-11-03T04:30:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Yossi Matias"
       ],
@@ -1642,7 +1642,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-02",
       "published_at": "2026-11-02T17:45:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Blog Team"
       ],
@@ -1713,7 +1713,7 @@
       "source": "Google Research",
       "published_date": "2026-10-30",
       "published_at": "2026-10-30T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [
         "Travis Beals"
       ],
@@ -1778,7 +1778,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-10-30",
       "published_at": "2026-10-30T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.371Z",
       "authors": [],
       "rss_categories": [
         "Google Workspace",
@@ -1842,7 +1842,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-10-28",
       "published_at": "2026-10-28T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Koray Kavukcuoglu"
       ],
@@ -1907,7 +1907,7 @@
       "source": "Google Developers",
       "published_date": "2026-10-28",
       "published_at": "2026-10-28T17:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Chips Mistry",
         "Mai Lowe"
@@ -1975,7 +1975,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-10-27",
       "published_at": "2026-10-27T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [],
       "rss_categories": [
         "Google DeepMind"
@@ -2038,7 +2038,7 @@
       "source": "Google Research",
       "published_date": "2026-10-26",
       "published_at": "2026-10-26T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Ronit Levavi Morad"
       ],
@@ -2105,7 +2105,7 @@
       "source": "Google Research",
       "published_date": "2026-10-26",
       "published_at": "2026-10-26T13:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Josh Woodward"
       ],
@@ -2170,7 +2170,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-10-21",
       "published_at": "2026-10-21T04:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Nitin Gajria"
       ],
@@ -2236,7 +2236,7 @@
       "source": "Google Research",
       "published_date": "2026-10-20",
       "published_at": "2026-10-20T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Lindsey Lanquist"
       ],
@@ -2301,7 +2301,7 @@
       "source": "Google Research",
       "published_date": "2026-10-15",
       "published_at": "2026-10-15T18:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Emma Rosenfeld",
         "Craig Gidney"
@@ -2368,7 +2368,7 @@
       "source": "Google Research",
       "published_date": "2026-10-15",
       "published_at": "2026-10-15T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Yossi Matias",
         "Kate Brandt"
@@ -2434,7 +2434,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-10-15",
       "published_at": "2026-10-15T13:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [],
       "rss_categories": [
         "Google DeepMind"
@@ -2497,7 +2497,7 @@
       "source": "Google Research",
       "published_date": "2026-10-14",
       "published_at": "2026-10-14T16:15:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Google Research"
       ],
@@ -2562,7 +2562,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-10-14",
       "published_at": "2026-10-14T08:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.093Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Maureen Costello"
       ],
@@ -2628,7 +2628,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-10-13",
       "published_at": "2026-10-13T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.094Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Koray Kavukcuoglu"
       ],
@@ -2694,7 +2694,7 @@
       "source": "Google Developers",
       "published_date": "2026-10-13",
       "published_at": "2026-10-13T16:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.097Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [],
       "rss_categories": [
         "Gemini models",
@@ -2758,7 +2758,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-10-12",
       "published_at": "2026-10-12T17:30:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.097Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Yossi Matias",
         "Pushmeet Kohli"
@@ -2827,7 +2827,7 @@
       "source": "Google Cloud",
       "published_date": "2026-10-08",
       "published_at": "2026-10-08T12:05:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.097Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud"
@@ -2890,7 +2890,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-10-07",
       "published_at": "2026-10-07T12:00:00.000Z",
-      "updated_at": "2026-11-15T03:07:56.097Z",
+      "updated_at": "2026-11-15T09:01:27.372Z",
       "authors": [
         "Maryam Karimzadehgan"
       ],

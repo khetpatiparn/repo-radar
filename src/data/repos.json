@@ -5,7 +5,7 @@
       "name": "plannotator",
       "owner": "backnotprop",
       "url": "https://github.com/backnotprop/plannotator",
-      "stars": 11211,
+      "stars": 11419,
       "stars_today": 408,
       "language": "TypeScript",
       "topics": [
@@ -20,7 +20,7 @@
         "skills"
       ],
       "license": "Apache-2.0",
-      "open_issues": 233,
+      "open_issues": 232,
       "one_liner": "Plannotator เป็นเครื่องมือช่วยรีวิวงานของ AI Coding Agents ที่ทำให้คุณสามารถดูแผน, แก้ไขโค้ด และรีวิว UI ได้โดยตรงผ่านเบราว์เซอร์",
       "problem_solved": "ปกติแล้ว AI Coding Agents มักจะทำงานแบบปิดหรือใน Terminal ทำให้การสื่อสารเรื่องแผนงาน การรีวิว Diff หรือการตรวจสอบผลลัพธ์ที่เป็น HTML ทำได้ยาก Plannotator จึงเข้ามาเป็นเลเยอร์กลางที่ทำหน้าที่เหมือน Dashboard ช่วยให้มนุษย์ตัดสินใจและให้ Feedback กับ AI ได้ง่ายขึ้น",
       "alternative_comparison": "คล้ายกับเครื่องมืออย่าง Cursor หรือ GitHub Copilot แต่ Plannotator มีความเป็นกลาง (Agnostic) มากกว่า เพราะไม่ได้ผูกติดกับ IDE ตัวใดตัวหนึ่ง แต่ทำหน้าที่เป็น Inbox ส่วนกลางที่รวมงานจากหลาย Agents เช่น Claude Code, Pi, หรือ OpenCode เข้ามาไว้ในที่เดียว",
@@ -42,19 +42,19 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npx plannotator inbox",
-      "updated_at": "2026-11-15T03:03:55.135Z"
+      "updated_at": "2026-11-15T08:58:09.103Z"
     },
     {
       "id": "1143633223",
       "name": "modern-web-guidance-src",
       "owner": "GoogleChrome",
       "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
-      "stars": 6150,
+      "stars": 6380,
       "stars_today": 1231,
       "language": "TypeScript",
       "topics": [],
       "license": "Apache-2.0",
-      "open_issues": 391,
+      "open_issues": 394,
       "one_liner": "เครื่องมือช่วยเพิ่มความฉลาดให้ AI Coding Agents ให้เขียนโค้ดโดยใช้มาตรฐานเว็บสมัยใหม่แทนเทคนิคเก่าๆ",
       "problem_solved": "แก้ปัญหาที่ AI มักเขียนโค้ดโดยอิงจากข้อมูลเก่าในปี 2019 ทำให้ผลลัพธ์ที่ได้มีขนาดใหญ่เกินความจำเป็นและไม่ได้ใช้ประโยชน์จาก Browser API ใหม่ๆ ที่มีประสิทธิภาพและเข้าถึงได้ง่ายกว่า",
       "alternative_comparison": "คล้ายกับ Linter อย่าง ESLint หรือ Prettier แต่เปลี่ยนจากการตรวจสอบ Syntax มาเป็นการให้คำแนะนำเชิงกลยุทธ์ (Context-aware guidance) เพื่อให้ AI เลือกใช้ Native Web Platform แทนไลบรารีภายนอก",
@@ -76,19 +76,19 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npx modern-web-guidance@latest search \"animate a dialog modal backdrop\"",
-      "updated_at": "2026-11-15T03:03:55.136Z"
+      "updated_at": "2026-11-15T08:58:09.103Z"
     },
     {
       "id": "1079356098",
       "name": "claude-trading-skills",
       "owner": "tradermonty",
       "url": "https://github.com/tradermonty/claude-trading-skills",
-      "stars": 4884,
+      "stars": 5060,
       "stars_today": 553,
       "language": "Python",
       "topics": [],
       "license": "MIT",
-      "open_issues": 69,
+      "open_issues": 75,
       "one_liner": "เครื่องมือช่วยวางแผนและทบทวนการลงทุนด้วย AI ที่เน้นการสร้างระเบียบวินัยและกระบวนการคิดให้แก่เทรดเดอร์รายย่อย",
       "problem_solved": "ช่วยแก้ปัญหาการตัดสินใจลงทุนที่ใช้อารมณ์หรือขาดความสม่ำเสมอ โดยการเปลี่ยนกระบวนการเทรดให้กลายเป็น workflow ที่เป็นระบบ (Checklist-based) แทนที่จะพึ่งพา AI ในการเทรดให้โดยอัตโนมัติ",
       "alternative_comparison": "คล้ายกับแพลตฟอร์มวิเคราะห์หุ้นอย่าง TradingView หรือ stock screener ทั่วไป แต่ต่างออกไปตรงที่ไม่ได้แค่โชว์กราฟ แต่เน้นการสร้าง 'Trading Journal' และ 'Review Loop' ที่มี AI ช่วยวิเคราะห์พฤติกรรมการเทรดของเราเอง",
@@ -110,14 +110,14 @@
         "hype_vs_reality": 7
       },
       "quick_start": "git clone https://github.com/tradermonty/claude-trading-skills.git\ncd claude-trading-skills\n# อ่านไฟล์ README.md เพื่อตั้งค่า workflow แรกของคุณตามคู่มือ 'Your First Week'",
-      "updated_at": "2026-11-15T03:03:55.136Z"
+      "updated_at": "2026-11-15T08:58:09.103Z"
     },
     {
       "id": "1054793726",
       "name": "chrome-devtools-mcp",
       "owner": "ChromeDevTools",
       "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
-      "stars": 56355,
+      "stars": 56516,
       "stars_today": 664,
       "language": "TypeScript",
       "topics": [
@@ -131,7 +131,7 @@
         "puppeteer"
       ],
       "license": "Apache-2.0",
-      "open_issues": 128,
+      "open_issues": 131,
       "one_liner": "เครื่องมือที่ทำให้ AI Coding Agents สามารถควบคุมและสั่งการ Chrome เบราว์เซอร์ได้โดยตรงผ่านโปรโตคอล MCP เพื่อการทดสอบและดีบั๊กหน้าเว็บ",
       "problem_solved": "แก้ปัญหาที่ AI ปกติทำได้เพียงอ่านโค้ด แต่ไม่สามารถทดสอบพฤติกรรมบนเบราว์เซอร์จริงได้อย่างแม่นยำ รวมถึงการวิเคราะห์ Performance และตรวจสอบ Network Request แบบเชิงลึกที่ทำผ่านมนุษย์ได้ยาก",
       "alternative_comparison": "คล้ายกับ Puppeteer หรือ Playwright แต่ดีกว่าตรงที่เป็นมาตรฐาน MCP ทำให้เชื่อมต่อกับ AI Agents (เช่น Cursor, Claude) ได้ทันทีโดยไม่ต้องเขียนสคริปต์ Automation เอง",
@@ -153,14 +153,14 @@
         "hype_vs_reality": 8
       },
       "quick_start": "npx -y chrome-devtools-mcp@latest",
-      "updated_at": "2026-11-15T03:03:55.136Z"
+      "updated_at": "2026-11-15T08:58:09.103Z"
     },
     {
       "id": "1241960226",
       "name": "open-code-review",
       "owner": "alibaba",
       "url": "https://github.com/alibaba/open-code-review",
-      "stars": 51487,
+      "stars": 51619,
       "stars_today": 893,
       "language": "Go",
       "topics": [
@@ -172,7 +172,7 @@
         "repository-level-context"
       ],
       "license": "Apache-2.0",
-      "open_issues": 340,
+      "open_issues": 343,
       "one_liner": "เครื่องมือ CLI ที่ใช้ AI ช่วยตรวจสอบโค้ด (Code Review) โดยเน้นความแม่นยำสูงและประหยัด Token มากกว่าเครื่องมือทั่วไป",
       "problem_solved": "แก้ปัญหา AI Code Review ทั่วไปที่มักจะส่งข้อมูลมากเกินจำเป็น (Noise เยอะ) ทำให้เสียค่าใช้จ่ายสูงและให้ Feedback ที่ไม่ตรงประเด็น โดยเครื่องมือนี้ออกแบบมาเพื่อเจาะจงจุดบกพร่องที่สำคัญจริงๆ ในระดับ Repository",
       "alternative_comparison": "คล้ายกับ Claude Code หรือ GitHub Copilot แต่โดดเด่นกว่าตรงที่เน้นความแม่นยำ (Precision) สูงกว่า ใช้ Token น้อยกว่าถึง 9 เท่า และปรับจูนมาเพื่อการทำ Code Review ระดับองค์กรโดยเฉพาะ",
@@ -194,14 +194,14 @@
         "hype_vs_reality": 8
       },
       "quick_start": "npm install -g @alibaba-group/open-code-review\nocr config set --model-provider <provider> --api-key <key>\nocr review",
-      "updated_at": "2026-11-15T03:03:55.136Z"
+      "updated_at": "2026-11-15T08:58:09.103Z"
     },
     {
       "id": "1008713177",
       "name": "qwen-code",
       "owner": "QwenLM",
       "url": "https://github.com/QwenLM/qwen-code",
-      "stars": 30378,
+      "stars": 30448,
       "stars_today": 64,
       "language": "TypeScript",
       "topics": [
@@ -219,7 +219,7 @@
         "typescript"
       ],
       "license": "Apache-2.0",
-      "open_issues": 2301,
+      "open_issues": 2299,
       "one_liner": "AI Coding Agent ที่ช่วยเขียนโค้ดและจัดการงานพัฒนาซอฟต์แวร์แบบครบวงจรผ่าน Terminal และ Editor ของคุณ",
       "problem_solved": "แก้ปัญหาที่นักพัฒนาต้องสลับไปมาระหว่าง LLM ในเว็บเบราว์เซอร์กับ IDE ทำให้การนำ Context ของโปรเจกต์ไปใช้งานทำได้ยากและไม่ต่อเนื่อง",
       "alternative_comparison": "คล้ายกับ Cursor หรือ Roo Code แต่โดดเด่นกว่าด้วยการเป็น Open-source และออกแบบมาให้รองรับการทำงานแบบ Agentic ที่ยืดหยุ่นผ่านโปรโตคอลมาตรฐานอย่าง MCP",
@@ -241,14 +241,14 @@
         "hype_vs_reality": 8
       },
       "quick_start": "npx @qwen-code/qwen-code@latest\nqwen",
-      "updated_at": "2026-11-15T03:03:55.136Z"
+      "updated_at": "2026-11-15T08:58:09.103Z"
     },
     {
       "id": "543101941",
       "name": "univer",
       "owner": "dream-num",
       "url": "https://github.com/dream-num/univer",
-      "stars": 24614,
+      "stars": 25133,
       "stars_today": 495,
       "language": "TypeScript",
       "topics": [
@@ -274,7 +274,7 @@
         "xlsx"
       ],
       "license": "Apache-2.0",
-      "open_issues": 165,
+      "open_issues": 166,
       "one_liner": "Univer คือชุดเครื่องมือ Office SDK แบบโอเพนซอร์สที่ช่วยให้นักพัฒนาสามารถสร้างแอปพลิเคชันจัดการเอกสารและตารางคำนวณที่ทำงานร่วมกันได้แบบ Real-time",
       "problem_solved": "แก้ปัญหาการที่นักพัฒนาต้องสร้างระบบจัดการเอกสารใหม่ทั้งหมดตั้งแต่ต้น ซึ่งมักจะซับซ้อนและทำฟีเจอร์การแก้ไขร่วมกัน (Collaboration) ได้ยาก โดย Univer เข้ามาเป็นรากฐานที่ปรับแต่งได้สูงและรองรับการเชื่อมต่อกับ AI",
       "alternative_comparison": "คล้ายกับ Google Docs หรือ Sheets ในแง่การใช้งาน แต่ดีกว่าตรงที่เป็น SDK ที่เราสามารถนำไปฝัง (Embed) ในแอปของตัวเองและปรับแต่งฟังก์ชันการทำงานได้ตามต้องการโดยไม่พึ่งพาระบบปิดของ Big Tech",
@@ -296,14 +296,14 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npx create-univer@latest\ncd my-univer-app\nnpm run dev",
-      "updated_at": "2026-11-15T03:04:03.134Z"
+      "updated_at": "2026-11-15T08:58:09.103Z"
     },
     {
       "id": "979392131",
       "name": "ag-ui",
       "owner": "ag-ui-protocol",
       "url": "https://github.com/ag-ui-protocol/ag-ui",
-      "stars": 17401,
+      "stars": 17488,
       "stars_today": 9,
       "language": "TypeScript",
       "topics": [
@@ -314,7 +314,7 @@
         "ai-agents"
       ],
       "license": "MIT",
-      "open_issues": 589,
+      "open_issues": 591,
       "one_liner": "AG-UI คือโปรโตคอลมาตรฐานที่ทำหน้าที่เป็นตัวกลางในการเชื่อมต่อ AI Agent เข้ากับ UI ของแอปพลิเคชันอย่างราบรื่น",
       "problem_solved": "แก้ปัญหาการเขียนโค้ดที่ซับซ้อนและกระจัดกระจายเพื่อเชื่อมต่อ AI Agent เข้ากับ Frontend โดย AG-UI ทำให้ทุก Agent ใช้มาตรฐานการรับส่งข้อมูลผ่านเหตุการณ์ (Events) ชุดเดียวกัน ไม่ต้องคอยแก้โค้ดใหม่เมื่อเปลี่ยน Agent Framework",
       "alternative_comparison": "คล้ายกับการสร้าง UI สำหรับแชททั่วไป แต่ได้เปรียบกว่าตรงที่เป็น Protocol กลางที่ครอบคลุมการทำงานร่วมกับ AI Agent หลายตัว (Multi-agent) และรองรับระบบ Generative UI ที่ทำได้ยากหากเขียนเองทั้งหมด",
@@ -336,14 +336,14 @@
         "hype_vs_reality": 7
       },
       "quick_start": "npx create-ag-ui-app my-agent-app",
-      "updated_at": "2026-11-15T03:04:21.860Z"
+      "updated_at": "2026-11-15T08:58:09.104Z"
     },
     {
       "id": "1274723381",
       "name": "TensorFold",
       "owner": "ashhart",
       "url": "https://github.com/ashhart/TensorFold",
-      "stars": 2176,
+      "stars": 2214,
       "stars_today": 37,
       "language": "Zig",
       "topics": [
@@ -354,7 +354,7 @@
         "llm-tools"
       ],
       "license": "Apache-2.0",
-      "open_issues": 596,
+      "open_issues": 605,
       "one_liner": "TensorFold คือเอนจินรัน LLM ประสิทธิภาพสูงที่เขียนด้วยภาษา Zig ช่วยให้คุณรันโมเดลภาษาบน Apple Silicon และ NVIDIA GPU ได้โดยตรงโดยไม่ต้องง้อ Python",
       "problem_solved": "แก้ปัญหาความซับซ้อนในการติดตั้งสภาพแวดล้อม ML ขนาดใหญ่ (Python dependency hell) และลด Overhead ของการใช้ Framework ที่กินทรัพยากรเครื่องสูง ช่วยให้การ Deploy โมเดลในระดับ Edge หรือ Local ทำได้ง่ายและเร็วกว่าเดิมมาก",
       "alternative_comparison": "คล้ายกับ Ollama หรือ llama.cpp แต่จุดเด่นคือการใช้ Zig ที่มีประสิทธิภาพสูงและการจัดการ Memory ที่เน้นประสิทธิภาพของฮาร์ดแวร์โดยเฉพาะโดยไม่มี Layer ของ Python มากั้น",
@@ -376,14 +376,14 @@
         "hype_vs_reality": 7
       },
       "quick_start": "brew install ashhart/tensorfold/tensorfold\ntensorfold pull mlx-community/Qwen3.5-2B-MLX-4bit@93760be4f1f69842a46bc13dbdc0f19e291392a3\ntensorfold serve mlx-community/Qwen3.5-2B-MLX-4bit --name local-model",
-      "updated_at": "2026-11-15T03:04:21.860Z"
+      "updated_at": "2026-11-15T08:58:09.104Z"
     },
     {
       "id": "1201173969",
       "name": "caveman",
       "owner": "JuliusBrussee",
       "url": "https://github.com/JuliusBrussee/caveman",
-      "stars": 120111,
+      "stars": 120229,
       "stars_today": 227,
       "language": "Go",
       "topics": [
@@ -421,14 +421,14 @@
         "hype_vs_reality": 8
       },
       "quick_start": "npx @caveman-ai/cli@latest",
-      "updated_at": "2026-11-15T03:04:28.659Z"
+      "updated_at": "2026-11-15T08:58:09.104Z"
     },
     {
       "id": "382496361",
       "name": "uptime-kuma",
       "owner": "louislam",
       "url": "https://github.com/louislam/uptime-kuma",
-      "stars": 94275,
+      "stars": 94344,
       "stars_today": 430,
       "language": "JavaScript",
       "topics": [
@@ -468,19 +468,19 @@
         "hype_vs_reality": 9
       },
       "quick_start": "docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:2",
-      "updated_at": "2026-11-15T03:04:28.659Z"
+      "updated_at": "2026-11-15T08:58:09.104Z"
     },
     {
       "id": "1024661423",
       "name": "sure",
       "owner": "we-promise",
       "url": "https://github.com/we-promise/sure",
-      "stars": 15363,
+      "stars": 15461,
       "stars_today": 659,
       "language": "Ruby",
       "topics": [],
       "license": "AGPL-3.0",
-      "open_issues": 936,
+      "open_issues": 943,
       "one_liner": "แอปพลิเคชันบริหารจัดการการเงินส่วนบุคคลแบบ Open-source ที่ช่วยให้คุณติดตามสินทรัพย์ รายได้ และค่าใช้จ่ายได้ด้วยตัวเองอย่างปลอดภัย",
       "problem_solved": "แก้ปัญหาความเป็นส่วนตัวและความยั่งยืนของแอปการเงินทั่วไป ที่มักจะปิดตัวลงหรือขายข้อมูลผู้ใช้ โดยโปรเจกต์นี้เปิดโอกาสให้ผู้ใช้ติดตั้งและควบคุมข้อมูลการเงินของตนเองได้แบบ 100% บนเซิร์ฟเวอร์ส่วนตัว",
       "alternative_comparison": "คล้ายกับ Mint หรือ YNAB (You Need A Budget) แต่ได้เปรียบตรงที่เป็น Open-source, self-host ได้, ไม่มีการขายข้อมูล และไม่มีค่าสมาชิกรายเดือนที่ผูกมัด",
@@ -502,7 +502,7 @@
         "hype_vs_reality": 7
       },
       "quick_start": "git clone https://github.com/we-promise/sure.git && cd sure && cp .env.local.example .env.local && bin/setup && bin/dev",
-      "updated_at": "2026-11-15T03:04:28.659Z"
+      "updated_at": "2026-11-15T08:58:09.104Z"
     }
   ],
   "yesterday": [
