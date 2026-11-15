@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T03:38:53.274Z",
+  "updated_at": "2026-11-15T03:04:29.203Z",
   "days": [
     {
       "date": "2026-11-13",
@@ -15,10 +15,10 @@
             "Xinchao Wang"
           ],
           "organization": "National University of Singapore",
-          "upvotes": 82,
-          "num_comments": 2,
+          "upvotes": 135,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.265Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.15777",
           "pdf_url": "https://arxiv.org/pdf/2611.15777",
           "hf_url": "https://huggingface.co/papers/2611.15777",
@@ -91,10 +91,10 @@
             "Seung Wook Kim"
           ],
           "organization": "NVIDIA",
-          "upvotes": 46,
-          "num_comments": 1,
+          "upvotes": 50,
+          "num_comments": 2,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.270Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.14815",
           "pdf_url": "https://arxiv.org/pdf/2611.14815",
           "hf_url": "https://huggingface.co/papers/2611.14815",
@@ -169,15 +169,15 @@
             "Zhongjing Du"
           ],
           "organization": "DAGroup-PKU",
-          "upvotes": 42,
-          "num_comments": 3,
+          "upvotes": 46,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.270Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16748",
           "pdf_url": "https://arxiv.org/pdf/2611.16748",
           "hf_url": "https://huggingface.co/papers/2611.16748",
           "github_url": "https://github.com/DAGroup-PKU/PhysLoop",
-          "github_stars": 32,
+          "github_stars": 36,
           "project_url": "https://chenyx24.github.io/PhysLoop-site/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16748.png",
           "media_urls": [
@@ -247,15 +247,15 @@
             "Minhao Jing"
           ],
           "organization": "LongCat",
-          "upvotes": 41,
-          "num_comments": 2,
+          "upvotes": 45,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.270Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.13004",
           "pdf_url": "https://arxiv.org/pdf/2611.13004",
           "hf_url": "https://huggingface.co/papers/2611.13004",
           "github_url": "https://github.com/DAGroup-PKU/G-STAR",
-          "github_stars": 24,
+          "github_stars": 27,
           "project_url": "https://dagroup-pku.github.io/G-STAR/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.13004.png",
           "media_urls": [
@@ -325,15 +325,15 @@
             "Yiding Tian"
           ],
           "organization": "inclusionAI",
-          "upvotes": 37,
-          "num_comments": 1,
+          "upvotes": 40,
+          "num_comments": 2,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.270Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.15131",
           "pdf_url": "https://arxiv.org/pdf/2611.15131",
           "hf_url": "https://huggingface.co/papers/2611.15131",
           "github_url": "https://github.com/inclusionAI/Duo",
-          "github_stars": 27,
+          "github_stars": 46,
           "project_url": "https://duo-v1.github.io/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.15131.png",
           "media_urls": [
@@ -404,15 +404,15 @@
             "Andrei Bursuc"
           ],
           "organization": "Fundamental AI Lab at UTN",
-          "upvotes": 30,
-          "num_comments": 1,
+          "upvotes": 35,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.270Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.15844",
           "pdf_url": "https://arxiv.org/pdf/2611.15844",
           "hf_url": "https://huggingface.co/papers/2611.15844",
           "github_url": "https://github.com/OpenVisionBanana/OpenVisionBanana",
-          "github_stars": 14,
+          "github_stars": 29,
           "project_url": "https://openvisionbanana.github.io/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.15844.png",
           "media_urls": [],
@@ -480,15 +480,15 @@
             "Peng Qiu"
           ],
           "organization": "Zhejiang University",
-          "upvotes": 29,
-          "num_comments": 3,
+          "upvotes": 33,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.270Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17167",
           "pdf_url": "https://arxiv.org/pdf/2611.17167",
           "hf_url": "https://huggingface.co/papers/2611.17167",
           "github_url": "https://github.com/ZJU-REAL/decision-agents",
-          "github_stars": 41,
+          "github_stars": 44,
           "project_url": "https://zjureal.com/decision-agents/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17167.png",
           "media_urls": [],
@@ -545,6 +545,82 @@
           }
         },
         {
+          "id": "2611.05984",
+          "title": "On the Design of Hyper-Connections: Simplification, Stability, and Scalability",
+          "authors": [
+            "Xiangdong Zhang",
+            "Xiaohan Qin",
+            "Sunan Zou",
+            "Tuo Dai",
+            "Bizhao Shi",
+            "Zhuo Xia"
+          ],
+          "organization": "dots studio",
+          "upvotes": 29,
+          "num_comments": 4,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.05984",
+          "pdf_url": "https://arxiv.org/pdf/2611.05984",
+          "hf_url": "https://huggingface.co/papers/2611.05984",
+          "github_url": "https://github.com/aHapBean/SimpleHC",
+          "github_stars": 21,
+          "project_url": null,
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.05984.png",
+          "media_urls": [],
+          "category": "Infra, Speed & Quantization",
+          "reading_time_minutes": 4,
+          "hook_headline": "ทลายขีดจำกัด Model Architecture: SimpleHC ตัวช่วยใหม่ให้โมเดลยักษ์ใหญ่เทรนเร็วขึ้นโดยไม่เสียความแม่น",
+          "short_teaser": "การออกแบบสถาปัตยกรรมระดับ Hyper-Connections มักมาพร้อมกับภาระการคำนวณที่หนักหน่วง SimpleHC นำเสนอดีไซน์ใหม่ที่เรียบง่ายแต่ทรงพลังช่วยลดเวลาในการเทรนลงได้อย่างมหาศาล",
+          "tldr_takeaways": [
+            "ลดความซับซ้อนของ Hyper-Connections โดยกำจัดการ mixing ที่ไม่จำเป็นออกไป",
+            "ใช้ระบบ Shared Memory Access เพื่อให้การรับส่งข้อมูลระหว่างชั้นทำได้รวดเร็วขึ้น",
+            "ผลการทดสอบยืนยันว่าทำเวลาได้ดีกว่าเดิมมาก แต่ยังรักษาประสิทธิภาพเทียบเท่ากับโมเดลระดับท็อป"
+          ],
+          "layman_story": [
+            "ในโลกของ AI ยิ่งเราสร้างโมเดลที่ฉลาดและใหญ่ขึ้นเท่าไหร่ โครงสร้างภายในที่เรียกว่า Hyper-Connections ก็ยิ่งทวีความซับซ้อนมากขึ้นเท่านั้น ปัญหาที่นักพัฒนาเจอคือโครงสร้างเหล่านี้มักจะทำให้การเทรนโมเดลช้าและกินทรัพยากรเครื่องมหาศาล เพราะทุกอย่างพันกันยุ่งเหยิงไปหมด",
+            "เปเปอร์นี้จึงเสนอแนวคิด 'SimpleHC' ซึ่งเปรียบเสมือนการจัดระเบียบห้องที่รกให้เหลือแค่ตู้เก็บของหลักๆ แทนที่จะให้ข้อมูลต้องวิ่งไปมาผ่านหลายจุดที่ซับซ้อน เขาก็ปรับปรุงให้การเข้าถึงข้อมูลเป็นระบบขึ้นโดยใช้การแชร์ช่องทางรับส่งข้อมูล แทนที่จะสร้างทางเชื่อมใหม่ทุกครั้งที่ขยับชั้น",
+            "ผลลัพธ์คือการเทรนโมเดลเร็วขึ้นอย่างเห็นได้ชัด โดยใช้เวลาเพิ่มขึ้นเพียงแค่ 2.4% จากโมเดลพื้นฐานปกติ ซึ่งถือว่าน้อยมากเมื่อเทียบกับประสิทธิภาพที่ได้รับ ทำให้คนในวงการตื่นเต้นเพราะนี่คือหนทางสู่การสร้างโมเดลระดับ 30B ที่ประหยัดเวลาและประหยัดงบในการเทรนได้มากกว่าเดิม"
+          ],
+          "impact_comparison": {
+            "before": "ต้องใช้สถาปัตยกรรมที่ซับซ้อนในการเชื่อมต่อข้อมูล ซึ่งสร้างคอขวดและเพิ่มเวลาเทรนอย่างมาก",
+            "after": "ลดภาระการคำนวณลงได้มหาศาล เทรนโมเดลได้เร็วขึ้นในงบประมาณที่จำกัดกว่าเดิม",
+            "why_it_matters": "ช่วยให้การสร้าง Foundation Models ขนาดใหญ่เป็นเรื่องที่จับต้องได้ง่ายขึ้นสำหรับบริษัทขนาดกลาง"
+          },
+          "use_cases": [
+            {
+              "title": "Optimization for Large MoE Models",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "นำโครงสร้าง SimpleHC ไปประยุกต์ใช้กับ Mixture-of-Experts (MoE) เพื่อเพิ่มความเร็วในการเทรน",
+              "example": "ทีมพัฒนาโมเดลภาษาขนาดใหญ่ที่ต้องการลดค่าใช้จ่ายในการเทรนบน GPU Cluster"
+            },
+            {
+              "title": "Scalable SaaS Backend",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "ปรับสถาปัตยกรรมโมเดลในโปรดักต์ตัวเองให้เบาและเร็วขึ้น เพื่อตอบสนองผู้ใช้งานได้แบบ Real-time",
+              "example": "บริษัทให้บริการ Chatbot ที่ต้องการโมเดลที่ฉลาดเท่าเดิมแต่ประมวลผลเร็วกว่าเดิม"
+            },
+            {
+              "title": "Efficient Fine-tuning Pipeline",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ลดระยะเวลาในการทำ Fine-tuning สำหรับโมเดลขนาดใหญ่ให้ทำงานได้ภายในเวลาที่สั้นลง",
+              "example": "ศูนย์วิจัยข้อมูลองค์กรที่ต้องอัปเดตโมเดลเป็นรายสัปดาห์ด้วยข้อมูลใหม่ๆ"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจสูงจากกลุ่ม Infra Engineering ที่ต้องการลด Overhead ของโมเดล",
+            "praises": [
+              "แนวคิดการรวม Shared Memory Access เป็นสิ่งที่ทำได้จริงและฉลาดมาก",
+              "เป็นเปเปอร์ที่มุ่งเน้นการแก้ปัญหาคอขวดในทางปฏิบัติมากกว่าแค่เรื่องทฤษฎี"
+            ],
+            "critiques": [
+              "ต้องการการทดสอบกับสถาปัตยกรรมที่หลากหลายกว่านี้",
+              "การเปลี่ยนแปลงในระดับ architecture อาจทำให้การทำ checkpoint loading แบบเดิมทำได้ยากขึ้น"
+            ],
+            "hype_score": 9
+          }
+        },
+        {
           "id": "2611.17060",
           "title": "Ropedia Xperience 2: A Gold Standard for Scaling Physical AI Environments and Behaviors",
           "authors": [
@@ -557,14 +633,14 @@
           ],
           "organization": "Ropedia",
           "upvotes": 26,
-          "num_comments": 2,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.270Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17060",
           "pdf_url": "https://arxiv.org/pdf/2611.17060",
           "hf_url": "https://huggingface.co/papers/2611.17060",
           "github_url": "https://github.com/Ropedia/Ropedia-Xperience-2",
-          "github_stars": 15,
+          "github_stars": 20,
           "project_url": "https://ropedia.com/xperience/2-research/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17060.png",
           "media_urls": [
@@ -623,82 +699,6 @@
           }
         },
         {
-          "id": "2611.05984",
-          "title": "On the Design of Hyper-Connections: Simplification, Stability, and Scalability",
-          "authors": [
-            "Xiangdong Zhang",
-            "Xiaohan Qin",
-            "Sunan Zou",
-            "Tuo Dai",
-            "Bizhao Shi",
-            "Zhuo Xia"
-          ],
-          "organization": "dots studio",
-          "upvotes": 26,
-          "num_comments": 2,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.270Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.05984",
-          "pdf_url": "https://arxiv.org/pdf/2611.05984",
-          "hf_url": "https://huggingface.co/papers/2611.05984",
-          "github_url": "https://github.com/aHapBean/SimpleHC",
-          "github_stars": 20,
-          "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.05984.png",
-          "media_urls": [],
-          "category": "Infra, Speed & Quantization",
-          "reading_time_minutes": 4,
-          "hook_headline": "ทลายขีดจำกัด Model Architecture: SimpleHC ตัวช่วยใหม่ให้โมเดลยักษ์ใหญ่เทรนเร็วขึ้นโดยไม่เสียความแม่น",
-          "short_teaser": "การออกแบบสถาปัตยกรรมระดับ Hyper-Connections มักมาพร้อมกับภาระการคำนวณที่หนักหน่วง SimpleHC นำเสนอดีไซน์ใหม่ที่เรียบง่ายแต่ทรงพลังช่วยลดเวลาในการเทรนลงได้อย่างมหาศาล",
-          "tldr_takeaways": [
-            "ลดความซับซ้อนของ Hyper-Connections โดยกำจัดการ mixing ที่ไม่จำเป็นออกไป",
-            "ใช้ระบบ Shared Memory Access เพื่อให้การรับส่งข้อมูลระหว่างชั้นทำได้รวดเร็วขึ้น",
-            "ผลการทดสอบยืนยันว่าทำเวลาได้ดีกว่าเดิมมาก แต่ยังรักษาประสิทธิภาพเทียบเท่ากับโมเดลระดับท็อป"
-          ],
-          "layman_story": [
-            "ในโลกของ AI ยิ่งเราสร้างโมเดลที่ฉลาดและใหญ่ขึ้นเท่าไหร่ โครงสร้างภายในที่เรียกว่า Hyper-Connections ก็ยิ่งทวีความซับซ้อนมากขึ้นเท่านั้น ปัญหาที่นักพัฒนาเจอคือโครงสร้างเหล่านี้มักจะทำให้การเทรนโมเดลช้าและกินทรัพยากรเครื่องมหาศาล เพราะทุกอย่างพันกันยุ่งเหยิงไปหมด",
-            "เปเปอร์นี้จึงเสนอแนวคิด 'SimpleHC' ซึ่งเปรียบเสมือนการจัดระเบียบห้องที่รกให้เหลือแค่ตู้เก็บของหลักๆ แทนที่จะให้ข้อมูลต้องวิ่งไปมาผ่านหลายจุดที่ซับซ้อน เขาก็ปรับปรุงให้การเข้าถึงข้อมูลเป็นระบบขึ้นโดยใช้การแชร์ช่องทางรับส่งข้อมูล แทนที่จะสร้างทางเชื่อมใหม่ทุกครั้งที่ขยับชั้น",
-            "ผลลัพธ์คือการเทรนโมเดลเร็วขึ้นอย่างเห็นได้ชัด โดยใช้เวลาเพิ่มขึ้นเพียงแค่ 2.4% จากโมเดลพื้นฐานปกติ ซึ่งถือว่าน้อยมากเมื่อเทียบกับประสิทธิภาพที่ได้รับ ทำให้คนในวงการตื่นเต้นเพราะนี่คือหนทางสู่การสร้างโมเดลระดับ 30B ที่ประหยัดเวลาและประหยัดงบในการเทรนได้มากกว่าเดิม"
-          ],
-          "impact_comparison": {
-            "before": "ต้องใช้สถาปัตยกรรมที่ซับซ้อนในการเชื่อมต่อข้อมูล ซึ่งสร้างคอขวดและเพิ่มเวลาเทรนอย่างมาก",
-            "after": "ลดภาระการคำนวณลงได้มหาศาล เทรนโมเดลได้เร็วขึ้นในงบประมาณที่จำกัดกว่าเดิม",
-            "why_it_matters": "ช่วยให้การสร้าง Foundation Models ขนาดใหญ่เป็นเรื่องที่จับต้องได้ง่ายขึ้นสำหรับบริษัทขนาดกลาง"
-          },
-          "use_cases": [
-            {
-              "title": "Optimization for Large MoE Models",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำโครงสร้าง SimpleHC ไปประยุกต์ใช้กับ Mixture-of-Experts (MoE) เพื่อเพิ่มความเร็วในการเทรน",
-              "example": "ทีมพัฒนาโมเดลภาษาขนาดใหญ่ที่ต้องการลดค่าใช้จ่ายในการเทรนบน GPU Cluster"
-            },
-            {
-              "title": "Scalable SaaS Backend",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "ปรับสถาปัตยกรรมโมเดลในโปรดักต์ตัวเองให้เบาและเร็วขึ้น เพื่อตอบสนองผู้ใช้งานได้แบบ Real-time",
-              "example": "บริษัทให้บริการ Chatbot ที่ต้องการโมเดลที่ฉลาดเท่าเดิมแต่ประมวลผลเร็วกว่าเดิม"
-            },
-            {
-              "title": "Efficient Fine-tuning Pipeline",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ลดระยะเวลาในการทำ Fine-tuning สำหรับโมเดลขนาดใหญ่ให้ทำงานได้ภายในเวลาที่สั้นลง",
-              "example": "ศูนย์วิจัยข้อมูลองค์กรที่ต้องอัปเดตโมเดลเป็นรายสัปดาห์ด้วยข้อมูลใหม่ๆ"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความสนใจสูงจากกลุ่ม Infra Engineering ที่ต้องการลด Overhead ของโมเดล",
-            "praises": [
-              "แนวคิดการรวม Shared Memory Access เป็นสิ่งที่ทำได้จริงและฉลาดมาก",
-              "เป็นเปเปอร์ที่มุ่งเน้นการแก้ปัญหาคอขวดในทางปฏิบัติมากกว่าแค่เรื่องทฤษฎี"
-            ],
-            "critiques": [
-              "ต้องการการทดสอบกับสถาปัตยกรรมที่หลากหลายกว่านี้",
-              "การเปลี่ยนแปลงในระดับ architecture อาจทำให้การทำ checkpoint loading แบบเดิมทำได้ยากขึ้น"
-            ],
-            "hype_score": 9
-          }
-        },
-        {
           "id": "2611.17331",
           "title": "TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models",
           "authors": [
@@ -710,15 +710,15 @@
             "Yen-Yu Lin"
           ],
           "organization": "NVIDIA",
-          "upvotes": 21,
-          "num_comments": 1,
+          "upvotes": 22,
+          "num_comments": 2,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.271Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17331",
           "pdf_url": "https://arxiv.org/pdf/2611.17331",
           "hf_url": "https://huggingface.co/papers/2611.17331",
           "github_url": "https://github.com/NVlabs/DVSM",
-          "github_stars": 32,
+          "github_stars": 35,
           "project_url": "https://test-time-baking.github.io/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17331.png",
           "media_urls": [
@@ -777,6 +777,82 @@
           }
         },
         {
+          "id": "2611.08318",
+          "title": "Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement",
+          "authors": [
+            "Wenbo Huang",
+            "Jianxin Bi",
+            "Shunyu Yang",
+            "Ruiyang Si",
+            "Rui Ni",
+            "Qiang Wang"
+          ],
+          "organization": "DAGroup-PKU",
+          "upvotes": 18,
+          "num_comments": 4,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.08318",
+          "pdf_url": "https://arxiv.org/pdf/2611.08318",
+          "hf_url": "https://huggingface.co/papers/2611.08318",
+          "github_url": null,
+          "github_stars": null,
+          "project_url": "https://dagroup-pku.github.io/PyRUA-Lean/RSIJudge/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.08318.png",
+          "media_urls": [],
+          "category": "AI Agents & Memory",
+          "reading_time_minutes": 5,
+          "hook_headline": "หุ่นยนต์ฉลาดจริงหรือแค่จำคำตอบ? เผยความจริงเบื้องหลังคะแนนสอบ Embodied Agent",
+          "short_teaser": "การที่หุ่นยนต์ทำคะแนนสอบได้สูง อาจไม่ได้แปลว่ามันฉลาดขึ้น แต่มันแค่เรียนรู้วิธีโกงข้อสอบโดยการจำเงื่อนไขการให้คะแนน",
+          "tldr_takeaways": [
+            "พบปัญหา 'Criteria Exposure' ที่ทำให้หุ่นยนต์เน้นทำคะแนนให้ผ่านเกณฑ์มากกว่าการทำงานจริงให้สำเร็จ",
+            "การปรับเปลี่ยนเงื่อนไขเล็กน้อยทำให้อัตราความสำเร็จของหุ่นยนต์เหล่านี้ร่วงลงทันที",
+            "เสนอให้ใช้ 'Instruction-faithful criteria' เพื่อวัดผลความฉลาดที่แท้จริงแทนการใช้ตัวชี้วัดเดิม"
+          ],
+          "layman_story": [
+            "เมื่อเราฝึกหุ่นยนต์ (Embodied Agent) เรามักใช้คะแนนจากแบบทดสอบจำลองเป็นตัวตัดสินว่ามันเก่งไหม ปัญหาคือเราดันเขียนโปรแกรมให้หุ่นยนต์รู้ว่า 'ต้องทำท่าไหนถึงจะได้คะแนน' ทำให้มันเกิดทางลัด แทนที่จะเรียนรู้วิธีแก้ปัญหาจริงๆ มันกลับเรียนรู้วิธีทำตามเงื่อนไขเพื่อเอาคะแนนให้ได้มากที่สุด",
+            "เปเปอร์นี้ชี้ให้เห็นว่าเหมือนกับนักเรียนที่จำเฉลยข้อสอบได้แม่น แต่พอเจอโจทย์ที่เปลี่ยนตัวเลขไปนิดเดียวก็ทำไม่ได้ เพราะไม่ได้เข้าใจหลักการจริงๆ งานวิจัยนี้นำเสนอวิธีวัดผลใหม่ที่บังคับให้หุ่นยนต์ต้องทำตามคำสั่งจริงๆ แทนที่จะทำตามเงื่อนไขการให้คะแนนที่เปิดเผยออกมา",
+            "ผลลัพธ์คือการพิสูจน์ให้เห็นว่างานวิจัยหุ่นยนต์หลายชิ้นในปัจจุบันอาจกำลัง Overfit หรือ 'โกง' โดยไม่ตั้งใจ การหันมาวัดผลด้วยวิธีที่หุ่นยนต์ไม่รู้เงื่อนไขล่วงหน้า (Instruction-faithful criteria) จะช่วยให้เราพัฒนาหุ่นยนต์ที่ฉลาดและใช้งานได้จริงในชีวิตประจำวันจริงๆ ไม่ใช่แค่หุ่นยนต์เก่งใน Simulation"
+          ],
+          "impact_comparison": {
+            "before": "วัดความฉลาดด้วยเกณฑ์ที่หุ่นยนต์รู้ล่วงหน้า ทำให้ผลลัพธ์บิดเบือน",
+            "after": "ใช้วิธีวัดผลแบบปิดที่บังคับให้ AI ต้องเข้าใจคำสั่งจริงๆ ทำให้ได้หุ่นยนต์ที่ไว้ใจได้มากขึ้น",
+            "why_it_matters": "ช่วยปรับทิศทางวงการ Robotics ไม่ให้หลงทางอยู่กับคะแนน Benchmark ที่ไม่สะท้อนความจริง"
+          },
+          "use_cases": [
+            {
+              "title": "การออกแบบระบบทดสอบหุ่นยนต์ในโรงงาน",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "สร้างสภาพแวดล้อมการทดสอบที่หุ่นยนต์ไม่สามารถคาดเดาเงื่อนไขการให้คะแนนได้",
+              "example": "ทดสอบหุ่นยนต์หยิบจับของในโกดังด้วยโจทย์ที่เปลี่ยนรูปแบบสินค้าและตำแหน่งไปเรื่อยๆ โดยไม่แจ้งเงื่อนไขให้หุ่นยนต์ทราบ"
+            },
+            {
+              "title": "การพัฒนา Agent ซอฟต์แวร์สำหรับงานเอกสาร",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "ประเมินคุณภาพของ AI Agent ในการดึงข้อมูลจากเอกสารด้วย Benchmark ที่เน้นความถูกต้องของผลลัพธ์ไม่ใช่ตัวอักษรบางคำ",
+              "example": "ตรวจสอบว่า AI ของ SaaS ทำเอกสารสรุปภาษีได้ถูกต้องตามเนื้อหา ไม่ใช่แค่ทำรูปแบบให้เหมือนที่ระบบตรวจต้องการ"
+            },
+            {
+              "title": "การวางมาตรฐานความปลอดภัยหุ่นยนต์",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้มาตรฐานการทดสอบที่ไม่ให้ AI เรียนรู้ทางลัด เพื่อความปลอดภัยสูงสุด",
+              "example": "การรับรองความสามารถของหุ่นยนต์กู้ภัยที่ต้องเจอกับสภาพแวดล้อมที่คาดเดาไม่ได้"
+            }
+          ],
+          "community_pulse": {
+            "summary": "เป็นเปเปอร์ที่ปลุกสติให้กับเหล่านักวิจัยหุ่นยนต์ ให้หันกลับมาโฟกัสที่หัวใจของปัญหาแทนตัวเลขสถิติ",
+            "praises": [
+              "ตีแผ่ปัญหาเรื่อง Overfitting ใน Embodied Agents ได้อย่างตรงไปตรงมา",
+              "ข้อเสนอเรื่อง instruction-faithful criteria เป็นประโยชน์ต่อการพัฒนามาตรฐานใหม่"
+            ],
+            "critiques": [
+              "งานวิจัยนี้เป็นเชิงวิพากษ์ อาจทำให้การเปรียบเทียบ Benchmark เดิมทำได้ยากขึ้นในระยะสั้น",
+              "ต้องการเครื่องมือใหม่ในการวัดผลที่อาจจะมีความซับซ้อนกว่าเดิมในการ Implement"
+            ],
+            "hype_score": 7.5
+          }
+        },
+        {
           "id": "2611.16217",
           "title": "WorldDraft: If Code Builds the World, Can Video Models Just Render It?",
           "authors": [
@@ -788,15 +864,15 @@
             "Liuzhou Zhang"
           ],
           "organization": null,
-          "upvotes": 14,
-          "num_comments": 2,
+          "upvotes": 16,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.271Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16217",
           "pdf_url": "https://arxiv.org/pdf/2611.16217",
           "hf_url": "https://huggingface.co/papers/2611.16217",
           "github_url": "https://github.com/KevinHuge/WorldDraft",
-          "github_stars": 8,
+          "github_stars": 12,
           "project_url": "https://haroldchen19.github.io/WorldDraft-site/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16217.png",
           "media_urls": [],
@@ -864,10 +940,10 @@
             "Marjan Ghazvininejad"
           ],
           "organization": "Meta",
-          "upvotes": 12,
-          "num_comments": 4,
+          "upvotes": 14,
+          "num_comments": 5,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17334",
           "pdf_url": "https://arxiv.org/pdf/2611.17334",
           "hf_url": "https://huggingface.co/papers/2611.17334",
@@ -940,10 +1016,10 @@
             "Dongyoon Han"
           ],
           "organization": "NAVER AI Lab",
-          "upvotes": 12,
-          "num_comments": 1,
+          "upvotes": 14,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16905",
           "pdf_url": "https://arxiv.org/pdf/2611.16905",
           "hf_url": "https://huggingface.co/papers/2611.16905",
@@ -1017,9 +1093,9 @@
           ],
           "organization": "Ant Group",
           "upvotes": 12,
-          "num_comments": 1,
+          "num_comments": 2,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16517",
           "pdf_url": "https://arxiv.org/pdf/2611.16517",
           "hf_url": "https://huggingface.co/papers/2611.16517",
@@ -1083,231 +1159,6 @@
           }
         },
         {
-          "id": "2611.08318",
-          "title": "Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement",
-          "authors": [
-            "Wenbo Huang",
-            "Jianxin Bi",
-            "Shunyu Yang",
-            "Ruiyang Si",
-            "Rui Ni",
-            "Qiang Wang"
-          ],
-          "organization": "DAGroup-PKU",
-          "upvotes": 8,
-          "num_comments": 3,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.08318",
-          "pdf_url": "https://arxiv.org/pdf/2611.08318",
-          "hf_url": "https://huggingface.co/papers/2611.08318",
-          "github_url": null,
-          "github_stars": null,
-          "project_url": "https://dagroup-pku.github.io/PyRUA-Lean/RSIJudge/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.08318.png",
-          "media_urls": [],
-          "category": "AI Agents & Memory",
-          "reading_time_minutes": 5,
-          "hook_headline": "หุ่นยนต์ฉลาดจริงหรือแค่จำคำตอบ? เผยความจริงเบื้องหลังคะแนนสอบ Embodied Agent",
-          "short_teaser": "การที่หุ่นยนต์ทำคะแนนสอบได้สูง อาจไม่ได้แปลว่ามันฉลาดขึ้น แต่มันแค่เรียนรู้วิธีโกงข้อสอบโดยการจำเงื่อนไขการให้คะแนน",
-          "tldr_takeaways": [
-            "พบปัญหา 'Criteria Exposure' ที่ทำให้หุ่นยนต์เน้นทำคะแนนให้ผ่านเกณฑ์มากกว่าการทำงานจริงให้สำเร็จ",
-            "การปรับเปลี่ยนเงื่อนไขเล็กน้อยทำให้อัตราความสำเร็จของหุ่นยนต์เหล่านี้ร่วงลงทันที",
-            "เสนอให้ใช้ 'Instruction-faithful criteria' เพื่อวัดผลความฉลาดที่แท้จริงแทนการใช้ตัวชี้วัดเดิม"
-          ],
-          "layman_story": [
-            "เมื่อเราฝึกหุ่นยนต์ (Embodied Agent) เรามักใช้คะแนนจากแบบทดสอบจำลองเป็นตัวตัดสินว่ามันเก่งไหม ปัญหาคือเราดันเขียนโปรแกรมให้หุ่นยนต์รู้ว่า 'ต้องทำท่าไหนถึงจะได้คะแนน' ทำให้มันเกิดทางลัด แทนที่จะเรียนรู้วิธีแก้ปัญหาจริงๆ มันกลับเรียนรู้วิธีทำตามเงื่อนไขเพื่อเอาคะแนนให้ได้มากที่สุด",
-            "เปเปอร์นี้ชี้ให้เห็นว่าเหมือนกับนักเรียนที่จำเฉลยข้อสอบได้แม่น แต่พอเจอโจทย์ที่เปลี่ยนตัวเลขไปนิดเดียวก็ทำไม่ได้ เพราะไม่ได้เข้าใจหลักการจริงๆ งานวิจัยนี้นำเสนอวิธีวัดผลใหม่ที่บังคับให้หุ่นยนต์ต้องทำตามคำสั่งจริงๆ แทนที่จะทำตามเงื่อนไขการให้คะแนนที่เปิดเผยออกมา",
-            "ผลลัพธ์คือการพิสูจน์ให้เห็นว่างานวิจัยหุ่นยนต์หลายชิ้นในปัจจุบันอาจกำลัง Overfit หรือ 'โกง' โดยไม่ตั้งใจ การหันมาวัดผลด้วยวิธีที่หุ่นยนต์ไม่รู้เงื่อนไขล่วงหน้า (Instruction-faithful criteria) จะช่วยให้เราพัฒนาหุ่นยนต์ที่ฉลาดและใช้งานได้จริงในชีวิตประจำวันจริงๆ ไม่ใช่แค่หุ่นยนต์เก่งใน Simulation"
-          ],
-          "impact_comparison": {
-            "before": "วัดความฉลาดด้วยเกณฑ์ที่หุ่นยนต์รู้ล่วงหน้า ทำให้ผลลัพธ์บิดเบือน",
-            "after": "ใช้วิธีวัดผลแบบปิดที่บังคับให้ AI ต้องเข้าใจคำสั่งจริงๆ ทำให้ได้หุ่นยนต์ที่ไว้ใจได้มากขึ้น",
-            "why_it_matters": "ช่วยปรับทิศทางวงการ Robotics ไม่ให้หลงทางอยู่กับคะแนน Benchmark ที่ไม่สะท้อนความจริง"
-          },
-          "use_cases": [
-            {
-              "title": "การออกแบบระบบทดสอบหุ่นยนต์ในโรงงาน",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "สร้างสภาพแวดล้อมการทดสอบที่หุ่นยนต์ไม่สามารถคาดเดาเงื่อนไขการให้คะแนนได้",
-              "example": "ทดสอบหุ่นยนต์หยิบจับของในโกดังด้วยโจทย์ที่เปลี่ยนรูปแบบสินค้าและตำแหน่งไปเรื่อยๆ โดยไม่แจ้งเงื่อนไขให้หุ่นยนต์ทราบ"
-            },
-            {
-              "title": "การพัฒนา Agent ซอฟต์แวร์สำหรับงานเอกสาร",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "ประเมินคุณภาพของ AI Agent ในการดึงข้อมูลจากเอกสารด้วย Benchmark ที่เน้นความถูกต้องของผลลัพธ์ไม่ใช่ตัวอักษรบางคำ",
-              "example": "ตรวจสอบว่า AI ของ SaaS ทำเอกสารสรุปภาษีได้ถูกต้องตามเนื้อหา ไม่ใช่แค่ทำรูปแบบให้เหมือนที่ระบบตรวจต้องการ"
-            },
-            {
-              "title": "การวางมาตรฐานความปลอดภัยหุ่นยนต์",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้มาตรฐานการทดสอบที่ไม่ให้ AI เรียนรู้ทางลัด เพื่อความปลอดภัยสูงสุด",
-              "example": "การรับรองความสามารถของหุ่นยนต์กู้ภัยที่ต้องเจอกับสภาพแวดล้อมที่คาดเดาไม่ได้"
-            }
-          ],
-          "community_pulse": {
-            "summary": "เป็นเปเปอร์ที่ปลุกสติให้กับเหล่านักวิจัยหุ่นยนต์ ให้หันกลับมาโฟกัสที่หัวใจของปัญหาแทนตัวเลขสถิติ",
-            "praises": [
-              "ตีแผ่ปัญหาเรื่อง Overfitting ใน Embodied Agents ได้อย่างตรงไปตรงมา",
-              "ข้อเสนอเรื่อง instruction-faithful criteria เป็นประโยชน์ต่อการพัฒนามาตรฐานใหม่"
-            ],
-            "critiques": [
-              "งานวิจัยนี้เป็นเชิงวิพากษ์ อาจทำให้การเปรียบเทียบ Benchmark เดิมทำได้ยากขึ้นในระยะสั้น",
-              "ต้องการเครื่องมือใหม่ในการวัดผลที่อาจจะมีความซับซ้อนกว่าเดิมในการ Implement"
-            ],
-            "hype_score": 7.5
-          }
-        },
-        {
-          "id": "2611.09567",
-          "title": "TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates",
-          "authors": [
-            "Jarno Platenburg",
-            "Armand Kassaï Koupaï",
-            "Paola Cinnella",
-            "Patrick Gallinari"
-          ],
-          "organization": "Sorbonne University, Institute of Intelligent Systems and Robotics",
-          "upvotes": 4,
-          "num_comments": 3,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.09567",
-          "pdf_url": "https://arxiv.org/pdf/2611.09567",
-          "hf_url": "https://huggingface.co/papers/2611.09567",
-          "github_url": "https://github.com/itsakk/TurtLES",
-          "github_stars": 1,
-          "project_url": "https://turtlesprojectml-alt.github.io/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.09567.png",
-          "media_urls": [
-            "https://cdn-uploads.huggingface.co/production/uploads/69f87bbffe2badf2dd144e6a/DbkgICdc4X8WFhmPbw360.gif"
-          ],
-          "category": "Applied AI & Science",
-          "reading_time_minutes": 5,
-          "hook_headline": "TurtLES: Benchmark ใหม่ที่มาพร้อมข้อมูล 14 TB เพื่อเทรน AI ให้เก่งด้านการไหลของของเหลว!",
-          "short_teaser": "การพยากรณ์การไหลของอากาศหรือน้ำเป็นเรื่องยาก AI ที่ผ่านมามักล้มเหลวเมื่อเจอสถานการณ์จริง TurtLES จึงถือกำเนิดขึ้นเพื่อเป็นสนามสอบที่โหดหินที่สุด",
-          "tldr_takeaways": [
-            "มาพร้อมข้อมูลขนาด 14 TB จากการจำลองการไหลที่สมจริงระดับ High-fidelity",
-            "เน้นแก้ปัญหาโมเดล AI ที่ล้มเหลวเมื่อเจอการไหลแบบปั่นป่วน (Turbulence)",
-            "เป็นมาตรฐานใหม่ในการทดสอบ Neural PDE Surrogates ที่มีความละเอียดสูง"
-          ],
-          "layman_story": [
-            "การจำลองการไหลของอากาศรอบปีกเครื่องบินหรือน้ำในท่อเป็นงานที่ยากมากสำหรับคอมพิวเตอร์ปัจจุบัน (เรียกว่า CFD) แม้จะมีการใช้ AI เข้ามาช่วย แต่ส่วนใหญ่ก็ยังทำได้แค่ในแบบจำลองง่ายๆ เมื่อเจอการไหลที่ซับซ้อนและปั่นป่วนจริง (Turbulence) AI เหล่านี้มักจะ 'รวน' หรือให้ผลลัพธ์ที่ผิดเพี้ยนไปจากความเป็นจริง",
-            "TurtLES คือคลังข้อมูลขนาดยักษ์ (14 TB) ที่เก็บเหตุการณ์การไหลของของเหลวแบบสมจริงที่สุดเท่าที่เคยมีมา มันเหมือนกับการรวบรวมเหตุการณ์พายุหมุนหรือการไหลของน้ำในหลายๆ สถานการณ์มาให้นักเรียน AI ได้ลองทำโจทย์ยากๆ ข้อมูลนี้มีรายละเอียดสูงมากและเก็บความต่อเนื่องของเวลาไว้ได้แม่นยำ ต่างจากข้อมูลเดิมๆ ที่เป็นแค่ภาพตัดตอนที่เรียบง่าย",
-            "ผลลัพธ์ที่ได้คือสนามสอบที่นักพัฒนา AI สามารถนำไปใช้ทดสอบว่าโมเดลของตัวเอง 'เก่งจริง' หรือไม่ หากโมเดลสามารถรับมือกับข้อมูลจาก TurtLES ได้ นั่นหมายความว่าโมเดลนั้นพร้อมใช้งานจริงในระดับอุตสาหกรรม ไม่ว่าจะเป็นการออกแบบรถยนต์ที่ประหยัดน้ำมันหรือการสร้างกังหันลมที่มีประสิทธิภาพ"
-          ],
-          "impact_comparison": {
-            "before": "AI มักจะล้มเหลวในงานที่ซับซ้อนเพราะขาดข้อมูลการทดสอบที่สมจริง",
-            "after": "มีมาตรฐานกลางที่ใหญ่และครอบคลุม ช่วยให้การพัฒนา AI สำหรับวิทยาศาสตร์ก้าวกระโดด",
-            "why_it_matters": "ช่วยลดระยะเวลาในการวิจัยทางวิศวกรรมจากปีเหลือเพียงวัน ด้วยการใช้ AI พยากรณ์แทนการทดสอบในอุโมงค์ลม"
-          },
-          "use_cases": [
-            {
-              "title": "การออกแบบอากาศยาน (Aerodynamics)",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ใช้ข้อมูล TurtLES เทรน AI เพื่อทำนายแรงต้านลมของตัวถังเครื่องบิน",
-              "example": "จำลองรูปร่างปีกเครื่องบินและให้ AI ทำนายแรงยกและแรงต้านโดยไม่ต้องทำ Wind Tunnel Test จริง"
-            },
-            {
-              "title": "ซอฟต์แวร์จำลองสภาพภูมิอากาศ",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "พัฒนา SaaS สำหรับวิศวกรที่ต้องการเครื่องมือวิเคราะห์การไหลของน้ำในท่อเมือง",
-              "example": "แอปวิเคราะห์อัตราการไหลของน้ำเสียในท่อเมืองเพื่อป้องกันปัญหาน้ำท่วมขัง"
-            },
-            {
-              "title": "งานวิจัยด้านอุตุนิยมวิทยา",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้ AI เข้ามาแทนที่บางส่วนของการคำนวณสมการ PDE ในการพยากรณ์อากาศระยะสั้น",
-              "example": "หน่วยงานพยากรณ์อากาศที่ใช้ AI วิเคราะห์การเกิดกลุ่มเมฆหมุนวนเพื่อพยากรณ์การเกิดพายุในพื้นที่เฉพาะ"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความชื่นชมอย่างมากในกลุ่มงานวิจัยด้าน Scientific AI และ CFD เพราะเป็นการข้ามผ่านขีดจำกัดของข้อมูลเดิม",
-            "praises": [
-              "ขนาดของ Dataset ใหญ่และมีความละเอียดสูงมาก",
-              "มี GitHub ให้ใช้งานและรองรับการทำ Benchmark อย่างชัดเจน"
-            ],
-            "critiques": [
-              "ความต้องการทรัพยากรในการโหลดและประมวลผล Dataset ขนาด 14 TB เป็นเรื่องท้าทาย",
-              "โมเดลส่วนใหญ่ในปัจจุบันอาจยังไม่สามารถรับมือกับความละเอียดระดับนี้ได้ดีนัก"
-            ],
-            "hype_score": 8
-          }
-        },
-        {
-          "id": "2607.13920",
-          "title": "DeepStress: Stress-Testing Deep Search Agents",
-          "authors": [
-            "Ismael Rousseau",
-            "Geraldine Damnati",
-            "Frederic Bechet"
-          ],
-          "organization": "Orange",
-          "upvotes": 4,
-          "num_comments": 6,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
-          "arxiv_url": "https://arxiv.org/abs/2607.13920",
-          "pdf_url": "https://arxiv.org/pdf/2607.13920",
-          "hf_url": "https://huggingface.co/papers/2607.13920",
-          "github_url": null,
-          "github_stars": null,
-          "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2607.13920.png",
-          "media_urls": [],
-          "category": "AI Agents & Memory",
-          "reading_time_minutes": 5,
-          "hook_headline": "เลิกเชื่อใจ Agent ของคุณจนกว่าจะผ่าน DeepStress: เมื่อ AI ตอบมั่วแต่ดูมั่นใจเกินร้อย",
-          "short_teaser": "ปัญหาใหญ่ของ AI Search Agents คือความอ่อนไหวต่อข้อมูลที่ไม่มีคุณภาพ ซึ่งปกติเราหาจุดบอดนี้ยากมาก เปเปอร์นี้จึงเสนอวิธี 'Stress-Test' ด้วยข้อมูลปลอมที่สร้างขึ้นมาทดสอบความฉลาดในการคัดกรองความจริงโดยเฉพาะ",
-          "tldr_takeaways": [
-            "DeepStress สร้างสภาพแวดล้อมจำลองเพื่อป้อนข้อมูลที่เชื่อถือไม่ได้ให้ Agent",
-            "พบว่า Agent รุ่นปัจจุบันมักตอบคำถามด้วยความมั่นใจสูงแม้หลักฐานจะเป็นเท็จก็ตาม",
-            "การวัดผลแบบเดิม (Binary Accuracy) ไม่พอ เราต้องการตัวชี้วัดความรอบคอบและความคุ้มค่าของทรัพยากรเพิ่ม"
-          ],
-          "layman_story": [
-            "ปกติเราทดสอบ AI ด้วยการถามคำถามจากชุดข้อมูลมาตรฐาน (Benchmark) ซึ่งข้อมูลมักจะคัดกรองมาดีแล้ว ทำให้เราเห็นภาพแค่ว่า AI เก่งแค่ไหนในโลกอุดมคติ แต่ในชีวิตจริง ข้อมูลบนอินเทอร์เน็ตนั้นเต็มไปด้วยข่าวปลอม ข้อมูลขยะ หรือการบิดเบือน ซึ่ง Agent ที่เราสร้างขึ้นมักจะสอบตกเมื่อเจอข้อมูลเหล่านี้เพราะมันถูกสอนมาให้ตอบคำถาม แต่ไม่ได้ถูกสอนให้ 'ระแวง' หรือ 'ตรวจสอบ' ความน่าเชื่อถือของแหล่งข้อมูล",
-            "DeepStress เข้ามาแก้ปัญหานี้โดยการจำลองโลกคู่ขนานที่ระบบ Retrieval จะถูกแทนที่ด้วย 'ผู้สร้างข้อมูลจำลอง' ที่เราควบคุมได้ 100% ว่าจะให้ข้อมูลไหนน่าเชื่อถือแค่ไหน หรือข้อมูลไหนมั่วแค่ไหน เปรียบเสมือนการส่ง Agent ไปลงสนามฝึกที่จำลองสถานการณ์เลวร้ายที่สุด เพื่อดูว่าเมื่อมันเจอข้อมูลที่ขัดแย้งกัน หรือเจอแหล่งข่าวที่ไม่น่าเชื่อถือ มันยังจะเผลอเอาข้อมูลขยะเหล่านั้นมาตอบคำถามอีกหรือไม่",
-            "ผลการทดลองเผยให้เห็นความจริงที่น่าตกใจว่า หลายครั้งที่ Agent ตอบคำถามได้ถูกต้อง ไม่ใช่เพราะมันวิเคราะห์ข้อมูลได้ดี แต่เพราะมันใช้ 'ความจำเดิม' (Parametric knowledge) มาตอบเดาๆ แม้ว่าข้อมูลที่เราส่งให้มันจะเป็นเรื่องโกหกทั้งเพก็ตาม งานวิจัยนี้ช่วยให้เราเลิกวัดแค่ความแม่นยำ (Accuracy) แต่หันมาวัด 'ความน่าเชื่อถือ' (Reliability) ซึ่งเป็นกุญแจสำคัญในการสร้าง AI สำหรับองค์กรที่ห้ามพลาดแม้แต่จุดเดียว"
-          ],
-          "impact_comparison": {
-            "before": "วัดผลแบบเดิมๆ ที่ดูแค่ว่าตอบถูกไหม แต่ไม่รู้เลยว่าถ้าข้อมูลต้นทางเปลี่ยนไปเป็นข้อมูลขยะ ระบบจะยังทำงานได้รักษาระดับความปลอดภัยไว้ได้หรือไม่",
-            "after": "เปลี่ยนเป็นการวัดผลเชิงโครงสร้าง (Stress-Test) ที่รู้ซึ้งถึงจุดตายของ Agent ทำให้เราสามารถปรับจูนหรือกำหนดความระมัดระวัง (Caution) ของ Agent ได้ชัดเจนขึ้น",
-            "why_it_matters": "ช่วยให้เราสร้าง AI ที่มีความเป็นผู้ใหญ่ (Robustness) มากขึ้น รู้จักปฏิเสธเมื่อข้อมูลไม่เพียงพอ หรือรู้เท่าทันข้อมูลที่เป็นอันตราย"
-          },
-          "use_cases": [
-            {
-              "title": "ระบบตรวจสอบความถูกต้องข้อมูล (Fact-Checking)",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ใช้ framework นี้ทดสอบ Agent ก่อน deploy เพื่อสร้างเกณฑ์การกรองข้อมูลที่น่าเชื่อถือ",
-              "example": "ทดสอบ Agent ที่อ่านข่าวสารตลาดหุ้นเพื่อให้แน่ใจว่ามันจะไม่เอาข่าวลือมาตัดสินใจซื้อขาย"
-            },
-            {
-              "title": "การประเมินความเสี่ยงองค์กร",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "เพิ่มฟีเจอร์รายงานความมั่นใจ (Confidence Score) ที่ผ่านการทดสอบ stress-test",
-              "example": "ระบบ Customer Support AI ที่ต้องตอบคำถามด้านกฎหมายและแสดงระดับความน่าเชื่อถือของแหล่งอ้างอิง"
-            },
-            {
-              "title": "AI ตรวจสอบความถูกต้องของเอกสารวิจัย",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้เป็นมาตรฐานการทดสอบก่อนใช้เครื่องมือ AI ในงานเชิงวิชาการ",
-              "example": "ระบบคัดกรองข้อมูลจากอินเทอร์เน็ตก่อนสรุปบทความทางการแพทย์"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความสนใจในแง่ของความพยายามในการสร้างมาตรฐานการวัดผลที่เคร่งครัดกว่าเดิม",
-            "praises": [
-              "แนวคิดการวัดความน่าเชื่อถือ (Reliability) แทนการวัดแค่ความถูกต้อง",
-              "ความพยายามในการทำ Stress-test ที่เลียนแบบสถานการณ์จริงได้แยบยล"
-            ],
-            "critiques": [
-              "สภาพแวดล้อมจำลอง (Synthetic environment) อาจจะยังครอบคลุมความซับซ้อนของเว็บจริงไม่ได้ทั้งหมด",
-              "ตัวชี้วัดใหม่ (RAS, CoPRAS) อาจต้องใช้เวลาในการทำความเข้าใจและนำไปปรับใช้"
-            ],
-            "hype_score": 7.5
-          }
-        },
-        {
           "id": "2611.10439",
           "title": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
           "authors": [
@@ -1318,10 +1169,10 @@
             "Peng Tang"
           ],
           "organization": "Amazon Web Services",
-          "upvotes": 3,
-          "num_comments": 1,
+          "upvotes": 7,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.10439",
           "pdf_url": "https://arxiv.org/pdf/2611.10439",
           "hf_url": "https://huggingface.co/papers/2611.10439",
@@ -1385,6 +1236,79 @@
           }
         },
         {
+          "id": "2607.13920",
+          "title": "DeepStress: Stress-Testing Deep Search Agents",
+          "authors": [
+            "Ismael Rousseau",
+            "Geraldine Damnati",
+            "Frederic Bechet"
+          ],
+          "organization": "Orange",
+          "upvotes": 6,
+          "num_comments": 8,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2607.13920",
+          "pdf_url": "https://arxiv.org/pdf/2607.13920",
+          "hf_url": "https://huggingface.co/papers/2607.13920",
+          "github_url": null,
+          "github_stars": null,
+          "project_url": null,
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2607.13920.png",
+          "media_urls": [],
+          "category": "AI Agents & Memory",
+          "reading_time_minutes": 5,
+          "hook_headline": "เลิกเชื่อใจ Agent ของคุณจนกว่าจะผ่าน DeepStress: เมื่อ AI ตอบมั่วแต่ดูมั่นใจเกินร้อย",
+          "short_teaser": "ปัญหาใหญ่ของ AI Search Agents คือความอ่อนไหวต่อข้อมูลที่ไม่มีคุณภาพ ซึ่งปกติเราหาจุดบอดนี้ยากมาก เปเปอร์นี้จึงเสนอวิธี 'Stress-Test' ด้วยข้อมูลปลอมที่สร้างขึ้นมาทดสอบความฉลาดในการคัดกรองความจริงโดยเฉพาะ",
+          "tldr_takeaways": [
+            "DeepStress สร้างสภาพแวดล้อมจำลองเพื่อป้อนข้อมูลที่เชื่อถือไม่ได้ให้ Agent",
+            "พบว่า Agent รุ่นปัจจุบันมักตอบคำถามด้วยความมั่นใจสูงแม้หลักฐานจะเป็นเท็จก็ตาม",
+            "การวัดผลแบบเดิม (Binary Accuracy) ไม่พอ เราต้องการตัวชี้วัดความรอบคอบและความคุ้มค่าของทรัพยากรเพิ่ม"
+          ],
+          "layman_story": [
+            "ปกติเราทดสอบ AI ด้วยการถามคำถามจากชุดข้อมูลมาตรฐาน (Benchmark) ซึ่งข้อมูลมักจะคัดกรองมาดีแล้ว ทำให้เราเห็นภาพแค่ว่า AI เก่งแค่ไหนในโลกอุดมคติ แต่ในชีวิตจริง ข้อมูลบนอินเทอร์เน็ตนั้นเต็มไปด้วยข่าวปลอม ข้อมูลขยะ หรือการบิดเบือน ซึ่ง Agent ที่เราสร้างขึ้นมักจะสอบตกเมื่อเจอข้อมูลเหล่านี้เพราะมันถูกสอนมาให้ตอบคำถาม แต่ไม่ได้ถูกสอนให้ 'ระแวง' หรือ 'ตรวจสอบ' ความน่าเชื่อถือของแหล่งข้อมูล",
+            "DeepStress เข้ามาแก้ปัญหานี้โดยการจำลองโลกคู่ขนานที่ระบบ Retrieval จะถูกแทนที่ด้วย 'ผู้สร้างข้อมูลจำลอง' ที่เราควบคุมได้ 100% ว่าจะให้ข้อมูลไหนน่าเชื่อถือแค่ไหน หรือข้อมูลไหนมั่วแค่ไหน เปรียบเสมือนการส่ง Agent ไปลงสนามฝึกที่จำลองสถานการณ์เลวร้ายที่สุด เพื่อดูว่าเมื่อมันเจอข้อมูลที่ขัดแย้งกัน หรือเจอแหล่งข่าวที่ไม่น่าเชื่อถือ มันยังจะเผลอเอาข้อมูลขยะเหล่านั้นมาตอบคำถามอีกหรือไม่",
+            "ผลการทดลองเผยให้เห็นความจริงที่น่าตกใจว่า หลายครั้งที่ Agent ตอบคำถามได้ถูกต้อง ไม่ใช่เพราะมันวิเคราะห์ข้อมูลได้ดี แต่เพราะมันใช้ 'ความจำเดิม' (Parametric knowledge) มาตอบเดาๆ แม้ว่าข้อมูลที่เราส่งให้มันจะเป็นเรื่องโกหกทั้งเพก็ตาม งานวิจัยนี้ช่วยให้เราเลิกวัดแค่ความแม่นยำ (Accuracy) แต่หันมาวัด 'ความน่าเชื่อถือ' (Reliability) ซึ่งเป็นกุญแจสำคัญในการสร้าง AI สำหรับองค์กรที่ห้ามพลาดแม้แต่จุดเดียว"
+          ],
+          "impact_comparison": {
+            "before": "วัดผลแบบเดิมๆ ที่ดูแค่ว่าตอบถูกไหม แต่ไม่รู้เลยว่าถ้าข้อมูลต้นทางเปลี่ยนไปเป็นข้อมูลขยะ ระบบจะยังทำงานได้รักษาระดับความปลอดภัยไว้ได้หรือไม่",
+            "after": "เปลี่ยนเป็นการวัดผลเชิงโครงสร้าง (Stress-Test) ที่รู้ซึ้งถึงจุดตายของ Agent ทำให้เราสามารถปรับจูนหรือกำหนดความระมัดระวัง (Caution) ของ Agent ได้ชัดเจนขึ้น",
+            "why_it_matters": "ช่วยให้เราสร้าง AI ที่มีความเป็นผู้ใหญ่ (Robustness) มากขึ้น รู้จักปฏิเสธเมื่อข้อมูลไม่เพียงพอ หรือรู้เท่าทันข้อมูลที่เป็นอันตราย"
+          },
+          "use_cases": [
+            {
+              "title": "ระบบตรวจสอบความถูกต้องข้อมูล (Fact-Checking)",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "ใช้ framework นี้ทดสอบ Agent ก่อน deploy เพื่อสร้างเกณฑ์การกรองข้อมูลที่น่าเชื่อถือ",
+              "example": "ทดสอบ Agent ที่อ่านข่าวสารตลาดหุ้นเพื่อให้แน่ใจว่ามันจะไม่เอาข่าวลือมาตัดสินใจซื้อขาย"
+            },
+            {
+              "title": "การประเมินความเสี่ยงองค์กร",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "เพิ่มฟีเจอร์รายงานความมั่นใจ (Confidence Score) ที่ผ่านการทดสอบ stress-test",
+              "example": "ระบบ Customer Support AI ที่ต้องตอบคำถามด้านกฎหมายและแสดงระดับความน่าเชื่อถือของแหล่งอ้างอิง"
+            },
+            {
+              "title": "AI ตรวจสอบความถูกต้องของเอกสารวิจัย",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้เป็นมาตรฐานการทดสอบก่อนใช้เครื่องมือ AI ในงานเชิงวิชาการ",
+              "example": "ระบบคัดกรองข้อมูลจากอินเทอร์เน็ตก่อนสรุปบทความทางการแพทย์"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจในแง่ของความพยายามในการสร้างมาตรฐานการวัดผลที่เคร่งครัดกว่าเดิม",
+            "praises": [
+              "แนวคิดการวัดความน่าเชื่อถือ (Reliability) แทนการวัดแค่ความถูกต้อง",
+              "ความพยายามในการทำ Stress-test ที่เลียนแบบสถานการณ์จริงได้แยบยล"
+            ],
+            "critiques": [
+              "สภาพแวดล้อมจำลอง (Synthetic environment) อาจจะยังครอบคลุมความซับซ้อนของเว็บจริงไม่ได้ทั้งหมด",
+              "ตัวชี้วัดใหม่ (RAS, CoPRAS) อาจต้องใช้เวลาในการทำความเข้าใจและนำไปปรับใช้"
+            ],
+            "hype_score": 7.5
+          }
+        },
+        {
           "id": "2611.17190",
           "title": "Consensus Capture in Reference-Based UAV Video Stabilization: A Benchmark on Dynamic Urban Scenes",
           "authors": [
@@ -1392,10 +1316,10 @@
             "Nikolas Geroliminis"
           ],
           "organization": "EPFL",
-          "upvotes": 3,
-          "num_comments": 3,
+          "upvotes": 4,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17190",
           "pdf_url": "https://arxiv.org/pdf/2611.17190",
           "hf_url": "https://huggingface.co/papers/2611.17190",
@@ -1460,6 +1384,235 @@
           }
         },
         {
+          "id": "2611.09567",
+          "title": "TurtLES: A Large-Scale Benchmark for Turbulent 3D Neural PDE Surrogates",
+          "authors": [
+            "Jarno Platenburg",
+            "Armand Kassaï Koupaï",
+            "Paola Cinnella",
+            "Patrick Gallinari"
+          ],
+          "organization": "Sorbonne University, Institute of Intelligent Systems and Robotics",
+          "upvotes": 4,
+          "num_comments": 3,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.09567",
+          "pdf_url": "https://arxiv.org/pdf/2611.09567",
+          "hf_url": "https://huggingface.co/papers/2611.09567",
+          "github_url": "https://github.com/itsakk/TurtLES",
+          "github_stars": 2,
+          "project_url": "https://turtlesprojectml-alt.github.io/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.09567.png",
+          "media_urls": [
+            "https://cdn-uploads.huggingface.co/production/uploads/69f87bbffe2badf2dd144e6a/DbkgICdc4X8WFhmPbw360.gif"
+          ],
+          "category": "Applied AI & Science",
+          "reading_time_minutes": 5,
+          "hook_headline": "TurtLES: Benchmark ใหม่ที่มาพร้อมข้อมูล 14 TB เพื่อเทรน AI ให้เก่งด้านการไหลของของเหลว!",
+          "short_teaser": "การพยากรณ์การไหลของอากาศหรือน้ำเป็นเรื่องยาก AI ที่ผ่านมามักล้มเหลวเมื่อเจอสถานการณ์จริง TurtLES จึงถือกำเนิดขึ้นเพื่อเป็นสนามสอบที่โหดหินที่สุด",
+          "tldr_takeaways": [
+            "มาพร้อมข้อมูลขนาด 14 TB จากการจำลองการไหลที่สมจริงระดับ High-fidelity",
+            "เน้นแก้ปัญหาโมเดล AI ที่ล้มเหลวเมื่อเจอการไหลแบบปั่นป่วน (Turbulence)",
+            "เป็นมาตรฐานใหม่ในการทดสอบ Neural PDE Surrogates ที่มีความละเอียดสูง"
+          ],
+          "layman_story": [
+            "การจำลองการไหลของอากาศรอบปีกเครื่องบินหรือน้ำในท่อเป็นงานที่ยากมากสำหรับคอมพิวเตอร์ปัจจุบัน (เรียกว่า CFD) แม้จะมีการใช้ AI เข้ามาช่วย แต่ส่วนใหญ่ก็ยังทำได้แค่ในแบบจำลองง่ายๆ เมื่อเจอการไหลที่ซับซ้อนและปั่นป่วนจริง (Turbulence) AI เหล่านี้มักจะ 'รวน' หรือให้ผลลัพธ์ที่ผิดเพี้ยนไปจากความเป็นจริง",
+            "TurtLES คือคลังข้อมูลขนาดยักษ์ (14 TB) ที่เก็บเหตุการณ์การไหลของของเหลวแบบสมจริงที่สุดเท่าที่เคยมีมา มันเหมือนกับการรวบรวมเหตุการณ์พายุหมุนหรือการไหลของน้ำในหลายๆ สถานการณ์มาให้นักเรียน AI ได้ลองทำโจทย์ยากๆ ข้อมูลนี้มีรายละเอียดสูงมากและเก็บความต่อเนื่องของเวลาไว้ได้แม่นยำ ต่างจากข้อมูลเดิมๆ ที่เป็นแค่ภาพตัดตอนที่เรียบง่าย",
+            "ผลลัพธ์ที่ได้คือสนามสอบที่นักพัฒนา AI สามารถนำไปใช้ทดสอบว่าโมเดลของตัวเอง 'เก่งจริง' หรือไม่ หากโมเดลสามารถรับมือกับข้อมูลจาก TurtLES ได้ นั่นหมายความว่าโมเดลนั้นพร้อมใช้งานจริงในระดับอุตสาหกรรม ไม่ว่าจะเป็นการออกแบบรถยนต์ที่ประหยัดน้ำมันหรือการสร้างกังหันลมที่มีประสิทธิภาพ"
+          ],
+          "impact_comparison": {
+            "before": "AI มักจะล้มเหลวในงานที่ซับซ้อนเพราะขาดข้อมูลการทดสอบที่สมจริง",
+            "after": "มีมาตรฐานกลางที่ใหญ่และครอบคลุม ช่วยให้การพัฒนา AI สำหรับวิทยาศาสตร์ก้าวกระโดด",
+            "why_it_matters": "ช่วยลดระยะเวลาในการวิจัยทางวิศวกรรมจากปีเหลือเพียงวัน ด้วยการใช้ AI พยากรณ์แทนการทดสอบในอุโมงค์ลม"
+          },
+          "use_cases": [
+            {
+              "title": "การออกแบบอากาศยาน (Aerodynamics)",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "ใช้ข้อมูล TurtLES เทรน AI เพื่อทำนายแรงต้านลมของตัวถังเครื่องบิน",
+              "example": "จำลองรูปร่างปีกเครื่องบินและให้ AI ทำนายแรงยกและแรงต้านโดยไม่ต้องทำ Wind Tunnel Test จริง"
+            },
+            {
+              "title": "ซอฟต์แวร์จำลองสภาพภูมิอากาศ",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "พัฒนา SaaS สำหรับวิศวกรที่ต้องการเครื่องมือวิเคราะห์การไหลของน้ำในท่อเมือง",
+              "example": "แอปวิเคราะห์อัตราการไหลของน้ำเสียในท่อเมืองเพื่อป้องกันปัญหาน้ำท่วมขัง"
+            },
+            {
+              "title": "งานวิจัยด้านอุตุนิยมวิทยา",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้ AI เข้ามาแทนที่บางส่วนของการคำนวณสมการ PDE ในการพยากรณ์อากาศระยะสั้น",
+              "example": "หน่วยงานพยากรณ์อากาศที่ใช้ AI วิเคราะห์การเกิดกลุ่มเมฆหมุนวนเพื่อพยากรณ์การเกิดพายุในพื้นที่เฉพาะ"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความชื่นชมอย่างมากในกลุ่มงานวิจัยด้าน Scientific AI และ CFD เพราะเป็นการข้ามผ่านขีดจำกัดของข้อมูลเดิม",
+            "praises": [
+              "ขนาดของ Dataset ใหญ่และมีความละเอียดสูงมาก",
+              "มี GitHub ให้ใช้งานและรองรับการทำ Benchmark อย่างชัดเจน"
+            ],
+            "critiques": [
+              "ความต้องการทรัพยากรในการโหลดและประมวลผล Dataset ขนาด 14 TB เป็นเรื่องท้าทาย",
+              "โมเดลส่วนใหญ่ในปัจจุบันอาจยังไม่สามารถรับมือกับความละเอียดระดับนี้ได้ดีนัก"
+            ],
+            "hype_score": 8
+          }
+        },
+        {
+          "id": "2611.16961",
+          "title": "The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
+          "authors": [
+            "Zhengxu Yu",
+            "Ke Xu",
+            "Meng Fang",
+            "Haitham Ammar",
+            "Weilin Luo",
+            "Jun Wang"
+          ],
+          "organization": null,
+          "upvotes": 4,
+          "num_comments": 3,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.16961",
+          "pdf_url": "https://arxiv.org/pdf/2611.16961",
+          "hf_url": "https://huggingface.co/papers/2611.16961",
+          "github_url": "https://github.com/zhengxuyu/HDM-code",
+          "github_stars": 1,
+          "project_url": null,
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16961.png",
+          "media_urls": [
+            "https://cdn-uploads.huggingface.co/production/uploads/65bc9049e168a9cc4bd117da/MSGSG2ptpkFT3bK7L2a4P.mp4",
+            "https://cdn-uploads.huggingface.co/production/uploads/65bc9049e168a9cc4bd117da/es4OAhJB94Hd9FNPRm9Dc.gif"
+          ],
+          "category": "LLM & Reasoning",
+          "reading_time_minutes": 4,
+          "hook_headline": "ไม่ต้องคิดเยอะทุกคำ! HDM: เทคนิค AI รู้จักประหยัดพลังสมอง เลือกคิดเฉพาะเรื่องที่ยากจริงๆ",
+          "short_teaser": "การให้ AI ใช้เวลาคิดนานๆ ในทุกคำถามสิ้นเปลืองทรัพยากรมากเกินไป HDM จึงสร้างระบบ 'เลือกวิธีคิด' ให้โมเดลรู้ว่าเมื่อไหร่ควรตอบเร็ว และเมื่อไหร่ควรใช้เวลาขบคิด",
+          "tldr_takeaways": [
+            "HDM เลือกได้ว่าจะตอบทันทีด้วยวิธี Fast mode หรือใช้การคิดแบบละเอียดด้วย Slow mode",
+            "มีระบบ Self-routing block ที่ประเมิน 'มูลค่าของการคิด' (Value of Thinking) ก่อนตัดสินใจใช้งาน",
+            "ลดต้นทุนค่า Token ได้มหาศาลสูงสุดถึง 80% โดยที่คะแนนความแม่นยำยังคงเทียบเท่าหรือดีกว่าเดิม"
+          ],
+          "layman_story": [
+            "ปกติแล้วเวลาเราใช้งาน LLM รุ่นใหม่ๆ ที่มีฟีเจอร์ 'Chain-of-Thought' หรือการให้ AI ค่อยๆ คิด AI มักจะเขียนกระบวนการคิดออกมาทุกครั้งไม่ว่าคำถามนั้นจะง่ายหรือยาก เหมือนนักเรียนที่ต้องเขียนวิธีทำคณิตศาสตร์เต็มหน้ากระดาษแม้จะเป็นแค่โจทย์บวกเลข 1+1 ซึ่งนอกจากจะเสียเวลาแล้ว ยังกินเงินค่า API หรือค่า Compute โดยไม่จำเป็นเลย",
+            "นักวิจัยจึงสร้าง Hybrid Decision Model (HDM) ที่เหมือนมี 'ผู้จัดการ' คอยตัดสินใจว่าเรื่องนี้ง่ายหรือยาก หากเรื่องไหนง่าย AI จะใช้ความจำภายใน (Implicit thinking) ตอบกลับไปทันทีโดยไม่ต้องเสียเวลาเขียน แต่ถ้าเจอโจทย์ยาก ระบบจะสั่งให้เปิดโหมดคิดละเอียด (Full reasoning) ทันที ซึ่งวิธีนี้ช่วยให้โมเดลทำตัวเหมือนคน คือรู้จักเลือกใช้สมองตามความซับซ้อนของสถานการณ์",
+            "ผลการทดลองในหลาย benchmark พบว่า HDM สามารถลดค่าใช้จ่ายด้าน Token ได้มหาศาล แต่ยังทำคะแนนได้แม่นยำพอกับโมเดลที่คิดละเอียดทุกครั้ง ทำให้วงการ AI ตื่นเต้นมาก เพราะนี่คือทางออกของปัญหาเรื่อง Latency และต้นทุนที่ทำให้คนทำแอปพลิเคชัน AI รู้สึกหนักใจมาตลอด"
+          ],
+          "impact_comparison": {
+            "before": "AI ใช้ทรัพยากรเท่ากันทุกคำถาม ทำให้ต้นทุนพุ่งสูงและตอบช้าในคำถามพื้นฐาน",
+            "after": "โมเดลฉลาดเลือกสถานการณ์การใช้พลังสมอง ทำให้ประหยัดเงินและได้คำตอบที่รวดเร็วขึ้น",
+            "why_it_matters": "เป็นกุญแจสำคัญสู่การนำ AI ไปใช้ในระดับ Mass ที่เน้นความประหยัดและประสิทธิภาพ (Efficiency)"
+          },
+          "use_cases": [
+            {
+              "title": "ระบบ Customer Service Chatbot อัจฉริยะ",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "ติดตั้งระบบ HDM เพื่อให้บอทแยกแยะระหว่างคำถามทั่วไปกับคำถามทางเทคนิคที่ต้องการการแก้ปัญหาซับซ้อน",
+              "example": "บอทตอบคำถามเวลาเปิดปิดร้านได้ในเสี้ยววินาที แต่จะเข้าโหมดคิดวิเคราะห์ทันทีหากลูกค้าสอบถามวิธีเคลมสินค้าที่ซับซ้อน"
+            },
+            {
+              "title": "แพลตฟอร์ม SaaS สำหรับวิเคราะห์เอกสาร",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "สร้างบริการสรุปเอกสารที่ต้นทุนต่ำลงมาก โดยคิดค่าบริการตามโหมดการประมวลผลที่เลือก",
+              "example": "สรุปหัวข้อข่าวสั้นๆ ด้วย Fast mode แต่ถ้าต้องการวิเคราะห์ข้อตกลงทางกฎหมายให้ใช้ Slow mode ที่แม่นยำกว่า"
+            },
+            {
+              "title": "AI วิเคราะห์ข้อมูลการเงินในองค์กร",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ช่วยให้ระบบภายในประมวลผลข้อมูลมหาศาลได้อย่างมีประสิทธิภาพโดยไม่เปลืองทรัพยากร GPU",
+              "example": "การตรวจสอบความผิดปกติของธุรกรรมที่ต้องอาศัยการคิดวิเคราะห์สูงในเคสที่น่าสงสัยเท่านั้น"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับคำชื่นชมมากในฐานะงานวิจัยที่ตอบโจทย์ 'Economics of LLM' ได้ตรงจุด",
+            "praises": [
+              "เป็นการแก้ปัญหาที่นำไปใช้งานได้จริง ไม่ใช่แค่เพิ่ม Parameter แต่เน้นความฉลาดของการใช้งาน",
+              "คะแนนบน benchmark ยังคงสูงในขณะที่ประหยัดต้นทุนได้อย่างเห็นได้ชัด"
+            ],
+            "critiques": [
+              "ตัวโมเดลต้องถูกเทรนให้แยกโหมดได้แม่นยำ หากตัดสินใจผิด (Route ผิด) อาจเกิดข้อผิดพลาดได้",
+              "ความซับซ้อนในการตั้งค่า Lambda (ราคาต่อการตัดสินใจ) อาจต้องอาศัยการจูนที่เหมาะสม"
+            ],
+            "hype_score": 9.2
+          }
+        },
+        {
+          "id": "2611.16409",
+          "title": "Experience-Handoff Reinforcement Learning for Recursive Self-Improvement",
+          "authors": [
+            "Doyoung Kim",
+            "Byeongguk Jeon",
+            "Kailin Zhang",
+            "Sherry Yang"
+          ],
+          "organization": "KAIST AI",
+          "upvotes": 4,
+          "num_comments": 5,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.16409",
+          "pdf_url": "https://arxiv.org/pdf/2611.16409",
+          "hf_url": "https://huggingface.co/papers/2611.16409",
+          "github_url": "https://github.com/doyoungkim-ml/ehrl",
+          "github_stars": 3,
+          "project_url": null,
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16409.png",
+          "media_urls": [],
+          "category": "AI Agents & Memory",
+          "reading_time_minutes": 4,
+          "hook_headline": "ให้ AI เรียนรู้จากความผิดพลาดของตัวเอง: เทคนิค Handoff ที่ช่วยให้อ agent เก่งขึ้นเรื่อยๆ!",
+          "short_teaser": "การเทรน Agent แบบเดิมมักทิ้งข้อมูล Log ที่สำคัญไปอย่างน่าเสียดาย วิธี Experience-Handoff ช่วยให้ AI สามารถสรุป 'คู่มือการทำงาน' จากประสบการณ์ในอดีตเพื่อใช้ในอนาคต",
+          "tldr_takeaways": [
+            "ใช้การส่งต่อ 'ประสบการณ์' แทนการใช้แค่รางวัลตัวเลข (Scalar rewards) อย่างเดียว",
+            "ให้โมเดลมีบทบาทเป็นทั้ง 'คนปฏิบัติ', 'คนสรุปบทเรียน', และ 'คนเขียนคู่มือ' ในตัวเอง",
+            "เพิ่มประสิทธิภาพของ Agent ในการทำงานที่ซับซ้อนได้ดีกว่าการเทรนด้วยวิธีดั้งเดิม"
+          ],
+          "layman_story": [
+            "ในงานวิจัย Agent AI ปกติแล้วเราจะให้คะแนน (Reward) เมื่อ AI ทำงานสำเร็จ แต่ปัญหามันอยู่ที่ว่า AI จะรู้แค่ว่าทำสำเร็จหรือไม่สำเร็จ แต่มันกลับไม่รู้ว่า 'ทำไม' ถึงล้มเหลวในครั้งก่อนหรือ 'วิธีที่ดีที่สุด' ในการแก้ปัญหานี้คืออะไร เพราะเรามักทิ้งข้อมูลรายละเอียดของการทำงานไปหมดเหมือนโยนขยะทิ้ง ทั้งที่ข้อมูลเหล่านั้นคือขุมทรัพย์แห่งการเรียนรู้",
+            "เปเปอร์นี้เลยเสนอแนวคิด 'Experience-Handoff' คือการให้ AI หลังจากที่ลองผิดลองถูกแล้ว ต้องทำหน้าที่สรุปบทเรียนออกมาเป็น 'Playbook' หรือคู่มือการทำงาน แล้วส่งต่อไปยังการลองครั้งหน้า เหมือนกับเวลาที่เราทำงานแล้วมีคนจดบันทึกไว้ว่า 'ห้ามกดปุ่มนี้ เพราะเครื่องจะแฮงค์' เพื่อให้เพื่อนร่วมงานคนถัดไปทำงานได้ง่ายขึ้นโดยไม่ต้องพลาดแบบเดิมอีก",
+            "ผลที่ตามมาคือ Agent มีความฉลาดเชิงประสบการณ์ (Experience-based intelligence) สูงขึ้นมาก เพราะมันไม่ได้แค่พยายามทำตามคำสั่ง แต่พยายามเรียนรู้ที่จะพัฒนาคู่มือการทำงานของตัวเองไปเรื่อยๆ ทำให้ประสิทธิภาพในการทำภารกิจที่ซับซ้อนดีขึ้นอย่างก้าวกระโดด"
+          ],
+          "impact_comparison": {
+            "before": "การเทรน AI แบบเน้นคะแนนทำให้อ Agent เรียนรู้ช้าและวนลูปอยู่กับปัญหาเดิมๆ",
+            "after": "มีการจดบันทึกและส่งต่อบทเรียน ทำให้โมเดลสร้างความก้าวหน้าแบบสะสม (Recursive improvement)",
+            "why_it_matters": "เปลี่ยนนิยามของการสร้าง Agent จากแค่ทำตามสั่ง เป็นการสร้างระบบที่ 'เรียนรู้งาน' ได้ด้วยตัวเองอย่างแท้จริง"
+          },
+          "use_cases": [
+            {
+              "title": "ระบบ AI วางแผนงานอัตโนมัติ (Autonomous Planner)",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "นำเทคนิคนี้ไปเพิ่มใน Agent loop เพื่อให้ AI ปรับปรุงแผนการดำเนินงานของตัวเองในทุกครั้งที่ได้รับโปรเจกต์ใหม่",
+              "example": "AI ที่ใช้เขียนโค้ดและทดสอบซอฟต์แวร์ โดยมันจะเรียนรู้ว่า Library ไหนบั๊กบ่อยและเลิกใช้โดยอัตโนมัติ"
+            },
+            {
+              "title": "บริการ AI Auto-Support สำหรับองค์กร",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "สร้างระบบ Support AI ที่เรียนรู้วิธีการตอบคำถามยากๆ จากความผิดพลาดในอดีตมาอัปเดตความรู้ให้บอท",
+              "example": "บอทที่เรียนรู้จากเคสที่ลูกค้าเคยตำหนิ เพื่อปรับปรุงขั้นตอนการแก้ไขปัญหาในครั้งต่อไปให้ดียิ่งขึ้น"
+            },
+            {
+              "title": "ห้องปฏิบัติการวิจัยและทดลองอัตโนมัติ",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้ Agent สรุปผลการทดลองในแล็บ เพื่อปรับพารามิเตอร์การทดลองครั้งหน้าให้แม่นยำขึ้น",
+              "example": "AI ช่วยออกแบบการทดลองทางเคมีโดยวิเคราะห์จากความสำเร็จ/ล้มเหลวของการทดลองวันก่อนหน้า"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความตื่นเต้นมากจากสาย Agentic Workflow ที่มองว่าเป็นทิศทางที่ถูกต้องในการทำ Recursive Self-Improvement",
+            "praises": [
+              "ไอเดียการส่งต่อคู่มือ (Playbook) เป็นสิ่งที่ฉลาดและเรียบง่ายมากในการจัดการความรู้",
+              "ช่วยให้การเทรน RL มีความหมายมากขึ้น ไม่ใช่แค่การเล่นกับตัวเลขรางวัล"
+            ],
+            "critiques": [
+              "การสร้างคู่มือที่ยาวเกินไปอาจทำให้ Context ของ Agent ในอนาคตเต็มเร็ว",
+              "ตัวระบบต้องการการควบคุม (Scaffolding) ที่ค่อนข้างมากเพื่อไม่ให้โมเดลเขียนสิ่งที่ไร้สาระลงในคู่มือ"
+            ],
+            "hype_score": 8.9
+          }
+        },
+        {
           "id": "2611.16009",
           "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
           "authors": [
@@ -1471,15 +1624,15 @@
             "SikYuen Tam"
           ],
           "organization": null,
-          "upvotes": 3,
-          "num_comments": 3,
+          "upvotes": 4,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16009",
           "pdf_url": "https://arxiv.org/pdf/2611.16009",
           "hf_url": "https://huggingface.co/papers/2611.16009",
           "github_url": "https://github.com/ZefanW/JustRUA",
-          "github_stars": 0,
+          "github_stars": 2,
           "project_url": "https://zefanw.github.io/JustRUA/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16009.png",
           "media_urls": [
@@ -1538,82 +1691,6 @@
           }
         },
         {
-          "id": "2611.12872",
-          "title": "HiVe-Mem: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents",
-          "authors": [
-            "Haozhen Zhang",
-            "Bohan Liu",
-            "Jianzhu Bao",
-            "Qingyuan Liu",
-            "Haodong Yue",
-            "Xiao Li"
-          ],
-          "organization": "Nanyang Technological University",
-          "upvotes": 3,
-          "num_comments": 2,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.12872",
-          "pdf_url": "https://arxiv.org/pdf/2611.12872",
-          "hf_url": "https://huggingface.co/papers/2611.12872",
-          "github_url": "https://github.com/ViktorAxelsen/HiVe-Mem",
-          "github_stars": 0,
-          "project_url": "https://viktoraxelsen.github.io/HiVe-Mem/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.12872.png",
-          "media_urls": [],
-          "category": "AI Agents & Memory",
-          "reading_time_minutes": 5,
-          "hook_headline": "ยกระดับความจำ AI ให้จำแม่นเหมือนคนด้วย HiVe-Mem: เทคนิคใหม่ที่ลด Token ได้ถึง 90%!",
-          "short_teaser": "การให้ AI จดจำข้อมูลระยะยาวมักแลกมาด้วยความช้าและค่าใช้จ่ายที่บานปลาย เปเปอร์นี้ขอเปลี่ยนเกมด้วยระบบจัดการความจำแบบใหม่ที่ฉลาดและประหยัดกว่าเดิม",
-          "tldr_takeaways": [
-            "ใช้กราฟความสัมพันธ์ช่วยขยายขอบเขตการดึงข้อมูลความจำให้กว้างขึ้น",
-            "มีระบบคัดเลือกหลักฐานเชิงประจักษ์ (Evidence Composition) ที่ปรับตัวตามคำถามได้แบบ Dynamic",
-            "ลดการใช้ Token ลงได้ถึง 90% โดยที่ประสิทธิภาพการทำงานยังคงดีเยี่ยมหรือดีกว่าเดิม"
-          ],
-          "layman_story": [
-            "ปกติแล้วเวลาเราคุยกับ AI นานๆ หรือให้มันทำงานที่ใช้ข้อมูลมหาศาล ระบบความจำเดิมมักจะเก็บข้อมูลแบบทื่อๆ หรือบีบอัดข้อมูลจนเสียรายละเอียดสำคัญไป ทำให้เวลา AI จะดึงข้อมูลเก่ามาตอบ มันมักจะพลาดประเด็นสำคัญหรือไม่ก็ต้องอ่านข้อมูลทั้งหมดซ้ำซึ่งเปลือง Token และเวลามาก",
-            "HiVe-Mem มาแก้ปัญหานี้ด้วยการเปรียบเทียบความจำเสมือนสมุดบันทึกที่ไม่ได้แค่จดเรียงลำดับ แต่เชื่อมโยงข้อมูลเหมือนแผนผังความคิด (Graph) โดยแบ่งเป็นสองระดับ คือการขยายความจำในแนวราบ (Horizontal Expansion) เพื่อเก็บรายละเอียดรอบข้างที่เกี่ยวข้อง และการจัดสรรหลักฐานในแนวตั้ง (Vertical Evidence Composition) เพื่อเลือกเฉพาะข้อมูลที่จำเป็นที่สุดมาตอบคำถามนั้นๆ จริงๆ",
-            "ผลลัพธ์คือ AI สามารถเข้าถึง 'บริบท' ที่ลึกซึ้งได้แม่นยำขึ้นมาก โดยที่ไม่ต้องโหลดข้อมูลดิบทั้งหมดเข้ามาใน Prompt ให้เปลืองทรัพยากร นักพัฒนาในสายงาน Agent จะพบว่านี่เป็นเครื่องมือเปลี่ยนเกมที่ทำให้ Agent ทำงานซับซ้อนได้ยาวนานขึ้นโดยจ่ายค่า API น้อยลงอย่างมหาศาล"
-          ],
-          "impact_comparison": {
-            "before": "ต้องส่งประวัติการแชททั้งหมดให้ AI หรือใช้ระบบ RAG แบบพื้นฐานที่มักดึงข้อมูลมาไม่ครบหรือเกินความจำเป็น",
-            "after": "ใช้ระบบจัดการความจำที่เลือกเฉพาะข้อมูลที่ 'เกื้อกูล' ต่อคำถาม ประหยัด Token สูงสุดถึง 90%",
-            "why_it_matters": "เป็นกุญแจสำคัญสู่การสร้าง AI ที่มีความจำระยะยาวจริงๆ โดยไม่ล่มไปเสียก่อนด้วยงบประมาณค่าประมวลผล"
-          },
-          "use_cases": [
-            {
-              "title": "ระบบ AI วิจัยข้อมูลส่วนตัว",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำไปทำระบบ RAG ที่ฉลาดขึ้น โดยใช้ Graph เพื่อเชื่อมโยงเอกสารหลายฉบับที่เกี่ยวข้องกัน",
-              "example": "การสร้างระบบสรุปโครงการที่ผ่านมา โดย AI สามารถดึงประเด็นขัดแย้งจากเอกสารเก่าเมื่อ 6 เดือนก่อนมาสรุปได้ทันที"
-            },
-            {
-              "title": "Customer Support Agent สายลึก",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "ใช้เป็น Memory Layer สำหรับ Chatbot ที่ต้องจำประวัติการคุยและการแก้ปัญหาของลูกค้าได้เป็นปี",
-              "example": "Chatbot ที่จำได้ว่าเคยให้ลูกค้าแก้ปัญหาเครื่องซักผ้าด้วยวิธีไหนไปแล้ว และไม่แนะนำวิธีเดิมซ้ำซ้อน"
-            },
-            {
-              "title": "ผู้ช่วยส่วนตัวในการเขียนหนังสือ",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ช่วยนักเขียนจัดการรายละเอียดตัวละครหรือพล็อตเรื่องที่ซับซ้อนในนิยายหลายเล่ม",
-              "example": "นักเขียนป้อนชื่อตัวละครแล้ว AI ดึงปมในอดีตขึ้นมาเตือน เพื่อกันพล็อตโฮล (Plot hole) ไม่ให้เกิด"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความสนใจในแง่ของ Efficiency และการออกแบบโครงสร้างที่ดูสะอาดตา",
-            "praises": [
-              "ออกแบบโครงสร้างความจำได้ฉลาด ไม่ซ้ำซาก",
-              "ประหยัด Token ได้เห็นผลชัดเจนในโปรเจกต์ขนาดใหญ่"
-            ],
-            "critiques": [
-              "การสร้าง Graph ความจำอาจต้องใช้เวลาในการเตรียม Data ก่อนเริ่มใช้งาน",
-              "ยังต้องพิสูจน์การใช้งานกับโมเดลขนาดเล็ก (Small LLMs) ว่าจะทำงานได้ดีแค่ไหน"
-            ],
-            "hype_score": 8.5
-          }
-        },
-        {
           "id": "2611.08219",
           "title": "Agent-R^2: Scaling Agents for Realistic Productivity Work via Real-Source Data Synthesis",
           "authors": [
@@ -1625,10 +1702,10 @@
             "Yingqi Qu"
           ],
           "organization": "Zhejiang University",
-          "upvotes": 3,
+          "upvotes": 4,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.08219",
           "pdf_url": "https://arxiv.org/pdf/2611.08219",
           "hf_url": "https://huggingface.co/papers/2611.08219",
@@ -1690,6 +1767,231 @@
           }
         },
         {
+          "id": "2611.00359",
+          "title": "Humanized but Still True? Auditing Facts and Detection in AI-Text Humanizers",
+          "authors": [
+            "Ziyuan Wang",
+            "Genliang Zhu",
+            "Xiaobo Chen"
+          ],
+          "organization": null,
+          "upvotes": 4,
+          "num_comments": 3,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.00359",
+          "pdf_url": "https://arxiv.org/pdf/2611.00359",
+          "hf_url": "https://huggingface.co/papers/2611.00359",
+          "github_url": "https://github.com/zwang-devv/humanizer-fact-audit",
+          "github_stars": 1,
+          "project_url": null,
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.00359.png",
+          "media_urls": [],
+          "category": "LLM & Reasoning",
+          "reading_time_minutes": 5,
+          "hook_headline": "เมื่อ AI พยายาม 'เนียน' เป็นคน: งานวิจัยเผย เครื่องมือ Humanizer อาจกำลังทำลายความจริง!",
+          "short_teaser": "การใช้ AI เขียนแล้วให้ AI อีกตัวแก้สำนวนให้ดูเหมือนคนเขียน กำลังเป็นที่นิยม แต่ผลวิจัยล่าสุดชี้ว่ากระบวนการนี้มักทำให้ 'ข้อเท็จจริง' ผิดเพี้ยนไปอย่างน่ากลัว",
+          "tldr_takeaways": [
+            "เครื่องมือ AI Humanizer ส่วนใหญ่เปลี่ยนหรือลบตัวเลขและชื่อเฉพาะในเอกสารทิ้ง",
+            "การตรวจจับว่าข้อความเขียนโดยคนหรือ AI ทำได้ยากขึ้นแต่ข้อมูลในข้อความกลับขาดความน่าเชื่อถือ",
+            "มีเพียงโมเดลโอเพนซอร์สบางรุ่นเท่านั้นที่รักษาความถูกต้องของข้อมูลได้ดีกว่ารุ่นเชิงพาณิชย์"
+          ],
+          "layman_story": [
+            "ยุคนี้หลายคนใช้ AI ช่วยเขียนงาน แล้วกลัวว่าคนอื่นจะรู้ว่าเป็น AI ก็เลยต้องหา 'AI Humanizer' มาแก้สำนวนให้ดูเหมือนคนเขียนมากขึ้น แต่ปัญหาใหญ่ที่เปเปอร์นี้ค้นพบคือ เครื่องมือเหล่านี้เน้นแต่จะแก้ 'สำนวน' ให้ดูเป็นธรรมชาติ จนบางครั้งมันเผลอไปเปลี่ยนตัวเลข วันที่ หรือชื่อองค์กรสำคัญในเนื้อหาไปด้วยโดยไม่รู้ตัว ซึ่งเป็นเรื่องอันตรายมากถ้างานนั้นต้องใช้ความแม่นยำของข้อมูล",
+            "นักวิจัยใช้วิธีทดสอบแบบ 'Audit' โดยนำเอกสารที่มีข้อมูลตัวเลขและชื่อเฉพาะไปผ่านเครื่องมือเหล่านี้ 11 ตัว แล้วตรวจดูว่าข้อมูลเหล่านั้นยังอยู่ครบไหม ผลคือหลายตัวทำข้อมูลหายหรือเพี้ยนไปเยอะมาก บางตัวเปลี่ยนแม้กระทั่งคำพูดที่ยกมาอ้างอิง ทำให้เนื้อหาที่เคยถูกต้องกลายเป็นข้อมูลที่เชื่อถือไม่ได้ในทันที เหมือนการแก้หนังสือพิมพ์ที่เน้นทำให้สำนวนสวย แต่เปลี่ยนเลขปี พ.ศ. ให้ผิดไปหมด",
+            "สิ่งที่น่าตกใจคือ ความสามารถในการตรวจจับว่างานเขียนนั้นเป็น AI หรือไม่ กับความแม่นยำของข้อมูล แทบไม่มีความสัมพันธ์กันเลย (คนละเรื่องเดียวกัน) งานนี้จึงเป็นสัญญาณเตือนภัยครั้งใหญ่สำหรับคนทำงานที่ต้องอาศัยข้อเท็จจริง เช่น สายงานข่าว สายกฎหมาย หรือวิชาการ ที่ห้ามใช้เครื่องมือเหล่านี้แบบสุ่มสี่สุ่มห้า เพราะอาจได้งานที่สำนวนสวยแต่ข้อมูลเชื่อถือไม่ได้เลย"
+          ],
+          "impact_comparison": {
+            "before": "หลายคนเชื่อว่าการนำข้อความไปผ่านเครื่องมือ 'Humanizer' จะทำให้งานมีคุณภาพเหมือนคนเขียนและยังถูกต้อง",
+            "after": "เปเปอร์นี้เผยให้เห็นว่าเรากำลังแลกความถูกต้อง (Accuracy) ไปกับความเนียน (Fluency) ซึ่งอาจสร้างความเสียหายต่อความน่าเชื่อถือของเนื้อหา",
+            "why_it_matters": "เปลี่ยนมุมมองของนักเขียนและผู้ตรวจสอบเอกสาร ให้ต้องระมัดระวังการใช้ AI เสมือนเครื่องมือสารพัดประโยชน์โดยขาดการตรวจสอบข้อมูลต้นฉบับ"
+          },
+          "use_cases": [
+            {
+              "title": "การพัฒนาเครื่องมือตรวจสอบเอกสาร (Fact-Checking Tool)",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "สร้างเครื่องมือเปรียบเทียบข้อมูลก่อนและหลังปรับแก้สำนวนเพื่อป้องกันข้อมูลผิดพลาด",
+              "example": "ทำ Dashboard ที่ไฮไลต์คำเตือนหาก AI Humanizer มีการเปลี่ยนแปลงชื่อเฉพาะหรือตัวเลข"
+            },
+            {
+              "title": "แพลตฟอร์ม Content Marketing",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "สร้างระบบ Humanize ที่มีเกณฑ์การคงอยู่ของตัวเลขและข้อเท็จจริง (Fact-Retention)",
+              "example": "ฟีเจอร์สำหรับ Agency ที่ต้องการ AI เขียนเนื้อหาแต่การันตีความถูกต้องของข้อมูลสถิติ"
+            },
+            {
+              "title": "การตรวจสอบงานวิชาการและบทความข่าว",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้เป็นมาตรฐานในการ Audit ผลิตภัณฑ์ AI ก่อนนำมาใช้งานจริงในสำนักงาน",
+              "example": "การทำ Stress Test ให้กับ AI ภายในองค์กรก่อนนำไปเขียนรายงานสรุปการประชุม"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ชุมชนนักวิจัยมองว่าเป็นงานวิจัยที่ 'Wake-up call' มากๆ สำหรับสายงานที่ต้องทำคอนเทนต์",
+            "praises": [
+              "เป็นงานตรวจสอบคุณภาพ (Auditing) ที่มีความคิดสร้างสรรค์และทำออกมาได้จริง",
+              "ข้อมูลสนับสนุนหนักแน่น เปลี่ยนความคิดเรื่องความแม่นยำของโมเดลยอดนิยม"
+            ],
+            "critiques": [
+              "ผลทดสอบอาจขึ้นอยู่กับการปรับแต่ง (Prompt) ของแต่ละตัว",
+              "ยังขาดวิธีการแก้ไขปัญหาที่ให้ผลลัพธ์ทั้งเนียนและแม่นในระดับที่ทำได้จริง"
+            ],
+            "hype_score": 9.2
+          }
+        },
+        {
+          "id": "2611.17336",
+          "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+          "authors": [
+            "Yanke Song",
+            "Shuo Chen",
+            "Chris Rockwell",
+            "Guande He",
+            "Nan Liu",
+            "Desai Xie"
+          ],
+          "organization": "Roblox Corporation",
+          "upvotes": 3,
+          "num_comments": 4,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.17336",
+          "pdf_url": "https://arxiv.org/pdf/2611.17336",
+          "hf_url": "https://huggingface.co/papers/2611.17336",
+          "github_url": null,
+          "github_stars": null,
+          "project_url": "https://chenshuo20.github.io/PixVid/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17336.png",
+          "media_urls": [],
+          "category": "Vision, Audio & Multimodal",
+          "reading_time_minutes": 4,
+          "hook_headline": "ยกระดับวิดีโอ AI ให้คมชัดแบบ Pixel-by-Pixel ด้วย PixVid: ก้าวข้ามข้อจำกัดของ Latent Space เดิมๆ",
+          "short_teaser": "การสร้างวิดีโอด้วย AI แบบเดิมมักต้องบีบอัดภาพผ่าน VAE ทำให้เสียความละเอียดและหน่วงเวลา PixVid จึงเข้ามาเปลี่ยนเกมด้วยการประมวลผลโดยตรงใน Pixel Space ที่ให้ภาพคมชัดกว่าและตอบสนองไวกว่าเดิม",
+          "tldr_takeaways": [
+            "PixVid เปลี่ยนมาใช้ Convolutional Head แทน VAE Decoder แบบเดิมเพื่อสร้างวิดีโอโดยตรงในระดับ Pixel",
+            "รองรับความละเอียดที่สูงขึ้นเป็น 2 เท่าโดยใช้ Token เท่าเดิมต่อเฟรม ทำให้ประหยัดทรัพยากรคำนวณ",
+            "ลด Latency ในการโต้ตอบแบบ Real-time ช่วยให้การตัดต่อวิดีโอที่ใช้ Depth เป็นเงื่อนไขแม่นยำยิ่งขึ้น"
+          ],
+          "layman_story": [
+            "โมเดลสร้างวิดีโอในปัจจุบันส่วนใหญ่ต้องบีบอัดข้อมูลภาพลงในพื้นที่สมมติที่เรียกว่า Latent Space เพื่อให้โมเดลประมวลผลได้ง่ายขึ้น แต่วิธีนี้มีปัญหาตรงที่ยิ่งเราต้องการความละเอียดสูง ข้อมูลยิ่งมหาศาล แถมยังต้องรอสร้างภาพเป็นกลุ่ม (Chunk) ไม่สามารถสร้างทีละเฟรมได้ทันที ทำให้เวลาเราสั่งให้ AI แก้ไขวิดีโอที่มีการเคลื่อนไหวเร็วๆ ภาพมักจะเบลอหรือคุมตำแหน่งได้ยาก",
+            "ทีมงานจาก Roblox จึงคิดค้น PixVid ขึ้นมาโดยตัดตัวการบีบอัด (VAE) ออกไป แล้วใช้ Convolutional Head แทน เพื่อให้โมเดลสามารถ 'วาด' พิกเซลลงในเฟรมได้โดยตรง เปรียบเหมือนการเปลี่ยนจากการร่างภาพคร่าวๆ ในสมุดโน้ตแล้วค่อยขยายขนาด เป็นการลงสีด้วยพู่กันลงบนผืนผ้าใบจริงทันที ช่วยให้โมเดลไม่ต้องเดาภาพจากข้อมูลที่ถูกบีบอัดมา",
+            "ผลลัพธ์ที่ได้คือวิดีโอที่คมชัดระดับ HD ที่เราคุ้นเคย การตอบสนองต่อคำสั่งแบบเฟรมต่อเฟรมทำได้รวดเร็วทันใจ และที่สำคัญคือจัดการกับรายละเอียดเล็กๆ น้อยๆ ได้ดีขึ้นมากจนนักวิจัยในสายงาน Interactive Media ต่างหันมาให้ความสนใจเพราะมันเปิดโอกาสให้เราสร้างเครื่องมือ AI ที่โต้ตอบกับมนุษย์ได้เหมือนการเล่นเกมจริงๆ"
+          ],
+          "impact_comparison": {
+            "before": "การทำงานบน Latent Space ทำให้ต้องรอการประมวลผลเป็นบล็อกเฟรม และเสียรายละเอียดความคมชัดไปกับการบีบอัด",
+            "after": "สร้างวิดีโอที่ Pixel-perfect ได้โดยตรง ให้ความละเอียดสูงขึ้น 2 เท่า และลดอาการกระตุกของการสร้างภาพ",
+            "why_it_matters": "เป็นก้าวสำคัญสำหรับอนาคตของ Generative Media ที่ต้องการทั้งความคมชัดระดับมืออาชีพและการตอบสนองแบบ Interactive"
+          },
+          "use_cases": [
+            {
+              "title": "เครื่องมือสร้างภาพยนตร์อนิเมชันแบบ Real-time",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "นำไปปรับใช้ใน Pipeline ของการสร้างสื่อที่ต้องการความเร็วและการปรับแต่งเฉพาะจุดบนหน้าจอ",
+              "example": "การสร้าง NPC ในเกมที่ขยับท่าทางตามสถานการณ์โดยที่ภาพยังคงความคมชัดและลื่นไหล"
+            },
+            {
+              "title": "ฟีเจอร์แต่งวิดีโออัตโนมัติความละเอียดสูง",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "พัฒนาแอปพลิเคชันตัดต่อวิดีโอ AI ที่สามารถใส่ Effect หรือเปลี่ยนพื้นหลังวิดีโอระดับ 4K ได้ทันที",
+              "example": "แอปฯ ตัดต่อที่ให้ผู้ใช้พิมพ์คำสั่งเพื่อเปลี่ยนองค์ประกอบในวิดีโอโดยที่ภาพไม่แตกหรือบิดเบี้ยว"
+            },
+            {
+              "title": "งานออกแบบสถาปัตยกรรมและอินทีเรีย",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้ PixVid สร้างวิดีโอ Walkthrough แบบละเอียดในระดับพิกเซลที่คมชัดกว่าโมเดลแบบเดิม",
+              "example": "การเปลี่ยนสไตล์การแต่งห้องในวิดีโอแบบสดๆ ขณะลูกค้ากำลังเลือกเฟอร์นิเจอร์ผ่าน AR"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจสูงจากกลุ่ม Computer Vision ที่มองว่าเป็นการแก้ปัญหาคอขวดของการใช้ VAE ได้อย่างตรงจุด",
+            "praises": [
+              "แนวคิดการกลับมาใช้ Pixel Space ที่เรียบง่ายแต่ทรงพลัง",
+              "การประยุกต์ใช้กับ Wan2.1 ที่ทำให้เห็นศักยภาพการขยายผลที่กว้างมาก"
+            ],
+            "critiques": [
+              "การคำนวณที่เพิ่มขึ้นในระดับ Pixel อาจต้องใช้ GPU แรงขึ้นในอนาคต",
+              "ยังต้องรอดูประสิทธิภาพเมื่อขยายไปสู่การสร้างวิดีโอที่มีความยาวมากๆ"
+            ],
+            "hype_score": 8.8
+          }
+        },
+        {
+          "id": "2611.12872",
+          "title": "HiVe-Mem: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents",
+          "authors": [
+            "Haozhen Zhang",
+            "Bohan Liu",
+            "Jianzhu Bao",
+            "Qingyuan Liu",
+            "Haodong Yue",
+            "Xiao Li"
+          ],
+          "organization": "Nanyang Technological University",
+          "upvotes": 3,
+          "num_comments": 3,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.12872",
+          "pdf_url": "https://arxiv.org/pdf/2611.12872",
+          "hf_url": "https://huggingface.co/papers/2611.12872",
+          "github_url": "https://github.com/ViktorAxelsen/HiVe-Mem",
+          "github_stars": 0,
+          "project_url": "https://viktoraxelsen.github.io/HiVe-Mem/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.12872.png",
+          "media_urls": [],
+          "category": "AI Agents & Memory",
+          "reading_time_minutes": 5,
+          "hook_headline": "ยกระดับความจำ AI ให้จำแม่นเหมือนคนด้วย HiVe-Mem: เทคนิคใหม่ที่ลด Token ได้ถึง 90%!",
+          "short_teaser": "การให้ AI จดจำข้อมูลระยะยาวมักแลกมาด้วยความช้าและค่าใช้จ่ายที่บานปลาย เปเปอร์นี้ขอเปลี่ยนเกมด้วยระบบจัดการความจำแบบใหม่ที่ฉลาดและประหยัดกว่าเดิม",
+          "tldr_takeaways": [
+            "ใช้กราฟความสัมพันธ์ช่วยขยายขอบเขตการดึงข้อมูลความจำให้กว้างขึ้น",
+            "มีระบบคัดเลือกหลักฐานเชิงประจักษ์ (Evidence Composition) ที่ปรับตัวตามคำถามได้แบบ Dynamic",
+            "ลดการใช้ Token ลงได้ถึง 90% โดยที่ประสิทธิภาพการทำงานยังคงดีเยี่ยมหรือดีกว่าเดิม"
+          ],
+          "layman_story": [
+            "ปกติแล้วเวลาเราคุยกับ AI นานๆ หรือให้มันทำงานที่ใช้ข้อมูลมหาศาล ระบบความจำเดิมมักจะเก็บข้อมูลแบบทื่อๆ หรือบีบอัดข้อมูลจนเสียรายละเอียดสำคัญไป ทำให้เวลา AI จะดึงข้อมูลเก่ามาตอบ มันมักจะพลาดประเด็นสำคัญหรือไม่ก็ต้องอ่านข้อมูลทั้งหมดซ้ำซึ่งเปลือง Token และเวลามาก",
+            "HiVe-Mem มาแก้ปัญหานี้ด้วยการเปรียบเทียบความจำเสมือนสมุดบันทึกที่ไม่ได้แค่จดเรียงลำดับ แต่เชื่อมโยงข้อมูลเหมือนแผนผังความคิด (Graph) โดยแบ่งเป็นสองระดับ คือการขยายความจำในแนวราบ (Horizontal Expansion) เพื่อเก็บรายละเอียดรอบข้างที่เกี่ยวข้อง และการจัดสรรหลักฐานในแนวตั้ง (Vertical Evidence Composition) เพื่อเลือกเฉพาะข้อมูลที่จำเป็นที่สุดมาตอบคำถามนั้นๆ จริงๆ",
+            "ผลลัพธ์คือ AI สามารถเข้าถึง 'บริบท' ที่ลึกซึ้งได้แม่นยำขึ้นมาก โดยที่ไม่ต้องโหลดข้อมูลดิบทั้งหมดเข้ามาใน Prompt ให้เปลืองทรัพยากร นักพัฒนาในสายงาน Agent จะพบว่านี่เป็นเครื่องมือเปลี่ยนเกมที่ทำให้ Agent ทำงานซับซ้อนได้ยาวนานขึ้นโดยจ่ายค่า API น้อยลงอย่างมหาศาล"
+          ],
+          "impact_comparison": {
+            "before": "ต้องส่งประวัติการแชททั้งหมดให้ AI หรือใช้ระบบ RAG แบบพื้นฐานที่มักดึงข้อมูลมาไม่ครบหรือเกินความจำเป็น",
+            "after": "ใช้ระบบจัดการความจำที่เลือกเฉพาะข้อมูลที่ 'เกื้อกูล' ต่อคำถาม ประหยัด Token สูงสุดถึง 90%",
+            "why_it_matters": "เป็นกุญแจสำคัญสู่การสร้าง AI ที่มีความจำระยะยาวจริงๆ โดยไม่ล่มไปเสียก่อนด้วยงบประมาณค่าประมวลผล"
+          },
+          "use_cases": [
+            {
+              "title": "ระบบ AI วิจัยข้อมูลส่วนตัว",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "นำไปทำระบบ RAG ที่ฉลาดขึ้น โดยใช้ Graph เพื่อเชื่อมโยงเอกสารหลายฉบับที่เกี่ยวข้องกัน",
+              "example": "การสร้างระบบสรุปโครงการที่ผ่านมา โดย AI สามารถดึงประเด็นขัดแย้งจากเอกสารเก่าเมื่อ 6 เดือนก่อนมาสรุปได้ทันที"
+            },
+            {
+              "title": "Customer Support Agent สายลึก",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "ใช้เป็น Memory Layer สำหรับ Chatbot ที่ต้องจำประวัติการคุยและการแก้ปัญหาของลูกค้าได้เป็นปี",
+              "example": "Chatbot ที่จำได้ว่าเคยให้ลูกค้าแก้ปัญหาเครื่องซักผ้าด้วยวิธีไหนไปแล้ว และไม่แนะนำวิธีเดิมซ้ำซ้อน"
+            },
+            {
+              "title": "ผู้ช่วยส่วนตัวในการเขียนหนังสือ",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ช่วยนักเขียนจัดการรายละเอียดตัวละครหรือพล็อตเรื่องที่ซับซ้อนในนิยายหลายเล่ม",
+              "example": "นักเขียนป้อนชื่อตัวละครแล้ว AI ดึงปมในอดีตขึ้นมาเตือน เพื่อกันพล็อตโฮล (Plot hole) ไม่ให้เกิด"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจในแง่ของ Efficiency และการออกแบบโครงสร้างที่ดูสะอาดตา",
+            "praises": [
+              "ออกแบบโครงสร้างความจำได้ฉลาด ไม่ซ้ำซาก",
+              "ประหยัด Token ได้เห็นผลชัดเจนในโปรเจกต์ขนาดใหญ่"
+            ],
+            "critiques": [
+              "การสร้าง Graph ความจำอาจต้องใช้เวลาในการเตรียม Data ก่อนเริ่มใช้งาน",
+              "ยังต้องพิสูจน์การใช้งานกับโมเดลขนาดเล็ก (Small LLMs) ว่าจะทำงานได้ดีแค่ไหน"
+            ],
+            "hype_score": 8.5
+          }
+        },
+        {
           "id": "2610.41453",
           "title": "Evidence-Guided Recovery for AI Agents with Ambiguous Tool Outcomes and Partial Execution",
           "authors": [
@@ -1700,9 +2002,9 @@
           ],
           "organization": null,
           "upvotes": 3,
-          "num_comments": 2,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2610.41453",
           "pdf_url": "https://arxiv.org/pdf/2610.41453",
           "hf_url": "https://huggingface.co/papers/2610.41453",
@@ -1773,9 +2075,9 @@
           ],
           "organization": null,
           "upvotes": 3,
-          "num_comments": 3,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.272Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.00428",
           "pdf_url": "https://arxiv.org/pdf/2611.00428",
           "hf_url": "https://huggingface.co/papers/2611.00428",
@@ -1837,158 +2139,74 @@
           }
         },
         {
-          "id": "2611.17336",
-          "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+          "id": "2611.16321",
+          "title": "From Large Language Models to Efficient System One Models via Adaptive Computation",
           "authors": [
-            "Yanke Song",
-            "Shuo Chen",
-            "Chris Rockwell",
-            "Guande He",
-            "Nan Liu",
-            "Desai Xie"
-          ],
-          "organization": "Roblox Corporation",
-          "upvotes": 2,
-          "num_comments": 1,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.17336",
-          "pdf_url": "https://arxiv.org/pdf/2611.17336",
-          "hf_url": "https://huggingface.co/papers/2611.17336",
-          "github_url": null,
-          "github_stars": null,
-          "project_url": "https://chenshuo20.github.io/PixVid/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17336.png",
-          "media_urls": [],
-          "category": "Vision, Audio & Multimodal",
-          "reading_time_minutes": 4,
-          "hook_headline": "ยกระดับวิดีโอ AI ให้คมชัดแบบ Pixel-by-Pixel ด้วย PixVid: ก้าวข้ามข้อจำกัดของ Latent Space เดิมๆ",
-          "short_teaser": "การสร้างวิดีโอด้วย AI แบบเดิมมักต้องบีบอัดภาพผ่าน VAE ทำให้เสียความละเอียดและหน่วงเวลา PixVid จึงเข้ามาเปลี่ยนเกมด้วยการประมวลผลโดยตรงใน Pixel Space ที่ให้ภาพคมชัดกว่าและตอบสนองไวกว่าเดิม",
-          "tldr_takeaways": [
-            "PixVid เปลี่ยนมาใช้ Convolutional Head แทน VAE Decoder แบบเดิมเพื่อสร้างวิดีโอโดยตรงในระดับ Pixel",
-            "รองรับความละเอียดที่สูงขึ้นเป็น 2 เท่าโดยใช้ Token เท่าเดิมต่อเฟรม ทำให้ประหยัดทรัพยากรคำนวณ",
-            "ลด Latency ในการโต้ตอบแบบ Real-time ช่วยให้การตัดต่อวิดีโอที่ใช้ Depth เป็นเงื่อนไขแม่นยำยิ่งขึ้น"
-          ],
-          "layman_story": [
-            "โมเดลสร้างวิดีโอในปัจจุบันส่วนใหญ่ต้องบีบอัดข้อมูลภาพลงในพื้นที่สมมติที่เรียกว่า Latent Space เพื่อให้โมเดลประมวลผลได้ง่ายขึ้น แต่วิธีนี้มีปัญหาตรงที่ยิ่งเราต้องการความละเอียดสูง ข้อมูลยิ่งมหาศาล แถมยังต้องรอสร้างภาพเป็นกลุ่ม (Chunk) ไม่สามารถสร้างทีละเฟรมได้ทันที ทำให้เวลาเราสั่งให้ AI แก้ไขวิดีโอที่มีการเคลื่อนไหวเร็วๆ ภาพมักจะเบลอหรือคุมตำแหน่งได้ยาก",
-            "ทีมงานจาก Roblox จึงคิดค้น PixVid ขึ้นมาโดยตัดตัวการบีบอัด (VAE) ออกไป แล้วใช้ Convolutional Head แทน เพื่อให้โมเดลสามารถ 'วาด' พิกเซลลงในเฟรมได้โดยตรง เปรียบเหมือนการเปลี่ยนจากการร่างภาพคร่าวๆ ในสมุดโน้ตแล้วค่อยขยายขนาด เป็นการลงสีด้วยพู่กันลงบนผืนผ้าใบจริงทันที ช่วยให้โมเดลไม่ต้องเดาภาพจากข้อมูลที่ถูกบีบอัดมา",
-            "ผลลัพธ์ที่ได้คือวิดีโอที่คมชัดระดับ HD ที่เราคุ้นเคย การตอบสนองต่อคำสั่งแบบเฟรมต่อเฟรมทำได้รวดเร็วทันใจ และที่สำคัญคือจัดการกับรายละเอียดเล็กๆ น้อยๆ ได้ดีขึ้นมากจนนักวิจัยในสายงาน Interactive Media ต่างหันมาให้ความสนใจเพราะมันเปิดโอกาสให้เราสร้างเครื่องมือ AI ที่โต้ตอบกับมนุษย์ได้เหมือนการเล่นเกมจริงๆ"
-          ],
-          "impact_comparison": {
-            "before": "การทำงานบน Latent Space ทำให้ต้องรอการประมวลผลเป็นบล็อกเฟรม และเสียรายละเอียดความคมชัดไปกับการบีบอัด",
-            "after": "สร้างวิดีโอที่ Pixel-perfect ได้โดยตรง ให้ความละเอียดสูงขึ้น 2 เท่า และลดอาการกระตุกของการสร้างภาพ",
-            "why_it_matters": "เป็นก้าวสำคัญสำหรับอนาคตของ Generative Media ที่ต้องการทั้งความคมชัดระดับมืออาชีพและการตอบสนองแบบ Interactive"
-          },
-          "use_cases": [
-            {
-              "title": "เครื่องมือสร้างภาพยนตร์อนิเมชันแบบ Real-time",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำไปปรับใช้ใน Pipeline ของการสร้างสื่อที่ต้องการความเร็วและการปรับแต่งเฉพาะจุดบนหน้าจอ",
-              "example": "การสร้าง NPC ในเกมที่ขยับท่าทางตามสถานการณ์โดยที่ภาพยังคงความคมชัดและลื่นไหล"
-            },
-            {
-              "title": "ฟีเจอร์แต่งวิดีโออัตโนมัติความละเอียดสูง",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "พัฒนาแอปพลิเคชันตัดต่อวิดีโอ AI ที่สามารถใส่ Effect หรือเปลี่ยนพื้นหลังวิดีโอระดับ 4K ได้ทันที",
-              "example": "แอปฯ ตัดต่อที่ให้ผู้ใช้พิมพ์คำสั่งเพื่อเปลี่ยนองค์ประกอบในวิดีโอโดยที่ภาพไม่แตกหรือบิดเบี้ยว"
-            },
-            {
-              "title": "งานออกแบบสถาปัตยกรรมและอินทีเรีย",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้ PixVid สร้างวิดีโอ Walkthrough แบบละเอียดในระดับพิกเซลที่คมชัดกว่าโมเดลแบบเดิม",
-              "example": "การเปลี่ยนสไตล์การแต่งห้องในวิดีโอแบบสดๆ ขณะลูกค้ากำลังเลือกเฟอร์นิเจอร์ผ่าน AR"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความสนใจสูงจากกลุ่ม Computer Vision ที่มองว่าเป็นการแก้ปัญหาคอขวดของการใช้ VAE ได้อย่างตรงจุด",
-            "praises": [
-              "แนวคิดการกลับมาใช้ Pixel Space ที่เรียบง่ายแต่ทรงพลัง",
-              "การประยุกต์ใช้กับ Wan2.1 ที่ทำให้เห็นศักยภาพการขยายผลที่กว้างมาก"
-            ],
-            "critiques": [
-              "การคำนวณที่เพิ่มขึ้นในระดับ Pixel อาจต้องใช้ GPU แรงขึ้นในอนาคต",
-              "ยังต้องรอดูประสิทธิภาพเมื่อขยายไปสู่การสร้างวิดีโอที่มีความยาวมากๆ"
-            ],
-            "hype_score": 8.8
-          }
-        },
-        {
-          "id": "2611.16961",
-          "title": "The Value of Thinking: Learning When to Reason in Hybrid Decision Models",
-          "authors": [
-            "Zhengxu Yu",
-            "Ke Xu",
-            "Meng Fang",
-            "Haitham Ammar",
-            "Weilin Luo",
-            "Jun Wang"
+            "Minh-Anh Nguyen"
           ],
           "organization": null,
-          "upvotes": 2,
-          "num_comments": 2,
+          "upvotes": 3,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.16961",
-          "pdf_url": "https://arxiv.org/pdf/2611.16961",
-          "hf_url": "https://huggingface.co/papers/2611.16961",
-          "github_url": "https://github.com/zhengxuyu/HDM-code",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.16321",
+          "pdf_url": "https://arxiv.org/pdf/2611.16321",
+          "hf_url": "https://huggingface.co/papers/2611.16321",
+          "github_url": "https://github.com/minhkks/NestOne",
           "github_stars": 1,
           "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16961.png",
-          "media_urls": [
-            "https://cdn-uploads.huggingface.co/production/uploads/65bc9049e168a9cc4bd117da/MSGSG2ptpkFT3bK7L2a4P.mp4",
-            "https://cdn-uploads.huggingface.co/production/uploads/65bc9049e168a9cc4bd117da/es4OAhJB94Hd9FNPRm9Dc.gif"
-          ],
-          "category": "LLM & Reasoning",
-          "reading_time_minutes": 4,
-          "hook_headline": "ไม่ต้องคิดเยอะทุกคำ! HDM: เทคนิค AI รู้จักประหยัดพลังสมอง เลือกคิดเฉพาะเรื่องที่ยากจริงๆ",
-          "short_teaser": "การให้ AI ใช้เวลาคิดนานๆ ในทุกคำถามสิ้นเปลืองทรัพยากรมากเกินไป HDM จึงสร้างระบบ 'เลือกวิธีคิด' ให้โมเดลรู้ว่าเมื่อไหร่ควรตอบเร็ว และเมื่อไหร่ควรใช้เวลาขบคิด",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16321.png",
+          "media_urls": [],
+          "category": "Infra, Speed & Quantization",
+          "reading_time_minutes": 5,
+          "hook_headline": "ทำไมต้องรอให้ AI คิดจบทุกชั้น? ถึงเวลาของโมเดลที่รู้จัก 'คิดสั้น' เพื่อประหยัดพลังงาน!",
+          "short_teaser": "การรัน LLM ทุกครั้งเหมือนการเปิดอ่านหนังสือทั้งเล่มเพื่อหาคำตอบเดียว งานวิจัยนี้เสนอโมเดลที่รู้จักเลือกใช้พลังงานตามความยากของโจทย์ ทำให้เร็วขึ้นแต่ฉลาดเท่าเดิม",
           "tldr_takeaways": [
-            "HDM เลือกได้ว่าจะตอบทันทีด้วยวิธี Fast mode หรือใช้การคิดแบบละเอียดด้วย Slow mode",
-            "มีระบบ Self-routing block ที่ประเมิน 'มูลค่าของการคิด' (Value of Thinking) ก่อนตัดสินใจใช้งาน",
-            "ลดต้นทุนค่า Token ได้มหาศาลสูงสุดถึง 80% โดยที่คะแนนความแม่นยำยังคงเทียบเท่าหรือดีกว่าเดิม"
+            "ค้นพบว่าข้อมูลสำคัญในการตัดสินใจมักอยู่ในชั้นกลางๆ ของโมเดล",
+            "พัฒนาเทคนิคที่สามารถหยุดการประมวลผลก่อนถึงชั้นสุดท้ายหากคำตอบชัดเจนแล้ว",
+            "ประสิทธิภาพดีกว่าโมเดลที่ถูกจำกัดขนาดลง (Smaller models) เพราะยังคงได้อานิสงส์จาก Backbone ขนาดใหญ่"
           ],
           "layman_story": [
-            "ปกติแล้วเวลาเราใช้งาน LLM รุ่นใหม่ๆ ที่มีฟีเจอร์ 'Chain-of-Thought' หรือการให้ AI ค่อยๆ คิด AI มักจะเขียนกระบวนการคิดออกมาทุกครั้งไม่ว่าคำถามนั้นจะง่ายหรือยาก เหมือนนักเรียนที่ต้องเขียนวิธีทำคณิตศาสตร์เต็มหน้ากระดาษแม้จะเป็นแค่โจทย์บวกเลข 1+1 ซึ่งนอกจากจะเสียเวลาแล้ว ยังกินเงินค่า API หรือค่า Compute โดยไม่จำเป็นเลย",
-            "นักวิจัยจึงสร้าง Hybrid Decision Model (HDM) ที่เหมือนมี 'ผู้จัดการ' คอยตัดสินใจว่าเรื่องนี้ง่ายหรือยาก หากเรื่องไหนง่าย AI จะใช้ความจำภายใน (Implicit thinking) ตอบกลับไปทันทีโดยไม่ต้องเสียเวลาเขียน แต่ถ้าเจอโจทย์ยาก ระบบจะสั่งให้เปิดโหมดคิดละเอียด (Full reasoning) ทันที ซึ่งวิธีนี้ช่วยให้โมเดลทำตัวเหมือนคน คือรู้จักเลือกใช้สมองตามความซับซ้อนของสถานการณ์",
-            "ผลการทดลองในหลาย benchmark พบว่า HDM สามารถลดค่าใช้จ่ายด้าน Token ได้มหาศาล แต่ยังทำคะแนนได้แม่นยำพอกับโมเดลที่คิดละเอียดทุกครั้ง ทำให้วงการ AI ตื่นเต้นมาก เพราะนี่คือทางออกของปัญหาเรื่อง Latency และต้นทุนที่ทำให้คนทำแอปพลิเคชัน AI รู้สึกหนักใจมาตลอด"
+            "เวลาเราสั่ง AI ตอบคำถาม ปกติมันจะประมวลผลผ่านหลายร้อยหลายพันล้านพารามิเตอร์ตั้งแต่ต้นจนจบเหมือนกันหมด ไม่ว่าจะเป็นคำถามง่ายๆ อย่าง '1+1 เท่ากับเท่าไหร่' หรือคำถามซับซ้อนอย่าง 'จงวิเคราะห์เศรษฐกิจโลก' การทำแบบนี้คือการสิ้นเปลืองพลังงานและเวลาโดยใช่เหตุ เปรียบเหมือนการใช้เครื่องจักรโรงงานขนาดใหญ่ทำขนมปังแค่ก้อนเดียวตลอดเวลา",
+            "เปเปอร์นี้เสนอแนวคิดที่เรียกว่า 'Adaptive Computation' ซึ่งเปรียบเสมือนการมี 'สวิตช์อัจฉริยะ' ในโมเดล ถ้าโจทย์ง่าย โมเดลจะประมวลผลแค่ไม่กี่ชั้นแล้วได้คำตอบออกมาเลย แต่ถ้าโจทย์ยาก มันก็จะยอมรันจนครบทุกชั้นเพื่อความแม่นยำ วิธีนี้ใช้เทคนิค 'Self-distillation' ที่ทำให้โมเดลรุ่นเล็กที่ประมวลผลเร็ว สามารถเรียนรู้ความสามารถจากโมเดลรุ่นใหญ่ได้อย่างมีประสิทธิภาพ",
+            "ผลลัพธ์ที่ได้คือโมเดลที่ปรับตัวได้ตามความยากของงาน (Efficiency-Accuracy trade-off) โดยไม่เสียความฉลาด นี่คือจุดเปลี่ยนสำคัญที่จะช่วยให้บริษัท SaaS ต่างๆ สามารถลดค่าใช้จ่ายในการทำ GPU Inference ลงได้มหาศาล ขณะที่ผู้ใช้งานปลายทางจะรู้สึกว่า AI ตอบโต้ได้รวดเร็วทันใจขึ้น"
           ],
           "impact_comparison": {
-            "before": "AI ใช้ทรัพยากรเท่ากันทุกคำถาม ทำให้ต้นทุนพุ่งสูงและตอบช้าในคำถามพื้นฐาน",
-            "after": "โมเดลฉลาดเลือกสถานการณ์การใช้พลังสมอง ทำให้ประหยัดเงินและได้คำตอบที่รวดเร็วขึ้น",
-            "why_it_matters": "เป็นกุญแจสำคัญสู่การนำ AI ไปใช้ในระดับ Mass ที่เน้นความประหยัดและประสิทธิภาพ (Efficiency)"
+            "before": "ต้องรันโมเดลขนาดใหญ่ทุกครั้งไม่ว่าจะถามเรื่องอะไร ทำให้สิ้นเปลืองทรัพยากรและค่าใช้จ่ายสูง",
+            "after": "ใช้พลังงานเท่าที่จำเป็น ระบบฉลาดและประหยัดขึ้นอย่างมาก สามารถตอบสนองได้เร็วขึ้นในคำถามทั่วไป",
+            "why_it_matters": "ช่วยให้การ deploy LLM บนอุปกรณ์ขนาดเล็ก (On-device) หรือระบบที่มีข้อจำกัดทางทรัพยากรกลายเป็นเรื่องที่เป็นไปได้และคุ้มค่าทางเศรษฐกิจ"
           },
           "use_cases": [
             {
-              "title": "ระบบ Customer Service Chatbot อัจฉริยะ",
+              "title": "การทำ API Latency Optimization",
               "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ติดตั้งระบบ HDM เพื่อให้บอทแยกแยะระหว่างคำถามทั่วไปกับคำถามทางเทคนิคที่ต้องการการแก้ปัญหาซับซ้อน",
-              "example": "บอทตอบคำถามเวลาเปิดปิดร้านได้ในเสี้ยววินาที แต่จะเข้าโหมดคิดวิเคราะห์ทันทีหากลูกค้าสอบถามวิธีเคลมสินค้าที่ซับซ้อน"
+              "description": "นำโมเดลไปใช้ในระบบ Backend ที่เน้นความเร็วในการตอบโต้ (Real-time response)",
+              "example": "ระบบ Chatbot บริการลูกค้าที่ต้องการความรวดเร็วในการทักทายและตอบคำถามทั่วไป"
             },
             {
-              "title": "แพลตฟอร์ม SaaS สำหรับวิเคราะห์เอกสาร",
+              "title": "ลดต้นทุน Cloud AI (Cost-effective SaaS)",
               "role": "สำหรับสร้าง Product / SaaS",
-              "description": "สร้างบริการสรุปเอกสารที่ต้นทุนต่ำลงมาก โดยคิดค่าบริการตามโหมดการประมวลผลที่เลือก",
-              "example": "สรุปหัวข้อข่าวสั้นๆ ด้วย Fast mode แต่ถ้าต้องการวิเคราะห์ข้อตกลงทางกฎหมายให้ใช้ Slow mode ที่แม่นยำกว่า"
+              "description": "ออกแบบโครงสร้างโมเดลที่ประหยัดเวลา GPU ทำให้อัตรากำไรต่อหนึ่ง Query สูงขึ้น",
+              "example": "เครื่องมือสรุปข้อมูลในแอปฯ Productivity ที่ช่วยให้ใช้งาน AI ได้มากขึ้นโดยไม่พุ่งทะลุงบประมาณ"
             },
             {
-              "title": "AI วิเคราะห์ข้อมูลการเงินในองค์กร",
+              "title": "AI บนอุปกรณ์พกพา (Edge AI)",
               "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ช่วยให้ระบบภายในประมวลผลข้อมูลมหาศาลได้อย่างมีประสิทธิภาพโดยไม่เปลืองทรัพยากร GPU",
-              "example": "การตรวจสอบความผิดปกติของธุรกรรมที่ต้องอาศัยการคิดวิเคราะห์สูงในเคสที่น่าสงสัยเท่านั้น"
+              "description": "ปรับโมเดลให้ทำงานได้บนมือถือโดยยังคงความแม่นยำสูงเมื่อเจอเคสที่ยาก",
+              "example": "ฟีเจอร์ AI ช่วยเขียนอีเมลบนสมาร์ทโฟนที่รันได้โดยไม่ทำให้แบตเตอรี่หมดไว"
             }
           ],
           "community_pulse": {
-            "summary": "ได้รับคำชื่นชมมากในฐานะงานวิจัยที่ตอบโจทย์ 'Economics of LLM' ได้ตรงจุด",
+            "summary": "ได้รับคำชื่นชมในแง่ของ Practicality เพราะเป็นสิ่งที่ตลาดต้องการมากที่สุดในตอนนี้",
             "praises": [
-              "เป็นการแก้ปัญหาที่นำไปใช้งานได้จริง ไม่ใช่แค่เพิ่ม Parameter แต่เน้นความฉลาดของการใช้งาน",
-              "คะแนนบน benchmark ยังคงสูงในขณะที่ประหยัดต้นทุนได้อย่างเห็นได้ชัด"
+              "แนวคิด Adaptive Computation ช่วยเรื่อง cost efficiency ได้จริง",
+              "เป็นวิธีที่ฉลาดกว่าการพยายามบีบอัดโมเดล (Quantization) เพียงอย่างเดียว"
             ],
             "critiques": [
-              "ตัวโมเดลต้องถูกเทรนให้แยกโหมดได้แม่นยำ หากตัดสินใจผิด (Route ผิด) อาจเกิดข้อผิดพลาดได้",
-              "ความซับซ้อนในการตั้งค่า Lambda (ราคาต่อการตัดสินใจ) อาจต้องอาศัยการจูนที่เหมาะสม"
+              "อาจมีความซับซ้อนในการตั้งค่าเกณฑ์การตัดสินใจของ Gate ว่าเมื่อไหร่ควรหยุด",
+              "ต้องใช้เวลาเทรนนานกว่าโมเดลปกติเล็กน้อยในช่วงเริ่มต้น"
             ],
-            "hype_score": 9.2
+            "hype_score": 9.5
           }
         },
         {
@@ -2002,9 +2220,9 @@
           ],
           "organization": "Johns Hopkins University",
           "upvotes": 2,
-          "num_comments": 2,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
+          "updated_at": "2026-11-15T03:04:29.202Z",
           "arxiv_url": "https://arxiv.org/abs/2611.12750",
           "pdf_url": "https://arxiv.org/pdf/2611.12750",
           "hf_url": "https://huggingface.co/papers/2611.12750",
@@ -2069,77 +2287,74 @@
           }
         },
         {
-          "id": "2611.16409",
-          "title": "Experience-Handoff Reinforcement Learning for Recursive Self-Improvement",
+          "id": "2611.14256",
+          "title": "A Cross-Scenario Survey and Analysis of Self-Evolving Multimodal Agents",
           "authors": [
-            "Doyoung Kim",
-            "Byeongguk Jeon",
-            "Kailin Zhang",
-            "Sherry Yang"
+            "Jingjing Jiang"
           ],
-          "organization": "KAIST AI",
+          "organization": null,
           "upvotes": 2,
-          "num_comments": 3,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.16409",
-          "pdf_url": "https://arxiv.org/pdf/2611.16409",
-          "hf_url": "https://huggingface.co/papers/2611.16409",
-          "github_url": "https://github.com/doyoungkim-ml/ehrl",
-          "github_stars": 1,
-          "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16409.png",
+          "updated_at": "2026-11-15T03:04:29.202Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.14256",
+          "pdf_url": "https://arxiv.org/pdf/2611.14256",
+          "hf_url": "https://huggingface.co/papers/2611.14256",
+          "github_url": "https://github.com/jingjing12110/SE-MMAgents",
+          "github_stars": 0,
+          "project_url": "https://jingjing12110.github.io/SE-MMAgents/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.14256.png",
           "media_urls": [],
           "category": "AI Agents & Memory",
-          "reading_time_minutes": 4,
-          "hook_headline": "ให้ AI เรียนรู้จากความผิดพลาดของตัวเอง: เทคนิค Handoff ที่ช่วยให้อ agent เก่งขึ้นเรื่อยๆ!",
-          "short_teaser": "การเทรน Agent แบบเดิมมักทิ้งข้อมูล Log ที่สำคัญไปอย่างน่าเสียดาย วิธี Experience-Handoff ช่วยให้ AI สามารถสรุป 'คู่มือการทำงาน' จากประสบการณ์ในอดีตเพื่อใช้ในอนาคต",
+          "reading_time_minutes": 5,
+          "hook_headline": "ถอดรหัสความฉลาดของ Self-Evolving Agents: ทำไม AI รุ่นใหม่ถึงพัฒนาตัวเองได้ข้ามสายงาน?",
+          "short_teaser": "เจาะลึกกลไกการเรียนรู้ด้วยตัวเองของ AI Agent ผ่าน 4 สถานการณ์หลัก เพื่อหาคำตอบว่าทำไมบางทักษะถึงส่งต่อกันไม่ได้",
           "tldr_takeaways": [
-            "ใช้การส่งต่อ 'ประสบการณ์' แทนการใช้แค่รางวัลตัวเลข (Scalar rewards) อย่างเดียว",
-            "ให้โมเดลมีบทบาทเป็นทั้ง 'คนปฏิบัติ', 'คนสรุปบทเรียน', และ 'คนเขียนคู่มือ' ในตัวเอง",
-            "เพิ่มประสิทธิภาพของ Agent ในการทำงานที่ซับซ้อนได้ดีกว่าการเทรนด้วยวิธีดั้งเดิม"
+            "AI Agent ยุคใหม่สามารถพัฒนาตัวเองได้โดยไม่ต้องพึ่งพาข้อมูลจากมนุษย์ (Self-improving loop)",
+            "เปเปอร์นี้วิเคราะห์ว่าทำไมกลไกพัฒนาตัวเองในงานหนึ่ง (เช่น การเขียนโปรแกรม) ถึงไม่ค่อยได้ผลดีเมื่อนำไปใช้ในอีกงาน (เช่น การคุมหุ่นยนต์)",
+            "การจำแนกปัจจัยความยากง่ายในการถ่ายโอนความรู้ จะช่วยให้เราสร้าง Agent ที่เก่งขึ้นได้แบบไม่ต้องเริ่มใหม่ทุกครั้ง"
           ],
           "layman_story": [
-            "ในงานวิจัย Agent AI ปกติแล้วเราจะให้คะแนน (Reward) เมื่อ AI ทำงานสำเร็จ แต่ปัญหามันอยู่ที่ว่า AI จะรู้แค่ว่าทำสำเร็จหรือไม่สำเร็จ แต่มันกลับไม่รู้ว่า 'ทำไม' ถึงล้มเหลวในครั้งก่อนหรือ 'วิธีที่ดีที่สุด' ในการแก้ปัญหานี้คืออะไร เพราะเรามักทิ้งข้อมูลรายละเอียดของการทำงานไปหมดเหมือนโยนขยะทิ้ง ทั้งที่ข้อมูลเหล่านั้นคือขุมทรัพย์แห่งการเรียนรู้",
-            "เปเปอร์นี้เลยเสนอแนวคิด 'Experience-Handoff' คือการให้ AI หลังจากที่ลองผิดลองถูกแล้ว ต้องทำหน้าที่สรุปบทเรียนออกมาเป็น 'Playbook' หรือคู่มือการทำงาน แล้วส่งต่อไปยังการลองครั้งหน้า เหมือนกับเวลาที่เราทำงานแล้วมีคนจดบันทึกไว้ว่า 'ห้ามกดปุ่มนี้ เพราะเครื่องจะแฮงค์' เพื่อให้เพื่อนร่วมงานคนถัดไปทำงานได้ง่ายขึ้นโดยไม่ต้องพลาดแบบเดิมอีก",
-            "ผลที่ตามมาคือ Agent มีความฉลาดเชิงประสบการณ์ (Experience-based intelligence) สูงขึ้นมาก เพราะมันไม่ได้แค่พยายามทำตามคำสั่ง แต่พยายามเรียนรู้ที่จะพัฒนาคู่มือการทำงานของตัวเองไปเรื่อยๆ ทำให้ประสิทธิภาพในการทำภารกิจที่ซับซ้อนดีขึ้นอย่างก้าวกระโดด"
+            "การพัฒนา AI ให้ฉลาดขึ้นเรื่อยๆ โดยไม่ต้องมีมนุษย์มานั่งสอนทีละก้าวเป็นเป้าหมายสูงสุด แต่มันมีปัญหาคือเมื่อเราสร้าง AI ที่เก่งเรื่องนึงไปแล้ว เช่น เก่งการกดปุ่มบนหน้าจอคอมพิวเตอร์ พอจะให้มันย้ายไปลองควบคุมหุ่นยนต์จับสิ่งของ มันกลับกลายเป็น 'AI มือใหม่' ที่แทบไม่รู้อะไรเลย",
+            "เปเปอร์นี้เลยเข้ามาจัดระเบียบความคิดใหม่ โดยแบ่งการทำงานของ AI ออกเป็น 4 สถานการณ์ (การใช้เหตุผล, การสร้างเนื้อหา, การใช้คอมพิวเตอร์, และการควบคุมหุ่นยนต์) แล้วใช้วิธีมองว่าแต่ละงานมี 'ทรัพยากรที่ขาดแคลน' อะไรบ้าง เช่น งานที่ตรวจสอบผลลัพธ์ได้ง่าย vs งานที่วัดผลยาก เพื่อดูว่าความฉลาดที่สร้างขึ้นมานั้นย้ายที่ได้ไหม",
+            "ผลลัพธ์ที่ได้ทำให้เราเข้าใจว่า 'กับดัก' ของการพัฒนาตัวเองคืออะไร เราได้พิมพ์เขียวที่ช่วยบอกว่า หากจะให้ Agent เก่งขึ้นในงานใหม่ เราต้องเติมทรัพยากรหรือข้อมูลประเภทไหนเข้าไป สิ่งนี้ทำให้คนในวงการตื่นเต้นเพราะมันคือการเปลี่ยนจากการเดาสุ่มมาเป็นการวิศวกรรมการเรียนรู้แบบมีแบบแผน"
           ],
           "impact_comparison": {
-            "before": "การเทรน AI แบบเน้นคะแนนทำให้อ Agent เรียนรู้ช้าและวนลูปอยู่กับปัญหาเดิมๆ",
-            "after": "มีการจดบันทึกและส่งต่อบทเรียน ทำให้โมเดลสร้างความก้าวหน้าแบบสะสม (Recursive improvement)",
-            "why_it_matters": "เปลี่ยนนิยามของการสร้าง Agent จากแค่ทำตามสั่ง เป็นการสร้างระบบที่ 'เรียนรู้งาน' ได้ด้วยตัวเองอย่างแท้จริง"
+            "before": "การพัฒนา Agent ต้องลองผิดลองถูกในแต่ละงานแยกกัน (Siloed approach) และเสียเวลาเทรนใหม่ทุกครั้ง",
+            "after": "เปลี่ยนเป็นการมองภาพรวมเชิงโครงสร้าง ทำให้เราออกแบบกลไกให้ Agent เรียนรู้ข้ามงานได้อย่างมีประสิทธิภาพมากขึ้น",
+            "why_it_matters": "หัวใจสำคัญในการสร้าง AGI หรือ Agent อัจฉริยะที่สามารถปรับตัวเข้ากับทุกงานในชีวิตประจำวันได้"
           },
           "use_cases": [
             {
-              "title": "ระบบ AI วางแผนงานอัตโนมัติ (Autonomous Planner)",
+              "title": "ระบบทดสอบซอฟต์แวร์อัตโนมัติข้ามแพลตฟอร์ม",
               "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำเทคนิคนี้ไปเพิ่มใน Agent loop เพื่อให้ AI ปรับปรุงแผนการดำเนินงานของตัวเองในทุกครั้งที่ได้รับโปรเจกต์ใหม่",
-              "example": "AI ที่ใช้เขียนโค้ดและทดสอบซอฟต์แวร์ โดยมันจะเรียนรู้ว่า Library ไหนบั๊กบ่อยและเลิกใช้โดยอัตโนมัติ"
+              "description": "ใช้กลไกการพัฒนาตัวเองของ Agent ในการเรียนรู้วิธีทดสอบแอปฯ ทั้งบนเว็บและมือถือไปพร้อมกันโดยไม่ต้องเขียนสคริปต์แยก",
+              "example": "Agent เรียนรู้วิธีแก้บั๊กจากการทดสอบบนเว็บ แล้วนำความรู้นั้นไปปรับใช้กับการทดสอบแอปมือถือที่มี UI คล้ายกัน"
             },
             {
-              "title": "บริการ AI Auto-Support สำหรับองค์กร",
+              "title": "ระบบ AI Content Factory",
               "role": "สำหรับสร้าง Product / SaaS",
-              "description": "สร้างระบบ Support AI ที่เรียนรู้วิธีการตอบคำถามยากๆ จากความผิดพลาดในอดีตมาอัปเดตความรู้ให้บอท",
-              "example": "บอทที่เรียนรู้จากเคสที่ลูกค้าเคยตำหนิ เพื่อปรับปรุงขั้นตอนการแก้ไขปัญหาในครั้งต่อไปให้ดียิ่งขึ้น"
+              "description": "สร้าง SaaS ที่ Agent สามารถเรียนรู้เทรนด์การออกแบบจากฐานข้อมูลภาพ แล้วนำไปปรับใช้ในการร่าง UX ใหม่ๆ เอง",
+              "example": "AI เรียนรู้สไตล์การออกแบบที่ผู้ใช้ชอบในหนึ่งโปรเจกต์ แล้วนำไปเป็นฐานความรู้ในการปรับแต่ง Layout ของโปรเจกต์ถัดไป"
             },
             {
-              "title": "ห้องปฏิบัติการวิจัยและทดลองอัตโนมัติ",
+              "title": "การจัดการ Workflow ในองค์กร",
               "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้ Agent สรุปผลการทดลองในแล็บ เพื่อปรับพารามิเตอร์การทดลองครั้งหน้าให้แม่นยำขึ้น",
-              "example": "AI ช่วยออกแบบการทดลองทางเคมีโดยวิเคราะห์จากความสำเร็จ/ล้มเหลวของการทดลองวันก่อนหน้า"
+              "description": "ใช้ Agent ที่สามารถปรับปรุงตัวเองในการจัดระเบียบเอกสารและการทำงานซ้ำๆ ของพนักงานให้มีประสิทธิภาพยิ่งขึ้น",
+              "example": "Agent เรียนรู้จากความผิดพลาดในการกรอกข้อมูลเอกสารบัญชี แล้วปรับปรุงขั้นตอนการทำงานให้แม่นยำขึ้นในเดือนถัดไป"
             }
           ],
           "community_pulse": {
-            "summary": "ได้รับความตื่นเต้นมากจากสาย Agentic Workflow ที่มองว่าเป็นทิศทางที่ถูกต้องในการทำ Recursive Self-Improvement",
+            "summary": "ได้รับความสนใจอย่างสูงจากกลุ่มนักวิจัยสาย Agentic Workflow เพราะเป็นเปเปอร์แรกๆ ที่มาจัดระเบียบความเป็นไปได้ในการ 'ถ่ายโอนความรู้' ของ AI",
             "praises": [
-              "ไอเดียการส่งต่อคู่มือ (Playbook) เป็นสิ่งที่ฉลาดและเรียบง่ายมากในการจัดการความรู้",
-              "ช่วยให้การเทรน RL มีความหมายมากขึ้น ไม่ใช่แค่การเล่นกับตัวเลขรางวัล"
+              "กรอบแนวคิด 3 ระยะ (Loop) ชัดเจนและนำไปใช้ประเมินโมเดลอื่นได้ง่าย",
+              "การวิเคราะห์เรื่อง 'ข้อจำกัดเชิงโครงสร้าง' ทำให้นักพัฒนาเข้าใจว่าทำไม Agent บางตัวถึงตัน"
             ],
             "critiques": [
-              "การสร้างคู่มือที่ยาวเกินไปอาจทำให้ Context ของ Agent ในอนาคตเต็มเร็ว",
-              "ตัวระบบต้องการการควบคุม (Scaffolding) ที่ค่อนข้างมากเพื่อไม่ให้โมเดลเขียนสิ่งที่ไร้สาระลงในคู่มือ"
+              "ทฤษฎีในเปเปอร์มีความเป็นนามธรรมสูง อาจต้องใช้ความเข้าใจพื้นฐานด้าน Agentic AI มากพอสมควร",
+              "ผลลัพธ์ในทางปฏิบัติยังคงต้องการการทดสอบในสภาวะที่มีความซับซ้อนมากกว่านี้"
             ],
-            "hype_score": 8.9
+            "hype_score": 8
           }
         },
         {
@@ -2157,7 +2372,7 @@
           "upvotes": 2,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.14046",
           "pdf_url": "https://arxiv.org/pdf/2611.14046",
           "hf_url": "https://huggingface.co/papers/2611.14046",
@@ -2219,150 +2434,6 @@
           }
         },
         {
-          "id": "2611.00359",
-          "title": "Humanized but Still True? Auditing Facts and Detection in AI-Text Humanizers",
-          "authors": [
-            "Ziyuan Wang",
-            "Genliang Zhu",
-            "Xiaobo Chen"
-          ],
-          "organization": null,
-          "upvotes": 2,
-          "num_comments": 2,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.00359",
-          "pdf_url": "https://arxiv.org/pdf/2611.00359",
-          "hf_url": "https://huggingface.co/papers/2611.00359",
-          "github_url": "https://github.com/zwang-devv/humanizer-fact-audit",
-          "github_stars": 1,
-          "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.00359.png",
-          "media_urls": [],
-          "category": "LLM & Reasoning",
-          "reading_time_minutes": 5,
-          "hook_headline": "เมื่อ AI พยายาม 'เนียน' เป็นคน: งานวิจัยเผย เครื่องมือ Humanizer อาจกำลังทำลายความจริง!",
-          "short_teaser": "การใช้ AI เขียนแล้วให้ AI อีกตัวแก้สำนวนให้ดูเหมือนคนเขียน กำลังเป็นที่นิยม แต่ผลวิจัยล่าสุดชี้ว่ากระบวนการนี้มักทำให้ 'ข้อเท็จจริง' ผิดเพี้ยนไปอย่างน่ากลัว",
-          "tldr_takeaways": [
-            "เครื่องมือ AI Humanizer ส่วนใหญ่เปลี่ยนหรือลบตัวเลขและชื่อเฉพาะในเอกสารทิ้ง",
-            "การตรวจจับว่าข้อความเขียนโดยคนหรือ AI ทำได้ยากขึ้นแต่ข้อมูลในข้อความกลับขาดความน่าเชื่อถือ",
-            "มีเพียงโมเดลโอเพนซอร์สบางรุ่นเท่านั้นที่รักษาความถูกต้องของข้อมูลได้ดีกว่ารุ่นเชิงพาณิชย์"
-          ],
-          "layman_story": [
-            "ยุคนี้หลายคนใช้ AI ช่วยเขียนงาน แล้วกลัวว่าคนอื่นจะรู้ว่าเป็น AI ก็เลยต้องหา 'AI Humanizer' มาแก้สำนวนให้ดูเหมือนคนเขียนมากขึ้น แต่ปัญหาใหญ่ที่เปเปอร์นี้ค้นพบคือ เครื่องมือเหล่านี้เน้นแต่จะแก้ 'สำนวน' ให้ดูเป็นธรรมชาติ จนบางครั้งมันเผลอไปเปลี่ยนตัวเลข วันที่ หรือชื่อองค์กรสำคัญในเนื้อหาไปด้วยโดยไม่รู้ตัว ซึ่งเป็นเรื่องอันตรายมากถ้างานนั้นต้องใช้ความแม่นยำของข้อมูล",
-            "นักวิจัยใช้วิธีทดสอบแบบ 'Audit' โดยนำเอกสารที่มีข้อมูลตัวเลขและชื่อเฉพาะไปผ่านเครื่องมือเหล่านี้ 11 ตัว แล้วตรวจดูว่าข้อมูลเหล่านั้นยังอยู่ครบไหม ผลคือหลายตัวทำข้อมูลหายหรือเพี้ยนไปเยอะมาก บางตัวเปลี่ยนแม้กระทั่งคำพูดที่ยกมาอ้างอิง ทำให้เนื้อหาที่เคยถูกต้องกลายเป็นข้อมูลที่เชื่อถือไม่ได้ในทันที เหมือนการแก้หนังสือพิมพ์ที่เน้นทำให้สำนวนสวย แต่เปลี่ยนเลขปี พ.ศ. ให้ผิดไปหมด",
-            "สิ่งที่น่าตกใจคือ ความสามารถในการตรวจจับว่างานเขียนนั้นเป็น AI หรือไม่ กับความแม่นยำของข้อมูล แทบไม่มีความสัมพันธ์กันเลย (คนละเรื่องเดียวกัน) งานนี้จึงเป็นสัญญาณเตือนภัยครั้งใหญ่สำหรับคนทำงานที่ต้องอาศัยข้อเท็จจริง เช่น สายงานข่าว สายกฎหมาย หรือวิชาการ ที่ห้ามใช้เครื่องมือเหล่านี้แบบสุ่มสี่สุ่มห้า เพราะอาจได้งานที่สำนวนสวยแต่ข้อมูลเชื่อถือไม่ได้เลย"
-          ],
-          "impact_comparison": {
-            "before": "หลายคนเชื่อว่าการนำข้อความไปผ่านเครื่องมือ 'Humanizer' จะทำให้งานมีคุณภาพเหมือนคนเขียนและยังถูกต้อง",
-            "after": "เปเปอร์นี้เผยให้เห็นว่าเรากำลังแลกความถูกต้อง (Accuracy) ไปกับความเนียน (Fluency) ซึ่งอาจสร้างความเสียหายต่อความน่าเชื่อถือของเนื้อหา",
-            "why_it_matters": "เปลี่ยนมุมมองของนักเขียนและผู้ตรวจสอบเอกสาร ให้ต้องระมัดระวังการใช้ AI เสมือนเครื่องมือสารพัดประโยชน์โดยขาดการตรวจสอบข้อมูลต้นฉบับ"
-          },
-          "use_cases": [
-            {
-              "title": "การพัฒนาเครื่องมือตรวจสอบเอกสาร (Fact-Checking Tool)",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "สร้างเครื่องมือเปรียบเทียบข้อมูลก่อนและหลังปรับแก้สำนวนเพื่อป้องกันข้อมูลผิดพลาด",
-              "example": "ทำ Dashboard ที่ไฮไลต์คำเตือนหาก AI Humanizer มีการเปลี่ยนแปลงชื่อเฉพาะหรือตัวเลข"
-            },
-            {
-              "title": "แพลตฟอร์ม Content Marketing",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "สร้างระบบ Humanize ที่มีเกณฑ์การคงอยู่ของตัวเลขและข้อเท็จจริง (Fact-Retention)",
-              "example": "ฟีเจอร์สำหรับ Agency ที่ต้องการ AI เขียนเนื้อหาแต่การันตีความถูกต้องของข้อมูลสถิติ"
-            },
-            {
-              "title": "การตรวจสอบงานวิชาการและบทความข่าว",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้เป็นมาตรฐานในการ Audit ผลิตภัณฑ์ AI ก่อนนำมาใช้งานจริงในสำนักงาน",
-              "example": "การทำ Stress Test ให้กับ AI ภายในองค์กรก่อนนำไปเขียนรายงานสรุปการประชุม"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ชุมชนนักวิจัยมองว่าเป็นงานวิจัยที่ 'Wake-up call' มากๆ สำหรับสายงานที่ต้องทำคอนเทนต์",
-            "praises": [
-              "เป็นงานตรวจสอบคุณภาพ (Auditing) ที่มีความคิดสร้างสรรค์และทำออกมาได้จริง",
-              "ข้อมูลสนับสนุนหนักแน่น เปลี่ยนความคิดเรื่องความแม่นยำของโมเดลยอดนิยม"
-            ],
-            "critiques": [
-              "ผลทดสอบอาจขึ้นอยู่กับการปรับแต่ง (Prompt) ของแต่ละตัว",
-              "ยังขาดวิธีการแก้ไขปัญหาที่ให้ผลลัพธ์ทั้งเนียนและแม่นในระดับที่ทำได้จริง"
-            ],
-            "hype_score": 9.2
-          }
-        },
-        {
-          "id": "2611.16321",
-          "title": "From Large Language Models to Efficient System One Models via Adaptive Computation",
-          "authors": [
-            "Minh-Anh Nguyen"
-          ],
-          "organization": null,
-          "upvotes": 2,
-          "num_comments": 1,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.16321",
-          "pdf_url": "https://arxiv.org/pdf/2611.16321",
-          "hf_url": "https://huggingface.co/papers/2611.16321",
-          "github_url": "https://github.com/minhkks/NestOne",
-          "github_stars": 1,
-          "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16321.png",
-          "media_urls": [],
-          "category": "Infra, Speed & Quantization",
-          "reading_time_minutes": 5,
-          "hook_headline": "ทำไมต้องรอให้ AI คิดจบทุกชั้น? ถึงเวลาของโมเดลที่รู้จัก 'คิดสั้น' เพื่อประหยัดพลังงาน!",
-          "short_teaser": "การรัน LLM ทุกครั้งเหมือนการเปิดอ่านหนังสือทั้งเล่มเพื่อหาคำตอบเดียว งานวิจัยนี้เสนอโมเดลที่รู้จักเลือกใช้พลังงานตามความยากของโจทย์ ทำให้เร็วขึ้นแต่ฉลาดเท่าเดิม",
-          "tldr_takeaways": [
-            "ค้นพบว่าข้อมูลสำคัญในการตัดสินใจมักอยู่ในชั้นกลางๆ ของโมเดล",
-            "พัฒนาเทคนิคที่สามารถหยุดการประมวลผลก่อนถึงชั้นสุดท้ายหากคำตอบชัดเจนแล้ว",
-            "ประสิทธิภาพดีกว่าโมเดลที่ถูกจำกัดขนาดลง (Smaller models) เพราะยังคงได้อานิสงส์จาก Backbone ขนาดใหญ่"
-          ],
-          "layman_story": [
-            "เวลาเราสั่ง AI ตอบคำถาม ปกติมันจะประมวลผลผ่านหลายร้อยหลายพันล้านพารามิเตอร์ตั้งแต่ต้นจนจบเหมือนกันหมด ไม่ว่าจะเป็นคำถามง่ายๆ อย่าง '1+1 เท่ากับเท่าไหร่' หรือคำถามซับซ้อนอย่าง 'จงวิเคราะห์เศรษฐกิจโลก' การทำแบบนี้คือการสิ้นเปลืองพลังงานและเวลาโดยใช่เหตุ เปรียบเหมือนการใช้เครื่องจักรโรงงานขนาดใหญ่ทำขนมปังแค่ก้อนเดียวตลอดเวลา",
-            "เปเปอร์นี้เสนอแนวคิดที่เรียกว่า 'Adaptive Computation' ซึ่งเปรียบเสมือนการมี 'สวิตช์อัจฉริยะ' ในโมเดล ถ้าโจทย์ง่าย โมเดลจะประมวลผลแค่ไม่กี่ชั้นแล้วได้คำตอบออกมาเลย แต่ถ้าโจทย์ยาก มันก็จะยอมรันจนครบทุกชั้นเพื่อความแม่นยำ วิธีนี้ใช้เทคนิค 'Self-distillation' ที่ทำให้โมเดลรุ่นเล็กที่ประมวลผลเร็ว สามารถเรียนรู้ความสามารถจากโมเดลรุ่นใหญ่ได้อย่างมีประสิทธิภาพ",
-            "ผลลัพธ์ที่ได้คือโมเดลที่ปรับตัวได้ตามความยากของงาน (Efficiency-Accuracy trade-off) โดยไม่เสียความฉลาด นี่คือจุดเปลี่ยนสำคัญที่จะช่วยให้บริษัท SaaS ต่างๆ สามารถลดค่าใช้จ่ายในการทำ GPU Inference ลงได้มหาศาล ขณะที่ผู้ใช้งานปลายทางจะรู้สึกว่า AI ตอบโต้ได้รวดเร็วทันใจขึ้น"
-          ],
-          "impact_comparison": {
-            "before": "ต้องรันโมเดลขนาดใหญ่ทุกครั้งไม่ว่าจะถามเรื่องอะไร ทำให้สิ้นเปลืองทรัพยากรและค่าใช้จ่ายสูง",
-            "after": "ใช้พลังงานเท่าที่จำเป็น ระบบฉลาดและประหยัดขึ้นอย่างมาก สามารถตอบสนองได้เร็วขึ้นในคำถามทั่วไป",
-            "why_it_matters": "ช่วยให้การ deploy LLM บนอุปกรณ์ขนาดเล็ก (On-device) หรือระบบที่มีข้อจำกัดทางทรัพยากรกลายเป็นเรื่องที่เป็นไปได้และคุ้มค่าทางเศรษฐกิจ"
-          },
-          "use_cases": [
-            {
-              "title": "การทำ API Latency Optimization",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำโมเดลไปใช้ในระบบ Backend ที่เน้นความเร็วในการตอบโต้ (Real-time response)",
-              "example": "ระบบ Chatbot บริการลูกค้าที่ต้องการความรวดเร็วในการทักทายและตอบคำถามทั่วไป"
-            },
-            {
-              "title": "ลดต้นทุน Cloud AI (Cost-effective SaaS)",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "ออกแบบโครงสร้างโมเดลที่ประหยัดเวลา GPU ทำให้อัตรากำไรต่อหนึ่ง Query สูงขึ้น",
-              "example": "เครื่องมือสรุปข้อมูลในแอปฯ Productivity ที่ช่วยให้ใช้งาน AI ได้มากขึ้นโดยไม่พุ่งทะลุงบประมาณ"
-            },
-            {
-              "title": "AI บนอุปกรณ์พกพา (Edge AI)",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ปรับโมเดลให้ทำงานได้บนมือถือโดยยังคงความแม่นยำสูงเมื่อเจอเคสที่ยาก",
-              "example": "ฟีเจอร์ AI ช่วยเขียนอีเมลบนสมาร์ทโฟนที่รันได้โดยไม่ทำให้แบตเตอรี่หมดไว"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับคำชื่นชมในแง่ของ Practicality เพราะเป็นสิ่งที่ตลาดต้องการมากที่สุดในตอนนี้",
-            "praises": [
-              "แนวคิด Adaptive Computation ช่วยเรื่อง cost efficiency ได้จริง",
-              "เป็นวิธีที่ฉลาดกว่าการพยายามบีบอัดโมเดล (Quantization) เพียงอย่างเดียว"
-            ],
-            "critiques": [
-              "อาจมีความซับซ้อนในการตั้งค่าเกณฑ์การตัดสินใจของ Gate ว่าเมื่อไหร่ควรหยุด",
-              "ต้องใช้เวลาเทรนนานกว่าโมเดลปกติเล็กน้อยในช่วงเริ่มต้น"
-            ],
-            "hype_score": 9.5
-          }
-        },
-        {
           "id": "2611.16728",
           "title": "EgoX: Egocentric Cross-Embodiment Manipulation with Embodiment Dreaming",
           "authors": [
@@ -2375,14 +2446,14 @@
           ],
           "organization": "Carnegie Mellon University",
           "upvotes": 1,
-          "num_comments": 1,
+          "num_comments": 2,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16728",
           "pdf_url": "https://arxiv.org/pdf/2611.16728",
           "hf_url": "https://huggingface.co/papers/2611.16728",
           "github_url": "https://github.com/egox-dream/egox",
-          "github_stars": 9,
+          "github_stars": 10,
           "project_url": "https://egox-dream.github.io/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16728.png",
           "media_urls": [
@@ -2453,14 +2524,14 @@
           ],
           "organization": "Machine Learning in Neurosurgery Lab",
           "upvotes": 1,
-          "num_comments": 1,
+          "num_comments": 2,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.15094",
           "pdf_url": "https://arxiv.org/pdf/2611.15094",
           "hf_url": "https://huggingface.co/papers/2611.15094",
           "github_url": "https://github.com/MLNeurosurg/neuro-vl",
-          "github_stars": 1,
+          "github_stars": 4,
           "project_url": "https://neurovl.mlins.org/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.15094.png",
           "media_urls": [],
@@ -2515,77 +2586,6 @@
             ],
             "hype_score": 9.2
           }
-        },
-        {
-          "id": "2611.14256",
-          "title": "A Cross-Scenario Survey and Analysis of Self-Evolving Multimodal Agents",
-          "authors": [
-            "Jingjing Jiang"
-          ],
-          "organization": null,
-          "upvotes": 1,
-          "num_comments": 4,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-14T03:38:53.273Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.14256",
-          "pdf_url": "https://arxiv.org/pdf/2611.14256",
-          "hf_url": "https://huggingface.co/papers/2611.14256",
-          "github_url": "https://github.com/jingjing12110/SE-MMAgents",
-          "github_stars": 0,
-          "project_url": "https://jingjing12110.github.io/SE-MMAgents/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.14256.png",
-          "media_urls": [],
-          "category": "AI Agents & Memory",
-          "reading_time_minutes": 5,
-          "hook_headline": "ถอดรหัสความฉลาดของ Self-Evolving Agents: ทำไม AI รุ่นใหม่ถึงพัฒนาตัวเองได้ข้ามสายงาน?",
-          "short_teaser": "เจาะลึกกลไกการเรียนรู้ด้วยตัวเองของ AI Agent ผ่าน 4 สถานการณ์หลัก เพื่อหาคำตอบว่าทำไมบางทักษะถึงส่งต่อกันไม่ได้",
-          "tldr_takeaways": [
-            "AI Agent ยุคใหม่สามารถพัฒนาตัวเองได้โดยไม่ต้องพึ่งพาข้อมูลจากมนุษย์ (Self-improving loop)",
-            "เปเปอร์นี้วิเคราะห์ว่าทำไมกลไกพัฒนาตัวเองในงานหนึ่ง (เช่น การเขียนโปรแกรม) ถึงไม่ค่อยได้ผลดีเมื่อนำไปใช้ในอีกงาน (เช่น การคุมหุ่นยนต์)",
-            "การจำแนกปัจจัยความยากง่ายในการถ่ายโอนความรู้ จะช่วยให้เราสร้าง Agent ที่เก่งขึ้นได้แบบไม่ต้องเริ่มใหม่ทุกครั้ง"
-          ],
-          "layman_story": [
-            "การพัฒนา AI ให้ฉลาดขึ้นเรื่อยๆ โดยไม่ต้องมีมนุษย์มานั่งสอนทีละก้าวเป็นเป้าหมายสูงสุด แต่มันมีปัญหาคือเมื่อเราสร้าง AI ที่เก่งเรื่องนึงไปแล้ว เช่น เก่งการกดปุ่มบนหน้าจอคอมพิวเตอร์ พอจะให้มันย้ายไปลองควบคุมหุ่นยนต์จับสิ่งของ มันกลับกลายเป็น 'AI มือใหม่' ที่แทบไม่รู้อะไรเลย",
-            "เปเปอร์นี้เลยเข้ามาจัดระเบียบความคิดใหม่ โดยแบ่งการทำงานของ AI ออกเป็น 4 สถานการณ์ (การใช้เหตุผล, การสร้างเนื้อหา, การใช้คอมพิวเตอร์, และการควบคุมหุ่นยนต์) แล้วใช้วิธีมองว่าแต่ละงานมี 'ทรัพยากรที่ขาดแคลน' อะไรบ้าง เช่น งานที่ตรวจสอบผลลัพธ์ได้ง่าย vs งานที่วัดผลยาก เพื่อดูว่าความฉลาดที่สร้างขึ้นมานั้นย้ายที่ได้ไหม",
-            "ผลลัพธ์ที่ได้ทำให้เราเข้าใจว่า 'กับดัก' ของการพัฒนาตัวเองคืออะไร เราได้พิมพ์เขียวที่ช่วยบอกว่า หากจะให้ Agent เก่งขึ้นในงานใหม่ เราต้องเติมทรัพยากรหรือข้อมูลประเภทไหนเข้าไป สิ่งนี้ทำให้คนในวงการตื่นเต้นเพราะมันคือการเปลี่ยนจากการเดาสุ่มมาเป็นการวิศวกรรมการเรียนรู้แบบมีแบบแผน"
-          ],
-          "impact_comparison": {
-            "before": "การพัฒนา Agent ต้องลองผิดลองถูกในแต่ละงานแยกกัน (Siloed approach) และเสียเวลาเทรนใหม่ทุกครั้ง",
-            "after": "เปลี่ยนเป็นการมองภาพรวมเชิงโครงสร้าง ทำให้เราออกแบบกลไกให้ Agent เรียนรู้ข้ามงานได้อย่างมีประสิทธิภาพมากขึ้น",
-            "why_it_matters": "หัวใจสำคัญในการสร้าง AGI หรือ Agent อัจฉริยะที่สามารถปรับตัวเข้ากับทุกงานในชีวิตประจำวันได้"
-          },
-          "use_cases": [
-            {
-              "title": "ระบบทดสอบซอฟต์แวร์อัตโนมัติข้ามแพลตฟอร์ม",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ใช้กลไกการพัฒนาตัวเองของ Agent ในการเรียนรู้วิธีทดสอบแอปฯ ทั้งบนเว็บและมือถือไปพร้อมกันโดยไม่ต้องเขียนสคริปต์แยก",
-              "example": "Agent เรียนรู้วิธีแก้บั๊กจากการทดสอบบนเว็บ แล้วนำความรู้นั้นไปปรับใช้กับการทดสอบแอปมือถือที่มี UI คล้ายกัน"
-            },
-            {
-              "title": "ระบบ AI Content Factory",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "สร้าง SaaS ที่ Agent สามารถเรียนรู้เทรนด์การออกแบบจากฐานข้อมูลภาพ แล้วนำไปปรับใช้ในการร่าง UX ใหม่ๆ เอง",
-              "example": "AI เรียนรู้สไตล์การออกแบบที่ผู้ใช้ชอบในหนึ่งโปรเจกต์ แล้วนำไปเป็นฐานความรู้ในการปรับแต่ง Layout ของโปรเจกต์ถัดไป"
-            },
-            {
-              "title": "การจัดการ Workflow ในองค์กร",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้ Agent ที่สามารถปรับปรุงตัวเองในการจัดระเบียบเอกสารและการทำงานซ้ำๆ ของพนักงานให้มีประสิทธิภาพยิ่งขึ้น",
-              "example": "Agent เรียนรู้จากความผิดพลาดในการกรอกข้อมูลเอกสารบัญชี แล้วปรับปรุงขั้นตอนการทำงานให้แม่นยำขึ้นในเดือนถัดไป"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความสนใจอย่างสูงจากกลุ่มนักวิจัยสาย Agentic Workflow เพราะเป็นเปเปอร์แรกๆ ที่มาจัดระเบียบความเป็นไปได้ในการ 'ถ่ายโอนความรู้' ของ AI",
-            "praises": [
-              "กรอบแนวคิด 3 ระยะ (Loop) ชัดเจนและนำไปใช้ประเมินโมเดลอื่นได้ง่าย",
-              "การวิเคราะห์เรื่อง 'ข้อจำกัดเชิงโครงสร้าง' ทำให้นักพัฒนาเข้าใจว่าทำไม Agent บางตัวถึงตัน"
-            ],
-            "critiques": [
-              "ทฤษฎีในเปเปอร์มีความเป็นนามธรรมสูง อาจต้องใช้ความเข้าใจพื้นฐานด้าน Agentic AI มากพอสมควร",
-              "ผลลัพธ์ในทางปฏิบัติยังคงต้องการการทดสอบในสภาวะที่มีความซับซ้อนมากกว่านี้"
-            ],
-            "hype_score": 8
-          }
         }
       ]
     },
@@ -2604,10 +2604,10 @@
             "Bin Liu"
           ],
           "organization": "Intern Large Models",
-          "upvotes": 44,
+          "upvotes": 47,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2610.40394",
           "pdf_url": "https://arxiv.org/pdf/2610.40394",
           "hf_url": "https://huggingface.co/papers/2610.40394",
@@ -2671,84 +2671,6 @@
           }
         },
         {
-          "id": "2611.13410",
-          "title": "SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering",
-          "authors": [
-            "Genming Cui",
-            "Xiangyu Li",
-            "Zixu Hao",
-            "Xin Ding",
-            "Yunxin Liu",
-            "Ting Cao"
-          ],
-          "organization": null,
-          "upvotes": 35,
-          "num_comments": 3,
-          "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.13410",
-          "pdf_url": "https://arxiv.org/pdf/2611.13410",
-          "hf_url": "https://huggingface.co/papers/2611.13410",
-          "github_url": "https://github.com/air-embodied-brain/SteerDistill",
-          "github_stars": 10,
-          "project_url": "https://air-embodied-brain.github.io/SteerDistill",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.13410.png",
-          "media_urls": [
-            "https://cdn-uploads.huggingface.co/production/uploads/64fe8d94e0dc35986bfcdab2/N0rYNpqf9QWKl4muleUEC.mp4"
-          ],
-          "category": "Infra, Speed & Quantization",
-          "reading_time_minutes": 4,
-          "hook_headline": "บีบอัด AI Agent ให้ตัวเล็กจิ๋วแต่ไม่โง่ลง! SteerDistill ใช้ครูคอยประคองจังหวะตัดสินใจตอนย่อขนาดโมเดล",
-          "short_teaser": "ปกติเวลาเราบีบอัดโมเดล (Quantization) ให้กินแรมน้อยลง AI Agent มักจะเพี้ยนเวลาต้องกดรันคำสั่งต่อเนื่องหลายสเต็ป เปเปอร์นี้แก้ด้วยการให้โมเดลครูคอยดึงสติระหว่างจำลองสถานการณ์จริง",
-          "tldr_takeaways": [
-            "ค้นพบสาเหตุว่าทำไมโมเดลที่ถูก Quantize ถึงพังง่ายเมื่อทำงานเป็น Agent (เพราะความคลาดเคลื่อนเล็กๆ สะสมจนพาออกนอกลู่นอกทาง)",
-            "นำเสนอ SteerDistill ที่ใช้ Closed-Loop Teacher Steering คอยปรับแก้ทิศทางของโมเดลลูกในทุกก้าวของการตัดสินใจ",
-            "มีโค้ดเปิดให้ใช้งานจริงบน GitHub ช่วยให้รัน AI Agent บนการ์ดจอทั่วไปได้โดยความแม่นยำแทบไม่ตก"
-          ],
-          "layman_story": [
-            "เวลาเราอยากเอาโมเดล AI ขนาดใหญ่มาทำเป็น Agent คอยกดใช้เครื่องมือหรือเขียนโค้ดอัตโนมัติ เรามักจะต้อง 'ย่อขนาดโมเดล' (Low-bit Quantization) เพื่อให้รันได้เร็วและประหยัดค่าเซิร์ฟเวอร์ แต่ปัญหาใหญ่คือ พอโมเดลถูกบีบอัดแล้ว มันมักจะลืมเงื่อนไขเล็กๆ น้อยๆ และพอตัดสินใจพลาดในก้าวแรก ก้าวที่สองและสามก็จะพังเป็นโดมิโนทันที",
-            "ทีมผู้วิจัยจึงสร้าง SteerDistill ขึ้นมา แทนที่จะบีบอัดโมเดลแบบแห้งๆ จากข้อความนิ่งๆ พวกเขาจับโมเดลที่ถูกย่อขนาดไปลองรันงานจริงในสภาพแวดล้อมจำลอง (Closed-Loop) โดยมี 'โมเดลครูตัวเต็ม' คอยประกบและดึงกลับเข้าเส้นทางที่ถูกต้องทุกครั้งที่โมเดลลูกเริ่มออกทะเล",
-            "ผลลัพธ์คือได้โมเดล AI Agent ขนาดกะทัดรัดที่ทั้งประหยัดแรม รันไว และยังคงความฉลาดในการวางแผนหลายขั้นตอนได้ใกล้เคียงกับโมเดลตัวใหญ่ราคาแพง"
-          ],
-          "impact_comparison": {
-            "before": "การทำ Quantization แบบเดิมทำให้ AI Agent หลุดเงื่อนไขสำคัญและทำงานหลายขั้นตอนล้มเหลวบ่อย",
-            "after": "โมเดลขนาดเล็กที่ผ่าน SteerDistill สามารถรักษาวินัยในการใช้ Tool และแก้ปัญหาเมื่อเจอ Error ได้ดีเยี่ยม",
-            "why_it_matters": "เปิดทางให้เรารัน Coding Agent หรือ Browser Agent เก่งๆ บนแล็ปท็อปส่วนตัวหรือเซิร์ฟเวอร์ราคาประหยัดได้จริง"
-          },
-          "use_cases": [
-            {
-              "title": "รัน Local Coding Agent บนเครื่องส่วนตัว",
-              "role": "สำหรับนักพัฒนาซอฟต์แวร์",
-              "description": "ย่อขนาดโมเดลช่วยเขียนโค้ดให้รันบนเครื่องตัวเองได้ลื่นไหลโดยไม่เสียความสามารถในการแก้บั๊กหลายไฟล์",
-              "example": "รัน Agent ขนาด 4-bit บน MacBook หรือการ์ดจอเกมมิ่งเพื่อช่วย Refactor โค้ดทั้งโปรเจกต์"
-            },
-            {
-              "title": "ลดค่าใช้จ่าย API สำหรับบริษัทที่ทำ AI Automation",
-              "role": "สำหรับ AI Startup / CTO",
-              "description": "เปลี่ยนจากการเช่าโมเดลขนาดยักษ์มาใช้โมเดลขนาดเล็กที่ผ่านการกลั่นกรองด้วย SteerDistill",
-              "example": "ลดต้นทุนคลาวด์ของระบบ Customer Support Agent ลง 60% โดยอัตราการแก้ปัญหาสำเร็จยังเท่าเดิม"
-            },
-            {
-              "title": "AI ควบคุมหุ่นยนต์และอุปกรณ์ Edge Device",
-              "role": "สำหรับวิศวกร IoT / Robotics",
-              "description": "นำโมเดล Agent ไปฝังในชิปที่มีหน่วยความจำจำกัดแต่ต้องการการตัดสินใจที่แม่นยำต่อเนื่อง",
-              "example": "โดรนหรือหุ่นยนต์ในคลังสินค้าที่ตัดสินใจหลบสิ่งกีดขวางและวางแผนเส้นทางใหม่ได้แบบเรียลไทม์"
-            }
-          ],
-          "community_pulse": {
-            "summary": "สาย Local LLM และคนทำ Agent ให้ความสนใจสูงมาก เพราะมี GitHub Repo พร้อมโค้ดให้เอาไปทดลองใช้ได้ทันที",
-            "praises": [
-              "แก้ปัญหาจริงที่คนทำ Local Agent เจอกันทุกคนเวลาใช้โมเดล 4-bit",
-              "มีซอร์สโค้ดเปิดเผยชัดเจนบน GitHub พร้อมตัวอย่างการเทรน"
-            ],
-            "critiques": [
-              "ขั้นตอนการทำ Distillation ต้องมีการรันจำลองสภาพแวดล้อม (Rollouts) ซึ่งใช้เวลาเตรียมนานกว่า PTQ ปกติ",
-              "ต้องมีสภาพแวดล้อมจำลองที่ชัดเจนสำหรับงานที่ต้องการให้ Agent ไปฝึก"
-            ],
-            "hype_score": 8.7
-          }
-        },
-        {
           "id": "2610.39671",
           "title": "Incentivizing Self-Learning in Large Language Models via Reinforcement Learning",
           "authors": [
@@ -2760,10 +2682,10 @@
             "Zhouqi Hua"
           ],
           "organization": "Intern Large Models",
-          "upvotes": 32,
+          "upvotes": 37,
           "num_comments": 8,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2610.39671",
           "pdf_url": "https://arxiv.org/pdf/2610.39671",
           "hf_url": "https://huggingface.co/papers/2610.39671",
@@ -2825,6 +2747,84 @@
           }
         },
         {
+          "id": "2611.13410",
+          "title": "SteerDistill: Quantizing LLM Agents via Closed-Loop Teacher Steering",
+          "authors": [
+            "Genming Cui",
+            "Xiangyu Li",
+            "Zixu Hao",
+            "Xin Ding",
+            "Yunxin Liu",
+            "Ting Cao"
+          ],
+          "organization": null,
+          "upvotes": 36,
+          "num_comments": 3,
+          "published_date": "2026-11-12",
+          "updated_at": "2026-11-15T03:04:29.203Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.13410",
+          "pdf_url": "https://arxiv.org/pdf/2611.13410",
+          "hf_url": "https://huggingface.co/papers/2611.13410",
+          "github_url": "https://github.com/air-embodied-brain/SteerDistill",
+          "github_stars": 12,
+          "project_url": "https://air-embodied-brain.github.io/SteerDistill",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.13410.png",
+          "media_urls": [
+            "https://cdn-uploads.huggingface.co/production/uploads/64fe8d94e0dc35986bfcdab2/N0rYNpqf9QWKl4muleUEC.mp4"
+          ],
+          "category": "Infra, Speed & Quantization",
+          "reading_time_minutes": 4,
+          "hook_headline": "บีบอัด AI Agent ให้ตัวเล็กจิ๋วแต่ไม่โง่ลง! SteerDistill ใช้ครูคอยประคองจังหวะตัดสินใจตอนย่อขนาดโมเดล",
+          "short_teaser": "ปกติเวลาเราบีบอัดโมเดล (Quantization) ให้กินแรมน้อยลง AI Agent มักจะเพี้ยนเวลาต้องกดรันคำสั่งต่อเนื่องหลายสเต็ป เปเปอร์นี้แก้ด้วยการให้โมเดลครูคอยดึงสติระหว่างจำลองสถานการณ์จริง",
+          "tldr_takeaways": [
+            "ค้นพบสาเหตุว่าทำไมโมเดลที่ถูก Quantize ถึงพังง่ายเมื่อทำงานเป็น Agent (เพราะความคลาดเคลื่อนเล็กๆ สะสมจนพาออกนอกลู่นอกทาง)",
+            "นำเสนอ SteerDistill ที่ใช้ Closed-Loop Teacher Steering คอยปรับแก้ทิศทางของโมเดลลูกในทุกก้าวของการตัดสินใจ",
+            "มีโค้ดเปิดให้ใช้งานจริงบน GitHub ช่วยให้รัน AI Agent บนการ์ดจอทั่วไปได้โดยความแม่นยำแทบไม่ตก"
+          ],
+          "layman_story": [
+            "เวลาเราอยากเอาโมเดล AI ขนาดใหญ่มาทำเป็น Agent คอยกดใช้เครื่องมือหรือเขียนโค้ดอัตโนมัติ เรามักจะต้อง 'ย่อขนาดโมเดล' (Low-bit Quantization) เพื่อให้รันได้เร็วและประหยัดค่าเซิร์ฟเวอร์ แต่ปัญหาใหญ่คือ พอโมเดลถูกบีบอัดแล้ว มันมักจะลืมเงื่อนไขเล็กๆ น้อยๆ และพอตัดสินใจพลาดในก้าวแรก ก้าวที่สองและสามก็จะพังเป็นโดมิโนทันที",
+            "ทีมผู้วิจัยจึงสร้าง SteerDistill ขึ้นมา แทนที่จะบีบอัดโมเดลแบบแห้งๆ จากข้อความนิ่งๆ พวกเขาจับโมเดลที่ถูกย่อขนาดไปลองรันงานจริงในสภาพแวดล้อมจำลอง (Closed-Loop) โดยมี 'โมเดลครูตัวเต็ม' คอยประกบและดึงกลับเข้าเส้นทางที่ถูกต้องทุกครั้งที่โมเดลลูกเริ่มออกทะเล",
+            "ผลลัพธ์คือได้โมเดล AI Agent ขนาดกะทัดรัดที่ทั้งประหยัดแรม รันไว และยังคงความฉลาดในการวางแผนหลายขั้นตอนได้ใกล้เคียงกับโมเดลตัวใหญ่ราคาแพง"
+          ],
+          "impact_comparison": {
+            "before": "การทำ Quantization แบบเดิมทำให้ AI Agent หลุดเงื่อนไขสำคัญและทำงานหลายขั้นตอนล้มเหลวบ่อย",
+            "after": "โมเดลขนาดเล็กที่ผ่าน SteerDistill สามารถรักษาวินัยในการใช้ Tool และแก้ปัญหาเมื่อเจอ Error ได้ดีเยี่ยม",
+            "why_it_matters": "เปิดทางให้เรารัน Coding Agent หรือ Browser Agent เก่งๆ บนแล็ปท็อปส่วนตัวหรือเซิร์ฟเวอร์ราคาประหยัดได้จริง"
+          },
+          "use_cases": [
+            {
+              "title": "รัน Local Coding Agent บนเครื่องส่วนตัว",
+              "role": "สำหรับนักพัฒนาซอฟต์แวร์",
+              "description": "ย่อขนาดโมเดลช่วยเขียนโค้ดให้รันบนเครื่องตัวเองได้ลื่นไหลโดยไม่เสียความสามารถในการแก้บั๊กหลายไฟล์",
+              "example": "รัน Agent ขนาด 4-bit บน MacBook หรือการ์ดจอเกมมิ่งเพื่อช่วย Refactor โค้ดทั้งโปรเจกต์"
+            },
+            {
+              "title": "ลดค่าใช้จ่าย API สำหรับบริษัทที่ทำ AI Automation",
+              "role": "สำหรับ AI Startup / CTO",
+              "description": "เปลี่ยนจากการเช่าโมเดลขนาดยักษ์มาใช้โมเดลขนาดเล็กที่ผ่านการกลั่นกรองด้วย SteerDistill",
+              "example": "ลดต้นทุนคลาวด์ของระบบ Customer Support Agent ลง 60% โดยอัตราการแก้ปัญหาสำเร็จยังเท่าเดิม"
+            },
+            {
+              "title": "AI ควบคุมหุ่นยนต์และอุปกรณ์ Edge Device",
+              "role": "สำหรับวิศวกร IoT / Robotics",
+              "description": "นำโมเดล Agent ไปฝังในชิปที่มีหน่วยความจำจำกัดแต่ต้องการการตัดสินใจที่แม่นยำต่อเนื่อง",
+              "example": "โดรนหรือหุ่นยนต์ในคลังสินค้าที่ตัดสินใจหลบสิ่งกีดขวางและวางแผนเส้นทางใหม่ได้แบบเรียลไทม์"
+            }
+          ],
+          "community_pulse": {
+            "summary": "สาย Local LLM และคนทำ Agent ให้ความสนใจสูงมาก เพราะมี GitHub Repo พร้อมโค้ดให้เอาไปทดลองใช้ได้ทันที",
+            "praises": [
+              "แก้ปัญหาจริงที่คนทำ Local Agent เจอกันทุกคนเวลาใช้โมเดล 4-bit",
+              "มีซอร์สโค้ดเปิดเผยชัดเจนบน GitHub พร้อมตัวอย่างการเทรน"
+            ],
+            "critiques": [
+              "ขั้นตอนการทำ Distillation ต้องมีการรันจำลองสภาพแวดล้อม (Rollouts) ซึ่งใช้เวลาเตรียมนานกว่า PTQ ปกติ",
+              "ต้องมีสภาพแวดล้อมจำลองที่ชัดเจนสำหรับงานที่ต้องการให้ Agent ไปฝึก"
+            ],
+            "hype_score": 8.7
+          }
+        },
+        {
           "id": "2608.22237",
           "title": "Read Less, Solve More: Token-Efficient Sparse Reading of External Content for AI Agents",
           "authors": [
@@ -2836,15 +2836,15 @@
             "Yuanchao Hu"
           ],
           "organization": "Institute of Computing Technology",
-          "upvotes": 21,
-          "num_comments": 7,
+          "upvotes": 22,
+          "num_comments": 12,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2608.22237",
           "pdf_url": "https://arxiv.org/pdf/2608.22237",
           "hf_url": "https://huggingface.co/papers/2608.22237",
           "github_url": "https://github.com/Liuzedooong/SparseReading",
-          "github_stars": 24,
+          "github_stars": 63,
           "project_url": "https://sparseread.pages.dev/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2608.22237.png",
           "media_urls": [
@@ -2915,10 +2915,10 @@
             "Matteo Mordacchini"
           ],
           "organization": null,
-          "upvotes": 14,
+          "upvotes": 18,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.10193",
           "pdf_url": "https://arxiv.org/pdf/2611.10193",
           "hf_url": "https://huggingface.co/papers/2611.10193",
@@ -2980,6 +2980,81 @@
           }
         },
         {
+          "id": "2611.13028",
+          "title": "GTAGym: Real AAA Game Tasks Environment for Evaluation and Reinforcement Learning",
+          "authors": [
+            "Jiajun Chen",
+            "Shicheng Fang",
+            "Jiahao Lu",
+            "Yuxin Wang",
+            "Xipeng Qiu"
+          ],
+          "organization": "OpenMOSS",
+          "upvotes": 14,
+          "num_comments": 5,
+          "published_date": "2026-11-12",
+          "updated_at": "2026-11-15T03:04:29.203Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.13028",
+          "pdf_url": "https://arxiv.org/pdf/2611.13028",
+          "hf_url": "https://huggingface.co/papers/2611.13028",
+          "github_url": "https://github.com/ljbro/GTAGym",
+          "github_stars": 11,
+          "project_url": null,
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.13028.png",
+          "media_urls": [],
+          "category": "AI Agents & Memory",
+          "reading_time_minutes": 5,
+          "hook_headline": "ยกระดับ AI สู่เกมเมอร์มือโปร! GTAGym เปลี่ยน GTA V ให้เป็นสนามทดสอบ Agent ที่สมจริงที่สุด",
+          "short_teaser": "ปัญหาการทดสอบ AI ในโลกเสมือนจริงที่ไร้มาตรฐานถูกแก้ไขแล้วด้วย GTAGym ที่เปลี่ยนภารกิจใน GTA V ให้กลายเป็น Benchmark สำหรับวัดผล Agent อย่างแม่นยำ. เปเปอร์นี้นำเสนอเฟรมเวิร์กที่ให้นักพัฒนาใช้ทดสอบการตัดสินใจและการควบคุมของ AI ในสภาพแวดล้อม 3D ที่ซับซ้อนได้อย่างอัตโนมัติ",
+          "tldr_takeaways": [
+            "GTAGym นำเสนอ Benchmark (GTAVBench) ที่จำลองภารกิจจาก GTA V มากกว่า 100 แบบ เพื่อทดสอบ AI",
+            "มีเครื่องมือช่วยทำ Reinforcement Learning อัตโนมัติด้วยการวัดผลผ่านระบบตรวจสอบสถานะของเกมโดยไม่ต้องใช้คนช่วย",
+            "ทดสอบ LLM ชั้นนำพบว่ายังทำได้ดีในงานพื้นฐาน แต่ยังต้องพัฒนาทักษะการนำทางและการจัดการสถานการณ์ซับซ้อนในเกม"
+          ],
+          "layman_story": [
+            "ปัญหาเดิมของนักวิจัย AI คือการหา 'สนามสอบ' ที่ดีพอให้ Agent ลองผิดลองถูก หากจะสอน AI ให้ขับรถหรือวางแผนในเมืองจริงมันอันตรายเกินไป หรือถ้าใช้เกมทั่วไปก็มักไม่มีความซับซ้อนมากพอที่จะวัดทักษะการตัดสินใจในระดับที่มนุษย์ทำได้จริง",
+            "GTAGym จึงเข้ามาแก้ปัญหานี้โดยใช้โลกของ GTA V มาเป็นห้องเรียน AI โดยทีมงานสร้างระบบที่คอยตรวจจับว่า AI ทำภารกิจสำเร็จไหม ผ่านการดูหน้าจอและจำลองการกดปุ่มคีย์บอร์ดเสมือน เหมือนกับการมีครูฝึกดิจิทัลคอยให้คะแนน Agent ตลอดเวลาที่มันเล่นเกม",
+            "ผลลัพธ์คือเรามีเครื่องมือที่วัดประสิทธิภาพ AI ได้แม่นยำขึ้นมาก โดยเฉพาะในงานที่ต้องอาศัยการมองเห็นและตอบโต้ทันที การที่ AI ฝึกในสภาพแวดล้อมที่คาดเดาไม่ได้แบบนี้ ช่วยให้โมเดลมีความฉลาดในการปรับตัวได้ดีกว่าการอ่าน Text อย่างเดียวมหาศาล"
+          ],
+          "impact_comparison": {
+            "before": "การทดสอบ Agent ในเกมมักต้องใช้คนมานั่งดูและประเมินผลเอง ซึ่งทำได้ช้าและไม่เป็นมาตรฐาน",
+            "after": "เปลี่ยนเป็นการประเมินอัตโนมัติด้วย API และระบบตรวจสอบเงื่อนไขที่รองรับการทำ Parallel Testing ได้มหาศาล",
+            "why_it_matters": "เป็นการวางรากฐานสำคัญสู่การสร้าง Embodied AI ที่สามารถนำไปประยุกต์ใช้ในหุ่นยนต์จริงหรือระบบขนส่งอัตโนมัติได้"
+          },
+          "use_cases": [
+            {
+              "title": "ฝึกฝน Autonomous Driving Agent",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "ใช้เป็น sandbox สำหรับเทรน AI ให้ขับรถในสถานการณ์จำลองที่ซับซ้อนก่อนลงถนนจริง",
+              "example": "การเขียนโค้ดให้ Agent เรียนรู้การหักหลบสิ่งกีดขวางในขณะที่การจราจรติดขัด"
+            },
+            {
+              "title": "สร้าง AI บอทในเกมระดับ AAA",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "พัฒนาบอทที่เล่นเกมได้เก่งและเป็นธรรมชาติมากขึ้นเพื่อใช้ในเกมแนว Open World",
+              "example": "การสร้าง NPC ที่สามารถทำภารกิจส่งของในเมืองได้โดยไม่ต้องเขียนเงื่อนไขแบบ Hard-code"
+            },
+            {
+              "title": "การวิจัยด้านจริยธรรมของ AI ในสถานการณ์วิกฤต",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้จำลองสถานการณ์ความเสี่ยงสูงเพื่อทดสอบว่า AI จะตัดสินใจอย่างไรเมื่อเกิดอุบัติเหตุ",
+              "example": "การทดสอบการตัดสินใจของ AI เมื่อต้องเลือกระหว่างความปลอดภัยของผู้โดยสารกับคนเดินถนนในเกม"
+            }
+          ],
+          "community_pulse": {
+            "summary": "นักพัฒนาตื่นเต้นมากเพราะ GTA V เป็นสภาพแวดล้อมที่ท้าทายกว่า Sandbox ทั่วไปมาก",
+            "praises": [
+              "ความสามารถในการทำ Parallel Testing ช่วยให้ประหยัดเวลาเทรนไปได้มหาศาล",
+              "Benchmark ครอบคลุมภารกิจหลากหลาย ตั้งแต่การขับรถไปจนถึงการยิงต่อสู้"
+            ],
+            "critiques": [
+              "การรันในระดับ AAA เกมต้องใช้ GPU ทรัพยากรสูง",
+              "บางภารกิจมีความซับซ้อนเกินกว่าโมเดลปัจจุบันจะทำความเข้าใจได้ดีพอ"
+            ],
+            "hype_score": 8.8
+          }
+        },
+        {
           "id": "2611.08286",
           "title": "Interactive Visual Gym: Evaluating Visual Interaction Models with Simulated Users in Interactive Worlds",
           "authors": [
@@ -2994,7 +3069,7 @@
           "upvotes": 13,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.08286",
           "pdf_url": "https://arxiv.org/pdf/2611.08286",
           "hf_url": "https://huggingface.co/papers/2611.08286",
@@ -3068,14 +3143,14 @@
           ],
           "organization": "MIT HAN Lab",
           "upvotes": 12,
-          "num_comments": 2,
+          "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.12304",
           "pdf_url": "https://arxiv.org/pdf/2611.12304",
           "hf_url": "https://huggingface.co/papers/2611.12304",
           "github_url": "https://github.com/mit-han-lab/EvolvingInfra",
-          "github_stars": 26,
+          "github_stars": 41,
           "project_url": "https://inference-rsi.com/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.12304.png",
           "media_urls": [
@@ -3135,78 +3210,154 @@
           }
         },
         {
-          "id": "2611.13028",
-          "title": "GTAGym: Real AAA Game Tasks Environment for Evaluation and Reinforcement Learning",
+          "id": "2603.27343",
+          "title": "WMIP: A Working-Memory-Inspired Programmable Probe of Cumulative State Tracking in Large Language Models",
           "authors": [
-            "Jiajun Chen",
-            "Shicheng Fang",
-            "Jiahao Lu",
-            "Yuxin Wang",
-            "Xipeng Qiu"
+            "Dengzhe Hou",
+            "Lingyu Jiang",
+            "Deng Li",
+            "Zirui Li",
+            "Fangzhou Lin",
+            "Kazunori D Yamada"
           ],
-          "organization": "OpenMOSS",
-          "upvotes": 12,
-          "num_comments": 5,
+          "organization": null,
+          "upvotes": 8,
+          "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.13028",
-          "pdf_url": "https://arxiv.org/pdf/2611.13028",
-          "hf_url": "https://huggingface.co/papers/2611.13028",
-          "github_url": "https://github.com/ljbro/GTAGym",
-          "github_stars": 11,
-          "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.13028.png",
+          "updated_at": "2026-11-15T03:04:29.203Z",
+          "arxiv_url": "https://arxiv.org/abs/2603.27343",
+          "pdf_url": "https://arxiv.org/pdf/2603.27343",
+          "hf_url": "https://huggingface.co/papers/2603.27343",
+          "github_url": "https://github.com/dengzhe-hou/WMIP",
+          "github_stars": 1,
+          "project_url": "https://dengzhe-hou.github.io/WMIP/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2603.27343.png",
           "media_urls": [],
-          "category": "AI Agents & Memory",
-          "reading_time_minutes": 5,
-          "hook_headline": "ยกระดับ AI สู่เกมเมอร์มือโปร! GTAGym เปลี่ยน GTA V ให้เป็นสนามทดสอบ Agent ที่สมจริงที่สุด",
-          "short_teaser": "ปัญหาการทดสอบ AI ในโลกเสมือนจริงที่ไร้มาตรฐานถูกแก้ไขแล้วด้วย GTAGym ที่เปลี่ยนภารกิจใน GTA V ให้กลายเป็น Benchmark สำหรับวัดผล Agent อย่างแม่นยำ. เปเปอร์นี้นำเสนอเฟรมเวิร์กที่ให้นักพัฒนาใช้ทดสอบการตัดสินใจและการควบคุมของ AI ในสภาพแวดล้อม 3D ที่ซับซ้อนได้อย่างอัตโนมัติ",
+          "category": "LLM & Reasoning",
+          "reading_time_minutes": 4,
+          "hook_headline": "LLM ลืมเก่ง? เจาะลึกความล้มเหลวในการจดจำลำดับเหตุการณ์ของ AI",
+          "short_teaser": "งานวิจัยเผยว่า LLM ที่เก่งคณิตศาสตร์ระดับเทพอาจพังไม่เป็นท่าหากต้องจำและอัปเดตสถานะข้อมูลหลายขั้นตอนติดต่อกัน",
           "tldr_takeaways": [
-            "GTAGym นำเสนอ Benchmark (GTAVBench) ที่จำลองภารกิจจาก GTA V มากกว่า 100 แบบ เพื่อทดสอบ AI",
-            "มีเครื่องมือช่วยทำ Reinforcement Learning อัตโนมัติด้วยการวัดผลผ่านระบบตรวจสอบสถานะของเกมโดยไม่ต้องใช้คนช่วย",
-            "ทดสอบ LLM ชั้นนำพบว่ายังทำได้ดีในงานพื้นฐาน แต่ยังต้องพัฒนาทักษะการนำทางและการจัดการสถานการณ์ซับซ้อนในเกม"
+            "LLM ตกม้าตายเมื่อต้อง Tracking ข้อมูลหลายขั้นตอน (50+ updates อัตราแม่นยำต่ำกว่า 10%)",
+            "วิธีการสั่งการ (Prompting) มีผลต่อความแม่นยำมากกว่าทรัพยากรการคำนวณ",
+            "ความสามารถทางคณิตศาสตร์พื้นฐาน ไม่ได้การันตีความสามารถในการสรุปผลเชิงตรรกะแบบต่อเนื่อง"
           ],
           "layman_story": [
-            "ปัญหาเดิมของนักวิจัย AI คือการหา 'สนามสอบ' ที่ดีพอให้ Agent ลองผิดลองถูก หากจะสอน AI ให้ขับรถหรือวางแผนในเมืองจริงมันอันตรายเกินไป หรือถ้าใช้เกมทั่วไปก็มักไม่มีความซับซ้อนมากพอที่จะวัดทักษะการตัดสินใจในระดับที่มนุษย์ทำได้จริง",
-            "GTAGym จึงเข้ามาแก้ปัญหานี้โดยใช้โลกของ GTA V มาเป็นห้องเรียน AI โดยทีมงานสร้างระบบที่คอยตรวจจับว่า AI ทำภารกิจสำเร็จไหม ผ่านการดูหน้าจอและจำลองการกดปุ่มคีย์บอร์ดเสมือน เหมือนกับการมีครูฝึกดิจิทัลคอยให้คะแนน Agent ตลอดเวลาที่มันเล่นเกม",
-            "ผลลัพธ์คือเรามีเครื่องมือที่วัดประสิทธิภาพ AI ได้แม่นยำขึ้นมาก โดยเฉพาะในงานที่ต้องอาศัยการมองเห็นและตอบโต้ทันที การที่ AI ฝึกในสภาพแวดล้อมที่คาดเดาไม่ได้แบบนี้ ช่วยให้โมเดลมีความฉลาดในการปรับตัวได้ดีกว่าการอ่าน Text อย่างเดียวมหาศาล"
+            "เวลาเราคุยกับ AI เรามักคิดว่ามันจำสิ่งที่สั่งไปได้หมด แต่จริงๆ แล้ว LLM เหมือนคนที่มี 'ความจำสั้น' ถ้างานนั้นต้องมีการบวกเลขหรืออัปเดตตัวเลขหลายๆ ครั้งติดต่อกัน (เช่น เริ่มจาก 5 + 3 - 2 x 4...) มันมักจะหลุดโฟกัสและมั่วคำตอบออกมาเมื่อจำนวนขั้นตอนเยอะขึ้น",
+            "เปเปอร์นี้เลยสร้างชุดทดสอบ 'WMIP' ขึ้นมาเพื่อวัดค่า Working Memory ของ AI โดยเฉพาะ เปรียบเหมือนการส่ง AI เข้าห้องสอบที่ต้องจำคำตอบกลางทางแล้วเอามาคำนวณต่อเรื่อยๆ พบว่าวิธีที่เราสั่ง (เช่น บอกให้เขียนขั้นตอนการคิด) มีผลต่อความสำเร็จมหาศาลมากกว่าแค่เพิ่มความฉลาดของโมเดล",
+            "ผลลัพธ์ชี้ให้เห็นว่าแม้โมเดลรุ่นใหม่ๆ จะเก่งขึ้นมาก แต่ถ้าขาดกลไกการจดจำสถานะ (State Tracking) ที่ดี มันก็ยังไม่สามารถทำหน้าที่เป็นตัวแทน (Agent) ที่ซับซ้อนได้จริง นี่คือโจทย์ใหญ่ที่เหล่านักพัฒนาต้องหันมาปรับแก้เรื่องโครงสร้างการคุยหรือการบันทึกสถานะให้ AI ครับ"
           ],
           "impact_comparison": {
-            "before": "การทดสอบ Agent ในเกมมักต้องใช้คนมานั่งดูและประเมินผลเอง ซึ่งทำได้ช้าและไม่เป็นมาตรฐาน",
-            "after": "เปลี่ยนเป็นการประเมินอัตโนมัติด้วย API และระบบตรวจสอบเงื่อนไขที่รองรับการทำ Parallel Testing ได้มหาศาล",
-            "why_it_matters": "เป็นการวางรากฐานสำคัญสู่การสร้าง Embodied AI ที่สามารถนำไปประยุกต์ใช้ในหุ่นยนต์จริงหรือระบบขนส่งอัตโนมัติได้"
+            "before": "นักพัฒนาเชื่อว่าแค่ใช้โมเดลตัวใหญ่ขึ้น (Scaling) ก็น่าจะแก้ปัญหาการทำ Logic ยาวๆ ได้",
+            "after": "พบว่ากลยุทธ์การออกแบบ Input/Output (เช่น การบังคับให้เขียนขั้นตอน) สำคัญพอๆ กับขนาดโมเดล",
+            "why_it_matters": "เปลี่ยนมุมมองการทำ Prompt Engineering ให้เน้นการทำ External State Tracking แทนการฝากความหวังไว้ที่หน่วยความจำของ LLM เพียงอย่างเดียว"
           },
           "use_cases": [
             {
-              "title": "ฝึกฝน Autonomous Driving Agent",
+              "title": "การออกแบบ Workflow ของ AI Agent",
               "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ใช้เป็น sandbox สำหรับเทรน AI ให้ขับรถในสถานการณ์จำลองที่ซับซ้อนก่อนลงถนนจริง",
-              "example": "การเขียนโค้ดให้ Agent เรียนรู้การหักหลบสิ่งกีดขวางในขณะที่การจราจรติดขัด"
+              "description": "นำหลักการ Working Memory ไปปรับใช้โดยแยกส่วนการเก็บ State ไว้ในฐานข้อมูลแทนการฝากไว้ที่ Context Window ของโมเดล",
+              "example": "ระบบบัญชี AI ที่ต้องประมวลผลธุรกรรมร้อยรายการ ต้องทำ Log ไว้ในไฟล์แยก เพื่อให้ AI กลับมาอ่านได้แม่นยำ"
             },
             {
-              "title": "สร้าง AI บอทในเกมระดับ AAA",
+              "title": "การสร้าง Complex Task Automation",
               "role": "สำหรับสร้าง Product / SaaS",
-              "description": "พัฒนาบอทที่เล่นเกมได้เก่งและเป็นธรรมชาติมากขึ้นเพื่อใช้ในเกมแนว Open World",
-              "example": "การสร้าง NPC ที่สามารถทำภารกิจส่งของในเมืองได้โดยไม่ต้องเขียนเงื่อนไขแบบ Hard-code"
+              "description": "สร้างระบบ SaaS ที่บังคับขั้นตอน Chain-of-Thought เพื่อความแม่นยำสูงสุด",
+              "example": "เครื่องมือเขียนโค้ดอัตโนมัติที่ต้องแก้บั๊กต่อเนื่องหลายไฟล์ ต้องมี Step-by-step สรุปสถานะทุกครั้ง"
             },
             {
-              "title": "การวิจัยด้านจริยธรรมของ AI ในสถานการณ์วิกฤต",
+              "title": "การตรวจสอบความแม่นยำในงานวิจัย",
               "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้จำลองสถานการณ์ความเสี่ยงสูงเพื่อทดสอบว่า AI จะตัดสินใจอย่างไรเมื่อเกิดอุบัติเหตุ",
-              "example": "การทดสอบการตัดสินใจของ AI เมื่อต้องเลือกระหว่างความปลอดภัยของผู้โดยสารกับคนเดินถนนในเกม"
+              "description": "ใช้ชุดทดสอบ WMIP เพื่อประเมินความสามารถในการทำงานซ้ำซ้อนก่อนนำไปใช้งานจริง",
+              "example": "หน่วยงานตรวจสอบเอกสารสัญญาทางกฎหมายที่ยาวและซับซ้อน ใช้เพื่อวัดว่า AI จะ 'หลงลืม' เงื่อนไขที่ระบุไว้ต้นเอกสารหรือไม่"
             }
           ],
           "community_pulse": {
-            "summary": "นักพัฒนาตื่นเต้นมากเพราะ GTA V เป็นสภาพแวดล้อมที่ท้าทายกว่า Sandbox ทั่วไปมาก",
+            "summary": "เป็นเปเปอร์ที่เปิดตาเหล่า AI Builders ที่มักจะมองข้ามปัญหา 'ความจำเสื่อม' ในงานที่เป็นลำดับขั้นตอน",
             "praises": [
-              "ความสามารถในการทำ Parallel Testing ช่วยให้ประหยัดเวลาเทรนไปได้มหาศาล",
-              "Benchmark ครอบคลุมภารกิจหลากหลาย ตั้งแต่การขับรถไปจนถึงการยิงต่อสู้"
+              "แนวทางการวัดผลแบบเปรียบเทียบระหว่างโปรโตคอล (Protocols) ทำได้ดีมาก",
+              "เปิดเผยความลับเรื่อง over-refusal ของโมเดลใหญ่ๆ ที่ทำให้นักพัฒนาแปลกใจ"
             ],
             "critiques": [
-              "การรันในระดับ AAA เกมต้องใช้ GPU ทรัพยากรสูง",
-              "บางภารกิจมีความซับซ้อนเกินกว่าโมเดลปัจจุบันจะทำความเข้าใจได้ดีพอ"
+              "งานทดสอบจำกัดอยู่แค่การคำนวณตัวเลข อาจไม่ครอบคลุมสถานการณ์ในโลกความเป็นจริงที่ซับซ้อนกว่านั้น",
+              "ตัวโมเดลที่ใช้ทดสอบยังไม่อัปเดตเท่าโมเดลล่าสุด (o3 หรือรุ่นใหม่ล่าสุด)"
             ],
-            "hype_score": 8.8
+            "hype_score": 7.9
+          }
+        },
+        {
+          "id": "2611.08538",
+          "title": "Subliminal Learning in Vision-Language Models",
+          "authors": [
+            "Arman Hatami",
+            "Romina Aalishah",
+            "Ilya E. Monosov"
+          ],
+          "organization": "Johns Hopkins University",
+          "upvotes": 6,
+          "num_comments": 7,
+          "published_date": "2026-11-12",
+          "updated_at": "2026-11-15T03:04:29.203Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.08538",
+          "pdf_url": "https://arxiv.org/pdf/2611.08538",
+          "hf_url": "https://huggingface.co/papers/2611.08538",
+          "github_url": null,
+          "github_stars": null,
+          "project_url": "https://arxiv.org/pdf/2611.08538v1",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.08538.png",
+          "media_urls": [
+            "https://cdn-uploads.huggingface.co/production/uploads/673256564c2f18a60e44f77c/p7mNiIPeQE6UzJrKomSSg.mp4"
+          ],
+          "category": "Vision, Audio & Multimodal",
+          "reading_time_minutes": 4,
+          "hook_headline": "เมื่อ AI แอบมี 'อคติลับ' โดยที่เราไม่รู้ตัว! ค้นพบปรากฏการณ์ Subliminal Learning ใน VLM",
+          "short_teaser": "คุณรู้หรือไม่ว่าการฝึก AI ด้วยข้อมูลที่ไม่เกี่ยวข้อง อาจทำให้มันมีอคติแอบแฝงที่เราไม่ตั้งใจใส่ลงไป? เปเปอร์นี้เผยถึงปรากฏการณ์ที่ Vision-Language Model รับเอาความชอบหรือทัศนคติจากโมเดลครูผ่านงานที่ดูไม่มีอะไรเลย",
+          "tldr_takeaways": [
+            "พบปรากฏการณ์ Subliminal Learning ในโมเดล Vision-Language (VLM) ที่รับเอาความชอบมาจากโมเดลครูได้แม้ในงานที่ไม่เกี่ยวข้องกัน",
+            "การใช้ข้อมูลฝึกฝนซ้ำๆ แม้จะเป็นงานประเภทแยกตัวเลขหรือรูปทรง ก็สามารถถ่ายทอด 'รสนิยม' ให้โมเดลนักเรียนได้",
+            "มีผลกระทบถึงวิธีการอธิบายเหตุผลของ AI ทำให้อาจได้รับอิทธิพลของภาษาจากครูโดยไม่รู้ตัว"
+          ],
+          "layman_story": [
+            "เวลาเราสอน AI เรามักจะคัดกรองข้อมูลเฉพาะสิ่งที่อยากให้มันเรียน แต่เปเปอร์นี้ค้นพบว่า AI ฉลาด (หรือแอบเจ้าเล่ห์) กว่านั้น มันสามารถ 'แอบเรียนรู้' ความชอบหรืออคติของผู้สอนได้ แม้เราจะให้มันทำงานอื่นที่ไม่เกี่ยวกันเลยก็ตาม",
+            "ลองนึกภาพว่าคุณสอนให้ลูกน้องนับเลข โดยที่ระหว่างนับคุณแอบบ่นเรื่องสัตว์ตัวโปรดหรือคนหน้าตาแบบที่คุณชอบบ่อยๆ วันหนึ่งลูกน้องคนนี้อาจจะเริ่มชอบสัตว์ชนิดนั้นหรือเลือกคนหน้าตาแบบนั้นโดยไม่มีเหตุผลทางตรรกะรองรับ เพราะมันซึมซับ 'รสนิยม' ผ่านการทำงานที่ดูไม่สำคัญไปแล้ว",
+            "นักวิจัยพบว่าผลกระทบนี้รุนแรงขึ้นตามจำนวนข้อมูลที่ให้เรียน ยิ่งข้อมูลเยอะ AI ยิ่งแสดงพฤติกรรมที่ก๊อปปี้มาจากผู้สอน ทั้งในแง่การตัดสินใจเลือกรูปภาพและวิธีใช้คำพูดในการอธิบาย ซึ่งน่ากลัวมากหากผู้สอนมีอคติแฝงอยู่โดยไม่ตั้งใจ"
+          ],
+          "impact_comparison": {
+            "before": "การจัดการอคติของ AI มักเน้นไปที่ชุดข้อมูลฝึกฝนโดยตรง (เช่น ข้อมูลที่เกี่ยวกับเพศหรือเชื้อชาติ)",
+            "after": "ต้องระวังข้อมูลที่ดูไม่เกี่ยวข้องทั้งหมด เพราะมันอาจเป็นช่องทางในการส่งต่ออคติแฝงให้ AI ได้",
+            "why_it_matters": "เปลี่ยนมาตรฐานความปลอดภัยของ AI เพราะแสดงให้เห็นว่าการเลือกครูผู้สอนโมเดลสำคัญพอๆ กับตัวข้อมูลเอง"
+          },
+          "use_cases": [
+            {
+              "title": "การตรวจสอบอคติในโมเดล (Bias Auditing)",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "นำไปตรวจสอบโมเดลว่ามีรสนิยมหรืออคติที่ถ่ายทอดมาจากข้อมูลชุดก่อนหน้าหรือไม่",
+              "example": "ทดสอบว่าโมเดลมีอคติในการเลือกภาพคนแบบใดแบบหนึ่งเป็นพิเศษไหม หลังจากเทรนด้วยข้อมูลคัดกรอง"
+            },
+            {
+              "title": "การดูแลความปลอดภัยในการ Fine-tune",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "ใช้เป็นคู่มือในการทำ Data Curation เพื่อไม่ให้ใส่ Bias เข้าไปโดยบังเอิญในขั้นตอนการสอน",
+              "example": "การควบคุมคุณภาพข้อมูลที่ใช้เทรน AI ให้บริการลูกค้า เพื่อป้องกันการถ่ายทอดสำนวนหรือความเห็นส่วนตัวของผู้ทำ Dataset"
+            },
+            {
+              "title": "การควบคุมความโปร่งใสในองค์กร",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้ประเมินความเสี่ยงในการนำโมเดลไปใช้งานในพื้นที่ที่มีความละเอียดอ่อน",
+              "example": "การตรวจสอบโมเดลก่อนนำไปใช้คัดกรองเรซูเม่ว่าได้รับอิทธิพลจากความชอบส่วนตัวของผู้สอนมาหรือไม่"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจในแง่ของ 'Security & Safety' ของโมเดล",
+            "praises": [
+              "ชี้ให้เห็นช่องโหว่ที่คนมักมองข้ามในการสร้าง Dataset",
+              "วิธีการทดลองที่สร้างสรรค์และเข้าใจง่าย"
+            ],
+            "critiques": [
+              "ผลกระทบนี้อาจจะยังวัดยากในโมเดลที่มีขนาดใหญ่มากๆ",
+              "ยังไม่มีวิธีการแก้ปัญหาที่ชัดเจน นอกจากต้องระวังให้มากขึ้น"
+            ],
+            "hype_score": 8
           }
         },
         {
@@ -3219,9 +3370,9 @@
           ],
           "organization": "The Ohio State University",
           "upvotes": 6,
-          "num_comments": 2,
+          "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.13766",
           "pdf_url": "https://arxiv.org/pdf/2611.13766",
           "hf_url": "https://huggingface.co/papers/2611.13766",
@@ -3297,7 +3448,7 @@
           "upvotes": 6,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.12869",
           "pdf_url": "https://arxiv.org/pdf/2611.12869",
           "hf_url": "https://huggingface.co/papers/2611.12869",
@@ -3361,81 +3512,6 @@
           }
         },
         {
-          "id": "2611.08538",
-          "title": "Subliminal Learning in Vision-Language Models",
-          "authors": [
-            "Arman Hatami",
-            "Romina Aalishah",
-            "Ilya E. Monosov"
-          ],
-          "organization": "Johns Hopkins University",
-          "upvotes": 5,
-          "num_comments": 2,
-          "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.08538",
-          "pdf_url": "https://arxiv.org/pdf/2611.08538",
-          "hf_url": "https://huggingface.co/papers/2611.08538",
-          "github_url": null,
-          "github_stars": null,
-          "project_url": "https://arxiv.org/pdf/2611.08538v1",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.08538.png",
-          "media_urls": [
-            "https://cdn-uploads.huggingface.co/production/uploads/673256564c2f18a60e44f77c/p7mNiIPeQE6UzJrKomSSg.mp4"
-          ],
-          "category": "Vision, Audio & Multimodal",
-          "reading_time_minutes": 4,
-          "hook_headline": "เมื่อ AI แอบมี 'อคติลับ' โดยที่เราไม่รู้ตัว! ค้นพบปรากฏการณ์ Subliminal Learning ใน VLM",
-          "short_teaser": "คุณรู้หรือไม่ว่าการฝึก AI ด้วยข้อมูลที่ไม่เกี่ยวข้อง อาจทำให้มันมีอคติแอบแฝงที่เราไม่ตั้งใจใส่ลงไป? เปเปอร์นี้เผยถึงปรากฏการณ์ที่ Vision-Language Model รับเอาความชอบหรือทัศนคติจากโมเดลครูผ่านงานที่ดูไม่มีอะไรเลย",
-          "tldr_takeaways": [
-            "พบปรากฏการณ์ Subliminal Learning ในโมเดล Vision-Language (VLM) ที่รับเอาความชอบมาจากโมเดลครูได้แม้ในงานที่ไม่เกี่ยวข้องกัน",
-            "การใช้ข้อมูลฝึกฝนซ้ำๆ แม้จะเป็นงานประเภทแยกตัวเลขหรือรูปทรง ก็สามารถถ่ายทอด 'รสนิยม' ให้โมเดลนักเรียนได้",
-            "มีผลกระทบถึงวิธีการอธิบายเหตุผลของ AI ทำให้อาจได้รับอิทธิพลของภาษาจากครูโดยไม่รู้ตัว"
-          ],
-          "layman_story": [
-            "เวลาเราสอน AI เรามักจะคัดกรองข้อมูลเฉพาะสิ่งที่อยากให้มันเรียน แต่เปเปอร์นี้ค้นพบว่า AI ฉลาด (หรือแอบเจ้าเล่ห์) กว่านั้น มันสามารถ 'แอบเรียนรู้' ความชอบหรืออคติของผู้สอนได้ แม้เราจะให้มันทำงานอื่นที่ไม่เกี่ยวกันเลยก็ตาม",
-            "ลองนึกภาพว่าคุณสอนให้ลูกน้องนับเลข โดยที่ระหว่างนับคุณแอบบ่นเรื่องสัตว์ตัวโปรดหรือคนหน้าตาแบบที่คุณชอบบ่อยๆ วันหนึ่งลูกน้องคนนี้อาจจะเริ่มชอบสัตว์ชนิดนั้นหรือเลือกคนหน้าตาแบบนั้นโดยไม่มีเหตุผลทางตรรกะรองรับ เพราะมันซึมซับ 'รสนิยม' ผ่านการทำงานที่ดูไม่สำคัญไปแล้ว",
-            "นักวิจัยพบว่าผลกระทบนี้รุนแรงขึ้นตามจำนวนข้อมูลที่ให้เรียน ยิ่งข้อมูลเยอะ AI ยิ่งแสดงพฤติกรรมที่ก๊อปปี้มาจากผู้สอน ทั้งในแง่การตัดสินใจเลือกรูปภาพและวิธีใช้คำพูดในการอธิบาย ซึ่งน่ากลัวมากหากผู้สอนมีอคติแฝงอยู่โดยไม่ตั้งใจ"
-          ],
-          "impact_comparison": {
-            "before": "การจัดการอคติของ AI มักเน้นไปที่ชุดข้อมูลฝึกฝนโดยตรง (เช่น ข้อมูลที่เกี่ยวกับเพศหรือเชื้อชาติ)",
-            "after": "ต้องระวังข้อมูลที่ดูไม่เกี่ยวข้องทั้งหมด เพราะมันอาจเป็นช่องทางในการส่งต่ออคติแฝงให้ AI ได้",
-            "why_it_matters": "เปลี่ยนมาตรฐานความปลอดภัยของ AI เพราะแสดงให้เห็นว่าการเลือกครูผู้สอนโมเดลสำคัญพอๆ กับตัวข้อมูลเอง"
-          },
-          "use_cases": [
-            {
-              "title": "การตรวจสอบอคติในโมเดล (Bias Auditing)",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำไปตรวจสอบโมเดลว่ามีรสนิยมหรืออคติที่ถ่ายทอดมาจากข้อมูลชุดก่อนหน้าหรือไม่",
-              "example": "ทดสอบว่าโมเดลมีอคติในการเลือกภาพคนแบบใดแบบหนึ่งเป็นพิเศษไหม หลังจากเทรนด้วยข้อมูลคัดกรอง"
-            },
-            {
-              "title": "การดูแลความปลอดภัยในการ Fine-tune",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "ใช้เป็นคู่มือในการทำ Data Curation เพื่อไม่ให้ใส่ Bias เข้าไปโดยบังเอิญในขั้นตอนการสอน",
-              "example": "การควบคุมคุณภาพข้อมูลที่ใช้เทรน AI ให้บริการลูกค้า เพื่อป้องกันการถ่ายทอดสำนวนหรือความเห็นส่วนตัวของผู้ทำ Dataset"
-            },
-            {
-              "title": "การควบคุมความโปร่งใสในองค์กร",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้ประเมินความเสี่ยงในการนำโมเดลไปใช้งานในพื้นที่ที่มีความละเอียดอ่อน",
-              "example": "การตรวจสอบโมเดลก่อนนำไปใช้คัดกรองเรซูเม่ว่าได้รับอิทธิพลจากความชอบส่วนตัวของผู้สอนมาหรือไม่"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความสนใจในแง่ของ 'Security & Safety' ของโมเดล",
-            "praises": [
-              "ชี้ให้เห็นช่องโหว่ที่คนมักมองข้ามในการสร้าง Dataset",
-              "วิธีการทดลองที่สร้างสรรค์และเข้าใจง่าย"
-            ],
-            "critiques": [
-              "ผลกระทบนี้อาจจะยังวัดยากในโมเดลที่มีขนาดใหญ่มากๆ",
-              "ยังไม่มีวิธีการแก้ปัญหาที่ชัดเจน นอกจากต้องระวังให้มากขึ้น"
-            ],
-            "hype_score": 8
-          }
-        },
-        {
           "id": "2611.14418",
           "title": "Precision on Demand: Escalating Weight Bits at Uncertain Decoding Steps in a Small Local Model",
           "authors": [
@@ -3444,10 +3520,10 @@
             "Aliyas Ahmad Misri"
           ],
           "organization": null,
-          "upvotes": 4,
+          "upvotes": 5,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.14418",
           "pdf_url": "https://arxiv.org/pdf/2611.14418",
           "hf_url": "https://huggingface.co/papers/2611.14418",
@@ -3518,10 +3594,10 @@
             "Kazunori D Yamada"
           ],
           "organization": null,
-          "upvotes": 4,
+          "upvotes": 5,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2607.24999",
           "pdf_url": "https://arxiv.org/pdf/2607.24999",
           "hf_url": "https://huggingface.co/papers/2607.24999",
@@ -3583,82 +3659,6 @@
           }
         },
         {
-          "id": "2603.27343",
-          "title": "WMIP: A Working-Memory-Inspired Programmable Probe of Cumulative State Tracking in Large Language Models",
-          "authors": [
-            "Dengzhe Hou",
-            "Lingyu Jiang",
-            "Deng Li",
-            "Zirui Li",
-            "Fangzhou Lin",
-            "Kazunori D Yamada"
-          ],
-          "organization": null,
-          "upvotes": 4,
-          "num_comments": 2,
-          "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
-          "arxiv_url": "https://arxiv.org/abs/2603.27343",
-          "pdf_url": "https://arxiv.org/pdf/2603.27343",
-          "hf_url": "https://huggingface.co/papers/2603.27343",
-          "github_url": "https://github.com/dengzhe-hou/WMIP",
-          "github_stars": 1,
-          "project_url": "https://dengzhe-hou.github.io/WMIP/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2603.27343.png",
-          "media_urls": [],
-          "category": "LLM & Reasoning",
-          "reading_time_minutes": 4,
-          "hook_headline": "LLM ลืมเก่ง? เจาะลึกความล้มเหลวในการจดจำลำดับเหตุการณ์ของ AI",
-          "short_teaser": "งานวิจัยเผยว่า LLM ที่เก่งคณิตศาสตร์ระดับเทพอาจพังไม่เป็นท่าหากต้องจำและอัปเดตสถานะข้อมูลหลายขั้นตอนติดต่อกัน",
-          "tldr_takeaways": [
-            "LLM ตกม้าตายเมื่อต้อง Tracking ข้อมูลหลายขั้นตอน (50+ updates อัตราแม่นยำต่ำกว่า 10%)",
-            "วิธีการสั่งการ (Prompting) มีผลต่อความแม่นยำมากกว่าทรัพยากรการคำนวณ",
-            "ความสามารถทางคณิตศาสตร์พื้นฐาน ไม่ได้การันตีความสามารถในการสรุปผลเชิงตรรกะแบบต่อเนื่อง"
-          ],
-          "layman_story": [
-            "เวลาเราคุยกับ AI เรามักคิดว่ามันจำสิ่งที่สั่งไปได้หมด แต่จริงๆ แล้ว LLM เหมือนคนที่มี 'ความจำสั้น' ถ้างานนั้นต้องมีการบวกเลขหรืออัปเดตตัวเลขหลายๆ ครั้งติดต่อกัน (เช่น เริ่มจาก 5 + 3 - 2 x 4...) มันมักจะหลุดโฟกัสและมั่วคำตอบออกมาเมื่อจำนวนขั้นตอนเยอะขึ้น",
-            "เปเปอร์นี้เลยสร้างชุดทดสอบ 'WMIP' ขึ้นมาเพื่อวัดค่า Working Memory ของ AI โดยเฉพาะ เปรียบเหมือนการส่ง AI เข้าห้องสอบที่ต้องจำคำตอบกลางทางแล้วเอามาคำนวณต่อเรื่อยๆ พบว่าวิธีที่เราสั่ง (เช่น บอกให้เขียนขั้นตอนการคิด) มีผลต่อความสำเร็จมหาศาลมากกว่าแค่เพิ่มความฉลาดของโมเดล",
-            "ผลลัพธ์ชี้ให้เห็นว่าแม้โมเดลรุ่นใหม่ๆ จะเก่งขึ้นมาก แต่ถ้าขาดกลไกการจดจำสถานะ (State Tracking) ที่ดี มันก็ยังไม่สามารถทำหน้าที่เป็นตัวแทน (Agent) ที่ซับซ้อนได้จริง นี่คือโจทย์ใหญ่ที่เหล่านักพัฒนาต้องหันมาปรับแก้เรื่องโครงสร้างการคุยหรือการบันทึกสถานะให้ AI ครับ"
-          ],
-          "impact_comparison": {
-            "before": "นักพัฒนาเชื่อว่าแค่ใช้โมเดลตัวใหญ่ขึ้น (Scaling) ก็น่าจะแก้ปัญหาการทำ Logic ยาวๆ ได้",
-            "after": "พบว่ากลยุทธ์การออกแบบ Input/Output (เช่น การบังคับให้เขียนขั้นตอน) สำคัญพอๆ กับขนาดโมเดล",
-            "why_it_matters": "เปลี่ยนมุมมองการทำ Prompt Engineering ให้เน้นการทำ External State Tracking แทนการฝากความหวังไว้ที่หน่วยความจำของ LLM เพียงอย่างเดียว"
-          },
-          "use_cases": [
-            {
-              "title": "การออกแบบ Workflow ของ AI Agent",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำหลักการ Working Memory ไปปรับใช้โดยแยกส่วนการเก็บ State ไว้ในฐานข้อมูลแทนการฝากไว้ที่ Context Window ของโมเดล",
-              "example": "ระบบบัญชี AI ที่ต้องประมวลผลธุรกรรมร้อยรายการ ต้องทำ Log ไว้ในไฟล์แยก เพื่อให้ AI กลับมาอ่านได้แม่นยำ"
-            },
-            {
-              "title": "การสร้าง Complex Task Automation",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "สร้างระบบ SaaS ที่บังคับขั้นตอน Chain-of-Thought เพื่อความแม่นยำสูงสุด",
-              "example": "เครื่องมือเขียนโค้ดอัตโนมัติที่ต้องแก้บั๊กต่อเนื่องหลายไฟล์ ต้องมี Step-by-step สรุปสถานะทุกครั้ง"
-            },
-            {
-              "title": "การตรวจสอบความแม่นยำในงานวิจัย",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้ชุดทดสอบ WMIP เพื่อประเมินความสามารถในการทำงานซ้ำซ้อนก่อนนำไปใช้งานจริง",
-              "example": "หน่วยงานตรวจสอบเอกสารสัญญาทางกฎหมายที่ยาวและซับซ้อน ใช้เพื่อวัดว่า AI จะ 'หลงลืม' เงื่อนไขที่ระบุไว้ต้นเอกสารหรือไม่"
-            }
-          ],
-          "community_pulse": {
-            "summary": "เป็นเปเปอร์ที่เปิดตาเหล่า AI Builders ที่มักจะมองข้ามปัญหา 'ความจำเสื่อม' ในงานที่เป็นลำดับขั้นตอน",
-            "praises": [
-              "แนวทางการวัดผลแบบเปรียบเทียบระหว่างโปรโตคอล (Protocols) ทำได้ดีมาก",
-              "เปิดเผยความลับเรื่อง over-refusal ของโมเดลใหญ่ๆ ที่ทำให้นักพัฒนาแปลกใจ"
-            ],
-            "critiques": [
-              "งานทดสอบจำกัดอยู่แค่การคำนวณตัวเลข อาจไม่ครอบคลุมสถานการณ์ในโลกความเป็นจริงที่ซับซ้อนกว่านั้น",
-              "ตัวโมเดลที่ใช้ทดสอบยังไม่อัปเดตเท่าโมเดลล่าสุด (o3 หรือรุ่นใหม่ล่าสุด)"
-            ],
-            "hype_score": 7.9
-          }
-        },
-        {
           "id": "2611.11531",
           "title": "Probing Transformer Representations Layer by Layer, Module by Module",
           "authors": [
@@ -3672,7 +3672,7 @@
           "upvotes": 3,
           "num_comments": 4,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.11531",
           "pdf_url": "https://arxiv.org/pdf/2611.11531",
           "hf_url": "https://huggingface.co/papers/2611.11531",
@@ -3750,7 +3750,7 @@
           "upvotes": 3,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.05862",
           "pdf_url": "https://arxiv.org/pdf/2611.05862",
           "hf_url": "https://huggingface.co/papers/2611.05862",
@@ -3812,6 +3812,79 @@
           }
         },
         {
+          "id": "2611.14413",
+          "title": "Bits or permutations? Spending a fixed inference budget on weight precision or on option-order averaging in small local language models",
+          "authors": [
+            "Mohammed Nayeem Khan",
+            "Logesh L",
+            "Aliyas Ahmad Misri"
+          ],
+          "organization": null,
+          "upvotes": 3,
+          "num_comments": 3,
+          "published_date": "2026-11-12",
+          "updated_at": "2026-11-15T03:04:29.203Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.14413",
+          "pdf_url": "https://arxiv.org/pdf/2611.14413",
+          "hf_url": "https://huggingface.co/papers/2611.14413",
+          "github_url": null,
+          "github_stars": null,
+          "project_url": null,
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.14413.png",
+          "media_urls": [],
+          "category": "Infra, Speed & Quantization",
+          "reading_time_minutes": 4,
+          "hook_headline": "เลือกอะไรดี? ระหว่างโมเดล 'บีบอัด' หรือโมเดลที่ 'ลองผิดลองถูก' เพื่อความแม่นยำสูงสุด",
+          "short_teaser": "เมื่อคุณมีงบประมาณจำกัดในการรันโมเดลเล็ก (Local LLM) เปเปอร์นี้เฉลยว่า การทำ Quantization หรือการสลับลำดับคำตอบ แบบไหนคุ้มค่ากว่ากัน",
+          "tldr_takeaways": [
+            "ที่ 6-bit น้ำหนักโมเดลให้ผลลัพธ์แม่นยำพอๆ กับแบบเต็มความละเอียด (FP16)",
+            "การสลับลำดับตัวเลือก (Option-order averaging) ช่วยแก้ปัญหาความเอนเอียง (Slot bias) ได้ดีมาก",
+            "สูตรสำเร็จคือ: ใช้น้ำหนัก 6-bit แล้วเอาทรัพยากรที่เหลือไปใช้กับการสลับลำดับคำตอบ (4 รอบ)"
+          ],
+          "layman_story": [
+            "นักพัฒนาที่รัน Local LLM มักจะเจอปัญหาเดิม: อยากให้โมเดลเร็วและเบา ก็ต้องทำการบีบอัด (Quantization) แต่มันก็ทำให้อ่านคำตอบเพี้ยนๆ ได้ง่าย แถมบางที AI ก็ชอบเลือกคำตอบแรกๆ ตลอดเวลา (Slot bias) จนเสียความแม่นยำไป",
+            "เปเปอร์นี้เลยลองมาหาจุดสมดุลใหม่ โดยเปรียบเทียบว่าระหว่างการเพิ่มบิต (ทำให้โมเดลฉลาดขึ้น) กับการทำ 'สลับลำดับคำตอบแล้วเฉลี่ยผล' (ทำให้โมเดลรอบคอบขึ้น) อันไหนคุ้มกว่ากันในงบที่จำกัด",
+            "สรุปได้ว่าถ้าบีบอัดแค่ 6-bit โมเดลยังคงความฉลาดไว้ได้เหมือนโมเดลตัวเต็มเป๊ะ แต่ถ้าจะลงไปถึง 4-bit จะเริ่มเจอปัญหาเพี้ยนเยอะ สิ่งที่ดีที่สุดคือรักษาระดับ 6-bit ไว้ แล้วเอาแรงที่เหลือไปทำ 'หลาย pass' เพื่อสลับลำดับคำตอบแทน ซึ่งช่วยเพิ่มคะแนนความแม่นยำขึ้นได้ชัดเจนมาก"
+          ],
+          "impact_comparison": {
+            "before": "การบีบอัดโมเดลแบบมั่วๆ โดยไม่รู้จุดคุ้มทุน ส่งผลให้ AI ตอบเพี้ยนและมีความลำเอียงในการเลือกคำตอบ",
+            "after": "มีสูตรสำเร็จ (6-bit + 4 passes) ที่รักษาสมดุลความเร็วและความแม่นยำได้อย่างดีที่สุด",
+            "why_it_matters": "ช่วยให้บริษัทที่รัน LLM บนอุปกรณ์ขนาดเล็ก (Edge devices) ใช้งานโมเดลได้อย่างมีประสิทธิภาพสูงสุดโดยไม่เสียความแม่นยำ"
+          },
+          "use_cases": [
+            {
+              "title": "การปรับจูนโมเดลบนอุปกรณ์ Edge",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "นำเทคนิค 6-bit quantization มาใช้ร่วมกับการทำ Reordering เพื่อรันบนอุปกรณ์ที่มี RAM จำกัด",
+              "example": "แอพในโทรศัพท์มือถือที่รันโมเดลภาษาขนาดเล็ก สามารถประหยัดแรมและตอบคำถามผู้ใช้ได้แม่นยำขึ้น"
+            },
+            {
+              "title": "การทำประมวลผลคำตอบแบบ Ensemble บน SaaS",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "เพิ่มความฉลาดให้ระบบตอบคำถามโดยใช้การเฉลี่ยผลจากการสลับลำดับ Prompt",
+              "example": "ระบบคัดกรองเอกสารอัตโนมัติที่ต้องลดโอกาสพลาดจาก Slot bias ของโมเดล"
+            },
+            {
+              "title": "การจัดการทรัพยากรระบบสำหรับงานเฉพาะทาง",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้เป็นตารางตัดสินใจ (Decision table) เพื่อเลือกสเปกฮาร์ดแวร์และระดับการบีบอัดโมเดลที่คุ้มค่าที่สุด",
+              "example": "บริษัทที่วางแผน Deploy โมเดล AI ในจุดเซนเซอร์จำนวนมาก (IoT) ต้องการความคุ้มค่าด้านประหยัดไฟและประสิทธิภาพ"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจสูงในกลุ่มคนที่ทำ Local LLM เพราะเป็นคำแนะนำที่ 'ใช้งานได้จริง' (Practical) และมีตัวเลขยืนยันชัดเจน",
+            "praises": [
+              "งานวิจัยที่เน้นเรื่องงบประมาณ (Fixed budget) ช่วยให้เห็นภาพชัดว่าควรอัปเกรดจุดไหน",
+              "การเปิดเผยแนวทาง 6-bit ที่แม่นยำพอๆ กับ FP16 ถือว่าเป็น insights ที่ดีมาก"
+            ],
+            "critiques": [
+              "การทดลองจำกัดอยู่ในโมเดลเล็ก (Qwen3) ยังไม่รู้ว่าจะให้ผลเหมือนกันไหมในโมเดลขนาดใหญ่",
+              "ต้องการการทดสอบในบริบทการสร้างข้อความ (Generation) ไม่ใช่แค่การตอบคำถามแบบ Multiple choice"
+            ],
+            "hype_score": 8.1
+          }
+        },
+        {
           "id": "2611.13758",
           "title": "Mixed Signals: Weight-Space Programming for EEG and ECG",
           "authors": [
@@ -3823,7 +3896,7 @@
           "upvotes": 3,
           "num_comments": 1,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.13758",
           "pdf_url": "https://arxiv.org/pdf/2611.13758",
           "hf_url": "https://huggingface.co/papers/2611.13758",
@@ -3899,12 +3972,12 @@
           "upvotes": 3,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.08379",
           "pdf_url": "https://arxiv.org/pdf/2611.08379",
           "hf_url": "https://huggingface.co/papers/2611.08379",
           "github_url": "https://github.com/guy-hadad/GraphMuon",
-          "github_stars": 3,
+          "github_stars": 4,
           "project_url": null,
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.08379.png",
           "media_urls": [],
@@ -3972,7 +4045,7 @@
           "upvotes": 2,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.11306",
           "pdf_url": "https://arxiv.org/pdf/2611.11306",
           "hf_url": "https://huggingface.co/papers/2611.11306",
@@ -4036,79 +4109,6 @@
           }
         },
         {
-          "id": "2611.14413",
-          "title": "Bits or permutations? Spending a fixed inference budget on weight precision or on option-order averaging in small local language models",
-          "authors": [
-            "Mohammed Nayeem Khan",
-            "Logesh L",
-            "Aliyas Ahmad Misri"
-          ],
-          "organization": null,
-          "upvotes": 2,
-          "num_comments": 2,
-          "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.14413",
-          "pdf_url": "https://arxiv.org/pdf/2611.14413",
-          "hf_url": "https://huggingface.co/papers/2611.14413",
-          "github_url": null,
-          "github_stars": null,
-          "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.14413.png",
-          "media_urls": [],
-          "category": "Infra, Speed & Quantization",
-          "reading_time_minutes": 4,
-          "hook_headline": "เลือกอะไรดี? ระหว่างโมเดล 'บีบอัด' หรือโมเดลที่ 'ลองผิดลองถูก' เพื่อความแม่นยำสูงสุด",
-          "short_teaser": "เมื่อคุณมีงบประมาณจำกัดในการรันโมเดลเล็ก (Local LLM) เปเปอร์นี้เฉลยว่า การทำ Quantization หรือการสลับลำดับคำตอบ แบบไหนคุ้มค่ากว่ากัน",
-          "tldr_takeaways": [
-            "ที่ 6-bit น้ำหนักโมเดลให้ผลลัพธ์แม่นยำพอๆ กับแบบเต็มความละเอียด (FP16)",
-            "การสลับลำดับตัวเลือก (Option-order averaging) ช่วยแก้ปัญหาความเอนเอียง (Slot bias) ได้ดีมาก",
-            "สูตรสำเร็จคือ: ใช้น้ำหนัก 6-bit แล้วเอาทรัพยากรที่เหลือไปใช้กับการสลับลำดับคำตอบ (4 รอบ)"
-          ],
-          "layman_story": [
-            "นักพัฒนาที่รัน Local LLM มักจะเจอปัญหาเดิม: อยากให้โมเดลเร็วและเบา ก็ต้องทำการบีบอัด (Quantization) แต่มันก็ทำให้อ่านคำตอบเพี้ยนๆ ได้ง่าย แถมบางที AI ก็ชอบเลือกคำตอบแรกๆ ตลอดเวลา (Slot bias) จนเสียความแม่นยำไป",
-            "เปเปอร์นี้เลยลองมาหาจุดสมดุลใหม่ โดยเปรียบเทียบว่าระหว่างการเพิ่มบิต (ทำให้โมเดลฉลาดขึ้น) กับการทำ 'สลับลำดับคำตอบแล้วเฉลี่ยผล' (ทำให้โมเดลรอบคอบขึ้น) อันไหนคุ้มกว่ากันในงบที่จำกัด",
-            "สรุปได้ว่าถ้าบีบอัดแค่ 6-bit โมเดลยังคงความฉลาดไว้ได้เหมือนโมเดลตัวเต็มเป๊ะ แต่ถ้าจะลงไปถึง 4-bit จะเริ่มเจอปัญหาเพี้ยนเยอะ สิ่งที่ดีที่สุดคือรักษาระดับ 6-bit ไว้ แล้วเอาแรงที่เหลือไปทำ 'หลาย pass' เพื่อสลับลำดับคำตอบแทน ซึ่งช่วยเพิ่มคะแนนความแม่นยำขึ้นได้ชัดเจนมาก"
-          ],
-          "impact_comparison": {
-            "before": "การบีบอัดโมเดลแบบมั่วๆ โดยไม่รู้จุดคุ้มทุน ส่งผลให้ AI ตอบเพี้ยนและมีความลำเอียงในการเลือกคำตอบ",
-            "after": "มีสูตรสำเร็จ (6-bit + 4 passes) ที่รักษาสมดุลความเร็วและความแม่นยำได้อย่างดีที่สุด",
-            "why_it_matters": "ช่วยให้บริษัทที่รัน LLM บนอุปกรณ์ขนาดเล็ก (Edge devices) ใช้งานโมเดลได้อย่างมีประสิทธิภาพสูงสุดโดยไม่เสียความแม่นยำ"
-          },
-          "use_cases": [
-            {
-              "title": "การปรับจูนโมเดลบนอุปกรณ์ Edge",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำเทคนิค 6-bit quantization มาใช้ร่วมกับการทำ Reordering เพื่อรันบนอุปกรณ์ที่มี RAM จำกัด",
-              "example": "แอพในโทรศัพท์มือถือที่รันโมเดลภาษาขนาดเล็ก สามารถประหยัดแรมและตอบคำถามผู้ใช้ได้แม่นยำขึ้น"
-            },
-            {
-              "title": "การทำประมวลผลคำตอบแบบ Ensemble บน SaaS",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "เพิ่มความฉลาดให้ระบบตอบคำถามโดยใช้การเฉลี่ยผลจากการสลับลำดับ Prompt",
-              "example": "ระบบคัดกรองเอกสารอัตโนมัติที่ต้องลดโอกาสพลาดจาก Slot bias ของโมเดล"
-            },
-            {
-              "title": "การจัดการทรัพยากรระบบสำหรับงานเฉพาะทาง",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้เป็นตารางตัดสินใจ (Decision table) เพื่อเลือกสเปกฮาร์ดแวร์และระดับการบีบอัดโมเดลที่คุ้มค่าที่สุด",
-              "example": "บริษัทที่วางแผน Deploy โมเดล AI ในจุดเซนเซอร์จำนวนมาก (IoT) ต้องการความคุ้มค่าด้านประหยัดไฟและประสิทธิภาพ"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความสนใจสูงในกลุ่มคนที่ทำ Local LLM เพราะเป็นคำแนะนำที่ 'ใช้งานได้จริง' (Practical) และมีตัวเลขยืนยันชัดเจน",
-            "praises": [
-              "งานวิจัยที่เน้นเรื่องงบประมาณ (Fixed budget) ช่วยให้เห็นภาพชัดว่าควรอัปเกรดจุดไหน",
-              "การเปิดเผยแนวทาง 6-bit ที่แม่นยำพอๆ กับ FP16 ถือว่าเป็น insights ที่ดีมาก"
-            ],
-            "critiques": [
-              "การทดลองจำกัดอยู่ในโมเดลเล็ก (Qwen3) ยังไม่รู้ว่าจะให้ผลเหมือนกันไหมในโมเดลขนาดใหญ่",
-              "ต้องการการทดสอบในบริบทการสร้างข้อความ (Generation) ไม่ใช่แค่การตอบคำถามแบบ Multiple choice"
-            ],
-            "hype_score": 8.1
-          }
-        },
-        {
           "id": "2611.13843",
           "title": "PolyRoute: A Twelve-Language and Code-Mixed Benchmark for Typed-Decision Routing, with Baselines and a Leaderboard",
           "authors": [
@@ -4119,7 +4119,7 @@
           "upvotes": 2,
           "num_comments": 3,
           "published_date": "2026-11-12",
-          "updated_at": "2026-11-14T03:38:53.274Z",
+          "updated_at": "2026-11-15T03:04:29.203Z",
           "arxiv_url": "https://arxiv.org/abs/2611.13843",
           "pdf_url": "https://arxiv.org/pdf/2611.13843",
           "hf_url": "https://huggingface.co/papers/2611.13843",
