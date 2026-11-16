@@ -1,6 +1,166 @@
 {
-  "updated_at": "2026-11-15T08:58:09.649Z",
+  "updated_at": "2026-11-16T03:06:01.333Z",
   "days": [
+    {
+      "date": "2026-11-16",
+      "papers": [
+        {
+          "id": "2611.07226",
+          "title": "Loopback Transformer: Towards a Unified View of Residual Looped Transformers",
+          "authors": [
+            "Xuan Ouyang",
+            "Zefan Cai",
+            "Chenlong Zhang",
+            "Cheng Luo",
+            "Ke Wan",
+            "Junjie Hu"
+          ],
+          "organization": "University of Wisconsin - Madison",
+          "upvotes": 1,
+          "num_comments": 1,
+          "published_date": "2026-11-16",
+          "updated_at": "2026-11-16T03:06:01.328Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.07226",
+          "pdf_url": "https://arxiv.org/pdf/2611.07226",
+          "hf_url": "https://huggingface.co/papers/2611.07226",
+          "github_url": "https://github.com/yancyou/Loopback",
+          "github_stars": null,
+          "project_url": "https://yancyou.github.io/Loopback_page/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.07226.png",
+          "media_urls": [
+            "https://cdn-uploads.huggingface.co/production/uploads/67e617d4470f96a302734e16/ftW-INbzvTkupjfdOw3Cf.mp4"
+          ],
+          "category": "Infra, Speed & Quantization",
+          "reading_time_minutes": 4,
+          "hook_headline": "Loopback Transformer: วิธีอัจฉริยะที่ลดขนาด LLM ลงครึ่งหนึ่งแต่ฉลาดยิ่งกว่าเดิม",
+          "short_teaser": "เลิกเพิ่ม Parameter ให้โมเดลจนกินทรัพยากรมหาศาล แต่หันมาใช้เทคนิค 'Loop' ข้อมูลแบบใหม่ที่ให้ประสิทธิภาพดีขึ้นในขนาดที่เล็กลง นี่คือจุดเปลี่ยนของการเทรนโมเดลสายประหยัด",
+          "tldr_takeaways": [
+            "ใช้การวนซ้ำ (Loop) ของบล็อกเดิม แทนการซ้อน Layer จำนวนมาก ทำให้ลดจำนวน Parameter ลงได้ถึง 40-75%",
+            "แยกเส้นทางการประมวลผลข้อมูลใหม่กับความทรงจำเก่าออกจากกัน ทำให้โมเดลคุมระดับความสำคัญของข้อมูลได้แม่นยำขึ้น",
+            "พิสูจน์แล้วว่าโมเดลขนาดเล็กที่ใช้เทคนิคนี้ให้ผลลัพธ์ดีกว่าโมเดลแบบดั้งเดิมในทุกมิติทดสอบ"
+          ],
+          "layman_story": [
+            "ในโลกของ AI ยิ่งอยากให้โมเดลเก่ง เรามักถูกสอนให้เพิ่มจำนวน Layer และ Parameter ให้เยอะขึ้นเรื่อยๆ ซึ่งวิธีนี้ทำให้โมเดลตัวใหญ่เทอะทะ กิน GPU มหาศาล และเทรนช้ามาก มันเหมือนการพยายามทำให้คนฉลาดด้วยการเพิ่มจำนวนเซลล์สมองเข้าไปเรื่อยๆ โดยไม่สนใจว่าจะจัดระเบียบข้อมูลยังไง",
+            "เปเปอร์นี้เลยเสนอแนวคิด 'Loopback' แทนที่จะสร้าง Layer ใหม่ไปเรื่อยๆ เราใช้บล็อกที่ผ่านการฝึกมาแล้วซ้ำๆ เหมือนการที่เราค่อยๆ อ่านทวนเนื้อหาเดิมเพื่อสรุปผลให้ดีขึ้น โดยเปเปอร์ได้สร้างกลไกแยกส่วนการรับข้อมูลใหม่และการเก็บความทรงจำเก่าออกจากกัน ทำให้โมเดลสามารถเลือกว่าจะ 'จำ' ข้อมูลเก่าแค่ไหน และ 'เรียนรู้' ข้อมูลใหม่มากเพียงใด",
+            "ผลลัพธ์ที่ได้คือโมเดลที่ตัวเล็กกว่าเดิมมาก แต่กลับทำคะแนนสอบได้สูงกว่าโมเดลมาตรฐานในหลายหัวข้อ มันเป็นทางออกที่สมดุลที่สุดสำหรับคนที่อยากสร้าง AI ให้เก่งโดยไม่ต้องลงทุนกับ GPU ราคาแพงมหาศาล"
+          ],
+          "impact_comparison": {
+            "before": "ต้องใช้โมเดลขนาดใหญ่หลายพันล้าน Parameter ซึ่งกินแรมเครื่องและรันช้ามาก",
+            "after": "ลดขนาดโมเดลลงได้เกือบครึ่ง แต่ยังรักษาความฉลาดไว้ได้ ช่วยให้รันได้เร็วและประหยัดค่า Infra",
+            "why_it_matters": "เป็นกุญแจสำคัญในการนำ LLM ระดับสูงไปรันบนอุปกรณ์พกพา หรือ Server ที่มีจำกัด ช่วยให้เกิด AI ที่เร็วและคุ้มค่าต้นทุน"
+          },
+          "use_cases": [
+            {
+              "title": "Edge AI Development",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "ปรับโครงสร้างโมเดลขนาดกลางให้เล็กลงจนรันบนมือถือหรืออุปกรณ์ IoT ได้",
+              "example": "สร้างแอป Assistant บนมือถือที่ประมวลผลได้ฉลาดเท่ารุ่นใหญ่แต่ไม่กินแบตเตอรี่"
+            },
+            {
+              "title": "Cost-Efficient SaaS",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "ลดต้นทุนการเช่า GPU บน Cloud ด้วยการใช้โมเดลขนาดกะทัดรัดแต่ประสิทธิภาพสูง",
+              "example": "ธุรกิจสร้าง AI Writer ที่ประหยัดค่า Token และลด Latency ทำให้ลูกค้าใช้งานได้ลื่นไหลขึ้น"
+            },
+            {
+              "title": "Private Model Deployment",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ติดตั้งโมเดลขนาดเล็กบน Server ภายในบริษัทเพื่อความเป็นส่วนตัว",
+              "example": "บริษัทกฎหมายรัน AI สรุปเอกสารบน Server ของตัวเองโดยไม่ต้องกังวลเรื่องข้อมูลรั่วไหล"
+            }
+          ],
+          "community_pulse": {
+            "summary": "เป็นเปเปอร์ที่ได้รับความสนใจสูงจากกลุ่ม Infra Engineer เพราะตอบโจทย์เรื่องความคุ้มค่าของทรัพยากร",
+            "praises": [
+              "แนวคิดเรื่อง Geometric decay ในการจัดการหน่วยความจำนั้นฉลาดมาก",
+              "ตัวเลข Benchmark ชัดเจนและน่าเชื่อถือในการลด Parameter"
+            ],
+            "critiques": [
+              "ความซับซ้อนในการทำความเข้าใจการเชื่อมต่อของบล็อกอาจทำให้ Debug ยากขึ้น",
+              "ยังต้องมีการทดลองกับโมเดลระดับ 10B+ ว่าจะรักษาสมรรถนะได้ดีแค่ไหน"
+            ],
+            "hype_score": 8.8
+          }
+        },
+        {
+          "id": "2611.16439",
+          "title": "HALO: Human-Aligned Data Collection for WhoLe-body MObile Manipulation",
+          "authors": [
+            "Shuai Yang",
+            "Fangyi Xu",
+            "Yishu Shen",
+            "Kecheng Zheng",
+            "Yinghao Xu"
+          ],
+          "organization": "Robbyant Research",
+          "upvotes": 0,
+          "num_comments": 1,
+          "published_date": "2026-11-16",
+          "updated_at": "2026-11-16T03:06:01.332Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.16439",
+          "pdf_url": "https://arxiv.org/pdf/2611.16439",
+          "hf_url": "https://huggingface.co/papers/2611.16439",
+          "github_url": "https://github.com/robbyant-research/Lingbot-ALOHA",
+          "github_stars": null,
+          "project_url": "https://robbyant-research.github.io/Lingbot-ALOHA/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16439.png",
+          "media_urls": [
+            "https://cdn-uploads.huggingface.co/production/uploads/64548f6c363bb3aaf9cba136/nYF769BuwosVpiD0uiTl1.mp4"
+          ],
+          "category": "Vision, Audio & Multimodal",
+          "reading_time_minutes": 4,
+          "hook_headline": "HALO: ปฏิวัติการสอนหุ่นยนต์ทำงานแบบมนุษย์ ให้คล่องแคล่วเหมือนมีคนบังคับจริงๆ",
+          "short_teaser": "การสอนหุ่นยนต์ผ่านรีโมทมักจะติดขัดและไม่เป็นธรรมชาติ HALO เข้ามาแก้ปัญหานี้ด้วยการสร้างวิธี 'Data Collection' ที่ใช้คนสาธิตแบบลื่นไหลและแม่นยำกว่าเดิมถึง 3 เท่า",
+          "tldr_takeaways": [
+            "แก้ปัญหาความไม่เป็นธรรมชาติในการสอนหุ่นยนต์ด้วยการใช้มนุษย์สาธิตผ่านการสัมผัสจริง (Kinesthetic teaching)",
+            "เทคนิคการทำ Deployment-aligned processing ช่วยลบภาพคนสาธิตออกจากข้อมูล ทำให้หุ่นยนต์เรียนรู้ได้สะอาดและแม่นยำ",
+            "เพิ่มความเร็วในการเก็บข้อมูลได้ถึง 2.9 เท่า และสำเร็จในงานที่ซับซ้อนได้ถึง 73%"
+          ],
+          "layman_story": [
+            "เวลาเราอยากสอนให้หุ่นยนต์หยิบจับของหรือเดินไปไหนมาไหน การใช้รีโมทคอนโทรลหรือแว่น VR มักจะเป็นเรื่องยาก เพราะมันไม่ได้ให้ความรู้สึกเหมือนเราเป็นหุ่นยนต์จริงๆ การเคลื่อนไหวเลยดูติดๆ ขัดๆ หรือขาดความเป็นธรรมชาติ ส่งผลให้หุ่นยนต์ที่เรียนจากข้อมูลเหล่านี้มักจะทำอะไรผิดพลาดบ่อย",
+            "HALO คือระบบใหม่ที่ให้คนสาธิตโดยการขยับแขนกลหุ่นยนต์โดยตรงหรือเคลื่อนที่ไปกับฐานรองรับที่ออกแบบมาเป็นพิเศษ วิธีนี้ทำให้การสั่งงานหุ่นยนต์มีความแม่นยำเหมือนมนุษย์ทำเองจริงๆ แถมยังมีระบบ AI ที่ช่วยลบภาพ 'คน' ออกจากวิดีโอสาธิต ทำให้หุ่นยนต์เห็นแค่ตัวมันเองและชิ้นงานโดยไม่มีสิ่งรบกวน",
+            "ผลลัพธ์คือหุ่นยนต์เรียนรู้ท่าทางต่างๆ ได้รวดเร็วและเป็นธรรมชาติมาก ทั้งงานละเอียดอย่างการรัดเคเบิลไทร์ไปจนถึงการเคลื่อนที่ไปพร้อมกับหยิบของ ซึ่งความเร็วที่เพิ่มขึ้นเกือบ 3 เท่าจะเปลี่ยนโฉมการผลิตหุ่นยนต์อุตสาหกรรมในอนาคตเลยทีเดียว"
+          ],
+          "impact_comparison": {
+            "before": "การเก็บข้อมูลทำผ่าน VR หรือรีโมท ซึ่งใช้เวลานานและให้ข้อมูลที่เคลื่อนไหวไม่เป็นธรรมชาติ",
+            "after": "ใช้คนสาธิตแบบสัมผัสตรง เก็บข้อมูลไวขึ้นเกือบ 3 เท่า และโมเดลที่ได้มีความละเอียดสูงกว่า",
+            "why_it_matters": "ช่วยลดคอขวดของการหาข้อมูล (Data Bottleneck) สำหรับหุ่นยนต์ ทำให้เราเห็นหุ่นยนต์ทำงานในครัวหรือในโรงงานได้จริงเร็วยิ่งขึ้น"
+          },
+          "use_cases": [
+            {
+              "title": "Industrial Robot Training",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "เปลี่ยนกระบวนการสอนหุ่นยนต์ในโรงงานให้เป็นแบบ End-to-end learning",
+              "example": "ใช้ HALO สอนแขนกลให้หยิบชิ้นส่วนอิเล็กทรอนิกส์ขนาดเล็กได้แม่นยำโดยไม่ต้องเขียนโปรแกรมทีละจุด"
+            },
+            {
+              "title": "Service Robot SaaS",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "สร้างบริการสอนหุ่นยนต์ (Robot-as-a-Service) สำหรับธุรกิจ SME",
+              "example": "บริษัทจัดหาหุ่นยนต์ทำความสะอาดสามารถนำระบบนี้ไปใช้ฝึกหุ่นยนต์ให้จดจำเส้นทางและสภาพแวดล้อมใหม่ๆ ได้อย่างรวดเร็ว"
+            },
+            {
+              "title": "Healthcare Assistance",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ฝึกหุ่นยนต์ดูแลผู้สูงอายุให้มีความนุ่มนวลและเคลื่อนไหวเหมือนมนุษย์",
+              "example": "การฝึกหุ่นยนต์ช่วยพยุงหรือหยิบของให้ผู้ป่วยโดยใช้ท่าทางที่ปลอดภัยและเป็นธรรมชาติ"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจมากจากชุมชน Robotics และผู้สร้างหุ่นยนต์สาย Open Source",
+            "praises": [
+              "แนวคิดการลบภาพมนุษย์ออกจาก Video data ทำได้เนียนและมีประโยชน์มาก",
+              "เป็นการรวมกันระหว่างระบบ Hard-ware และ Software ที่ดูเป็นไปได้จริงในเชิงการค้า"
+            ],
+            "critiques": [
+              "ต้องใช้พื้นที่และอุปกรณ์เฉพาะทางในการเก็บข้อมูล อาจไม่เหมาะกับห้องทดลองขนาดเล็ก",
+              "ยังต้องทดสอบกับหุ่นยนต์หลากหลายประเภทกว่านี้ถึงจะยืนยันความ Universal"
+            ],
+            "hype_score": 9.2
+          }
+        }
+      ]
+    },
     {
       "date": "2026-11-13",
       "papers": [
@@ -15,15 +175,15 @@
             "Xinchao Wang"
           ],
           "organization": "National University of Singapore",
-          "upvotes": 136,
+          "upvotes": 138,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.332Z",
           "arxiv_url": "https://arxiv.org/abs/2611.15777",
           "pdf_url": "https://arxiv.org/pdf/2611.15777",
           "hf_url": "https://huggingface.co/papers/2611.15777",
           "github_url": "https://github.com/holdrain/SO-Arena",
-          "github_stars": 24,
+          "github_stars": 26,
           "project_url": "https://lichenlillc.github.io/SO-Arena",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.15777.png",
           "media_urls": [],
@@ -91,10 +251,10 @@
             "Seung Wook Kim"
           ],
           "organization": "NVIDIA",
-          "upvotes": 50,
-          "num_comments": 2,
+          "upvotes": 51,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.332Z",
           "arxiv_url": "https://arxiv.org/abs/2611.14815",
           "pdf_url": "https://arxiv.org/pdf/2611.14815",
           "hf_url": "https://huggingface.co/papers/2611.14815",
@@ -172,7 +332,7 @@
           "upvotes": 46,
           "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.332Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16748",
           "pdf_url": "https://arxiv.org/pdf/2611.16748",
           "hf_url": "https://huggingface.co/papers/2611.16748",
@@ -250,7 +410,7 @@
           "upvotes": 45,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.332Z",
           "arxiv_url": "https://arxiv.org/abs/2611.13004",
           "pdf_url": "https://arxiv.org/pdf/2611.13004",
           "hf_url": "https://huggingface.co/papers/2611.13004",
@@ -325,15 +485,15 @@
             "Yiding Tian"
           ],
           "organization": "inclusionAI",
-          "upvotes": 40,
-          "num_comments": 2,
+          "upvotes": 43,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.332Z",
           "arxiv_url": "https://arxiv.org/abs/2611.15131",
           "pdf_url": "https://arxiv.org/pdf/2611.15131",
           "hf_url": "https://huggingface.co/papers/2611.15131",
           "github_url": "https://github.com/inclusionAI/Duo",
-          "github_stars": 46,
+          "github_stars": 60,
           "project_url": "https://duo-v1.github.io/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.15131.png",
           "media_urls": [
@@ -404,15 +564,15 @@
             "Andrei Bursuc"
           ],
           "organization": "Fundamental AI Lab at UTN",
-          "upvotes": 35,
+          "upvotes": 36,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.332Z",
           "arxiv_url": "https://arxiv.org/abs/2611.15844",
           "pdf_url": "https://arxiv.org/pdf/2611.15844",
           "hf_url": "https://huggingface.co/papers/2611.15844",
           "github_url": "https://github.com/OpenVisionBanana/OpenVisionBanana",
-          "github_stars": 29,
+          "github_stars": 45,
           "project_url": "https://openvisionbanana.github.io/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.15844.png",
           "media_urls": [],
@@ -480,15 +640,15 @@
             "Peng Qiu"
           ],
           "organization": "Zhejiang University",
-          "upvotes": 34,
-          "num_comments": 4,
+          "upvotes": 35,
+          "num_comments": 5,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17167",
           "pdf_url": "https://arxiv.org/pdf/2611.17167",
           "hf_url": "https://huggingface.co/papers/2611.17167",
           "github_url": "https://github.com/ZJU-REAL/decision-agents",
-          "github_stars": 45,
+          "github_stars": 46,
           "project_url": "https://zjureal.com/decision-agents/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17167.png",
           "media_urls": [],
@@ -545,6 +705,84 @@
           }
         },
         {
+          "id": "2611.17060",
+          "title": "Ropedia Xperience 2: A Gold Standard for Scaling Physical AI Environments and Behaviors",
+          "authors": [
+            "Hao Li",
+            "Fangzhou Hong",
+            "Zhaoxi Chen",
+            "Hui En Pang",
+            "Kairui Hu",
+            "Mingze Sun"
+          ],
+          "organization": "Ropedia",
+          "upvotes": 30,
+          "num_comments": 4,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-16T03:06:01.333Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.17060",
+          "pdf_url": "https://arxiv.org/pdf/2611.17060",
+          "hf_url": "https://huggingface.co/papers/2611.17060",
+          "github_url": "https://github.com/Ropedia/Ropedia-Xperience-2",
+          "github_stars": 22,
+          "project_url": "https://ropedia.com/xperience/2-research/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17060.png",
+          "media_urls": [
+            "https://cdn-uploads.huggingface.co/production/uploads/667b8de7a68bf81afe668afe/tbGvf6JLxJJaEt9edHkIt.mp4"
+          ],
+          "category": "Applied AI & Science",
+          "reading_time_minutes": 5,
+          "hook_headline": "Ropedia Xperience 2: ปูพื้นฐานยุคใหม่ให้หุ่นยนต์เก่งเหมือนมนุษย์ด้วย 'คลังข้อมูลข้ามมิติ'",
+          "short_teaser": "หุ่นยนต์ยังเก่งไม่พอเพราะขาดประสบการณ์จริง? Ropedia Xperience 2 คือคลังข้อมูลชุดใหญ่ที่เปลี่ยนประสบการณ์มนุษย์ให้กลายเป็นบทเรียนของหุ่นยนต์",
+          "tldr_takeaways": [
+            "รวมรวบข้อมูลการใช้งานจริงและภาพ 3D กว่า 1,589 ฉาก และวิดีโอภารกิจกว่า 4,230 รายการ",
+            "มีระบบแปลงข้อมูลมนุษย์ (Egocentric) ให้เป็นเส้นทางการเคลื่อนที่ของหุ่นยนต์ (Whole-body trajectory)",
+            "วางมาตรฐานใหม่สำหรับการวัดผลและ scaling หุ่นยนต์ให้มีความสามารถมากขึ้นอย่างเป็นระบบ"
+          ],
+          "layman_story": [
+            "ปัญหาเดิมของการทำหุ่นยนต์ AI คือเราขาด 'สนามทดสอบ' และ 'ข้อมูลการสอน' ที่ดีพอ หุ่นยนต์มักเก่งในห้องทดลองที่ทุกอย่างสมบูรณ์แบบ แต่พอมาเจอสถานการณ์จริงในบ้านที่มีสิ่งของวางไม่เป็นระเบียบ ก็มักจะไปไม่เป็นเพราะไม่เคยเห็นตัวอย่างวิธีแก้ไขปัญหาที่หลากหลาย",
+            "Ropedia Xperience 2 เปรียบเสมือน 'ห้องสมุดต้นแบบ' ที่รวมเอาประสบการณ์ของมนุษย์จริงๆ ในสถานการณ์ต่างๆ มาแปลงให้เป็นดิจิทัล เพื่อให้หุ่นยนต์สามารถนำไปจำลอง (Simulation) ได้ว่าถ้าเจอแบบนี้ต้องเคลื่อนที่อย่างไร หรือต้องจัดการวัตถุในบ้านแบบไหนโดยไม่ทำให้ของเสียหาย",
+            "ผลลัพธ์คือการมีมาตรฐานข้อมูลที่แข็งแกร่ง ซึ่งทำให้วงการหุ่นยนต์สามารถสร้าง 'Scaling Law' ของตัวเองได้ เหมือนที่ภาษาโมเดลมี ยิ่งมีข้อมูลฉากและพฤติกรรมที่หลากหลาย หุ่นยนต์ก็จะยิ่งฉลาดและยืดหยุ่นขึ้น ทำให้คนในวงการตื่นเต้นเพราะนี่อาจเป็นกุญแจสำคัญที่ทำให้หุ่นยนต์หลุดจากโรงงานออกมาช่วยงานบ้านเราจริงๆ ได้"
+          ],
+          "impact_comparison": {
+            "before": "การเก็บข้อมูลหุ่นยนต์ทำได้ยาก กระจัดกระจาย และไม่มีมาตรฐานร่วมกันระหว่างทีม",
+            "after": "มีฐานข้อมูลมาตรฐานขนาดใหญ่ที่นำไปใช้ต่อได้ทันที ทั้งในการจำลองและเทรนจริง ช่วยเร่งความเร็วในการพัฒนาหุ่นยนต์",
+            "why_it_matters": "นี่คือความพยายามสำคัญในการสร้างมาตรฐานให้ AI Physical สเกลได้เหมือน LLM ซึ่งจะเปลี่ยนอุตสาหกรรมหุ่นยนต์ไปตลอดกาล"
+          },
+          "use_cases": [
+            {
+              "title": "การฝึกหุ่นยนต์ดูแลความปลอดภัย (Service Robot Training)",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "ใช้ข้อมูลจาก Ropedia เพื่อเทรนหุ่นยนต์ให้รู้จักการหลบหลีกสิ่งกีดขวางในที่พักอาศัย",
+              "example": "สอนให้หุ่นยนต์รู้จักการกวาดพื้นโดยหลบหลีกรองเท้าและสายไฟบนพื้นแบบที่มนุษย์ทำ"
+            },
+            {
+              "title": "การพัฒนา Simulation ยุคใหม่สำหรับ SaaS หุ่นยนต์",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "สร้างบริการจำลองสภาพแวดล้อมให้บริษัทหุ่นยนต์เข้ามาทดสอบอัลกอริทึมของตัวเอง",
+              "example": "ขาย Cloud Service ที่เปิดให้บริษัททำหุ่นยนต์ส่งของทดสอบการทำงานบนฉาก 3D จริงที่มาจาก Ropedia"
+            },
+            {
+              "title": "การวิจัยพฤติกรรมมนุษย์และการตอบสนองของหุ่นยนต์",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "นำฐานข้อมูลไปวิเคราะห์ว่ามนุษย์ทำภารกิจต่างๆ อย่างไร เพื่อออกแบบหุ่นยนต์ให้เป็นมิตรและใช้งานง่ายขึ้น",
+              "example": "ปรับปรุงท่าทางการหยิบจับของหุ่นยนต์ให้ดู 'เป็นธรรมชาติ' เหมือนที่มนุษย์ทำในวิดีโอตัวอย่าง"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความชื่นชมอย่างสูงว่าเป็น 'Gold Standard' ที่วงการหุ่นยนต์ AI ต้องการมานาน",
+            "praises": [
+              "ข้อมูลหลากหลายและครอบคลุมงานที่ทำได้ยากในโลกความเป็นจริง",
+              "การทำฐานข้อมูลให้เปิดกว้างช่วยกระตุ้นการวิจัยของคนทั้งโลก"
+            ],
+            "critiques": [
+              "ความซับซ้อนของข้อมูลต้องใช้ทักษะสูงในการนำไปประมวลผลต่อ",
+              "ต้องการทรัพยากรคำนวณมหาศาลในการนำข้อมูลไปเทรนโมเดลระดับสเกลใหญ่"
+            ],
+            "hype_score": 9.5
+          }
+        },
+        {
           "id": "2611.05984",
           "title": "On the Design of Hyper-Connections: Simplification, Stability, and Scalability",
           "authors": [
@@ -559,7 +797,7 @@
           "upvotes": 29,
           "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.05984",
           "pdf_url": "https://arxiv.org/pdf/2611.05984",
           "hf_url": "https://huggingface.co/papers/2611.05984",
@@ -621,84 +859,6 @@
           }
         },
         {
-          "id": "2611.17060",
-          "title": "Ropedia Xperience 2: A Gold Standard for Scaling Physical AI Environments and Behaviors",
-          "authors": [
-            "Hao Li",
-            "Fangzhou Hong",
-            "Zhaoxi Chen",
-            "Hui En Pang",
-            "Kairui Hu",
-            "Mingze Sun"
-          ],
-          "organization": "Ropedia",
-          "upvotes": 27,
-          "num_comments": 3,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.17060",
-          "pdf_url": "https://arxiv.org/pdf/2611.17060",
-          "hf_url": "https://huggingface.co/papers/2611.17060",
-          "github_url": "https://github.com/Ropedia/Ropedia-Xperience-2",
-          "github_stars": 20,
-          "project_url": "https://ropedia.com/xperience/2-research/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17060.png",
-          "media_urls": [
-            "https://cdn-uploads.huggingface.co/production/uploads/667b8de7a68bf81afe668afe/tbGvf6JLxJJaEt9edHkIt.mp4"
-          ],
-          "category": "Applied AI & Science",
-          "reading_time_minutes": 5,
-          "hook_headline": "Ropedia Xperience 2: ปูพื้นฐานยุคใหม่ให้หุ่นยนต์เก่งเหมือนมนุษย์ด้วย 'คลังข้อมูลข้ามมิติ'",
-          "short_teaser": "หุ่นยนต์ยังเก่งไม่พอเพราะขาดประสบการณ์จริง? Ropedia Xperience 2 คือคลังข้อมูลชุดใหญ่ที่เปลี่ยนประสบการณ์มนุษย์ให้กลายเป็นบทเรียนของหุ่นยนต์",
-          "tldr_takeaways": [
-            "รวมรวบข้อมูลการใช้งานจริงและภาพ 3D กว่า 1,589 ฉาก และวิดีโอภารกิจกว่า 4,230 รายการ",
-            "มีระบบแปลงข้อมูลมนุษย์ (Egocentric) ให้เป็นเส้นทางการเคลื่อนที่ของหุ่นยนต์ (Whole-body trajectory)",
-            "วางมาตรฐานใหม่สำหรับการวัดผลและ scaling หุ่นยนต์ให้มีความสามารถมากขึ้นอย่างเป็นระบบ"
-          ],
-          "layman_story": [
-            "ปัญหาเดิมของการทำหุ่นยนต์ AI คือเราขาด 'สนามทดสอบ' และ 'ข้อมูลการสอน' ที่ดีพอ หุ่นยนต์มักเก่งในห้องทดลองที่ทุกอย่างสมบูรณ์แบบ แต่พอมาเจอสถานการณ์จริงในบ้านที่มีสิ่งของวางไม่เป็นระเบียบ ก็มักจะไปไม่เป็นเพราะไม่เคยเห็นตัวอย่างวิธีแก้ไขปัญหาที่หลากหลาย",
-            "Ropedia Xperience 2 เปรียบเสมือน 'ห้องสมุดต้นแบบ' ที่รวมเอาประสบการณ์ของมนุษย์จริงๆ ในสถานการณ์ต่างๆ มาแปลงให้เป็นดิจิทัล เพื่อให้หุ่นยนต์สามารถนำไปจำลอง (Simulation) ได้ว่าถ้าเจอแบบนี้ต้องเคลื่อนที่อย่างไร หรือต้องจัดการวัตถุในบ้านแบบไหนโดยไม่ทำให้ของเสียหาย",
-            "ผลลัพธ์คือการมีมาตรฐานข้อมูลที่แข็งแกร่ง ซึ่งทำให้วงการหุ่นยนต์สามารถสร้าง 'Scaling Law' ของตัวเองได้ เหมือนที่ภาษาโมเดลมี ยิ่งมีข้อมูลฉากและพฤติกรรมที่หลากหลาย หุ่นยนต์ก็จะยิ่งฉลาดและยืดหยุ่นขึ้น ทำให้คนในวงการตื่นเต้นเพราะนี่อาจเป็นกุญแจสำคัญที่ทำให้หุ่นยนต์หลุดจากโรงงานออกมาช่วยงานบ้านเราจริงๆ ได้"
-          ],
-          "impact_comparison": {
-            "before": "การเก็บข้อมูลหุ่นยนต์ทำได้ยาก กระจัดกระจาย และไม่มีมาตรฐานร่วมกันระหว่างทีม",
-            "after": "มีฐานข้อมูลมาตรฐานขนาดใหญ่ที่นำไปใช้ต่อได้ทันที ทั้งในการจำลองและเทรนจริง ช่วยเร่งความเร็วในการพัฒนาหุ่นยนต์",
-            "why_it_matters": "นี่คือความพยายามสำคัญในการสร้างมาตรฐานให้ AI Physical สเกลได้เหมือน LLM ซึ่งจะเปลี่ยนอุตสาหกรรมหุ่นยนต์ไปตลอดกาล"
-          },
-          "use_cases": [
-            {
-              "title": "การฝึกหุ่นยนต์ดูแลความปลอดภัย (Service Robot Training)",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ใช้ข้อมูลจาก Ropedia เพื่อเทรนหุ่นยนต์ให้รู้จักการหลบหลีกสิ่งกีดขวางในที่พักอาศัย",
-              "example": "สอนให้หุ่นยนต์รู้จักการกวาดพื้นโดยหลบหลีกรองเท้าและสายไฟบนพื้นแบบที่มนุษย์ทำ"
-            },
-            {
-              "title": "การพัฒนา Simulation ยุคใหม่สำหรับ SaaS หุ่นยนต์",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "สร้างบริการจำลองสภาพแวดล้อมให้บริษัทหุ่นยนต์เข้ามาทดสอบอัลกอริทึมของตัวเอง",
-              "example": "ขาย Cloud Service ที่เปิดให้บริษัททำหุ่นยนต์ส่งของทดสอบการทำงานบนฉาก 3D จริงที่มาจาก Ropedia"
-            },
-            {
-              "title": "การวิจัยพฤติกรรมมนุษย์และการตอบสนองของหุ่นยนต์",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "นำฐานข้อมูลไปวิเคราะห์ว่ามนุษย์ทำภารกิจต่างๆ อย่างไร เพื่อออกแบบหุ่นยนต์ให้เป็นมิตรและใช้งานง่ายขึ้น",
-              "example": "ปรับปรุงท่าทางการหยิบจับของหุ่นยนต์ให้ดู 'เป็นธรรมชาติ' เหมือนที่มนุษย์ทำในวิดีโอตัวอย่าง"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความชื่นชมอย่างสูงว่าเป็น 'Gold Standard' ที่วงการหุ่นยนต์ AI ต้องการมานาน",
-            "praises": [
-              "ข้อมูลหลากหลายและครอบคลุมงานที่ทำได้ยากในโลกความเป็นจริง",
-              "การทำฐานข้อมูลให้เปิดกว้างช่วยกระตุ้นการวิจัยของคนทั้งโลก"
-            ],
-            "critiques": [
-              "ความซับซ้อนของข้อมูลต้องใช้ทักษะสูงในการนำไปประมวลผลต่อ",
-              "ต้องการทรัพยากรคำนวณมหาศาลในการนำข้อมูลไปเทรนโมเดลระดับสเกลใหญ่"
-            ],
-            "hype_score": 9.5
-          }
-        },
-        {
           "id": "2611.17331",
           "title": "TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models",
           "authors": [
@@ -710,15 +870,15 @@
             "Yen-Yu Lin"
           ],
           "organization": "NVIDIA",
-          "upvotes": 23,
-          "num_comments": 2,
+          "upvotes": 25,
+          "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17331",
           "pdf_url": "https://arxiv.org/pdf/2611.17331",
           "hf_url": "https://huggingface.co/papers/2611.17331",
           "github_url": "https://github.com/NVlabs/DVSM",
-          "github_stars": 44,
+          "github_stars": 47,
           "project_url": "https://test-time-baking.github.io/",
           "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17331.png",
           "media_urls": [
@@ -788,10 +948,10 @@
             "Qiang Wang"
           ],
           "organization": "DAGroup-PKU",
-          "upvotes": 20,
+          "upvotes": 21,
           "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.08318",
           "pdf_url": "https://arxiv.org/pdf/2611.08318",
           "hf_url": "https://huggingface.co/papers/2611.08318",
@@ -853,82 +1013,6 @@
           }
         },
         {
-          "id": "2611.16217",
-          "title": "WorldDraft: If Code Builds the World, Can Video Models Just Render It?",
-          "authors": [
-            "Zhiyu Hou",
-            "Wen-Jie Shu",
-            "Harold Haodong Chen",
-            "Weilin Ruan",
-            "Chenfei Liao",
-            "Liuzhou Zhang"
-          ],
-          "organization": null,
-          "upvotes": 16,
-          "num_comments": 4,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.16217",
-          "pdf_url": "https://arxiv.org/pdf/2611.16217",
-          "hf_url": "https://huggingface.co/papers/2611.16217",
-          "github_url": "https://github.com/KevinHuge/WorldDraft",
-          "github_stars": 13,
-          "project_url": "https://haroldchen19.github.io/WorldDraft-site/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16217.png",
-          "media_urls": [],
-          "category": "Vision, Audio & Multimodal",
-          "reading_time_minutes": 4,
-          "hook_headline": "WorldDraft: เมื่อโค้ดเป็นคนเขียนบท แล้ววิดีโอต้องทำหน้าที่เป็นแค่ช่างภาพ",
-          "short_teaser": "การสร้างโลกจำลองด้วย AI มักติดปัญหาเรื่องความต่อเนื่องและภาพที่หลุดมั่ว WorldDraft มาพร้อมกับ Benchmark และแนวทางใหม่ที่จะเชื่อมโลกของโค้ดและวิดีโอเข้าด้วยกันอย่างสมบูรณ์",
-          "tldr_takeaways": [
-            "สร้างมาตรฐานใหม่ในการวัดผลความแม่นยำของภาพและการคงอยู่ของวัตถุในวิดีโอ",
-            "ค้นพบปัญหาการไหลของข้อมูล (leakage) ระหว่างการเขียนบทด้วยโค้ดและการสร้างภาพ",
-            "นำเสนอ WorldDraft-Primer เทคนิค visual prompting ที่ช่วยให้วิดีโอทำตามคำสั่งโค้ดได้แม่นยำขึ้น"
-          ],
-          "layman_story": [
-            "ปัญหาของการสร้างวิดีโอด้วย AI ทุกวันนี้คือ 'ความจำสั้น' หรือไม่ก็ 'ไม่ยอมทำตามบท' ที่เราเขียนไว้ ยิ่งเราต้องการฉากที่ซับซ้อน หรือเหตุการณ์ต่อเนื่องกันนานๆ AI มักจะเริ่มหลุด หรือภาพไม่เป็นไปตามเหตุการณ์ที่ตั้งไว้ตอนแรก",
-            "เปเปอร์นี้จึงเสนอวิธีแบ่งงานกันทำ: ให้โค้ดทำหน้าที่เป็นคนเขียนบทหรือคนวางโครงสร้างโลก (4D world) ส่วนตัว AI วิดีโอทำหน้าที่เป็นแค่ 'ช่างภาพ' หรือเรนเดอร์ภาพออกมาตามนั้น ซึ่งพวกเขาทำ Benchmark ที่ชื่อว่า 'WorldDraft' ขึ้นมาเพื่อทดสอบว่าวิดีโอจะซื่อตรงกับสิ่งที่โค้ดกำหนดไว้แค่ไหน",
-            "ผลการทดสอบพบว่าวิธีนี้ช่วยแก้ปัญหาเรื่องภาพไม่ตรงกับฉากที่กำหนดได้ดีขึ้นอย่างมาก โดยใช้เทคนิค 'Primer' เข้าไปช่วยกำกับ ซึ่งทำให้คนทำแอนิเมชันหรือเกมพัฒนาโลกจำลองได้แม่นยำตามสั่งมากกว่าเดิมหลายเท่า"
-          ],
-          "impact_comparison": {
-            "before": "การสร้างวิดีโอมีความไม่แน่นอนสูงและควบคุมทิศทางของวัตถุหรือกล้องได้ยาก",
-            "after": "ควบคุมโลกของวิดีโอได้แม่นยำผ่านคำสั่งโค้ด ทำให้ได้วิดีโอที่ต่อเนื่องและเป็นธรรมชาติ",
-            "why_it_matters": "เป็นกุญแจสำคัญในการสร้างภาพยนตร์หรือเกมแบบ Generator ที่ตอบโจทย์การใช้งานระดับอุตสาหกรรม"
-          },
-          "use_cases": [
-            {
-              "title": "Procedural Game Environment Generator",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "สร้างฉากในเกมโดยใช้โค้ดกำหนดพฤติกรรม แล้วใช้ AI วิดีโอเรนเดอร์ภาพที่สมจริง",
-              "example": "การสร้างฉากหลังของเกมแนว Open-world ที่เปลี่ยนไปตามสภาพอากาศหรือเวลาที่โค้ดกำหนด"
-            },
-            {
-              "title": "AI Filmmaking Studio",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "ให้บริการเครื่องมือสร้างภาพยนตร์สั้นจากบทเขียน (Script) ให้ได้ภาพที่ต่อเนื่องกัน",
-              "example": "เครื่องมือช่วยผู้กำกับทำ Pre-visualization ให้เห็นภาพรวมของฉากก่อนถ่ายทำจริง"
-            },
-            {
-              "title": "Simulation for Autonomous Vehicles",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้สร้างเหตุการณ์จำลองบนถนนเพื่อสอนระบบขับเคลื่อนอัตโนมัติ",
-              "example": "การจำลองเหตุการณ์รถเบรกกะทันหันในสภาพอากาศต่างๆ เพื่อทดสอบระบบเบรก AI"
-            }
-          ],
-          "community_pulse": {
-            "summary": "เป็นที่สนใจในกลุ่มนักวิจัยสาย Generative Video ที่ต้องการความแม่นยำในการสร้างผลงาน",
-            "praises": [
-              "Benchmark ครอบคลุมหลายแง่มุมของการทำ 4D Simulation",
-              "เทคนิค Primer ใช้งานง่ายและเห็นผลลัพธ์ชัดเจน"
-            ],
-            "critiques": [
-              "ต้องการพลังในการประมวลผลค่อนข้างสูง",
-              "ข้อจำกัดเรื่องความซับซ้อนของวัตถุยังคงมีอยู่"
-            ],
-            "hype_score": 8
-          }
-        },
-        {
           "id": "2611.17334",
           "title": "Unbundling Multimodal Vision Encoding",
           "authors": [
@@ -940,10 +1024,10 @@
             "Marjan Ghazvininejad"
           ],
           "organization": "Meta",
-          "upvotes": 14,
+          "upvotes": 17,
           "num_comments": 5,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17334",
           "pdf_url": "https://arxiv.org/pdf/2611.17334",
           "hf_url": "https://huggingface.co/papers/2611.17334",
@@ -1007,6 +1091,159 @@
           }
         },
         {
+          "id": "2611.16217",
+          "title": "WorldDraft: If Code Builds the World, Can Video Models Just Render It?",
+          "authors": [
+            "Zhiyu Hou",
+            "Wen-Jie Shu",
+            "Harold Haodong Chen",
+            "Weilin Ruan",
+            "Chenfei Liao",
+            "Liuzhou Zhang"
+          ],
+          "organization": null,
+          "upvotes": 16,
+          "num_comments": 4,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-16T03:06:01.333Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.16217",
+          "pdf_url": "https://arxiv.org/pdf/2611.16217",
+          "hf_url": "https://huggingface.co/papers/2611.16217",
+          "github_url": "https://github.com/KevinHuge/WorldDraft",
+          "github_stars": 14,
+          "project_url": "https://haroldchen19.github.io/WorldDraft-site/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.16217.png",
+          "media_urls": [],
+          "category": "Vision, Audio & Multimodal",
+          "reading_time_minutes": 4,
+          "hook_headline": "WorldDraft: เมื่อโค้ดเป็นคนเขียนบท แล้ววิดีโอต้องทำหน้าที่เป็นแค่ช่างภาพ",
+          "short_teaser": "การสร้างโลกจำลองด้วย AI มักติดปัญหาเรื่องความต่อเนื่องและภาพที่หลุดมั่ว WorldDraft มาพร้อมกับ Benchmark และแนวทางใหม่ที่จะเชื่อมโลกของโค้ดและวิดีโอเข้าด้วยกันอย่างสมบูรณ์",
+          "tldr_takeaways": [
+            "สร้างมาตรฐานใหม่ในการวัดผลความแม่นยำของภาพและการคงอยู่ของวัตถุในวิดีโอ",
+            "ค้นพบปัญหาการไหลของข้อมูล (leakage) ระหว่างการเขียนบทด้วยโค้ดและการสร้างภาพ",
+            "นำเสนอ WorldDraft-Primer เทคนิค visual prompting ที่ช่วยให้วิดีโอทำตามคำสั่งโค้ดได้แม่นยำขึ้น"
+          ],
+          "layman_story": [
+            "ปัญหาของการสร้างวิดีโอด้วย AI ทุกวันนี้คือ 'ความจำสั้น' หรือไม่ก็ 'ไม่ยอมทำตามบท' ที่เราเขียนไว้ ยิ่งเราต้องการฉากที่ซับซ้อน หรือเหตุการณ์ต่อเนื่องกันนานๆ AI มักจะเริ่มหลุด หรือภาพไม่เป็นไปตามเหตุการณ์ที่ตั้งไว้ตอนแรก",
+            "เปเปอร์นี้จึงเสนอวิธีแบ่งงานกันทำ: ให้โค้ดทำหน้าที่เป็นคนเขียนบทหรือคนวางโครงสร้างโลก (4D world) ส่วนตัว AI วิดีโอทำหน้าที่เป็นแค่ 'ช่างภาพ' หรือเรนเดอร์ภาพออกมาตามนั้น ซึ่งพวกเขาทำ Benchmark ที่ชื่อว่า 'WorldDraft' ขึ้นมาเพื่อทดสอบว่าวิดีโอจะซื่อตรงกับสิ่งที่โค้ดกำหนดไว้แค่ไหน",
+            "ผลการทดสอบพบว่าวิธีนี้ช่วยแก้ปัญหาเรื่องภาพไม่ตรงกับฉากที่กำหนดได้ดีขึ้นอย่างมาก โดยใช้เทคนิค 'Primer' เข้าไปช่วยกำกับ ซึ่งทำให้คนทำแอนิเมชันหรือเกมพัฒนาโลกจำลองได้แม่นยำตามสั่งมากกว่าเดิมหลายเท่า"
+          ],
+          "impact_comparison": {
+            "before": "การสร้างวิดีโอมีความไม่แน่นอนสูงและควบคุมทิศทางของวัตถุหรือกล้องได้ยาก",
+            "after": "ควบคุมโลกของวิดีโอได้แม่นยำผ่านคำสั่งโค้ด ทำให้ได้วิดีโอที่ต่อเนื่องและเป็นธรรมชาติ",
+            "why_it_matters": "เป็นกุญแจสำคัญในการสร้างภาพยนตร์หรือเกมแบบ Generator ที่ตอบโจทย์การใช้งานระดับอุตสาหกรรม"
+          },
+          "use_cases": [
+            {
+              "title": "Procedural Game Environment Generator",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "สร้างฉากในเกมโดยใช้โค้ดกำหนดพฤติกรรม แล้วใช้ AI วิดีโอเรนเดอร์ภาพที่สมจริง",
+              "example": "การสร้างฉากหลังของเกมแนว Open-world ที่เปลี่ยนไปตามสภาพอากาศหรือเวลาที่โค้ดกำหนด"
+            },
+            {
+              "title": "AI Filmmaking Studio",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "ให้บริการเครื่องมือสร้างภาพยนตร์สั้นจากบทเขียน (Script) ให้ได้ภาพที่ต่อเนื่องกัน",
+              "example": "เครื่องมือช่วยผู้กำกับทำ Pre-visualization ให้เห็นภาพรวมของฉากก่อนถ่ายทำจริง"
+            },
+            {
+              "title": "Simulation for Autonomous Vehicles",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้สร้างเหตุการณ์จำลองบนถนนเพื่อสอนระบบขับเคลื่อนอัตโนมัติ",
+              "example": "การจำลองเหตุการณ์รถเบรกกะทันหันในสภาพอากาศต่างๆ เพื่อทดสอบระบบเบรก AI"
+            }
+          ],
+          "community_pulse": {
+            "summary": "เป็นที่สนใจในกลุ่มนักวิจัยสาย Generative Video ที่ต้องการความแม่นยำในการสร้างผลงาน",
+            "praises": [
+              "Benchmark ครอบคลุมหลายแง่มุมของการทำ 4D Simulation",
+              "เทคนิค Primer ใช้งานง่ายและเห็นผลลัพธ์ชัดเจน"
+            ],
+            "critiques": [
+              "ต้องการพลังในการประมวลผลค่อนข้างสูง",
+              "ข้อจำกัดเรื่องความซับซ้อนของวัตถุยังคงมีอยู่"
+            ],
+            "hype_score": 8
+          }
+        },
+        {
+          "id": "2611.10439",
+          "title": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
+          "authors": [
+            "Yunzhe Wang",
+            "Mesut Erhan Unal",
+            "Sheng Zhang",
+            "Shabnam Ghadar",
+            "Peng Tang"
+          ],
+          "organization": "Amazon Web Services",
+          "upvotes": 14,
+          "num_comments": 4,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-16T03:06:01.333Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.10439",
+          "pdf_url": "https://arxiv.org/pdf/2611.10439",
+          "hf_url": "https://huggingface.co/papers/2611.10439",
+          "github_url": null,
+          "github_stars": null,
+          "project_url": "https://wangyz1999.github.io/who-remembers-what/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.10439.png",
+          "media_urls": [
+            "https://cdn-uploads.huggingface.co/production/uploads/68081c47bf6d9018cfdabc18/9TuhonHn3bN_O-mmqGXEP.mp4"
+          ],
+          "category": "AI Agents & Memory",
+          "reading_time_minutes": 6,
+          "hook_headline": "เมื่อ AI ต้องแชร์ประสบการณ์: MixUA ก้าวข้ามขีดจำกัดความจำด้วยความปลอดภัยระดับสูง",
+          "short_teaser": "การแชร์บทเรียนระหว่าง Agent เป็นเรื่องดี แต่จะทำยังไงไม่ให้ข้อมูลส่วนตัวของผู้ใช้คนหนึ่งรั่วไปถึงอีกคน? MixUA คือระบบจัดการความจำที่ชาญฉลาดและปลอดภัย",
+          "tldr_takeaways": [
+            "MixUA แยกแยะบทเรียนว่าควรแชร์เฉพาะผู้ใช้, เฉพาะ Agent, หรือแชร์แบบ Global",
+            "เพิ่มประสิทธิภาพการเรียนรู้ (Pass rates) ได้ถึง 16% โดยไม่เสี่ยงต่อข้อมูลรั่วไหล",
+            "มีระบบป้องกันข้อมูลส่วนตัว (Privacy probes) ที่คุมความปลอดภัยได้แม่นยำเกือบ 100%"
+          ],
+          "layman_story": [
+            "เวลาเรามี AI หลายตัวทำงานร่วมกับคนหลายคน ปัญหาคือ 'ความจำ' หากเราให้ Agent จำทุกอย่างที่เรียนรู้จากทุกคน มันจะเกิดปัญหาข้อมูลปนกัน (Cross-contamination) เช่น นาย A บอกความลับเรื่องที่พักไว้กับ AI ตัวที่ 1 แล้ววันหนึ่ง AI ตัวที่ 2 ซึ่งทำงานให้นาย B ดันไปหลุดปากพูดความลับนั้นออกมาเพราะมันแชร์ความจำฐานข้อมูลกลางกัน",
+            "MixUA เข้ามาเปลี่ยนเกมด้วยการใส่ 'ระบบคัดกรอง' (Granular Memory Extraction) ที่เหมือนกับการจัดระเบียบตู้เอกสาร มันไม่ได้เก็บทุกอย่างไว้ในถังเดียว แต่มันจะวิเคราะห์ว่าบทเรียนไหนเป็นความลับส่วนบุคคล (User-specific), บทเรียนไหนเป็นทักษะเฉพาะ (Agent-specific), และบทเรียนไหนที่เป็นความรู้ทั่วไป (Global) ซึ่งสามารถแชร์ให้คนอื่นได้โดยไม่กระทบต่อความเป็นส่วนตัว",
+            "ผลลัพธ์คือ AI เก่งขึ้นอย่างรวดเร็วจากการแชร์บทเรียนที่ควรแชร์ แต่ก็มีความปลอดภัยสูงมากจากการกั้นพรมแดนข้อมูลที่ไม่ควรยุ่ง การทดลองแสดงให้เห็นว่ามันสามารถจำความชอบของผู้ใช้ได้ถึง 90% และแทบไม่มีความลับรั่วไหล (0.02%) ทำให้มันเป็นโซลูชันที่น่าจับตามองมากสำหรับระบบ SaaS ที่ต้องดูแลลูกค้าหลายคนพร้อมกัน"
+          ],
+          "impact_comparison": {
+            "before": "การเก็บความจำแบบรวมศูนย์เสี่ยงต่อข้อมูลรั่วไหล หรือต้องแยกก้อนความจำเด็ดขาดทำให้ Agent ไม่ได้เรียนรู้จากประสบการณ์ร่วมกัน",
+            "after": "ระบบฉลาดขึ้นแบบ Hybrid ที่แชร์ทักษะได้แต่กั้นข้อมูลส่วนตัวไว้ได้อย่างมิดชิด",
+            "why_it_matters": "ช่วยให้ระบบ Multi-agent มีความปลอดภัยพอที่จะนำไปใช้ในระดับองค์กรที่ต้องการ Privacy สูง"
+          },
+          "use_cases": [
+            {
+              "title": "ระบบ AI ผู้ช่วยส่วนตัวในระดับ Enterprise",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "ใช้ MixUA เพื่อแยกแยะสิทธิการเข้าถึงข้อมูล (RBAC) ในระดับหน่วยความจำของ Agent",
+              "example": "Agent ที่ช่วยเตรียมงานให้พนักงานแต่ละคน แต่สามารถแชร์เทคนิคการจัดตารางงานที่ดีได้โดยไม่ต้องเปิดเผยรายละเอียดงาน"
+            },
+            {
+              "title": "การทำระบบ SaaS หลายผู้เช่า (Multi-tenancy)",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "เพิ่มความเชื่อมั่นให้ลูกค้าว่าข้อมูลของพวกเขาจะไม่รั่วไหลไปสู่ลูกค้าบริษัทอื่น แม้จะใช้ AI โมเดลเดียวกัน",
+              "example": "แพลตฟอร์ม AI วินิจฉัยเบื้องต้นที่เรียนรู้จากเคสคนไข้ในภาพรวมแต่ไม่เปิดเผยข้อมูลส่วนบุคคล"
+            },
+            {
+              "title": "การจัดการฐานความรู้ในองค์กร (Internal Knowledge Base)",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "สร้าง AI ที่เรียนรู้กระบวนการทำงานในแผนกโดยไม่เปิดเผยความลับของลูกค้าแต่ละราย",
+              "example": "Agent ช่วยทีมเซลล์ที่เรียนรู้เทคนิคการขายจากทั่วองค์กร แต่ข้อมูลลูกค้าถูกเก็บแยกตามเขตการขาย"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับคำชมในเชิงสถาปัตยกรรมระบบที่ตอบโจทย์ Privacy-first AI",
+            "praises": [
+              "ดีไซน์การแยกชั้นความจำ (Scope-based memory) ชัดเจนและทำได้จริง",
+              "การทำ Benchmark (CrossLearnBench) ที่เน้นเรื่องความเป็นส่วนตัวถือว่าทำออกมาได้ดี"
+            ],
+            "critiques": [
+              "อาจมีความซับซ้อนในการ Setup ระบบฐานข้อมูลตอนเริ่มต้น",
+              "ผลกระทบต่อ Latency ของการเรียกใช้ความจำอาจต้องได้รับการทดสอบเพิ่มเติมในระดับ Production"
+            ],
+            "hype_score": 8
+          }
+        },
+        {
           "id": "2611.16905",
           "title": "Factored One-sided Adam-Moment for Practical and Scalable SOAP",
           "authors": [
@@ -1019,7 +1256,7 @@
           "upvotes": 14,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16905",
           "pdf_url": "https://arxiv.org/pdf/2611.16905",
           "hf_url": "https://huggingface.co/papers/2611.16905",
@@ -1092,10 +1329,10 @@
             "Biao Gong"
           ],
           "organization": "Ant Group",
-          "upvotes": 12,
-          "num_comments": 2,
+          "upvotes": 13,
+          "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16517",
           "pdf_url": "https://arxiv.org/pdf/2611.16517",
           "hf_url": "https://huggingface.co/papers/2611.16517",
@@ -1159,153 +1396,79 @@
           }
         },
         {
-          "id": "2611.10439",
-          "title": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction",
+          "id": "2611.08219",
+          "title": "Agent-R^2: Scaling Agents for Realistic Productivity Work via Real-Source Data Synthesis",
           "authors": [
-            "Yunzhe Wang",
-            "Mesut Erhan Unal",
-            "Sheng Zhang",
-            "Shabnam Ghadar",
-            "Peng Tang"
+            "Teng Pan",
+            "Zixuan Wang",
+            "Yuchen Yan",
+            "Qifei Wu",
+            "Yao Chen",
+            "Yingqi Qu"
           ],
-          "organization": "Amazon Web Services",
+          "organization": "Zhejiang University",
           "upvotes": 8,
           "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.10439",
-          "pdf_url": "https://arxiv.org/pdf/2611.10439",
-          "hf_url": "https://huggingface.co/papers/2611.10439",
-          "github_url": null,
-          "github_stars": null,
-          "project_url": "https://wangyz1999.github.io/who-remembers-what/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.10439.png",
-          "media_urls": [
-            "https://cdn-uploads.huggingface.co/production/uploads/68081c47bf6d9018cfdabc18/9TuhonHn3bN_O-mmqGXEP.mp4"
-          ],
-          "category": "AI Agents & Memory",
-          "reading_time_minutes": 6,
-          "hook_headline": "เมื่อ AI ต้องแชร์ประสบการณ์: MixUA ก้าวข้ามขีดจำกัดความจำด้วยความปลอดภัยระดับสูง",
-          "short_teaser": "การแชร์บทเรียนระหว่าง Agent เป็นเรื่องดี แต่จะทำยังไงไม่ให้ข้อมูลส่วนตัวของผู้ใช้คนหนึ่งรั่วไปถึงอีกคน? MixUA คือระบบจัดการความจำที่ชาญฉลาดและปลอดภัย",
-          "tldr_takeaways": [
-            "MixUA แยกแยะบทเรียนว่าควรแชร์เฉพาะผู้ใช้, เฉพาะ Agent, หรือแชร์แบบ Global",
-            "เพิ่มประสิทธิภาพการเรียนรู้ (Pass rates) ได้ถึง 16% โดยไม่เสี่ยงต่อข้อมูลรั่วไหล",
-            "มีระบบป้องกันข้อมูลส่วนตัว (Privacy probes) ที่คุมความปลอดภัยได้แม่นยำเกือบ 100%"
-          ],
-          "layman_story": [
-            "เวลาเรามี AI หลายตัวทำงานร่วมกับคนหลายคน ปัญหาคือ 'ความจำ' หากเราให้ Agent จำทุกอย่างที่เรียนรู้จากทุกคน มันจะเกิดปัญหาข้อมูลปนกัน (Cross-contamination) เช่น นาย A บอกความลับเรื่องที่พักไว้กับ AI ตัวที่ 1 แล้ววันหนึ่ง AI ตัวที่ 2 ซึ่งทำงานให้นาย B ดันไปหลุดปากพูดความลับนั้นออกมาเพราะมันแชร์ความจำฐานข้อมูลกลางกัน",
-            "MixUA เข้ามาเปลี่ยนเกมด้วยการใส่ 'ระบบคัดกรอง' (Granular Memory Extraction) ที่เหมือนกับการจัดระเบียบตู้เอกสาร มันไม่ได้เก็บทุกอย่างไว้ในถังเดียว แต่มันจะวิเคราะห์ว่าบทเรียนไหนเป็นความลับส่วนบุคคล (User-specific), บทเรียนไหนเป็นทักษะเฉพาะ (Agent-specific), และบทเรียนไหนที่เป็นความรู้ทั่วไป (Global) ซึ่งสามารถแชร์ให้คนอื่นได้โดยไม่กระทบต่อความเป็นส่วนตัว",
-            "ผลลัพธ์คือ AI เก่งขึ้นอย่างรวดเร็วจากการแชร์บทเรียนที่ควรแชร์ แต่ก็มีความปลอดภัยสูงมากจากการกั้นพรมแดนข้อมูลที่ไม่ควรยุ่ง การทดลองแสดงให้เห็นว่ามันสามารถจำความชอบของผู้ใช้ได้ถึง 90% และแทบไม่มีความลับรั่วไหล (0.02%) ทำให้มันเป็นโซลูชันที่น่าจับตามองมากสำหรับระบบ SaaS ที่ต้องดูแลลูกค้าหลายคนพร้อมกัน"
-          ],
-          "impact_comparison": {
-            "before": "การเก็บความจำแบบรวมศูนย์เสี่ยงต่อข้อมูลรั่วไหล หรือต้องแยกก้อนความจำเด็ดขาดทำให้ Agent ไม่ได้เรียนรู้จากประสบการณ์ร่วมกัน",
-            "after": "ระบบฉลาดขึ้นแบบ Hybrid ที่แชร์ทักษะได้แต่กั้นข้อมูลส่วนตัวไว้ได้อย่างมิดชิด",
-            "why_it_matters": "ช่วยให้ระบบ Multi-agent มีความปลอดภัยพอที่จะนำไปใช้ในระดับองค์กรที่ต้องการ Privacy สูง"
-          },
-          "use_cases": [
-            {
-              "title": "ระบบ AI ผู้ช่วยส่วนตัวในระดับ Enterprise",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ใช้ MixUA เพื่อแยกแยะสิทธิการเข้าถึงข้อมูล (RBAC) ในระดับหน่วยความจำของ Agent",
-              "example": "Agent ที่ช่วยเตรียมงานให้พนักงานแต่ละคน แต่สามารถแชร์เทคนิคการจัดตารางงานที่ดีได้โดยไม่ต้องเปิดเผยรายละเอียดงาน"
-            },
-            {
-              "title": "การทำระบบ SaaS หลายผู้เช่า (Multi-tenancy)",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "เพิ่มความเชื่อมั่นให้ลูกค้าว่าข้อมูลของพวกเขาจะไม่รั่วไหลไปสู่ลูกค้าบริษัทอื่น แม้จะใช้ AI โมเดลเดียวกัน",
-              "example": "แพลตฟอร์ม AI วินิจฉัยเบื้องต้นที่เรียนรู้จากเคสคนไข้ในภาพรวมแต่ไม่เปิดเผยข้อมูลส่วนบุคคล"
-            },
-            {
-              "title": "การจัดการฐานความรู้ในองค์กร (Internal Knowledge Base)",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "สร้าง AI ที่เรียนรู้กระบวนการทำงานในแผนกโดยไม่เปิดเผยความลับของลูกค้าแต่ละราย",
-              "example": "Agent ช่วยทีมเซลล์ที่เรียนรู้เทคนิคการขายจากทั่วองค์กร แต่ข้อมูลลูกค้าถูกเก็บแยกตามเขตการขาย"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับคำชมในเชิงสถาปัตยกรรมระบบที่ตอบโจทย์ Privacy-first AI",
-            "praises": [
-              "ดีไซน์การแยกชั้นความจำ (Scope-based memory) ชัดเจนและทำได้จริง",
-              "การทำ Benchmark (CrossLearnBench) ที่เน้นเรื่องความเป็นส่วนตัวถือว่าทำออกมาได้ดี"
-            ],
-            "critiques": [
-              "อาจมีความซับซ้อนในการ Setup ระบบฐานข้อมูลตอนเริ่มต้น",
-              "ผลกระทบต่อ Latency ของการเรียกใช้ความจำอาจต้องได้รับการทดสอบเพิ่มเติมในระดับ Production"
-            ],
-            "hype_score": 8
-          }
-        },
-        {
-          "id": "2607.13920",
-          "title": "DeepStress: Stress-Testing Deep Search Agents",
-          "authors": [
-            "Ismael Rousseau",
-            "Geraldine Damnati",
-            "Frederic Bechet"
-          ],
-          "organization": "Orange",
-          "upvotes": 7,
-          "num_comments": 8,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
-          "arxiv_url": "https://arxiv.org/abs/2607.13920",
-          "pdf_url": "https://arxiv.org/pdf/2607.13920",
-          "hf_url": "https://huggingface.co/papers/2607.13920",
-          "github_url": null,
-          "github_stars": null,
+          "updated_at": "2026-11-16T03:06:01.333Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.08219",
+          "pdf_url": "https://arxiv.org/pdf/2611.08219",
+          "hf_url": "https://huggingface.co/papers/2611.08219",
+          "github_url": "https://github.com/ZJU-REAL/Agent-R2",
+          "github_stars": 9,
           "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2607.13920.png",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.08219.png",
           "media_urls": [],
           "category": "AI Agents & Memory",
-          "reading_time_minutes": 5,
-          "hook_headline": "เลิกเชื่อใจ Agent ของคุณจนกว่าจะผ่าน DeepStress: เมื่อ AI ตอบมั่วแต่ดูมั่นใจเกินร้อย",
-          "short_teaser": "ปัญหาใหญ่ของ AI Search Agents คือความอ่อนไหวต่อข้อมูลที่ไม่มีคุณภาพ ซึ่งปกติเราหาจุดบอดนี้ยากมาก เปเปอร์นี้จึงเสนอวิธี 'Stress-Test' ด้วยข้อมูลปลอมที่สร้างขึ้นมาทดสอบความฉลาดในการคัดกรองความจริงโดยเฉพาะ",
+          "reading_time_minutes": 6,
+          "hook_headline": "Agent-R^2: เปลี่ยน AI ให้ทำงานจริงเหมือนพนักงานมือโปร ด้วยข้อมูลฝึกสอนจากโลกธุรกิจขนานแท้",
+          "short_teaser": "ปัญหาใหญ่ของ AI Agent คือมักทำตัวเหมือนทฤษฎีจ๋าแต่ทำงานจริงพลาดบ่อย เปเปอร์นี้เสนอวิธีสร้างข้อมูลสอน AI จากสถานการณ์ทำงานจริงเพื่อให้มันทำงงานได้เนียนกว่าเดิม",
           "tldr_takeaways": [
-            "DeepStress สร้างสภาพแวดล้อมจำลองเพื่อป้อนข้อมูลที่เชื่อถือไม่ได้ให้ Agent",
-            "พบว่า Agent รุ่นปัจจุบันมักตอบคำถามด้วยความมั่นใจสูงแม้หลักฐานจะเป็นเท็จก็ตาม",
-            "การวัดผลแบบเดิม (Binary Accuracy) ไม่พอ เราต้องการตัวชี้วัดความรอบคอบและความคุ้มค่าของทรัพยากรเพิ่ม"
+            "เปลี่ยนจากการใช้ข้อมูลสังเคราะห์แบบเดาๆ มาใช้ข้อมูลจากแหล่งงานจริง (Real-Source)",
+            "เน้นการเทรนให้ AI สามารถสร้างผลลัพธ์ที่ใช้งานได้จริง (Deliverable-level) ไม่ใช่แค่คุยเก่ง",
+            "รุ่น 4B ของ Agent-R^2 สามารถเอาชนะโมเดลยักษ์ใหญ่ได้ในงานสายงานธุรการและเอกสาร"
           ],
           "layman_story": [
-            "ปกติเราทดสอบ AI ด้วยการถามคำถามจากชุดข้อมูลมาตรฐาน (Benchmark) ซึ่งข้อมูลมักจะคัดกรองมาดีแล้ว ทำให้เราเห็นภาพแค่ว่า AI เก่งแค่ไหนในโลกอุดมคติ แต่ในชีวิตจริง ข้อมูลบนอินเทอร์เน็ตนั้นเต็มไปด้วยข่าวปลอม ข้อมูลขยะ หรือการบิดเบือน ซึ่ง Agent ที่เราสร้างขึ้นมักจะสอบตกเมื่อเจอข้อมูลเหล่านี้เพราะมันถูกสอนมาให้ตอบคำถาม แต่ไม่ได้ถูกสอนให้ 'ระแวง' หรือ 'ตรวจสอบ' ความน่าเชื่อถือของแหล่งข้อมูล",
-            "DeepStress เข้ามาแก้ปัญหานี้โดยการจำลองโลกคู่ขนานที่ระบบ Retrieval จะถูกแทนที่ด้วย 'ผู้สร้างข้อมูลจำลอง' ที่เราควบคุมได้ 100% ว่าจะให้ข้อมูลไหนน่าเชื่อถือแค่ไหน หรือข้อมูลไหนมั่วแค่ไหน เปรียบเสมือนการส่ง Agent ไปลงสนามฝึกที่จำลองสถานการณ์เลวร้ายที่สุด เพื่อดูว่าเมื่อมันเจอข้อมูลที่ขัดแย้งกัน หรือเจอแหล่งข่าวที่ไม่น่าเชื่อถือ มันยังจะเผลอเอาข้อมูลขยะเหล่านั้นมาตอบคำถามอีกหรือไม่",
-            "ผลการทดลองเผยให้เห็นความจริงที่น่าตกใจว่า หลายครั้งที่ Agent ตอบคำถามได้ถูกต้อง ไม่ใช่เพราะมันวิเคราะห์ข้อมูลได้ดี แต่เพราะมันใช้ 'ความจำเดิม' (Parametric knowledge) มาตอบเดาๆ แม้ว่าข้อมูลที่เราส่งให้มันจะเป็นเรื่องโกหกทั้งเพก็ตาม งานวิจัยนี้ช่วยให้เราเลิกวัดแค่ความแม่นยำ (Accuracy) แต่หันมาวัด 'ความน่าเชื่อถือ' (Reliability) ซึ่งเป็นกุญแจสำคัญในการสร้าง AI สำหรับองค์กรที่ห้ามพลาดแม้แต่จุดเดียว"
+            "ทุกวันนี้เราสอน AI ให้ทำงานด้วยการป้อนบทสนทนาจำลอง แต่งานจริงในออฟฟิศนั้นยากกว่านั้นมาก เช่น ต้องจัดการไฟล์หลายประเภท ต้องทำตามลำดับขั้นตอนที่ละเอียดอ่อน และที่สำคัญคือต้องผลิตไฟล์ผลลัพธ์ที่ใช้ได้จริง ไม่ใช่แค่พิมพ์คำตอบสวยๆ ในแชท",
+            "Agent-R^2 เข้ามาแก้ปัญหานี้โดยการ 'เลิก' ใช้ข้อมูลปลอมที่สร้างขึ้นด้วย AI แล้วเปลี่ยนมาใช้ข้อมูลจากงานจริงๆ ถึง 4,000 รายการ โดยคัดเลือกมาจากแหล่งข้อมูลที่คนทำงานใช้อยู่จริง เช่น Workflow การจัดการเอกสาร เพื่อให้ AI เรียนรู้ว่าจะต้อง 'Grounding' หรืออ้างอิงข้อมูลอย่างไรให้ถูกต้อง ไม่ใช่แค่เดาสุ่ม",
+            "ผลลัพธ์ที่ได้นั้นน่าทึ่งมาก เพราะโมเดลที่ขนาดเล็กกว่ามหาศาลกลับทำงานได้แม่นยำกว่าโมเดลยักษ์หลายเท่าในงานเฉพาะทาง มันลดพฤติกรรม 'ทางลัด' ของ AI ที่ชอบมั่วคำตอบให้ดูดีแต่ผิดหลักการ ทำให้คนในวงการตื่นเต้นว่านี่อาจเป็นจุดเริ่มต้นของยุคที่ AI ทำงานออฟฟิศได้เหมือนพนักงานคนหนึ่งจริงๆ"
           ],
           "impact_comparison": {
-            "before": "วัดผลแบบเดิมๆ ที่ดูแค่ว่าตอบถูกไหม แต่ไม่รู้เลยว่าถ้าข้อมูลต้นทางเปลี่ยนไปเป็นข้อมูลขยะ ระบบจะยังทำงานได้รักษาระดับความปลอดภัยไว้ได้หรือไม่",
-            "after": "เปลี่ยนเป็นการวัดผลเชิงโครงสร้าง (Stress-Test) ที่รู้ซึ้งถึงจุดตายของ Agent ทำให้เราสามารถปรับจูนหรือกำหนดความระมัดระวัง (Caution) ของ Agent ได้ชัดเจนขึ้น",
-            "why_it_matters": "ช่วยให้เราสร้าง AI ที่มีความเป็นผู้ใหญ่ (Robustness) มากขึ้น รู้จักปฏิเสธเมื่อข้อมูลไม่เพียงพอ หรือรู้เท่าทันข้อมูลที่เป็นอันตราย"
+            "before": "ต้องคอยสอน AI ด้วยการทำ Fine-tuning แบบกว้างๆ ซึ่งมักไม่ได้ผลดีกับงานเอกสารที่ซับซ้อน",
+            "after": "ใช้ข้อมูลที่อิงจากงานจริง ทำให้ AI มีความเข้าใจใน Workflow และสามารถผลิตงานที่ตรวจสอบได้จริง",
+            "why_it_matters": "ช่วยเปลี่ยนผ่านจากการใช้ AI เพื่อตอบคำถาม ไปสู่การใช้ AI เพื่อ 'ลงมือทำ' งานให้สำเร็จตั้งแต่ต้นจนจบ"
           },
           "use_cases": [
             {
-              "title": "ระบบตรวจสอบความถูกต้องข้อมูล (Fact-Checking)",
+              "title": "AI ช่วยทำรายงานสรุปประชุมและจัดการเอกสาร",
               "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ใช้ framework นี้ทดสอบ Agent ก่อน deploy เพื่อสร้างเกณฑ์การกรองข้อมูลที่น่าเชื่อถือ",
-              "example": "ทดสอบ Agent ที่อ่านข่าวสารตลาดหุ้นเพื่อให้แน่ใจว่ามันจะไม่เอาข่าวลือมาตัดสินใจซื้อขาย"
+              "description": "ปรับแต่ง Agent ให้เข้าใจโครงสร้างเอกสารขององค์กรและผลิตไฟล์ที่แก้ไขต่อได้ทันที",
+              "example": "AI สามารถร่างบันทึกข้อตกลง (MOU) จากบันทึกการประชุมโดยดึงเงื่อนไขสำคัญมาใส่ให้ครบโดยอัตโนมัติ"
             },
             {
-              "title": "การประเมินความเสี่ยงองค์กร",
+              "title": "SaaS ระบบงานธุรการอัจฉริยะ",
               "role": "สำหรับสร้าง Product / SaaS",
-              "description": "เพิ่มฟีเจอร์รายงานความมั่นใจ (Confidence Score) ที่ผ่านการทดสอบ stress-test",
-              "example": "ระบบ Customer Support AI ที่ต้องตอบคำถามด้านกฎหมายและแสดงระดับความน่าเชื่อถือของแหล่งอ้างอิง"
+              "description": "สร้างบริการ AI ที่ช่วยจัดการ Workflow ภายในบริษัท เช่น การทำเรื่องอนุมัติงบ",
+              "example": "แพลตฟอร์มที่ AI สามารถตรวจสอบเอกสารเบิกจ่าย เทียบกับนโยบายบริษัท และสรุปผลได้แม่นยำ 100%"
             },
             {
-              "title": "AI ตรวจสอบความถูกต้องของเอกสารวิจัย",
+              "title": "AI ผู้ช่วยฝ่ายกฎหมาย/บัญชี",
               "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้เป็นมาตรฐานการทดสอบก่อนใช้เครื่องมือ AI ในงานเชิงวิชาการ",
-              "example": "ระบบคัดกรองข้อมูลจากอินเทอร์เน็ตก่อนสรุปบทความทางการแพทย์"
+              "description": "ใช้สำหรับตรวจสอบความถูกต้องของสัญญาหรือตัวเลขในเอกสารตามมาตรฐานวิชาชีพ",
+              "example": "AI ตรวจสอบว่าร่างสัญญาซื้อขายมีเงื่อนไขครบถ้วนตามหลักเกณฑ์ที่บริษัทกำหนดไว้หรือไม่"
             }
           ],
           "community_pulse": {
-            "summary": "ได้รับความสนใจในแง่ของความพยายามในการสร้างมาตรฐานการวัดผลที่เคร่งครัดกว่าเดิม",
+            "summary": "เป็นที่ฮือฮาเพราะแสดงให้เห็นว่า 'คุณภาพข้อมูลสำคัญกว่าปริมาณข้อมูลขนาดมหาศาล'",
             "praises": [
-              "แนวคิดการวัดความน่าเชื่อถือ (Reliability) แทนการวัดแค่ความถูกต้อง",
-              "ความพยายามในการทำ Stress-test ที่เลียนแบบสถานการณ์จริงได้แยบยล"
+              "พิสูจน์ให้เห็นว่าโมเดลขนาดเล็กก็เก่งกว่ายักษ์ใหญ่ได้ถ้าข้อมูลเทรนดีพอ",
+              "แนวทางการสร้างข้อมูลมีความเป็นมืออาชีพและใช้งานได้จริง"
             ],
             "critiques": [
-              "สภาพแวดล้อมจำลอง (Synthetic environment) อาจจะยังครอบคลุมความซับซ้อนของเว็บจริงไม่ได้ทั้งหมด",
-              "ตัวชี้วัดใหม่ (RAS, CoPRAS) อาจต้องใช้เวลาในการทำความเข้าใจและนำไปปรับใช้"
+              "การหาข้อมูลที่เป็น Real-source ในบางอุตสาหกรรมอาจติดปัญหาเรื่องความเป็นส่วนตัว",
+              "ต้องศึกษาเพิ่มเติมว่าโมเดลจะรักษาความเก่งนี้ไว้ได้นานแค่ไหนเมื่อเจอสถานการณ์ที่ใหม่มากๆ"
             ],
-            "hype_score": 7.5
+            "hype_score": 9
           }
         },
         {
@@ -1320,10 +1483,10 @@
             "Jun Wang"
           ],
           "organization": null,
-          "upvotes": 6,
-          "num_comments": 3,
+          "upvotes": 7,
+          "num_comments": 7,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16961",
           "pdf_url": "https://arxiv.org/pdf/2611.16961",
           "hf_url": "https://huggingface.co/papers/2611.16961",
@@ -1388,82 +1551,6 @@
           }
         },
         {
-          "id": "2611.08219",
-          "title": "Agent-R^2: Scaling Agents for Realistic Productivity Work via Real-Source Data Synthesis",
-          "authors": [
-            "Teng Pan",
-            "Zixuan Wang",
-            "Yuchen Yan",
-            "Qifei Wu",
-            "Yao Chen",
-            "Yingqi Qu"
-          ],
-          "organization": "Zhejiang University",
-          "upvotes": 6,
-          "num_comments": 3,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.08219",
-          "pdf_url": "https://arxiv.org/pdf/2611.08219",
-          "hf_url": "https://huggingface.co/papers/2611.08219",
-          "github_url": "https://github.com/ZJU-REAL/Agent-R2",
-          "github_stars": 8,
-          "project_url": null,
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.08219.png",
-          "media_urls": [],
-          "category": "AI Agents & Memory",
-          "reading_time_minutes": 6,
-          "hook_headline": "Agent-R^2: เปลี่ยน AI ให้ทำงานจริงเหมือนพนักงานมือโปร ด้วยข้อมูลฝึกสอนจากโลกธุรกิจขนานแท้",
-          "short_teaser": "ปัญหาใหญ่ของ AI Agent คือมักทำตัวเหมือนทฤษฎีจ๋าแต่ทำงานจริงพลาดบ่อย เปเปอร์นี้เสนอวิธีสร้างข้อมูลสอน AI จากสถานการณ์ทำงานจริงเพื่อให้มันทำงงานได้เนียนกว่าเดิม",
-          "tldr_takeaways": [
-            "เปลี่ยนจากการใช้ข้อมูลสังเคราะห์แบบเดาๆ มาใช้ข้อมูลจากแหล่งงานจริง (Real-Source)",
-            "เน้นการเทรนให้ AI สามารถสร้างผลลัพธ์ที่ใช้งานได้จริง (Deliverable-level) ไม่ใช่แค่คุยเก่ง",
-            "รุ่น 4B ของ Agent-R^2 สามารถเอาชนะโมเดลยักษ์ใหญ่ได้ในงานสายงานธุรการและเอกสาร"
-          ],
-          "layman_story": [
-            "ทุกวันนี้เราสอน AI ให้ทำงานด้วยการป้อนบทสนทนาจำลอง แต่งานจริงในออฟฟิศนั้นยากกว่านั้นมาก เช่น ต้องจัดการไฟล์หลายประเภท ต้องทำตามลำดับขั้นตอนที่ละเอียดอ่อน และที่สำคัญคือต้องผลิตไฟล์ผลลัพธ์ที่ใช้ได้จริง ไม่ใช่แค่พิมพ์คำตอบสวยๆ ในแชท",
-            "Agent-R^2 เข้ามาแก้ปัญหานี้โดยการ 'เลิก' ใช้ข้อมูลปลอมที่สร้างขึ้นด้วย AI แล้วเปลี่ยนมาใช้ข้อมูลจากงานจริงๆ ถึง 4,000 รายการ โดยคัดเลือกมาจากแหล่งข้อมูลที่คนทำงานใช้อยู่จริง เช่น Workflow การจัดการเอกสาร เพื่อให้ AI เรียนรู้ว่าจะต้อง 'Grounding' หรืออ้างอิงข้อมูลอย่างไรให้ถูกต้อง ไม่ใช่แค่เดาสุ่ม",
-            "ผลลัพธ์ที่ได้นั้นน่าทึ่งมาก เพราะโมเดลที่ขนาดเล็กกว่ามหาศาลกลับทำงานได้แม่นยำกว่าโมเดลยักษ์หลายเท่าในงานเฉพาะทาง มันลดพฤติกรรม 'ทางลัด' ของ AI ที่ชอบมั่วคำตอบให้ดูดีแต่ผิดหลักการ ทำให้คนในวงการตื่นเต้นว่านี่อาจเป็นจุดเริ่มต้นของยุคที่ AI ทำงานออฟฟิศได้เหมือนพนักงานคนหนึ่งจริงๆ"
-          ],
-          "impact_comparison": {
-            "before": "ต้องคอยสอน AI ด้วยการทำ Fine-tuning แบบกว้างๆ ซึ่งมักไม่ได้ผลดีกับงานเอกสารที่ซับซ้อน",
-            "after": "ใช้ข้อมูลที่อิงจากงานจริง ทำให้ AI มีความเข้าใจใน Workflow และสามารถผลิตงานที่ตรวจสอบได้จริง",
-            "why_it_matters": "ช่วยเปลี่ยนผ่านจากการใช้ AI เพื่อตอบคำถาม ไปสู่การใช้ AI เพื่อ 'ลงมือทำ' งานให้สำเร็จตั้งแต่ต้นจนจบ"
-          },
-          "use_cases": [
-            {
-              "title": "AI ช่วยทำรายงานสรุปประชุมและจัดการเอกสาร",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "ปรับแต่ง Agent ให้เข้าใจโครงสร้างเอกสารขององค์กรและผลิตไฟล์ที่แก้ไขต่อได้ทันที",
-              "example": "AI สามารถร่างบันทึกข้อตกลง (MOU) จากบันทึกการประชุมโดยดึงเงื่อนไขสำคัญมาใส่ให้ครบโดยอัตโนมัติ"
-            },
-            {
-              "title": "SaaS ระบบงานธุรการอัจฉริยะ",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "สร้างบริการ AI ที่ช่วยจัดการ Workflow ภายในบริษัท เช่น การทำเรื่องอนุมัติงบ",
-              "example": "แพลตฟอร์มที่ AI สามารถตรวจสอบเอกสารเบิกจ่าย เทียบกับนโยบายบริษัท และสรุปผลได้แม่นยำ 100%"
-            },
-            {
-              "title": "AI ผู้ช่วยฝ่ายกฎหมาย/บัญชี",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้สำหรับตรวจสอบความถูกต้องของสัญญาหรือตัวเลขในเอกสารตามมาตรฐานวิชาชีพ",
-              "example": "AI ตรวจสอบว่าร่างสัญญาซื้อขายมีเงื่อนไขครบถ้วนตามหลักเกณฑ์ที่บริษัทกำหนดไว้หรือไม่"
-            }
-          ],
-          "community_pulse": {
-            "summary": "เป็นที่ฮือฮาเพราะแสดงให้เห็นว่า 'คุณภาพข้อมูลสำคัญกว่าปริมาณข้อมูลขนาดมหาศาล'",
-            "praises": [
-              "พิสูจน์ให้เห็นว่าโมเดลขนาดเล็กก็เก่งกว่ายักษ์ใหญ่ได้ถ้าข้อมูลเทรนดีพอ",
-              "แนวทางการสร้างข้อมูลมีความเป็นมืออาชีพและใช้งานได้จริง"
-            ],
-            "critiques": [
-              "การหาข้อมูลที่เป็น Real-source ในบางอุตสาหกรรมอาจติดปัญหาเรื่องความเป็นส่วนตัว",
-              "ต้องศึกษาเพิ่มเติมว่าโมเดลจะรักษาความเก่งนี้ไว้ได้นานแค่ไหนเมื่อเจอสถานการณ์ที่ใหม่มากๆ"
-            ],
-            "hype_score": 9
-          }
-        },
-        {
           "id": "2611.16409",
           "title": "Experience-Handoff Reinforcement Learning for Recursive Self-Improvement",
           "authors": [
@@ -1473,10 +1560,10 @@
             "Sherry Yang"
           ],
           "organization": "KAIST AI",
-          "upvotes": 5,
+          "upvotes": 7,
           "num_comments": 5,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16409",
           "pdf_url": "https://arxiv.org/pdf/2611.16409",
           "hf_url": "https://huggingface.co/papers/2611.16409",
@@ -1538,6 +1625,155 @@
           }
         },
         {
+          "id": "2607.13920",
+          "title": "DeepStress: Stress-Testing Deep Search Agents",
+          "authors": [
+            "Ismael Rousseau",
+            "Geraldine Damnati",
+            "Frederic Bechet"
+          ],
+          "organization": "Orange",
+          "upvotes": 7,
+          "num_comments": 8,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-16T03:06:01.333Z",
+          "arxiv_url": "https://arxiv.org/abs/2607.13920",
+          "pdf_url": "https://arxiv.org/pdf/2607.13920",
+          "hf_url": "https://huggingface.co/papers/2607.13920",
+          "github_url": null,
+          "github_stars": null,
+          "project_url": null,
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2607.13920.png",
+          "media_urls": [],
+          "category": "AI Agents & Memory",
+          "reading_time_minutes": 5,
+          "hook_headline": "เลิกเชื่อใจ Agent ของคุณจนกว่าจะผ่าน DeepStress: เมื่อ AI ตอบมั่วแต่ดูมั่นใจเกินร้อย",
+          "short_teaser": "ปัญหาใหญ่ของ AI Search Agents คือความอ่อนไหวต่อข้อมูลที่ไม่มีคุณภาพ ซึ่งปกติเราหาจุดบอดนี้ยากมาก เปเปอร์นี้จึงเสนอวิธี 'Stress-Test' ด้วยข้อมูลปลอมที่สร้างขึ้นมาทดสอบความฉลาดในการคัดกรองความจริงโดยเฉพาะ",
+          "tldr_takeaways": [
+            "DeepStress สร้างสภาพแวดล้อมจำลองเพื่อป้อนข้อมูลที่เชื่อถือไม่ได้ให้ Agent",
+            "พบว่า Agent รุ่นปัจจุบันมักตอบคำถามด้วยความมั่นใจสูงแม้หลักฐานจะเป็นเท็จก็ตาม",
+            "การวัดผลแบบเดิม (Binary Accuracy) ไม่พอ เราต้องการตัวชี้วัดความรอบคอบและความคุ้มค่าของทรัพยากรเพิ่ม"
+          ],
+          "layman_story": [
+            "ปกติเราทดสอบ AI ด้วยการถามคำถามจากชุดข้อมูลมาตรฐาน (Benchmark) ซึ่งข้อมูลมักจะคัดกรองมาดีแล้ว ทำให้เราเห็นภาพแค่ว่า AI เก่งแค่ไหนในโลกอุดมคติ แต่ในชีวิตจริง ข้อมูลบนอินเทอร์เน็ตนั้นเต็มไปด้วยข่าวปลอม ข้อมูลขยะ หรือการบิดเบือน ซึ่ง Agent ที่เราสร้างขึ้นมักจะสอบตกเมื่อเจอข้อมูลเหล่านี้เพราะมันถูกสอนมาให้ตอบคำถาม แต่ไม่ได้ถูกสอนให้ 'ระแวง' หรือ 'ตรวจสอบ' ความน่าเชื่อถือของแหล่งข้อมูล",
+            "DeepStress เข้ามาแก้ปัญหานี้โดยการจำลองโลกคู่ขนานที่ระบบ Retrieval จะถูกแทนที่ด้วย 'ผู้สร้างข้อมูลจำลอง' ที่เราควบคุมได้ 100% ว่าจะให้ข้อมูลไหนน่าเชื่อถือแค่ไหน หรือข้อมูลไหนมั่วแค่ไหน เปรียบเสมือนการส่ง Agent ไปลงสนามฝึกที่จำลองสถานการณ์เลวร้ายที่สุด เพื่อดูว่าเมื่อมันเจอข้อมูลที่ขัดแย้งกัน หรือเจอแหล่งข่าวที่ไม่น่าเชื่อถือ มันยังจะเผลอเอาข้อมูลขยะเหล่านั้นมาตอบคำถามอีกหรือไม่",
+            "ผลการทดลองเผยให้เห็นความจริงที่น่าตกใจว่า หลายครั้งที่ Agent ตอบคำถามได้ถูกต้อง ไม่ใช่เพราะมันวิเคราะห์ข้อมูลได้ดี แต่เพราะมันใช้ 'ความจำเดิม' (Parametric knowledge) มาตอบเดาๆ แม้ว่าข้อมูลที่เราส่งให้มันจะเป็นเรื่องโกหกทั้งเพก็ตาม งานวิจัยนี้ช่วยให้เราเลิกวัดแค่ความแม่นยำ (Accuracy) แต่หันมาวัด 'ความน่าเชื่อถือ' (Reliability) ซึ่งเป็นกุญแจสำคัญในการสร้าง AI สำหรับองค์กรที่ห้ามพลาดแม้แต่จุดเดียว"
+          ],
+          "impact_comparison": {
+            "before": "วัดผลแบบเดิมๆ ที่ดูแค่ว่าตอบถูกไหม แต่ไม่รู้เลยว่าถ้าข้อมูลต้นทางเปลี่ยนไปเป็นข้อมูลขยะ ระบบจะยังทำงานได้รักษาระดับความปลอดภัยไว้ได้หรือไม่",
+            "after": "เปลี่ยนเป็นการวัดผลเชิงโครงสร้าง (Stress-Test) ที่รู้ซึ้งถึงจุดตายของ Agent ทำให้เราสามารถปรับจูนหรือกำหนดความระมัดระวัง (Caution) ของ Agent ได้ชัดเจนขึ้น",
+            "why_it_matters": "ช่วยให้เราสร้าง AI ที่มีความเป็นผู้ใหญ่ (Robustness) มากขึ้น รู้จักปฏิเสธเมื่อข้อมูลไม่เพียงพอ หรือรู้เท่าทันข้อมูลที่เป็นอันตราย"
+          },
+          "use_cases": [
+            {
+              "title": "ระบบตรวจสอบความถูกต้องข้อมูล (Fact-Checking)",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "ใช้ framework นี้ทดสอบ Agent ก่อน deploy เพื่อสร้างเกณฑ์การกรองข้อมูลที่น่าเชื่อถือ",
+              "example": "ทดสอบ Agent ที่อ่านข่าวสารตลาดหุ้นเพื่อให้แน่ใจว่ามันจะไม่เอาข่าวลือมาตัดสินใจซื้อขาย"
+            },
+            {
+              "title": "การประเมินความเสี่ยงองค์กร",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "เพิ่มฟีเจอร์รายงานความมั่นใจ (Confidence Score) ที่ผ่านการทดสอบ stress-test",
+              "example": "ระบบ Customer Support AI ที่ต้องตอบคำถามด้านกฎหมายและแสดงระดับความน่าเชื่อถือของแหล่งอ้างอิง"
+            },
+            {
+              "title": "AI ตรวจสอบความถูกต้องของเอกสารวิจัย",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้เป็นมาตรฐานการทดสอบก่อนใช้เครื่องมือ AI ในงานเชิงวิชาการ",
+              "example": "ระบบคัดกรองข้อมูลจากอินเทอร์เน็ตก่อนสรุปบทความทางการแพทย์"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจในแง่ของความพยายามในการสร้างมาตรฐานการวัดผลที่เคร่งครัดกว่าเดิม",
+            "praises": [
+              "แนวคิดการวัดความน่าเชื่อถือ (Reliability) แทนการวัดแค่ความถูกต้อง",
+              "ความพยายามในการทำ Stress-test ที่เลียนแบบสถานการณ์จริงได้แยบยล"
+            ],
+            "critiques": [
+              "สภาพแวดล้อมจำลอง (Synthetic environment) อาจจะยังครอบคลุมความซับซ้อนของเว็บจริงไม่ได้ทั้งหมด",
+              "ตัวชี้วัดใหม่ (RAS, CoPRAS) อาจต้องใช้เวลาในการทำความเข้าใจและนำไปปรับใช้"
+            ],
+            "hype_score": 7.5
+          }
+        },
+        {
+          "id": "2611.17336",
+          "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+          "authors": [
+            "Yanke Song",
+            "Shuo Chen",
+            "Chris Rockwell",
+            "Guande He",
+            "Nan Liu",
+            "Desai Xie"
+          ],
+          "organization": "Roblox Corporation",
+          "upvotes": 6,
+          "num_comments": 10,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-16T03:06:01.333Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.17336",
+          "pdf_url": "https://arxiv.org/pdf/2611.17336",
+          "hf_url": "https://huggingface.co/papers/2611.17336",
+          "github_url": null,
+          "github_stars": null,
+          "project_url": "https://chenshuo20.github.io/PixVid/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17336.png",
+          "media_urls": [],
+          "category": "Vision, Audio & Multimodal",
+          "reading_time_minutes": 4,
+          "hook_headline": "ยกระดับวิดีโอ AI ให้คมชัดแบบ Pixel-by-Pixel ด้วย PixVid: ก้าวข้ามข้อจำกัดของ Latent Space เดิมๆ",
+          "short_teaser": "การสร้างวิดีโอด้วย AI แบบเดิมมักต้องบีบอัดภาพผ่าน VAE ทำให้เสียความละเอียดและหน่วงเวลา PixVid จึงเข้ามาเปลี่ยนเกมด้วยการประมวลผลโดยตรงใน Pixel Space ที่ให้ภาพคมชัดกว่าและตอบสนองไวกว่าเดิม",
+          "tldr_takeaways": [
+            "PixVid เปลี่ยนมาใช้ Convolutional Head แทน VAE Decoder แบบเดิมเพื่อสร้างวิดีโอโดยตรงในระดับ Pixel",
+            "รองรับความละเอียดที่สูงขึ้นเป็น 2 เท่าโดยใช้ Token เท่าเดิมต่อเฟรม ทำให้ประหยัดทรัพยากรคำนวณ",
+            "ลด Latency ในการโต้ตอบแบบ Real-time ช่วยให้การตัดต่อวิดีโอที่ใช้ Depth เป็นเงื่อนไขแม่นยำยิ่งขึ้น"
+          ],
+          "layman_story": [
+            "โมเดลสร้างวิดีโอในปัจจุบันส่วนใหญ่ต้องบีบอัดข้อมูลภาพลงในพื้นที่สมมติที่เรียกว่า Latent Space เพื่อให้โมเดลประมวลผลได้ง่ายขึ้น แต่วิธีนี้มีปัญหาตรงที่ยิ่งเราต้องการความละเอียดสูง ข้อมูลยิ่งมหาศาล แถมยังต้องรอสร้างภาพเป็นกลุ่ม (Chunk) ไม่สามารถสร้างทีละเฟรมได้ทันที ทำให้เวลาเราสั่งให้ AI แก้ไขวิดีโอที่มีการเคลื่อนไหวเร็วๆ ภาพมักจะเบลอหรือคุมตำแหน่งได้ยาก",
+            "ทีมงานจาก Roblox จึงคิดค้น PixVid ขึ้นมาโดยตัดตัวการบีบอัด (VAE) ออกไป แล้วใช้ Convolutional Head แทน เพื่อให้โมเดลสามารถ 'วาด' พิกเซลลงในเฟรมได้โดยตรง เปรียบเหมือนการเปลี่ยนจากการร่างภาพคร่าวๆ ในสมุดโน้ตแล้วค่อยขยายขนาด เป็นการลงสีด้วยพู่กันลงบนผืนผ้าใบจริงทันที ช่วยให้โมเดลไม่ต้องเดาภาพจากข้อมูลที่ถูกบีบอัดมา",
+            "ผลลัพธ์ที่ได้คือวิดีโอที่คมชัดระดับ HD ที่เราคุ้นเคย การตอบสนองต่อคำสั่งแบบเฟรมต่อเฟรมทำได้รวดเร็วทันใจ และที่สำคัญคือจัดการกับรายละเอียดเล็กๆ น้อยๆ ได้ดีขึ้นมากจนนักวิจัยในสายงาน Interactive Media ต่างหันมาให้ความสนใจเพราะมันเปิดโอกาสให้เราสร้างเครื่องมือ AI ที่โต้ตอบกับมนุษย์ได้เหมือนการเล่นเกมจริงๆ"
+          ],
+          "impact_comparison": {
+            "before": "การทำงานบน Latent Space ทำให้ต้องรอการประมวลผลเป็นบล็อกเฟรม และเสียรายละเอียดความคมชัดไปกับการบีบอัด",
+            "after": "สร้างวิดีโอที่ Pixel-perfect ได้โดยตรง ให้ความละเอียดสูงขึ้น 2 เท่า และลดอาการกระตุกของการสร้างภาพ",
+            "why_it_matters": "เป็นก้าวสำคัญสำหรับอนาคตของ Generative Media ที่ต้องการทั้งความคมชัดระดับมืออาชีพและการตอบสนองแบบ Interactive"
+          },
+          "use_cases": [
+            {
+              "title": "เครื่องมือสร้างภาพยนตร์อนิเมชันแบบ Real-time",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "นำไปปรับใช้ใน Pipeline ของการสร้างสื่อที่ต้องการความเร็วและการปรับแต่งเฉพาะจุดบนหน้าจอ",
+              "example": "การสร้าง NPC ในเกมที่ขยับท่าทางตามสถานการณ์โดยที่ภาพยังคงความคมชัดและลื่นไหล"
+            },
+            {
+              "title": "ฟีเจอร์แต่งวิดีโออัตโนมัติความละเอียดสูง",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "พัฒนาแอปพลิเคชันตัดต่อวิดีโอ AI ที่สามารถใส่ Effect หรือเปลี่ยนพื้นหลังวิดีโอระดับ 4K ได้ทันที",
+              "example": "แอปฯ ตัดต่อที่ให้ผู้ใช้พิมพ์คำสั่งเพื่อเปลี่ยนองค์ประกอบในวิดีโอโดยที่ภาพไม่แตกหรือบิดเบี้ยว"
+            },
+            {
+              "title": "งานออกแบบสถาปัตยกรรมและอินทีเรีย",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้ PixVid สร้างวิดีโอ Walkthrough แบบละเอียดในระดับพิกเซลที่คมชัดกว่าโมเดลแบบเดิม",
+              "example": "การเปลี่ยนสไตล์การแต่งห้องในวิดีโอแบบสดๆ ขณะลูกค้ากำลังเลือกเฟอร์นิเจอร์ผ่าน AR"
+            }
+          ],
+          "community_pulse": {
+            "summary": "ได้รับความสนใจสูงจากกลุ่ม Computer Vision ที่มองว่าเป็นการแก้ปัญหาคอขวดของการใช้ VAE ได้อย่างตรงจุด",
+            "praises": [
+              "แนวคิดการกลับมาใช้ Pixel Space ที่เรียบง่ายแต่ทรงพลัง",
+              "การประยุกต์ใช้กับ Wan2.1 ที่ทำให้เห็นศักยภาพการขยายผลที่กว้างมาก"
+            ],
+            "critiques": [
+              "การคำนวณที่เพิ่มขึ้นในระดับ Pixel อาจต้องใช้ GPU แรงขึ้นในอนาคต",
+              "ยังต้องรอดูประสิทธิภาพเมื่อขยายไปสู่การสร้างวิดีโอที่มีความยาวมากๆ"
+            ],
+            "hype_score": 8.8
+          }
+        },
+        {
           "id": "2611.16009",
           "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
           "authors": [
@@ -1552,7 +1788,7 @@
           "upvotes": 5,
           "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16009",
           "pdf_url": "https://arxiv.org/pdf/2611.16009",
           "hf_url": "https://huggingface.co/papers/2611.16009",
@@ -1627,7 +1863,7 @@
           "upvotes": 5,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.00359",
           "pdf_url": "https://arxiv.org/pdf/2611.00359",
           "hf_url": "https://huggingface.co/papers/2611.00359",
@@ -1689,82 +1925,6 @@
           }
         },
         {
-          "id": "2611.17336",
-          "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
-          "authors": [
-            "Yanke Song",
-            "Shuo Chen",
-            "Chris Rockwell",
-            "Guande He",
-            "Nan Liu",
-            "Desai Xie"
-          ],
-          "organization": "Roblox Corporation",
-          "upvotes": 4,
-          "num_comments": 6,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.17336",
-          "pdf_url": "https://arxiv.org/pdf/2611.17336",
-          "hf_url": "https://huggingface.co/papers/2611.17336",
-          "github_url": null,
-          "github_stars": null,
-          "project_url": "https://chenshuo20.github.io/PixVid/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.17336.png",
-          "media_urls": [],
-          "category": "Vision, Audio & Multimodal",
-          "reading_time_minutes": 4,
-          "hook_headline": "ยกระดับวิดีโอ AI ให้คมชัดแบบ Pixel-by-Pixel ด้วย PixVid: ก้าวข้ามข้อจำกัดของ Latent Space เดิมๆ",
-          "short_teaser": "การสร้างวิดีโอด้วย AI แบบเดิมมักต้องบีบอัดภาพผ่าน VAE ทำให้เสียความละเอียดและหน่วงเวลา PixVid จึงเข้ามาเปลี่ยนเกมด้วยการประมวลผลโดยตรงใน Pixel Space ที่ให้ภาพคมชัดกว่าและตอบสนองไวกว่าเดิม",
-          "tldr_takeaways": [
-            "PixVid เปลี่ยนมาใช้ Convolutional Head แทน VAE Decoder แบบเดิมเพื่อสร้างวิดีโอโดยตรงในระดับ Pixel",
-            "รองรับความละเอียดที่สูงขึ้นเป็น 2 เท่าโดยใช้ Token เท่าเดิมต่อเฟรม ทำให้ประหยัดทรัพยากรคำนวณ",
-            "ลด Latency ในการโต้ตอบแบบ Real-time ช่วยให้การตัดต่อวิดีโอที่ใช้ Depth เป็นเงื่อนไขแม่นยำยิ่งขึ้น"
-          ],
-          "layman_story": [
-            "โมเดลสร้างวิดีโอในปัจจุบันส่วนใหญ่ต้องบีบอัดข้อมูลภาพลงในพื้นที่สมมติที่เรียกว่า Latent Space เพื่อให้โมเดลประมวลผลได้ง่ายขึ้น แต่วิธีนี้มีปัญหาตรงที่ยิ่งเราต้องการความละเอียดสูง ข้อมูลยิ่งมหาศาล แถมยังต้องรอสร้างภาพเป็นกลุ่ม (Chunk) ไม่สามารถสร้างทีละเฟรมได้ทันที ทำให้เวลาเราสั่งให้ AI แก้ไขวิดีโอที่มีการเคลื่อนไหวเร็วๆ ภาพมักจะเบลอหรือคุมตำแหน่งได้ยาก",
-            "ทีมงานจาก Roblox จึงคิดค้น PixVid ขึ้นมาโดยตัดตัวการบีบอัด (VAE) ออกไป แล้วใช้ Convolutional Head แทน เพื่อให้โมเดลสามารถ 'วาด' พิกเซลลงในเฟรมได้โดยตรง เปรียบเหมือนการเปลี่ยนจากการร่างภาพคร่าวๆ ในสมุดโน้ตแล้วค่อยขยายขนาด เป็นการลงสีด้วยพู่กันลงบนผืนผ้าใบจริงทันที ช่วยให้โมเดลไม่ต้องเดาภาพจากข้อมูลที่ถูกบีบอัดมา",
-            "ผลลัพธ์ที่ได้คือวิดีโอที่คมชัดระดับ HD ที่เราคุ้นเคย การตอบสนองต่อคำสั่งแบบเฟรมต่อเฟรมทำได้รวดเร็วทันใจ และที่สำคัญคือจัดการกับรายละเอียดเล็กๆ น้อยๆ ได้ดีขึ้นมากจนนักวิจัยในสายงาน Interactive Media ต่างหันมาให้ความสนใจเพราะมันเปิดโอกาสให้เราสร้างเครื่องมือ AI ที่โต้ตอบกับมนุษย์ได้เหมือนการเล่นเกมจริงๆ"
-          ],
-          "impact_comparison": {
-            "before": "การทำงานบน Latent Space ทำให้ต้องรอการประมวลผลเป็นบล็อกเฟรม และเสียรายละเอียดความคมชัดไปกับการบีบอัด",
-            "after": "สร้างวิดีโอที่ Pixel-perfect ได้โดยตรง ให้ความละเอียดสูงขึ้น 2 เท่า และลดอาการกระตุกของการสร้างภาพ",
-            "why_it_matters": "เป็นก้าวสำคัญสำหรับอนาคตของ Generative Media ที่ต้องการทั้งความคมชัดระดับมืออาชีพและการตอบสนองแบบ Interactive"
-          },
-          "use_cases": [
-            {
-              "title": "เครื่องมือสร้างภาพยนตร์อนิเมชันแบบ Real-time",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำไปปรับใช้ใน Pipeline ของการสร้างสื่อที่ต้องการความเร็วและการปรับแต่งเฉพาะจุดบนหน้าจอ",
-              "example": "การสร้าง NPC ในเกมที่ขยับท่าทางตามสถานการณ์โดยที่ภาพยังคงความคมชัดและลื่นไหล"
-            },
-            {
-              "title": "ฟีเจอร์แต่งวิดีโออัตโนมัติความละเอียดสูง",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "พัฒนาแอปพลิเคชันตัดต่อวิดีโอ AI ที่สามารถใส่ Effect หรือเปลี่ยนพื้นหลังวิดีโอระดับ 4K ได้ทันที",
-              "example": "แอปฯ ตัดต่อที่ให้ผู้ใช้พิมพ์คำสั่งเพื่อเปลี่ยนองค์ประกอบในวิดีโอโดยที่ภาพไม่แตกหรือบิดเบี้ยว"
-            },
-            {
-              "title": "งานออกแบบสถาปัตยกรรมและอินทีเรีย",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้ PixVid สร้างวิดีโอ Walkthrough แบบละเอียดในระดับพิกเซลที่คมชัดกว่าโมเดลแบบเดิม",
-              "example": "การเปลี่ยนสไตล์การแต่งห้องในวิดีโอแบบสดๆ ขณะลูกค้ากำลังเลือกเฟอร์นิเจอร์ผ่าน AR"
-            }
-          ],
-          "community_pulse": {
-            "summary": "ได้รับความสนใจสูงจากกลุ่ม Computer Vision ที่มองว่าเป็นการแก้ปัญหาคอขวดของการใช้ VAE ได้อย่างตรงจุด",
-            "praises": [
-              "แนวคิดการกลับมาใช้ Pixel Space ที่เรียบง่ายแต่ทรงพลัง",
-              "การประยุกต์ใช้กับ Wan2.1 ที่ทำให้เห็นศักยภาพการขยายผลที่กว้างมาก"
-            ],
-            "critiques": [
-              "การคำนวณที่เพิ่มขึ้นในระดับ Pixel อาจต้องใช้ GPU แรงขึ้นในอนาคต",
-              "ยังต้องรอดูประสิทธิภาพเมื่อขยายไปสู่การสร้างวิดีโอที่มีความยาวมากๆ"
-            ],
-            "hype_score": 8.8
-          }
-        },
-        {
           "id": "2611.17190",
           "title": "Consensus Capture in Reference-Based UAV Video Stabilization: A Benchmark on Dynamic Urban Scenes",
           "authors": [
@@ -1775,7 +1935,7 @@
           "upvotes": 4,
           "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.17190",
           "pdf_url": "https://arxiv.org/pdf/2611.17190",
           "hf_url": "https://huggingface.co/papers/2611.17190",
@@ -1852,7 +2012,7 @@
           "upvotes": 4,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.09567",
           "pdf_url": "https://arxiv.org/pdf/2611.09567",
           "hf_url": "https://huggingface.co/papers/2611.09567",
@@ -1930,7 +2090,7 @@
           "upvotes": 4,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.12872",
           "pdf_url": "https://arxiv.org/pdf/2611.12872",
           "hf_url": "https://huggingface.co/papers/2611.12872",
@@ -2004,7 +2164,7 @@
           "upvotes": 4,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2610.41453",
           "pdf_url": "https://arxiv.org/pdf/2610.41453",
           "hf_url": "https://huggingface.co/papers/2610.41453",
@@ -2077,7 +2237,7 @@
           "upvotes": 4,
           "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.00428",
           "pdf_url": "https://arxiv.org/pdf/2611.00428",
           "hf_url": "https://huggingface.co/papers/2611.00428",
@@ -2148,7 +2308,7 @@
           "upvotes": 4,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16321",
           "pdf_url": "https://arxiv.org/pdf/2611.16321",
           "hf_url": "https://huggingface.co/papers/2611.16321",
@@ -2222,7 +2382,7 @@
           "upvotes": 3,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.12750",
           "pdf_url": "https://arxiv.org/pdf/2611.12750",
           "hf_url": "https://huggingface.co/papers/2611.12750",
@@ -2296,7 +2456,7 @@
           "upvotes": 3,
           "num_comments": 4,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.14256",
           "pdf_url": "https://arxiv.org/pdf/2611.14256",
           "hf_url": "https://huggingface.co/papers/2611.14256",
@@ -2358,6 +2518,82 @@
           }
         },
         {
+          "id": "2611.15094",
+          "title": "A frontier machine intelligence for human neuroimaging",
+          "authors": [
+            "Chenhui Zhao",
+            "Akshay Rao",
+            "Akhil Kondepudi",
+            "Yiwei Lyu",
+            "Xinhai Hou",
+            "Rikhil Seshadri"
+          ],
+          "organization": "Machine Learning in Neurosurgery Lab",
+          "upvotes": 2,
+          "num_comments": 2,
+          "published_date": "2026-11-13",
+          "updated_at": "2026-11-16T03:06:01.333Z",
+          "arxiv_url": "https://arxiv.org/abs/2611.15094",
+          "pdf_url": "https://arxiv.org/pdf/2611.15094",
+          "hf_url": "https://huggingface.co/papers/2611.15094",
+          "github_url": "https://github.com/MLNeurosurg/neuro-vl",
+          "github_stars": 5,
+          "project_url": "https://neurovl.mlins.org/",
+          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.15094.png",
+          "media_urls": [],
+          "category": "Vision, Audio & Multimodal",
+          "reading_time_minutes": 4,
+          "hook_headline": "ยกระดับการแพทย์ด้วย Neuro-VL: เมื่อ AI อ่านฟิล์มสมองได้แม่นยำกว่าโมเดลยักษ์ใหญ่",
+          "short_teaser": "การแพทย์ยุคใหม่ต้องการมากกว่าโมเดลทั่วไป Neuro-VL คือคำตอบสำหรับการวิเคราะห์ภาพถ่ายทางสมองที่ผ่านการฝึกฝนจากข้อมูลจริงเกือบหนึ่งล้านเคส",
+          "tldr_takeaways": [
+            "Neuro-VL ถูกออกแบบมาเพื่อวิเคราะห์ภาพถ่ายสมองโดยเฉพาะ เหนือกว่าโมเดล General-purpose ทั่วไป",
+            "สามารถอ่านผลและเขียนรายงานรังสีวิทยาได้ละเอียดและแม่นยำแม้ในเคสที่ซับซ้อน",
+            "มีความสามารถในการเปรียบเทียบผลตรวจย้อนหลังเพื่อวิเคราะห์ความก้าวหน้าของโรคได้จริง"
+          ],
+          "layman_story": [
+            "ปัญหาเดิมของ AI ทางการแพทย์คือ 'ความกว้างแต่ไม่ลึก' ถึงแม้โมเดลอย่าง GPT-4 หรือ Gemini จะเก่งเรื่องทั่วไป แต่เมื่อต้องเจอกับภาพถ่ายสมอง (Neuroimaging) ที่ซับซ้อนและต้องการบริบททางคลินิกที่เฉพาะเจาะจง โมเดลเหล่านี้มักจะพลาดหรือให้ข้อมูลที่ไม่ตรงจุด ทำให้แพทย์ยังคงต้องใช้เวลามหาศาลในการตรวจสอบเองทั้งหมด",
+            "เปเปอร์นี้ได้นำเสนอ Neuro-VL ซึ่งเปรียบเสมือน 'รังสีแพทย์ผู้ช่วย' ที่ผ่านการเรียนรู้จากข้อมูลผลตรวจสมองจริงนับล้านเคส แทนที่จะอ่านภาพแบบผิวเผิน AI ตัวนี้ถูกเทรนให้ 'เข้าใจ' โครงสร้างสมองและภาษาทางการแพทย์ ทำให้มันสามารถสนทนาโต้ตอบเกี่ยวกับผลการตรวจและช่วยวิเคราะห์ความผิดปกติในจุดที่ยากจะสังเกตเห็นได้",
+            "ผลลัพธ์ที่ได้นั้นน่าทึ่งมาก เพราะ Neuro-VL สามารถเอาชนะโมเดลระดับแนวหน้าของโลกในงานด้านการตรวจวินิจฉัยและแปลผลภาพ นอกจากความแม่นยำแล้ว จุดเด่นที่สุดคือความสามารถในการวิเคราะห์แนวโน้มของโรคในระยะยาว (Longitudinal) ซึ่งเปลี่ยนจากการคาดเดาแบบจุดต่อจุด เป็นการติดตามอาการคนไข้อย่างเป็นระบบ"
+          ],
+          "impact_comparison": {
+            "before": "การวินิจฉัยต้องพึ่งพารังสีแพทย์อย่างหนัก โมเดล AI เดิมมักให้ความเห็นที่ผิดพลาดหรือขาดบริบทของประวัติคนไข้",
+            "after": "เปลี่ยนเป็น AI ที่สามารถช่วยคัดกรองเคสหนักและร่างรายงานสรุปผลได้อัตโนมัติ ช่วยลดภาระงานของแพทย์ได้มหาศาล",
+            "why_it_matters": "นี่คือจุดเริ่มต้นของการใช้ AI ที่ไม่ใช่แค่เครื่องมือเปรียบเทียบ แต่เป็นพาร์ทเนอร์ในระบบสาธารณสุขที่มีความเชี่ยวชาญเฉพาะทางสูง"
+          },
+          "use_cases": [
+            {
+              "title": "ระบบคัดกรองรังสีฉุกเฉิน",
+              "role": "สำหรับนักพัฒนา / AI Engineer",
+              "description": "นำ Neuro-VL ไปวางเป็นชั้นกรอง (Triage layer) หน้าหน่วยรังสีวินิจฉัย เพื่อเรียงลำดับเคสวิกฤตให้แพทย์ตรวจสอบก่อน",
+              "example": "แจ้งเตือนแพทย์ทันทีเมื่อพบสัญญาณเลือดออกในสมอง (Intracranial hemorrhage) ในไฟล์ภาพที่เพิ่งอัปโหลด"
+            },
+            {
+              "title": "แพลตฟอร์มติดตามอาการผู้ป่วยทางสมอง",
+              "role": "สำหรับสร้าง Product / SaaS",
+              "description": "พัฒนา SaaS สำหรับโรงพยาบาลที่เชื่อมโยงผลตรวจย้อนหลังมาเปรียบเทียบให้เห็นพัฒนาการของก้อนเนื้อหรือรอยโรค",
+              "example": "แดชบอร์ดสรุปเปรียบเทียบภาพ MRI ของผู้ป่วยมะเร็งสมองในช่วง 3 ปีที่ผ่านมาว่ามีการเปลี่ยนแปลงอย่างไร"
+            },
+            {
+              "title": "ระบบช่วยตัดสินใจเชิงคลินิก",
+              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
+              "description": "ใช้เป็นเครื่องมือประกอบการตัดสินใจสำหรับรังสีแพทย์ในการร่างผลตรวจเบื้องต้นให้รวดเร็วขึ้น",
+              "example": "AI ร่างรายงานการตรวจสมองตามมาตรฐานสากล โดยแพทย์เพียงแค่ตรวจสอบและยืนยันความถูกต้อง"
+            }
+          ],
+          "community_pulse": {
+            "summary": "เป็นที่ฮือฮาในหมู่นักวิจัยสาย MedTech ที่มองว่านี่คือโมเดลเฉพาะทาง (Domain-specific) ที่ก้าวข้ามขีดจำกัดของ LLM ทั่วไป",
+            "praises": [
+              "ความสามารถในการประมวลผลข้อมูลมหาศาล (1 ล้านเคส) ทำให้ AI มีความรู้เชิงลึกที่น่าเชื่อถือ",
+              "ความแม่นยำในการระบุตำแหน่งความผิดปกติ (Localization) ทำได้เหนือชั้นกว่าโมเดลทั่วไป"
+            ],
+            "critiques": [
+              "ข้อจำกัดเรื่องความเป็นส่วนตัวของข้อมูลผู้ป่วย (Privacy) ในการนำไปใช้จริงในไทยหรือต่างประเทศ",
+              "ยังต้องอาศัยการกำกับดูแลโดยผู้เชี่ยวชาญมนุษย์เสมอ ไม่สามารถทำงานแทนแพทย์ได้ 100%"
+            ],
+            "hype_score": 9.2
+          }
+        },
+        {
           "id": "2611.14046",
           "title": "Structured Confidence Perturbation via Fisher Geometry for Adversarial Training",
           "authors": [
@@ -2372,7 +2608,7 @@
           "upvotes": 2,
           "num_comments": 3,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.14046",
           "pdf_url": "https://arxiv.org/pdf/2611.14046",
           "hf_url": "https://huggingface.co/papers/2611.14046",
@@ -2448,7 +2684,7 @@
           "upvotes": 1,
           "num_comments": 2,
           "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
+          "updated_at": "2026-11-16T03:06:01.333Z",
           "arxiv_url": "https://arxiv.org/abs/2611.16728",
           "pdf_url": "https://arxiv.org/pdf/2611.16728",
           "hf_url": "https://huggingface.co/papers/2611.16728",
@@ -2509,82 +2745,6 @@
               "การจัดการกับความต่างของ Sensor ระหว่างโมเดลยังมีความซับซ้อนในรายละเอียด"
             ],
             "hype_score": 8.9
-          }
-        },
-        {
-          "id": "2611.15094",
-          "title": "A frontier machine intelligence for human neuroimaging",
-          "authors": [
-            "Chenhui Zhao",
-            "Akshay Rao",
-            "Akhil Kondepudi",
-            "Yiwei Lyu",
-            "Xinhai Hou",
-            "Rikhil Seshadri"
-          ],
-          "organization": "Machine Learning in Neurosurgery Lab",
-          "upvotes": 1,
-          "num_comments": 2,
-          "published_date": "2026-11-13",
-          "updated_at": "2026-11-15T08:58:09.648Z",
-          "arxiv_url": "https://arxiv.org/abs/2611.15094",
-          "pdf_url": "https://arxiv.org/pdf/2611.15094",
-          "hf_url": "https://huggingface.co/papers/2611.15094",
-          "github_url": "https://github.com/MLNeurosurg/neuro-vl",
-          "github_stars": 5,
-          "project_url": "https://neurovl.mlins.org/",
-          "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2611.15094.png",
-          "media_urls": [],
-          "category": "Vision, Audio & Multimodal",
-          "reading_time_minutes": 4,
-          "hook_headline": "ยกระดับการแพทย์ด้วย Neuro-VL: เมื่อ AI อ่านฟิล์มสมองได้แม่นยำกว่าโมเดลยักษ์ใหญ่",
-          "short_teaser": "การแพทย์ยุคใหม่ต้องการมากกว่าโมเดลทั่วไป Neuro-VL คือคำตอบสำหรับการวิเคราะห์ภาพถ่ายทางสมองที่ผ่านการฝึกฝนจากข้อมูลจริงเกือบหนึ่งล้านเคส",
-          "tldr_takeaways": [
-            "Neuro-VL ถูกออกแบบมาเพื่อวิเคราะห์ภาพถ่ายสมองโดยเฉพาะ เหนือกว่าโมเดล General-purpose ทั่วไป",
-            "สามารถอ่านผลและเขียนรายงานรังสีวิทยาได้ละเอียดและแม่นยำแม้ในเคสที่ซับซ้อน",
-            "มีความสามารถในการเปรียบเทียบผลตรวจย้อนหลังเพื่อวิเคราะห์ความก้าวหน้าของโรคได้จริง"
-          ],
-          "layman_story": [
-            "ปัญหาเดิมของ AI ทางการแพทย์คือ 'ความกว้างแต่ไม่ลึก' ถึงแม้โมเดลอย่าง GPT-4 หรือ Gemini จะเก่งเรื่องทั่วไป แต่เมื่อต้องเจอกับภาพถ่ายสมอง (Neuroimaging) ที่ซับซ้อนและต้องการบริบททางคลินิกที่เฉพาะเจาะจง โมเดลเหล่านี้มักจะพลาดหรือให้ข้อมูลที่ไม่ตรงจุด ทำให้แพทย์ยังคงต้องใช้เวลามหาศาลในการตรวจสอบเองทั้งหมด",
-            "เปเปอร์นี้ได้นำเสนอ Neuro-VL ซึ่งเปรียบเสมือน 'รังสีแพทย์ผู้ช่วย' ที่ผ่านการเรียนรู้จากข้อมูลผลตรวจสมองจริงนับล้านเคส แทนที่จะอ่านภาพแบบผิวเผิน AI ตัวนี้ถูกเทรนให้ 'เข้าใจ' โครงสร้างสมองและภาษาทางการแพทย์ ทำให้มันสามารถสนทนาโต้ตอบเกี่ยวกับผลการตรวจและช่วยวิเคราะห์ความผิดปกติในจุดที่ยากจะสังเกตเห็นได้",
-            "ผลลัพธ์ที่ได้นั้นน่าทึ่งมาก เพราะ Neuro-VL สามารถเอาชนะโมเดลระดับแนวหน้าของโลกในงานด้านการตรวจวินิจฉัยและแปลผลภาพ นอกจากความแม่นยำแล้ว จุดเด่นที่สุดคือความสามารถในการวิเคราะห์แนวโน้มของโรคในระยะยาว (Longitudinal) ซึ่งเปลี่ยนจากการคาดเดาแบบจุดต่อจุด เป็นการติดตามอาการคนไข้อย่างเป็นระบบ"
-          ],
-          "impact_comparison": {
-            "before": "การวินิจฉัยต้องพึ่งพารังสีแพทย์อย่างหนัก โมเดล AI เดิมมักให้ความเห็นที่ผิดพลาดหรือขาดบริบทของประวัติคนไข้",
-            "after": "เปลี่ยนเป็น AI ที่สามารถช่วยคัดกรองเคสหนักและร่างรายงานสรุปผลได้อัตโนมัติ ช่วยลดภาระงานของแพทย์ได้มหาศาล",
-            "why_it_matters": "นี่คือจุดเริ่มต้นของการใช้ AI ที่ไม่ใช่แค่เครื่องมือเปรียบเทียบ แต่เป็นพาร์ทเนอร์ในระบบสาธารณสุขที่มีความเชี่ยวชาญเฉพาะทางสูง"
-          },
-          "use_cases": [
-            {
-              "title": "ระบบคัดกรองรังสีฉุกเฉิน",
-              "role": "สำหรับนักพัฒนา / AI Engineer",
-              "description": "นำ Neuro-VL ไปวางเป็นชั้นกรอง (Triage layer) หน้าหน่วยรังสีวินิจฉัย เพื่อเรียงลำดับเคสวิกฤตให้แพทย์ตรวจสอบก่อน",
-              "example": "แจ้งเตือนแพทย์ทันทีเมื่อพบสัญญาณเลือดออกในสมอง (Intracranial hemorrhage) ในไฟล์ภาพที่เพิ่งอัปโหลด"
-            },
-            {
-              "title": "แพลตฟอร์มติดตามอาการผู้ป่วยทางสมอง",
-              "role": "สำหรับสร้าง Product / SaaS",
-              "description": "พัฒนา SaaS สำหรับโรงพยาบาลที่เชื่อมโยงผลตรวจย้อนหลังมาเปรียบเทียบให้เห็นพัฒนาการของก้อนเนื้อหรือรอยโรค",
-              "example": "แดชบอร์ดสรุปเปรียบเทียบภาพ MRI ของผู้ป่วยมะเร็งสมองในช่วง 3 ปีที่ผ่านมาว่ามีการเปลี่ยนแปลงอย่างไร"
-            },
-            {
-              "title": "ระบบช่วยตัดสินใจเชิงคลินิก",
-              "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-              "description": "ใช้เป็นเครื่องมือประกอบการตัดสินใจสำหรับรังสีแพทย์ในการร่างผลตรวจเบื้องต้นให้รวดเร็วขึ้น",
-              "example": "AI ร่างรายงานการตรวจสมองตามมาตรฐานสากล โดยแพทย์เพียงแค่ตรวจสอบและยืนยันความถูกต้อง"
-            }
-          ],
-          "community_pulse": {
-            "summary": "เป็นที่ฮือฮาในหมู่นักวิจัยสาย MedTech ที่มองว่านี่คือโมเดลเฉพาะทาง (Domain-specific) ที่ก้าวข้ามขีดจำกัดของ LLM ทั่วไป",
-            "praises": [
-              "ความสามารถในการประมวลผลข้อมูลมหาศาล (1 ล้านเคส) ทำให้ AI มีความรู้เชิงลึกที่น่าเชื่อถือ",
-              "ความแม่นยำในการระบุตำแหน่งความผิดปกติ (Localization) ทำได้เหนือชั้นกว่าโมเดลทั่วไป"
-            ],
-            "critiques": [
-              "ข้อจำกัดเรื่องความเป็นส่วนตัวของข้อมูลผู้ป่วย (Privacy) ในการนำไปใช้จริงในไทยหรือต่างประเทศ",
-              "ยังต้องอาศัยการกำกับดูแลโดยผู้เชี่ยวชาญมนุษย์เสมอ ไม่สามารถทำงานแทนแพทย์ได้ 100%"
-            ],
-            "hype_score": 9.2
           }
         }
       ]
