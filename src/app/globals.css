@@ -38,45 +38,47 @@
   background: linear-gradient(90deg, #c2410c 0%, #ea580c 48%, #fb923c 100%);
 }
 
-/* Scroll-Aware Floating Capsule Navbar */
+/* Scroll-Aware Floating Capsule Navbar — GPU compositor-only shrink (zero layout reflow) */
 .capsule-nav {
-  background: rgba(14, 14, 18, 0.82);
-  -webkit-backdrop-filter: blur(22px) saturate(1.45);
-  backdrop-filter: blur(22px) saturate(1.45);
+  background: rgba(13, 13, 17, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-pill);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.09) inset,
-    0 14px 36px -14px rgba(0, 0, 0, 0.78);
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 12px 28px -12px rgba(0, 0, 0, 0.78);
+  transform: translate3d(0, 0, 0) scale(1);
+  transform-origin: top center;
+  will-change: transform;
   transition:
-    max-width 280ms var(--ease-out),
-    padding 280ms var(--ease-out),
-    background-color 240ms var(--ease-out),
-    border-color 240ms var(--ease-out),
-    box-shadow 240ms var(--ease-out),
-    transform 240ms var(--ease-out);
+    transform 220ms var(--ease-out),
+    background-color 200ms var(--ease-out),
+    border-color 200ms var(--ease-out),
+    box-shadow 200ms var(--ease-out);
 }
 
 .capsule-nav[data-scrolled="true"] {
-  background: rgba(10, 10, 13, 0.92);
-  border-color: rgba(234, 88, 12, 0.34);
+  background: rgba(9, 9, 12, 0.96);
+  border-color: rgba(234, 88, 12, 0.36);
+  transform: translate3d(0, -2px, 0) scale(0.955);
   box-shadow:
-    0 1px 0 rgba(251, 146, 60, 0.22) inset,
-    0 20px 46px -12px rgba(0, 0, 0, 0.94),
+    0 1px 0 rgba(251, 146, 60, 0.2) inset,
+    0 16px 34px -12px rgba(0, 0, 0, 0.92),
     0 0 0 1px rgba(234, 88, 12, 0.14);
 }
 
 /* Instant Bottom Floating Reader Dock */
 .reader-dock {
-  background: rgba(11, 11, 15, 0.94);
-  -webkit-backdrop-filter: blur(24px) saturate(1.5);
-  backdrop-filter: blur(24px) saturate(1.5);
+  background: rgba(11, 11, 15, 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-pill);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.12) inset,
-    0 22px 52px -12px rgba(0, 0, 0, 0.95),
-    0 0 0 1px rgba(234, 88, 12, 0.24);
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 18px 40px -12px rgba(0, 0, 0, 0.92),
+    0 0 0 1px rgba(234, 88, 12, 0.22);
 }
 
 /* Editorial Magazine Hero Cover Stage */
@@ -90,7 +92,8 @@
     radial-gradient(ellipse 68% 68% at 96% 0%, rgba(234, 88, 12, 0.2) 0%, transparent 60%),
     linear-gradient(160deg, #15151a 0%, #0f0f13 60%, #09090b 100%);
   box-shadow: var(--shadow-card);
-  transition: border-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+  contain: layout style paint;
+  transition: border-color var(--dur-short) var(--ease-out);
 }
 
 .ember-hero-stage:hover {
@@ -102,36 +105,42 @@
   border-radius: var(--radius-card);
   border: 1px solid var(--color-rule);
   background: linear-gradient(180deg, #131317 0%, #0e0e12 100%);
+  contain: layout style paint;
 }
 
 /* Glass Surface */
 .dusk-glass {
-  background: var(--glass);
+  background: rgba(14, 14, 18, 0.94);
   border-radius: var(--radius-card);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
-  backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   box-shadow: var(--glass-hi), var(--shadow-card);
 }
 
-/* Editorial News-Blog Card (Edge-to-edge cover, clean hierarchy) */
+/* Editorial News-Blog Card (Edge-to-edge cover, isolated paint containment) */
 .blog-card {
   position: relative;
   overflow: hidden;
   background: #121216;
   border: 1px solid var(--color-rule);
   border-radius: var(--radius-card);
+  contain: layout style paint;
   transition:
     border-color var(--dur-short) var(--ease-out),
     background-color var(--dur-short) var(--ease-out),
-    transform var(--dur-short) var(--ease-out),
-    box-shadow var(--dur-short) var(--ease-out);
+    transform var(--dur-short) var(--ease-out);
+}
+
+/* Apply strictly to below-the-fold grid cards to defer offscreen layout/paint */
+.blog-card-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 440px;
 }
 
 .blog-card:hover {
   background: #16161c;
   border-color: rgba(234, 88, 12, 0.55);
-  transform: translateY(-3px);
-  box-shadow: 0 22px 44px -22px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(234, 88, 12, 0.14);
+  transform: translate3d(0, -3px, 0);
 }
 
 .blog-card-new {

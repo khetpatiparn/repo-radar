@@ -70,18 +70,23 @@ export function Header({
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchOpenWhenScrolled, setSearchOpenWhenScrolled] = useState(false);
+  const scrolledRef = useRef(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const effectiveUpdatedAt = syncStatus?.last_sync_at || updatedAt;
 
-  // Scroll-aware dynamic capsule shrink / expand
+  // Scroll-aware dynamic capsule shrink / expand with hysteresis (prevents threshold bounce & wasted renders)
   useEffect(() => {
     if (typeof window === "undefined") return;
     const onScroll = () => {
-      const scrolled = window.scrollY > 40;
-      setIsScrolled(scrolled);
-      if (!scrolled) {
-        setSearchOpenWhenScrolled(false);
+      const y = window.scrollY;
+      const next = scrolledRef.current ? y > 16 : y > 56;
+      if (next !== scrolledRef.current) {
+        scrolledRef.current = next;
+        setIsScrolled(next);
+        if (!next) {
+          setSearchOpenWhenScrolled(false);
+        }
       }
     };
     onScroll();
@@ -189,20 +194,18 @@ export function Header({
     <>
       {/* ============================================================
        * SCROLL-AWARE FLOATING CAPSULE NAVBAR
-       * Wide & airy at top of page -> smoothly shrinks on scroll down
+       * Fixed outer height prevents scroll-jump; GPU scale shrinks smoothly on scroll
        * ============================================================ */}
       <div className="sticky top-3 z-[var(--z-sticky-nav)] w-full pointer-events-none px-3 sm:px-6 pt-3">
-        <div className="flex justify-center">
+        <div className="h-[54px] flex items-center justify-center">
           <nav
             aria-label="หมวดหมู่หลักของวารสาร"
             data-scrolled={isScrolled ? "true" : "false"}
-            className={`capsule-nav pointer-events-auto flex items-center justify-between gap-2 max-w-full ${
-              isScrolled
-                ? "w-auto max-w-[880px] px-2 py-1.5"
-                : "w-full max-w-[1260px] px-2.5 sm:px-3.5 py-2"
+            className={`capsule-nav pointer-events-auto flex items-center justify-between gap-2 max-w-full px-2.5 sm:px-3.5 py-2 ${
+              isScrolled ? "w-auto max-w-[900px]" : "w-full max-w-[1260px]"
             }`}
           >
-            {/* Left Brand Emblem (wordmark tucks in smoothly on scroll) */}
+            {/* Left Brand Emblem (wordmark tucks in cleanly on scroll) */}
             <button
               type="button"
               onClick={() => {
@@ -214,11 +217,7 @@ export function Header({
               className="inline-flex items-center gap-2.5 pl-1 pr-2 py-0.5 rounded-full hover:bg-white/5 transition-colors cursor-pointer shrink-0"
               title="กลับหน้าแรก THE REPO RADAR"
             >
-              <span
-                className={`rounded-full grad-brand flex items-center justify-center font-editorial-display font-bold text-white shadow-[var(--shadow-ember-glow)] shrink-0 transition-all duration-200 ${
-                  isScrolled ? "w-7 h-7 text-[11px]" : "w-8 h-8 text-xs"
-                }`}
-              >
+              <span className="w-8 h-8 text-xs rounded-full grad-brand flex items-center justify-center font-editorial-display font-bold text-white shadow-[var(--shadow-ember-glow)] shrink-0">
                 RR
               </span>
               {!isScrolled && (
@@ -234,11 +233,7 @@ export function Header({
                 type="button"
                 aria-current={activeSection === "papers" ? "page" : undefined}
                 onClick={() => onSelectSection("papers")}
-                className={`inline-flex items-center gap-1.5 rounded-full border font-editorial-label transition-all duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
-                  isScrolled
-                    ? "min-h-[32px] px-2.5 sm:px-3 py-1 text-xs"
-                    : "min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm"
-                } ${
+                className={`inline-flex items-center gap-1.5 min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-full border font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   activeSection === "papers"
                     ? "bg-ink text-paper border-ink font-semibold shadow-sm"
                     : "bg-transparent text-ink-2 border-transparent hover:bg-white/8 hover:text-ink"
@@ -269,11 +264,7 @@ export function Header({
                 type="button"
                 aria-current={activeSection === "repos" ? "page" : undefined}
                 onClick={() => onSelectSection("repos")}
-                className={`inline-flex items-center gap-1.5 rounded-full border font-editorial-label transition-all duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
-                  isScrolled
-                    ? "min-h-[32px] px-2.5 sm:px-3 py-1 text-xs"
-                    : "min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm"
-                } ${
+                className={`inline-flex items-center gap-1.5 min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-full border font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   activeSection === "repos"
                     ? "bg-ink text-paper border-ink font-semibold shadow-sm"
                     : "bg-transparent text-ink-2 border-transparent hover:bg-white/8 hover:text-ink"
@@ -304,11 +295,7 @@ export function Header({
                 type="button"
                 aria-current={activeSection === "news" ? "page" : undefined}
                 onClick={() => onSelectSection("news")}
-                className={`inline-flex items-center gap-1.5 rounded-full border font-editorial-label transition-all duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
-                  isScrolled
-                    ? "min-h-[32px] px-2.5 sm:px-3 py-1 text-xs"
-                    : "min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm"
-                } ${
+                className={`inline-flex items-center gap-1.5 min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-full border font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   activeSection === "news"
                     ? "bg-ink text-paper border-ink font-semibold shadow-sm"
                     : "bg-transparent text-ink-2 border-transparent hover:bg-white/8 hover:text-ink"
@@ -339,11 +326,7 @@ export function Header({
                 type="button"
                 aria-current={activeSection === "saved" ? "page" : undefined}
                 onClick={() => onSelectSection("saved")}
-                className={`inline-flex items-center gap-1.5 rounded-full border font-editorial-label transition-all duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
-                  isScrolled
-                    ? "min-h-[32px] px-2.5 sm:px-3 py-1 text-xs"
-                    : "min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm"
-                } ${
+                className={`inline-flex items-center gap-1.5 min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-full border font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   activeSection === "saved"
                     ? "bg-accent text-accent-ink border-accent font-semibold shadow-[var(--shadow-ember-glow)]"
                     : "bg-transparent text-ink-2 border-transparent hover:bg-white/8 hover:text-ink"
@@ -357,13 +340,7 @@ export function Header({
             {/* Right Search + Notification Bell */}
             <div className="flex items-center gap-1.5 shrink-0 relative">
               {showInlineSearch ? (
-                <div
-                  className={`relative transition-all duration-200 ${
-                    isScrolled
-                      ? "w-36 sm:w-44"
-                      : "w-36 sm:w-48 lg:w-56"
-                  }`}
-                >
+                <div className="relative w-36 sm:w-48 lg:w-56">
                   <Search className="w-3.5 h-3.5 text-muted absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <input
                     ref={searchInputRef}
@@ -376,9 +353,7 @@ export function Header({
                     }}
                     onChange={(e) => onSearch(e.target.value)}
                     placeholder="ค้นหาบทความ, หัวข้อ, ภาษา..."
-                    className={`w-full pl-8 pr-7 py-1 text-xs sm:text-sm font-editorial-label rounded-full border border-rule-2 bg-paper-3/90 text-ink placeholder:text-muted focus:bg-paper focus:border-accent-hi focus:outline-none ${
-                      isScrolled ? "min-h-[32px]" : "min-h-[36px]"
-                    }`}
+                    className="w-full min-h-[36px] pl-8 pr-7 py-1 text-xs sm:text-sm font-editorial-label rounded-full border border-rule-2 bg-paper-3/90 text-ink placeholder:text-muted focus:bg-paper focus:border-accent-hi focus:outline-none"
                   />
                   {searchQuery && (
                     <button
@@ -400,7 +375,7 @@ export function Header({
                   }}
                   aria-label="เปิดช่องค้นหา"
                   title="ค้นหาบทความ"
-                  className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-paper-3 border border-rule text-ink-2 hover:text-ink hover:border-accent-hi transition-colors cursor-pointer shrink-0"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-paper-3 border border-rule text-ink-2 hover:text-ink hover:border-accent-hi transition-colors cursor-pointer shrink-0"
                 >
                   <Search className="w-3.5 h-3.5" />
                 </button>
@@ -419,9 +394,7 @@ export function Header({
                     ? "รับข่าวเช้า: เปิด (คลิกเพื่อทดสอบ)"
                     : "เปิดแจ้งเตือนฉบับเช้าบนเบราว์เซอร์"
                 }
-                className={`inline-flex items-center justify-center rounded-full border transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 ${
-                  isScrolled ? "w-8 h-8" : "w-9 h-9"
-                } ${
+                className={`inline-flex items-center justify-center w-9 h-9 rounded-full border transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 ${
                   notifPermission === "granted"
                     ? "bg-accent text-accent-ink border-accent"
                     : "bg-paper-3 text-ink-2 border-rule hover:text-ink hover:border-accent-hi"
@@ -454,13 +427,13 @@ export function Header({
        * ============================================================ */}
       {!isReaderMode && (
         <header className="w-full relative overflow-hidden border-b border-rule/80">
-          {/* Ambient Ember Corner Wash */}
+          {/* Pure Radial Gradient Ember Corner Wash (zero GPU blur filter) */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -top-24 right-0 w-[440px] h-[200px] rounded-full opacity-20 blur-3xl"
+            className="pointer-events-none absolute -top-20 right-0 w-[460px] h-[220px]"
             style={{
               background:
-                "radial-gradient(circle, #ea580c 0%, #c2410c 45%, transparent 72%)",
+                "radial-gradient(ellipse at 70% 20%, rgba(234, 88, 12, 0.16) 0%, rgba(194, 65, 12, 0.06) 42%, transparent 72%)",
             }}
           />
 

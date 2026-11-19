@@ -120,8 +120,13 @@ export default function Home() {
     const timerId = window.setTimeout(hydrateFromStorage, 0);
     window.addEventListener("storage", hydrateFromStorage);
 
+    let lastShown = false;
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 350);
+      const next = window.scrollY > 350;
+      if (next !== lastShown) {
+        lastShown = next;
+        setShowBackToTop(next);
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {

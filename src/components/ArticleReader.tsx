@@ -332,8 +332,10 @@ export function ArticleReader({
   const [copiedFb, setCopiedFb] = useState(false);
   const [fbLiveStatus, setFbLiveStatus] = useState("");
   const [failedImgUrl, setFailedImgUrl] = useState<string | null>(null);
-  const [readProgress, setReadProgress] = useState(0);
 
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const progressTextRef = useRef<HTMLSpanElement>(null);
+  const progressContainerRef = useRef<HTMLDivElement>(null);
   const fbCopyToggleRef = useRef(false);
   const codeCopyToggleRef = useRef(false);
 
@@ -385,18 +387,40 @@ export function ArticleReader({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onBack]);
 
-  // Live reading progress for Floating Bottom Reader Dock
+  // Live reading progress for Floating Bottom Reader Dock (zero React re-renders on scroll)
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const updateProgress = () => {
+    let rafId = 0;
+    const paintProgress = () => {
+      rafId = 0;
       const doc = document.documentElement;
       const scrollable = Math.max(1, doc.scrollHeight - window.innerHeight);
-      const pct = Math.min(100, Math.max(0, Math.round((window.scrollY / scrollable) * 100)));
-      setReadProgress(pct);
+      const ratio = Math.min(1, Math.max(0, window.scrollY / scrollable));
+      const pct = Math.round(ratio * 100);
+      if (progressBarRef.current) {
+        progressBarRef.current.style.transform = `scaleX(${ratio})`;
+      }
+      if (progressTextRef.current) {
+        progressTextRef.current.textContent = `${pct}%`;
+      }
+      if (progressContainerRef.current) {
+        progressContainerRef.current.setAttribute(
+          "aria-label",
+          `ความคืบหน้าการอ่าน ${pct} เปอร์เซ็นต์`
+        );
+      }
     };
-    updateProgress();
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    return () => window.removeEventListener("scroll", updateProgress);
+    const onScroll = () => {
+      if (!rafId) {
+        rafId = window.requestAnimationFrame(paintProgress);
+      }
+    };
+    paintProgress();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const handleCopyFacebookPost = async () => {
@@ -458,16 +482,20 @@ export function ArticleReader({
 
         {/* Reading progress pill */}
         <div
+          ref={progressContainerRef}
           className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-paper-3/80 border border-rule text-[11px] font-editorial-label text-muted"
-          aria-label={`ความคืบหน้าการอ่าน ${readProgress} เปอร์เซ็นต์`}
+          aria-label="ความคืบหน้าการอ่าน 0 เปอร์เซ็นต์"
         >
           <div className="w-14 h-1.5 rounded-full bg-paper overflow-hidden">
             <div
-              className="h-full grad-ember-ribbon transition-[width] duration-150"
-              style={{ width: `${readProgress}%` }}
+              ref={progressBarRef}
+              className="h-full w-full origin-left grad-ember-ribbon"
+              style={{ transform: "scaleX(0)" }}
             />
           </div>
-          <span className="num text-ink-2 w-7 text-right">{readProgress}%</span>
+          <span ref={progressTextRef} className="num text-ink-2 w-7 text-right">
+            0%
+          </span>
         </div>
 
         {/* One-Click Copy Facebook Post */}

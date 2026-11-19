@@ -204,16 +204,17 @@ export function NewsSection({
                       fit="cover"
                       aspect="16/9"
                       edgeToEdge
+                      priority
                       isNew={Boolean(freshness?.isUnreadNew)}
                       topRightAction={
                         <button
                           type="button"
                           aria-pressed={isSaved}
                           onClick={(e) => onToggleSaveNews(lead, e)}
-                          className={`relative z-10 inline-flex items-center justify-center w-9 h-9 rounded-full backdrop-blur-md border transition-colors cursor-pointer ${
+                          className={`relative z-10 inline-flex items-center justify-center w-9 h-9 rounded-full border transition-colors cursor-pointer ${
                             isSaved
                               ? "bg-accent text-white border-accent"
-                              : "bg-black/65 text-white border-white/20 hover:border-accent-hi"
+                              : "bg-black/75 text-white border-white/20 hover:border-accent-hi"
                           }`}
                           title="คั่นหน้าข่าวนี้"
                         >
@@ -317,7 +318,7 @@ export function NewsSection({
                                       {article.category}
                                     </span>
                                     {railFreshness?.isUnreadNew && (
-                                      <span className="w-1.5 h-1.5 rounded-full bg-accent-hi ember-pulse-dot shrink-0" />
+                                      <span className="w-1.5 h-1.5 rounded-full bg-accent-hi shrink-0" />
                                     )}
                                   </div>
                                   <button
@@ -351,7 +352,7 @@ export function NewsSection({
                                     {article.reading_time_minutes} นาที
                                   </span>
                                 </div>
-                                <ArrowRight className="w-3.5 h-3.5 text-muted group-hover:text-accent-2 group-hover:translate-x-0.5 transition-all shrink-0" />
+                                <ArrowRight className="w-3.5 h-3.5 text-muted group-hover:text-accent-2 group-hover:translate-x-0.5 transition-transform shrink-0" />
                               </div>
                             </article>
                           );
@@ -401,7 +402,7 @@ export function NewsSection({
                       <article
                         key={article.id}
                         onClick={() => onOpenNews(article)}
-                        className={`blog-card group cursor-pointer flex flex-col justify-between ${
+                        className={`blog-card blog-card-deferred group cursor-pointer flex flex-col justify-between ${
                           freshness?.isUnreadNew ? "blog-card-new" : ""
                         }`}
                       >
@@ -419,10 +420,10 @@ export function NewsSection({
                                 type="button"
                                 aria-pressed={isSaved}
                                 onClick={(e) => onToggleSaveNews(article, e)}
-                                className={`relative z-10 inline-flex items-center justify-center w-8 h-8 rounded-full backdrop-blur-md border transition-colors cursor-pointer ${
+                                className={`relative z-10 inline-flex items-center justify-center w-8 h-8 rounded-full border transition-colors cursor-pointer ${
                                   isSaved
                                     ? "bg-accent text-white border-accent"
-                                    : "bg-black/65 text-white border-white/20 hover:border-accent-hi"
+                                    : "bg-black/75 text-white border-white/20 hover:border-accent-hi"
                                 }`}
                                 title="คั่นหน้าข่าวนี้"
                               >

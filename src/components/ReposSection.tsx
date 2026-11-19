@@ -331,7 +331,7 @@ export function ReposSection({
                   <article
                     key={`${repoDay}-${repo.id}`}
                     onClick={() => onOpenRepo(repo)}
-                    className={`blog-card group cursor-pointer p-5 flex flex-col justify-between gap-4 ${
+                    className={`blog-card blog-card-deferred group cursor-pointer p-5 flex flex-col justify-between gap-4 ${
                       freshness?.isUnreadNew ? "blog-card-new" : ""
                     }`}
                   >

@@ -19,7 +19,7 @@ export function FreshnessBadge({
       <div className="inline-flex flex-wrap items-center gap-1.5">
         <span className="badge-new-ember inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-editorial-label tracking-wide whitespace-nowrap">
           <span
-            className="w-1.5 h-1.5 rounded-full bg-white ember-pulse-dot shrink-0"
+            className="w-1.5 h-1.5 rounded-full bg-white shrink-0"
             aria-hidden="true"
           />
           <span>ใหม่วันนี้</span>
@@ -67,6 +67,7 @@ export function BlogCoverMedia({
   aspect = "16/10",
   edgeToEdge = false,
   isNew = false,
+  priority = false,
   topRightAction,
 }: {
   src?: string | null;
@@ -77,6 +78,7 @@ export function BlogCoverMedia({
   aspect?: "16/9" | "16/10" | "4/3";
   edgeToEdge?: boolean;
   isNew?: boolean;
+  priority?: boolean;
   topRightAction?: React.ReactNode;
 }) {
   const [failed, setFailed] = useState(false);
@@ -103,6 +105,9 @@ export function BlogCoverMedia({
             <img
               src={safeSrc}
               alt={alt}
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
+              decoding="async"
               onError={() => setFailed(true)}
               className="w-full h-full object-contain rounded-[6px] transition-transform duration-300 group-hover:scale-[1.03]"
             />
@@ -113,6 +118,9 @@ export function BlogCoverMedia({
             <img
               src={safeSrc}
               alt={alt}
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
+              decoding="async"
               onError={() => setFailed(true)}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
             />
@@ -155,7 +163,7 @@ export function BlogCoverMedia({
           aria-hidden="true"
           className="absolute top-3 left-3 z-10 badge-new-ember inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-editorial-label tracking-wide"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-white ember-pulse-dot" />
+          <span className="w-1.5 h-1.5 rounded-full bg-white" />
           <span>NEW</span>
         </span>
       )}
