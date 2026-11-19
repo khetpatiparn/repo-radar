@@ -1,53 +1,83 @@
 {
-  "last_sync_at": "2026-11-19T04:02:11.239Z",
+  "last_sync_at": "2026-11-19T04:37:36.372Z",
   "last_sync_date_ict": "2026-11-19",
   "new_counts": {
     "repos": 4,
-    "papers": 11,
-    "news": 8,
-    "total": 23
+    "papers": 43,
+    "news": 6,
+    "total": 53
   },
   "total_counts": {
     "repos_today": 12,
-    "papers_today": 11,
+    "papers_today": 16,
     "news_total": 45
   },
   "new_ids": {
     "repos": [
-      "1314510108",
-      "1140229822",
-      "1073224795",
-      "74293321"
+      "1176011916",
+      "612230",
+      "699532645",
+      "167174"
     ],
     "papers": [
-      "2611.22055",
-      "2611.19800",
-      "2611.21099",
-      "2611.15348",
-      "2611.19559",
-      "2611.20992",
-      "2611.12069",
-      "2611.23144",
-      "2611.19244",
-      "2611.18856",
-      "2611.21791"
+      "2611.11318",
+      "2611.24154",
+      "2611.23068",
+      "2611.21366",
+      "2611.22287",
+      "2611.23388",
+      "2611.22925",
+      "2611.17767",
+      "2611.14848",
+      "2611.22668",
+      "2611.24075",
+      "2611.24102",
+      "2611.24738",
+      "2611.21114",
+      "2611.19200",
+      "2611.22033",
+      "2611.22115",
+      "2611.17621",
+      "2611.17048",
+      "2611.23226",
+      "2611.23143",
+      "2611.22275",
+      "2611.21392",
+      "2611.23108",
+      "2611.22563",
+      "2611.21382",
+      "2611.08922",
+      "2611.23219",
+      "2611.21925",
+      "2611.21938",
+      "2611.15671",
+      "2611.11937",
+      "2611.22565",
+      "2611.21421",
+      "2611.20003",
+      "2611.18553",
+      "2611.19857",
+      "2611.23034",
+      "2611.23026",
+      "2611.21644",
+      "2611.20995",
+      "2611.20321",
+      "2611.23140"
     ],
     "news": [
-      "google-deepmind-alphagenome-disease-research-2209ff",
-      "gemini-gemini-4-carbon-builders-cdc732",
-      "developers-tools-embeddinggemma-2-technical-repo-3e6e11",
-      "gemini-app-tasks-in-gemini-free-new-features-357d08",
-      "grow-with-google-ai-training-state-partnerships-79c230",
-      "search-temporary-threads-ai-mode-aac2f4",
-      "google-nest-google-home-updates-november-2026-79db75",
-      "workspace-vids-personal-avatars-no-cost-994dd5"
+      "gemini-models-introducing-gemini-4-neon-e2b640",
+      "google-latin-america-google-for-mexico-2026-nove-f8b19b",
+      "google-deepmind-genie-4-now-available-project-ge-bb5459",
+      "google-labs-stitch-loop-6ca988",
+      "gemini-app-gemini-lower-memory-devices-03ca25",
+      "safety-security-cybersecurity-tips-e1cf94"
     ]
   },
   "highlights": {
-    "top_paper": "ลาก่อน Transformer? เมื่อ AI เขียน Weight เองได้แม่นกว่าและเร็วกว่า 1,800 เท่า",
-    "top_repo": "Tencent/LoopForge: แพลตฟอร์มแบบ Self-hosted สำหรับสร้างและจัดการ AI Coding Agents ให้ทำงานร่วมกันเป็นทีมผ่านกระบวนการ SOP ที่ทำซ้ำได้และปลอดภัย",
-    "top_news": "ไขรหัสพันธุกรรม: Google DeepMind เปิดตัว AlphaGenome ปฏิวัติการวิจัยโรคภัยด้วย AI"
+    "top_paper": "ยกระดับการพยากรณ์อากาศด้วย AI: เปิดตัว PROLA เทคนิคใหม่ที่ช่วย Fine-tune แบบ Low-rank ได้แม่นยำกว่าที่เคย!",
+    "top_repo": "HKUDS/CLI-Anything: ปฏิวัติโลก AI Agents ให้ใช้งานซอฟต์แวร์ทุกประเภทได้เหมือนมนุษย์ด้วย CLI-Anything",
+    "top_news": "ยกระดับอีกขั้น! เปิดตัว Gemini 4 Neon โมเดลใหม่จาก Google ที่ฉลาดและไวกว่าเดิม"
   },
-  "telegram_sent_at": "2026-11-19T04:02:16.837Z",
-  "run_source": "local"
+  "telegram_sent_at": "2026-11-19T04:37:37.094Z",
+  "run_source": "github-actions"
 }

@@ -5,6 +5,549 @@
       "name": "Claude-BugHunter",
       "owner": "elementalsouls",
       "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "stars": 11486,
+      "stars_today": 2313,
+      "language": "Python",
+      "topics": [
+        "ai-security",
+        "anthropic",
+        "application-security",
+        "bug-bounty",
+        "bugbounty",
+        "bugcrowd",
+        "claude",
+        "claude-code",
+        "claude-skills",
+        "ethical-hacking",
+        "hackerone",
+        "offensive-security",
+        "pentesting",
+        "red-team",
+        "security-tools",
+        "web-security"
+      ],
+      "license": "MIT",
+      "open_issues": 5,
+      "one_liner": "เป็นชุดคลังทักษะ (Skill Bundle) ที่เปลี่ยน Claude Code ให้กลายเป็นผู้ช่วยสายเจาะระบบและนักล่าบัค (Bug Hunter) ระดับมืออาชีพได้อย่างอัตโนมัติ",
+      "problem_solved": "แก้ปัญหาที่นักวิจัยความปลอดภัยต้องสลับเครื่องมือไปมาและเสียเวลาทำ Manual recon โดยรวมเอาเทคนิคจากรายงานช่องโหว่จริงกว่า 681 รายการมาให้ AI ใช้งานได้ทันทีผ่านคำสั่งภาษาธรรมชาติ",
+      "alternative_comparison": "คล้ายกับ Framework อย่าง Project Discovery หรือเครื่องมือทำ Pentest อัตโนมัติ แต่เหนือกว่าตรงที่มันผนวกความรู้ (Knowledge-base) และ Logic การคิดแบบ Red Teamer เข้าไปอยู่ในตัว AI Agent ทำให้สามารถวางแผนและดำเนินการแบบ Chain Attack ได้ฉลาดกว่า",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "มีการพัฒนาอย่างต่อเนื่องผ่าน GitHub Issues มีโครงสร้างการทดสอบ (Smoke test) และมีฐานข้อมูลเทคนิคที่อ้างอิงจากช่องโหว่จริงที่ผ่านการพิสูจน์แล้ว",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างแพลตฟอร์ม SaaS สำหรับทำ Continuous Security Assessment ที่รายงานผลแบบสรุปภาษาไทยและให้คำแนะนำในการ Patch แก่ลูกค้าองค์กร",
+        "stack_synergy": "ใช้ร่วมกับ Next.js และ Supabase เพื่อสร้าง Dashboard ติดตามสถานะความปลอดภัยของระบบแบบ Real-time โดยดึงข้อมูลจากผลการ Hunt ของ Claude ออกมาแสดงผล"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ไม่ต้อง Config เยอะ เพราะรองรับ Claude Code plugin system ที่ติดตั้งง่าย",
+          "มีฐานข้อมูลเทคนิคที่กว้างและครอบคลุม ทั้งเว็บแอปและโครงสร้างพื้นฐานองค์กร"
+        ],
+        "gotchas_and_traps": [
+          "ต้องระวังเรื่องการใช้เครื่องมืออัตโนมัติกับเป้าหมายที่อยู่นอกเหนือขอบเขต (Out-of-scope) ของโปรแกรม Bug Bounty",
+          "ต้องมีความเข้าใจพื้นฐานด้านความปลอดภัยอยู่บ้างเพื่อให้สามารถตรวจสอบผลลัพธ์ที่ AI แนะนำได้"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "/plugin marketplace add elementalsouls/Claude-BugHunter\n/plugin install claude-bughunter@elementalsouls",
+      "updated_at": "2026-11-19T04:29:59.424Z",
+      "first_seen_at": "2026-11-18T04:42:47.808Z"
+    },
+    {
+      "id": "1140229822",
+      "name": "plugins",
+      "owner": "cursor",
+      "url": "https://github.com/cursor/plugins",
+      "stars": 17289,
+      "stars_today": 314,
+      "language": "TypeScript",
+      "topics": [],
+      "license": null,
+      "open_issues": 680,
+      "one_liner": "แหล่งรวมปลั๊กอินอย่างเป็นทางการที่ช่วยเพิ่มขีดความสามารถให้กับ AI Coding Agent ของ Cursor ให้ทำงานได้หลากหลายและซับซ้อนขึ้น",
+      "problem_solved": "ช่วยแก้ปัญหาที่ AI เดิมๆ มักทำงานได้แค่จำกัดในขอบเขตโค้ด แต่เครื่องมือนี้เพิ่มความสามารถในการเชื่อมต่อกับ SaaS ภายนอก, ทำ Automation ขั้นสูง, และจัดการเวิร์กโฟลว์การรีวิวโค้ดแบบมืออาชีพได้",
+      "alternative_comparison": "คล้ายกับ VS Code Extension Marketplace แต่เน้นไปที่การสร้าง 'Skill' หรือ Agentic Workflow ที่เข้าใจบริบทของ AI มากกว่าแค่การเพิ่ม UI ใน IDE",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการอัปเดตและเพิ่ม Plugin ใหม่ๆ อย่างต่อเนื่องจากทั้ง Cursor Team และ Community แต่โครงสร้าง API ยังอยู่ในระยะเริ่มต้นและเปลี่ยนแปลงได้ตลอดเวลา",
+      "ai_opportunity": {
+        "monetization_idea": "สร้าง 'Premium Specialized Skills' สำหรับอุตสาหกรรมเฉพาะทาง (เช่น กฎหมาย, บัญชี) ที่ผสานข้อมูลจาก API องค์กรเข้ากับความสามารถของ Cursor",
+        "stack_synergy": "ใช้งานคู่กับ Cursor SDK และ Supabase เพื่อสร้าง Agent ที่มีความจำ (Memory) แบบ Real-time และสามารถดึงข้อมูลจาก Database มาตอบโจทย์ผู้ใช้ได้ในคลิกเดียว"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "เปลี่ยน Coding Agent ธรรมดาให้กลายเป็นผู้ช่วยส่วนตัวที่เชื่อมต่อกับ Google Workspace ได้ทันที",
+          "มี Workflow สำเร็จรูปสำหรับงานยากๆ อย่างการรีวิว PR หรือการทำ Security Audit ที่ไม่ต้องเสียเวลาเขียน Prompt เอง"
+        ],
+        "gotchas_and_traps": [
+          "เนื่องจากเป็น Experimental การอัปเดตอาจทำให้ Plugin เดิมใช้งานไม่ได้ (Breaking Changes)",
+          "การให้สิทธิ์เข้าถึง SaaS ของบุคคลที่สามผ่าน Agent ควรระมัดระวังเรื่อง Privacy ของข้อมูลภายในองค์กร"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "git clone https://github.com/cursor/plugins\ncd plugins\n# สร้าง plugin ใหม่ด้วย scaffold ของ Cursor\nnpx @cursor/create-plugin@latest",
+      "updated_at": "2026-11-19T04:29:59.424Z",
+      "first_seen_at": "2026-11-18T04:43:00.358Z"
+    },
+    {
+      "id": "1176011916",
+      "name": "CLI-Anything",
+      "owner": "HKUDS",
+      "url": "https://github.com/HKUDS/CLI-Anything",
+      "stars": 59909,
+      "stars_today": 389,
+      "language": "Python",
+      "topics": [],
+      "license": "Apache-2.0",
+      "open_issues": 245,
+      "one_liner": "ปฏิวัติโลก AI Agents ให้ใช้งานซอฟต์แวร์ทุกประเภทได้เหมือนมนุษย์ด้วย CLI-Anything",
+      "problem_solved": "ปกติแล้ว AI Agents มักจะติดหล่มอยู่กับการเรียก API แบบเดิมๆ ทำให้ไม่สามารถใช้งานโปรแกรมบน Desktop หรือซอฟต์แวร์เฉพาะทางที่ไม่มี Interface สำหรับโปรแกรมมิ่งได้ CLI-Anything เข้ามาทลายกำแพงนี้โดยการเปลี่ยนซอฟต์แวร์ทุกตัวให้มี 'CLI Harness' ทำให้ AI สามารถรับคำสั่งและควบคุมเครื่องมือต่างๆ ได้โดยตรง ไม่ว่าจะเป็นซอฟต์แวร์งานเฉพาะทางหรือ Workflow ที่ซับซ้อน",
+      "alternative_comparison": "หากเทียบกับ LangChain หรือ AutoGPT ที่เน้นการต่อ API, CLI-Anything เหนือกว่าตรงที่สร้าง Bridge เชื่อมต่อถึงโปรแกรมฝั่งเครื่อง (Native Software) ทำให้ AI ทำงานในโลกความเป็นจริงได้กว้างกว่า หากคุณต้องการให้ AI จัดการงานในโปรแกรมอย่าง Calibre, ArcGIS หรือโปรแกรมบน Desktop ตัวนี้คือคำตอบที่ตรงจุดที่สุด",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการเคลื่อนไหวของโค้ดเบสที่รวดเร็วและเปิดรับ Contribution สูงมาก แต่เนื่องจากเป็นระบบที่ต้องจัดการกับ Input ของซอฟต์แวร์หลากหลายชนิด จึงยังมีความเสี่ยงด้านเสถียรภาพหากใช้ในระดับ Enterprise ที่ซับซ้อน",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างบริการ 'Automation-as-a-Service' สำหรับธุรกิจเฉพาะทาง เช่น การทำแพลตฟอร์มอัตโนมัติสำหรับสำนักงานกฎหมายหรือบัญชี โดยใช้ CLI-Anything เป็นตัวขับเคลื่อนซอฟต์แวร์ที่ไม่มี API ให้ทำงานแบบ Fully Automated ได้ และเก็บค่าธรรมเนียมรายเดือนแบบ SaaS",
+        "stack_synergy": "ใช้ร่วมกับ Next.js และ Supabase ในการสร้าง Dashboard ควบคุม Agent จากระยะไกล โดยให้ Docker คอนเทนเนอร์รัน CLI-Anything ที่ผูกกับโปรแกรมเป้าหมาย แล้วส่ง State กลับมาเก็บที่ Supabase เพื่อให้ Agent ตัดสินใจต่อได้แบบ Real-time"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "เปลี่ยนโปรแกรมทั่วไปให้กลายเป็น Tool ที่ AI สั่งงานได้ทันทีโดยไม่ต้องแก้ Source Code ของโปรแกรมนั้น",
+          "มีระบบ Community Hub ที่คึกคัก ช่วยให้เราแชร์และติดตั้ง CLI Harness ของคนอื่นได้ง่ายผ่าน pip"
+        ],
+        "gotchas_and_traps": [
+          "การควบคุมโปรแกรมผ่าน CLI อาจเกิดภาวะ Race Condition ได้ง่ายหากมีการเรียกคำสั่งซ้อนกันในหลาย Session ต้องคอย Monitor log ให้ดี",
+          "โปรแกรมที่เป็น GUI หนักๆ อาจต้องใช้ความพยายามในการทำ Harness มากกว่าปกติ เพราะตัวแปรในหน้าจออาจเปลี่ยนแปลงตลอดเวลา"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "pip install cli-anything-hub\ncli-hub install <harness-name>\n# Then use your AI Agent to invoke the installed CLI.",
+      "updated_at": "2026-11-19T04:30:18.112Z",
+      "first_seen_at": "2026-11-19T04:30:18.112Z",
+      "deep_dive_paragraphs": [
+        "ในยุคที่ AI Agents เริ่มเปลี่ยนผ่านจากการเป็นเพียงแค่ Chatbot มาเป็นคนทำงานตัวจริง CLI-Anything กำลังกลายเป็นจิ๊กซอว์ตัวสำคัญที่เข้ามาแก้ปัญหา 'คอขวด' ของการเชื่อมต่อระหว่างโลกของภาษา (LLM) กับโลกของโปรแกรม (Executable Software) ปัญหาใหญ่ของนักพัฒนาที่ทำ Agent คือเมื่อเจอกับซอฟต์แวร์ที่ไม่มี API หรือ Webhook รองรับ มักจะไปต่อไม่ได้ แต่โปรเจกต์นี้กลับใช้แนวคิด Harness ที่เข้าถึงตัว Software ผ่าน CLI ทำให้ AI กลายเป็นผู้ใช้งาน (User) ในระดับที่ลึกกว่าเดิม",
+        "หัวใจหลักของ CLI-Anything คือการใช้ 'Harness' ซึ่งเปรียบเสมือนเลเยอร์กลางที่แปลงคำสั่งภาษาธรรมชาติให้กลายเป็น CLI Command ที่โปรแกรมนั้นๆ เข้าใจได้ โดยรองรับตั้งแต่การจัดการไฟล์ งานกราฟิก ไปจนถึงงานวิเคราะห์ข้อมูลเชิงลึก ตัวระบบถูกออกแบบมาให้ทำงานเป็น Pipeline ที่มีการตรวจสอบ Error และใช้กลไกการทำ Retry/Timeout เพื่อป้องกันไม่ให้ Agent หลุดวงจรเมื่อโปรแกรมปลายทางตอบสนองผิดพลาด ทำให้การทำ Workflow ที่ซับซ้อนมีความน่าเชื่อถือมากขึ้น",
+        "ในอนาคต ผมเชื่อว่า CLI-Anything จะกลายเป็นมาตรฐานใหม่ในการทำ 'AI-Native Automation' โดยเฉพาะในสายงาน Desktop Automation หรือซอฟต์แวร์เฉพาะทาง (Niche software) หากคุณเป็นนักพัฒนาที่กำลังทำ AI Workflow ที่ต้องยุ่งกับซอฟต์แวร์นอกสายตา (Legacy หรือ Proprietary) นี่คือโปรเจกต์ที่คุณต้องจับตาดูให้ดี เพราะถ้าคอมมูนิตี้โตจนครอบคลุมซอฟต์แวร์ได้เกือบทุกตัวบนโลก เราก็เข้าใกล้คำว่า 'Universal Agent' มากขึ้นทุกที"
+      ],
+      "facebook_post": "เลิกเขียนโปรแกรมคุมซอฟต์แวร์ทีละตัวให้เหนื่อย! วันนี้พามาดู 'CLI-Anything' โปรเจกต์ที่กำลังเขย่าวงการ AI Agent 🤖\n\nปกติเวลาเราจะให้ AI ไปคุมโปรแกรมที่เราใช้งานอยู่ มันมักจะติดปัญหาว่า 'โปรแกรมตัวนั้นไม่มี API ให้เชื่อมต่อ' แต่ CLI-Anything เข้ามาปลดล็อกปัญหานี้ โดยการสร้าง Harness ให้ AI กลายเป็นผู้ใช้งานโปรแกรมนั้นๆ ผ่าน CLI แทนครับ\n\nทำไมมันถึงน่าสนใจ?\n• เชื่อมต่อซอฟต์แวร์ได้ทุกตัว ตั้งแต่จัดการ E-book ยันโปรแกรมงานออกแบบ\n• ใช้ AI สั่งงานได้ทันที ไม่ต้องรอค่ายโปรแกรมเปิด API ให้\n• มี Community Hub ให้โหลด CLI Harness ของคนอื่นมาใช้งานได้เลย\n\nใครทำสาย Automation หรืออยากสร้าง Agent ที่ทำงานบน Desktop ได้จริงจัง ต้องรีบเข้าไปส่อง Repo นี้เลยครับ อนาคตของการสั่งงานคอมพิวเตอร์ผ่าน LLM อยู่ตรงนี้แล้ว!\n\nเพื่อนๆ คิดว่าถ้าเราเอาไปต่อยอดกับโปรแกรมบัญชีหรือโปรแกรมเฉพาะทาง จะช่วยลดงานซ้ำซากได้ขนาดไหน? มาแลกเปลี่ยนกันในคอมเมนต์หน่อยครับ!\n\n#GitHubTrending #OpenSource #AI #DevTools #AgenticWorkflow"
+    },
+    {
+      "id": "1140843380",
+      "name": "last30days-skill",
+      "owner": "mvanhorn",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "stars": 70173,
+      "stars_today": 1059,
+      "language": "Python",
+      "topics": [
+        "ai-prompts",
+        "ai-skill",
+        "bluesky",
+        "claude",
+        "claude-code",
+        "clawhub",
+        "deep-research",
+        "hackernews",
+        "instagram",
+        "openclaw",
+        "polymarket",
+        "recency",
+        "reddit",
+        "research",
+        "social-media",
+        "tiktok",
+        "trends",
+        "twitter",
+        "web-search",
+        "youtube"
+      ],
+      "license": "MIT",
+      "open_issues": 23,
+      "one_liner": "เครื่องมือค้นหาอัจฉริยะที่ใช้ AI รวบรวมข้อมูลสดจากโซเชียลมีเดียและแพลตฟอร์มต่างๆ เพื่อสรุปสิ่งที่ผู้คนกำลังสนใจจริงในรอบ 30 วันที่ผ่านมา",
+      "problem_solved": "Google หรือ Search Engine แบบดั้งเดิมมักแสดงผลลัพธ์ที่เน้น SEO หรือข้อมูลเก่าค้างปี แต่เครื่องมือนี้แก้ปัญหา 'ข้อมูลล้าหลัง' โดยการดึง Insight จาก Reddit, X, และ YouTube ที่เป็นความเห็นจากผู้ใช้งานจริงแบบ Real-time",
+      "alternative_comparison": "คล้ายกับการทำ Research ด้วยตนเองบนโซเชียลมีเดีย แต่ดีกว่าตรงที่ใช้ AI Agent ช่วยสรุปข้อมูลจากหลายแพลตฟอร์มพร้อมกันโดยไม่ต้องเปิดหลายหน้าจอ",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องและมีการจัดการเรื่องความปลอดภัยที่รัดกุม แต่ยังอยู่ในระยะเริ่มต้นของการขยายขีดความสามารถ",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการแบบ Subscription สำหรับนักวิเคราะห์ตลาดหรือนักลงทุนที่ต้องการรายงาน 'Market Sentiment' รายวันแบบสรุปจากทุกแหล่งข้อมูลในที่เดียว",
+        "stack_synergy": "สามารถใช้ร่วมกับ Next.js และ Supabase เพื่อสร้าง Dashboard สรุปแนวโน้มตลาด (Trend Watcher) ที่อัปเดตข้อมูลอัตโนมัติผ่าน Edge Functions"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ดึงข้อมูลดิบจากแหล่งที่แท้จริงได้ลึกกว่าเครื่องมือค้นหาปกติ",
+          "สามารถนำไปใช้ใน Workflow ของ AI Agent ตัวอื่นอย่าง Claude Code ได้ทันที"
+        ],
+        "gotchas_and_traps": [
+          "จำเป็นต้องจัดการเรื่อง API Keys หรือ Session ของแต่ละแพลตฟอร์มเอง ซึ่งอาจมีความซับซ้อนในการตั้งค่า",
+          "การพึ่งพาแหล่งข้อมูลโซเชียลมีเดียอาจทำให้ได้รับข้อมูลที่ลำเอียง (Bias) ได้ง่ายหากไม่ตรวจสอบ"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "npx skills add mvanhorn/last30days-skill -g\n/last30days [topic]",
+      "updated_at": "2026-11-19T04:30:18.116Z",
+      "first_seen_at": "2026-11-18T04:42:47.808Z"
+    },
+    {
+      "id": "968905557",
+      "name": "arcane",
+      "owner": "getarcaneapp",
+      "url": "https://github.com/getarcaneapp/arcane",
+      "stars": 9888,
+      "stars_today": 547,
+      "language": "Go",
+      "topics": [
+        "compose",
+        "container-management",
+        "containers",
+        "docker",
+        "docker-compose",
+        "docker-management",
+        "go",
+        "self-hosted",
+        "sveltekit",
+        "typescript",
+        "web-ui"
+      ],
+      "license": "BSD-3-Clause",
+      "open_issues": 15,
+      "one_liner": "Arcane คือแพลตฟอร์มจัดการ Docker Containers ที่ทันสมัยและใช้งานง่าย ช่วยให้คุณบริหารจัดการ Service ต่างๆ บนเซิร์ฟเวอร์ผ่านหน้าเว็บ UI ที่สวยงาม",
+      "problem_solved": "เข้ามาแก้ปัญหาความยุ่งยากในการจัดการ Docker Compose ผ่าน CLI ที่ซับซ้อน โดยเปลี่ยนมาใช้ Dashboard ที่เป็นมิตร เห็นภาพรวมของ Container ได้ชัดเจนพร้อมระบบจัดการสิทธิ์ (RBAC) และการสำรองข้อมูล",
+      "alternative_comparison": "คล้ายกับ Portainer แต่ Arcane โฟกัสไปที่ประสบการณ์การใช้งานแบบสมัยใหม่ (Modern UI) และเน้นการจัดการโปรเจกต์ที่ผูกกับ Git ได้ดียิ่งกว่า",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "มีการพัฒนาอย่างต่อเนื่อง มีการทำ v3 อย่างเป็นทางการ และมีระบบจัดการ Security/SBOM ที่ชัดเจน",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างบริการ 'Managed Self-hosted Dashboard as a Service' สำหรับทีมขนาดเล็กที่ต้องการให้จัดการ Docker บน VPS ของตัวเองโดยไม่ต้องตั้งค่าเองทั้งหมด",
+        "stack_synergy": "สามารถต่อยอดโดยใช้ Arcane API เชื่อมต่อกับระบบ Monitoring อย่าง Vercel หรือใช้ Supabase เพื่อเก็บ Audit logs และ Analytics ของการ Deploy container ในระยะยาว"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "UI ที่ดูทันสมัยและใช้งานง่ายกว่าเครื่องมือจัดการ Docker แบบเดิมๆ",
+          "มีฟีเจอร์ระดับองค์กรอย่าง Role-based access control (RBAC) และระบบ Audit log"
+        ],
+        "gotchas_and_traps": [
+          "เนื่องจากเป็นโครงการที่เน้น self-hosted ต้องรับผิดชอบการอัปเดตและดูแลความปลอดภัยของเครื่องที่ติดตั้งด้วยตัวเอง",
+          "มีการเปลี่ยนโครงสร้างหลักระหว่าง v2 ไป v3 ซึ่งอาจต้องวางแผนการ Migration หากใช้เวอร์ชันเก่าอยู่"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "docker run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock getarcane/arcane:latest",
+      "updated_at": "2026-11-19T04:30:18.116Z",
+      "first_seen_at": "2026-11-18T04:42:47.809Z"
+    },
+    {
+      "id": "1278676884",
+      "name": "SkillEvaluator",
+      "owner": "NVIDIA",
+      "url": "https://github.com/NVIDIA/SkillEvaluator",
+      "stars": 3818,
+      "stars_today": 312,
+      "language": "Python",
+      "topics": [
+        "agent-evaluation",
+        "agent-plugins",
+        "agent-security",
+        "agent-skills",
+        "agentic-ai",
+        "benchmark",
+        "claude-code",
+        "codex",
+        "evaluate",
+        "evaluation",
+        "plugin",
+        "plugin-evaluation",
+        "security-scanner",
+        "skill-eval",
+        "skill-evals",
+        "skill-evaluation",
+        "skill-evaluator",
+        "skills"
+      ],
+      "license": "Apache-2.0",
+      "open_issues": 67,
+      "one_liner": "เครื่องมือจาก NVIDIA สำหรับตรวจสอบคุณภาพ ประสิทธิภาพ และความปลอดภัยของ 'Skill' ที่ใช้สำหรับ AI Agent เพื่อให้มั่นใจว่าทำงานได้ตามมาตรฐานก่อนนำไปใช้งานจริง",
+      "problem_solved": "นักพัฒนา AI Agent มักไม่มีมาตรฐานกลางในการวัดคุณภาพของทักษะ (Skill) ทำให้ยากต่อการประเมินว่า Agent จะทำงานได้แม่นยำหรือปลอดภัยเพียงใด เครื่องมือนี้เข้ามาอุดช่องว่างด้วยการให้คะแนนที่เป็นรูปธรรมผ่านระบบ Tier-based evaluation",
+      "alternative_comparison": "คล้ายกับ Framework สำหรับทำ Unit Test ทั่วไป แต่เชี่ยวชาญด้าน Agent-specific logic มากกว่า โดยมีจุดเด่นคือการใช้โครงสร้างมาตรฐาน (Agent Skills specification) ทำให้ผลลัพธ์การวัดมีความเป็นสากลและตรวจสอบได้มากกว่าการวัดด้วยมนุษย์เพียงอย่างเดียว",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องและมีการขยายรองรับระบบ CI/CD แต่ยังมีสถานะเป็นโปรเจกต์ใหม่ที่กำลังกำหนดมาตรฐานร่วมกับระบบนิเวศของ Agent อื่นๆ",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างแพลตฟอร์ม 'Agent Skill Marketplace' ที่การันตีคุณภาพด้วยตราประทับจาก SkillEvaluator หรือให้บริการทำ Audit report สำหรับ Enterprise ที่ต้องการความปลอดภัยสูงในการใช้งาน AI Agent",
+        "stack_synergy": "สามารถนำไปผสานกับ GitHub Actions หรือ GitLab CI ใน Pipeline เพื่อทำ Automated Quality Gate ให้กับโค้ดของ Agent ที่เขียนด้วย LangChain หรือ CrewAI ทำให้มั่นใจได้ว่าก่อนจะ Deploy ขึ้น production ทักษะเหล่านั้นผ่านการตรวจสอบแล้ว"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการทำงานแบบ Local (ไม่ต้องพึ่ง LLM ในบางกรณี) ทำให้ประหยัดค่าใช้จ่ายและรักษาความเป็นส่วนตัวของข้อมูล",
+          "มี Workflow ที่ชัดเจนสำหรับ CI/CD ช่วยให้ Developer เชื่อมต่อเข้ากับระบบที่มีอยู่เดิมได้ทันที"
+        ],
+        "gotchas_and_traps": [
+          "ต้องทำความเข้าใจเรื่อง 'Agent Skills specification' ของทาง NVIDIA เพื่อให้ใช้งานเครื่องมือได้อย่างเต็มประสิทธิภาพ",
+          "การวัดผลใน Tier สูงๆ อาจต้องใช้ API Key ของ LLM ซึ่งอาจมีค่าใช้จ่ายและข้อจำกัดตามอัตราการใช้งาน"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "pip install skillevaluator\nskillevaluator validate ./my-skill --tiers 1",
+      "updated_at": "2026-11-19T04:30:18.116Z",
+      "first_seen_at": "2026-11-17T05:15:20.328Z"
+    },
+    {
+      "id": "612230",
+      "name": "nvm",
+      "owner": "nvm-sh",
+      "url": "https://github.com/nvm-sh/nvm",
+      "stars": 96169,
+      "stars_today": 237,
+      "language": "Shell",
+      "topics": [
+        "bash",
+        "install",
+        "lts",
+        "node",
+        "node-js",
+        "nodejs",
+        "nvm",
+        "nvmrc",
+        "posix",
+        "posix-compliant",
+        "shell",
+        "version-manager",
+        "zsh"
+      ],
+      "license": "MIT",
+      "open_issues": 371,
+      "one_liner": "nvm: เครื่องมือระดับตำนานที่ Dev สาย Node.js ต้องมีติดเครื่องไว้สลับเวอร์ชัน Node ได้ดั่งใจในคำสั่งเดียว",
+      "problem_solved": "ปัญหาโลกแตกของนักพัฒนาคือโปรเจกต์เก่าต้องใช้ Node 14 แต่โปรเจกต์ใหม่ต้องการ Node 22 ซึ่งการติดตั้งทับไปมาจะสร้างความวุ่นวายให้กับ Global Packages และอาจพังระบบได้ nvm เข้ามาปลดล็อกปัญหานี้ด้วยการแยกสภาพแวดล้อมออกจากกันอย่างเด็ดขาด ทำให้เราสลับเวอร์ชันได้ภายในเสี้ยววินาทีผ่าน Terminal ช่วยลดเวลา Config เครื่องใหม่และป้องกัน Dependency Hell ได้อย่างอยู่หมัด",
+      "alternative_comparison": "หากเทียบกับ fnm (Fast Node Manager) ที่เขียนด้วย Rust จะเร็วกว่าในแง่ของ Shell startup time แต่ nvm มีจุดเด่นคือความเป็น POSIX-compliant ที่นิ่งและรองรับ Shell หลากหลายมากที่สุด ถ้าเน้นความเสถียรในทุกโปรเจกต์ nvm คือตัวเลือกมาตรฐานอุตสาหกรรม แต่ถ้าเน้นความเร็วระดับมิลลิวินาที fnm อาจจะเป็นตัวเลือกที่น่าสนใจกว่า",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "มีการใช้งานมาอย่างยาวนานและเป็นมาตรฐานที่ Dev ทั่วโลกยอมรับ (Stars เกือบแสน) ตัวโค้ดมีความเสถียรสูงมากและได้รับความไว้วางใจในการทำ Pipeline CI/CD ในระดับองค์กรทั่วโลก",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างบริการ 'Environment-as-a-Service' สำหรับทีม Dev ขนาดเล็กที่ต้องการคุม Runtime เวอร์ชันให้ตรงกันทั้งทีม โดยทำตัวจัดการผ่าน CLI ที่ Sync ค่า .nvmrc บน Cloud เพื่อดึง Config มาใช้โดยอัตโนมัติ ช่วยลดความผิดพลาดตอน Deploy",
+        "stack_synergy": "ใช้ร่วมกับ Docker ใน CI/CD pipeline โดยใช้ nvm จัดการ Base image runtime ให้ตรงกับ requirements ใน package.json ของโปรเจกต์ Next.js หรือ Supabase เพื่อป้องกันปัญหาเวอร์ชัน Node ไม่ตรงกับใน Cloud Function"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับ Shell หลากหลายมาก ทั้ง bash, zsh, fish ทำให้ใช้งานได้บนเกือบทุก Unix-based platform",
+          "มีฟีเจอร์ .nvmrc ที่ช่วยให้เราล็อกเวอร์ชัน Node ให้กับแต่ละโปรเจกต์ได้โดยเฉพาะ"
+        ],
+        "gotchas_and_traps": [
+          "อาจมีอาการ Shell startup ช้าลงหากไม่ได้ตั้งค่าให้โหลดแบบ Lazy loading หรือมี Plugin จัดการ zsh จำนวนมาก",
+          "การติดตั้งบน Windows จำเป็นต้องรันผ่าน WSL เท่านั้น ไม่รองรับ Windows Command Prompt หรือ PowerShell โดยตรง"
+        ],
+        "hype_vs_reality": 9
+      },
+      "quick_start": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash\n# Then restart terminal or source your shell config\nnvm install --lts\nnvm use --lts",
+      "updated_at": "2026-11-19T04:30:32.303Z",
+      "first_seen_at": "2026-11-19T04:30:32.303Z",
+      "deep_dive_paragraphs": [
+        "ในยุคที่ Ecosystem ของ Node.js เติบโตอย่างก้าวกระโดด การต้องมานั่งลบและติดตั้ง Node เวอร์ชันใหม่ซ้ำไปมาไม่ใช่ทางออกที่ดีอีกต่อไป nvm จึงกลายเป็นเครื่องมือ 'Must-have' ที่ทุกบริษัทตั้งแต่มือใหม่จนถึงระดับ Enterprise ขาดไม่ได้เลย เพราะโปรเจกต์หนึ่งอาจรันบน LTS เวอร์ชันเก่า ในขณะที่อีกโปรเจกต์ต้องการฟีเจอร์จาก Node เวอร์ชันล่าสุด nvm เข้ามาแก้คอขวดตรงนี้ได้เบ็ดเสร็จด้วยการจัดการ Versioning ที่เรียบง่ายที่สุด",
+        "หัวใจสำคัญของ nvm คือความสามารถในการจัดการ Binary ของ Node.js แต่ละเวอร์ชันแยกกันใน directory ของผู้ใช้แต่ละคน โดยใช้กลไกการเปลี่ยนค่า PATH ใน shell sessions เพื่อชี้ไปยังเวอร์ชันที่เลือก ทำให้ไม่มีการปนกันของไลบรารี ยิ่งไปกว่านั้นฟีเจอร์ `.nvmrc` ถือเป็นไม้ตายที่ช่วยให้ Dev เพียงแค่พิมพ์ `nvm use` ในโฟลเดอร์โปรเจกต์ ระบบก็จะอ่านเวอร์ชันที่กำหนดไว้และสลับให้ทันที ลดความเสี่ยงของ 'มันรันได้ในเครื่องฉัน' ไปได้อย่างมาก",
+        "หากคุณเป็น Dev ที่ต้องสลับงานไปมาหลายโปรเจกต์ nvm คือการลงทุนที่คุ้มค่าที่สุดในแง่ของเวลา แม้ปัจจุบันจะมีคู่แข่งที่เน้นความเร็วอย่าง fnm หรือ Volta ออกมามากมาย แต่ nvm ยังคงครองความเป็นใหญ่ด้วย Community ที่กว้างขวางและเอกสารที่ครอบคลุมทุกสถานการณ์ อนาคตของเครื่องมือนี้อาจจะขยับไปสู่การเชื่อมต่อกับ AI Agent เพื่อตรวจเช็ก Dependency และอัปเดต Runtime ให้โดยอัตโนมัติ ซึ่งเป็นสิ่งที่น่าจับตามากสำหรับสาย DevOps"
+      ],
+      "facebook_post": "เคยไหม? จะรันโปรเจกต์เก่าเครื่องก็งอแงเพราะ Node เวอร์ชันไม่ตรง! 🤯\n\nใครที่เป็น Dev สาย Web ต้องเคยเจอเหตุการณ์ 'Node เวอร์ชันนี้รันโปรเจกต์ A ได้ แต่โปรเจกต์ B พัง' ปัญหานี้แก้จบง่ายๆ ด้วย 'nvm' (Node Version Manager) ครับ!\n\nทำไม nvm ถึงเป็นเครื่องมือสามัญประจำบ้านของชาว Dev?\n• สลับเวอร์ชัน Node ได้ในคำสั่งเดียว (nvm use 20)\n• แยกเวอร์ชันอิสระ ไม่มีกวนกันแน่นอน\n• ใช้ไฟล์ .nvmrc กำหนดเวอร์ชันให้แต่ละโปรเจกต์ได้เลย\n• รองรับทั้ง bash, zsh และ WSL\n\nบอกลาปัญหา Version mismatch ไปได้เลย ใครยังไม่ได้ติดตั้งตัวนี้ไว้ บอกเลยว่าชีวิตลำบากกว่าที่ควรจะเป็นแน่นอนครับ!\n\nใครใช้เครื่องมือตัวไหนจัดการ Node.js กันอยู่บ้าง คอมเมนต์แชร์กันหน่อยครับว่าเป็นยังไงกันบ้าง?\n\n#GitHubTrending #NodeJS #DevTools #OpenSource #ProgrammingTips"
+    },
+    {
+      "id": "699532645",
+      "name": "uv",
+      "owner": "astral-sh",
+      "url": "https://github.com/astral-sh/uv",
+      "stars": 92274,
+      "stars_today": 258,
+      "language": "Rust",
+      "topics": [
+        "packaging",
+        "python",
+        "resolver",
+        "uv"
+      ],
+      "license": "Apache-2.0",
+      "open_issues": 3079,
+      "one_liner": "uv: ปฏิวัติการจัดการโปรเจกต์ Python ให้เร็วแรงระดับสายฟ้าแลบด้วยพลังจาก Rust ที่รวมร่างทุกเครื่องมือไว้ในหนึ่งเดียว",
+      "problem_solved": "นักพัฒนา Python มักต้องเจอกับ 'Dependency Hell' และความล่าช้าในการจัดการสภาพแวดล้อมที่กระจัดกระจาย ทั้ง pip, poetry, pyenv หรือ virtualenv ที่ทำงานคนละทางและเชื่องช้า uv เข้ามาปลดล็อกปัญหานี้ด้วยสถาปัตยกรรมแบบ Unified ที่รวบรวมเครื่องมือทั้งหมดมาไว้ในไฟล์ binary เดียวที่เขียนด้วย Rust มอบความเร็วในการติดตั้งและจัดการ dependency ที่เร็วกว่า pip แบบเดิมถึง 10-100 เท่า ทำให้การเริ่มต้นโปรเจกต์และการจัดการ environment ไม่ใช่เรื่องน่าปวดหัวอีกต่อไป",
+      "alternative_comparison": "หากเทียบกับ Poetry หรือ Rye ตัว uv จะมี Performance ที่โดดเด่นกว่ามากในแง่ของ Resolver speed และ Cold cache, ในขณะที่ Poetry เน้นความเป็นมาตรฐานสูง uv จะเน้นความเร็วและการใช้งานแบบ All-in-one ที่ครอบคลุมตั้งแต่วิธีการติดตั้ง Python ไปจนถึงการ run script แบบไม่ต้องติดตั้ง environment แยกให้วุ่นวาย, เหมาะสำหรับคนที่ต้องการ Workflow ที่สะอาด รวดเร็ว และไม่ยุ่งยาก",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "ได้รับความนิยมอย่างล้นหลามจากคอมมูนิตี้ระดับโลก มีการพัฒนาต่อเนื่องจากทีม Astral ที่มีประวัติการสร้างเครื่องมืออย่าง Ruff ที่เสถียรและเชื่อถือได้สูงในระดับ Enterprise, รวมถึงตัวโปรเจกต์มีเอกสารที่ละเอียดและรองรับการใช้งานครอบคลุมทั้ง macOS, Linux และ Windows แล้ว",
+      "ai_opportunity": {
+        "monetization_idea": "สามารถสร้าง 'Managed AI-Driven Python Environment Platform' โดยใช้ uv เป็น core ในการจัดการรันไทม์ให้กับ Micro-SaaS ที่เปิดให้ผู้ใช้รัน Python script บน Browser ได้โดยตรง โดยคิดค่าบริการตามทรัพยากรที่ใช้และความง่ายในการ Deploy",
+        "stack_synergy": "ใช้ uv ใน Docker build process ของ Next.js หรือ FastAPI API service เพื่อลดขนาด Image และเวลาในการ Deploy ลงอย่างมหาศาล โดยการใช้ uv sync เพื่อสร้าง environment ที่ lean ที่สุดในขั้นตอน build pipeline"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ความเร็วในการติดตั้ง Library ที่แทบจะ Instant ทำให้ Developer Experience ดีขึ้นแบบก้าวกระโดด",
+          "รวมร่างทุกอย่างมาให้แล้ว ทั้ง Python version manager, build backend และ package manager ในเครื่องมือเดียว ลดความซับซ้อนของ Dev environment"
+        ],
+        "gotchas_and_traps": [
+          "เนื่องจากเป็นเครื่องมือใหม่ในเชิง Ecosystem บาง Library หรือบาง Workflow ที่ซับซ้อนมากจาก Tool เก่าอาจต้องมีการปรับเปลี่ยน config นิดหน่อย",
+          "แม้จะเร็วแต่ต้องทำความเข้าใจเรื่อง Project Structure ใหม่หากย้ายมาจาก Poetry เพื่อให้ได้ประโยชน์จาก Lockfile ของ uv อย่างเต็มที่"
+        ],
+        "hype_vs_reality": 9
+      },
+      "quick_start": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+      "updated_at": "2026-11-19T04:30:47.259Z",
+      "first_seen_at": "2026-11-19T04:30:47.259Z",
+      "deep_dive_paragraphs": [
+        "ในยุคที่ Python เป็นภาษาหลักของ AI และ Data Science คอขวดสำคัญที่เหล่านักพัฒนาเจอกันบ่อยที่สุดคือ 'Package Management' ที่มักจะล่าช้าและซับซ้อนจนกลายเป็นยาขม uv จึงกลายเป็นพระเอกที่เข้ามาพลิกโฉมวงการด้วยการใช้ Rust เขียน Engine ใหม่ทั้งหมด ทำให้กระบวนการ Resolver และการโหลด dependency ที่เคยใช้เวลาเป็นนาที เหลือเพียงไม่กี่วินาทีเท่านั้น ซึ่งถือเป็นจุดเปลี่ยนสำคัญที่ทำให้วงการ Dev หันมาให้ความสนใจอย่างล้นหลาม",
+        "สถาปัตยกรรมของ uv ไม่ได้มีดีแค่ความเร็ว แต่ยังถูกออกแบบมาให้เป็น 'Universal Tool' คือคุณไม่จำเป็นต้องมี pip, pipx, หรือ pyenv อีกต่อไป uv จัดการได้ตั้งแต่การดาวน์โหลดและเลือกเวอร์ชันของ Python มาให้คุณ รวมถึงการใช้ Cache ที่มีประสิทธิภาพสูงเพื่อลดการใช้ Disk space และเพิ่มความเร็วในการ sync โปรเจกต์ขนาดใหญ่เข้าด้วยกัน นอกจากนี้ยังมีฟีเจอร์เด่นอย่าง Inline script dependency ที่ทำให้การรันไฟล์ Python ไฟล์เดียวพร้อม library ที่ต้องการเป็นเรื่องง่ายเพียงแค่รันคำสั่งเดียว",
+        "ถ้าคุณเป็นสายโปรดักชันที่ต้องการความไวและ Workflow ที่ Clean ผมแนะนำให้เริ่มลองใช้ uv กับโปรเจกต์ใหม่ๆ หรือทดลองนำมาเป็น build tool ใน Docker เพื่อลดความอืดของ CI/CD pipeline ได้ทันที ในอนาคต uv มีแนวโน้มที่จะกลายเป็นมาตรฐานใหม่ของ Python community อย่างหลีกเลี่ยงไม่ได้ ใครที่เริ่มศึกษาก่อนย่อมได้เปรียบในการสร้างระบบที่รองรับการ Scale และการดูแลรักษาที่ง่ายกว่าเดิม"
+      ],
+      "facebook_post": "หยุดใช้ชีวิตติดหล่มกับ Python Dependency นานๆ แล้วมาลอง 'uv' กันครับ! 🚀\n\nใครเคยเจอปัญหาสั่ง pip install แล้วนั่งรอจนหลับไป หรือต้องมาไล่แก้ venv กันวุ่นวายบ้าง? วันนี้ขอแนะนำ uv เครื่องมือจัดการ Python ที่กำลังเป็นกระแสที่สุดในขณะนี้ ด้วยพลังของ Rust ที่ทำให้ทุกคำสั่งเร็วแรงกว่าเดิม 10-100 เท่า!\n\nทำไมต้องลองเปลี่ยนมาใช้ uv?\n• จบในตัวเดียว: แทนที่ pip, pipx, poetry, pyenv และอีกมากมายในเครื่องมือเดียว\n• เร็วระดับสายฟ้า: resolver พัฒนาใหม่ให้รวดเร็วฉับไว ไม่ต้องรอคอย\n• จัดการ Environment ง่าย: จะทำโปรเจกต์ใหญ่หรือรัน script ไฟล์เดียวก็นิ่งและเสถียร\n• ประหยัดพื้นที่: มีระบบ global cache สุดฉลาด ไม่กินที่เครื่อง\n\nใครที่ทำโปรเจกต์ AI หรือพัฒนา Web Service ต้องลองครับ ตัวนี้จะช่วยลดเวลา build ใน CI/CD pipeline ของคุณลงได้อย่างมหาศาลเลยทีเดียว\n\nใครได้ลองใช้แล้วบ้าง หรือใครติดปัญหาอะไรตรงไหน ลองมาแชร์กันในคอมเมนต์หน่อยครับ!\n\n#GitHubTrending #OpenSource #Python #DevTools #uv #SoftwareEngineering"
+    },
+    {
+      "id": "1226691771",
+      "name": "paper-orchestra",
+      "owner": "google-research",
+      "url": "https://github.com/google-research/paper-orchestra",
+      "stars": 4434,
+      "stars_today": 1524,
+      "language": "Python",
+      "topics": [
+        "ai-research-assistant",
+        "multi-agent-systems"
+      ],
+      "license": "Apache-2.0",
+      "open_issues": 41,
+      "one_liner": "เฟรมเวิร์ก Multi-Agent ที่เปลี่ยนบันทึกการทดลองและไอเดียดิบๆ ให้กลายเป็นบทความวิจัยในรูปแบบ LaTeX พร้อมส่งตีพิมพ์ได้ทันที",
+      "problem_solved": "ช่วยลดภาระงานหนักของนักวิจัยในการร่างเนื้อหา ค้นหาเอกสารอ้างอิง และวาดกราฟประกอบ ซึ่งเป็นขั้นตอนที่กินเวลาและทำซ้ำๆ บ่อยเกินไป",
+      "alternative_comparison": "คล้ายกับเครื่องมือช่วยเขียน AI ทั่วไป แต่ PaperOrchestra ออกแบบมาเฉพาะสำหรับ Academic Workflow ที่จัดการเรื่อง LaTeX template, การอ้างอิงเชิงวิชาการ และกระบวนการ Multi-agent ที่เป็นระบบมากกว่า",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "ยังอยู่ในช่วงเริ่มต้นของการพัฒนา แม้มีโครงสร้างที่ดีแต่ยังต้องการการขัดเกลาอีกมากและการทดสอบกับข้อมูลจริงในระดับกว้าง",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการแพลตฟอร์ม SaaS สำหรับนักวิจัย โดยคิดค่าบริการตามจำนวนหน้าของ Paper หรือการประมวลผลผ่านโมเดล LLM คุณภาพสูง",
+        "stack_synergy": "สร้าง Frontend ด้วย Next.js เพื่อทำ Dashboard จัดการไฟล์ดิบ (Supabase Storage) แล้วให้ Vercel Serverless Functions เรียกใช้กระบวนการเบื้องหลังเพื่อประมวลผลงานวิจัย"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ระบบเป็น Multi-agent ที่แยกหน้าที่ชัดเจน เช่น ตัวช่วยค้นหาเอกสาร กับตัวช่วยวาดกราฟ",
+          "รองรับการใช้งานทั้ง Gemini และ OpenAI ช่วยให้ยืดหยุ่นตามงบประมาณและโมเดลที่ต้องการ"
+        ],
+        "gotchas_and_traps": [
+          "ยังไม่รวม Dataset ตัวอย่างมาให้ในตัว ต้องรอนักพัฒนาปล่อยอัปเดตเพิ่มเติม",
+          "การตั้งค่า Environment ที่ค่อนข้างซับซ้อนและต้องใช้ API หลายตัวพร้อมกัน"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "conda create -n paper_orchestra python=3.11 && conda activate paper_orchestra && pip install -r requirements.txt && ./paper_writing_cli.sh",
+      "updated_at": "2026-11-19T04:30:47.259Z",
+      "first_seen_at": "2026-11-17T05:15:28.353Z"
+    },
+    {
+      "id": "1135847870",
+      "name": "stitch-skills",
+      "owner": "google-labs-code",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "stars": 10462,
+      "stars_today": 365,
+      "language": "TypeScript",
+      "topics": [],
+      "license": "Apache-2.0",
+      "open_issues": 21,
+      "one_liner": "คอลเลกชันเครื่องมือเสริม (Plugins) สำหรับ AI Agents ที่ช่วยให้เขียนโค้ดและจัดการงานดีไซน์บนแพลตฟอร์ม Google Stitch ได้อัตโนมัติ",
+      "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการเชื่อมต่อ Workflow ระหว่างงานดีไซน์กับงานโค้ด ทำให้ AI Coding Agent สามารถสื่อสารและอัปโหลดงานจาก Code ไปยัง Stitch Design System ได้โดยตรง ลดภาระการทำ Manual Handover",
+      "alternative_comparison": "คล้ายกับเครื่องมือจัดการ MCP (Model Context Protocol) ทั่วไป แต่มีความเฉพาะทาง (Domain-specific) มากกว่า โดยเน้นไปที่ระบบนิเวศของ Google Stitch โดยตรง ทำให้ Workflow การออกแบบและพัฒนาทำได้ลึกกว่าการใช้ MCP แบบทั่วไป",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "อยู่ในช่วงเริ่มต้นของการเปิดตัว มีการอัปเดตฟีเจอร์ใหม่ต่อเนื่อง แต่ยังพบประเด็นเรื่องการเข้าถึง API และความเสถียรในการทำงานร่วมกับ Agent หลายๆ ตัว",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างบริการ Micro-SaaS ที่รับแปลง Mockup หรือดีไซน์จาก Figma แล้วเปลี่ยนเป็น React component โดยใช้ Stitch Skills เป็นตัวเชื่อม Pipeline อัตโนมัติสำหรับ Agency",
+        "stack_synergy": "ใช้ร่วมกับ Next.js และ Supabase เพื่อสร้างเครื่องมือ Auto-generator ที่ให้ผู้ใช้ Deploy หน้าเว็บขึ้น Vercel ได้ทันทีหลังจากที่ AI Agent สั่ง Build ผ่าน Stitch-build plugin"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการใช้งานผ่านเครื่องมือยอดนิยมอย่าง Claude Code, Cursor และ CLI ที่นักพัฒนาคุ้นเคย",
+          "ช่วยลดช่องว่างระหว่างงานดีไซน์และงาน Dev ได้อย่างมีประสิทธิภาพผ่านมาตรฐาน Agent Skills"
+        ],
+        "gotchas_and_traps": [
+          "ต้องมีการตั้งค่า MCP Server และ credentials ที่ซับซ้อนตามคู่มือของ Google Stitch ก่อนถึงจะเริ่มใช้งานได้",
+          "มีปัญหาเรื่องการเข้าถึงไฟล์ (downloadUrl) ผ่าน API บางรายการที่อาจติด Google Sign-in ทำให้การทำงานแบบ Automate ขาดตอน"
+        ],
+        "hype_vs_reality": 6
+      },
+      "quick_start": "npx plugins add google-labs-code/stitch-skills --scope project --target claude-code",
+      "updated_at": "2026-11-19T04:30:47.259Z",
+      "first_seen_at": "2026-11-18T04:42:47.809Z"
+    },
+    {
+      "id": "74293321",
+      "name": "svelte",
+      "owner": "sveltejs",
+      "url": "https://github.com/sveltejs/svelte",
+      "stars": 89654,
+      "stars_today": 692,
+      "language": "JavaScript",
+      "topics": [
+        "compiler",
+        "template",
+        "ui"
+      ],
+      "license": "MIT",
+      "open_issues": 1308,
+      "one_liner": "Svelte คือคอมไพเลอร์ที่เปลี่ยนการเขียนโค้ด UI แบบ declarative ให้กลายเป็น JavaScript ประสิทธิภาพสูงที่อัปเดต DOM โดยตรงโดยไม่ต้องพึ่งพา Virtual DOM",
+      "problem_solved": "แก้ปัญหาคอขวดด้านประสิทธิภาพของเฟรมเวิร์กที่ใช้ Virtual DOM ซึ่งทำให้เบราว์เซอร์ต้องเสียเวลาทำ diffing เพื่ออัปเดตหน้าจอ โดย Svelte จะเปลี่ยนโค้ดให้กลายเป็นคำสั่ง DOM ขั้นพื้นฐานตั้งแต่ขั้นตอน Build time",
+      "alternative_comparison": "คล้ายกับ React หรือ Vue แต่โดดเด่นกว่าตรงที่ไม่มี overhead ของ runtime ที่มีขนาดใหญ่และทำงานได้รวดเร็วกว่ามากเพราะไม่ต้องทำ Virtual DOM reconciliation",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "มีการพัฒนาอย่างต่อเนื่อง มี ecosystem ที่กว้างขวาง และถูกใช้งานในระดับองค์กรขนาดใหญ่มาอย่างยาวนาน",
+      "ai_opportunity": {
+        "monetization_idea": "พัฒนาเครื่องมือ AI-powered component generator ที่แปลงดีไซน์จาก Figma เป็น Svelte components โดยตรงเพื่อขายเป็น SaaS สำหรับทีม UI/UX",
+        "stack_synergy": "เหมาะมากสำหรับใช้ร่วมกับ Vercel สำหรับการ Deploy และ Supabase เพื่อสร้าง Full-stack application ที่เบาและเร็วที่สุด"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "เขียนโค้ดน้อยลงมากเมื่อเทียบกับเฟรมเวิร์กอื่น ทำให้ดูแลรักษาง่ายขึ้น",
+          "ประสิทธิภาพของเว็บที่ได้นั้นยอดเยี่ยมและ bundle size เล็กมาก"
+        ],
+        "gotchas_and_traps": [
+          "ระบบนิเวศของไลบรารี third-party อาจจะไม่ใหญ่เท่า React",
+          "การเรียนรู้ concept ใหม่ๆ เช่น Runes ใน Svelte 5 อาจต้องใช้เวลาปรับตัวสำหรับคนที่ชินกับ state แบบเดิม"
+        ],
+        "hype_vs_reality": 9
+      },
+      "quick_start": "npm create svelte@latest my-app\ncd my-app\nnpm install\nnpm run dev",
+      "updated_at": "2026-11-19T04:30:47.259Z",
+      "first_seen_at": "2026-11-18T04:43:17.664Z"
+    },
+    {
+      "id": "167174",
+      "name": "jquery",
+      "owner": "jquery",
+      "url": "https://github.com/jquery/jquery",
+      "stars": 60030,
+      "stars_today": 266,
+      "language": "JavaScript",
+      "topics": [
+        "jquery"
+      ],
+      "license": "MIT",
+      "open_issues": 95,
+      "one_liner": "ตำนานที่ยังมีลมหายใจ! jQuery 4.0.0 ปรับโฉมใหม่ให้ทันสมัย พร้อมรองรับ ES Modules เต็มตัว",
+      "problem_solved": "นักพัฒนาจำนวนมากที่ดูแล Legacy Code หรือโปรเจกต์ขนาดเล็กมักเจอปัญหาในการบริหารจัดการ DOM ที่ซับซ้อนโดยไม่มี Library ช่วยเหลือ อีกทั้งเฟรมเวิร์กสมัยใหม่อาจจะดู 'ใหญ่เกินไป' สำหรับโปรเจกต์ที่ต้องการแค่ความคล่องตัว jQuery 4.0 จึงเข้ามาแก้ปัญหาด้วยการลดขนาดโค้ด (Slim version) และการปรับปรุงโครงสร้างภายในให้สอดคล้องกับมาตรฐาน JavaScript ยุคใหม่ ทำให้เรายังคงความเร็วในการพัฒนาและเสถียรภาพไว้ได้โดยไม่ต้องโละระบบเดิมทิ้ง",
+      "alternative_comparison": "หากเทียบกับ React หรือ Vue ที่เน้น State Management และ VDOM แบบหนักหน่วง jQuery ยังคงเป็นผู้ชนะในแง่ของ 'Zero-config' และความง่ายในการหยิบมาใช้ในโปรเจกต์ที่เน้นการทำ UI Interactions เฉพาะจุด เหมาะมากสำหรับการพัฒนาเว็บไซต์แบบ Static หรือเว็บที่ต้องการการจัดการ DOM แบบตรงไปตรงมาโดยไม่ต้องปวดหัวกับ Re-rendering cycle",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "นี่คือ Library ที่มีประวัติยาวนานและผ่านการทดสอบในสนามรบระดับ Enterprise มาแล้วนับไม่ถ้วน การอัปเดตเวอร์ชัน 4.0 พร้อมการตัด Legacy Support ออกไปเป็นเครื่องยืนยันว่าโปรเจกต์นี้ยังคงมุ่งเน้นความปลอดภัยและประสิทธิภาพสูงสุดสำหรับนักพัฒนา",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างบริการ 'Legacy Web Modernization Agency' ที่เจาะกลุ่ม SME ซึ่งมีเว็บไซต์เก่าที่ใช้ jQuery 1.x/2.x ให้หันมาใช้ jQuery 4.x พร้อม Optimize ประสิทธิภาพ หรือทำเครื่องมือ AI-based Migration Tool ที่ช่วยแปลง jQuery โค้ดเก่าให้เป็นโมดูลที่สะอาดขึ้นบนโครงสร้างใหม่เพื่อคิดค่าธรรมเนียมแบบรายโปรเจกต์",
+        "stack_synergy": "ใช้ร่วมกับ Vite หรือ Webpack เพื่อทำ Modern Bundling ของ jQuery ร่วมกับ Next.js (ใช้ในส่วนของ Client-side helper) สถาปัตยกรรมจะประกอบด้วย Supabase เป็น Backend API และใช้ jQuery จัดการ DOM Elements ที่ต้องการความรวดเร็วในการโต้ตอบ โดยไม่ต้องโหลด Framework ขนาดใหญ่อย่าง React เข้าไปทั้งหน้า"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ไม่ต้องเรียนรู้ใหม่: ความคุ้นเคยกับ Syntax ที่เรียบง่ายและเป็นเอกลักษณ์ยังคงอยู่",
+          "ขนาดเบาลงมาก: รุ่น Slim ที่ตัดฟีเจอร์ไม่จำเป็นออก ช่วยลดโหลด Time-to-Interactive ให้กับเว็บสมัยใหม่"
+        ],
+        "gotchas_and_traps": [
+          "ไม่เหมาะกับแอปพลิเคชันที่มี State ซับซ้อนสูง: การจัดการ Data Binding ใน jQuery ยังต้องทำด้วยมือ ซึ่งเสี่ยงต่อบั๊กหากโปรเจกต์ขยายใหญ่มาก",
+          "ต้องระวังเรื่องการใช้ร่วมกับโมเดิร์นเฟรมเวิร์ก: หากใช้ React/Vue ควบคู่กันไป ต้องระวังอย่าให้เกิด 'DOM Conflict' จากการแย่งกันแก้ไข DOM Element เดียวกัน"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "npm install jquery\n\n// ในไฟล์ JavaScript ของคุณ\nimport $ from 'jquery';",
+      "updated_at": "2026-11-19T04:31:03.678Z",
+      "first_seen_at": "2026-11-19T04:31:03.678Z",
+      "deep_dive_paragraphs": [
+        "ในยุคที่วงการ Dev มุ่งหน้าไปทาง AI-driven Development หรือการใช้สารพัด Framework จนบางครั้งลืมความเรียบง่าย jQuery กลับมาเป็นกระแสอีกครั้งด้วยการปล่อยเวอร์ชัน 4.0.0 การกลับมาครั้งนี้ไม่ใช่แค่เรื่องของความเก๋า แต่เป็นการตอบโจทย์นักพัฒนาที่ต้องการความเบาและ 'ความเป็นธรรมชาติ' ของ DOM ซึ่งหลายครั้งเฟรมเวิร์กสมัยใหม่ทำให้เรื่องง่ายกลายเป็นเรื่องซับซ้อนเกินจำเป็น การอัปเกรดนี้เป็นการเคลียร์สิ่งที่ค้างคามานาน เช่น การทิ้ง Support เบราว์เซอร์โบราณ เพื่อให้ตัว Library มีขนาดเล็กลงและรองรับ ECMAScript Modules ได้สมบูรณ์แบบ",
+        "หัวใจสำคัญของ jQuery 4.0 คือการยกเครื่องภายใต้ฝากระโปรง (Under the hood) การ Migrate ระบบ Build จาก Grunt ไปใช้เครื่องมือสมัยใหม่และการลด Dependencies ที่ไม่จำเป็น ทำให้โครงสร้างโปรเจกต์สะอาดขึ้นอย่างเห็นได้ชัด การรองรับ `jquery.module.js` ช่วยให้เราสามารถ Import เฉพาะส่วนที่ใช้งานใน Modern Build Pipeline ได้ง่ายขึ้น การปรับตัวครั้งนี้เปลี่ยนจาก 'All-in-one Library' ให้กลายเป็น 'Modular Utility' ที่ยืดหยุ่นกว่าเดิมมาก ซึ่งเป็นหัวใจสำคัญที่ทำให้มันยังคงอยู่ในสารบบของเครื่องมือที่ทรงพลังที่สุดในโลก Web Development",
+        "หากคุณกำลังมองหาเครื่องมือที่เชื่อถือได้สำหรับการทำ Interaction เล็กๆ น้อยๆ ในหน้าเว็บ หรือต้องการเครื่องมือที่มีเอกสารอ้างอิงแน่นปึกที่สุดในประวัติศาสตร์ Software jQuery 4.0 คือคำตอบที่ไม่เคยตาย อนาคตของมันอาจไม่ใช่การครองโลกเหมือนช่วง 10 ปีก่อน แต่คือการเป็น 'Utility layer' ที่ทรงประสิทธิภาพที่สุดตัวหนึ่ง อนาคตที่น่าจับตามองคือการที่ jQuery จะถูกนำไปใช้ร่วมกับ LLM ในฐานะเครื่องมือที่ AI เข้าใจโครงสร้างได้ง่ายที่สุด ทำให้งานที่ต้องใช้ DOM Manipulation จะกลายเป็นเรื่องที่ง่ายเพียงแค่การสั่งงานผ่าน Prompt"
+      ],
+      "facebook_post": "ตำนานบทใหม่ที่ต้องจับตา! jQuery 4.0.0 มาแล้ว! 🚀\n\nใครว่า jQuery ตายแล้ว? บอกเลยว่าคิดผิด! วันนี้พี่ใหญ่แห่งวงการ Frontend กลับมาพร้อมเวอร์ชัน 4.0.0 ที่ปรับตัวเข้าสู่ยุค Modern Web อย่างเต็มตัว ทั้งเบา ทั้งเร็ว และรองรับ ES Modules แบบจัดเต็ม\n\nทำไมวันนี้เรายังต้องสนใจ jQuery อยู่?\n• เบากว่าเดิมเยอะ: ด้วยรุ่น Slim ที่คัดมาเฉพาะฟีเจอร์เด็ด ช่วยให้เว็บโหลดไวขึ้น\n• มาตรฐานใหม่: ตัดทิ้ง Support เบราว์เซอร์รุ่นลุงอย่าง IE เพื่อให้โค้ดสะอาดและทันสมัยขึ้น\n• ทำงานร่วมกับ Modern Stack ได้เนียน: ใช้คู่กับ Vite หรือ Build Tool สมัยใหม่ได้สบาย\n• เสถียรที่สุดในปฐพี: บั๊กแทบไม่มี เอกสารแน่นปึก เรียนรู้จบได้ในวันเดียว\n\nเหมาะมากสำหรับคนทำโปรเจกต์ขนาดเล็ก-กลาง ที่ไม่ต้องการแบก Framework ใหญ่ๆ ให้หนักเครื่อง หรือใครที่มีโปรเจกต์เก่าที่อยากอัปเกรดให้รองรับมาตรฐานปัจจุบัน jQuery 4 คือทางเลือกที่ไม่ควรมองข้ามครับ\n\nลองเล่นกันหรือยังครับ? หรือใครยังมีโปรเจกต์ที่ใช้ jQuery รันอยู่บ้าง ลองมาแชร์กันหน่อยว่ายังเวิร์กไหม!\n\n#jQuery #WebDevelopment #JavaScript #OpenSource #DevTools #Programming"
+    }
+  ],
+  "yesterday": [
+    {
+      "id": "1229774092",
+      "name": "Claude-BugHunter",
+      "owner": "elementalsouls",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
       "stars": 9649,
       "stars_today": 1005,
       "language": "Python",
@@ -535,543 +1078,6 @@
       },
       "quick_start": "npm create svelte@latest my-app\ncd my-app\nnpm install\nnpm run dev",
       "updated_at": "2026-11-18T04:43:17.664Z"
-    }
-  ],
-  "yesterday": [
-    {
-      "id": "979392131",
-      "name": "ag-ui",
-      "owner": "ag-ui-protocol",
-      "url": "https://github.com/ag-ui-protocol/ag-ui",
-      "stars": 19307,
-      "stars_today": 791,
-      "language": "TypeScript",
-      "topics": [
-        "ag-ui-protocol",
-        "agent-frontend",
-        "agent-ui",
-        "agentic-workflow",
-        "ai-agents"
-      ],
-      "license": "MIT",
-      "open_issues": 591,
-      "one_liner": "AG-UI คือโปรโตคอลมาตรฐานที่ทำหน้าที่เป็นตัวกลางในการเชื่อมต่อ AI Agent เข้ากับ UI ของแอปพลิเคชันอย่างราบรื่น",
-      "problem_solved": "แก้ปัญหาการเขียนโค้ดที่ซับซ้อนและกระจัดกระจายเพื่อเชื่อมต่อ AI Agent เข้ากับ Frontend โดย AG-UI ทำให้ทุก Agent ใช้มาตรฐานการรับส่งข้อมูลผ่านเหตุการณ์ (Events) ชุดเดียวกัน ไม่ต้องคอยแก้โค้ดใหม่เมื่อเปลี่ยน Agent Framework",
-      "alternative_comparison": "คล้ายกับการสร้าง UI สำหรับแชททั่วไป แต่ได้เปรียบกว่าตรงที่เป็น Protocol กลางที่ครอบคลุมการทำงานร่วมกับ AI Agent หลายตัว (Multi-agent) และรองรับระบบ Generative UI ที่ทำได้ยากหากเขียนเองทั้งหมด",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "เป็นโปรเจกต์ใหม่ที่กำลังพัฒนาอย่างรวดเร็วและอยู่ในช่วงสร้าง Ecosystem ผ่านการเชื่อมต่อกับ Framework ต่างๆ อย่างต่อเนื่อง",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างบริการ Dashboard หรือ Monitoring Tool สำหรับติดตามผลการทำงานของ AI Agent ในแอปพลิเคชันลูกค้า หรือพัฒนา UI Component Library ที่รองรับ AG-UI สำหรับขายบน Marketplace",
-        "stack_synergy": "ใช้งานได้ดีเยี่ยมกับ Next.js ร่วมกับ Vercel AI SDK เพื่อจัดการ Stream responses และใช้ Supabase ในการเก็บประวัติการโต้ตอบหรือสถานะของ Agent"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ลดระยะเวลาการพัฒนา Frontend สำหรับ AI Agent ได้อย่างมหาศาล",
-          "มีมาตรฐานการรับส่งข้อมูลที่ยืดหยุ่น รองรับการทำ Generative UI และ Human-in-the-loop"
-        ],
-        "gotchas_and_traps": [
-          "ตัวโปรโตคอลยังเป็นของใหม่ การเปลี่ยนแปลงในอนาคตอาจมีผลกระทบย้อนหลัง (Breaking changes)",
-          "ต้องอาศัยความเข้าใจในการจัดการ Event-driven architecture ซึ่งอาจจะยากสำหรับมือใหม่"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npx create-ag-ui-app my-agent-app",
-      "updated_at": "2026-11-17T05:14:56.621Z"
-    },
-    {
-      "id": "1123956658",
-      "name": "plannotator",
-      "owner": "backnotprop",
-      "url": "https://github.com/backnotprop/plannotator",
-      "stars": 12711,
-      "stars_today": 696,
-      "language": "TypeScript",
-      "topics": [
-        "agents",
-        "claude-code",
-        "code-review",
-        "codex",
-        "obsidian",
-        "opencode",
-        "pi-mono",
-        "plan-mode",
-        "skills"
-      ],
-      "license": "Apache-2.0",
-      "open_issues": 186,
-      "one_liner": "Plannotator เป็นเครื่องมือช่วยรีวิวงานของ AI Coding Agents ที่ทำให้คุณสามารถดูแผน, แก้ไขโค้ด และรีวิว UI ได้โดยตรงผ่านเบราว์เซอร์",
-      "problem_solved": "ปกติแล้ว AI Coding Agents มักจะทำงานแบบปิดหรือใน Terminal ทำให้การสื่อสารเรื่องแผนงาน การรีวิว Diff หรือการตรวจสอบผลลัพธ์ที่เป็น HTML ทำได้ยาก Plannotator จึงเข้ามาเป็นเลเยอร์กลางที่ทำหน้าที่เหมือน Dashboard ช่วยให้มนุษย์ตัดสินใจและให้ Feedback กับ AI ได้ง่ายขึ้น",
-      "alternative_comparison": "คล้ายกับเครื่องมืออย่าง Cursor หรือ GitHub Copilot แต่ Plannotator มีความเป็นกลาง (Agnostic) มากกว่า เพราะไม่ได้ผูกติดกับ IDE ตัวใดตัวหนึ่ง แต่ทำหน้าที่เป็น Inbox ส่วนกลางที่รวมงานจากหลาย Agents เช่น Claude Code, Pi, หรือ OpenCode เข้ามาไว้ในที่เดียว",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องและมี Community ตอบรับดี แต่ยังพบปัญหาเรื่อง UI บัคและการเชื่อมต่อกับ CLI บางตัวที่ยังไม่นิ่ง",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการเป็น Enterprise Dashboard สำหรับ Team ที่ใช้ Multi-Agent Workflow โดยเก็บค่าสมาชิกรายเดือนเพื่อเปิดฟีเจอร์การจัดการ Team-wide Feedback หรือบันทึกประวัติการตัดสินใจของ AI",
-        "stack_synergy": "สามารถพัฒนาเป็น Next.js app ที่เชื่อมต่อกับ Supabase เพื่อเก็บ Log การตัดสินใจของ Agent และใช้ Vercel ในการ Deploy เพื่อทำเป็นศูนย์กลางการ Review ระดับองค์กร"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับ AI Coding Agents หลากหลายตัว ทำให้ Workflow ไม่ผูกติดกับเจ้าใดเจ้าหนึ่ง",
-          "มีฟีเจอร์รีวิว HTML Artifacts ที่เป็นประโยชน์มากสำหรับการพัฒนา Frontend ด้วย AI"
-        ],
-        "gotchas_and_traps": [
-          "การตั้งค่า Integration กับ CLI ของแต่ละ Agent อาจมีความซับซ้อนและเจอบัคได้ง่าย",
-          "โปรเจกต์ยังอยู่ในช่วงเริ่มต้น การอัปเดตอาจส่งผลกระทบต่อ Workflow เดิมที่วางไว้"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npx plannotator inbox",
-      "updated_at": "2026-11-17T05:14:56.621Z"
-    },
-    {
-      "id": "543101941",
-      "name": "univer",
-      "owner": "dream-num",
-      "url": "https://github.com/dream-num/univer",
-      "stars": 27950,
-      "stars_today": 1828,
-      "language": "TypeScript",
-      "topics": [
-        "board",
-        "collaboration",
-        "doc",
-        "docx",
-        "excel",
-        "offce365",
-        "office",
-        "pdf",
-        "ppt",
-        "pptx",
-        "presentation",
-        "sdk",
-        "sheet",
-        "slides",
-        "spreadsheet",
-        "univer",
-        "word",
-        "wordprocessor",
-        "workspace",
-        "xlsx"
-      ],
-      "license": "Apache-2.0",
-      "open_issues": 199,
-      "one_liner": "Univer คือชุดเครื่องมือ Office SDK แบบโอเพนซอร์สที่ช่วยให้นักพัฒนาสามารถสร้างแอปพลิเคชันจัดการเอกสารและตารางคำนวณที่ทำงานร่วมกันได้แบบ Real-time",
-      "problem_solved": "แก้ปัญหาการที่นักพัฒนาต้องสร้างระบบจัดการเอกสารใหม่ทั้งหมดตั้งแต่ต้น ซึ่งมักจะซับซ้อนและทำฟีเจอร์การแก้ไขร่วมกัน (Collaboration) ได้ยาก โดย Univer เข้ามาเป็นรากฐานที่ปรับแต่งได้สูงและรองรับการเชื่อมต่อกับ AI",
-      "alternative_comparison": "คล้ายกับ Google Docs หรือ Sheets ในแง่การใช้งาน แต่ดีกว่าตรงที่เป็น SDK ที่เราสามารถนำไปฝัง (Embed) ในแอปของตัวเองและปรับแต่งฟังก์ชันการทำงานได้ตามต้องการโดยไม่พึ่งพาระบบปิดของ Big Tech",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องและมีการขยับขยาย API อย่างสม่ำเสมอ แต่ยังอยู่ในช่วงที่ต้องระมัดระวังเรื่อง Breaking changes",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างบริการ AI Spreadsheet Assistant ที่ช่วยวิเคราะห์ข้อมูลอัตโนมัติจากไฟล์ Excel หรือเป็น Plugin สำหรับจัดการโปรเจกต์ภายในองค์กรผ่านหน้าตาเว็บแอป",
-        "stack_synergy": "สามารถใช้ Next.js ร่วมกับ Supabase เพื่อทำระบบ Auth และเก็บข้อมูลเอกสาร โดยใช้ Liveblocks หรือ WebSocket เพื่อรองรับการทำงานร่วมกันแบบหลายคน"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "สถาปัตยกรรมแบบแยกส่วน (Modular) ทำให้ขยายฟีเจอร์ได้ง่าย",
-          "มี API ที่ครอบคลุมและออกแบบมาเพื่อให้นักพัฒนาเขียนโปรแกรมควบคุมได้โดยตรง"
-        ],
-        "gotchas_and_traps": [
-          "Curve การเรียนรู้ในช่วงเริ่มต้นค่อนข้างสูงเนื่องจากตัว SDK มีความละเอียดมาก",
-          "การจัดการเรื่องสถานะ (State management) ในแอปขนาดใหญ่จำเป็นต้องใช้ความเชี่ยวชาญพอสมควร"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npx create-univer@latest\ncd my-univer-app\nnpm run dev",
-      "updated_at": "2026-11-17T05:14:56.621Z"
-    },
-    {
-      "id": "1079356098",
-      "name": "claude-trading-skills",
-      "owner": "tradermonty",
-      "url": "https://github.com/tradermonty/claude-trading-skills",
-      "stars": 6480,
-      "stars_today": 837,
-      "language": "Python",
-      "topics": [],
-      "license": "MIT",
-      "open_issues": 58,
-      "one_liner": "เครื่องมือช่วยวางแผนและทบทวนการลงทุนด้วย AI ที่เน้นการสร้างระเบียบวินัยและกระบวนการคิดให้แก่เทรดเดอร์รายย่อย",
-      "problem_solved": "ช่วยแก้ปัญหาการตัดสินใจลงทุนที่ใช้อารมณ์หรือขาดความสม่ำเสมอ โดยการเปลี่ยนกระบวนการเทรดให้กลายเป็น workflow ที่เป็นระบบ (Checklist-based) แทนที่จะพึ่งพา AI ในการเทรดให้โดยอัตโนมัติ",
-      "alternative_comparison": "คล้ายกับแพลตฟอร์มวิเคราะห์หุ้นอย่าง TradingView หรือ stock screener ทั่วไป แต่ต่างออกไปตรงที่ไม่ได้แค่โชว์กราฟ แต่เน้นการสร้าง 'Trading Journal' และ 'Review Loop' ที่มี AI ช่วยวิเคราะห์พฤติกรรมการเทรดของเราเอง",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องผ่านการอัปเดต workflow ใหม่ๆ แต่ยังอยู่ในช่วงที่ผู้ใช้ต้องปรับแต่งและดูแลการตั้งค่าด้วยตนเองสูง",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการสมาชิกรายเดือน (Paid Newsletter) ที่ใช้ workflow นี้ในการย่อยข้อมูลตลาดรายสัปดาห์ หรือพัฒนาเป็นแอปแนว 'AI Trading Mentor' ที่ช่วยสรุป Performance Review ของเทรดเดอร์ในแต่ละเดือน",
-        "stack_synergy": "สามารถเชื่อมต่อข้อมูลจาก Supabase เพื่อทำประวัติการเทรด (Trade Log) และใช้ Next.js ทำ Dashboard สรุปความเสี่ยงหรือแสดงผลลัพธ์จากวิเคราะห์ของ Claude ให้สวยงามและใช้งานง่าย"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "เน้นกระบวนการตัดสินใจ (Process-driven) มากกว่าแค่การหา Signal ทำให้พัฒนาฝีมือเทรดได้จริง",
-          "มีความโปร่งใสสูง มีการอธิบาย workflow ชัดเจน และมีชุมชนที่เน้นการเรียนรู้ร่วมกัน"
-        ],
-        "gotchas_and_traps": [
-          "ไม่เหมาะกับสาย Day trade ที่ต้องการความเร็วสูงหรือบอทเทรดอัตโนมัติ",
-          "ผู้ใช้ต้องมีความรู้พื้นฐานในการจัดการ API และคอยตรวจสอบความถูกต้องของข้อมูลที่ AI วิเคราะห์เสมอ"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "git clone https://github.com/tradermonty/claude-trading-skills.git\ncd claude-trading-skills\n# อ่านไฟล์ README.md เพื่อตั้งค่า workflow แรกของคุณตามคู่มือ 'Your First Week'",
-      "updated_at": "2026-11-17T05:14:56.621Z"
-    },
-    {
-      "id": "1229774092",
-      "name": "Claude-BugHunter",
-      "owner": "elementalsouls",
-      "url": "https://github.com/elementalsouls/Claude-BugHunter",
-      "stars": 7637,
-      "stars_today": 1094,
-      "language": "Python",
-      "topics": [
-        "ai-security",
-        "anthropic",
-        "application-security",
-        "bug-bounty",
-        "bugbounty",
-        "bugcrowd",
-        "claude",
-        "claude-code",
-        "claude-skills",
-        "ethical-hacking",
-        "hackerone",
-        "offensive-security",
-        "pentesting",
-        "red-team",
-        "security-tools",
-        "web-security"
-      ],
-      "license": "MIT",
-      "open_issues": 6,
-      "one_liner": "เป็นชุดคลังทักษะ (Skill Bundle) ที่เปลี่ยน Claude Code ให้กลายเป็นผู้ช่วยสายเจาะระบบและนักล่าบัค (Bug Hunter) ระดับมืออาชีพได้อย่างอัตโนมัติ",
-      "problem_solved": "แก้ปัญหาที่นักวิจัยความปลอดภัยต้องสลับเครื่องมือไปมาและเสียเวลาทำ Manual recon โดยรวมเอาเทคนิคจากรายงานช่องโหว่จริงกว่า 681 รายการมาให้ AI ใช้งานได้ทันทีผ่านคำสั่งภาษาธรรมชาติ",
-      "alternative_comparison": "คล้ายกับ Framework อย่าง Project Discovery หรือเครื่องมือทำ Pentest อัตโนมัติ แต่เหนือกว่าตรงที่มันผนวกความรู้ (Knowledge-base) และ Logic การคิดแบบ Red Teamer เข้าไปอยู่ในตัว AI Agent ทำให้สามารถวางแผนและดำเนินการแบบ Chain Attack ได้ฉลาดกว่า",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการพัฒนาอย่างต่อเนื่องผ่าน GitHub Issues มีโครงสร้างการทดสอบ (Smoke test) และมีฐานข้อมูลเทคนิคที่อ้างอิงจากช่องโหว่จริงที่ผ่านการพิสูจน์แล้ว",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างแพลตฟอร์ม SaaS สำหรับทำ Continuous Security Assessment ที่รายงานผลแบบสรุปภาษาไทยและให้คำแนะนำในการ Patch แก่ลูกค้าองค์กร",
-        "stack_synergy": "ใช้ร่วมกับ Next.js และ Supabase เพื่อสร้าง Dashboard ติดตามสถานะความปลอดภัยของระบบแบบ Real-time โดยดึงข้อมูลจากผลการ Hunt ของ Claude ออกมาแสดงผล"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ไม่ต้อง Config เยอะ เพราะรองรับ Claude Code plugin system ที่ติดตั้งง่าย",
-          "มีฐานข้อมูลเทคนิคที่กว้างและครอบคลุม ทั้งเว็บแอปและโครงสร้างพื้นฐานองค์กร"
-        ],
-        "gotchas_and_traps": [
-          "ต้องระวังเรื่องการใช้เครื่องมืออัตโนมัติกับเป้าหมายที่อยู่นอกเหนือขอบเขต (Out-of-scope) ของโปรแกรม Bug Bounty",
-          "ต้องมีความเข้าใจพื้นฐานด้านความปลอดภัยอยู่บ้างเพื่อให้สามารถตรวจสอบผลลัพธ์ที่ AI แนะนำได้"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "/plugin marketplace add elementalsouls/Claude-BugHunter\n/plugin install claude-bughunter@elementalsouls",
-      "updated_at": "2026-11-17T05:14:56.621Z"
-    },
-    {
-      "id": "968905557",
-      "name": "arcane",
-      "owner": "getarcaneapp",
-      "url": "https://github.com/getarcaneapp/arcane",
-      "stars": 8868,
-      "stars_today": 46,
-      "language": "Go",
-      "topics": [
-        "compose",
-        "container-management",
-        "containers",
-        "docker",
-        "docker-compose",
-        "docker-management",
-        "go",
-        "self-hosted",
-        "sveltekit",
-        "typescript",
-        "web-ui"
-      ],
-      "license": "BSD-3-Clause",
-      "open_issues": 6,
-      "one_liner": "Arcane คือแพลตฟอร์มจัดการ Docker Containers ที่ทันสมัยและใช้งานง่าย ช่วยให้คุณบริหารจัดการ Service ต่างๆ บนเซิร์ฟเวอร์ผ่านหน้าเว็บ UI ที่สวยงาม",
-      "problem_solved": "เข้ามาแก้ปัญหาความยุ่งยากในการจัดการ Docker Compose ผ่าน CLI ที่ซับซ้อน โดยเปลี่ยนมาใช้ Dashboard ที่เป็นมิตร เห็นภาพรวมของ Container ได้ชัดเจนพร้อมระบบจัดการสิทธิ์ (RBAC) และการสำรองข้อมูล",
-      "alternative_comparison": "คล้ายกับ Portainer แต่ Arcane โฟกัสไปที่ประสบการณ์การใช้งานแบบสมัยใหม่ (Modern UI) และเน้นการจัดการโปรเจกต์ที่ผูกกับ Git ได้ดียิ่งกว่า",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการพัฒนาอย่างต่อเนื่อง มีการทำ v3 อย่างเป็นทางการ และมีระบบจัดการ Security/SBOM ที่ชัดเจน",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างบริการ 'Managed Self-hosted Dashboard as a Service' สำหรับทีมขนาดเล็กที่ต้องการให้จัดการ Docker บน VPS ของตัวเองโดยไม่ต้องตั้งค่าเองทั้งหมด",
-        "stack_synergy": "สามารถต่อยอดโดยใช้ Arcane API เชื่อมต่อกับระบบ Monitoring อย่าง Vercel หรือใช้ Supabase เพื่อเก็บ Audit logs และ Analytics ของการ Deploy container ในระยะยาว"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "UI ที่ดูทันสมัยและใช้งานง่ายกว่าเครื่องมือจัดการ Docker แบบเดิมๆ",
-          "มีฟีเจอร์ระดับองค์กรอย่าง Role-based access control (RBAC) และระบบ Audit log"
-        ],
-        "gotchas_and_traps": [
-          "เนื่องจากเป็นโครงการที่เน้น self-hosted ต้องรับผิดชอบการอัปเดตและดูแลความปลอดภัยของเครื่องที่ติดตั้งด้วยตัวเอง",
-          "มีการเปลี่ยนโครงสร้างหลักระหว่าง v2 ไป v3 ซึ่งอาจต้องวางแผนการ Migration หากใช้เวอร์ชันเก่าอยู่"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "docker run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock getarcane/arcane:latest",
-      "updated_at": "2026-11-17T05:15:04.049Z"
-    },
-    {
-      "id": "1310427454",
-      "name": "jiangshan-map",
-      "owner": "DeanChensj",
-      "url": "https://github.com/DeanChensj/jiangshan-map",
-      "stars": 7113,
-      "stars_today": 288,
-      "language": "JavaScript",
-      "topics": [
-        "ancient-china",
-        "cartography",
-        "china-map",
-        "chinese-history",
-        "classical-chinese-poetry",
-        "digital-humanities",
-        "gis",
-        "historical-atlas",
-        "historical-map",
-        "interactive-map"
-      ],
-      "license": "GPL-3.0",
-      "open_issues": 13,
-      "one_liner": "แอปพลิเคชันแผนที่ประวัติศาสตร์จีนแบบอินเทอร์แอคทีฟที่ให้คุณเลื่อนเวลาเพื่อดูการเปลี่ยนแปลงของอาณาเขต เมือง และเหตุการณ์สำคัญตลอด 2,400 ปีได้ในที่เดียว",
-      "problem_solved": "ช่วยแก้ปัญหาการอ่านหนังสือประวัติศาสตร์หรือวรรณกรรมจีนแล้วจินตนาการตำแหน่งเมืองโบราณหรือเขตแดนที่เปลี่ยนไปตามยุคสมัยไม่ออก ซึ่งหนังสือแผนที่กระดาษทั่วไปไม่สามารถแสดงภาพการเปลี่ยนแปลงเชิงเวลา (Time-lapse) ได้ชัดเจนเท่า",
-      "alternative_comparison": "คล้ายกับฐานข้อมูลภูมิศาสตร์ประวัติศาสตร์ (CHGIS) แต่เข้าถึงง่ายและใช้งานแบบ Interactive บนเบราว์เซอร์ได้ทันที ไม่ต้องโหลดไฟล์ GIS หรือซอฟต์แวร์เฉพาะทางมาเปิด",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่อง มี UI ที่สมบูรณ์และเสถียร รวมถึงมีชุมชนช่วยกัน Contribute ข้อมูลทางประวัติศาสตร์อย่างแข็งขัน",
-      "ai_opportunity": {
-        "monetization_idea": "ทำ API บริการข้อมูลเชิงประวัติศาสตร์สำหรับให้นักเขียนนิยายอิงประวัติศาสตร์ หรือสร้าง Premium Dashboard สำหรับสถาบันการศึกษาที่ต้องการฟีเจอร์การวิเคราะห์เชิงลึกระดับรายบุคคล",
-        "stack_synergy": "ใช้ Next.js ร่วมกับ Supabase เพื่อทำระบบ User-generated content ให้ผู้ใช้ช่วยกันปักหมุดข้อมูลประวัติศาสตร์ และใช้ Vercel ในการทำ Edge Functions เพื่อเรนเดอร์แผนที่ให้เร็วขึ้น"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "User Interface ออกแบบมาสวยงามและใช้งานง่ายมากเหมือน Google Earth เวอร์ชันย้อนยุค",
-          "มีข้อมูลที่ละเอียดและแม่นยำทางประวัติศาสตร์สูงมาก ครอบคลุมตั้งแต่อาณาจักรโบราณจนถึงยุคปัจจุบัน"
-        ],
-        "gotchas_and_traps": [
-          "หากเปิดบนอุปกรณ์ที่มีทรัพยากรจำกัดหรือ Browser ที่ไม่รองรับอาจมีอาการหน่วงหรือแสดงผลช้า",
-          "ข้อมูลบางจุดที่ต้องการความละเอียดสูง (Granularity) ยังคงต้องอาศัยการอัปเดตจากชุมชนเพิ่มเติม"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "git clone https://github.com/DeanChensj/jiangshan-map.git\ncd jiangshan-map\nnpm install && npm run dev",
-      "updated_at": "2026-11-17T05:15:12.278Z"
-    },
-    {
-      "id": "1135847870",
-      "name": "stitch-skills",
-      "owner": "google-labs-code",
-      "url": "https://github.com/google-labs-code/stitch-skills",
-      "stars": 9805,
-      "stars_today": 529,
-      "language": "TypeScript",
-      "topics": [],
-      "license": "Apache-2.0",
-      "open_issues": 20,
-      "one_liner": "คอลเลกชันเครื่องมือเสริม (Plugins) สำหรับ AI Agents ที่ช่วยให้เขียนโค้ดและจัดการงานดีไซน์บนแพลตฟอร์ม Google Stitch ได้อัตโนมัติ",
-      "problem_solved": "ช่วยแก้ปัญหาความยุ่งยากในการเชื่อมต่อ Workflow ระหว่างงานดีไซน์กับงานโค้ด ทำให้ AI Coding Agent สามารถสื่อสารและอัปโหลดงานจาก Code ไปยัง Stitch Design System ได้โดยตรง ลดภาระการทำ Manual Handover",
-      "alternative_comparison": "คล้ายกับเครื่องมือจัดการ MCP (Model Context Protocol) ทั่วไป แต่มีความเฉพาะทาง (Domain-specific) มากกว่า โดยเน้นไปที่ระบบนิเวศของ Google Stitch โดยตรง ทำให้ Workflow การออกแบบและพัฒนาทำได้ลึกกว่าการใช้ MCP แบบทั่วไป",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "อยู่ในช่วงเริ่มต้นของการเปิดตัว มีการอัปเดตฟีเจอร์ใหม่ต่อเนื่อง แต่ยังพบประเด็นเรื่องการเข้าถึง API และความเสถียรในการทำงานร่วมกับ Agent หลายๆ ตัว",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างบริการ Micro-SaaS ที่รับแปลง Mockup หรือดีไซน์จาก Figma แล้วเปลี่ยนเป็น React component โดยใช้ Stitch Skills เป็นตัวเชื่อม Pipeline อัตโนมัติสำหรับ Agency",
-        "stack_synergy": "ใช้ร่วมกับ Next.js และ Supabase เพื่อสร้างเครื่องมือ Auto-generator ที่ให้ผู้ใช้ Deploy หน้าเว็บขึ้น Vercel ได้ทันทีหลังจากที่ AI Agent สั่ง Build ผ่าน Stitch-build plugin"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับการใช้งานผ่านเครื่องมือยอดนิยมอย่าง Claude Code, Cursor และ CLI ที่นักพัฒนาคุ้นเคย",
-          "ช่วยลดช่องว่างระหว่างงานดีไซน์และงาน Dev ได้อย่างมีประสิทธิภาพผ่านมาตรฐาน Agent Skills"
-        ],
-        "gotchas_and_traps": [
-          "ต้องมีการตั้งค่า MCP Server และ credentials ที่ซับซ้อนตามคู่มือของ Google Stitch ก่อนถึงจะเริ่มใช้งานได้",
-          "มีปัญหาเรื่องการเข้าถึงไฟล์ (downloadUrl) ผ่าน API บางรายการที่อาจติด Google Sign-in ทำให้การทำงานแบบ Automate ขาดตอน"
-        ],
-        "hype_vs_reality": 6
-      },
-      "quick_start": "npx plugins add google-labs-code/stitch-skills --scope project --target claude-code",
-      "updated_at": "2026-11-17T05:15:12.279Z"
-    },
-    {
-      "id": "1140843380",
-      "name": "last30days-skill",
-      "owner": "mvanhorn",
-      "url": "https://github.com/mvanhorn/last30days-skill",
-      "stars": 68288,
-      "stars_today": 135,
-      "language": "Python",
-      "topics": [
-        "ai-prompts",
-        "ai-skill",
-        "bluesky",
-        "claude",
-        "claude-code",
-        "clawhub",
-        "deep-research",
-        "hackernews",
-        "instagram",
-        "openclaw",
-        "polymarket",
-        "recency",
-        "reddit",
-        "research",
-        "social-media",
-        "tiktok",
-        "trends",
-        "twitter",
-        "web-search",
-        "youtube"
-      ],
-      "license": "MIT",
-      "open_issues": 34,
-      "one_liner": "เครื่องมือค้นหาอัจฉริยะที่ใช้ AI รวบรวมข้อมูลสดจากโซเชียลมีเดียและแพลตฟอร์มต่างๆ เพื่อสรุปสิ่งที่ผู้คนกำลังสนใจจริงในรอบ 30 วันที่ผ่านมา",
-      "problem_solved": "Google หรือ Search Engine แบบดั้งเดิมมักแสดงผลลัพธ์ที่เน้น SEO หรือข้อมูลเก่าค้างปี แต่เครื่องมือนี้แก้ปัญหา 'ข้อมูลล้าหลัง' โดยการดึง Insight จาก Reddit, X, และ YouTube ที่เป็นความเห็นจากผู้ใช้งานจริงแบบ Real-time",
-      "alternative_comparison": "คล้ายกับการทำ Research ด้วยตนเองบนโซเชียลมีเดีย แต่ดีกว่าตรงที่ใช้ AI Agent ช่วยสรุปข้อมูลจากหลายแพลตฟอร์มพร้อมกันโดยไม่ต้องเปิดหลายหน้าจอ",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องและมีการจัดการเรื่องความปลอดภัยที่รัดกุม แต่ยังอยู่ในระยะเริ่มต้นของการขยายขีดความสามารถ",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการแบบ Subscription สำหรับนักวิเคราะห์ตลาดหรือนักลงทุนที่ต้องการรายงาน 'Market Sentiment' รายวันแบบสรุปจากทุกแหล่งข้อมูลในที่เดียว",
-        "stack_synergy": "สามารถใช้ร่วมกับ Next.js และ Supabase เพื่อสร้าง Dashboard สรุปแนวโน้มตลาด (Trend Watcher) ที่อัปเดตข้อมูลอัตโนมัติผ่าน Edge Functions"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ดึงข้อมูลดิบจากแหล่งที่แท้จริงได้ลึกกว่าเครื่องมือค้นหาปกติ",
-          "สามารถนำไปใช้ใน Workflow ของ AI Agent ตัวอื่นอย่าง Claude Code ได้ทันที"
-        ],
-        "gotchas_and_traps": [
-          "จำเป็นต้องจัดการเรื่อง API Keys หรือ Session ของแต่ละแพลตฟอร์มเอง ซึ่งอาจมีความซับซ้อนในการตั้งค่า",
-          "การพึ่งพาแหล่งข้อมูลโซเชียลมีเดียอาจทำให้ได้รับข้อมูลที่ลำเอียง (Bias) ได้ง่ายหากไม่ตรวจสอบ"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "npx skills add mvanhorn/last30days-skill -g\n/last30days [topic]",
-      "updated_at": "2026-11-17T05:15:20.328Z"
-    },
-    {
-      "id": "1278676884",
-      "name": "SkillEvaluator",
-      "owner": "NVIDIA",
-      "url": "https://github.com/NVIDIA/SkillEvaluator",
-      "stars": 2903,
-      "stars_today": 873,
-      "language": "Python",
-      "topics": [
-        "agent-evaluation",
-        "agent-plugins",
-        "agent-security",
-        "agent-skills",
-        "agentic-ai",
-        "benchmark",
-        "claude-code",
-        "codex",
-        "evaluate",
-        "evaluation",
-        "plugin",
-        "plugin-evaluation",
-        "security-scanner",
-        "skill-eval",
-        "skill-evals",
-        "skill-evaluation",
-        "skill-evaluator",
-        "skills"
-      ],
-      "license": "Apache-2.0",
-      "open_issues": 44,
-      "one_liner": "เครื่องมือจาก NVIDIA สำหรับตรวจสอบคุณภาพ ประสิทธิภาพ และความปลอดภัยของ 'Skill' ที่ใช้สำหรับ AI Agent เพื่อให้มั่นใจว่าทำงานได้ตามมาตรฐานก่อนนำไปใช้งานจริง",
-      "problem_solved": "นักพัฒนา AI Agent มักไม่มีมาตรฐานกลางในการวัดคุณภาพของทักษะ (Skill) ทำให้ยากต่อการประเมินว่า Agent จะทำงานได้แม่นยำหรือปลอดภัยเพียงใด เครื่องมือนี้เข้ามาอุดช่องว่างด้วยการให้คะแนนที่เป็นรูปธรรมผ่านระบบ Tier-based evaluation",
-      "alternative_comparison": "คล้ายกับ Framework สำหรับทำ Unit Test ทั่วไป แต่เชี่ยวชาญด้าน Agent-specific logic มากกว่า โดยมีจุดเด่นคือการใช้โครงสร้างมาตรฐาน (Agent Skills specification) ทำให้ผลลัพธ์การวัดมีความเป็นสากลและตรวจสอบได้มากกว่าการวัดด้วยมนุษย์เพียงอย่างเดียว",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องและมีการขยายรองรับระบบ CI/CD แต่ยังมีสถานะเป็นโปรเจกต์ใหม่ที่กำลังกำหนดมาตรฐานร่วมกับระบบนิเวศของ Agent อื่นๆ",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างแพลตฟอร์ม 'Agent Skill Marketplace' ที่การันตีคุณภาพด้วยตราประทับจาก SkillEvaluator หรือให้บริการทำ Audit report สำหรับ Enterprise ที่ต้องการความปลอดภัยสูงในการใช้งาน AI Agent",
-        "stack_synergy": "สามารถนำไปผสานกับ GitHub Actions หรือ GitLab CI ใน Pipeline เพื่อทำ Automated Quality Gate ให้กับโค้ดของ Agent ที่เขียนด้วย LangChain หรือ CrewAI ทำให้มั่นใจได้ว่าก่อนจะ Deploy ขึ้น production ทักษะเหล่านั้นผ่านการตรวจสอบแล้ว"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับการทำงานแบบ Local (ไม่ต้องพึ่ง LLM ในบางกรณี) ทำให้ประหยัดค่าใช้จ่ายและรักษาความเป็นส่วนตัวของข้อมูล",
-          "มี Workflow ที่ชัดเจนสำหรับ CI/CD ช่วยให้ Developer เชื่อมต่อเข้ากับระบบที่มีอยู่เดิมได้ทันที"
-        ],
-        "gotchas_and_traps": [
-          "ต้องทำความเข้าใจเรื่อง 'Agent Skills specification' ของทาง NVIDIA เพื่อให้ใช้งานเครื่องมือได้อย่างเต็มประสิทธิภาพ",
-          "การวัดผลใน Tier สูงๆ อาจต้องใช้ API Key ของ LLM ซึ่งอาจมีค่าใช้จ่ายและข้อจำกัดตามอัตราการใช้งาน"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "pip install skillevaluator\nskillevaluator validate ./my-skill --tiers 1",
-      "updated_at": "2026-11-17T05:15:20.328Z"
-    },
-    {
-      "id": "1241960226",
-      "name": "open-code-review",
-      "owner": "alibaba",
-      "url": "https://github.com/alibaba/open-code-review",
-      "stars": 53102,
-      "stars_today": 951,
-      "language": "Go",
-      "topics": [
-        "agent",
-        "agent-skills",
-        "code-review",
-        "code-review-assistant",
-        "harness",
-        "repository-level-context"
-      ],
-      "license": "Apache-2.0",
-      "open_issues": 349,
-      "one_liner": "เครื่องมือ CLI ที่ใช้ AI ช่วยตรวจสอบโค้ด (Code Review) โดยเน้นความแม่นยำสูงและประหยัด Token มากกว่าเครื่องมือทั่วไป",
-      "problem_solved": "แก้ปัญหา AI Code Review ทั่วไปที่มักจะส่งข้อมูลมากเกินจำเป็น (Noise เยอะ) ทำให้เสียค่าใช้จ่ายสูงและให้ Feedback ที่ไม่ตรงประเด็น โดยเครื่องมือนี้ออกแบบมาเพื่อเจาะจงจุดบกพร่องที่สำคัญจริงๆ ในระดับ Repository",
-      "alternative_comparison": "คล้ายกับ Claude Code หรือ GitHub Copilot แต่โดดเด่นกว่าตรงที่เน้นความแม่นยำ (Precision) สูงกว่า ใช้ Token น้อยกว่าถึง 9 เท่า และปรับจูนมาเพื่อการทำ Code Review ระดับองค์กรโดยเฉพาะ",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "ผ่านการใช้งานจริงใน Alibaba Group มานานกว่า 2 ปี และได้รับการรับรองมาตรฐานความปลอดภัยระดับ OpenSSF Gold",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการ SaaS แบบ B2B ที่เชื่อมต่อกับ CI/CD pipeline เพื่อทำสรุปคุณภาพโค้ดรายสัปดาห์สำหรับทีม Engineering Manager หรือเก็บค่าธรรมเนียมตามจำนวน Pull Request ที่ตรวจสอบ",
-        "stack_synergy": "สามารถสร้าง Dashboard แสดงผลลัพธ์การ Review ด้วย Next.js และจัดเก็บประวัติการแก้ไขด้วย Supabase เพื่อทำเป็นระบบสถิติคุณภาพโค้ดภายในองค์กรได้แบบเรียลไทม์"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ใช้ Token อย่างมีประสิทธิภาพสูงมาก ประหยัดต้นทุน LLM ได้มหาศาล",
-          "รองรับการทำงานแบบ Multi-agent และมีความแม่นยำสูง (Precision-focused)"
-        ],
-        "gotchas_and_traps": [
-          "มีค่า Recall ที่ต่ำกว่าเครื่องมือทั่วไป หมายความว่าอาจมองข้ามบั๊กเล็กๆ น้อยๆ ไปบ้างเพื่อแลกกับความแม่นยำ",
-          "ต้องมีการคอนฟิกค่า Model Endpoint และ Agent ให้เหมาะสมก่อนเริ่มใช้งานจริงในโปรเจกต์ขนาดใหญ่"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "npm install -g @alibaba-group/open-code-review\nocr config set --model-provider <provider> --api-key <key>\nocr review",
-      "updated_at": "2026-11-17T05:15:20.329Z"
-    },
-    {
-      "id": "1226691771",
-      "name": "paper-orchestra",
-      "owner": "google-research",
-      "url": "https://github.com/google-research/paper-orchestra",
-      "stars": 1732,
-      "stars_today": 313,
-      "language": "Python",
-      "topics": [
-        "ai-research-assistant",
-        "multi-agent-systems"
-      ],
-      "license": "Apache-2.0",
-      "open_issues": 33,
-      "one_liner": "เฟรมเวิร์ก Multi-Agent ที่เปลี่ยนบันทึกการทดลองและไอเดียดิบๆ ให้กลายเป็นบทความวิจัยในรูปแบบ LaTeX พร้อมส่งตีพิมพ์ได้ทันที",
-      "problem_solved": "ช่วยลดภาระงานหนักของนักวิจัยในการร่างเนื้อหา ค้นหาเอกสารอ้างอิง และวาดกราฟประกอบ ซึ่งเป็นขั้นตอนที่กินเวลาและทำซ้ำๆ บ่อยเกินไป",
-      "alternative_comparison": "คล้ายกับเครื่องมือช่วยเขียน AI ทั่วไป แต่ PaperOrchestra ออกแบบมาเฉพาะสำหรับ Academic Workflow ที่จัดการเรื่อง LaTeX template, การอ้างอิงเชิงวิชาการ และกระบวนการ Multi-agent ที่เป็นระบบมากกว่า",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "ยังอยู่ในช่วงเริ่มต้นของการพัฒนา แม้มีโครงสร้างที่ดีแต่ยังต้องการการขัดเกลาอีกมากและการทดสอบกับข้อมูลจริงในระดับกว้าง",
-      "ai_opportunity": {
-        "monetization_idea": "ทำบริการแพลตฟอร์ม SaaS สำหรับนักวิจัย โดยคิดค่าบริการตามจำนวนหน้าของ Paper หรือการประมวลผลผ่านโมเดล LLM คุณภาพสูง",
-        "stack_synergy": "สร้าง Frontend ด้วย Next.js เพื่อทำ Dashboard จัดการไฟล์ดิบ (Supabase Storage) แล้วให้ Vercel Serverless Functions เรียกใช้กระบวนการเบื้องหลังเพื่อประมวลผลงานวิจัย"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ระบบเป็น Multi-agent ที่แยกหน้าที่ชัดเจน เช่น ตัวช่วยค้นหาเอกสาร กับตัวช่วยวาดกราฟ",
-          "รองรับการใช้งานทั้ง Gemini และ OpenAI ช่วยให้ยืดหยุ่นตามงบประมาณและโมเดลที่ต้องการ"
-        ],
-        "gotchas_and_traps": [
-          "ยังไม่รวม Dataset ตัวอย่างมาให้ในตัว ต้องรอนักพัฒนาปล่อยอัปเดตเพิ่มเติม",
-          "การตั้งค่า Environment ที่ค่อนข้างซับซ้อนและต้องใช้ API หลายตัวพร้อมกัน"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "conda create -n paper_orchestra python=3.11 && conda activate paper_orchestra && pip install -r requirements.txt && ./paper_writing_cli.sh",
-      "updated_at": "2026-11-17T05:15:28.353Z"
     }
   ]
 }
