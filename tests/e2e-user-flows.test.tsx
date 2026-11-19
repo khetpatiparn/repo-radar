@@ -246,4 +246,69 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     fireEvent.click(removeBtn);
     expect(screen.getByText(/ยังไม่มีบทความที่คั่นหน้าไว้/i)).toBeDefined();
   });
+
+  it("E2E Journey 10: Scroll-Aware Dynamic Capsule Navbar & Live Sync Verification Strip", () => {
+    Object.defineProperty(window, "scrollY", { value: 0, writable: true, configurable: true });
+    render(<Home />);
+
+    // Verify Live Sync Verification Strip displays sync status and new counts
+    expect(screen.getByText(/ซิงก์ล่าสุด:/i)).toBeDefined();
+    expect(screen.getByText(/เข้าใหม่วันนี้:/i)).toBeDefined();
+
+    // Verify active nav item exposes aria-current="page" and starts expanded at scrollY=0
+    const nav = screen.getByRole("navigation", { name: "หมวดหมู่หลักของวารสาร" });
+    expect(nav.getAttribute("data-scrolled")).toBe("false");
+    const papersBtn = within(nav).getByRole("button", { name: /เปเปอร์วิจัย AI/i });
+    expect(papersBtn.getAttribute("aria-current")).toBe("page");
+    expect(within(nav).getByRole("searchbox", { name: /ค้นหาบทความ/i })).toBeDefined();
+
+    // Scroll down past threshold (scrollY > 40) -> capsule shrinks smoothly
+    Object.defineProperty(window, "scrollY", { value: 180, writable: true, configurable: true });
+    fireEvent.scroll(window);
+
+    expect(nav.getAttribute("data-scrolled")).toBe("true");
+    // Search collapses to compact icon button when scrolled
+    const openSearchBtn = within(nav).getByRole("button", { name: /เปิดช่องค้นหา/i });
+    fireEvent.click(openSearchBtn);
+    expect(within(nav).getByRole("searchbox", { name: /ค้นหาบทความ/i })).toBeDefined();
+
+    // Scroll back to top (scrollY = 0) -> capsule expands back to full width
+    Object.defineProperty(window, "scrollY", { value: 0, writable: true, configurable: true });
+    fireEvent.scroll(window);
+    expect(nav.getAttribute("data-scrolled")).toBe("false");
+  });
+
+  it("E2E Journey 11: NEW Freshness Filter, Instant Floating Back Dock, Escape Key & Facebook Post Studio", () => {
+    render(<Home />);
+
+    // Verify NEW badges & Only-New filter exist
+    const onlyNewBtn = screen.getByRole("button", { name: /เฉพาะรายการมาใหม่/i });
+    expect(onlyNewBtn.getAttribute("aria-pressed")).toBe("false");
+    fireEvent.click(onlyNewBtn);
+    expect(onlyNewBtn.getAttribute("aria-pressed")).toBe("true");
+
+    // Open lead article
+    const readLinks = screen.getAllByText(/กดอ่านบทความ/i);
+    fireEvent.click(readLinks[0]);
+
+    // Verify Facebook Share Studio section is rendered with editable draft & copy CTA
+    expect(screen.getByText(/ฉบับร่างโพสต์ Facebook \(พร้อมแชร์ลงเพจ\)/i)).toBeDefined();
+    expect(screen.getByRole("button", { name: /คัดลอกโพสต์ลง Facebook/i })).toBeDefined();
+
+    // Verify Instant Floating Reader Dock sits in a toolbar with instant Back button
+    const dock = screen.getByRole("toolbar", { name: /แถบเครื่องมืออ่านบทความด่วน/i });
+    const instantBackBtn = within(dock).getByRole("button", { name: /ย้อนกลับทันที/i });
+    fireEvent.click(instantBackBtn);
+
+    // Returned immediately to feed
+    expect(screen.getByText(/คอลัมน์งานวิจัย/i)).toBeDefined();
+
+    // Re-open and test Escape key instant back
+    const readLinksAgain = screen.getAllByText(/กดอ่านบทความ/i);
+    fireEvent.click(readLinksAgain[0]);
+    expect(screen.getByText(/สารบัญบทความ \(TOC\)/i)).toBeDefined();
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.getByText(/คอลัมน์งานวิจัย/i)).toBeDefined();
+  });
 });
+

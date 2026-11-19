@@ -2,60 +2,79 @@
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-md: 1rem;
-  --text-lg: 1.2rem;
+  --text-lg: 1.1875rem;
   --text-xl: 1.44rem;
   --text-2xl: 1.728rem;
   --text-3xl: 2.074rem;
-  --text-display-s: 1.44rem;
-  --text-display: 1.728rem;
-  --text-section: 1.2rem;
-  --text-title: 1rem;
-  --text-lead: 1rem;
+  --text-display-s: 1.5rem;
+  --text-display: 1.875rem;
+  --text-section: 1.25rem;
+  --text-title: 1.05rem;
+  --text-lead: 1.05rem;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --color-error: oklch(72% 0.15 27);
-  --color-error-soft: oklch(26% 0.05 27);
-  --color-success: oklch(76% 0.13 150);
-  --color-success-soft: oklch(24% 0.04 150);
-  --color-warn: oklch(83% 0.095 62);
-  --color-warn-soft: oklch(26% 0.035 62);
-  --color-paper: oklch(17.5% 0.014 268);
-  --color-paper-2: oklch(21% 0.016 268);
-  --color-paper-3: oklch(25% 0.017 268);
-  --color-ink: oklch(96% 0.006 75);
-  --color-ink-2: oklch(85% 0.010 262);
-  --color-muted: oklch(70% 0.016 262);
-  --color-rule: oklch(30% 0.016 266);
-  --color-rule-2: oklch(40% 0.016 266);
-  --color-light: oklch(100% 0 0);
-  --color-shade: oklch(10% 0.022 268);
-  --color-accent: oklch(77% 0.10 274);
-  --color-accent-ink: oklch(19% 0.035 274);
-  --color-accent-hi: oklch(84% 0.085 274);
-  --color-accent-deep: oklch(44% 0.13 274);
-  --color-accent-soft: oklch(91% 0.038 274);
-  --color-focus: oklch(80% 0.10 274);
-  --color-accent-2: oklch(83% 0.095 62);
-  --color-dusk: oklch(70% 0.12 330);
-  --color-day-ink: oklch(22% 0.022 268);
-  --color-day-muted: oklch(38% 0.022 266);
-  --color-fog: oklch(94% 0.012 70);
-  --color-well: oklch(95.5% 0.008 75);
-  --color-well-2: oklch(92% 0.010 75);
-  --color-well-ink: oklch(21% 0.016 268);
-  --color-well-muted: oklch(47% 0.016 265);
-  --color-well-rule: oklch(87.5% 0.009 75);
-  --color-card: oklch(99.5% 0.003 75);
-  --shadow-card: 0 1px 0 oklch(100% 0 0 / 0.06) inset, 0 40px 80px -32px oklch(8% 0.02 268 / 0.7);
+
+  /* Semantic Status Colors */
+  --color-error: #f87171;
+  --color-error-soft: #2b1215;
+  --color-success: #4ade80;
+  --color-success-soft: #0f2419;
+  --color-warn: #fbbf24;
+  --color-warn-soft: #291d0a;
+
+  /* Ember Noir CI Brand: Obsidian Black, Dark Charcoal Gray, Pure White */
+  --color-paper: #09090b;
+  --color-paper-2: #131317;
+  --color-paper-3: #1c1c22;
+  --color-ink: #ffffff;
+  --color-ink-2: #d4d4dc;
+  --color-muted: #9898a6;
+  --color-rule: #27272f;
+  --color-rule-2: #3a3a46;
+  --color-light: #ffffff;
+  --color-shade: #050507;
+
+  /* Ember Noir CI Brand: Deep Orange Accent Family */
+  --color-accent: #ea580c;
+  --color-accent-ink: #ffffff;
+  --color-accent-hi: #f97316;
+  --color-accent-deep: #c2410c;
+  --color-accent-soft: #261207;
+  --color-focus: #f97316;
+  --color-accent-2: #fb923c;
+  --color-dusk: #fb923c;
+
+  /* Light figure wells for white scientific charts/diagrams */
+  --color-day-ink: #111114;
+  --color-day-muted: #52525b;
+  --color-fog: #f4f4f6;
+  --color-well: #f5f5f7;
+  --color-well-2: #eaeaef;
+  --color-well-ink: #111114;
+  --color-well-muted: #52525b;
+  --color-well-rule: #dcdce3;
+  --color-card: #ffffff;
+
+  --shadow-card:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 24px 60px -24px rgba(0, 0, 0, 0.82);
+  --shadow-capsule:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 16px 40px -12px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(234, 88, 12, 0.18);
+  --shadow-ember-glow:
+    0 8px 28px -8px rgba(234, 88, 12, 0.45);
+
   --font-display: var(--font-wix-display), var(--font-thai-sans), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-wix-text), var(--font-thai-sans), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-wix-text), var(--font-thai-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
   --radius-card: 18px;
-  --radius-inner: 10px;
+  --radius-inner: 12px;
   --radius-pill: 999px;
-  --tracking-display: -0.022em;
+  --tracking-display: -0.02em;
 }
 
 :root {
@@ -70,15 +89,15 @@
   --space-2xl: 64px;
   --space-3xl: 96px;
   --space-4xl: 144px;
-  --dur-micro: 120ms;
-  --dur-short: 220ms;
+  --dur-micro: 150ms;
+  --dur-short: 240ms;
   --dur-long: 420ms;
-  --container: 1440px;
-  --gutter: 64px;
-  --gap-columns: 32px;
-  --section-gap-s: 120px;
-  --section-gap: 144px;
-  --section-gap-l: 176px;
+  --container: 1380px;
+  --gutter: 48px;
+  --gap-columns: 28px;
+  --section-gap-s: 96px;
+  --section-gap: 120px;
+  --section-gap-l: 144px;
   --z-base: 1;
   --z-raised: 10;
   --z-dropdown: 100;
@@ -87,28 +106,28 @@
   --z-modal: 400;
   --z-toast: 500;
   --z-tooltip: 600;
-  --glass: oklch(22% 0.018 268 / 0.58);
-  --glass-blur: 22px;
-  --glass-hi: inset 0 1px 0 oklch(100% 0 0 / 0.10), inset 0 0 0 1px oklch(100% 0 0 / 0.06);
+  --glass: rgba(19, 19, 23, 0.78);
+  --glass-blur: 20px;
+  --glass-hi: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   --rule-hair: 1px;
-  --display-weight: 500;
+  --display-weight: 600;
 }
 
 @media (max-width: 60rem) {
   :root {
-    --gutter: 24px;
-    --section-gap-s: 80px;
-    --section-gap: 96px;
-    --section-gap-l: 120px;
+    --gutter: 20px;
+    --section-gap-s: 64px;
+    --section-gap: 80px;
+    --section-gap-l: 96px;
   }
 }
 
 @media (max-width: 40rem) {
   :root {
-    --gutter: 16px;
-    --section-gap-s: 56px;
-    --section-gap: 72px;
-    --section-gap-l: 96px;
+    --gutter: 14px;
+    --section-gap-s: 48px;
+    --section-gap: 64px;
+    --section-gap-l: 80px;
     --gap-columns: 16px;
   }
 }

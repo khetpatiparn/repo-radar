@@ -165,23 +165,31 @@ async function processBatchWithGemini(items: HFDailyPaperItem[]): Promise<Map<st
   }));
 
   const prompt = `
-You are a senior AI research communicator and tech editor writing for Thai developers, builders, and tech enthusiasts.
-Convert the following ${papersInput.length} AI research papers into engaging, easy-to-read, deeply insightful Thai editorial articles.
+You are a senior Thai AI research communicator, tech blogger, and popular tech Facebook page editor writing for Thai developers, founders, and AI enthusiasts.
+Convert the following ${papersInput.length} AI research papers into deeply detailed, engaging, publish-ready Thai blog articles + ready-to-share Facebook post drafts.
 
-IMPORTANT RULES:
-1. Write ALL descriptive text in natural, engaging **Thai (ภาษาไทย)** that a normal person or software builder can easily understand without academic jargon (technical terms like LLM, Agent, Quantization, Transformer, GPU, API, Fine-tune, Benchmark can remain in English).
-2. "category" MUST be strictly one of:
+IMPORTANT WRITING & STYLE RULES:
+1. Write ALL descriptive text in natural, lively, authoritative **Thai (ภาษาไทย)** like a viral long-form Thai tech blog / Facebook tech page — rich in substance, clear analogies, and specific details/numbers from the abstract (keep technical terms like LLM, Agent, Quantization, Transformer, GPU, API, Fine-tune, Benchmark, RAG in English).
+2. Avoid thin or generic filler! Every paragraph should teach the reader something concrete: mention specific techniques, architectural ideas, trade-offs, or benchmark improvements from the abstract.
+3. "category" MUST be strictly one of:
    - "AI Agents & Memory"
    - "LLM & Reasoning"
    - "Vision, Audio & Multimodal"
    - "Infra, Speed & Quantization"
    - "Coding, Data & Benchmarks"
    - "Applied AI & Science"
-3. "layman_story" MUST be an array of 3 rich paragraphs in Thai:
-   - Paragraph 1: ปัญหาเดิมคืออะไร ทำไมวิธีเก่าถึงตันหรือมีข้อจำกัดในชีวิตจริง
-   - Paragraph 2: เปเปอร์นี้คิดค้นวิธีใหม่อะไรขึ้นมา อธิบายเปรียบเทียบให้เห็นภาพง่ายๆ เหมือนเล่าให้เพื่อนฟัง
-   - Paragraph 3: ผลลัพธ์ที่ได้เจ๋งแค่ไหน แม่นยำขึ้นหรือเร็วขึ้นยังไง และทำไมคนในวงการถึงตื่นเต้น
-4. "use_cases" MUST contain 3 distinct, concrete real-world applications across different roles (e.g., นักพัฒนา/วิศวกร AI, ธุรกิจ/สร้างโปรดักต์ SaaS, และการใช้งานจริงในสายงานเฉพาะทาง).
+4. "layman_story" MUST be an array of 4 rich, detailed editorial paragraphs in Thai (each 3–5 sentences long):
+   - Paragraph 1 (Hook & Problem): ปัญหาเดิมในโลกจริงคืออะไร ทำไมวิธีเก่าถึงตัน แพง หรือช้า พร้อมบริบทให้คนอ่านอินทันที
+   - Paragraph 2 (Core Innovation): เปเปอร์นี้คิดค้นเทคนิคหรือสถาปัตยกรรมใหม่อะไรขึ้นมา อธิบายกลไกการทำงานแบบละเอียดแต่ย่อยง่าย พร้อมอุปมาอุปไมยให้เห็นภาพ
+   - Paragraph 3 (Results & Evidence): ผลการทดลองและตัวเลขสำคัญที่ได้เจ๋งแค่ไหน แม่นยำขึ้น เร็วขึ้น หรือลดต้นทุนได้เท่าไหร่เมื่อเทียบกับคู่แข่ง
+   - Paragraph 4 (Big Picture & What's Next): ผลกระทบต่อวงการ AI และนักพัฒนาในอีก 6–12 เดือนข้างหน้า และสิ่งที่คนทำสายเทคควรจับตา
+5. "use_cases" MUST contain 3 distinct, concrete real-world applications across different roles (นักพัฒนา/AI Engineer, ธุรกิจ/SaaS, และองค์กร/สายงานเฉพาะทาง) with realistic implementation examples.
+6. "facebook_post" MUST be a complete, ready-to-paste Thai Facebook post (~200–320 words) formatted cleanly for mobile reading:
+   - บรรทัดแรกเป็นพาดหัว Hook ดึงสายตา
+   - ย่อหน้าเปิดสั้นกระชับ 2–3 บรรทัด
+   - สรุปไฮไลต์และกลไกสำคัญเป็นข้อๆ (ใช้ • และเว้นบรรทัดอ่านง่าย)
+   - ย่อหน้าวิเคราะห์ "เรื่องนี้สำคัญกับพวกเรายังไง?"
+   - ประโยคชวนแลกเปลี่ยนความคิดเห็นปิดท้าย + แฮชแท็ก 3–5 คำ (เช่น #AIResearch #HuggingFace #TechNews #RepoRadar)
 
 Input Papers JSON:
 ${JSON.stringify(papersInput, null, 2)}
@@ -191,46 +199,47 @@ Return a JSON array where each element matches this exact structure:
   {
     "id": "<paper id>",
     "category": "<one of the 6 categories>",
-    "reading_time_minutes": 4,
-    "hook_headline": "พาดหัวภาษาไทยที่น่าดึงดูด ชวนกดอ่าน สรุปจุดเปลี่ยนสำคัญของเปเปอร์นี้ให้เข้าใจทันที",
-    "short_teaser": "เกริ่นนำสั้นๆ 2 ประโยคที่สรุปว่าเปเปอร์นี้แก้ปัญหาอะไรและทำไมคุณถึงควรสนใจ (ภาษาไทย)",
+    "reading_time_minutes": 5,
+    "hook_headline": "พาดหัวภาษาไทยสไตล์สื่อเทคที่น่าดึงดูด ชวนกดอ่าน สรุปจุดเปลี่ยนสำคัญของเปเปอร์นี้ให้เข้าใจทันที",
+    "short_teaser": "เกริ่นนำเข้มข้น 2-3 ประโยคที่สรุปว่าเปเปอร์นี้แก้ปัญหาอะไร ใช้วิธีไหน และทำไมคุณถึงไม่ควรพลาด (ภาษาไทย)",
     "tldr_takeaways": [
-      "สรุปประเด็นสำคัญข้อที่ 1 แบบเข้าใจทันที (ภาษาไทย)",
-      "สรุปประเด็นสำคัญข้อที่ 2 แบบเข้าใจทันที (ภาษาไทย)",
-      "สรุปประเด็นสำคัญข้อที่ 3 แบบเข้าใจทันที (ภาษาไทย)"
+      "สรุปประเด็นสำคัญข้อที่ 1 แบบเจาะจงและได้สาระทันที (ภาษาไทย)",
+      "สรุปประเด็นสำคัญข้อที่ 2 แบบเจาะจงและได้สาระทันที (ภาษาไทย)",
+      "สรุปประเด็นสำคัญข้อที่ 3 แบบเจาะจงและได้สาระทันที (ภาษาไทย)"
     ],
     "layman_story": [
-      "ย่อหน้าที่ 1: เล่าถึงปัญหาเดิมที่คนทำ AI หรือผู้ใช้งานต้องเจอ...",
-      "ย่อหน้าที่ 2: อธิบายเทคนิคหรือแนวคิดใหม่ของเปเปอร์นี้แบบภาษาคนทั่วไป...",
-      "ย่อหน้าที่ 3: สรุปผลการทดลองและจุดเด่นที่ทำให้วิธีนี้เหนือกว่าวิธีเดิม..."
+      "ย่อหน้าที่ 1: เล่าถึงปัญหาเดิมและคอขวดที่คนทำ AI หรือผู้ใช้งานต้องเจออย่างละเอียด...",
+      "ย่อหน้าที่ 2: อธิบายกลไกและแนวคิดใหม่ของเปเปอร์นี้แบบละเอียดแต่เข้าใจง่ายเหมือนเล่าให้เพื่อนสายเทคฟัง...",
+      "ย่อหน้าที่ 3: เจาะลึกผลการทดลอง ตัวเลขเปรียบเทียบ และจุดที่ทำให้วิธีนี้เหนือกว่าวิธีเดิม...",
+      "ย่อหน้าที่ 4: มองภาพใหญ่ว่างานวิจัยนี้จะเปลี่ยนวงการ AI และการทำงานของนักพัฒนาอย่างไรต่อจากนี้..."
     ],
     "impact_comparison": {
-      "before": "เมื่อก่อน: ต้องทำอย่างไร และมีข้อเสียหรือต้นทุนที่แพงอย่างไร (ภาษาไทย)",
+      "before": "เมื่อก่อน: ต้องทำอย่างไร และมีข้อเสีย ต้นทุน หรือข้อจำกัดอย่างไรบ้างอย่างชัดเจน (ภาษาไทย)",
       "after": "หลังจากมีเปเปอร์นี้: เปลี่ยนไปอย่างไร เร็วขึ้น แม่นขึ้น หรือประหยัดขึ้นแค่ไหน (ภาษาไทย)",
-      "why_it_matters": "ผลกระทบระยะยาวต่อนักพัฒนาและวงการเทคโนโลยี (ภาษาไทย)"
+      "why_it_matters": "ผลกระทบระยะยาวต่อนักพัฒนา ธุรกิจ และวงการเทคโนโลยี AI (ภาษาไทย)"
     },
     "use_cases": [
       {
         "title": "ชื่อยูสเคสที่ 1 (ภาษาไทย)",
         "role": "สำหรับนักพัฒนา / AI Engineer",
-        "description": "อธิบายวิธีนำแนวคิดหรือโค้ดจากเปเปอร์นี้ไปปรับใช้ในระบบจริง (ภาษาไทย)",
+        "description": "อธิบายวิธีนำแนวคิดหรือโค้ดจากเปเปอร์นี้ไปปรับใช้ในระบบจริงอย่างเป็นขั้นเป็นตอน (ภาษาไทย)",
         "example": "ตัวอย่างสถานการณ์ใช้งานจริงแบบเห็นภาพชัดเจน (ภาษาไทย)"
       },
       {
         "title": "ชื่อยูสเคสที่ 2 (ภาษาไทย)",
         "role": "สำหรับสร้าง Product / SaaS",
-        "description": "อธิบายการนำไปต่อยอดเป็นฟีเจอร์หรือบริการใหม่ (ภาษาไทย)",
+        "description": "อธิบายการนำไปต่อยอดเป็นฟีเจอร์หรือบริการใหม่ที่สร้างความได้เปรียบ (ภาษาไทย)",
         "example": "ตัวอย่างสถานการณ์ใช้งานจริงแบบเห็นภาพชัดเจน (ภาษาไทย)"
       },
       {
         "title": "ชื่อยูสเคสที่ 3 (ภาษาไทย)",
         "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-        "description": "อธิบายการนำไปแก้ปัญหาในอุตสาหกรรมหรือชีวิตประจำวัน (ภาษาไทย)",
+        "description": "อธิบายการนำไปแก้ปัญหาในอุตสาหกรรมหรือเวิร์กโฟลว์ประจำวัน (ภาษาไทย)",
         "example": "ตัวอย่างสถานการณ์ใช้งานจริงแบบเห็นภาพชัดเจน (ภาษาไทย)"
       }
     ],
     "community_pulse": {
-      "summary": "ภาพรวมความคิดเห็นของนักวิจัยและนักพัฒนาบน Hugging Face ต่อเปเปอร์นี้ (ภาษาไทย)",
+      "summary": "ภาพรวมความคิดเห็นของนักวิจัยและนักพัฒนาบน Hugging Face ต่อเปเปอร์นี้แบบมีมิติ (ภาษาไทย)",
       "praises": [
         "จุดที่คนในวงการชื่นชมมากที่สุด ข้อที่ 1 (ภาษาไทย)",
         "จุดที่คนในวงการชื่นชมมากที่สุด ข้อที่ 2 (ภาษาไทย)"
@@ -240,7 +249,8 @@ Return a JSON array where each element matches this exact structure:
         "ข้อจำกัดหรือข้อควรระวังในการนำไปใช้งานจริง ข้อที่ 2 (ภาษาไทย)"
       ],
       "hype_score": 8.5
-    }
+    },
+    "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยฉบับสมบูรณ์พร้อมก๊อปวางแชร์ได้ทันที มี Hook, ข้อสรุปอ่านง่าย, มุมมองต่อยอด และแฮชแท็ก"
   }
 ]
 `;
@@ -298,6 +308,7 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
     ? aiData.category
     : fallbackCategory;
 
+  const nowIso = new Date().toISOString();
   const full: PaperData = {
     id,
     title,
@@ -306,7 +317,8 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
     upvotes: item.paper.upvotes || 0,
     num_comments: item.numComments || 0,
     published_date: dateStr,
-    updated_at: new Date().toISOString(),
+    updated_at: nowIso,
+    first_seen_at: nowIso,
     arxiv_url: `https://arxiv.org/abs/${id}`,
     pdf_url: `https://arxiv.org/pdf/${id}`,
     hf_url: `https://huggingface.co/papers/${id}`,
@@ -318,7 +330,7 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
       `https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/${id}.png`,
     media_urls: Array.isArray(item.mediaUrls) ? item.mediaUrls.slice(0, 4) : [],
     category,
-    reading_time_minutes: aiData?.reading_time_minutes || 4,
+    reading_time_minutes: aiData?.reading_time_minutes || 5,
     hook_headline:
       aiData?.hook_headline ||
       `เจาะลึก ${title}: นวัตกรรมใหม่ในกลุ่ม ${category}`,
@@ -337,7 +349,7 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
           ],
     layman_story:
       Array.isArray(aiData?.layman_story) && aiData.layman_story.length > 0
-        ? aiData.layman_story.slice(0, 3)
+        ? aiData.layman_story.slice(0, 5)
         : [summary],
     impact_comparison: {
       before:
@@ -386,6 +398,10 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
           ? Math.min(10, Math.max(0, aiData.community_pulse.hype_score))
           : Math.min(9.5, Math.max(6.5, Number((6.5 + Math.log10((item.paper.upvotes || 1) + 1) * 1.4).toFixed(1)))),
     },
+    facebook_post:
+      typeof aiData?.facebook_post === "string" && aiData.facebook_post.trim().length > 0
+        ? aiData.facebook_post.trim()
+        : undefined,
   };
 
   return PaperSchema.parse(full);
@@ -466,10 +482,14 @@ async function main() {
           github_url: item.paper.githubRepo || cached.github_url,
           github_stars: item.paper.githubStars ?? cached.github_stars,
           project_url: item.paper.projectPage || cached.project_url,
+          first_seen_at: cached.first_seen_at || cached.updated_at,
           updated_at: new Date().toISOString(),
         });
       } else if (aiData) {
         const built = buildPaperObject(item, aiData, dateStr);
+        if (cached?.first_seen_at) {
+          built.first_seen_at = cached.first_seen_at;
+        }
         dayPapers.push(built);
         cachedById.set(built.id, built);
       } else if (cached) {
@@ -477,6 +497,7 @@ async function main() {
           ...cached,
           upvotes: item.paper.upvotes || cached.upvotes,
           num_comments: item.numComments ?? cached.num_comments,
+          first_seen_at: cached.first_seen_at || cached.updated_at,
           updated_at: new Date().toISOString(),
         });
       } else if (process.env.ALLOW_PAPER_FALLBACK === "true") {

@@ -11,14 +11,24 @@ import {
   ChevronLeft,
   ChevronRight,
   Newspaper,
+  Sparkles,
+  CheckCheck,
 } from "lucide-react";
 import { NEWS_CATEGORIES, type NewsArticleData } from "../types";
+import type { FreshnessInfo } from "../lib/freshness";
+import { FreshnessBadge, BlogCoverMedia } from "./FreshnessBadge";
 
 export interface NewsSectionProps {
   allNewsCount: number;
   selectedCategory: string;
   onChangeCategory: (category: string) => void;
   categoryCounts: Record<string, number>;
+  onlyNewToday: boolean;
+  onToggleOnlyNewToday: () => void;
+  newNewsCount: number;
+  unreadNewNewsCount: number;
+  onMarkAllNewsRead?: () => void;
+  getNewsFreshness?: (article: NewsArticleData) => FreshnessInfo;
   viewMode: "cards" | "compact";
   onChangeViewMode: (mode: "cards" | "compact") => void;
   filteredNews: NewsArticleData[];
@@ -37,6 +47,12 @@ export function NewsSection({
   selectedCategory,
   onChangeCategory,
   categoryCounts,
+  onlyNewToday,
+  onToggleOnlyNewToday,
+  newNewsCount,
+  unreadNewNewsCount,
+  onMarkAllNewsRead,
+  getNewsFreshness,
   viewMode,
   onChangeViewMode,
   filteredNews,
@@ -49,66 +65,88 @@ export function NewsSection({
   onToggleSaveNews,
   onOpenNews,
 }: NewsSectionProps) {
+  const showAsymmetricHero = currentPage === 1 && viewMode === "cards" && filteredNews.length > 0;
+  const hasBriefingRail = showAsymmetricHero && filteredNews.length >= 4;
+  const railNews = hasBriefingRail ? filteredNews.slice(1, 4) : [];
+  const gridNews =
+    currentPage === 1
+      ? hasBriefingRail
+        ? filteredNews.slice(4, itemsPerPage)
+        : filteredNews.slice(1, itemsPerPage)
+      : pagedNews;
+
   return (
     <div className="space-y-8">
-      {/* Dusk News Filter & View Controller Bar */}
-      <div className="bg-paper-2 border border-rule rounded-[var(--radius-card)] p-4 sm:p-5 space-y-3.5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3.5 border-b border-rule">
+      {/* Borderless Editorial News Filter Ribbon */}
+      <div className="border-b border-rule pb-4 space-y-3">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm font-editorial-label">
             <span className="inline-flex items-center gap-2 text-ink font-medium">
-              <Newspaper className="w-4 h-4 text-accent shrink-0" />
+              <Newspaper className="w-4 h-4 text-accent-hi shrink-0" />
               <span>ข่าวประกาศทางการจาก Google Official Blog &amp; AI Labs</span>
-            </span>
-            <span className="hidden md:inline border-l border-rule pl-3 text-muted">
-              อัปเดตจาก RSS ทุกเช้า 07:00 น.
             </span>
           </div>
 
-          <div className="flex items-center rounded-full border border-rule bg-paper-3 p-0.5 text-xs font-editorial-label self-end sm:self-auto">
-            <button
-              type="button"
-              aria-pressed={viewMode === "cards"}
-              onClick={() => onChangeViewMode("cards")}
-              className={`inline-flex items-center gap-1.5 min-h-[32px] px-3 py-1 rounded-full transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap ${
-                viewMode === "cards"
-                  ? "bg-ink text-paper"
-                  : "text-ink-2 hover:text-ink"
-              }`}
-              title="มุมมองการ์ดข่าว (รูปภาพและไฮไลต์)"
-            >
-              <LayoutGrid className="w-3.5 h-3.5 shrink-0" />
-              <span className="hidden xs:inline">การ์ด</span>
-            </button>
-            <button
-              type="button"
-              aria-pressed={viewMode === "compact"}
-              onClick={() => onChangeViewMode("compact")}
-              className={`inline-flex items-center gap-1.5 min-h-[32px] px-3 py-1 rounded-full transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap ${
-                viewMode === "compact"
-                  ? "bg-ink text-paper"
-                  : "text-ink-2 hover:text-ink"
-              }`}
-              title="มุมมองสารบัญด่วน (กะทัดรัด ไม่ต้องเลื่อนเยอะ)"
-            >
-              <List className="w-3.5 h-3.5 shrink-0" />
-              <span className="hidden xs:inline">สารบัญด่วน</span>
-            </button>
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            {newNewsCount > 0 && (
+              <button
+                type="button"
+                aria-pressed={onlyNewToday}
+                onClick={onToggleOnlyNewToday}
+                className={`inline-flex items-center gap-1.5 min-h-[34px] px-3.5 py-1 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+                  onlyNewToday
+                    ? "bg-accent text-accent-ink border-accent shadow-[var(--shadow-ember-glow)]"
+                    : "bg-accent-soft text-accent-2 border-accent/45 hover:border-accent-hi"
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                <span>เฉพาะรายการมาใหม่ ({newNewsCount})</span>
+              </button>
+            )}
+
+            <div className="flex items-center rounded-full border border-rule bg-paper-2 p-0.5 text-xs font-editorial-label">
+              <button
+                type="button"
+                aria-pressed={viewMode === "cards"}
+                onClick={() => onChangeViewMode("cards")}
+                className={`inline-flex items-center gap-1.5 min-h-[30px] px-3 py-1 rounded-full transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap ${
+                  viewMode === "cards"
+                    ? "bg-ink text-paper font-semibold"
+                    : "text-ink-2 hover:text-ink"
+                }`}
+                title="มุมมองการ์ดข่าว (รูปภาพและไฮไลต์)"
+              >
+                <LayoutGrid className="w-3.5 h-3.5 shrink-0" />
+                <span className="hidden xs:inline">การ์ด</span>
+              </button>
+              <button
+                type="button"
+                aria-pressed={viewMode === "compact"}
+                onClick={() => onChangeViewMode("compact")}
+                className={`inline-flex items-center gap-1.5 min-h-[30px] px-3 py-1 rounded-full transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap ${
+                  viewMode === "compact"
+                    ? "bg-ink text-paper font-semibold"
+                    : "text-ink-2 hover:text-ink"
+                }`}
+                title="มุมมองสารบัญด่วน (กะทัดรัด ไม่ต้องเลื่อนเยอะ)"
+              >
+                <List className="w-3.5 h-3.5 shrink-0" />
+                <span className="hidden xs:inline">สารบัญด่วน</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* News Subcategory Pills */}
-        <div className="flex items-center gap-2 rail-fade py-0.5">
-          <span className="text-xs sm:text-sm font-editorial-label text-muted mr-1 shrink-0 whitespace-nowrap">
-            หมวดข่าว:
-          </span>
+        {/* Clean News Subcategory Tabs */}
+        <div className="flex items-center gap-1.5 rail-fade py-0.5">
           <button
             type="button"
             aria-pressed={selectedCategory === "All"}
             onClick={() => onChangeCategory("All")}
-            className={`min-h-[34px] px-3.5 py-1 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+            className={`min-h-[32px] px-3.5 py-1 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
               selectedCategory === "All"
-                ? "bg-accent text-accent-ink border-accent"
-                : "bg-paper-3 text-ink-2 border-rule hover:border-accent hover:text-ink"
+                ? "bg-accent text-accent-ink border-accent font-semibold"
+                : "bg-transparent text-muted border-rule hover:border-rule-2 hover:text-ink"
             }`}
           >
             ทั้งหมด ({allNewsCount})
@@ -121,10 +159,10 @@ export function NewsSection({
                 type="button"
                 aria-pressed={selectedCategory === cat}
                 onClick={() => onChangeCategory(cat)}
-                className={`min-h-[34px] px-3.5 py-1 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+                className={`min-h-[32px] px-3.5 py-1 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   selectedCategory === cat
-                    ? "bg-accent text-accent-ink border-accent"
-                    : "bg-paper-3 text-ink-2 border-rule hover:border-accent hover:text-ink"
+                    ? "bg-accent text-accent-ink border-accent font-semibold"
+                    : "bg-transparent text-muted border-rule hover:border-rule-2 hover:text-ink"
                 }`}
               >
                 {cat} ({count})
@@ -136,229 +174,312 @@ export function NewsSection({
 
       {filteredNews.length > 0 ? (
         <>
-          {/* LEAD FRONT-PAGE AI LAB NEWS STORY (Smoked Glass + Bone Well showcase) */}
-          {currentPage === 1 && viewMode === "cards" && (() => {
-            const lead = filteredNews[0];
-            const isSaved = Boolean(savedNewsMap[lead.id]);
-            return (
-              <section
-                onClick={() => onOpenNews(lead)}
-                className="dusk-glass group cursor-pointer p-6 sm:p-8 lg:p-10"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-                  <div
+          {/* ASYMMETRIC MAGAZINE HERO + BRIEFING RAIL */}
+          {showAsymmetricHero &&
+            (() => {
+              const lead = filteredNews[0];
+              const isSaved = Boolean(savedNewsMap[lead.id]);
+              const freshness = getNewsFreshness?.(lead);
+              return (
+                <section
+                  aria-label="ข่าวเด่น AI Lab"
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch"
+                >
+                  <article
+                    onClick={() => onOpenNews(lead)}
                     className={`${
-                      lead.thumbnail_url ? "lg:col-span-7" : "lg:col-span-12"
-                    } min-w-0 space-y-4`}
+                      hasBriefingRail ? "lg:col-span-8" : "lg:col-span-12"
+                    } ember-hero-stage group cursor-pointer flex flex-col justify-between`}
                   >
-                    <h2 className="font-editorial-display text-3xl sm:text-4xl lg:text-5xl text-ink leading-[1.06] max-w-none group-hover:text-accent transition-colors duration-[var(--dur-micro)]">
-                      {lead.hook_headline}
-                    </h2>
+                    <div
+                      aria-hidden="true"
+                      className="absolute top-0 inset-x-0 h-[3px] grad-ember-ribbon z-20"
+                    />
 
-                    <p className="text-sm sm:text-base font-editorial-body text-muted line-clamp-2 max-w-3xl">
-                      &ldquo;{lead.title}&rdquo;
-                    </p>
+                    <BlogCoverMedia
+                      src={lead.thumbnail_url}
+                      alt={lead.title}
+                      category={lead.category}
+                      sublabel={lead.source}
+                      fit="cover"
+                      aspect="16/9"
+                      edgeToEdge
+                      isNew={Boolean(freshness?.isUnreadNew)}
+                      topRightAction={
+                        <button
+                          type="button"
+                          aria-pressed={isSaved}
+                          onClick={(e) => onToggleSaveNews(lead, e)}
+                          className={`relative z-10 inline-flex items-center justify-center w-9 h-9 rounded-full backdrop-blur-md border transition-colors cursor-pointer ${
+                            isSaved
+                              ? "bg-accent text-white border-accent"
+                              : "bg-black/65 text-white border-white/20 hover:border-accent-hi"
+                          }`}
+                          title="คั่นหน้าข่าวนี้"
+                        >
+                          {isSaved ? (
+                            <BookmarkCheck className="w-4 h-4 shrink-0" />
+                          ) : (
+                            <Bookmark className="w-4 h-4 shrink-0" />
+                          )}
+                        </button>
+                      }
+                    />
 
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs sm:text-sm font-editorial-label py-2.5 border-y border-rule">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-accent text-accent-ink whitespace-nowrap">
-                        <span
-                          className="w-1.5 h-1.5 rounded-full bg-accent-ink"
-                          aria-hidden="true"
-                        />
-                        <span>ข่าวเด่น AI Lab</span>
-                      </span>
-                      <span className="px-3 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2 whitespace-nowrap">
-                        {lead.category}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 text-ink">
-                        <Newspaper className="w-3.5 h-3.5 text-accent shrink-0" />
-                        <span>{lead.source}</span>
-                      </span>
-                      <span className="border-l border-rule pl-3 text-muted num">
-                        {lead.published_date}
-                      </span>
-                    </div>
+                    <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between gap-5">
+                      <div className="space-y-3.5">
+                        <div className="flex flex-wrap items-center gap-2 text-xs font-editorial-label">
+                          <span className="text-accent-2 font-semibold uppercase tracking-wider">
+                            {lead.category}
+                          </span>
+                          <span className="text-rule-2" aria-hidden="true">
+                            /
+                          </span>
+                          <span className="text-muted">ข่าวเด่น AI Lab</span>
+                          <FreshnessBadge info={freshness} />
+                        </div>
 
-                    <p className="text-base sm:text-lg font-editorial-body text-ink-2 leading-relaxed line-clamp-3 max-w-[62ch]">
-                      {lead.short_teaser}
-                    </p>
+                        <h2 className="font-editorial-display text-2xl sm:text-3xl lg:text-[2.2rem] text-ink leading-[1.18] max-w-none group-hover:text-accent-2 transition-colors duration-[var(--dur-micro)]">
+                          {lead.hook_headline}
+                        </h2>
 
-                    <div className="p-4 rounded-[var(--radius-inner)] bg-paper-2 border border-rule space-y-2 text-sm font-editorial-body">
-                      <div className="font-editorial-label text-ink">
-                        สรุปประเด็นสำคัญ:
+                        <p className="text-sm font-editorial-body text-muted line-clamp-1">
+                          &ldquo;{lead.title}&rdquo;
+                        </p>
+
+                        <p className="text-base font-editorial-body text-ink-2 leading-relaxed line-clamp-3 max-w-[68ch]">
+                          {lead.short_teaser}
+                        </p>
+
+                        {lead.tldr_takeaways[0] && (
+                          <div className="pl-3.5 border-l-2 border-accent text-sm font-editorial-body text-ink-2 line-clamp-2">
+                            {lead.tldr_takeaways[0]}
+                          </div>
+                        )}
                       </div>
-                      {lead.tldr_takeaways.slice(0, 2).map((t, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 text-ink-2">
+
+                      <div className="pt-4 border-t border-rule flex flex-wrap items-center justify-between gap-3">
+                        <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-xs font-editorial-label text-muted">
+                          <span className="inline-flex items-center gap-1.5 text-ink-2">
+                            <Newspaper className="w-3.5 h-3.5 text-accent-hi shrink-0" />
+                            <span>{lead.source}</span>
+                          </span>
+                          <span className="num">{lead.published_date}</span>
+                          <span className="inline-flex items-center gap-1 num">
+                            <Clock className="w-3.5 h-3.5 shrink-0" />
+                            <span>{lead.reading_time_minutes} นาที</span>
+                          </span>
+                        </div>
+
+                        <div className="dusk-pill-primary inline-flex items-center gap-2 min-h-[40px] px-5 py-2 text-xs sm:text-sm font-editorial-label whitespace-nowrap">
+                          <span>กดอ่านข่าวเจาะลึก</span>
+                          <ArrowRight className="w-4 h-4 shrink-0" />
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  {/* Right 4-Col News Briefing Rail */}
+                  {hasBriefingRail && (
+                    <aside className="lg:col-span-4 editorial-rail flex flex-col overflow-hidden">
+                      <div className="px-5 py-4 border-b border-rule flex items-center justify-between">
+                        <div className="flex items-center gap-2">
                           <span
-                            className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"
+                            className="w-2 h-2 rounded-full bg-accent-hi"
                             aria-hidden="true"
                           />
-                          <span>{t}</span>
+                          <h3 className="font-editorial-display text-sm uppercase tracking-wider text-ink">
+                            อัปเดตสำคัญจาก AI Labs
+                          </h3>
                         </div>
-                      ))}
-                    </div>
-
-                    <div className="pt-2 flex flex-wrap items-center gap-3">
-                      <div className="dusk-pill-primary inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 text-sm font-editorial-label transition-colors duration-[var(--dur-micro)] whitespace-nowrap">
-                        <span>
-                          กดอ่านข่าวเจาะลึก ({lead.reading_time_minutes} นาที)
+                        <span className="text-[11px] font-editorial-label text-muted num">
+                          02 — 04
                         </span>
-                        <ArrowRight className="w-4 h-4 shrink-0" />
                       </div>
 
-                      <button
-                        type="button"
-                        aria-pressed={isSaved}
-                        onClick={(e) => onToggleSaveNews(lead, e)}
-                        className={`inline-flex items-center gap-1.5 min-h-[44px] px-4 py-2.5 text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap ${
-                          isSaved
-                            ? "bg-accent text-accent-ink border-accent"
-                            : "dusk-pill-ghost"
-                        }`}
-                      >
-                        {isSaved ? (
-                          <>
-                            <BookmarkCheck className="w-4 h-4 shrink-0" />
-                            <span>คั่นแล้ว</span>
-                          </>
-                        ) : (
-                          <>
-                            <Bookmark className="w-4 h-4 shrink-0" />
-                            <span>คั่นหน้า</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </div>
+                      <div className="divide-y divide-rule flex-1 flex flex-col justify-between">
+                        {railNews.map((article, idx) => {
+                          const railSaved = Boolean(savedNewsMap[article.id]);
+                          const railFreshness = getNewsFreshness?.(article);
+                          return (
+                            <article
+                              key={article.id}
+                              onClick={() => onOpenNews(article)}
+                              className="group cursor-pointer p-5 hover:bg-paper-3/65 transition-colors flex flex-col justify-between gap-3 flex-1"
+                            >
+                              <div className="space-y-2">
+                                <div className="flex items-center justify-between gap-2 text-[11px] font-editorial-label">
+                                  <div className="flex items-center gap-2 min-w-0">
+                                    <span className="text-accent-hi font-semibold num">
+                                      {String(idx + 2).padStart(2, "0")}
+                                    </span>
+                                    <span className="text-accent-2 truncate">
+                                      {article.category}
+                                    </span>
+                                    {railFreshness?.isUnreadNew && (
+                                      <span className="w-1.5 h-1.5 rounded-full bg-accent-hi ember-pulse-dot shrink-0" />
+                                    )}
+                                  </div>
+                                  <button
+                                    type="button"
+                                    aria-pressed={railSaved}
+                                    onClick={(e) => onToggleSaveNews(article, e)}
+                                    className="relative z-10 p-1 rounded-full text-muted hover:text-ink cursor-pointer shrink-0"
+                                    title="คั่นหน้าข่าวนี้"
+                                  >
+                                    {railSaved ? (
+                                      <BookmarkCheck className="w-3.5 h-3.5 text-accent-hi" />
+                                    ) : (
+                                      <Bookmark className="w-3.5 h-3.5" />
+                                    )}
+                                  </button>
+                                </div>
 
-                  {lead.thumbnail_url && (
-                    <div className="lg:col-span-5 min-w-0">
-                      <figure className="dusk-well p-3 space-y-2">
-                        <div className="dusk-well-card overflow-hidden">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={lead.thumbnail_url}
-                            alt={lead.title}
-                            className="w-full h-56 sm:h-72 object-cover"
-                          />
-                        </div>
-                        <figcaption className="px-1 flex items-center justify-between text-xs text-[var(--color-well-muted)] font-editorial-label">
-                          <span>{lead.source}</span>
-                          <span>แตะเพื่ออ่านข่าว</span>
-                        </figcaption>
-                      </figure>
-                    </div>
+                                <h4 className="font-editorial-display text-base text-ink leading-snug line-clamp-2 group-hover:text-accent-2 transition-colors">
+                                  {article.hook_headline}
+                                </h4>
+
+                                <p className="text-xs font-editorial-body text-muted line-clamp-2 leading-relaxed">
+                                  {article.short_teaser}
+                                </p>
+                              </div>
+
+                              <div className="flex items-center justify-between text-[11px] font-editorial-label text-muted">
+                                <div className="flex items-center gap-2.5">
+                                  <span className="num">{article.published_date}</span>
+                                  <span className="num">
+                                    {article.reading_time_minutes} นาที
+                                  </span>
+                                </div>
+                                <ArrowRight className="w-3.5 h-3.5 text-muted group-hover:text-accent-2 group-hover:translate-x-0.5 transition-all shrink-0" />
+                              </div>
+                            </article>
+                          );
+                        })}
+                      </div>
+                    </aside>
                   )}
-                </div>
-              </section>
-            );
-          })()}
+                </section>
+              );
+            })()}
 
-          {/* NEWS CARDS GRID */}
+          {/* CLEAN 3-COLUMN NEWS-BLOG CARD GRID */}
           {viewMode === "cards" && (
             <section className="space-y-5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-rule pb-3">
-                <h3 className="font-editorial-display text-2xl text-ink max-w-none">
-                  คอลัมน์ข่าวสาร AI Lab ({filteredNews.length} ข่าว หน้า {currentPage}/{totalPages})
-                </h3>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span
+                    aria-hidden="true"
+                    className="w-1 h-6 rounded-full grad-brand shrink-0"
+                  />
+                  <h3 className="font-editorial-display text-xl sm:text-2xl text-ink max-w-none">
+                    คอลัมน์ข่าวสาร AI Lab ({filteredNews.length} ข่าว หน้า {currentPage}/{totalPages})
+                  </h3>
+                  {unreadNewNewsCount > 0 && onMarkAllNewsRead && (
+                    <button
+                      type="button"
+                      onClick={onMarkAllNewsRead}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-paper-2 border border-rule text-xs font-editorial-label text-ink-2 hover:text-ink hover:border-accent-hi transition-colors cursor-pointer"
+                    >
+                      <CheckCheck className="w-3.5 h-3.5 text-accent-hi shrink-0" />
+                      <span>ทำเครื่องหมายว่าอ่านแล้ว ({unreadNewNewsCount})</span>
+                    </button>
+                  )}
+                </div>
                 <span className="text-xs font-editorial-label text-muted">
                   แหล่งข้อมูล Google Official Blog RSS
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 sm:gap-6">
-                {(currentPage === 1
-                  ? filteredNews.slice(1, itemsPerPage)
-                  : pagedNews
-                ).map((article, idx) => {
-                  const isSaved = Boolean(savedNewsMap[article.id]);
-                  const itemIndex =
-                    currentPage === 1
-                      ? idx + 2
-                      : (currentPage - 1) * itemsPerPage + idx + 1;
-                  const showFeaturedThumb =
-                    currentPage === 1 && idx < 3 && Boolean(article.thumbnail_url);
+              {gridNews.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {gridNews.map((article) => {
+                    const isSaved = Boolean(savedNewsMap[article.id]);
+                    const freshness = getNewsFreshness?.(article);
 
-                  return (
-                    <article
-                      key={article.id}
-                      onClick={() => onOpenNews(article)}
-                      className="group cursor-pointer bg-paper-2 border border-rule hover:border-accent hover:bg-paper-3 rounded-[var(--radius-card)] transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between"
-                    >
-                      <div className="space-y-3">
-                        <div className="flex items-start justify-between gap-2">
-                          <h4 className="font-editorial-display text-lg text-ink leading-snug group-hover:text-accent transition-colors duration-[var(--dur-micro)]">
-                            <span className="font-editorial-display text-base text-accent mr-2 num">
-                              {String(itemIndex).padStart(2, "0")}
-                            </span>
-                            {article.hook_headline}
-                          </h4>
-                          <button
-                            type="button"
-                            aria-pressed={isSaved}
-                            onClick={(e) => onToggleSaveNews(article, e)}
-                            className="p-1.5 rounded-full border border-transparent hover:border-rule-2 text-muted hover:text-ink cursor-pointer shrink-0"
-                            title="คั่นหน้าข่าวนี้"
-                          >
-                            {isSaved ? (
-                              <BookmarkCheck className="w-4 h-4 text-accent" />
-                            ) : (
-                              <Bookmark className="w-4 h-4" />
-                            )}
-                          </button>
-                        </div>
+                    return (
+                      <article
+                        key={article.id}
+                        onClick={() => onOpenNews(article)}
+                        className={`blog-card group cursor-pointer flex flex-col justify-between ${
+                          freshness?.isUnreadNew ? "blog-card-new" : ""
+                        }`}
+                      >
+                        <div>
+                          <BlogCoverMedia
+                            src={article.thumbnail_url}
+                            alt={article.title}
+                            category={article.category}
+                            sublabel={article.source}
+                            fit="cover"
+                            edgeToEdge
+                            isNew={Boolean(freshness?.isUnreadNew)}
+                            topRightAction={
+                              <button
+                                type="button"
+                                aria-pressed={isSaved}
+                                onClick={(e) => onToggleSaveNews(article, e)}
+                                className={`relative z-10 inline-flex items-center justify-center w-8 h-8 rounded-full backdrop-blur-md border transition-colors cursor-pointer ${
+                                  isSaved
+                                    ? "bg-accent text-white border-accent"
+                                    : "bg-black/65 text-white border-white/20 hover:border-accent-hi"
+                                }`}
+                                title="คั่นหน้าข่าวนี้"
+                              >
+                                {isSaved ? (
+                                  <BookmarkCheck className="w-4 h-4 shrink-0" />
+                                ) : (
+                                  <Bookmark className="w-4 h-4 shrink-0" />
+                                )}
+                              </button>
+                            }
+                          />
 
-                        <div className="flex items-center justify-between gap-2 text-xs font-editorial-label">
-                          <span className="px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2 truncate max-w-[190px]">
-                            {article.category}
-                          </span>
-                          <span className="text-muted num shrink-0">
-                            {article.published_date}
-                          </span>
-                        </div>
-
-                        {showFeaturedThumb && article.thumbnail_url && (
-                          <div className="dusk-well p-2">
-                            <div className="dusk-well-card overflow-hidden">
-                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img
-                                src={article.thumbnail_url}
-                                alt={article.title}
-                                className="w-full h-28 object-cover"
-                              />
+                          <div className="p-5 space-y-2.5">
+                            <div className="flex flex-wrap items-center gap-2 text-xs font-editorial-label">
+                              <span className="text-accent-2 font-semibold truncate">
+                                {article.category}
+                              </span>
+                              <FreshnessBadge info={freshness} compact />
                             </div>
+
+                            <h4 className="font-editorial-display text-lg text-ink leading-snug line-clamp-2 group-hover:text-accent-2 transition-colors duration-[var(--dur-micro)]">
+                              {article.hook_headline}
+                            </h4>
+
+                            <p className="text-sm font-editorial-body text-ink-2 line-clamp-2 leading-relaxed">
+                              {article.short_teaser}
+                            </p>
+
+                            {freshness?.isDelayedArrival && freshness.provenanceLabel && (
+                              <p className="text-[11px] font-editorial-label text-accent-2 pt-0.5">
+                                {freshness.provenanceLabel}
+                              </p>
+                            )}
                           </div>
-                        )}
-
-                        <p className="text-xs font-editorial-body text-muted line-clamp-1">
-                          {article.title}
-                        </p>
-
-                        <p className="text-xs sm:text-sm font-editorial-body text-ink-2 line-clamp-3 leading-relaxed">
-                          {article.short_teaser}
-                        </p>
-                      </div>
-
-                      <div className="pt-3 mt-4 border-t border-rule flex items-center justify-between text-xs font-editorial-label">
-                        <div className="flex items-center gap-2 text-muted">
-                          <span className="inline-flex items-center gap-1 num">
-                            <Clock className="w-3 h-3 shrink-0" />
-                            <span>{article.reading_time_minutes} นาที</span>
-                          </span>
-                          <span className="px-2 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2">
-                            {article.source}
-                          </span>
                         </div>
 
-                        <span className="text-accent group-hover:text-accent-hi font-medium inline-flex items-center gap-1 whitespace-nowrap">
-                          <span>อ่านข่าว</span>
-                          <ArrowRight className="w-3.5 h-3.5 shrink-0" />
-                        </span>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
+                        <div className="px-5 py-3.5 border-t border-rule/80 flex items-center justify-between gap-2 text-xs font-editorial-label">
+                          <div className="flex items-center gap-2.5 text-muted min-w-0">
+                            <span className="inline-flex items-center gap-1 num shrink-0">
+                              <Clock className="w-3 h-3 shrink-0" />
+                              <span>{article.reading_time_minutes} นาที</span>
+                            </span>
+                            <span className="num truncate">
+                              {article.published_date}
+                            </span>
+                          </div>
+
+                          <span className="text-ink-2 group-hover:text-accent-2 font-medium inline-flex items-center gap-1 whitespace-nowrap shrink-0 transition-colors">
+                            <span>อ่านข่าว</span>
+                            <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                          </span>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              )}
             </section>
           )}
 
@@ -377,16 +498,20 @@ export function NewsSection({
               <div className="bg-paper-2 border border-rule rounded-[var(--radius-card)] divide-y divide-rule overflow-hidden">
                 {pagedNews.map((article, idx) => {
                   const isSaved = Boolean(savedNewsMap[article.id]);
+                  const freshness = getNewsFreshness?.(article);
                   const itemIndex = (currentPage - 1) * itemsPerPage + idx + 1;
                   return (
-                    <div
+                    <article
                       key={article.id}
                       onClick={() => onOpenNews(article)}
                       className="group cursor-pointer py-4 px-4 sm:px-5 hover:bg-paper-3 transition-colors duration-[var(--dur-micro)] flex flex-col md:flex-row md:items-center justify-between gap-3"
                     >
                       <div className="space-y-1.5 min-w-0 flex-1">
-                        <h4 className="font-editorial-display text-lg text-ink group-hover:text-accent transition-colors duration-[var(--dur-micro)] leading-snug">
-                          <span className="font-editorial-display text-base text-accent mr-3 num">
+                        <div className="flex flex-wrap items-center gap-2 pl-8">
+                          <FreshnessBadge info={freshness} />
+                        </div>
+                        <h4 className="font-editorial-display text-lg text-ink group-hover:text-accent-2 transition-colors duration-[var(--dur-micro)] leading-snug">
+                          <span className="font-editorial-label text-sm text-accent-hi mr-3 num">
                             {String(itemIndex).padStart(2, "0")}
                           </span>
                           {article.hook_headline}
@@ -395,9 +520,7 @@ export function NewsSection({
                           {article.title}
                         </p>
                         <div className="flex items-center gap-2.5 flex-wrap text-xs font-editorial-label pl-8">
-                          <span className="px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2">
-                            {article.category}
-                          </span>
+                          <span className="text-accent-2">{article.category}</span>
                           <span className="inline-flex items-center gap-1 text-muted">
                             <Newspaper className="w-3 h-3 shrink-0" />
                             <span>{article.source}</span>
@@ -416,11 +539,11 @@ export function NewsSection({
                           type="button"
                           aria-pressed={isSaved}
                           onClick={(e) => onToggleSaveNews(article, e)}
-                          className="p-1.5 rounded-full border border-rule hover:border-accent text-muted hover:text-ink cursor-pointer"
+                          className="relative z-10 p-1.5 rounded-full border border-rule hover:border-accent-hi text-muted hover:text-ink cursor-pointer"
                           title="คั่นหน้าข่าวนี้"
                         >
                           {isSaved ? (
-                            <BookmarkCheck className="w-4 h-4 text-accent" />
+                            <BookmarkCheck className="w-4 h-4 text-accent-hi" />
                           ) : (
                             <Bookmark className="w-4 h-4" />
                           )}
@@ -430,7 +553,7 @@ export function NewsSection({
                           <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                         </span>
                       </div>
-                    </div>
+                    </article>
                   );
                 })}
               </div>
@@ -444,7 +567,7 @@ export function NewsSection({
                 type="button"
                 disabled={currentPage <= 1}
                 onClick={() => onPageChange(currentPage - 1)}
-                className="dusk-pill-ghost inline-flex items-center gap-1 min-h-[38px] px-4 py-1.5 transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap"
+                className="dusk-pill-ghost inline-flex items-center gap-1 min-h-[38px] px-4 py-1.5 cursor-pointer whitespace-nowrap"
               >
                 <ChevronLeft className="w-4 h-4 shrink-0" />
                 <span>หน้าก่อนหน้า</span>
@@ -459,8 +582,8 @@ export function NewsSection({
                     onClick={() => onPageChange(p)}
                     className={`min-w-[36px] min-h-[36px] px-2.5 rounded-full border text-xs font-editorial-label num transition-colors duration-[var(--dur-micro)] cursor-pointer ${
                       currentPage === p
-                        ? "bg-ink text-paper border-ink"
-                        : "bg-paper-2 text-ink-2 border-rule hover:border-accent hover:text-ink"
+                        ? "bg-ink text-paper border-ink font-semibold"
+                        : "bg-paper-2 text-ink-2 border-rule hover:border-accent-hi hover:text-ink"
                     }`}
                   >
                     {p}
@@ -472,7 +595,7 @@ export function NewsSection({
                 type="button"
                 disabled={currentPage >= totalPages}
                 onClick={() => onPageChange(currentPage + 1)}
-                className="dusk-pill-ghost inline-flex items-center gap-1 min-h-[38px] px-4 py-1.5 transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap"
+                className="dusk-pill-ghost inline-flex items-center gap-1 min-h-[38px] px-4 py-1.5 cursor-pointer whitespace-nowrap"
               >
                 <span>หน้าถัดไป</span>
                 <ChevronRight className="w-4 h-4 shrink-0" />

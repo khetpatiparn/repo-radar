@@ -42,13 +42,13 @@ export function SavedSection({
         </h2>
         <p className="text-sm font-editorial-body text-muted">
           รายการที่คั่นหน้าไว้จะถูกบันทึกอยู่ในเบราว์เซอร์ของคุณอย่างถาวร
-          สามารถกลับมาอ่านซ้ำได้ทุกเมื่อ
+          สามารถกลับมาอ่านซ้ำหรือคัดลอกโพสต์แชร์ได้ทุกเมื่อ
         </p>
       </div>
 
       {totalSavedCount === 0 ? (
         <div className="p-12 sm:p-16 text-center bg-paper-2 border border-rule rounded-[var(--radius-card)] space-y-3">
-          <Bookmark className="w-8 h-8 text-accent mx-auto" />
+          <Bookmark className="w-8 h-8 text-accent-hi mx-auto" />
           <div className="font-editorial-display text-xl text-ink">
             ยังไม่มีบทความที่คั่นหน้าไว้
           </div>
@@ -62,7 +62,7 @@ export function SavedSection({
           {savedPapers.length > 0 && (
             <section className="space-y-4">
               <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2.5 max-w-none">
-                <FileText className="w-4 h-4 text-accent shrink-0" />
+                <FileText className="w-4 h-4 text-accent-hi shrink-0" />
                 <span>เปเปอร์วิจัยที่คั่นไว้ ({savedPapers.length})</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -70,7 +70,7 @@ export function SavedSection({
                   <article
                     key={paper.id}
                     onClick={() => onOpenPaper(paper)}
-                    className="cursor-pointer bg-paper-2 border border-rule hover:border-accent hover:bg-paper-3 rounded-[var(--radius-card)] transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="blog-card cursor-pointer p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
@@ -80,7 +80,7 @@ export function SavedSection({
                         <button
                           type="button"
                           onClick={(e) => onRemovePaper(paper, e)}
-                          className="text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="relative z-10 text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>
@@ -103,7 +103,7 @@ export function SavedSection({
           {savedRepos.length > 0 && (
             <section className="space-y-4">
               <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2.5 max-w-none">
-                <Code2 className="w-4 h-4 text-accent shrink-0" />
+                <Code2 className="w-4 h-4 text-accent-hi shrink-0" />
                 <span>โปรเจกต์ GitHub ที่คั่นไว้ ({savedRepos.length})</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -111,7 +111,7 @@ export function SavedSection({
                   <article
                     key={repo.id}
                     onClick={() => onOpenRepo(repo)}
-                    className="cursor-pointer bg-paper-2 border border-rule hover:border-accent hover:bg-paper-3 rounded-[var(--radius-card)] transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="blog-card cursor-pointer p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
@@ -121,7 +121,7 @@ export function SavedSection({
                         <button
                           type="button"
                           onClick={(e) => onRemoveRepo(repo, e)}
-                          className="text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="relative z-10 text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>
@@ -130,7 +130,7 @@ export function SavedSection({
                         {repo.problem_solved}
                       </p>
                     </div>
-                    <div className="pt-3 border-t border-rule text-xs font-editorial-label font-medium text-accent">
+                    <div className="pt-3 border-t border-rule text-xs font-editorial-label font-medium text-accent-2">
                       {repo.owner}/{repo.name}
                     </div>
                   </article>
@@ -142,7 +142,7 @@ export function SavedSection({
           {savedNews.length > 0 && (
             <section className="space-y-4">
               <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2.5 max-w-none">
-                <Newspaper className="w-4 h-4 text-accent shrink-0" />
+                <Newspaper className="w-4 h-4 text-accent-hi shrink-0" />
                 <span>ข่าวสาร AI Lab ที่คั่นไว้ ({savedNews.length})</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -150,7 +150,7 @@ export function SavedSection({
                   <article
                     key={article.id}
                     onClick={() => onOpenNews(article)}
-                    className="cursor-pointer bg-paper-2 border border-rule hover:border-accent hover:bg-paper-3 rounded-[var(--radius-card)] transition-colors duration-[var(--dur-micro)] p-5 flex flex-col justify-between gap-3"
+                    className="blog-card cursor-pointer p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
@@ -160,7 +160,7 @@ export function SavedSection({
                         <button
                           type="button"
                           onClick={(e) => onRemoveNews(article, e)}
-                          className="text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="relative z-10 text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>

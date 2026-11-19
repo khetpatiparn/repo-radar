@@ -286,6 +286,7 @@ interface GeminiNewsPayload {
     whats_new?: string[];
     watchouts?: string[];
   };
+  facebook_post?: string;
 }
 
 async function processBatchWithGemini(items: RawRSSItem[]): Promise<Map<string, GeminiNewsPayload>> {
@@ -305,25 +306,33 @@ async function processBatchWithGemini(items: RawRSSItem[]): Promise<Map<string, 
     url: item.url,
     published_date: item.published_date,
     rss_categories: item.rss_categories,
-    summary: item.description.slice(0, 1600),
+    summary: item.description.slice(0, 1800),
   }));
 
   const prompt = `
-You are a senior AI tech journalist and editor writing for Thai developers, product builders, and tech readers.
-Convert the following ${newsInput.length} official Google Blog AI/Tech news items into rich, engaging, easy-to-read Thai editorial news articles.
+You are a senior Thai AI tech journalist, blog editor, and popular tech Facebook page writer writing for Thai developers, product builders, and tech readers.
+Convert the following ${newsInput.length} official Google Blog AI/Tech news items into deeply detailed, engaging, publish-ready Thai blog articles + ready-to-share Facebook post drafts.
 
-IMPORTANT RULES:
-1. Write ALL descriptive text in natural, engaging **Thai (ภาษาไทย)** that is easy to scan and read like a quality tech newspaper (keep product/model names like Gemini, Google Cloud, AI Studio, API, Agentic, Chrome, Pixel in English).
-2. "category" MUST be strictly one of:
+IMPORTANT WRITING & STYLE RULES:
+1. Write ALL descriptive text in natural, vivid, authoritative **Thai (ภาษาไทย)** like a top Thai tech publication / Facebook tech page (keep product/model names like Gemini, Gemma, Google Cloud, AI Studio, Vertex AI, API, Agentic, Chrome, Pixel in English).
+2. Be thorough and specific — reference exact product names, capabilities, metrics, or ecosystems mentioned in the source summary rather than vague filler.
+3. "category" MUST be strictly one of:
    - "Gemini & Models"
    - "Google Research & Labs"
    - "Cloud & Developer Tools"
    - "AI Products & Ecosystem"
-3. "layman_story" MUST be an array of 3 crisp paragraphs in Thai:
-   - Paragraph 1: ประกาศนี้คืออะไร มีบริบทหรือปัญหาเดิมอะไรที่ Google กำลังแก้
-   - Paragraph 2: ความสามารถใหม่หรือเทคโนโลยีเบื้องหลังที่เปิดตัวทำงานอย่างไร อธิบายให้เห็นภาพชัดเจน
-   - Paragraph 3: ผลกระทบต่อนักพัฒนา ธุรกิจ หรือผู้ใช้งานทั่วไป และทิศทางต่อไปที่น่าจับตา
-4. "actionable_playbook" MUST contain 3 distinct, practical ways readers can use or benefit from this news across different roles.
+4. "layman_story" MUST be an array of 4 rich, detailed blog-post paragraphs in Thai (each 3–5 sentences):
+   - Paragraph 1 (Hook & Context): ประกาศนี้คืออะไร เกิดขึ้นท่ามกลางบริบทไหน และ Google กำลังแก้ปัญหาใหญ่เรื่องอะไร
+   - Paragraph 2 (Deep Dive): เจาะลึกความสามารถใหม่ ฟีเจอร์เด่น หรือเทคโนโลยีเบื้องหลังที่เปิดตัว พร้อมอธิบายให้เห็นภาพการใช้งานจริง
+   - Paragraph 3 (Competitive & Ecosystem Impact): เรื่องนี้ส่งผลต่อนักพัฒนา ธุรกิจ และตลาด AI โดยรวมอย่างไร เทียบกับแนวโน้มอุตสาหกรรมตอนนี้
+   - Paragraph 4 (What to Watch Next): ก้าวต่อไปที่น่าจับตา และสิ่งที่คนสายเทค/ธุรกิจควรเตรียมปรับตัว
+5. "actionable_playbook" MUST contain 3 distinct, practical ways readers can use or benefit from this news across different roles.
+6. "facebook_post" MUST be a complete, ready-to-paste Thai Facebook post (~200–300 words) formatted cleanly for mobile reading:
+   - บรรทัดแรกเป็นพาดหัว Hook ดึงความสนใจ
+   - ย่อหน้าเปิดสั้นๆ เล่าข่าวหลัก
+   - ไฮไลต์ประเด็นสำคัญเป็นข้อๆ (ใช้ • และเว้นบรรทัดอ่านง่าย)
+   - สรุปผลกระทบต่อคนไทย/นักพัฒนา/ธุรกิจ
+   - คำถามชวนคุยปิดท้าย + แฮชแท็ก 3–5 คำ (เช่น #GoogleAI #Gemini #TechNews #AIUpdate #RepoRadar)
 
 Input News JSON:
 ${JSON.stringify(newsInput, null, 2)}
@@ -333,29 +342,30 @@ Return a JSON array matching this exact structure:
   {
     "id": "<item id>",
     "category": "<one of the 4 categories>",
-    "reading_time_minutes": 3,
-    "hook_headline": "พาดหัวข่าวภาษาไทยที่คมชัด น่าสนใจ และบอกประเด็นสำคัญทันที",
-    "short_teaser": "สรุปเกริ่นนำสั้นๆ 2 ประโยคว่าประกาศนี้มีอะไรใหม่และสำคัญอย่างไร (ภาษาไทย)",
+    "reading_time_minutes": 4,
+    "hook_headline": "พาดหัวข่าวภาษาไทยสไตล์สื่อเทคที่คมชัด น่าคลิก และบอกประเด็นสำคัญทันที",
+    "short_teaser": "สรุปเกริ่นนำเข้มข้น 2-3 ประโยคว่าประกาศนี้มีอะไรใหม่ ทำงานยังไง และสำคัญอย่างไร (ภาษาไทย)",
     "tldr_takeaways": [
-      "ประเด็นสำคัญข้อที่ 1 (ภาษาไทย)",
-      "ประเด็นสำคัญข้อที่ 2 (ภาษาไทย)",
-      "ประเด็นสำคัญข้อที่ 3 (ภาษาไทย)"
+      "ประเด็นสำคัญข้อที่ 1 แบบชัดเจนได้เนื้อหาเต็ม (ภาษาไทย)",
+      "ประเด็นสำคัญข้อที่ 2 แบบชัดเจนได้เนื้อหาเต็ม (ภาษาไทย)",
+      "ประเด็นสำคัญข้อที่ 3 แบบชัดเจนได้เนื้อหาเต็ม (ภาษาไทย)"
     ],
     "layman_story": [
-      "ย่อหน้าที่ 1: บริบทและที่มาของข่าว...",
-      "ย่อหน้าที่ 2: รายละเอียดฟีเจอร์หรือความก้าวหน้าใหม่...",
-      "ย่อหน้าที่ 3: ผลกระทบและสิ่งที่น่าจับตาต่อจากนี้..."
+      "ย่อหน้าที่ 1: บริบท ที่มา และปัญหาที่ Google กำลังแก้...",
+      "ย่อหน้าที่ 2: เจาะลึกรายละเอียดฟีเจอร์หรือความก้าวหน้าใหม่...",
+      "ย่อหน้าที่ 3: ผลกระทบต่อนักพัฒนา ธุรกิจ และตลาด AI...",
+      "ย่อหน้าที่ 4: ทิศทางต่อไปและสิ่งที่ควรจับตา..."
     ],
     "impact_comparison": {
-      "before": "ก่อนอัปเดต: ข้อจำกัดหรือขั้นตอนเดิมที่ผู้ใช้งาน/นักพัฒนาต้องเจอ (ภาษาไทย)",
+      "before": "ก่อนอัปเดต: ข้อจำกัดหรือขั้นตอนเดิมที่ผู้ใช้งาน/นักพัฒนาต้องเจออย่างชัดเจน (ภาษาไทย)",
       "after": "หลังอัปเดต: สิ่งที่ดีขึ้น เร็วขึ้น หรือทำได้ใหม่ทันทีหลังประกาศนี้ (ภาษาไทย)",
-      "why_it_matters": "เหตุผลว่าทำไมอัปเดตนี้ถึงสำคัญต่อระบบนิเวศ AI และการพัฒนาซอฟต์แวร์ (ภาษาไทย)"
+      "why_it_matters": "เหตุผลเชิงกลยุทธ์ว่าทำไมอัปเดตนี้ถึงสำคัญต่อระบบนิเวศ AI และการพัฒนาซอฟต์แวร์ (ภาษาไทย)"
     },
     "actionable_playbook": [
       {
         "title": "แนวทางที่ 1 (ภาษาไทย)",
         "role": "สำหรับนักพัฒนา / AI Builder",
-        "description": "วิธีทดลองใช้งานหรือเชื่อมต่อเข้ากับโปรเจกต์ (ภาษาไทย)",
+        "description": "วิธีทดลองใช้งานหรือเชื่อมต่อเข้ากับโปรเจกต์แบบเห็นภาพ (ภาษาไทย)",
         "example": "ตัวอย่างการนำไปใช้งานจริง (ภาษาไทย)"
       },
       {
@@ -380,7 +390,8 @@ Return a JSON array matching this exact structure:
         "ข้อจำกัดหรือสิ่งที่ต้องติดตามเพิ่มเติม ข้อที่ 1 (ภาษาไทย)",
         "ข้อจำกัดหรือสิ่งที่ต้องติดตามเพิ่มเติม ข้อที่ 2 (ภาษาไทย)"
       ]
-    }
+    },
+    "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยฉบับสมบูรณ์พร้อมก๊อปวางแชร์ได้ทันที มี Hook, ข้อสรุปอ่านง่าย, มุมมองต่อยอด และแฮชแท็ก"
   }
 ]
 `;
@@ -431,6 +442,7 @@ function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): Ne
       : fallbackCategory;
   const source = inferSourceLabel(item.rss_categories);
 
+  const nowIso = new Date().toISOString();
   const built: NewsArticleData = {
     id: item.id,
     title: item.title,
@@ -438,12 +450,13 @@ function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): Ne
     source,
     published_date: item.published_date,
     published_at: item.published_at,
-    updated_at: new Date().toISOString(),
+    updated_at: nowIso,
+    first_seen_at: nowIso,
     authors: item.authors,
     rss_categories: item.rss_categories,
     category,
     thumbnail_url: item.thumbnail_url,
-    reading_time_minutes: aiData?.reading_time_minutes || 3,
+    reading_time_minutes: aiData?.reading_time_minutes || 4,
     hook_headline:
       aiData?.hook_headline ||
       `${source} อัปเดตใหม่: ${item.title}`,
@@ -461,7 +474,7 @@ function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): Ne
           ],
     layman_story:
       Array.isArray(aiData?.layman_story) && aiData.layman_story.length > 0
-        ? aiData.layman_story.slice(0, 3)
+        ? aiData.layman_story.slice(0, 5)
         : [
             item.description || item.title,
             `การอัปเดตครั้งนี้จัดอยู่ในกลุ่ม ${category} เพื่อยกระดับประสบการณ์ทั้งสำหรับนักพัฒนาและผู้ใช้งานทั่วไป`,
@@ -518,6 +531,10 @@ function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): Ne
               "ติดตามราคาและโควตาการใช้งานจริงหากนำไปใช้ในระดับโปรดักชัน",
             ],
     },
+    facebook_post:
+      typeof aiData?.facebook_post === "string" && aiData.facebook_post.trim().length > 0
+        ? aiData.facebook_post.trim()
+        : undefined,
   };
 
   return NewsArticleSchema.parse(built);
@@ -578,11 +595,15 @@ async function main() {
 
     if (aiData) {
       const built = buildNewsObject(item, aiData);
+      if (cached?.first_seen_at) {
+        built.first_seen_at = cached.first_seen_at;
+      }
       finalMap.set(item.url, built);
     } else if (cached) {
       finalMap.set(item.url, {
         ...cached,
         thumbnail_url: item.thumbnail_url || cached.thumbnail_url,
+        first_seen_at: cached.first_seen_at || cached.updated_at,
         updated_at: new Date().toISOString(),
       });
     } else if (process.env.ALLOW_NEWS_FALLBACK === "true") {

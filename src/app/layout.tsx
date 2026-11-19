@@ -9,7 +9,7 @@ import "./globals.css";
 const wixDisplay = Wix_Madefor_Display({
   variable: "--font-wix-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -23,12 +23,13 @@ const wixText = Wix_Madefor_Text({
 const notoSansThai = Noto_Sans_Thai({
   variable: "--font-thai-sans",
   subsets: ["thai"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const viewport: Viewport = {
   colorScheme: "dark",
+  themeColor: "#09090b",
 };
 
 export const metadata: Metadata = {

@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import reposData from "../data/repos.json";
 import papersData from "../data/papers.json";
 import newsData from "../data/news.json";
+import syncStatusRaw from "../data/sync-status.json";
 import {
   PAPER_CATEGORIES,
   NEWS_CATEGORIES,
@@ -13,7 +14,12 @@ import {
   type PapersFeedData,
   type NewsArticleData,
   type NewsFeedData,
+  type SyncStatusData,
 } from "../types";
+import {
+  READ_IDS_STORAGE_KEY,
+  getFreshnessInfo,
+} from "../lib/freshness";
 import { Header, type MainSection } from "../components/Header";
 import { ArticleReader } from "../components/ArticleReader";
 import { PapersSection } from "../components/PapersSection";
@@ -41,6 +47,9 @@ const allNewsArticles: NewsArticleData[] = Array.isArray(rawNewsFeed?.articles)
   ? rawNewsFeed.articles
   : [];
 
+// Parse Live Sync Status
+const syncStatus = syncStatusRaw as unknown as SyncStatusData;
+
 const SAVED_PAPERS_KEY = "reporadar_saved_papers_v1";
 const SAVED_REPOS_KEY = "reporadar_saved_repos_v1";
 const SAVED_NEWS_KEY = "reporadar_saved_news_v1";
@@ -59,45 +68,132 @@ export default function Home() {
   const [paperEdition, setPaperEdition] = useState<"today" | "yesterday" | "all7">("today");
   const [selectedPaperCategory, setSelectedPaperCategory] = useState<string>("All");
   const [onlyWithCode, setOnlyWithCode] = useState<boolean>(false);
+  const [onlyNewPapers, setOnlyNewPapers] = useState<boolean>(false);
 
   // Repo Filters
   const [repoDay, setRepoDay] = useState<"today" | "yesterday">("today");
   const [onlyRepoStreak, setOnlyRepoStreak] = useState<boolean>(false);
+  const [onlyNewRepos, setOnlyNewRepos] = useState<boolean>(false);
   const [selectedLang, setSelectedLang] = useState<string>("All");
   const [selectedMaturity, setSelectedMaturity] = useState<string>("All");
 
   // AI Lab News Filters
   const [selectedNewsCategory, setSelectedNewsCategory] = useState<string>("All");
+  const [onlyNewNews, setOnlyNewNews] = useState<boolean>(false);
 
   // Reader View State (Full-page book/article reader)
   const [readingPaper, setReadingPaper] = useState<PaperData | null>(null);
   const [readingRepo, setReadingRepo] = useState<RepositoryData | null>(null);
   const [readingNews, setReadingNews] = useState<NewsArticleData | null>(null);
 
-  // Saved Bookmarks (Persisted permanently in localStorage)
+  // Saved Bookmarks & Read State (Persisted in localStorage)
   const [savedPapersMap, setSavedPapersMap] = useState<Record<string, PaperData>>({});
   const [savedReposMap, setSavedReposMap] = useState<Record<string, RepositoryData>>({});
   const [savedNewsMap, setSavedNewsMap] = useState<Record<string, NewsArticleData>>({});
+  const [readIds, setReadIds] = useState<Set<string>>(() => new Set());
+
+  const feedScrollYRef = useRef<number>(0);
+  const pushedHistoryRef = useRef<boolean>(false);
+
+  const isReaderMode = Boolean(readingPaper || readingRepo || readingNews);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    try {
-      const sp = localStorage.getItem(SAVED_PAPERS_KEY);
-      if (sp) setSavedPapersMap(JSON.parse(sp));
-      const sr = localStorage.getItem(SAVED_REPOS_KEY);
-      if (sr) setSavedReposMap(JSON.parse(sr));
-      const sn = localStorage.getItem(SAVED_NEWS_KEY);
-      if (sn) setSavedNewsMap(JSON.parse(sn));
-    } catch (e) {
-      console.warn("Could not load saved state from localStorage:", e);
-    }
+    const hydrateFromStorage = () => {
+      try {
+        const sp = localStorage.getItem(SAVED_PAPERS_KEY);
+        if (sp) setSavedPapersMap(JSON.parse(sp));
+        const sr = localStorage.getItem(SAVED_REPOS_KEY);
+        if (sr) setSavedReposMap(JSON.parse(sr));
+        const sn = localStorage.getItem(SAVED_NEWS_KEY);
+        if (sn) setSavedNewsMap(JSON.parse(sn));
+        const storedRead = localStorage.getItem(READ_IDS_STORAGE_KEY);
+        if (storedRead) {
+          const arr = JSON.parse(storedRead);
+          if (Array.isArray(arr)) setReadIds(new Set(arr));
+        }
+      } catch (e) {
+        console.warn("Could not load saved state from localStorage:", e);
+      }
+    };
+
+    const timerId = window.setTimeout(hydrateFromStorage, 0);
+    window.addEventListener("storage", hydrateFromStorage);
 
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 350);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.clearTimeout(timerId);
+      window.removeEventListener("storage", hydrateFromStorage);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
+  const persistReadIds = useCallback((next: Set<string>) => {
+    if (typeof window === "undefined") return;
+    try {
+      // Keep the most recent 500 read entries to avoid unbounded storage
+      const trimmed = Array.from(next).slice(-500);
+      localStorage.setItem(READ_IDS_STORAGE_KEY, JSON.stringify(trimmed));
+    } catch {
+      // ignore storage quota issues
+    }
+  }, []);
+
+  const markItemRead = useCallback(
+    (kind: "papers" | "repos" | "news", id: string) => {
+      const key = `${kind}:${id}`;
+      setReadIds((prev) => {
+        if (prev.has(key)) return prev;
+        const next = new Set(prev);
+        next.add(key);
+        persistReadIds(next);
+        return next;
+      });
+    },
+    [persistReadIds]
+  );
+
+  const markManyRead = useCallback(
+    (kind: "papers" | "repos" | "news", ids: string[]) => {
+      setReadIds((prev) => {
+        const next = new Set(prev);
+        for (const id of ids) {
+          next.add(`${kind}:${id}`);
+        }
+        persistReadIds(next);
+        return next;
+      });
+    },
+    [persistReadIds]
+  );
+
+  const closeReaderAndRestoreScroll = useCallback(() => {
+    setReadingPaper(null);
+    setReadingRepo(null);
+    setReadingNews(null);
+    pushedHistoryRef.current = false;
+    if (typeof window !== "undefined") {
+      const savedY = feedScrollYRef.current;
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: savedY, behavior: "auto" });
+      });
+    }
+  }, []);
+
+  // Support browser / mobile hardware Back button seamlessly
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handlePopState = () => {
+      if (readingPaper || readingRepo || readingNews) {
+        closeReaderAndRestoreScroll();
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [readingPaper, readingRepo, readingNews, closeReaderAndRestoreScroll]);
 
   const toggleSavePaper = (paper: PaperData, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
@@ -147,31 +243,43 @@ export default function Home() {
     });
   };
 
+  const prepareOpenReader = () => {
+    if (typeof window !== "undefined") {
+      feedScrollYRef.current = window.scrollY;
+      try {
+        if (!pushedHistoryRef.current) {
+          window.history.pushState({ reader: true }, "");
+          pushedHistoryRef.current = true;
+        }
+      } catch {
+        // ignore history API errors in sandboxed iframes/jsdom
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const openPaperReader = (paper: PaperData) => {
+    prepareOpenReader();
+    markItemRead("papers", paper.id);
     setReadingRepo(null);
     setReadingNews(null);
     setReadingPaper(paper);
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
   };
 
   const openRepoReader = (repo: RepositoryData) => {
+    prepareOpenReader();
+    markItemRead("repos", repo.id);
     setReadingPaper(null);
     setReadingNews(null);
     setReadingRepo(repo);
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
   };
 
   const openNewsReader = (article: NewsArticleData) => {
+    prepareOpenReader();
+    markItemRead("news", article.id);
     setReadingPaper(null);
     setReadingRepo(null);
     setReadingNews(article);
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
   };
 
   const scrollToTop = () => {
@@ -179,6 +287,24 @@ export default function Home() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
+
+  const getPaperFreshness = useCallback(
+    (paper: PaperData) =>
+      getFreshnessInfo(paper, "papers", syncStatus, readIds),
+    [readIds]
+  );
+
+  const getRepoFreshness = useCallback(
+    (repo: RepositoryData) =>
+      getFreshnessInfo(repo, "repos", syncStatus, readIds),
+    [readIds]
+  );
+
+  const getNewsFreshness = useCallback(
+    (article: NewsArticleData) =>
+      getFreshnessInfo(article, "news", syncStatus, readIds),
+    [readIds]
+  );
 
   // Repo streak lookup maps
   const yesterdayRepoMap = useMemo(() => {
@@ -222,6 +348,49 @@ export default function Home() {
       ? yesterdayPaperBatch
       : all7DaysPapers;
 
+  // Unread NEW counters for Capsule Navbar + Section controls
+  const unreadNewCounts = useMemo(() => {
+    const unreadPapers = all7DaysPapers.filter(
+      (p) => getFreshnessInfo(p, "papers", syncStatus, readIds).isUnreadNew
+    ).length;
+    const unreadRepos = todayRepos.filter(
+      (r) => getFreshnessInfo(r, "repos", syncStatus, readIds).isUnreadNew
+    ).length;
+    const unreadNews = allNewsArticles.filter(
+      (a) => getFreshnessInfo(a, "news", syncStatus, readIds).isUnreadNew
+    ).length;
+    return {
+      papers: unreadPapers,
+      repos: unreadRepos,
+      news: unreadNews,
+      total: unreadPapers + unreadRepos + unreadNews,
+    };
+  }, [all7DaysPapers, readIds]);
+
+  const newPapersInPoolCount = useMemo(
+    () =>
+      activePapersPool.filter(
+        (p) => getFreshnessInfo(p, "papers", syncStatus, readIds).isNew
+      ).length,
+    [activePapersPool, readIds]
+  );
+
+  const newReposInTodayCount = useMemo(
+    () =>
+      todayRepos.filter(
+        (r) => getFreshnessInfo(r, "repos", syncStatus, readIds).isNew
+      ).length,
+    [readIds]
+  );
+
+  const newNewsInFeedCount = useMemo(
+    () =>
+      allNewsArticles.filter(
+        (a) => getFreshnessInfo(a, "news", syncStatus, readIds).isNew
+      ).length,
+    [readIds]
+  );
+
   const paperCategoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     for (const cat of PAPER_CATEGORIES) {
@@ -233,6 +402,12 @@ export default function Home() {
   // Filtered Papers
   const filteredPapers = useMemo(() => {
     let result = [...activePapersPool];
+
+    if (onlyNewPapers) {
+      result = result.filter(
+        (p) => getFreshnessInfo(p, "papers", syncStatus, readIds).isNew
+      );
+    }
 
     if (selectedPaperCategory !== "All") {
       result = result.filter((p) => p.category === selectedPaperCategory);
@@ -255,7 +430,14 @@ export default function Home() {
     }
 
     return result;
-  }, [activePapersPool, selectedPaperCategory, onlyWithCode, searchQuery]);
+  }, [
+    activePapersPool,
+    onlyNewPapers,
+    selectedPaperCategory,
+    onlyWithCode,
+    searchQuery,
+    readIds,
+  ]);
 
   // Filtered Repos
   const activeReposPool = repoDay === "today" ? todayRepos : yesterdayRepos;
@@ -271,6 +453,12 @@ export default function Home() {
 
   const filteredRepos = useMemo(() => {
     let result = [...activeReposPool];
+
+    if (onlyNewRepos && repoDay === "today") {
+      result = result.filter(
+        (r) => getFreshnessInfo(r, "repos", syncStatus, readIds).isNew
+      );
+    }
 
     if (onlyRepoStreak && repoDay === "today") {
       result = result.filter(
@@ -302,12 +490,14 @@ export default function Home() {
     return result.sort((a, b) => b.stars_today - a.stars_today);
   }, [
     activeReposPool,
+    onlyNewRepos,
     onlyRepoStreak,
     repoDay,
     yesterdayRepoMap,
     selectedLang,
     selectedMaturity,
     searchQuery,
+    readIds,
   ]);
 
   const newsCategoryCounts = useMemo(() => {
@@ -321,6 +511,12 @@ export default function Home() {
   // Filtered AI Lab News
   const filteredNews = useMemo(() => {
     let result = [...allNewsArticles];
+
+    if (onlyNewNews) {
+      result = result.filter(
+        (a) => getFreshnessInfo(a, "news", syncStatus, readIds).isNew
+      );
+    }
 
     if (selectedNewsCategory !== "All") {
       result = result.filter((a) => a.category === selectedNewsCategory);
@@ -340,7 +536,7 @@ export default function Home() {
     }
 
     return result;
-  }, [selectedNewsCategory, searchQuery]);
+  }, [onlyNewNews, selectedNewsCategory, searchQuery, readIds]);
 
   // Pagination calculation for papers
   const totalPaperPages = Math.max(1, Math.ceil(filteredPapers.length / ITEMS_PER_PAGE));
@@ -365,6 +561,7 @@ export default function Home() {
     savedPapersList.length + savedReposList.length + savedNewsList.length;
 
   const latestUpdate =
+    syncStatus?.last_sync_at ||
     rawPapersFeed?.updated_at ||
     rawNewsFeed?.updated_at ||
     todayRepos[0]?.updated_at ||
@@ -376,6 +573,19 @@ export default function Home() {
     setReadingRepo(null);
     setReadingNews(null);
     setCurrentPage(1);
+  };
+
+  const handleJumpToNewSection = (sec: "papers" | "repos" | "news") => {
+    handleSectionSelect(sec);
+    if (sec === "papers") {
+      setPaperEdition("today");
+      setOnlyNewPapers(true);
+    } else if (sec === "repos") {
+      setRepoDay("today");
+      setOnlyNewRepos(true);
+    } else if (sec === "news") {
+      setOnlyNewNews(true);
+    }
   };
 
   const handlePageChange = (page: number) => {
@@ -397,8 +607,11 @@ export default function Home() {
         papersCount={todayPaperBatch.length}
         reposCount={todayRepos.length}
         newsCount={allNewsArticles.length}
+        unreadNewCounts={unreadNewCounts}
+        syncStatus={syncStatus}
         activeSection={activeSection}
         onSelectSection={handleSectionSelect}
+        onJumpToNewSection={handleJumpToNewSection}
         savedCount={totalSavedCount}
         searchQuery={searchQuery}
         onSearch={(q) => {
@@ -411,22 +624,25 @@ export default function Home() {
           }
         }}
         topHeadline={todayPaperBatch[0]?.hook_headline}
+        isReaderMode={isReaderMode}
       />
 
       {/* Full-Page Article Reader Mode */}
       {readingPaper ? (
         <ArticleReader
           paper={readingPaper}
+          freshness={getPaperFreshness(readingPaper)}
           isSaved={Boolean(savedPapersMap[readingPaper.id])}
           onToggleSave={() => toggleSavePaper(readingPaper)}
-          onBack={() => setReadingPaper(null)}
+          onBack={closeReaderAndRestoreScroll}
         />
       ) : readingRepo ? (
         <ArticleReader
           repo={readingRepo}
+          freshness={getRepoFreshness(readingRepo)}
           isSaved={Boolean(savedReposMap[readingRepo.id])}
           onToggleSave={() => toggleSaveRepo(readingRepo)}
-          onBack={() => setReadingRepo(null)}
+          onBack={closeReaderAndRestoreScroll}
           isTwoDayStreak={
             yesterdayRepoMap.has(readingRepo.id) ||
             yesterdayRepoMap.has(
@@ -446,9 +662,10 @@ export default function Home() {
       ) : readingNews ? (
         <ArticleReader
           news={readingNews}
+          freshness={getNewsFreshness(readingNews)}
           isSaved={Boolean(savedNewsMap[readingNews.id])}
           onToggleSave={() => toggleSaveNews(readingNews)}
-          onBack={() => setReadingNews(null)}
+          onBack={closeReaderAndRestoreScroll}
         />
       ) : (
         <main className="container py-6 sm:py-8 space-y-6">
@@ -457,6 +674,7 @@ export default function Home() {
               paperEdition={paperEdition}
               onChangeEdition={(edition) => {
                 setPaperEdition(edition);
+                setOnlyNewPapers(false);
                 setCurrentPage(1);
               }}
               todayCount={todayPaperBatch.length}
@@ -468,6 +686,22 @@ export default function Home() {
                 setOnlyWithCode((prev) => !prev);
                 setCurrentPage(1);
               }}
+              onlyNewToday={onlyNewPapers}
+              onToggleOnlyNewToday={() => {
+                setOnlyNewPapers((prev) => !prev);
+                setCurrentPage(1);
+              }}
+              newPapersInPoolCount={newPapersInPoolCount}
+              unreadNewPapersCount={unreadNewCounts.papers}
+              onMarkAllPapersRead={() =>
+                markManyRead(
+                  "papers",
+                  all7DaysPapers
+                    .filter((p) => getPaperFreshness(p).isUnreadNew)
+                    .map((p) => p.id)
+                )
+              }
+              getPaperFreshness={getPaperFreshness}
               viewMode={viewMode}
               onChangeViewMode={setViewMode}
               selectedCategory={selectedPaperCategory}
@@ -493,6 +727,7 @@ export default function Home() {
               repoDay={repoDay}
               onChangeRepoDay={(day) => {
                 setRepoDay(day);
+                setOnlyNewRepos(false);
                 setCurrentPage(1);
               }}
               todayCount={todayRepos.length}
@@ -500,6 +735,19 @@ export default function Home() {
               repoStreakCount={repoStreakCount}
               onlyRepoStreak={onlyRepoStreak}
               onToggleOnlyRepoStreak={() => setOnlyRepoStreak((prev) => !prev)}
+              onlyNewToday={onlyNewRepos}
+              onToggleOnlyNewToday={() => setOnlyNewRepos((prev) => !prev)}
+              newReposCount={newReposInTodayCount}
+              unreadNewReposCount={unreadNewCounts.repos}
+              onMarkAllReposRead={() =>
+                markManyRead(
+                  "repos",
+                  todayRepos
+                    .filter((r) => getRepoFreshness(r).isUnreadNew)
+                    .map((r) => r.id)
+                )
+              }
+              getRepoFreshness={getRepoFreshness}
               repoLanguages={repoLanguages}
               selectedLang={selectedLang}
               onChangeLang={(lang) => {
@@ -528,6 +776,22 @@ export default function Home() {
                 setCurrentPage(1);
               }}
               categoryCounts={newsCategoryCounts}
+              onlyNewToday={onlyNewNews}
+              onToggleOnlyNewToday={() => {
+                setOnlyNewNews((prev) => !prev);
+                setCurrentPage(1);
+              }}
+              newNewsCount={newNewsInFeedCount}
+              unreadNewNewsCount={unreadNewCounts.news}
+              onMarkAllNewsRead={() =>
+                markManyRead(
+                  "news",
+                  allNewsArticles
+                    .filter((a) => getNewsFreshness(a).isUnreadNew)
+                    .map((a) => a.id)
+                )
+              }
+              getNewsFreshness={getNewsFreshness}
               viewMode={viewMode}
               onChangeViewMode={setViewMode}
               filteredNews={filteredNews}
@@ -558,12 +822,12 @@ export default function Home() {
         </main>
       )}
 
-      {/* Dusk Smoked-Glass Back-to-Top Pill */}
-      {showBackToTop && (
+      {/* Ember Noir Floating Back-to-Top Pill (hidden in Reader mode where Dock sits) */}
+      {showBackToTop && !isReaderMode && (
         <button
           type="button"
           onClick={scrollToTop}
-          className="dusk-glass fixed bottom-6 right-6 z-40 inline-flex items-center gap-1.5 min-h-[38px] px-4 py-2 border border-rule-2 text-ink text-xs sm:text-sm font-editorial-label rounded-full hover:border-accent hover:text-accent transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap"
+          className="capsule-nav fixed bottom-6 right-6 z-40 inline-flex items-center gap-1.5 min-h-[38px] px-4 py-2 text-ink text-xs sm:text-sm font-editorial-label hover:border-accent-hi hover:text-accent-2 transition-colors duration-[var(--dur-micro)] cursor-pointer whitespace-nowrap"
           title="เลื่อนกลับขึ้นด้านบนสุด"
         >
           <ChevronUp className="w-4 h-4 shrink-0" />
@@ -571,7 +835,7 @@ export default function Home() {
         </button>
       )}
 
-      {/* Dusk Calm Slate Footer with Photo Credit */}
+      {/* Ember Noir Editorial Footer */}
       <footer className="mt-16 border-t border-rule bg-paper-2 py-8 text-xs sm:text-sm font-editorial-label text-muted w-full">
         <div className="container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1.5">
@@ -584,23 +848,11 @@ export default function Home() {
                 Trending และ Google Official Blog ฉบับภาษาไทย
               </span>
             </div>
-            <div className="text-xs text-muted">
-              Photographs:{" "}
-              <a
-                href="https://commons.wikimedia.org/wiki/File:Sunset_at_Acheloos_river_delta_01.jpg"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-accent"
-              >
-                Dimitrios Tzortzis
-              </a>{" "}
-              (CC BY-SA 4.0, Wikimedia Commons)
-            </div>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span>ซิงก์ข้อมูลอัตโนมัติทุกเช้า 07:00 น.</span>
-            <span className="border-l border-rule pl-4">
-              Dusk Edition
+            <span>ซิงก์อัตโนมัติทุกเช้า 07:00 น. + แจ้งเตือน Telegram</span>
+            <span className="border-l border-rule pl-4 text-accent-2">
+              Ember Noir Edition
             </span>
           </div>
         </div>

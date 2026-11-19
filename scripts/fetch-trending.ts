@@ -245,15 +245,28 @@ async function processWithGemini(
     "gemini-3.6-flash",
   ];
   const prompt = `
-You are an expert developer relations engineer and tech analyst.
-Analyze the following GitHub repository and community context to provide a JSON response strictly adhering to the requested schema.
+You are a senior Thai tech columnist, developer relations engineer, and popular tech Facebook page editor.
+Analyze the following GitHub repository and community context to produce a deeply informative, engaging, blog-post-grade JSON response strictly adhering to the requested schema.
 
-IMPORTANT LANGUAGE REQUIREMENT:
-All descriptive text fields (one_liner, problem_solved, alternative_comparison, maturity_reason, monetization_idea, stack_synergy, pros, gotchas_and_traps) MUST be written in **Thai (ภาษาไทย)** using natural, clear developer language (technical terms like API, CLI, Next.js, Supabase, Docker, LLM, etc. can remain in English).
-Keep "maturity_rating" strictly in English as one of: "Production-Ready", "Experimental", or "PoC".
-Keep "quick_start" as executable terminal commands or code snippets.
+IMPORTANT LANGUAGE & WRITING STYLE REQUIREMENTS:
+1. Write ALL descriptive text fields (one_liner, problem_solved, alternative_comparison, maturity_reason, monetization_idea, stack_synergy, pros, gotchas_and_traps, deep_dive_paragraphs, facebook_post) in natural, vivid, engaging **Thai (ภาษาไทย)** like a top Thai tech blogger explaining to fellow developers and builders (keep technical terms like API, CLI, Next.js, Supabase, Docker, LLM, Agent, SDK in English).
+2. Be **detailed and concrete** — avoid generic 1-sentence filler. Reference real capabilities, architecture, workflows, or metrics visible in the README/Issues/HN context.
+3. "deep_dive_paragraphs" MUST be 3 rich editorial paragraphs in Thai that read like a real tech blog article:
+   - Paragraph 1 (Hook & Context): ทำไมโปรเจกต์นี้ถึงกำลังเป็นกระแสในวงการ Dev ตอนนี้ และแก้คอขวดเดิมอย่างไร
+   - Paragraph 2 (How It Works): เจาะลึกกลไก ฟีเจอร์เด่น หรือสถาปัตยกรรมเบื้องหลังแบบเห็นภาพและเข้าใจง่าย
+   - Paragraph 3 (Verdict & Outlook): เหมาะกับใคร ควรเริ่มลองใช้ตรงไหน และอนาคตของโปรเจกต์นี้น่าจับตาอย่างไร
+4. "facebook_post" MUST be a complete, ready-to-publish Thai Facebook post (~180–280 words) with:
+   - พาดหัว Hook ที่ชวนหยุดเลื่อนฟีด
+   - ย่อหน้าเปิดสั้นๆ เล่าว่าเครื่องมือนี้คืออะไรและทำไมกำลังมาแรง
+   - สรุปจุดเด่นเป็นข้อๆ (ใช้เครื่องหมาย • หรือ — แบ่งบรรทัดอ่านง่ายบนมือถือ)
+   - ไอเดียการใช้งานจริงหรือต่อยอด
+   - ประโยคชวนคอมเมนต์ปิดท้าย + แฮชแท็กที่เกี่ยวข้อง 3–5 คำ (เช่น #GitHubTrending #OpenSource #AI #DevTools #RepoRadar)
+5. Keep "maturity_rating" strictly in English as one of: "Production-Ready", "Experimental", or "PoC".
+6. Keep "quick_start" as executable terminal commands or code snippets.
 
 Repository: ${repo.full_name}
+Stars: ${repo.stargazers_count} (+${getStarsTodayApprox(repo)} today)
+URL: ${repo.html_url}
 Topics: ${repo.topics.join(", ")}
 Language: ${repo.language}
 
@@ -268,20 +281,26 @@ ${hnContext}
 
 Provide the output strictly in the following JSON structure:
 {
-  "one_liner": "สรุปสั้นๆ 1 ประโยคแบบเข้าใจง่ายที่สุด (ELI5) ว่าโปรเจกต์นี้ทำอะไรได้ (ภาษาไทย)",
-  "problem_solved": "อธิบาย Pain point หรือปัญหาหลักที่เครื่องมือนี้เข้ามาช่วยแก้ ซึ่งเครื่องมือเดิมๆ ทำได้ไม่ดีพอ (ภาษาไทย)",
-  "alternative_comparison": "เปรียบเทียบกับเครื่องมืออื่นที่คล้ายกัน เช่น 'คล้ายกับ X แต่ดีกว่าตรงที่ Y' (ภาษาไทย)",
+  "one_liner": "พาดหัวสรุปโปรเจกต์ 1 ประโยคที่คมชัดและน่ากดอ่านแบบสื่อเทคโนโลยี (ภาษาไทย)",
+  "problem_solved": "อธิบาย Pain point และปัญหาหลักในชีวิตจริงของนักพัฒนาอย่างละเอียด 3-4 ประโยค ว่าเครื่องมือเดิมติดขัดตรงไหนและโปรเจกต์นี้เข้ามาปลดล็อกอย่างไร (ภาษาไทย)",
+  "alternative_comparison": "เปรียบเทียบเชิงลึกกับเครื่องมือหรือเฟรมเวิร์กที่ใกล้เคียง 2-3 ประโยค ระบุให้ชัดว่าต่างกันอย่างไรและเมื่อไหร่ควรเลือกใช้ตัวนี้ (ภาษาไทย)",
   "maturity_rating": "One of: 'Production-Ready', 'Experimental', 'PoC'",
-  "maturity_reason": "เหตุผลสั้นๆ 1 ประโยคที่ประเมินจากความถี่ในการอัปเดต เทสต์ หรือ Issues (ภาษาไทย)",
+  "maturity_reason": "เหตุผลเชิงประจักษ์ 2 ประโยคที่ประเมินจากโค้ดเบส ความถี่ในการอัปเดต เอกสาร และ Issues (ภาษาไทย)",
   "ai_opportunity": {
-    "monetization_idea": "ไอเดียการนำไปต่อยอดสร้างรายได้ ทำ Micro-SaaS หรือ API Service ที่จับต้องได้ (ภาษาไทย)",
-    "stack_synergy": "แนวทางการนำไปใช้ร่วมกับ Modern Stack เช่น Next.js, Supabase, Vercel ฯลฯ (ภาษาไทย)"
+    "monetization_idea": "ไอเดียการนำไปต่อยอดสร้างรายได้ ทำ Micro-SaaS, Internal Tool หรือ API Service แบบลงรายละเอียดกลุ่มเป้าหมายและโมเดลรายได้ (ภาษาไทย)",
+    "stack_synergy": "แนวทางการเชื่อมต่อร่วมกับ Modern Stack เช่น Next.js, Supabase, Vercel, Docker หรือ AI Workflow พร้อมตัวอย่างสถาปัตยกรรมสั้นๆ (ภาษาไทย)"
   },
   "human_vibe_check": {
-    "pros": ["จุดเด่นที่คนชอบ ข้อที่ 1 (ภาษาไทย)", "จุดเด่นที่คนชอบ ข้อที่ 2 (ภาษาไทย)"],
-    "gotchas_and_traps": ["ข้อควรระวังหรือข้อจำกัด ข้อที่ 1 (ภาษาไทย)", "ข้อควรระวังหรือข้อจำกัด ข้อที่ 2 (ภาษาไทย)"],
+    "pros": ["จุดเด่นที่นักพัฒนาชื่นชอบพร้อมเหตุผล ข้อที่ 1 (ภาษาไทย)", "จุดเด่นที่นักพัฒนาชื่นชอบพร้อมเหตุผล ข้อที่ 2 (ภาษาไทย)"],
+    "gotchas_and_traps": ["ข้อควรระวังหรือข้อจำกัดที่ควรรู้ก่อนขึ้นโปรดักชัน ข้อที่ 1 (ภาษาไทย)", "ข้อควรระวังหรือข้อจำกัดที่ควรรู้ก่อนขึ้นโปรดักชัน ข้อที่ 2 (ภาษาไทย)"],
     "hype_vs_reality": <number between 0 and 10>
   },
+  "deep_dive_paragraphs": [
+    "ย่อหน้าที่ 1: เปิดเรื่องและบริบทว่าทำไมโปรเจกต์นี้ถึงกำลังพุ่งแรง...",
+    "ย่อหน้าที่ 2: เจาะลึกการทำงาน ฟีเจอร์สำคัญ และวิธีคิดเบื้องหลัง...",
+    "ย่อหน้าที่ 3: บทสรุปว่าใครควรลองใช้และผลกระทบต่อเวิร์กโฟลว์นักพัฒนา..."
+  ],
+  "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยพร้อมแชร์ มี Hook แบ่งย่อหน้าสวยๆ อ่านง่ายบนมือถือ พร้อมข้อสรุปและแฮชแท็ก",
   "quick_start": "The shortest terminal command or 3-line code snippet to run this."
 }
 `;
@@ -308,6 +327,13 @@ Provide the output strictly in the following JSON structure:
               aiData.human_vibe_check.gotchas_and_traps.slice(0, 2);
           }
         }
+        if (Array.isArray(aiData?.deep_dive_paragraphs)) {
+          aiData.deep_dive_paragraphs = aiData.deep_dive_paragraphs
+            .filter((p: unknown) => typeof p === "string" && p.trim().length > 0)
+            .slice(0, 4);
+        }
+
+        const nowIso = new Date().toISOString();
 
         // Combine with base data
         const fullData = {
@@ -321,7 +347,8 @@ Provide the output strictly in the following JSON structure:
           topics: repo.topics,
           license: repo.license?.spdx_id || null,
           open_issues: repo.open_issues_count,
-          updated_at: new Date().toISOString(),
+          updated_at: nowIso,
+          first_seen_at: nowIso,
           ...aiData,
         };
 
@@ -435,6 +462,7 @@ async function main() {
         topics: repo.topics,
         license: repo.license?.spdx_id || existing.license || null,
         open_issues: repo.open_issues_count,
+        first_seen_at: existing.first_seen_at || existing.updated_at,
         updated_at: new Date().toISOString(),
       });
       continue;

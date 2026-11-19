@@ -2,17 +2,27 @@ import { describe, it, expect } from "vitest";
 import reposData from "../src/data/repos.json";
 import papersData from "../src/data/papers.json";
 import newsData from "../src/data/news.json";
+import syncStatusData from "../src/data/sync-status.json";
 import {
   RepositorySchema,
   PaperSchema,
   NewsArticleSchema,
+  SyncStatusSchema,
   PAPER_CATEGORIES,
   NEWS_CATEGORIES,
   type RepositoryData,
   type ReposFeedData,
   type PapersFeedData,
   type NewsFeedData,
+  type SyncStatusData,
 } from "../src/types";
+import { getFreshnessInfo } from "../src/lib/freshness";
+import {
+  buildPaperFacebookPost,
+  buildRepoFacebookPost,
+  buildNewsFacebookPost,
+} from "../src/lib/facebookPost";
+import { buildTelegramMessage } from "../scripts/notify-telegram";
 
 describe("Regression Tests: Data Schemas & Pipeline Integrity", () => {
   it("should validate repos.json against RepositorySchema for both today and yesterday", () => {
@@ -146,5 +156,79 @@ describe("Regression Tests: Data Schemas & Pipeline Integrity", () => {
       expect(article.key_highlights.watchouts.length).toBeGreaterThanOrEqual(1);
     }
   });
+
+  it("should validate sync-status.json and build a formatted Telegram digest", () => {
+    const parsed = SyncStatusSchema.safeParse(syncStatusData);
+    expect(
+      parsed.success,
+      `sync-status.json failed SyncStatusSchema: ${parsed.error?.message}`
+    ).toBe(true);
+
+    const status = syncStatusData as unknown as SyncStatusData;
+    expect(status.new_counts.total).toBe(
+      status.new_counts.repos + status.new_counts.papers + status.new_counts.news
+    );
+
+    const msg = buildTelegramMessage(status, {
+      siteUrl: "https://repo-radar-lyart.vercel.app",
+    });
+    expect(msg).toContain("THE REPO RADAR");
+    expect(msg).toContain(`+${status.new_counts.papers}`);
+    expect(msg).toContain(`+${status.new_counts.repos}`);
+    expect(msg).toContain(`+${status.new_counts.news}`);
+    expect(msg).toContain("https://repo-radar-lyart.vercel.app");
+  });
+
+  it("should detect delayed-arrival papers fetched today whose published_date is earlier", () => {
+    const status = syncStatusData as unknown as SyncStatusData;
+    const samplePaperId = status.new_ids.papers[0] || "2611.99999";
+
+    const delayedInfo = getFreshnessInfo(
+      {
+        id: samplePaperId,
+        published_date: "2026-11-17",
+        first_seen_at: status.last_sync_at,
+      },
+      "papers",
+      status,
+      new Set()
+    );
+    expect(delayedInfo.isNew).toBe(true);
+    expect(delayedInfo.isUnreadNew).toBe(true);
+    expect(delayedInfo.isDelayedArrival).toBe(true);
+    expect(delayedInfo.provenanceLabel).toContain("เพิ่งดึงเข้าวันนี้");
+
+    const readInfo = getFreshnessInfo(
+      {
+        id: samplePaperId,
+        published_date: "2026-11-17",
+        first_seen_at: status.last_sync_at,
+      },
+      "papers",
+      status,
+      new Set([`papers:${samplePaperId}`])
+    );
+    expect(readInfo.isRead).toBe(true);
+    expect(readInfo.isUnreadNew).toBe(false);
+  });
+
+  it("should compose ready-to-share Thai Facebook posts for papers, repos, and Google AI news", () => {
+    const pFeed = papersData as unknown as PapersFeedData;
+    const rFeed = reposData as unknown as ReposFeedData;
+    const nFeed = newsData as unknown as NewsFeedData;
+
+    const paperPost = buildPaperFacebookPost(pFeed.days[0].papers[0]);
+    expect(paperPost.length).toBeGreaterThan(180);
+    expect(paperPost).toContain("#TheRepoRadar");
+
+    const repoPost = buildRepoFacebookPost(rFeed.today[0]);
+    expect(repoPost.length).toBeGreaterThan(180);
+    expect(repoPost).toContain(rFeed.today[0].url);
+
+    const newsPost = buildNewsFacebookPost(nFeed.articles[0]);
+    expect(newsPost.length).toBeGreaterThan(180);
+    expect(newsPost).toContain(nFeed.articles[0].url);
+  });
 });
+
 

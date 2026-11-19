@@ -32,6 +32,9 @@ export const RepositorySchema = z.object({
   
   quick_start: z.string(),
   updated_at: z.string(), // ISO String
+  first_seen_at: z.string().optional(), // ISO String when first discovered by RepoRadar
+  deep_dive_paragraphs: z.array(z.string()).optional(), // Detailed blog-style narrative paragraphs
+  facebook_post: z.string().optional(), // Ready-to-share Thai Facebook post draft
 });
 
 export type RepositoryData = z.infer<typeof RepositorySchema>;
@@ -68,6 +71,7 @@ export const PaperSchema = z.object({
   num_comments: z.number(),
   published_date: z.string(), // YYYY-MM-DD (daily paper date)
   updated_at: z.string(), // ISO string
+  first_seen_at: z.string().optional(), // ISO string when first discovered by RepoRadar
   arxiv_url: z.string(),
   pdf_url: z.string(),
   hf_url: z.string(),
@@ -83,7 +87,7 @@ export const PaperSchema = z.object({
   hook_headline: z.string(),
   short_teaser: z.string(),
   tldr_takeaways: z.array(z.string()),
-  layman_story: z.array(z.string()), // 2-3 paragraphs in plain Thai
+  layman_story: z.array(z.string()), // 3-5 rich blog-style paragraphs in plain Thai
   impact_comparison: z.object({
     before: z.string(),
     after: z.string(),
@@ -96,6 +100,7 @@ export const PaperSchema = z.object({
     critiques: z.array(z.string()),
     hype_score: z.number().min(0).max(10),
   }),
+  facebook_post: z.string().optional(), // Ready-to-share Thai Facebook post draft
 });
 
 export type PaperData = z.infer<typeof PaperSchema>;
@@ -134,6 +139,7 @@ export const NewsArticleSchema = z.object({
   published_date: z.string(), // YYYY-MM-DD
   published_at: z.string(), // ISO string
   updated_at: z.string(), // ISO string
+  first_seen_at: z.string().optional(), // ISO string when first discovered by RepoRadar
   authors: z.array(z.string()),
   rss_categories: z.array(z.string()),
   category: z.enum(NEWS_CATEGORIES),
@@ -155,6 +161,7 @@ export const NewsArticleSchema = z.object({
     whats_new: z.array(z.string()),
     watchouts: z.array(z.string()),
   }),
+  facebook_post: z.string().optional(), // Ready-to-share Thai Facebook post draft
 });
 
 export type NewsArticleData = z.infer<typeof NewsArticleSchema>;
@@ -163,5 +170,36 @@ export interface NewsFeedData {
   updated_at: string;
   articles: NewsArticleData[];
 }
+
+export const SyncStatusSchema = z.object({
+  last_sync_at: z.string(),
+  last_sync_date_ict: z.string(), // YYYY-MM-DD in Asia/Bangkok
+  new_counts: z.object({
+    repos: z.number(),
+    papers: z.number(),
+    news: z.number(),
+    total: z.number(),
+  }),
+  total_counts: z.object({
+    repos_today: z.number(),
+    papers_today: z.number(),
+    news_total: z.number(),
+  }),
+  new_ids: z.object({
+    repos: z.array(z.string()),
+    papers: z.array(z.string()),
+    news: z.array(z.string()),
+  }),
+  highlights: z.object({
+    top_paper: z.string().nullable().optional(),
+    top_repo: z.string().nullable().optional(),
+    top_news: z.string().nullable().optional(),
+  }),
+  telegram_sent_at: z.string().nullable().optional(),
+  run_source: z.enum(["github-actions", "local"]).optional(),
+});
+
+export type SyncStatusData = z.infer<typeof SyncStatusSchema>;
+
 
 

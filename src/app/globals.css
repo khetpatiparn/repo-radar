@@ -1,32 +1,3 @@
-/* Hallmark · shape: app screen · genre: modern-minimal · theme: Dusk (by request) · redesign: full
- * nav: slate-glass-rail · signature: dusk-horizon-lead-and-smoked-glass-ledger · states: empty, filtered-empty, full · dusk: shore/periwinkle-apricot/glass
- * axes: dark/grotesk-sans/cool · posture: committed · contrast: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · weakest: R, dropped dual-mode toggles and nested glass to keep single smoked-glass and bone-well discipline */
-/* Hallmark · dismissed 29 · Dusk theme explicitly specifies smoked glass (--glass) with lit top edge (--glass-hi) on .dusk-glass and .dusk-nav-glass without glow behind glass */
-/* Hallmark · dismissed 49 · verified every Header button carries whitespace-nowrap and globals.css enforces header button nowrap, with lg:hidden short mobile labels */
-/* Hallmark · dropped night-mode-toggle, onToggleNightMode, toggleNightMode · Dusk commits to calm slate dark palette and bone wells */
-/* Hallmark · reworded "setSelectedLang" to "onChangeLang" · extracted repo filters into modular ReposSection component */
-/* Hallmark · reworded "setSelectedMaturity" to "onChangeMaturity" · extracted repo filters into modular ReposSection component */
-/* Hallmark · reworded "handlePageChange" to "onPageChange" · extracted pagination into modular PapersSection and NewsSection components */
-/* Hallmark · reworded "openNewsReader" to "onOpenNews" · extracted news reader trigger into NewsSection component */
-/* Hallmark · reworded "openPaperReader" to "onOpenPaper" · extracted paper reader trigger into PapersSection component */
-/* Hallmark · reworded "openRepoReader" to "onOpenRepo" · extracted repo reader trigger into ReposSection component */
-/* Hallmark · reworded "setOnlyRepoStreak" to "onToggleOnlyRepoStreak" · extracted streak toggle into ReposSection component */
-/* Hallmark · reworded "setViewMode" to "onChangeViewMode" · extracted view mode toggle into PapersSection and NewsSection components */
-/* Hallmark · reworded "setOnlyWithCode" to "onToggleOnlyWithCode" · extracted GitHub code filter into PapersSection component */
-/* Hallmark · reworded "setPaperEdition" to "onChangeEdition" · extracted edition switcher into PapersSection component */
-/* Hallmark · reworded "setRepoDay" to "onChangeRepoDay" · extracted day switcher into ReposSection component */
-/* Hallmark · reworded "setSelectedNewsCategory" to "onChangeCategory" · extracted news category filter into NewsSection component */
-/* Hallmark · reworded "setSelectedPaperCategory" to "onChangeCategory" · extracted paper category filter into PapersSection component */
-/* Hallmark · reworded "toggleSaveNews" to "onToggleSaveNews" · extracted news bookmark toggle into NewsSection and ArticleReader */
-/* Hallmark · reworded "toggleSavePaper" to "onToggleSavePaper" · extracted paper bookmark toggle into PapersSection and ArticleReader */
-/* Hallmark · reworded "toggleSaveRepo" to "onToggleSaveRepo" · extracted repo bookmark toggle into ReposSection and ArticleReader */
-/* Hallmark · reworded "scrollToTop" to "onClick={scrollToTop}" · preserved scrollToTop back-to-top handler in page.tsx */
-/* Hallmark · reworded "handleSectionSelect" to "onSelectSection" · preserved section navigation callback passed to Header */
-/* Hallmark · reworded "setReadingNews" to "onBack" · preserved closing news reader via onBack prop */
-/* Hallmark · reworded "setReadingPaper" to "onBack" · preserved closing paper reader via onBack prop */
-/* Hallmark · reworded "setReadingRepo" to "onBack" · preserved closing repo reader via onBack prop */
-/* Hallmark · reworded "setSearchQuery" to "onSearch" · preserved real-time search handler passed to Header */
 @import "tailwindcss";
 @import "./tokens.css";
 @import "./base.css" layer(base);
@@ -46,7 +17,94 @@
   font-family: var(--font-body);
 }
 
-/* Dusk Smoked Glass surface with lit top edge (no glass on glass) */
+/* ============================================================
+ * EMBER NOIR CI BRAND — Deep Orange Gradient + Black + White + Dark Gray
+ * Editorial Grid / Magazine Redesign (ui-ux-pro-max)
+ * ============================================================ */
+
+.grad-brand {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 52%, #fb923c 100%);
+  color: #ffffff;
+}
+
+.grad-brand-text {
+  background: linear-gradient(120deg, #ffffff 0%, #fed7aa 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grad-ember-ribbon {
+  background: linear-gradient(90deg, #c2410c 0%, #ea580c 48%, #fb923c 100%);
+}
+
+/* Scroll-Aware Floating Capsule Navbar */
+.capsule-nav {
+  background: rgba(14, 14, 18, 0.82);
+  -webkit-backdrop-filter: blur(22px) saturate(1.45);
+  backdrop-filter: blur(22px) saturate(1.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.09) inset,
+    0 14px 36px -14px rgba(0, 0, 0, 0.78);
+  transition:
+    max-width 280ms var(--ease-out),
+    padding 280ms var(--ease-out),
+    background-color 240ms var(--ease-out),
+    border-color 240ms var(--ease-out),
+    box-shadow 240ms var(--ease-out),
+    transform 240ms var(--ease-out);
+}
+
+.capsule-nav[data-scrolled="true"] {
+  background: rgba(10, 10, 13, 0.92);
+  border-color: rgba(234, 88, 12, 0.34);
+  box-shadow:
+    0 1px 0 rgba(251, 146, 60, 0.22) inset,
+    0 20px 46px -12px rgba(0, 0, 0, 0.94),
+    0 0 0 1px rgba(234, 88, 12, 0.14);
+}
+
+/* Instant Bottom Floating Reader Dock */
+.reader-dock {
+  background: rgba(11, 11, 15, 0.94);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  backdrop-filter: blur(24px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 22px 52px -12px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(234, 88, 12, 0.24);
+}
+
+/* Editorial Magazine Hero Cover Stage */
+.ember-hero-stage,
+.dusk-hero-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(ellipse 68% 68% at 96% 0%, rgba(234, 88, 12, 0.2) 0%, transparent 60%),
+    linear-gradient(160deg, #15151a 0%, #0f0f13 60%, #09090b 100%);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+}
+
+.ember-hero-stage:hover {
+  border-color: rgba(234, 88, 12, 0.45);
+}
+
+/* Magazine Sidebar Briefing Rail */
+.editorial-rail {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-rule);
+  background: linear-gradient(180deg, #131317 0%, #0e0e12 100%);
+}
+
+/* Glass Surface */
 .dusk-glass {
   background: var(--glass);
   border-radius: var(--radius-card);
@@ -55,24 +113,43 @@
   box-shadow: var(--glass-hi), var(--shadow-card);
 }
 
-.dusk-nav-glass {
-  background: color-mix(in oklab, var(--color-paper) 84%, transparent);
-  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
-  backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
-  box-shadow: inset 0 -1px 0 var(--color-rule);
+/* Editorial News-Blog Card (Edge-to-edge cover, clean hierarchy) */
+.blog-card {
+  position: relative;
+  overflow: hidden;
+  background: #121216;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  transition:
+    border-color var(--dur-short) var(--ease-out),
+    background-color var(--dur-short) var(--ease-out),
+    transform var(--dur-short) var(--ease-out),
+    box-shadow var(--dur-short) var(--ease-out);
 }
 
+.blog-card:hover {
+  background: #16161c;
+  border-color: rgba(234, 88, 12, 0.55);
+  transform: translateY(-3px);
+  box-shadow: 0 22px 44px -22px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(234, 88, 12, 0.14);
+}
+
+.blog-card-new {
+  border-color: rgba(234, 88, 12, 0.36);
+}
+
+/* Light Figure Well for scientific diagrams / screenshots */
 .dusk-well {
   background: var(--color-well);
   color: var(--color-well-ink);
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-inner);
   border: var(--rule-hair) solid var(--color-well-rule);
 }
 
 .dusk-well-card {
   background: var(--color-card);
   color: var(--color-well-ink);
-  border-radius: var(--radius-inner);
+  border-radius: 8px;
   border: var(--rule-hair) solid var(--color-well-rule);
 }
 
@@ -97,62 +174,61 @@
 .editorial-photo > img {
   border-radius: var(--radius-inner);
   background: var(--color-card);
-  filter: contrast(1.04) saturate(1.03);
+  filter: contrast(1.03) saturate(1.03);
 }
 
+/* Primary Deep Orange Gradient CTA Pill */
 .dusk-pill-primary {
-  background: var(--color-accent);
-  color: var(--color-accent-ink);
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 52%, #f97316 100%);
+  color: #ffffff;
   border-radius: var(--radius-pill);
-  box-shadow: inset 0 1px 0 color-mix(in oklab, var(--color-light) 35%, transparent);
+  border: 1px solid rgba(251, 146, 60, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    var(--shadow-ember-glow);
+  transition: filter var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
 }
 
 .dusk-pill-primary:hover {
-  background: var(--color-accent-hi);
+  filter: brightness(1.09);
 }
 
 .dusk-pill-ghost {
-  background: color-mix(in oklab, var(--color-light) 4%, transparent);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--color-ink);
   border-radius: var(--radius-pill);
   border: var(--rule-hair) solid var(--color-rule-2);
+  transition:
+    background-color var(--dur-micro) var(--ease-out),
+    border-color var(--dur-micro) var(--ease-out),
+    color var(--dur-micro) var(--ease-out);
 }
 
 .dusk-pill-ghost:hover {
-  background: color-mix(in oklab, var(--color-light) 8%, transparent);
-  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-accent-hi);
 }
 
-.dusk-hero-stage {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-card);
-  border: var(--rule-hair) solid var(--color-rule);
-  background: linear-gradient(
-    135deg,
-    var(--color-paper-2) 0%,
-    var(--color-paper-3) 55%,
-    var(--color-paper) 100%
-  );
+/* Live New Item Badge */
+.badge-new-ember {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 55%, #f97316 100%);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(251, 146, 60, 0.45), 0 4px 12px -2px rgba(234, 88, 12, 0.55);
 }
 
-.dusk-hero-scrim {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      color-mix(in oklab, var(--color-paper) 92%, transparent) 0%,
-      color-mix(in oklab, var(--color-paper) 78%, transparent) 55%,
-      color-mix(in oklab, var(--color-paper) 56%, transparent) 100%
-    ),
-    linear-gradient(to bottom, transparent 60%, var(--color-paper) 100%);
+@keyframes ember-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
 }
 
-.dusk-photo > img {
-  filter: contrast(1.04) saturate(1.03);
+.ember-pulse-dot {
+  animation: ember-pulse 1.9s ease-in-out infinite;
 }
 
 .rail-fade {

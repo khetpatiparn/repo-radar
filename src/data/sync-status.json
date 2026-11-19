@@ -1,0 +1,53 @@
+{
+  "last_sync_at": "2026-11-19T04:02:11.239Z",
+  "last_sync_date_ict": "2026-11-19",
+  "new_counts": {
+    "repos": 4,
+    "papers": 11,
+    "news": 8,
+    "total": 23
+  },
+  "total_counts": {
+    "repos_today": 12,
+    "papers_today": 11,
+    "news_total": 45
+  },
+  "new_ids": {
+    "repos": [
+      "1314510108",
+      "1140229822",
+      "1073224795",
+      "74293321"
+    ],
+    "papers": [
+      "2611.22055",
+      "2611.19800",
+      "2611.21099",
+      "2611.15348",
+      "2611.19559",
+      "2611.20992",
+      "2611.12069",
+      "2611.23144",
+      "2611.19244",
+      "2611.18856",
+      "2611.21791"
+    ],
+    "news": [
+      "google-deepmind-alphagenome-disease-research-2209ff",
+      "gemini-gemini-4-carbon-builders-cdc732",
+      "developers-tools-embeddinggemma-2-technical-repo-3e6e11",
+      "gemini-app-tasks-in-gemini-free-new-features-357d08",
+      "grow-with-google-ai-training-state-partnerships-79c230",
+      "search-temporary-threads-ai-mode-aac2f4",
+      "google-nest-google-home-updates-november-2026-79db75",
+      "workspace-vids-personal-avatars-no-cost-994dd5"
+    ]
+  },
+  "highlights": {
+    "top_paper": "ลาก่อน Transformer? เมื่อ AI เขียน Weight เองได้แม่นกว่าและเร็วกว่า 1,800 เท่า",
+    "top_repo": "Tencent/LoopForge: แพลตฟอร์มแบบ Self-hosted สำหรับสร้างและจัดการ AI Coding Agents ให้ทำงานร่วมกันเป็นทีมผ่านกระบวนการ SOP ที่ทำซ้ำได้และปลอดภัย",
+    "top_news": "ไขรหัสพันธุกรรม: Google DeepMind เปิดตัว AlphaGenome ปฏิวัติการวิจัยโรคภัยด้วย AI"
+  },
+  "telegram_sent_at": "2026-11-19T04:02:16.837Z",
+  "run_source": "local"
+}
