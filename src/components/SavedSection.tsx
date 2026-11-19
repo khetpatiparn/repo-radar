@@ -47,8 +47,8 @@ export function SavedSection({
       </div>
 
       {totalSavedCount === 0 ? (
-        <div className="p-12 sm:p-16 text-center bg-paper-2 border border-rule rounded-[var(--radius-card)] space-y-3">
-          <Bookmark className="w-8 h-8 text-accent-hi mx-auto" />
+        <div className="p-12 sm:p-16 text-center bg-paper-2 rounded-[var(--radius-card)] space-y-3">
+          <Bookmark className="w-7 h-7 text-accent-hi mx-auto" />
           <div className="font-editorial-display text-xl text-ink">
             ยังไม่มีบทความที่คั่นหน้าไว้
           </div>
@@ -58,7 +58,7 @@ export function SavedSection({
           </p>
         </div>
       ) : (
-        <div className="space-y-8">
+        <div className="space-y-10">
           {savedPapers.length > 0 && (
             <section className="space-y-4">
               <h3 className="font-editorial-display text-lg sm:text-xl text-ink flex items-center gap-2 border-b border-rule pb-2.5 max-w-none">
@@ -70,29 +70,27 @@ export function SavedSection({
                   <article
                     key={paper.id}
                     onClick={() => onOpenPaper(paper)}
-                    className="blog-card cursor-pointer p-5 flex flex-col justify-between gap-3"
+                    className="repo-card group cursor-pointer p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
-                        <h4 className="font-editorial-display text-lg text-ink leading-snug">
+                        <h4 className="font-editorial-display text-lg text-ink group-hover:text-accent-2 transition-colors leading-snug">
                           {paper.hook_headline}
                         </h4>
                         <button
                           type="button"
                           onClick={(e) => onRemovePaper(paper, e)}
-                          className="relative z-10 text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="relative z-10 text-xs font-editorial-label text-muted hover:text-accent-2 cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>
                       </div>
-                      <p className="text-sm font-editorial-body text-ink-2 line-clamp-2">
+                      <p className="text-sm font-editorial-body text-ink-2/90 line-clamp-2">
                         {paper.short_teaser}
                       </p>
                     </div>
-                    <div className="pt-3 border-t border-rule text-xs font-editorial-label">
-                      <span className="px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2">
-                        {paper.category}
-                      </span>
+                    <div className="pt-3 border-t border-rule text-xs font-editorial-label text-accent-2 font-medium">
+                      {paper.category}
                     </div>
                   </article>
                 ))}
@@ -111,22 +109,22 @@ export function SavedSection({
                   <article
                     key={repo.id}
                     onClick={() => onOpenRepo(repo)}
-                    className="blog-card cursor-pointer p-5 flex flex-col justify-between gap-3"
+                    className="repo-card group cursor-pointer p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
-                        <h4 className="font-editorial-display text-lg text-ink leading-snug">
+                        <h4 className="font-editorial-display text-lg text-ink group-hover:text-accent-2 transition-colors leading-snug">
                           {repo.one_liner}
                         </h4>
                         <button
                           type="button"
                           onClick={(e) => onRemoveRepo(repo, e)}
-                          className="relative z-10 text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="relative z-10 text-xs font-editorial-label text-muted hover:text-accent-2 cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>
                       </div>
-                      <p className="text-sm font-editorial-body text-ink-2 line-clamp-2">
+                      <p className="text-sm font-editorial-body text-ink-2/90 line-clamp-2">
                         {repo.problem_solved}
                       </p>
                     </div>
@@ -150,29 +148,27 @@ export function SavedSection({
                   <article
                     key={article.id}
                     onClick={() => onOpenNews(article)}
-                    className="blog-card cursor-pointer p-5 flex flex-col justify-between gap-3"
+                    className="repo-card group cursor-pointer p-5 flex flex-col justify-between gap-3"
                   >
                     <div className="space-y-2.5">
                       <div className="flex items-start justify-between gap-3">
-                        <h4 className="font-editorial-display text-lg text-ink leading-snug">
+                        <h4 className="font-editorial-display text-lg text-ink group-hover:text-accent-2 transition-colors leading-snug">
                           {article.hook_headline}
                         </h4>
                         <button
                           type="button"
                           onClick={(e) => onRemoveNews(article, e)}
-                          className="relative z-10 text-xs font-editorial-label text-accent-2 hover:underline cursor-pointer whitespace-nowrap shrink-0"
+                          className="relative z-10 text-xs font-editorial-label text-muted hover:text-accent-2 cursor-pointer whitespace-nowrap shrink-0"
                         >
                           ลบออก
                         </button>
                       </div>
-                      <p className="text-sm font-editorial-body text-ink-2 line-clamp-2">
+                      <p className="text-sm font-editorial-body text-ink-2/90 line-clamp-2">
                         {article.short_teaser}
                       </p>
                     </div>
-                    <div className="pt-3 border-t border-rule text-xs font-editorial-label">
-                      <span className="px-2.5 py-0.5 rounded-full bg-paper-3 border border-rule text-ink-2">
-                        {article.category}
-                      </span>
+                    <div className="pt-3 border-t border-rule text-xs font-editorial-label text-accent-2 font-medium">
+                      {article.category}
                     </div>
                   </article>
                 ))}

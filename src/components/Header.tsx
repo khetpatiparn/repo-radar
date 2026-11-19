@@ -10,7 +10,6 @@ import {
   Code2,
   Bookmark,
   Newspaper,
-  Sparkles,
   Send,
   X,
 } from "lucide-react";
@@ -214,10 +213,10 @@ export function Header({
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }
               }}
-              className="inline-flex items-center gap-2.5 pl-1 pr-2 py-0.5 rounded-full hover:bg-white/5 transition-colors cursor-pointer shrink-0"
+              className="inline-flex items-center gap-2.5 pl-1 pr-2 py-0.5 rounded-full hover:bg-white/[0.06] transition-colors cursor-pointer shrink-0"
               title="กลับหน้าแรก THE REPO RADAR"
             >
-              <span className="w-8 h-8 text-xs rounded-full grad-brand flex items-center justify-center font-editorial-display font-bold text-white shadow-[var(--shadow-ember-glow)] shrink-0">
+              <span className="w-8 h-8 text-xs rounded-full grad-brand flex items-center justify-center font-editorial-display font-bold text-white shrink-0">
                 RR
               </span>
               {!isScrolled && (
@@ -233,26 +232,20 @@ export function Header({
                 type="button"
                 aria-current={activeSection === "papers" ? "page" : undefined}
                 onClick={() => onSelectSection("papers")}
-                className={`inline-flex items-center gap-1.5 min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-full border font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 min-h-[34px] px-3 sm:px-3.5 py-1 text-xs sm:text-sm rounded-full font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   activeSection === "papers"
-                    ? "bg-ink text-paper border-ink font-semibold shadow-sm"
-                    : "bg-transparent text-ink-2 border-transparent hover:bg-white/8 hover:text-ink"
+                    ? "bg-ink text-paper font-semibold"
+                    : "bg-transparent text-ink-2 hover:bg-white/[0.06] hover:text-ink"
                 }`}
               >
-                {activeSection === "papers" && (
-                  <span
-                    className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"
-                    aria-hidden="true"
-                  />
-                )}
                 <BookOpen className="w-3.5 h-3.5 shrink-0" />
                 <span>เปเปอร์วิจัย AI</span>
                 {newPapersCount > 0 && (
                   <span
-                    className={`px-1.5 py-0.2 rounded-full text-[10px] num ${
+                    className={`text-[11px] font-mono font-semibold num ${
                       activeSection === "papers"
-                        ? "bg-accent text-white"
-                        : "bg-accent-soft text-accent-2 border border-accent/40"
+                        ? "text-accent"
+                        : "text-accent-2"
                     }`}
                   >
                     +{newPapersCount}
@@ -264,26 +257,20 @@ export function Header({
                 type="button"
                 aria-current={activeSection === "repos" ? "page" : undefined}
                 onClick={() => onSelectSection("repos")}
-                className={`inline-flex items-center gap-1.5 min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-full border font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 min-h-[34px] px-3 sm:px-3.5 py-1 text-xs sm:text-sm rounded-full font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   activeSection === "repos"
-                    ? "bg-ink text-paper border-ink font-semibold shadow-sm"
-                    : "bg-transparent text-ink-2 border-transparent hover:bg-white/8 hover:text-ink"
+                    ? "bg-ink text-paper font-semibold"
+                    : "bg-transparent text-ink-2 hover:bg-white/[0.06] hover:text-ink"
                 }`}
               >
-                {activeSection === "repos" && (
-                  <span
-                    className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"
-                    aria-hidden="true"
-                  />
-                )}
                 <Code2 className="w-3.5 h-3.5 shrink-0" />
                 <span>GitHub Repos</span>
                 {newReposCount > 0 && (
                   <span
-                    className={`px-1.5 py-0.2 rounded-full text-[10px] num ${
+                    className={`text-[11px] font-mono font-semibold num ${
                       activeSection === "repos"
-                        ? "bg-accent text-white"
-                        : "bg-accent-soft text-accent-2 border border-accent/40"
+                        ? "text-accent"
+                        : "text-accent-2"
                     }`}
                   >
                     +{newReposCount}
@@ -295,26 +282,20 @@ export function Header({
                 type="button"
                 aria-current={activeSection === "news" ? "page" : undefined}
                 onClick={() => onSelectSection("news")}
-                className={`inline-flex items-center gap-1.5 min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-full border font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 min-h-[34px] px-3 sm:px-3.5 py-1 text-xs sm:text-sm rounded-full font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   activeSection === "news"
-                    ? "bg-ink text-paper border-ink font-semibold shadow-sm"
-                    : "bg-transparent text-ink-2 border-transparent hover:bg-white/8 hover:text-ink"
+                    ? "bg-ink text-paper font-semibold"
+                    : "bg-transparent text-ink-2 hover:bg-white/[0.06] hover:text-ink"
                 }`}
               >
-                {activeSection === "news" && (
-                  <span
-                    className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"
-                    aria-hidden="true"
-                  />
-                )}
                 <Newspaper className="w-3.5 h-3.5 shrink-0" />
                 <span>ข่าว AI Lab</span>
                 {newNewsCount > 0 && (
                   <span
-                    className={`px-1.5 py-0.2 rounded-full text-[10px] num ${
+                    className={`text-[11px] font-mono font-semibold num ${
                       activeSection === "news"
-                        ? "bg-accent text-white"
-                        : "bg-accent-soft text-accent-2 border border-accent/40"
+                        ? "text-accent"
+                        : "text-accent-2"
                     }`}
                   >
                     +{newNewsCount}
@@ -326,10 +307,10 @@ export function Header({
                 type="button"
                 aria-current={activeSection === "saved" ? "page" : undefined}
                 onClick={() => onSelectSection("saved")}
-                className={`inline-flex items-center gap-1.5 min-h-[36px] px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-full border font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
+                className={`inline-flex items-center gap-1.5 min-h-[34px] px-3 sm:px-3.5 py-1 text-xs sm:text-sm rounded-full font-editorial-label transition-colors duration-[var(--dur-micro)] shrink-0 whitespace-nowrap cursor-pointer ${
                   activeSection === "saved"
-                    ? "bg-accent text-accent-ink border-accent font-semibold shadow-[var(--shadow-ember-glow)]"
-                    : "bg-transparent text-ink-2 border-transparent hover:bg-white/8 hover:text-ink"
+                    ? "bg-accent text-accent-ink font-semibold"
+                    : "bg-transparent text-ink-2 hover:bg-white/[0.06] hover:text-ink"
                 }`}
               >
                 <Bookmark className="w-3.5 h-3.5 shrink-0" />
@@ -353,7 +334,7 @@ export function Header({
                     }}
                     onChange={(e) => onSearch(e.target.value)}
                     placeholder="ค้นหาบทความ, หัวข้อ, ภาษา..."
-                    className="w-full min-h-[36px] pl-8 pr-7 py-1 text-xs sm:text-sm font-editorial-label rounded-full border border-rule-2 bg-paper-3/90 text-ink placeholder:text-muted focus:bg-paper focus:border-accent-hi focus:outline-none"
+                    className="w-full min-h-[34px] pl-8 pr-7 py-1 text-xs sm:text-sm font-editorial-label rounded-full bg-white/[0.06] text-ink placeholder:text-muted focus:bg-white/[0.1] focus:outline-none"
                   />
                   {searchQuery && (
                     <button
@@ -375,7 +356,7 @@ export function Header({
                   }}
                   aria-label="เปิดช่องค้นหา"
                   title="ค้นหาบทความ"
-                  className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-paper-3 border border-rule text-ink-2 hover:text-ink hover:border-accent-hi transition-colors cursor-pointer shrink-0"
+                  className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/[0.06] text-ink-2 hover:bg-white/[0.12] hover:text-ink transition-colors cursor-pointer shrink-0"
                 >
                   <Search className="w-3.5 h-3.5" />
                 </button>
@@ -394,23 +375,23 @@ export function Header({
                     ? "รับข่าวเช้า: เปิด (คลิกเพื่อทดสอบ)"
                     : "เปิดแจ้งเตือนฉบับเช้าบนเบราว์เซอร์"
                 }
-                className={`inline-flex items-center justify-center w-9 h-9 rounded-full border transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 ${
+                className={`inline-flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 ${
                   notifPermission === "granted"
-                    ? "bg-accent text-accent-ink border-accent"
-                    : "bg-paper-3 text-ink-2 border-rule hover:text-ink hover:border-accent-hi"
+                    ? "bg-accent text-accent-ink"
+                    : "bg-white/[0.06] text-ink-2 hover:bg-white/[0.12] hover:text-ink"
                 }`}
               >
                 {notifPermission === "granted" ? (
                   <BellRing className="w-3.5 h-3.5 shrink-0" />
                 ) : (
-                  <Bell className="w-3.5 h-3.5 text-accent-hi shrink-0" />
+                  <Bell className="w-3.5 h-3.5 text-accent-2 shrink-0" />
                 )}
               </button>
 
               {toastMsg && (
                 <div
                   role="status"
-                  className="dusk-glass absolute right-0 top-full mt-2 z-50 whitespace-nowrap text-ink border border-rule-2 text-xs px-3.5 py-2 flex items-center gap-1.5"
+                  className="dusk-glass absolute right-0 top-full mt-2 z-50 whitespace-nowrap text-ink text-xs px-3.5 py-2 flex items-center gap-1.5"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-accent-hi" />
                   <span>{toastMsg}</span>
@@ -422,51 +403,39 @@ export function Header({
       </div>
 
       {/* ============================================================
-       * COMPACT EDITORIAL MASTHEAD & LIVE SYNC PULSE STRIP
-       * Minimal vertical footprint so front-page journalism leads immediately
+       * CLEAN EDITORIAL MASTHEAD & INLINE TELEMETRY LINE (zero pill soup)
        * ============================================================ */}
       {!isReaderMode && (
-        <header className="w-full relative overflow-hidden border-b border-rule/80">
-          {/* Pure Radial Gradient Ember Corner Wash (zero GPU blur filter) */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-20 right-0 w-[460px] h-[220px]"
-            style={{
-              background:
-                "radial-gradient(ellipse at 70% 20%, rgba(234, 88, 12, 0.16) 0%, rgba(194, 65, 12, 0.06) 42%, transparent 72%)",
-            }}
-          />
-
-          <div className="container relative z-10 pt-5 pb-4 sm:pt-6 sm:pb-5 flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+        <header className="w-full border-b border-rule">
+          <div className="container pt-6 pb-5 sm:pt-8 sm:pb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-4">
             {/* Editorial Title Lockup */}
             <div className="space-y-1.5 min-w-0">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <h1 className="font-editorial-display text-2xl sm:text-3xl lg:text-[2.15rem] leading-none text-ink tracking-tight">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h1 className="font-editorial-display text-2xl sm:text-3xl lg:text-[2.25rem] leading-none text-ink tracking-tight">
                   THE REPO RADAR
                 </h1>
-                {totalNewSyncCount > 0 && (
-                  <span className="badge-new-ember inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-editorial-label num">
-                    <Sparkles className="w-3 h-3 shrink-0" />
-                    <span>+{totalNewSyncCount} อัปเดตใหม่วันนี้</span>
+                {thaiDateStr && (
+                  <span className="text-xs font-editorial-label text-muted">
+                    {thaiDateStr}
                   </span>
                 )}
-                {thaiDateStr && (
-                  <span className="hidden sm:inline text-xs font-editorial-label text-muted border-l border-rule pl-2.5">
-                    {thaiDateStr}
+                {totalNewSyncCount > 0 && (
+                  <span className="text-xs font-mono font-medium text-accent-2 num">
+                    +{totalNewSyncCount} ใหม่วันนี้
                   </span>
                 )}
               </div>
               <p className="text-xs sm:text-sm text-muted font-editorial-body max-w-2xl leading-relaxed">
                 วารสารสรุปงานวิจัย AI มาแรงจาก Hugging Face, โปรเจกต์ GitHub
-                Trending และข่าวสาร AI Lab จาก Google Blog — อ่านง่ายสไตล์เทคบล็อก
+                Trending และข่าวสาร AI Lab จาก Google Blog
               </p>
             </div>
 
-            {/* Live Sync Verification Pill Strip */}
-            <div className="flex flex-wrap items-center gap-2 text-xs font-editorial-label shrink-0">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-paper-2 border border-rule text-ink">
+            {/* Quiet Inline Sync Telemetry (plain typography + middots, zero bordered boxes) */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-editorial-label text-muted shrink-0">
+              <span className="inline-flex items-center gap-2 text-ink-2">
                 <span
-                  className="inline-block w-2 h-2 rounded-full bg-accent-hi ember-pulse-dot shrink-0"
+                  className="inline-block w-1.5 h-1.5 rounded-full bg-accent-hi ember-pulse-dot shrink-0"
                   aria-hidden="true"
                 />
                 <span>
@@ -479,10 +448,13 @@ export function Header({
                     ({relativeTime})
                   </span>
                 )}
-              </div>
+              </span>
 
               {syncStatus && (
-                <div className="flex flex-wrap items-center gap-1.5">
+                <>
+                  <span className="text-rule-2" aria-hidden="true">
+                    ·
+                  </span>
                   <span className="sr-only">เข้าใหม่วันนี้:</span>
                   <button
                     type="button"
@@ -491,11 +463,14 @@ export function Header({
                         ? onJumpToNewSection("papers")
                         : onSelectSection("papers")
                     }
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-accent-soft border border-accent/40 text-accent-2 hover:border-accent-hi transition-colors cursor-pointer num"
+                    className="text-accent-2 hover:text-ink transition-colors cursor-pointer num"
                     title="ดูเปเปอร์วิจัยใหม่ที่เข้าวันนี้"
                   >
-                    <span>+{syncStatus.new_counts.papers} เปเปอร์</span>
+                    +{syncStatus.new_counts.papers} เปเปอร์
                   </button>
+                  <span className="text-rule-2" aria-hidden="true">
+                    ·
+                  </span>
                   <button
                     type="button"
                     onClick={() =>
@@ -503,11 +478,14 @@ export function Header({
                         ? onJumpToNewSection("repos")
                         : onSelectSection("repos")
                     }
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-paper-2 border border-rule text-ink-2 hover:border-accent-hi hover:text-ink transition-colors cursor-pointer num"
+                    className="text-ink-2 hover:text-ink transition-colors cursor-pointer num"
                     title="ดู GitHub Repos ใหม่ที่เข้าวันนี้"
                   >
-                    <span>+{syncStatus.new_counts.repos} Repos</span>
+                    +{syncStatus.new_counts.repos} Repos
                   </button>
+                  <span className="text-rule-2" aria-hidden="true">
+                    ·
+                  </span>
                   <button
                     type="button"
                     onClick={() =>
@@ -515,17 +493,22 @@ export function Header({
                         ? onJumpToNewSection("news")
                         : onSelectSection("news")
                     }
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-paper-2 border border-rule text-ink-2 hover:border-accent-hi hover:text-ink transition-colors cursor-pointer num"
+                    className="text-ink-2 hover:text-ink transition-colors cursor-pointer num"
                     title="ดูข่าว Google AI ใหม่ที่เข้าวันนี้"
                   >
-                    <span>+{syncStatus.new_counts.news} ข่าว Google</span>
+                    +{syncStatus.new_counts.news} ข่าว Google
                   </button>
-
                   <span
-                    className={`hidden md:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full border text-[11px] ${
+                    className="hidden md:inline text-rule-2"
+                    aria-hidden="true"
+                  >
+                    ·
+                  </span>
+                  <span
+                    className={`hidden md:inline-flex items-center gap-1 ${
                       syncStatus.telegram_sent_at
-                        ? "bg-success-soft border-success/35 text-success"
-                        : "bg-paper-2 border-rule text-muted"
+                        ? "text-success"
+                        : "text-muted"
                     }`}
                     title={
                       syncStatus.telegram_sent_at
@@ -540,7 +523,7 @@ export function Header({
                         : "Telegram พร้อมใช้"}
                     </span>
                   </span>
-                </div>
+                </>
               )}
             </div>
           </div>

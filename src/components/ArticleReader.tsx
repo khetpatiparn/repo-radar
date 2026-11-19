@@ -26,7 +26,6 @@ import {
   Star,
   Copy,
   Check,
-  Sparkles,
   CheckCircle2,
   AlertTriangle,
   BookOpen,
@@ -83,7 +82,7 @@ function ReaderTopBar({
       </button>
 
       <div className="flex items-center justify-between sm:justify-end gap-3">
-        <div className="flex items-center rounded-full border border-rule bg-paper-2 p-0.5 text-xs font-editorial-label">
+        <div className="flex items-center rounded-full bg-paper-2 p-0.5 text-xs font-editorial-label">
           <span className="px-3 py-1 text-muted whitespace-nowrap">
             ขนาดอักษร
           </span>
@@ -129,9 +128,9 @@ function ReaderTopBar({
           type="button"
           onClick={onToggleSave}
           aria-pressed={isSaved}
-          className={`inline-flex items-center gap-1.5 min-h-[38px] px-4 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full border transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 whitespace-nowrap ${
+          className={`inline-flex items-center gap-1.5 min-h-[38px] px-4 py-1.5 text-xs sm:text-sm font-editorial-label rounded-full transition-colors duration-[var(--dur-micro)] cursor-pointer shrink-0 whitespace-nowrap ${
             isSaved
-              ? "bg-accent text-accent-ink border-accent shadow-[var(--shadow-ember-glow)]"
+              ? "bg-accent text-accent-ink"
               : "dusk-pill-ghost"
           }`}
         >
@@ -160,7 +159,7 @@ function ReaderDesktopToc({
   items: TocItem[];
 }) {
   return (
-    <div className="p-5 border border-rule bg-paper-2 rounded-[var(--radius-card)]">
+    <div className="p-5 bg-paper-2 rounded-[var(--radius-card)]">
       <div className="flex items-center gap-2 text-sm font-editorial-label text-ink pb-3 mb-3 border-b border-rule">
         <BookOpen className="w-4 h-4 text-accent-hi shrink-0" />
         <span>{title}</span>
@@ -243,7 +242,7 @@ function FacebookShareStudio({
   return (
     <section
       id={sectionId}
-      className="p-5 sm:p-6 rounded-[var(--radius-card)] border border-accent/40 bg-paper-2 space-y-4"
+      className="p-5 sm:p-6 rounded-[var(--radius-card)] bg-paper-2 space-y-4"
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-rule pb-3">
         <div>
@@ -483,13 +482,13 @@ export function ArticleReader({
         {/* Reading progress pill */}
         <div
           ref={progressContainerRef}
-          className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-paper-3/80 border border-rule text-[11px] font-editorial-label text-muted"
+          className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.05] text-[11px] font-editorial-label text-muted"
           aria-label="ความคืบหน้าการอ่าน 0 เปอร์เซ็นต์"
         >
           <div className="w-14 h-1.5 rounded-full bg-paper overflow-hidden">
             <div
               ref={progressBarRef}
-              className="h-full w-full origin-left grad-ember-ribbon"
+              className="h-full w-full origin-left bg-accent"
               style={{ transform: "scaleX(0)" }}
             />
           </div>
@@ -502,7 +501,7 @@ export function ArticleReader({
         <button
           type="button"
           onClick={handleCopyFacebookPost}
-          className="inline-flex items-center gap-1.5 min-h-[36px] px-3 py-1.5 rounded-full bg-paper-3 border border-rule-2 text-xs sm:text-sm font-editorial-label text-ink hover:border-accent-hi transition-colors cursor-pointer whitespace-nowrap"
+          className="inline-flex items-center gap-1.5 min-h-[36px] px-3 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.1] text-xs sm:text-sm font-editorial-label text-ink transition-colors cursor-pointer whitespace-nowrap"
           title="คัดลอกฉบับร่างโพสต์ Facebook พร้อมแชร์"
         >
           {copiedFb ? (
@@ -522,7 +521,7 @@ export function ArticleReader({
         <button
           type="button"
           onClick={cycleFontSize}
-          className="inline-flex items-center gap-1 min-h-[36px] px-2.5 py-1.5 rounded-full bg-paper-3 border border-rule text-xs font-editorial-label text-ink-2 hover:text-ink hover:border-accent-hi transition-colors cursor-pointer whitespace-nowrap"
+          className="inline-flex items-center gap-1 min-h-[36px] px-2.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.1] text-xs font-editorial-label text-ink-2 hover:text-ink transition-colors cursor-pointer whitespace-nowrap"
           title="สลับขนาดตัวอักษร"
           aria-label="ปรับขนาดตัวอักษร"
         >
@@ -538,10 +537,10 @@ export function ArticleReader({
           onClick={onToggleSave}
           aria-pressed={isSaved}
           aria-label={isSaved ? "บันทึกแล้ว" : "บันทึกบทความ"}
-          className={`inline-flex items-center justify-center min-h-[36px] min-w-[36px] px-2.5 py-1.5 rounded-full border transition-colors cursor-pointer ${
+          className={`inline-flex items-center justify-center min-h-[36px] min-w-[36px] px-2.5 py-1.5 rounded-full transition-colors cursor-pointer ${
             isSaved
-              ? "bg-accent text-accent-ink border-accent"
-              : "bg-paper-3 text-ink-2 border-rule hover:text-ink hover:border-accent-hi"
+              ? "bg-accent text-accent-ink"
+              : "bg-white/[0.06] text-ink-2 hover:text-ink hover:bg-white/[0.1]"
           }`}
           title={isSaved ? "เอาออกจากที่คั่นหน้า" : "บันทึกไว้อ่านภายหลัง"}
         >
@@ -1124,9 +1123,9 @@ export function ArticleReader({
                     </span>
                     <span>แนวทางนำไปต่อยอดสร้างธุรกิจ / Micro-SaaS</span>
                   </h2>
-                  <div className="p-6 rounded-[var(--radius-card)] border border-success/40 bg-success-soft space-y-3 text-base">
+                  <div className="p-6 rounded-[var(--radius-card)] bg-paper-2 border-l-2 border-l-success space-y-3 text-base">
                     <div className="font-editorial-label text-success flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 shrink-0" />
                       <span>ไอเดียสร้างรายได้ (Monetization Idea)</span>
                     </div>
                     <p className="text-ink max-w-[68ch]">{repo.ai_opportunity.monetization_idea}</p>

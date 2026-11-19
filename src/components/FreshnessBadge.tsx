@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useState } from "react";
-import { Sparkles, Check, CalendarClock } from "lucide-react";
+import { Check, CalendarClock } from "lucide-react";
 import type { FreshnessInfo } from "../lib/freshness";
 
 export function FreshnessBadge({
@@ -16,20 +16,16 @@ export function FreshnessBadge({
 
   if (info.isUnreadNew) {
     return (
-      <div className="inline-flex flex-wrap items-center gap-1.5">
-        <span className="badge-new-ember inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-editorial-label tracking-wide whitespace-nowrap">
-          <span
-            className="w-1.5 h-1.5 rounded-full bg-white shrink-0"
-            aria-hidden="true"
-          />
-          <span>ใหม่วันนี้</span>
+      <div className="inline-flex flex-wrap items-center gap-2">
+        <span className="badge-new-ember inline-flex items-center px-1.5 py-0.5 rounded-[4px] text-[10px] font-editorial-label font-semibold uppercase tracking-wider whitespace-nowrap leading-none">
+          ใหม่วันนี้
         </span>
         {!compact && info.isDelayedArrival && info.provenanceLabel && (
           <span
-            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-paper-3 border border-accent/35 text-[11px] font-editorial-label text-accent-2 whitespace-nowrap"
+            className="inline-flex items-center gap-1 text-[11px] font-editorial-label text-muted whitespace-nowrap"
             title="บทความนี้เผยแพร่ก่อนวันนี้ แต่เพิ่งถูกดึงเข้าระบบในการซิงก์รอบล่าสุด"
           >
-            <CalendarClock className="w-3 h-3 shrink-0" />
+            <CalendarClock className="w-3 h-3 text-accent-2 shrink-0" />
             <span>{info.provenanceLabel}</span>
           </span>
         )}
@@ -39,8 +35,8 @@ export function FreshnessBadge({
 
   if (info.isNew && info.isRead) {
     return (
-      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-accent-soft border border-accent/30 text-[11px] font-editorial-label text-accent-2 whitespace-nowrap">
-        <Check className="w-3 h-3 shrink-0" />
+      <span className="inline-flex items-center gap-1 text-[11px] font-editorial-label text-muted whitespace-nowrap">
+        <Check className="w-3 h-3 text-accent-2 shrink-0" />
         <span>เข้าใหม่วันนี้ · อ่านแล้ว</span>
       </span>
     );
@@ -48,7 +44,7 @@ export function FreshnessBadge({
 
   if (info.isRead) {
     return (
-      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-paper-3 border border-rule text-[11px] font-editorial-label text-muted whitespace-nowrap">
+      <span className="inline-flex items-center gap-1 text-[11px] font-editorial-label text-muted whitespace-nowrap">
         <Check className="w-3 h-3 shrink-0" />
         <span>อ่านแล้ว</span>
       </span>
@@ -65,7 +61,6 @@ export function BlogCoverMedia({
   sublabel,
   fit = "cover",
   aspect = "16/10",
-  edgeToEdge = false,
   isNew = false,
   priority = false,
   topRightAction,
@@ -92,15 +87,13 @@ export function BlogCoverMedia({
       ? "aspect-[4/3]"
       : "aspect-[16/10]";
 
-  const frameClass = edgeToEdge
-    ? `relative w-full ${aspectClass} overflow-hidden border-b border-rule bg-paper`
-    : `relative w-full ${aspectClass} rounded-[var(--radius-inner)] overflow-hidden border border-rule bg-paper`;
+  const frameClass = `relative w-full ${aspectClass} rounded-[8px] overflow-hidden bg-paper-2`;
 
   return (
     <div className={frameClass}>
       {hasImage ? (
         fit === "contain" ? (
-          <div className="w-full h-full bg-[#f5f5f7] p-3 flex items-center justify-center">
+          <div className="w-full h-full bg-[#f4f4f6] p-3 flex items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={safeSrc}
@@ -109,7 +102,7 @@ export function BlogCoverMedia({
               fetchPriority={priority ? "high" : "auto"}
               decoding="async"
               onError={() => setFailed(true)}
-              className="w-full h-full object-contain rounded-[6px] transition-transform duration-300 group-hover:scale-[1.03]"
+              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </div>
         ) : (
@@ -122,30 +115,27 @@ export function BlogCoverMedia({
               fetchPriority={priority ? "high" : "auto"}
               decoding="async"
               onError={() => setFailed(true)}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.025]"
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"
             />
           </>
         )
       ) : (
         <div
-          className="w-full h-full p-4 flex flex-col justify-between relative overflow-hidden"
+          className="w-full h-full p-5 flex flex-col justify-between relative overflow-hidden"
           style={{
             background:
-              "radial-gradient(circle at 85% 15%, rgba(234,88,12,0.3) 0%, transparent 55%), linear-gradient(145deg, #1b1614 0%, #121216 58%, #09090b 100%)",
+              "linear-gradient(155deg, #16161b 0%, #101014 60%, #0b0b0e 100%)",
           }}
         >
-          <div className="flex items-center justify-between gap-2">
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/55 border border-white/15 text-[10px] font-editorial-label text-accent-2 uppercase tracking-wider">
-              <Sparkles className="w-3 h-3 shrink-0" />
-              <span>THE REPO RADAR</span>
-            </span>
-          </div>
-          <div className="space-y-0.5">
-            <div className="text-xs font-editorial-label text-accent-2 truncate">
+          <span className="text-[10px] font-mono text-muted uppercase tracking-[0.16em]">
+            THE REPO RADAR
+          </span>
+          <div className="space-y-1">
+            <div className="text-sm font-editorial-display text-ink truncate">
               {category}
             </div>
             {sublabel && (
@@ -157,14 +147,13 @@ export function BlogCoverMedia({
         </div>
       )}
 
-      {/* Subtle corner NEW overlay */}
+      {/* Subtle flat corner NEW micro-tag */}
       {isNew && (
         <span
           aria-hidden="true"
-          className="absolute top-3 left-3 z-10 badge-new-ember inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-editorial-label tracking-wide"
+          className="absolute top-2.5 left-2.5 z-10 badge-new-ember inline-flex items-center px-1.5 py-0.5 rounded-[4px] text-[10px] font-mono font-semibold tracking-wider uppercase leading-none"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-white" />
-          <span>NEW</span>
+          NEW
         </span>
       )}
 
