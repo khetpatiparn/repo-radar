@@ -15,9 +15,16 @@ import {
 } from "../lib/facebookPost";
 import { FreshnessBadge } from "./FreshnessBadge";
 import {
+  Pass1TriageStrip,
+  GlossaryScaffolding,
+  Pass2MechanismAndEvidence,
+  Pass3HandsOnDrawer,
+} from "./DeepReadingBlocks";
+import {
   ArrowLeft,
   Bookmark,
   BookmarkCheck,
+  ChevronDown,
   ExternalLink,
   FileText,
   Code2,
@@ -240,77 +247,90 @@ function FacebookShareStudio({
   const isEdited = draft !== initialDraft;
 
   return (
-    <section
+    <details
       id={sectionId}
-      className="p-5 sm:p-6 rounded-[var(--radius-card)] bg-paper-2 space-y-4"
+      className="group rounded-[var(--radius-card)] bg-paper-2 transition-colors"
     >
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-rule pb-3">
-        <div>
-          <h2 className="font-editorial-display text-xl text-ink flex items-center gap-2 max-w-none">
+      <summary className="list-none cursor-pointer px-5 sm:px-6 py-4 flex items-center justify-between gap-4 select-none">
+        <div className="min-w-0 space-y-0.5">
+          <div className="font-editorial-display text-lg text-ink flex items-center gap-2">
             <span className="font-editorial-label text-xs text-accent-hi num">
               {`${sectionNum} //`}
             </span>
             <span>ฉบับร่างโพสต์ Facebook (พร้อมแชร์ลงเพจ)</span>
-          </h2>
-          <p className="text-xs sm:text-sm text-muted font-editorial-body mt-1">
-            เรียบเรียงสไตล์เทคบล็อกพร้อม Hook, ประเด็นสรุป, คำถามชวนคุย และลิงก์ต้นทาง — แก้ไขเพิ่มเติมแล้วกดคัดลอกไปวางได้เลย
+          </div>
+          <p className="text-xs text-muted font-editorial-body">
+            พับเก็บไว้ให้ไม่กวนตา — กดเปิดเมื่อต้องการแก้ไขหรือคัดลอกไปแชร์ในอนาคต
           </p>
         </div>
+        <span className="inline-flex items-center gap-1.5 text-xs font-editorial-label text-muted group-hover:text-ink shrink-0">
+          <span className="group-open:hidden">กดเปิดฉบับร่าง</span>
+          <span className="hidden group-open:inline">พับเก็บ</span>
+          <ChevronDown className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" />
+        </span>
+      </summary>
 
-        <div className="flex items-center gap-2 shrink-0">
-          {isEdited && (
+      <div className="px-5 sm:px-6 pb-6 pt-4 border-t border-rule space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="text-xs sm:text-sm text-muted font-editorial-body">
+            เรียบเรียงจากข้อเท็จจริงในบทความ — ปรับแต่งข้อความแล้วกดคัดลอกได้เลย
+          </p>
+
+          <div className="flex items-center gap-2 shrink-0">
+            {isEdited && (
+              <button
+                type="button"
+                onClick={() => onChangeDraft(initialDraft)}
+                className="dusk-pill-ghost inline-flex items-center gap-1.5 min-h-[38px] px-3.5 py-1.5 text-xs font-editorial-label cursor-pointer whitespace-nowrap"
+                title="คืนค่าฉบับร่างตั้งต้น"
+              >
+                <RotateCcw className="w-3.5 h-3.5 shrink-0" />
+                <span>รีเซ็ต</span>
+              </button>
+            )}
             <button
               type="button"
-              onClick={() => onChangeDraft(initialDraft)}
-              className="dusk-pill-ghost inline-flex items-center gap-1.5 min-h-[38px] px-3.5 py-1.5 text-xs font-editorial-label cursor-pointer whitespace-nowrap"
-              title="คืนค่าฉบับร่างตั้งต้น"
+              onClick={onCopyDraft}
+              className="dusk-pill-primary inline-flex items-center gap-1.5 min-h-[40px] px-4 py-2 text-xs sm:text-sm font-editorial-label cursor-pointer whitespace-nowrap"
             >
-              <RotateCcw className="w-3.5 h-3.5 shrink-0" />
-              <span>รีเซ็ต</span>
+              {copiedFb ? (
+                <>
+                  <Check className="w-4 h-4 shrink-0" />
+                  <span>คัดลอกโพสต์แล้ว</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-4 h-4 shrink-0" />
+                  <span>คัดลอกโพสต์ลง Facebook</span>
+                </>
+              )}
             </button>
-          )}
-          <button
-            type="button"
-            onClick={onCopyDraft}
-            className="dusk-pill-primary inline-flex items-center gap-1.5 min-h-[40px] px-4 py-2 text-xs sm:text-sm font-editorial-label cursor-pointer whitespace-nowrap"
-          >
-            {copiedFb ? (
-              <>
-                <Check className="w-4 h-4 shrink-0" />
-                <span>คัดลอกโพสต์แล้ว</span>
-              </>
-            ) : (
-              <>
-                <Share2 className="w-4 h-4 shrink-0" />
-                <span>คัดลอกโพสต์ลง Facebook</span>
-              </>
-            )}
-          </button>
+          </div>
+        </div>
+
+        {/* Live region strictly outside the button, empty until a copy */}
+        <span role="status" aria-live="polite" className="visually-hidden">
+          {fbLiveStatus}
+        </span>
+
+        <div className="space-y-2">
+          <label htmlFor={`${sectionId}-textarea`} className="visually-hidden">
+            ข้อความฉบับร่างโพสต์ Facebook
+          </label>
+          <textarea
+            id={`${sectionId}-textarea`}
+            value={draft}
+            onChange={(e) => onChangeDraft(e.target.value)}
+            rows={11}
+            className="w-full p-4 rounded-[var(--radius-inner)] bg-paper border border-rule-2 text-sm text-ink-2 font-editorial-body leading-relaxed focus:border-accent-hi focus:outline-none resize-y"
+          />
+          <div className="flex items-center justify-between text-xs font-editorial-label text-muted">
+            <span>ปรับแต่งข้อความได้อิสระก่อนกดคัดลอก</span>
+            <span className="num">{draft.length.toLocaleString()} ตัวอักษร</span>
+          </div>
         </div>
       </div>
-
-      {/* Live region strictly outside the button, empty until a copy */}
-      <span role="status" aria-live="polite" className="visually-hidden">
-        {fbLiveStatus}
-      </span>
-
-      <div className="space-y-2">
-        <label htmlFor={`${sectionId}-textarea`} className="visually-hidden">
-          ข้อความฉบับร่างโพสต์ Facebook
-        </label>
-        <textarea
-          id={`${sectionId}-textarea`}
-          value={draft}
-          onChange={(e) => onChangeDraft(e.target.value)}
-          rows={11}
-          className="w-full p-4 rounded-[var(--radius-inner)] bg-paper border border-rule-2 text-sm text-ink-2 font-editorial-body leading-relaxed focus:border-accent-hi focus:outline-none resize-y"
-        />
-        <div className="flex items-center justify-between text-xs font-editorial-label text-muted">
-          <span>ปรับแต่งข้อความได้อิสระก่อนกดคัดลอก</span>
-          <span className="num">{draft.length.toLocaleString()} ตัวอักษร</span>
-        </div>
-      </div>
-    </section>
+    </details>
   );
 }
 
@@ -555,13 +575,14 @@ export function ArticleReader({
   );
 
   if (paper) {
+    const guide = paper.reading_guide;
     const tocItems: TocItem[] = [
-      { id: "sec-tldr", num: "01", label: "สรุปใจความสำคัญ (TL;DR)" },
+      { id: "sec-tldr", num: "01", label: guide ? "Pass 1: คัดกรอง & TL;DR" : "สรุปใจความสำคัญ (TL;DR)" },
       { id: "sec-figure", num: "02", label: "ภาพประกอบจากงานวิจัย" },
-      { id: "sec-story", num: "03", label: "เจาะลึกแบบภาษาคนทั่วไป" },
+      { id: "sec-story", num: "03", label: guide ? "Pass 2: กลไก & ตัวเลขจริง" : "เจาะลึกแบบภาษาคนทั่วไป" },
       { id: "sec-impact", num: "04", label: "วิธีเดิม vs วิธีใหม่ & ผลกระทบ" },
-      { id: "sec-usecases", num: "05", label: "3 ยูสเคสการนำไปใช้ต่อยอด" },
-      { id: "sec-community", num: "06", label: "เสียงสะท้อน & ข้อจำกัด" },
+      { id: "sec-usecases", num: "05", label: guide ? "Pass 3: ลองทำจริง & ศึกษาต่อ" : "แนวทางการนำไปประยุกต์ใช้จริง" },
+      { id: "sec-community", num: "06", label: "จุดแข็ง & ข้อจำกัด" },
       { id: "sec-sources", num: "07", label: "ลิงก์เปเปอร์ต้นฉบับ & โค้ด" },
       { id: "sec-facebook", num: "08", label: "ฉบับร่างโพสต์ Facebook" },
     ];
@@ -654,13 +675,13 @@ export function ArticleReader({
                     {paper.category}
                   </span>
                   {paper.organization && (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-paper-2 border border-rule text-ink whitespace-nowrap">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-paper-2 text-ink whitespace-nowrap">
                       <Building2 className="w-3.5 h-3.5 text-muted shrink-0" />
                       <span>{paper.organization}</span>
                     </span>
                   )}
                   {paper.github_url && (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-success-soft border border-success/30 text-success whitespace-nowrap">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-success-soft text-success whitespace-nowrap">
                       <Code2 className="w-3.5 h-3.5 shrink-0" />
                       <span>มีโค้ด GitHub</span>
                     </span>
@@ -694,7 +715,7 @@ export function ArticleReader({
 
               {/* Body Content */}
               <div className={`space-y-10 text-ink-2 font-editorial-body ${fontSizeClass}`}>
-                {/* Section 01: TL;DR */}
+                {/* Section 01: Pass 1 Triage & TL;DR */}
                 <section
                   id="sec-tldr"
                   className="p-6 editorial-well border-t-2 border-t-accent"
@@ -715,7 +736,16 @@ export function ArticleReader({
                       </li>
                     ))}
                   </ul>
+                  {guide && <Pass1TriageStrip guide={guide} />}
                 </section>
+
+                {/* Collapsible Vocabulary Scaffolding (95% threshold before Pass 2) */}
+                {guide && (
+                  <GlossaryScaffolding
+                    sectionId="sec-glossary"
+                    glossary={guide.glossary}
+                  />
+                )}
 
                 {/* Section 02: Figure */}
                 <section id="sec-figure" className="space-y-3">
@@ -726,7 +756,7 @@ export function ArticleReader({
                     <span>ภาพประกอบและแผนผังจากงานวิจัย</span>
                   </h2>
                   {!imgError && paper.thumbnail_url ? (
-                    <figure className="editorial-photo border border-rule p-3">
+                    <figure className="editorial-photo p-3">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={paper.thumbnail_url}
@@ -745,23 +775,44 @@ export function ArticleReader({
                   )}
                 </section>
 
-                {/* Section 03: Deep Layman Explanation */}
-                <section id="sec-story" className="space-y-5">
-                  <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
-                    <span className="font-editorial-label text-xs text-accent-hi num">
-                      03 //
-                    </span>
-                    <span>เจาะลึกเรื่องราวแบบคนทั่วไปเข้าใจง่าย</span>
-                  </h2>
-                  <p className="lead text-ink font-medium max-w-[65ch]">
-                    {paper.short_teaser}
-                  </p>
-                  {paper.layman_story.map((paragraph, idx) => (
-                    <p key={idx} className="text-ink-2 max-w-[68ch]">
-                      {paragraph}
+                {/* Section 03: Pass 2 Mechanism, Hard Evidence & Deep Narrative */}
+                {guide ? (
+                  <div className="space-y-8">
+                    <Pass2MechanismAndEvidence
+                      sectionId="sec-story"
+                      sectionNum="03"
+                      howItWorks={guide.how_it_works}
+                      hardEvidence={guide.hard_evidence}
+                    />
+                    <div className="space-y-4">
+                      <p className="lead text-ink font-medium max-w-[65ch]">
+                        {paper.short_teaser}
+                      </p>
+                      {paper.layman_story.map((paragraph, idx) => (
+                        <p key={idx} className="text-ink-2 max-w-[68ch]">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <section id="sec-story" className="space-y-5">
+                    <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                      <span className="font-editorial-label text-xs text-accent-hi num">
+                        03 //
+                      </span>
+                      <span>เจาะลึกเรื่องราวแบบคนทั่วไปเข้าใจง่าย</span>
+                    </h2>
+                    <p className="lead text-ink font-medium max-w-[65ch]">
+                      {paper.short_teaser}
                     </p>
-                  ))}
-                </section>
+                    {paper.layman_story.map((paragraph, idx) => (
+                      <p key={idx} className="text-ink-2 max-w-[68ch]">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </section>
+                )}
 
                 {/* Section 04: Before vs After */}
                 <section id="sec-impact" className="space-y-4">
@@ -773,14 +824,14 @@ export function ArticleReader({
                   </h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-rule bg-paper-2">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2">
                       <div className="text-xs font-editorial-label text-muted mb-2">
                         ข้อจำกัดของวิธีแบบเดิม (Before)
                       </div>
                       <p>{paper.impact_comparison.before}</p>
                     </div>
 
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-success/40 bg-success-soft">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2 border-l-2 border-l-success">
                       <div className="text-xs font-editorial-label text-success mb-2">
                         สิ่งที่เปลี่ยนไปจากเปเปอร์นี้ (After)
                       </div>
@@ -796,35 +847,43 @@ export function ArticleReader({
                   </div>
                 </section>
 
-                {/* Section 05: 3 Concrete Use Cases */}
-                <section id="sec-usecases" className="space-y-4">
-                  <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
-                    <span className="font-editorial-label text-xs text-accent-hi num">
-                      05 //
-                    </span>
-                    <span>แนวทางการนำไปประยุกต์ใช้จริง (3 ยูสเคส)</span>
-                  </h2>
+                {/* Section 05: Pass 3 Hands-On (or legacy Use Cases fallback) */}
+                {guide ? (
+                  <Pass3HandsOnDrawer
+                    sectionId="sec-usecases"
+                    sectionNum="05"
+                    handsOn={guide.pass3_hands_on}
+                  />
+                ) : (
+                  <section id="sec-usecases" className="space-y-4">
+                    <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                      <span className="font-editorial-label text-xs text-accent-hi num">
+                        05 //
+                      </span>
+                      <span>แนวทางการนำไปประยุกต์ใช้จริง (3 ยูสเคส)</span>
+                    </h2>
 
-                  <div className="divide-y divide-rule border-t border-b border-rule text-base">
-                    {paper.use_cases.map((uc, idx) => (
-                      <div key={idx} className="py-5 space-y-2">
-                        <div className="flex flex-wrap items-center justify-between gap-2">
-                          <h3 className="font-editorial-display text-lg text-ink max-w-none">
-                            ยูสเคสที่ {idx + 1}: {uc.title}
-                          </h3>
-                          <span className="px-2.5 py-0.5 rounded-full text-xs font-editorial-label bg-paper-2 border border-rule text-ink whitespace-nowrap">
-                            {uc.role}
-                          </span>
+                    <div className="divide-y divide-rule border-t border-b border-rule text-base">
+                      {paper.use_cases.map((uc, idx) => (
+                        <div key={idx} className="py-5 space-y-2">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <h3 className="font-editorial-display text-lg text-ink max-w-none">
+                              ยูสเคสที่ {idx + 1}: {uc.title}
+                            </h3>
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-editorial-label bg-paper-2 text-ink whitespace-nowrap">
+                              {uc.role}
+                            </span>
+                          </div>
+                          <p className="max-w-[68ch]">{uc.description}</p>
+                          <div className="text-sm text-muted pt-1">
+                            <strong className="text-ink">ตัวอย่างการใช้งานจริง: </strong>
+                            {uc.example}
+                          </div>
                         </div>
-                        <p className="max-w-[68ch]">{uc.description}</p>
-                        <div className="text-sm text-muted pt-1">
-                          <strong className="text-ink">ตัวอย่างการใช้งานจริง: </strong>
-                          {uc.example}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </section>
+                      ))}
+                    </div>
+                  </section>
+                )}
 
                 {/* Section 06: Community Pulse */}
                 <section id="sec-community" className="space-y-4">
@@ -832,7 +891,7 @@ export function ArticleReader({
                     <span className="font-editorial-label text-xs text-accent-hi num">
                       06 //
                     </span>
-                    <span>เสียงสะท้อนจากนักวิจัยและข้อควรระวัง</span>
+                    <span>จุดแข็งและข้อควรระวังเชิงเทคนิค</span>
                   </h2>
 
                   <p className="text-base italic text-muted max-w-[68ch]">
@@ -840,7 +899,7 @@ export function ArticleReader({
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-rule bg-paper-2 space-y-2">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2 space-y-2">
                       <div className="font-editorial-label text-sm text-success flex items-center gap-1.5">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
                         <span>จุดเด่นที่คนในวงการชื่นชม</span>
@@ -855,7 +914,7 @@ export function ArticleReader({
                       </ul>
                     </div>
 
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-rule bg-paper-2 space-y-2">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2 space-y-2">
                       <div className="font-editorial-label text-sm text-warn flex items-center gap-1.5">
                         <AlertTriangle className="w-4 h-4 shrink-0" />
                         <span>ข้อจำกัดและสิ่งที่ต้องระวัง</span>
@@ -956,11 +1015,12 @@ export function ArticleReader({
   }
 
   if (repo) {
+    const guide = repo.reading_guide;
     const repoToc: TocItem[] = [
-      { id: "repo-overview", num: "01", label: "บทนำ & ปัญหาที่โปรเจกต์นี้เข้ามาแก้" },
-      { id: "repo-compare", num: "02", label: "เปรียบเทียบกับเครื่องมืออื่นในตลาด" },
-      { id: "repo-saas", num: "03", label: "ไอเดียต่อยอดสร้างรายได้ / Micro-SaaS" },
-      { id: "repo-vibe", num: "04", label: "รีวิวจากการใช้งานจริง (Pros & Gotchas)" },
+      { id: "repo-overview", num: "01", label: guide ? "Pass 1: คัดกรอง & ปัญหาที่แก้" : "บทนำ & ปัญหาที่โปรเจกต์นี้เข้ามาแก้" },
+      { id: "repo-compare", num: "02", label: guide ? "Pass 2: กลไก & เปรียบเทียบ" : "เปรียบเทียบกับเครื่องมืออื่นในตลาด" },
+      { id: "repo-saas", num: "03", label: guide ? "Pass 3: ลองทำจริง & ศึกษาต่อ" : "แนวทางการประยุกต์ใช้งาน" },
+      { id: "repo-vibe", num: "04", label: "จุดแข็ง & ข้อควรระวังจริง" },
       { id: "repo-quickstart", num: "05", label: "คำสั่งทดลองรัน & ลิงก์ GitHub" },
       { id: "repo-facebook", num: "06", label: "ฉบับร่างโพสต์ Facebook" },
     ];
@@ -1048,11 +1108,11 @@ export function ArticleReader({
                   <span className="px-2.5 py-0.5 rounded-full bg-accent text-accent-ink whitespace-nowrap">
                     {repo.language || "Open Source"}
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-paper-2 border border-rule text-ink whitespace-nowrap">
+                  <span className="px-2.5 py-0.5 rounded-full bg-paper-2 text-ink whitespace-nowrap">
                     {repo.maturity_rating}
                   </span>
                   {isTwoDayStreak && (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-warn-soft border border-warn/30 text-warn whitespace-nowrap">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-warn-soft text-warn whitespace-nowrap">
                       <Flame className="w-3.5 h-3.5 shrink-0" />
                       <span>ติดเทรนด์ 2 วันซ้อน</span>
                     </span>
@@ -1096,45 +1156,77 @@ export function ArticleReader({
                       ))}
                     </div>
                   )}
-                  <div className="p-4 editorial-well text-base">
+                  <div className="p-5 editorial-well border-t-2 border-t-accent text-base">
                     <strong className="text-ink">
                       เหตุผลประเมินความพร้อม ({repo.maturity_rating}):{" "}
                     </strong>
                     <span>{repo.maturity_reason}</span>
+                    {guide && <Pass1TriageStrip guide={guide} />}
                   </div>
                 </section>
 
-                <section id="repo-compare" className="space-y-4">
-                  <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
-                    <span className="font-editorial-label text-xs text-accent-hi num">
-                      02 //
-                    </span>
-                    <span>เปรียบเทียบกับเครื่องมืออื่นที่ใกล้เคียงกัน</span>
-                  </h2>
-                  <blockquote className="p-5 border-t-2 border-t-accent editorial-well italic max-w-[68ch]">
-                    &ldquo;{repo.alternative_comparison}&rdquo;
-                  </blockquote>
-                </section>
+                {/* Collapsible Vocabulary Scaffolding */}
+                {guide && (
+                  <GlossaryScaffolding
+                    sectionId="repo-glossary"
+                    glossary={guide.glossary}
+                  />
+                )}
 
-                <section id="repo-saas" className="space-y-4">
-                  <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
-                    <span className="font-editorial-label text-xs text-accent-hi num">
-                      03 //
-                    </span>
-                    <span>แนวทางนำไปต่อยอดสร้างธุรกิจ / Micro-SaaS</span>
-                  </h2>
-                  <div className="p-6 rounded-[var(--radius-card)] bg-paper-2 border-l-2 border-l-success space-y-3 text-base">
-                    <div className="font-editorial-label text-success flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 shrink-0" />
-                      <span>ไอเดียสร้างรายได้ (Monetization Idea)</span>
+                {/* Pass 2: Mechanism & Evidence + Alternative Comparison */}
+                <div className="space-y-8">
+                  {guide && (
+                    <Pass2MechanismAndEvidence
+                      sectionId="repo-compare"
+                      sectionNum="02"
+                      howItWorks={guide.how_it_works}
+                      hardEvidence={guide.hard_evidence}
+                    />
+                  )}
+
+                  <section id={guide ? undefined : "repo-compare"} className="space-y-4">
+                    <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                      {!guide && (
+                        <span className="font-editorial-label text-xs text-accent-hi num">
+                          02 //
+                        </span>
+                      )}
+                      <span>เปรียบเทียบกับเครื่องมืออื่นที่ใกล้เคียงกัน</span>
+                    </h2>
+                    <blockquote className="p-5 border-t-2 border-t-accent editorial-well italic max-w-[68ch]">
+                      &ldquo;{repo.alternative_comparison}&rdquo;
+                    </blockquote>
+                  </section>
+                </div>
+
+                {/* Section 03: Pass 3 Hands-On (or legacy fallback) */}
+                {guide ? (
+                  <Pass3HandsOnDrawer
+                    sectionId="repo-saas"
+                    sectionNum="03"
+                    handsOn={guide.pass3_hands_on}
+                  />
+                ) : (
+                  <section id="repo-saas" className="space-y-4">
+                    <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                      <span className="font-editorial-label text-xs text-accent-hi num">
+                        03 //
+                      </span>
+                      <span>แนวทางการประยุกต์ใช้งานและการเชื่อมต่อ</span>
+                    </h2>
+                    <div className="p-6 rounded-[var(--radius-card)] bg-paper-2 border-l-2 border-l-success space-y-3 text-base">
+                      <div className="font-editorial-label text-success flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 shrink-0" />
+                        <span>แนวทางการนำไปต่อยอด</span>
+                      </div>
+                      <p className="text-ink max-w-[68ch]">{repo.ai_opportunity.monetization_idea}</p>
+                      <div className="pt-3 border-t border-rule text-sm">
+                        <strong className="text-ink">การทำงานร่วมกับเครื่องมืออื่น: </strong>
+                        <span>{repo.ai_opportunity.stack_synergy}</span>
+                      </div>
                     </div>
-                    <p className="text-ink max-w-[68ch]">{repo.ai_opportunity.monetization_idea}</p>
-                    <div className="pt-3 border-t border-rule text-sm">
-                      <strong className="text-ink">การใช้ร่วมกับ Modern Stack: </strong>
-                      <span>{repo.ai_opportunity.stack_synergy}</span>
-                    </div>
-                  </div>
-                </section>
+                  </section>
+                )}
 
                 <section id="repo-vibe" className="space-y-4">
                   <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
@@ -1147,7 +1239,7 @@ export function ArticleReader({
                   </h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-rule bg-paper-2 space-y-2">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2 space-y-2">
                       <div className="font-editorial-label text-sm text-success flex items-center gap-1.5">
                         <ThumbsUp className="w-4 h-4 shrink-0" />
                         <span>จุดเด่นที่คนชอบ</span>
@@ -1162,7 +1254,7 @@ export function ArticleReader({
                       </ul>
                     </div>
 
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-rule bg-paper-2 space-y-2">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2 space-y-2">
                       <div className="font-editorial-label text-sm text-warn flex items-center gap-1.5">
                         <AlertTriangle className="w-4 h-4 shrink-0" />
                         <span>ข้อควรระวัง / ข้อจำกัด</span>
@@ -1259,12 +1351,13 @@ export function ArticleReader({
   }
 
   if (news) {
+    const guide = news.reading_guide;
     const newsToc: TocItem[] = [
-      { id: "news-tldr", num: "01", label: "สรุปใจความสำคัญ (TL;DR)" },
+      { id: "news-tldr", num: "01", label: guide ? "Pass 1: คัดกรอง & TL;DR" : "สรุปใจความสำคัญ (TL;DR)" },
       { id: "news-figure", num: "02", label: "ภาพประกอบข่าว" },
-      { id: "news-story", num: "03", label: "เจาะลึกข่าวแบบเข้าใจง่าย" },
+      { id: "news-story", num: "03", label: guide ? "Pass 2: กลไก & สเปกจริง" : "เจาะลึกข่าวแบบเข้าใจง่าย" },
       { id: "news-impact", num: "04", label: "ก่อน vs หลังอัปเดต & ผลกระทบ" },
-      { id: "news-playbook", num: "05", label: "แนวทางนำไปใช้ประโยชน์จริง" },
+      { id: "news-playbook", num: "05", label: guide ? "Pass 3: ลองทำจริง & ศึกษาต่อ" : "แนวทางนำไปใช้ประโยชน์จริง" },
       { id: "news-highlights", num: "06", label: "สิ่งใหม่ที่โดดเด่น & ข้อควรระวัง" },
       { id: "news-source", num: "07", label: "ลิงก์ประกาศต้นฉบับ" },
       { id: "news-facebook", num: "08", label: "ฉบับร่างโพสต์ Facebook" },
@@ -1317,7 +1410,7 @@ export function ArticleReader({
                       {news.rss_categories.slice(0, 4).map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 rounded-full bg-paper border border-rule text-xs font-editorial-label text-muted"
+                          className="px-2 py-0.5 rounded-full bg-paper text-xs font-editorial-label text-muted"
                         >
                           {tag}
                         </span>
@@ -1354,7 +1447,7 @@ export function ArticleReader({
                   <span className="px-2.5 py-0.5 rounded-full bg-accent text-accent-ink whitespace-nowrap">
                     {news.category}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-paper-2 border border-rule text-ink whitespace-nowrap">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-paper-2 text-ink whitespace-nowrap">
                     <Newspaper className="w-3.5 h-3.5 text-accent-hi shrink-0" />
                     <span>{news.source}</span>
                   </span>
@@ -1377,7 +1470,7 @@ export function ArticleReader({
               </header>
 
               <div className={`space-y-10 text-ink-2 font-editorial-body ${fontSizeClass}`}>
-                {/* 01: TL;DR */}
+                {/* 01: Pass 1 Triage & TL;DR */}
                 <section
                   id="news-tldr"
                   className="p-6 editorial-well border-t-2 border-t-accent"
@@ -1398,7 +1491,16 @@ export function ArticleReader({
                       </li>
                     ))}
                   </ul>
+                  {guide && <Pass1TriageStrip guide={guide} />}
                 </section>
+
+                {/* Collapsible Vocabulary Scaffolding */}
+                {guide && (
+                  <GlossaryScaffolding
+                    sectionId="news-glossary"
+                    glossary={guide.glossary}
+                  />
+                )}
 
                 {/* 02: Figure */}
                 <section id="news-figure" className="space-y-3">
@@ -1409,7 +1511,7 @@ export function ArticleReader({
                     <span>ภาพประกอบข่าวจากประกาศทางการ</span>
                   </h2>
                   {!imgError && news.thumbnail_url ? (
-                    <figure className="editorial-photo border border-rule p-3">
+                    <figure className="editorial-photo p-3">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={news.thumbnail_url}
@@ -1428,23 +1530,44 @@ export function ArticleReader({
                   )}
                 </section>
 
-                {/* 03: Layman Story */}
-                <section id="news-story" className="space-y-5">
-                  <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
-                    <span className="font-editorial-label text-xs text-accent-hi num">
-                      03 //
-                    </span>
-                    <span>เจาะลึกข่าวและประเด็นสำคัญแบบเข้าใจง่าย</span>
-                  </h2>
-                  <p className="lead text-ink font-medium max-w-[65ch]">
-                    {news.short_teaser}
-                  </p>
-                  {news.layman_story.map((paragraph, idx) => (
-                    <p key={idx} className="text-ink-2 max-w-[68ch]">
-                      {paragraph}
+                {/* 03: Pass 2 Mechanism, Specs & Story */}
+                {guide ? (
+                  <div className="space-y-8">
+                    <Pass2MechanismAndEvidence
+                      sectionId="news-story"
+                      sectionNum="03"
+                      howItWorks={guide.how_it_works}
+                      hardEvidence={guide.hard_evidence}
+                    />
+                    <div className="space-y-4">
+                      <p className="lead text-ink font-medium max-w-[65ch]">
+                        {news.short_teaser}
+                      </p>
+                      {news.layman_story.map((paragraph, idx) => (
+                        <p key={idx} className="text-ink-2 max-w-[68ch]">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <section id="news-story" className="space-y-5">
+                    <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                      <span className="font-editorial-label text-xs text-accent-hi num">
+                        03 //
+                      </span>
+                      <span>เจาะลึกข่าวและประเด็นสำคัญแบบเข้าใจง่าย</span>
+                    </h2>
+                    <p className="lead text-ink font-medium max-w-[65ch]">
+                      {news.short_teaser}
                     </p>
-                  ))}
-                </section>
+                    {news.layman_story.map((paragraph, idx) => (
+                      <p key={idx} className="text-ink-2 max-w-[68ch]">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </section>
+                )}
 
                 {/* 04: Before vs After */}
                 <section id="news-impact" className="space-y-4">
@@ -1456,14 +1579,14 @@ export function ArticleReader({
                   </h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-rule bg-paper-2">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2">
                       <div className="text-xs font-editorial-label text-muted mb-2">
                         ก่อนอัปเดต (Before)
                       </div>
                       <p>{news.impact_comparison.before}</p>
                     </div>
 
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-success/40 bg-success-soft">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2 border-l-2 border-l-success">
                       <div className="text-xs font-editorial-label text-success mb-2">
                         หลังอัปเดต (After)
                       </div>
@@ -1479,35 +1602,43 @@ export function ArticleReader({
                   </div>
                 </section>
 
-                {/* 05: Actionable Playbook */}
-                <section id="news-playbook" className="space-y-4">
-                  <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
-                    <span className="font-editorial-label text-xs text-accent-hi num">
-                      05 //
-                    </span>
-                    <span>3 แนวทางการนำไปใช้ประโยชน์จริง (Actionable Playbook)</span>
-                  </h2>
+                {/* 05: Pass 3 Hands-On (or legacy Actionable Playbook fallback) */}
+                {guide ? (
+                  <Pass3HandsOnDrawer
+                    sectionId="news-playbook"
+                    sectionNum="05"
+                    handsOn={guide.pass3_hands_on}
+                  />
+                ) : (
+                  <section id="news-playbook" className="space-y-4">
+                    <h2 className="font-editorial-display text-xl sm:text-2xl text-ink pb-2 border-b border-rule flex items-center gap-2 max-w-none">
+                      <span className="font-editorial-label text-xs text-accent-hi num">
+                        05 //
+                      </span>
+                      <span>3 แนวทางการนำไปใช้ประโยชน์จริง (Actionable Playbook)</span>
+                    </h2>
 
-                  <div className="divide-y divide-rule border-t border-b border-rule text-base">
-                    {news.actionable_playbook.map((item, idx) => (
-                      <div key={idx} className="py-5 space-y-2">
-                        <div className="flex flex-wrap items-center justify-between gap-2">
-                          <h3 className="font-editorial-display text-lg text-ink max-w-none">
-                            แนวทางที่ {idx + 1}: {item.title}
-                          </h3>
-                          <span className="px-2.5 py-0.5 rounded-full text-xs font-editorial-label bg-paper-2 border border-rule text-ink whitespace-nowrap">
-                            {item.role}
-                          </span>
+                    <div className="divide-y divide-rule border-t border-b border-rule text-base">
+                      {news.actionable_playbook.map((item, idx) => (
+                        <div key={idx} className="py-5 space-y-2">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <h3 className="font-editorial-display text-lg text-ink max-w-none">
+                              แนวทางที่ {idx + 1}: {item.title}
+                            </h3>
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-editorial-label bg-paper-2 text-ink whitespace-nowrap">
+                              {item.role}
+                            </span>
+                          </div>
+                          <p className="max-w-[68ch]">{item.description}</p>
+                          <div className="text-sm text-muted pt-1">
+                            <strong className="text-ink">ตัวอย่างการใช้งานจริง: </strong>
+                            {item.example}
+                          </div>
                         </div>
-                        <p className="max-w-[68ch]">{item.description}</p>
-                        <div className="text-sm text-muted pt-1">
-                          <strong className="text-ink">ตัวอย่างการใช้งานจริง: </strong>
-                          {item.example}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </section>
+                      ))}
+                    </div>
+                  </section>
+                )}
 
                 {/* 06: Highlights & Watchouts */}
                 <section id="news-highlights" className="space-y-4">
@@ -1519,7 +1650,7 @@ export function ArticleReader({
                   </h2>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-rule bg-paper-2 space-y-2">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2 space-y-2">
                       <div className="font-editorial-label text-sm text-success flex items-center gap-1.5">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
                         <span>สิ่งใหม่ที่โดดเด่น</span>
@@ -1534,7 +1665,7 @@ export function ArticleReader({
                       </ul>
                     </div>
 
-                    <div className="p-5 rounded-[var(--radius-inner)] border border-rule bg-paper-2 space-y-2">
+                    <div className="p-5 rounded-[var(--radius-inner)] bg-paper-2 space-y-2">
                       <div className="font-editorial-label text-sm text-warn flex items-center gap-1.5">
                         <AlertTriangle className="w-4 h-4 shrink-0" />
                         <span>ข้อจำกัดและสิ่งที่ต้องติดตาม</span>

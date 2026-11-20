@@ -229,6 +229,108 @@ describe("Regression Tests: Data Schemas & Pipeline Integrity", () => {
     expect(newsPost.length).toBeGreaterThan(180);
     expect(newsPost).toContain(nFeed.articles[0].url);
   });
+
+  it("should strictly filter out regional corporate PR posts while keeping real AI/Dev news", async () => {
+    const { isRelevantAITechItem } = await import("../scripts/fetch-news");
+
+    // Regional corporate PR like Google for Mexico must be rejected
+    expect(
+      isRelevantAITechItem(
+        "Google for Mexico: Technology impact that goes beyond business",
+        "Google announces local SME initiatives in Mexico",
+        ["Google in Latin America"],
+        "https://blog.google/company-news/inside-google/around-the-globe/google-latin-america/google-for-mexico-2026-november/"
+      )
+    ).toBe(false);
+
+    // Real model/developer release must be accepted
+    expect(
+      isRelevantAITechItem(
+        "Introducing Gemini 4 Neon",
+        "A new fast reasoning model available via Gemini API and Google AI Studio",
+        ["Gemini models"],
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+      )
+    ).toBe(true);
+  });
+
+  it("should extract clean readable text from HTML and sanitize 3-Pass DeepReadingGuide payloads", async () => {
+    const {
+      extractReadableTextFromHtml,
+      extractArxivHtmlHighlights,
+      sanitizeReadingGuide,
+    } = await import("../scripts/lib/deep-reading");
+
+    const sampleHtml = `
+      <html>
+        <head><style>.x{color:red}</style><script>alert(1)</script></head>
+        <body>
+          <nav>Home | About | Subscribe</nav>
+          <article>
+            <h1>Introducing Gemini 4 Neon</h1>
+            <p>Gemini 4 Neon achieves 88.4% on GPQA Diamond with 40% lower latency than Gemini 3 Pro.</p>
+            <p>Developers can call model ID gemini-4-neon via Google AI Studio starting today.</p>
+          </article>
+          <footer>Privacy Policy</footer>
+        </body>
+      </html>
+    `;
+    const extracted = extractReadableTextFromHtml(sampleHtml, 1000);
+    expect(extracted).toContain("88.4% on GPQA Diamond");
+    expect(extracted).toContain("gemini-4-neon");
+    expect(extracted).not.toContain("alert(1)");
+    expect(extracted).not.toContain("Privacy Policy");
+
+    const arxivExtracted = extractArxivHtmlHighlights(
+      `${sampleHtml}<section class="ltx_bibliography"><p>Ignored citation list</p></section>`,
+      1000
+    );
+    expect(arxivExtracted).toContain("88.4%");
+    expect(arxivExtracted).not.toContain("Ignored citation list");
+
+    const sanitized = sanitizeReadingGuide(
+      {
+        pass1_triage: {
+          core_idea: "แยกปรับน้ำหนักแบบ Low-rank สองทิศทาง",
+          prerequisite_level: "เข้าใจพื้นฐาน LoRA และ PyTorch",
+          worth_deep_dive: "รู้คอนเซปต์ Pass 1-2 พอ",
+          context_lineage: "ต่อยอดจาก LoRA (Hu et al., 2021)",
+        },
+        glossary: [
+          {
+            term: "Low-rank Adaptation (LoRA)",
+            meaning: "เทคนิค Fine-tune โดยเพิ่มเมทริกซ์เล็กๆ แทนการแก้พารามิเตอร์ทั้งหมด",
+            analogy: "เหมือนติดกระดาษโน้ตแก้เฉพาะจุด แทนการพิมพ์หนังสือใหม่ทั้งเล่ม",
+          },
+        ],
+        how_it_works: [
+          {
+            step: "แยกทิศทางหลักและทิศทางตั้งฉาก",
+            detail: "แบ่ง Rank budget ออกเป็น 2 ส่วนเพื่อลดการทับซ้อนของ Gradient",
+          },
+        ],
+        hard_evidence: [
+          {
+            metric: "RMSE Reduction",
+            value: "ต้นฉบับไม่ระบุตัวเลข",
+            context: "เทียบกับ LoRA มาตรฐาน",
+          },
+        ],
+        pass3_hands_on: {
+          prerequisites: ["Python 3.10+", "PyTorch + GPU 16GB"],
+          try_it_steps: ["Clone repo และรันสคริปต์ตัวอย่าง"],
+          next_to_learn: ["SVD & Low-Rank Matrix Factorization"],
+        },
+      },
+      "arxiv_and_readme"
+    );
+    expect(sanitized).toBeDefined();
+    expect(sanitized?.source_depth).toBe("arxiv_and_readme");
+    expect(sanitized?.glossary.length).toBe(1);
+    expect(sanitized?.how_it_works.length).toBe(1);
+    expect(sanitized?.hard_evidence[0].value).toBe("ต้นฉบับไม่ระบุตัวเลข");
+  });
 });
+
 
 

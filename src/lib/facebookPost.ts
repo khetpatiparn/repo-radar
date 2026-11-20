@@ -4,9 +4,29 @@ import type {
   NewsArticleData,
 } from "../types";
 
+function ensureSourceLinksAndTag(
+  draft: string,
+  primaryUrl: string,
+  linkLines: string[]
+): string {
+  const parts = [draft.trim()];
+  if (primaryUrl && !draft.includes(primaryUrl)) {
+    parts.push("", ...linkLines);
+  }
+  if (!/#TheRepoRadar\b/i.test(draft)) {
+    parts.push("", "#TheRepoRadar");
+  }
+  return parts.join("\n");
+}
+
 export function buildPaperFacebookPost(paper: PaperData): string {
+  const links: string[] = [];
+  if (paper.github_url) links.push(`💻 โค้ด GitHub: ${paper.github_url}`);
+  links.push(`📄 เปเปอร์ต้นฉบับ (arXiv): ${paper.pdf_url}`);
+  links.push(`🤗 หน้าพูดคุย Hugging Face: ${paper.hf_url}`);
+
   if (paper.facebook_post && paper.facebook_post.trim().length >= 80) {
-    return paper.facebook_post.trim();
+    return ensureSourceLinksAndTag(paper.facebook_post, paper.pdf_url, links);
   }
 
   const takeaways = paper.tldr_takeaways
@@ -21,11 +41,6 @@ export function buildPaperFacebookPost(paper: PaperData): string {
     .slice(0, 2)
     .map((uc, idx) => `${idx + 1}. ${uc.title} (${uc.role}) — ${uc.description}`)
     .join("\n");
-
-  const links: string[] = [];
-  if (paper.github_url) links.push(`💻 โค้ด GitHub: ${paper.github_url}`);
-  links.push(`📄 เปเปอร์ต้นฉบับ (arXiv): ${paper.pdf_url}`);
-  links.push(`🤗 หน้าพูดคุย Hugging Face: ${paper.hf_url}`);
 
   const orgLine = paper.organization ? ` จากทีม ${paper.organization}` : "";
 
@@ -61,7 +76,9 @@ export function buildPaperFacebookPost(paper: PaperData): string {
 
 export function buildRepoFacebookPost(repo: RepositoryData): string {
   if (repo.facebook_post && repo.facebook_post.trim().length >= 80) {
-    return repo.facebook_post.trim();
+    return ensureSourceLinksAndTag(repo.facebook_post, repo.url, [
+      `🔗 GitHub Repository: ${repo.url}`,
+    ]);
   }
 
   const pros = repo.human_vibe_check.pros.map((p) => `✅ ${p}`).join("\n");
@@ -106,7 +123,9 @@ export function buildRepoFacebookPost(repo: RepositoryData): string {
 
 export function buildNewsFacebookPost(news: NewsArticleData): string {
   if (news.facebook_post && news.facebook_post.trim().length >= 80) {
-    return news.facebook_post.trim();
+    return ensureSourceLinksAndTag(news.facebook_post, news.url, [
+      `🔗 อ่านประกาศต้นฉบับ: ${news.url}`,
+    ]);
   }
 
   const takeaways = news.tldr_takeaways

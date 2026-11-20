@@ -3,13 +3,23 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import fs from "fs/promises";
 import path from "path";
 import crypto from "crypto";
+import { fileURLToPath } from "url";
 import {
   NewsArticleSchema,
   NEWS_CATEGORIES,
+  type DeepReadingGuide,
   type NewsArticleData,
   type NewsCategory,
   type NewsFeedData,
 } from "../src/types";
+import {
+  DEEP_READING_JSON_SPEC,
+  DEEP_READING_RULES,
+  decodeHtmlEntities,
+  extractReadableTextFromHtml,
+  hasRefreshLatestFlag,
+  sanitizeReadingGuide,
+} from "./lib/deep-reading";
 
 dotenv.config({ path: ".env.local" });
 
@@ -17,7 +27,8 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const NEWS_FILE_PATH = path.join(process.cwd(), "src/data/news.json");
 const MAX_ARTICLES = 45;
 const MAX_NEW_PER_RUN = 24;
-const BATCH_SIZE = 4;
+const REFRESH_LATEST_NEWS_COUNT = 10;
+const BATCH_SIZE = 3; // Smaller batches because full article bodies are much richer
 
 const RSS_FEEDS = [
   "https://blog.google/rss/",
@@ -34,23 +45,13 @@ interface RawRSSItem {
   title: string;
   url: string;
   description: string;
+  article_body?: string;
+  source_depth?: DeepReadingGuide["source_depth"];
   published_at: string;
   published_date: string;
   rss_categories: string[];
   thumbnail_url: string | null;
   authors: string[];
-}
-
-function decodeXmlEntities(str: string): string {
-  return str
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/&#(\d+);/g, (_, num) => String.fromCharCode(Number(num)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
 }
 
 function stripHtmlTags(str: string): string {
@@ -60,7 +61,7 @@ function stripHtmlTags(str: string): string {
 function extractTag(block: string, tagName: string): string {
   const regex = new RegExp(`<${tagName}(?:\\s[^>]*)?>([\\s\\S]*?)</${tagName}>`, "i");
   const match = block.match(regex);
-  return match ? decodeXmlEntities(match[1]).trim() : "";
+  return match ? decodeHtmlEntities(match[1]).trim() : "";
 }
 
 function extractAllTags(block: string, tagName: string): string[] {
@@ -68,7 +69,7 @@ function extractAllTags(block: string, tagName: string): string[] {
   const results: string[] = [];
   let match: RegExpExecArray | null;
   while ((match = regex.exec(block)) !== null) {
-    const val = decodeXmlEntities(match[1]).trim();
+    const val = decodeHtmlEntities(match[1]).trim();
     if (val) results.push(val);
   }
   return results;
@@ -88,9 +89,71 @@ function buildArticleId(url: string): string {
   return slug ? `${slug.slice(0, 48)}-${hash}` : `gblog-${hash}`;
 }
 
-function isRelevantAITechItem(title: string, description: string, categories: string[], url: string): boolean {
-  const combined = `${title} ${description} ${categories.join(" ")} ${url}`.toLowerCase();
-  const shortTokens = [/\bai\b/, /\bapi\b/, /\bxr\b/, /\btpu\b/, /\bml\b/, /\bllm\b/];
+export function isRelevantAITechItem(
+  title: string,
+  description: string,
+  categories: string[],
+  url: string
+): boolean {
+  const lowerUrl = url.toLowerCase();
+  const lowerCats = categories.join(" ").toLowerCase();
+  const combined = `${title} ${description} ${lowerCats} ${lowerUrl}`.toLowerCase();
+
+  // Strictly block corporate PR, regional CSR events, cultural celebrations, and non-engineering fluff
+  const excludedUrlPatterns = [
+    "/around-the-globe/",
+    "/inside-google/",
+    "/outreach-initiatives/",
+    "/company-news/outreach",
+    "google-for-mexico",
+    "google-for-india",
+    "google-for-africa",
+    "google-for-brazil",
+    "google-for-japan",
+    "google-for-taiwan",
+    "google-for-indonesia",
+    "veterans-day",
+    "energy-impact-program",
+    "esther-mahlangu",
+    "phd-fellows",
+    "invalid-traffic-overview",
+    "henry-cavill",
+    "new-google-domains",
+    "google-org",
+    "sustainability",
+    "earth-day",
+    "womens-history",
+    "black-history",
+    "pride-month",
+    "doodle",
+  ];
+  if (excludedUrlPatterns.some((kw) => lowerUrl.includes(kw))) {
+    return false;
+  }
+
+  const excludedCategoryPatterns = [
+    /google in latin america/i,
+    /google in africa/i,
+    /google in asia/i,
+    /google in europe/i,
+    /google\.org/i,
+    /life at google/i,
+    /public policy/i,
+    /arts & culture/i,
+    /diversity/i,
+  ];
+  const hasStrongModelOrDevSignal =
+    /\b(gemini|gemma|deepmind|vertex|ai studio|tpu|api|sdk|benchmark|agentic|llm|open weights|transformer|quantum|cybersecurity)\b/i.test(
+      `${title} ${description}`
+    );
+  if (
+    excludedCategoryPatterns.some((re) => re.test(lowerCats)) &&
+    !hasStrongModelOrDevSignal
+  ) {
+    return false;
+  }
+
+  const shortTokens = [/\bai\b/, /\bapi\b/, /\bxr\b/, /\btpu\b/, /\bml\b/, /\bllm\b/, /\bsdk\b/];
   const phraseKeywords = [
     "gemini",
     "gemma",
@@ -111,33 +174,31 @@ function isRelevantAITechItem(title: string, description: string, categories: st
     "android",
     "pixel",
     "chrome",
-    "search",
     "workspace",
+    "notebooklm",
+    "veo",
+    "imagen",
+    "jules",
+    "firebase",
   ];
-  const excludedKeywords = [
-    "veterans-day",
-    "energy-impact-program",
-    "esther-mahlangu",
-    "phd-fellows",
-    "invalid-traffic-overview",
-    "henry-cavill",
-    "new-google-domains",
-  ];
-  if (excludedKeywords.some((kw) => url.toLowerCase().includes(kw))) {
-    return false;
-  }
+
   return (
     shortTokens.some((re) => re.test(combined)) ||
     phraseKeywords.some((kw) => combined.includes(kw))
   );
 }
 
-function inferNewsCategory(title: string, description: string, rssCategories: string[]): NewsCategory {
+function inferNewsCategory(
+  title: string,
+  description: string,
+  rssCategories: string[]
+): NewsCategory {
   const text = `${title} ${description} ${rssCategories.join(" ")}`.toLowerCase();
   if (
     rssCategories.some((c) => /gemini models/i.test(c)) ||
     text.includes("gemini 4") ||
     text.includes("gemini 3") ||
+    text.includes("gemini 2") ||
     text.includes("gemma") ||
     text.includes("benchmark") ||
     text.includes("decisions api")
@@ -177,13 +238,48 @@ function inferSourceLabel(rssCategories: string[]): string {
   return "Google Official Blog";
 }
 
+async function fetchFullArticleText(url: string): Promise<string> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 9000);
+  try {
+    const res = await fetch(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; RepoRadar-NewsSync/2.0)",
+        Accept: "text/html,application/xhtml+xml",
+      },
+      signal: controller.signal,
+    });
+    if (!res.ok) return "";
+    const html = await res.text();
+    return extractReadableTextFromHtml(html, 6800);
+  } catch {
+    return "";
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function enrichItemsWithFullArticles(items: RawRSSItem[]): Promise<void> {
+  for (const item of items) {
+    const fullText = await fetchFullArticleText(item.url);
+    if (fullText.length >= 350) {
+      item.article_body = fullText;
+      item.source_depth = "full_article";
+    } else {
+      item.article_body = item.description;
+      item.source_depth = "abstract_only";
+    }
+    await new Promise((r) => setTimeout(r, 250));
+  }
+}
+
 async function fetchGoogleBlogRSS(): Promise<RawRSSItem[]> {
   const itemsByUrl = new Map<string, RawRSSItem>();
 
   for (const feedUrl of RSS_FEEDS) {
     try {
       const res = await fetch(feedUrl, {
-        headers: { "User-Agent": "RepoRadar-NewsSync/1.0" },
+        headers: { "User-Agent": "RepoRadar-NewsSync/2.0" },
       });
       if (!res.ok) {
         console.warn(`RSS feed ${feedUrl} returned HTTP ${res.status}`);
@@ -219,7 +315,7 @@ async function fetchGoogleBlogRSS(): Promise<RawRSSItem[]> {
         const authors: string[] = [];
         let aMatch: RegExpExecArray | null;
         while ((aMatch = authorBlockRegex.exec(block)) !== null) {
-          const name = decodeXmlEntities(aMatch[1]).trim();
+          const name = decodeHtmlEntities(aMatch[1]).trim();
           if (name) authors.push(name);
         }
 
@@ -286,10 +382,13 @@ interface GeminiNewsPayload {
     whats_new?: string[];
     watchouts?: string[];
   };
+  reading_guide?: unknown;
   facebook_post?: string;
 }
 
-async function processBatchWithGemini(items: RawRSSItem[]): Promise<Map<string, GeminiNewsPayload>> {
+async function processBatchWithGemini(
+  items: RawRSSItem[]
+): Promise<Map<string, GeminiNewsPayload>> {
   const resultMap = new Map<string, GeminiNewsPayload>();
   if (!GEMINI_API_KEY || items.length === 0) return resultMap;
 
@@ -306,33 +405,32 @@ async function processBatchWithGemini(items: RawRSSItem[]): Promise<Map<string, 
     url: item.url,
     published_date: item.published_date,
     rss_categories: item.rss_categories,
-    summary: item.description.slice(0, 1800),
+    source_depth: item.source_depth || "abstract_only",
+    rss_summary: item.description.slice(0, 600),
+    article_body: (item.article_body || item.description).slice(0, 6500),
   }));
 
   const prompt = `
-You are a senior Thai AI tech journalist, blog editor, and popular tech Facebook page writer writing for Thai developers, product builders, and tech readers.
-Convert the following ${newsInput.length} official Google Blog AI/Tech news items into deeply detailed, engaging, publish-ready Thai blog articles + ready-to-share Facebook post drafts.
+You are a sharp, no-BS Thai AI systems engineer & technical editor explaining Google AI/Lab announcements to a solo Thai developer who wants REAL technical substance (benchmarks, model IDs, pricing, architecture, limitations) — NOT corporate PR fluff.
+
+Convert the following ${newsInput.length} official Google Blog AI/Tech articles into deeply grounded, 3-Pass Thai technical briefings + a collapsed ready-to-share Facebook post draft.
+
+${DEEP_READING_RULES}
 
 IMPORTANT WRITING & STYLE RULES:
-1. Write ALL descriptive text in natural, vivid, authoritative **Thai (ภาษาไทย)** like a top Thai tech publication / Facebook tech page (keep product/model names like Gemini, Gemma, Google Cloud, AI Studio, Vertex AI, API, Agentic, Chrome, Pixel in English).
-2. Be thorough and specific — reference exact product names, capabilities, metrics, or ecosystems mentioned in the source summary rather than vague filler.
+1. Write ALL descriptive text in natural, direct, technically accurate **Thai (ภาษาไทย)** (keep product/model/tech names like Gemini, Gemma, Vertex AI, AI Studio, API, Context Window, Latency, Benchmark, SDK in English).
+2. Extract REAL facts from "article_body": exact model names/versions, benchmark scores, context length, pricing, availability dates, API endpoints, or capabilities actually stated in the text. NEVER pad with vague PR phrases like "ฉลาดกว่าเดิมอย่างก้าวกระโดด" unless backed by the actual source text.
 3. "category" MUST be strictly one of:
    - "Gemini & Models"
    - "Google Research & Labs"
    - "Cloud & Developer Tools"
    - "AI Products & Ecosystem"
-4. "layman_story" MUST be an array of 4 rich, detailed blog-post paragraphs in Thai (each 3–5 sentences):
-   - Paragraph 1 (Hook & Context): ประกาศนี้คืออะไร เกิดขึ้นท่ามกลางบริบทไหน และ Google กำลังแก้ปัญหาใหญ่เรื่องอะไร
-   - Paragraph 2 (Deep Dive): เจาะลึกความสามารถใหม่ ฟีเจอร์เด่น หรือเทคโนโลยีเบื้องหลังที่เปิดตัว พร้อมอธิบายให้เห็นภาพการใช้งานจริง
-   - Paragraph 3 (Competitive & Ecosystem Impact): เรื่องนี้ส่งผลต่อนักพัฒนา ธุรกิจ และตลาด AI โดยรวมอย่างไร เทียบกับแนวโน้มอุตสาหกรรมตอนนี้
-   - Paragraph 4 (What to Watch Next): ก้าวต่อไปที่น่าจับตา และสิ่งที่คนสายเทค/ธุรกิจควรเตรียมปรับตัว
-5. "actionable_playbook" MUST contain 3 distinct, practical ways readers can use or benefit from this news across different roles.
-6. "facebook_post" MUST be a complete, ready-to-paste Thai Facebook post (~200–300 words) formatted cleanly for mobile reading:
-   - บรรทัดแรกเป็นพาดหัว Hook ดึงความสนใจ
-   - ย่อหน้าเปิดสั้นๆ เล่าข่าวหลัก
-   - ไฮไลต์ประเด็นสำคัญเป็นข้อๆ (ใช้ • และเว้นบรรทัดอ่านง่าย)
-   - สรุปผลกระทบต่อคนไทย/นักพัฒนา/ธุรกิจ
-   - คำถามชวนคุยปิดท้าย + แฮชแท็ก 3–5 คำ (เช่น #GoogleAI #Gemini #TechNews #AIUpdate #RepoRadar)
+4. "layman_story" MUST be an array of 3-4 crisp, substantive paragraphs in Thai (each 3-4 sentences):
+   - Paragraph 1: ประกาศนี้คืออะไรกันแน่ แก้ปัญหาคอขวดอะไรในมุมวิศวกรรม
+   - Paragraph 2: เจาะลึกความสามารถจริง สเปก เทคนิค หรือสถาปัตยกรรมที่ระบุในบทความต้นฉบับ
+   - Paragraph 3: เปรียบเทียบกับรุ่นก่อนหรือคู่แข่งในตลาด และข้อจำกัดที่ควรรู้ก่อนหยิบมาใช้
+5. "actionable_playbook" MUST contain 3 practical technical steps/angles (for schema compatibility).
+6. "facebook_post" MUST be a clean Thai summary draft (~180-260 words) grounded ONLY in real facts from the article, with bullet points and 3-5 hashtags.
 
 Input News JSON:
 ${JSON.stringify(newsInput, null, 2)}
@@ -343,55 +441,55 @@ Return a JSON array matching this exact structure:
     "id": "<item id>",
     "category": "<one of the 4 categories>",
     "reading_time_minutes": 4,
-    "hook_headline": "พาดหัวข่าวภาษาไทยสไตล์สื่อเทคที่คมชัด น่าคลิก และบอกประเด็นสำคัญทันที",
-    "short_teaser": "สรุปเกริ่นนำเข้มข้น 2-3 ประโยคว่าประกาศนี้มีอะไรใหม่ ทำงานยังไง และสำคัญอย่างไร (ภาษาไทย)",
+    "hook_headline": "พาดหัวภาษาไทยที่ตรงประเด็น บอกสิ่งที่เปิดตัวและจุดเปลี่ยนสำคัญทันที (ไม่คลิกเบตลอยๆ)",
+    "short_teaser": "สรุปเกริ่นนำ 2 ประโยคพร้อมข้อเท็จจริงสำคัญจากต้นฉบับ (ภาษาไทย)",
     "tldr_takeaways": [
-      "ประเด็นสำคัญข้อที่ 1 แบบชัดเจนได้เนื้อหาเต็ม (ภาษาไทย)",
-      "ประเด็นสำคัญข้อที่ 2 แบบชัดเจนได้เนื้อหาเต็ม (ภาษาไทย)",
-      "ประเด็นสำคัญข้อที่ 3 แบบชัดเจนได้เนื้อหาเต็ม (ภาษาไทย)"
+      "ประเด็นสำคัญข้อที่ 1 พร้อมสเปก/ข้อเท็จจริงจากต้นฉบับ (ภาษาไทย)",
+      "ประเด็นสำคัญข้อที่ 2 พร้อมสเปก/ข้อเท็จจริงจากต้นฉบับ (ภาษาไทย)",
+      "ประเด็นสำคัญข้อที่ 3 พร้อมข้อจำกัดหรือสถานะการเปิดใช้งาน (ภาษาไทย)"
     ],
     "layman_story": [
-      "ย่อหน้าที่ 1: บริบท ที่มา และปัญหาที่ Google กำลังแก้...",
-      "ย่อหน้าที่ 2: เจาะลึกรายละเอียดฟีเจอร์หรือความก้าวหน้าใหม่...",
-      "ย่อหน้าที่ 3: ผลกระทบต่อนักพัฒนา ธุรกิจ และตลาด AI...",
-      "ย่อหน้าที่ 4: ทิศทางต่อไปและสิ่งที่ควรจับตา..."
+      "ย่อหน้าที่ 1: ประกาศนี้คืออะไร และแก้ปัญหาอะไร...",
+      "ย่อหน้าที่ 2: เจาะลึกสเปก กลไก และตัวเลขจริงจากต้นฉบับ...",
+      "ย่อหน้าที่ 3: ข้อเปรียบเทียบและสิ่งที่นักพัฒนาต้องระวัง..."
     ],
     "impact_comparison": {
-      "before": "ก่อนอัปเดต: ข้อจำกัดหรือขั้นตอนเดิมที่ผู้ใช้งาน/นักพัฒนาต้องเจออย่างชัดเจน (ภาษาไทย)",
-      "after": "หลังอัปเดต: สิ่งที่ดีขึ้น เร็วขึ้น หรือทำได้ใหม่ทันทีหลังประกาศนี้ (ภาษาไทย)",
-      "why_it_matters": "เหตุผลเชิงกลยุทธ์ว่าทำไมอัปเดตนี้ถึงสำคัญต่อระบบนิเวศ AI และการพัฒนาซอฟต์แวร์ (ภาษาไทย)"
+      "before": "ก่อนอัปเดต: ข้อจำกัดจริงที่นักพัฒนาเจอ (ภาษาไทย)",
+      "after": "หลังอัปเดต: สิ่งที่ทำได้จริงหรือดีขึ้นตามประกาศ (ภาษาไทย)",
+      "why_it_matters": "ทำไมนักพัฒนาควรสนใจหรือเก็บไว้ในเรดาร์ (ภาษาไทย)"
     },
     "actionable_playbook": [
       {
-        "title": "แนวทางที่ 1 (ภาษาไทย)",
-        "role": "สำหรับนักพัฒนา / AI Builder",
-        "description": "วิธีทดลองใช้งานหรือเชื่อมต่อเข้ากับโปรเจกต์แบบเห็นภาพ (ภาษาไทย)",
-        "example": "ตัวอย่างการนำไปใช้งานจริง (ภาษาไทย)"
+        "title": "ทดสอบผ่าน AI Studio / API",
+        "role": "ทดลองใช้งานจริง",
+        "description": "ขั้นตอนทดลองสั้นๆ ที่ทำได้ทันที (ภาษาไทย)",
+        "example": "ตัวอย่างการทดสอบที่เป็นรูปธรรม (ภาษาไทย)"
       },
       {
-        "title": "แนวทางที่ 2 (ภาษาไทย)",
-        "role": "สำหรับทีม Product / ธุรกิจ",
-        "description": "วิธีประเมินความคุ้มค่าหรือต่อยอดเป็นฟีเจอร์ใหม่ (ภาษาไทย)",
-        "example": "ตัวอย่างการนำไปใช้งานจริง (ภาษาไทย)"
+        "title": "เช็กสเปกและราคาเทียบรุ่นเดิม",
+        "role": "ประเมินก่อนใช้ในโปรเจกต์",
+        "description": "จุดที่ต้องวัดเทียบ Latency / Cost / คุณภาพ (ภาษาไทย)",
+        "example": "เกณฑ์การเปรียบเทียบจริง (ภาษาไทย)"
       },
       {
-        "title": "แนวทางที่ 3 (ภาษาไทย)",
-        "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-        "description": "วิธีนำเครื่องมือนี้มาช่วยลดเวลาทำงานประจำวัน (ภาษาไทย)",
-        "example": "ตัวอย่างการนำไปใช้งานจริง (ภาษาไทย)"
+        "title": "เตรียมจุดเชื่อมต่อหรือศึกษาต่อ",
+        "role": "ต่อยอดความรู้",
+        "description": "เอกสารหรือหัวข้อที่ควรอ่านเพิ่ม (ภาษาไทย)",
+        "example": "ตัวอย่างการประยุกต์ในโปรเจกต์ส่วนตัว (ภาษาไทย)"
       }
     ],
     "key_highlights": {
       "whats_new": [
-        "สิ่งใหม่ที่โดดเด่นข้อที่ 1 (ภาษาไทย)",
-        "สิ่งใหม่ที่โดดเด่นข้อที่ 2 (ภาษาไทย)"
+        "สิ่งใหม่ที่จับต้องได้จากต้นฉบับ ข้อที่ 1 (ภาษาไทย)",
+        "สิ่งใหม่ที่จับต้องได้จากต้นฉบับ ข้อที่ 2 (ภาษาไทย)"
       ],
       "watchouts": [
-        "ข้อจำกัดหรือสิ่งที่ต้องติดตามเพิ่มเติม ข้อที่ 1 (ภาษาไทย)",
-        "ข้อจำกัดหรือสิ่งที่ต้องติดตามเพิ่มเติม ข้อที่ 2 (ภาษาไทย)"
+        "ข้อจำกัด/ราคา/ภูมิภาค/เงื่อนไขที่ต้องระวัง ข้อที่ 1 (ภาษาไทย)",
+        "ข้อจำกัดหรือสิ่งที่ต้นฉบับยังไม่เปิดเผย ข้อที่ 2 (ภาษาไทย)"
       ]
     },
-    "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยฉบับสมบูรณ์พร้อมก๊อปวางแชร์ได้ทันที มี Hook, ข้อสรุปอ่านง่าย, มุมมองต่อยอด และแฮชแท็ก"
+    ${DEEP_READING_JSON_SPEC},
+    "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยพร้อมแชร์ในอนาคต อิงข้อมูลจริงจากต้นฉบับเท่านั้น"
   }
 ]
 `;
@@ -434,8 +532,15 @@ Return a JSON array matching this exact structure:
   return resultMap;
 }
 
-function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): NewsArticleData {
-  const fallbackCategory = inferNewsCategory(item.title, item.description, item.rss_categories);
+function buildNewsObject(
+  item: RawRSSItem,
+  aiData: GeminiNewsPayload | null
+): NewsArticleData {
+  const fallbackCategory = inferNewsCategory(
+    item.title,
+    item.description,
+    item.rss_categories
+  );
   const category: NewsCategory =
     aiData?.category && NEWS_CATEGORIES.includes(aiData.category)
       ? aiData.category
@@ -443,6 +548,11 @@ function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): Ne
   const source = inferSourceLabel(item.rss_categories);
 
   const nowIso = new Date().toISOString();
+  const readingGuide = sanitizeReadingGuide(
+    aiData?.reading_guide,
+    item.source_depth || "abstract_only"
+  );
+
   const built: NewsArticleData = {
     id: item.id,
     title: item.title,
@@ -457,13 +567,11 @@ function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): Ne
     category,
     thumbnail_url: item.thumbnail_url,
     reading_time_minutes: aiData?.reading_time_minutes || 4,
-    hook_headline:
-      aiData?.hook_headline ||
-      `${source} อัปเดตใหม่: ${item.title}`,
+    hook_headline: aiData?.hook_headline || `${source} อัปเดตใหม่: ${item.title}`,
     short_teaser:
       aiData?.short_teaser ||
       item.description ||
-      `อัปเดตล่าสุดจาก ${source} ในหมวด ${category} ที่นักพัฒนาและสาย AI ควรติดตาม`,
+      `อัปเดตล่าสุดจาก ${source} ในหมวด ${category} ที่นักพัฒนาสาย AI ควรติดตาม`,
     tldr_takeaways:
       Array.isArray(aiData?.tldr_takeaways) && aiData.tldr_takeaways.length > 0
         ? aiData.tldr_takeaways.slice(0, 3)
@@ -477,60 +585,58 @@ function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): Ne
         ? aiData.layman_story.slice(0, 5)
         : [
             item.description || item.title,
-            `การอัปเดตครั้งนี้จัดอยู่ในกลุ่ม ${category} เพื่อยกระดับประสบการณ์ทั้งสำหรับนักพัฒนาและผู้ใช้งานทั่วไป`,
+            `การอัปเดตครั้งนี้จัดอยู่ในกลุ่ม ${category} สามารถอ่านรายละเอียดสเปกเต็มจากประกาศต้นทาง`,
           ],
     impact_comparison: {
       before:
         aiData?.impact_comparison?.before ||
-        "ก่อนอัปเดต: ผู้ใช้งานและนักพัฒนาต้องอาศัยเครื่องมือแยกส่วนหรือขั้นตอนที่ซับซ้อนกว่าเดิม",
+        "ก่อนอัปเดต: ต้องพึ่งพาเครื่องมือหรือรุ่นเดิมที่มีข้อจำกัดมากกว่า",
       after:
         aiData?.impact_comparison?.after ||
-        "หลังอัปเดต: มีความสามารถใหม่จาก Google เข้ามาช่วยให้ทำงานได้สะดวกและมีประสิทธิภาพมากขึ้น",
+        "หลังอัปเดต: มีความสามารถและเครื่องมือชุดใหม่จาก Google ตามรายละเอียดประกาศต้นฉบับ",
       why_it_matters:
         aiData?.impact_comparison?.why_it_matters ||
-        "สะท้อนทิศทางการพัฒนาผลิตภัณฑ์และโมเดล AI ของ Google ที่มุ่งสู่การใช้งานจริงในวงกว้าง",
+        "สะท้อนทิศทางเทคโนโลยีและเครื่องมือฝั่งนักพัฒนาจาก Google",
     },
     actionable_playbook:
-      Array.isArray(aiData?.actionable_playbook) && aiData.actionable_playbook.length > 0
-        ? aiData.actionable_playbook.slice(0, 3)
+      Array.isArray(aiData?.actionable_playbook) && aiData.actionable_playbook.length === 3
+        ? aiData.actionable_playbook
         : [
             {
-              title: "ติดตามสเปกและเอกสารทางการ",
-              role: "สำหรับนักพัฒนา / AI Builder",
-              description: "ตรวจสอบรายละเอียด API, ความเข้ากันได้ และเงื่อนไขการใช้งานจากประกาศต้นฉบับ",
-              example: "อ่านคู่มือเริ่มต้นใน Google AI Studio หรือ Blog ต้นทางเพื่อเตรียมทดสอบ",
+              title: "ตรวจสอบสเปกและเอกสารทางการ",
+              role: "ทดลองใช้งานจริง",
+              description: "ดูรายละเอียด API, Model ID และเงื่อนไขการใช้งานจากประกาศต้นฉบับ",
+              example: "เปิด Google AI Studio หรือลิงก์ต้นทางเพื่อลองรันทดสอบ",
             },
             {
-              title: "ประเมินโอกาสต่อยอดเข้ากับโปรดักต์",
-              role: "สำหรับทีม Product / ธุรกิจ",
-              description: "พิจารณาว่าฟีเจอร์ใหม่นี้ช่วยลดต้นทุนหรือเพิ่มคุณค่าให้ผู้ใช้งานในระบบเดิมได้อย่างไร",
-              example: "ออกแบบฟีเจอร์ต้นแบบขนาดเล็กเพื่อวัดผลความพึงพอใจของผู้ใช้",
+              title: "เทียบประสิทธิภาพกับตัวที่ใช้อยู่",
+              role: "ประเมินก่อนใช้ในโปรเจกต์",
+              description: "เทียบ Latency, คุณภาพคำตอบ และราคาต่อ Token จากโจทย์จริง",
+              example: "ลองรัน Prompt เดิม 5 ข้อเทียบกับโมเดลปัจจุบัน",
             },
             {
-              title: "ทดลองใช้ในเวิร์กโฟลว์ประจำวัน",
-              role: "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-              description: "อัปเดตแอปหรือบริการที่เกี่ยวข้องเพื่อลองใช้ความสามารถใหม่ทันทีที่เปิดให้ใช้งาน",
-              example: "นำความสามารถด้านสรุปข้อมูลหรือช่วยค้นหามาใช้ลดเวลาทำงานประจำวัน",
+              title: "จดจุดสำคัญไว้ในคลังความรู้",
+              role: "ต่อยอดความรู้",
+              description: "ศึกษาหัวข้อเทคนิคที่เกี่ยวข้องเพิ่มเติมเมื่อต้องนำไปใช้จริง",
+              example: "คั่นหน้าบทความนี้ไว้เป็นจุดอ้างอิง",
             },
           ],
     key_highlights: {
       whats_new:
         Array.isArray(aiData?.key_highlights?.whats_new) &&
         aiData.key_highlights.whats_new.length > 0
-          ? aiData.key_highlights.whats_new.slice(0, 2)
-          : [
-              `เปิดตัวความสามารถใหม่ในหมวด ${category}`,
-              `อัปเดตโดยตรงจากทีม ${source}`,
-            ],
+          ? aiData.key_highlights.whats_new.slice(0, 3)
+          : [`เปิดตัวความสามารถใหม่ในหมวด ${category}`, `อัปเดตโดยตรงจากทีม ${source}`],
       watchouts:
         Array.isArray(aiData?.key_highlights?.watchouts) &&
         aiData.key_highlights.watchouts.length > 0
-          ? aiData.key_highlights.watchouts.slice(0, 2)
+          ? aiData.key_highlights.watchouts.slice(0, 3)
           : [
               "ตรวจสอบการเปิดให้บริการตามภูมิภาคและภาษาที่รองรับ",
-              "ติดตามราคาและโควตาการใช้งานจริงหากนำไปใช้ในระดับโปรดักชัน",
+              "ติดตามราคาและโควตาการใช้งานจริงหากนำไปใช้ในโปรดักชัน",
             ],
     },
+    reading_guide: readingGuide,
     facebook_post:
       typeof aiData?.facebook_post === "string" && aiData.facebook_post.trim().length > 0
         ? aiData.facebook_post.trim()
@@ -541,29 +647,56 @@ function buildNewsObject(item: RawRSSItem, aiData: GeminiNewsPayload | null): Ne
 }
 
 async function main() {
-  console.log("📰 Starting Google Official Blog RSS Sync...");
+  const refreshLatest = hasRefreshLatestFlag();
+  console.log(
+    `📰 Starting Google Official Blog RSS Sync...${refreshLatest ? " [REFRESH LATEST MODE]" : ""}`
+  );
 
   const cachedByUrl = await loadExistingNews();
   console.log(`Loaded ${cachedByUrl.size} cached news articles.`);
 
   const rssItems = await fetchGoogleBlogRSS();
-  console.log(`Found ${rssItems.length} relevant AI/Tech news items from Google Blog RSS.`);
+  console.log(
+    `Found ${rssItems.length} relevant AI/Tech news items from Google Blog RSS.`
+  );
 
   if (rssItems.length === 0) {
     console.log("No RSS items fetched. Keeping existing news.json intact.");
     return;
   }
 
-  const uncached = rssItems.filter((item) => {
-    const cached = cachedByUrl.get(item.url);
-    return !cached || cached.layman_story.length < 2;
-  });
-  console.log(`New uncached articles to summarize: ${uncached.length}`);
+  let toSummarize: RawRSSItem[];
+  if (refreshLatest) {
+    // Re-generate top N latest articles with full body + 3-Pass reading_guide
+    const latestSet = new Set(
+      rssItems.slice(0, REFRESH_LATEST_NEWS_COUNT).map((item) => item.url)
+    );
+    toSummarize = rssItems
+      .filter((item) => {
+        if (latestSet.has(item.url)) return true;
+        const cached = cachedByUrl.get(item.url);
+        return !cached || cached.layman_story.length < 2;
+      })
+      .slice(0, MAX_NEW_PER_RUN);
+  } else {
+    toSummarize = rssItems
+      .filter((item) => {
+        const cached = cachedByUrl.get(item.url);
+        return !cached || cached.layman_story.length < 2;
+      })
+      .slice(0, MAX_NEW_PER_RUN);
+  }
+
+  console.log(`Articles to fetch full body & summarize: ${toSummarize.length}`);
 
   const aiResultsMap = new Map<string, GeminiNewsPayload>();
-  const toSummarize = uncached.slice(0, MAX_NEW_PER_RUN);
 
   if (GEMINI_API_KEY && toSummarize.length > 0) {
+    console.log(`Fetching full blog.google article bodies for ${toSummarize.length} items...`);
+    await enrichItemsWithFullArticles(toSummarize);
+    const fullCount = toSummarize.filter((i) => i.source_depth === "full_article").length;
+    console.log(`  -> Extracted full article text for ${fullCount}/${toSummarize.length} items.`);
+
     console.log(
       `Summarizing ${toSummarize.length} news articles in batches of ${BATCH_SIZE}...`
     );
@@ -583,9 +716,11 @@ async function main() {
   }
 
   const finalMap = new Map<string, NewsArticleData>();
-  // Preserve existing cached articles first
+  // Preserve existing cached articles that still pass the tightened AI/Tech filter
   for (const [url, art] of cachedByUrl.entries()) {
-    finalMap.set(url, art);
+    if (isRelevantAITechItem(art.title, art.short_teaser, art.rss_categories, art.url)) {
+      finalMap.set(url, art);
+    }
   }
 
   // Add/update from latest RSS
@@ -622,8 +757,16 @@ async function main() {
       articles: finalArticles,
     };
     await fs.writeFile(NEWS_FILE_PATH, JSON.stringify(payload, null, 2));
-    console.log(`✅ Saved ${finalArticles.length} AI Lab News articles to ${NEWS_FILE_PATH}`);
+    console.log(
+      `✅ Saved ${finalArticles.length} AI Lab News articles to ${NEWS_FILE_PATH}`
+    );
   }
 }
 
-main().catch(console.error);
+const isDirectRun =
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+
+if (isDirectRun) {
+  main().catch(console.error);
+}

@@ -291,8 +291,10 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     const readLinks = screen.getAllByText(/กดอ่านบทความ/i);
     fireEvent.click(readLinks[0]);
 
-    // Verify Facebook Share Studio section is rendered with editable draft & copy CTA
-    expect(screen.getByText(/ฉบับร่างโพสต์ Facebook \(พร้อมแชร์ลงเพจ\)/i)).toBeDefined();
+    // Verify Facebook Share Studio sits quietly collapsed and expands on click
+    const fbSummary = screen.getByText(/ฉบับร่างโพสต์ Facebook \(พร้อมแชร์ลงเพจ\)/i);
+    expect(fbSummary).toBeDefined();
+    fireEvent.click(fbSummary);
     expect(screen.getByRole("button", { name: /คัดลอกโพสต์ลง Facebook/i })).toBeDefined();
 
     // Verify Instant Floating Reader Dock sits in a toolbar with instant Back button
@@ -310,5 +312,78 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     fireEvent.keyDown(window, { key: "Escape" });
     expect(screen.getByText(/คอลัมน์งานวิจัย/i)).toBeDefined();
   });
+
+  it("E2E Journey 12: Progressive 3-Pass Deep Reading (Triage, Glossary Scaffolding, Mechanism & Evidence, Hands-On)", async () => {
+    const { ArticleReader } = await import("../src/components/ArticleReader");
+    const papersModule = await import("../src/data/papers.json");
+    const basePaper = papersModule.default.days[0].papers[0];
+
+    const enrichedPaper = {
+      ...basePaper,
+      reading_guide: {
+        pass1_triage: {
+          core_idea: "ปรับจูนโมเดลพยากรณ์อากาศด้วยเมทริกซ์ Low-rank แบบตั้งฉาก",
+          prerequisite_level: "พื้นฐาน PyTorch และเข้าใจไอเดีย LoRA เบื้องต้น",
+          worth_deep_dive: "รู้คอนเซปต์ Pass 1-2 ก็เพียงพอหากไม่ได้ทำสาย Geo-AI",
+          context_lineage: "ต่อยอดจาก LoRA (2021) และ DoRA",
+        },
+        glossary: [
+          {
+            term: "Downscaling",
+            meaning: "การเพิ่มความละเอียดของข้อมูลพยากรณ์จากภาพรวมระดับทวีปให้ละเอียดถึงระดับจังหวัด",
+            analogy: "เหมือนขยายภาพแผนที่เบลอๆ ให้คมชัดเห็นถนนแต่ละเส้น",
+          },
+        ],
+        how_it_works: [
+          {
+            step: "แยก Rank Budget เป็น 2 แกน",
+            detail: "แบ่งพารามิเตอร์ที่ปรับแต่งเป็นแกนหลัก (Principal) และแกนตั้งฉาก (Orthogonal)",
+          },
+        ],
+        hard_evidence: [
+          {
+            metric: "VRAM Overhead",
+            value: "-38% vs Full Fine-tune",
+            context: "ทดสอบบนชุดข้อมูล ERA5",
+          },
+        ],
+        pass3_hands_on: {
+          prerequisites: ["Python 3.10+", "PyTorch 2.x"],
+          try_it_steps: ["ลองอ่านไฟล์ adapter ใน GitHub เพื่อดูวิธีแยกแกน"],
+          next_to_learn: ["Singular Value Decomposition (SVD)"],
+        },
+        source_depth: "arxiv_and_readme" as const,
+      },
+    };
+
+    render(
+      <ArticleReader
+        paper={enrichedPaper as unknown as import("../src/types").PaperData}
+        isSaved={false}
+        onToggleSave={() => {}}
+        onBack={() => {}}
+      />
+    );
+
+    // Pass 1 Triage visible immediately
+    expect(screen.getByText(/Pass 1 · คัดกรองก่อนลงลึก \(5 Cs\)/i)).toBeDefined();
+    expect(screen.getByText(/สกัดจาก arXiv HTML \+ GitHub README/i)).toBeDefined();
+
+    // Vocabulary Scaffolding drawer opens cleanly
+    const glossarySummary = screen.getByText(/ปูศัพท์เทคนิคก่อนอ่าน \(1 คำ\)/i);
+    fireEvent.click(glossarySummary);
+    expect(screen.getByText(/เหมือนขยายภาพแผนที่เบลอๆ/i)).toBeDefined();
+
+    // Pass 2 Mechanism & Hard Evidence visible immediately
+    expect(screen.getByText(/Pass 2 · กลไกการทำงานจริง/i)).toBeDefined();
+    expect(screen.getByText(/-38% vs Full Fine-tune/i)).toBeDefined();
+
+    // Pass 3 Hands-On drawer opens cleanly (and replaces legacy 3 Use Cases)
+    expect(screen.queryByText(/แนวทางการนำไปประยุกต์ใช้จริง \(3 ยูสเคส\)/i)).toBeNull();
+    const pass3Summary = screen.getByText(/Pass 3 · ลองทำตามจริง & หัวข้อศึกษาต่อ/i);
+    fireEvent.click(pass3Summary);
+    expect(screen.getByText(/Singular Value Decomposition \(SVD\)/i)).toBeDefined();
+  });
 });
+
 

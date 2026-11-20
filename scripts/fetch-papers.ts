@@ -5,18 +5,27 @@ import path from "path";
 import {
   PaperSchema,
   PAPER_CATEGORIES,
+  type DeepReadingGuide,
   type PaperData,
   type PaperCategory,
   type PapersFeedData,
   type PaperDayBatch,
 } from "../src/types";
+import {
+  DEEP_READING_JSON_SPEC,
+  DEEP_READING_RULES,
+  extractArxivHtmlHighlights,
+  hasRefreshLatestFlag,
+  sanitizeReadingGuide,
+} from "./lib/deep-reading";
 
 dotenv.config({ path: ".env.local" });
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const PAPERS_FILE_PATH = path.join(process.cwd(), "src/data/papers.json");
 const MAX_ROLLING_DAYS = 7;
-const BATCH_SIZE = 4;
+const BATCH_SIZE = 3; // Smaller batch to fit arXiv HTML + GitHub README context cleanly
 
 interface HFDailyPaperItem {
   title: string;
@@ -39,6 +48,12 @@ interface HFDailyPaperItem {
     authors?: Array<{ name: string }>;
     organization?: { name?: string; fullname?: string };
   };
+}
+
+interface PaperSourceContext {
+  arxivHighlights: string;
+  githubReadme: string;
+  sourceDepth: DeepReadingGuide["source_depth"];
 }
 
 function inferCategoryFromText(title: string, summary: string): PaperCategory {
@@ -104,7 +119,7 @@ function inferCategoryFromText(title: string, summary: string): PaperCategory {
 async function fetchHFDailyPapers(): Promise<HFDailyPaperItem[]> {
   try {
     const res = await fetch("https://huggingface.co/api/daily_papers?limit=100", {
-      headers: { "User-Agent": "RepoRadar-PaperSync/1.0" },
+      headers: { "User-Agent": "RepoRadar-PaperSync/2.0" },
     });
     if (!res.ok) {
       throw new Error(`HF API returned ${res.status}`);
@@ -114,6 +129,90 @@ async function fetchHFDailyPapers(): Promise<HFDailyPaperItem[]> {
     console.error("Error fetching Hugging Face Daily Papers:", error);
     return [];
   }
+}
+
+async function fetchArxivHtmlText(arxivId: string): Promise<string> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
+  try {
+    const res = await fetch(`https://arxiv.org/html/${arxivId}`, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; RepoRadar-PaperSync/2.0)",
+        Accept: "text/html",
+      },
+      signal: controller.signal,
+    });
+    if (!res.ok) return "";
+    const html = await res.text();
+    const extracted = extractArxivHtmlHighlights(html, 5200);
+    return extracted.length >= 400 ? extracted : "";
+  } catch {
+    return "";
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function fetchPaperGithubReadme(githubUrl: string | undefined): Promise<string> {
+  if (!githubUrl) return "";
+  const match = githubUrl.match(/github\.com\/([^/\s]+)\/([^/\s#?]+)/i);
+  if (!match) return "";
+  const owner = match[1];
+  const repo = match[2].replace(/\.git$/i, "");
+
+  const headers: HeadersInit = {
+    Accept: "application/vnd.github.v3+json",
+    "User-Agent": "RepoRadar-PaperSync/2.0",
+  };
+  if (GITHUB_TOKEN) {
+    headers["Authorization"] = `token ${GITHUB_TOKEN}`;
+  }
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 7000);
+  try {
+    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/readme`, {
+      headers,
+      signal: controller.signal,
+    });
+    if (!res.ok) return "";
+    const data = (await res.json()) as { content?: string };
+    if (!data?.content) return "";
+    return Buffer.from(data.content, "base64").toString("utf-8").slice(0, 2600);
+  } catch {
+    return "";
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function enrichPapersWithSourceContext(
+  items: HFDailyPaperItem[]
+): Promise<Map<string, PaperSourceContext>> {
+  const contextMap = new Map<string, PaperSourceContext>();
+  for (const item of items) {
+    const [arxivHighlights, githubReadme] = await Promise.all([
+      fetchArxivHtmlText(item.paper.id),
+      fetchPaperGithubReadme(item.paper.githubRepo),
+    ]);
+
+    let sourceDepth: DeepReadingGuide["source_depth"] = "abstract_only";
+    if (arxivHighlights && githubReadme) {
+      sourceDepth = "arxiv_and_readme";
+    } else if (arxivHighlights) {
+      sourceDepth = "arxiv_html";
+    } else if (githubReadme) {
+      sourceDepth = "readme_and_issues";
+    }
+
+    contextMap.set(item.paper.id, {
+      arxivHighlights,
+      githubReadme,
+      sourceDepth,
+    });
+    await new Promise((r) => setTimeout(r, 200));
+  }
+  return contextMap;
 }
 
 async function loadExistingPapers(): Promise<{
@@ -141,8 +240,11 @@ async function loadExistingPapers(): Promise<{
   return { existingDays, cachedById };
 }
 
-async function processBatchWithGemini(items: HFDailyPaperItem[]): Promise<Map<string, any>> {
-  const resultMap = new Map<string, any>();
+async function processBatchWithGemini(
+  items: HFDailyPaperItem[],
+  sourceContextMap: Map<string, PaperSourceContext>
+): Promise<Map<string, Record<string, unknown>>> {
+  const resultMap = new Map<string, Record<string, unknown>>();
   if (!GEMINI_API_KEY || items.length === 0) return resultMap;
 
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
@@ -152,25 +254,34 @@ async function processBatchWithGemini(items: HFDailyPaperItem[]): Promise<Map<st
     "gemini-3.6-flash",
   ];
 
-  const papersInput = items.map((item) => ({
-    id: item.paper.id,
-    title: item.title || item.paper.title,
-    organization:
-      item.paper.organization?.fullname ||
-      item.organization?.fullname ||
-      null,
-    upvotes: item.paper.upvotes || 0,
-    has_github: Boolean(item.paper.githubRepo),
-    abstract: (item.summary || item.paper.summary || "").slice(0, 1800),
-  }));
+  const papersInput = items.map((item) => {
+    const ctx = sourceContextMap.get(item.paper.id);
+    return {
+      id: item.paper.id,
+      title: item.title || item.paper.title,
+      organization:
+        item.paper.organization?.fullname ||
+        item.organization?.fullname ||
+        null,
+      upvotes: item.paper.upvotes || 0,
+      github_url: item.paper.githubRepo || null,
+      source_depth: ctx?.sourceDepth || "abstract_only",
+      abstract: (item.summary || item.paper.summary || "").slice(0, 2000),
+      arxiv_full_excerpts: ctx?.arxivHighlights || "",
+      github_readme_excerpt: ctx?.githubReadme || "",
+    };
+  });
 
   const prompt = `
-You are a senior Thai AI research communicator, tech blogger, and popular tech Facebook page editor writing for Thai developers, founders, and AI enthusiasts.
-Convert the following ${papersInput.length} AI research papers into deeply detailed, engaging, publish-ready Thai blog articles + ready-to-share Facebook post drafts.
+You are a senior Thai ML/AI research mentor explaining cutting-edge arXiv / Hugging Face papers to a solo Thai developer who wants to genuinely understand how the paper works (mental model, real benchmark numbers, jargon decoded, honest limitations, and what to try or learn next) — NOT hype or generic SaaS sales fluff.
+
+Convert the following ${papersInput.length} AI research papers into deeply grounded 3-Pass Thai technical reading guides + a collapsed ready-to-share Facebook post draft.
+
+${DEEP_READING_RULES}
 
 IMPORTANT WRITING & STYLE RULES:
-1. Write ALL descriptive text in natural, lively, authoritative **Thai (ภาษาไทย)** like a viral long-form Thai tech blog / Facebook tech page — rich in substance, clear analogies, and specific details/numbers from the abstract (keep technical terms like LLM, Agent, Quantization, Transformer, GPU, API, Fine-tune, Benchmark, RAG in English).
-2. Avoid thin or generic filler! Every paragraph should teach the reader something concrete: mention specific techniques, architectural ideas, trade-offs, or benchmark improvements from the abstract.
+1. Write ALL descriptive text in natural, lucid, intellectually honest **Thai (ภาษาไทย)** (keep technical terms like LLM, Agent, LoRA, SFT, Quantization, Transformer, GPU, Benchmark, RAG in English).
+2. Ground EVERY technical claim and metric in "abstract", "arxiv_full_excerpts", or "github_readme_excerpt". If a benchmark number or hardware requirement is stated in the excerpts, cite it accurately! If not stated, explicitly say "ต้นฉบับไม่ระบุตัวเลข".
 3. "category" MUST be strictly one of:
    - "AI Agents & Memory"
    - "LLM & Reasoning"
@@ -178,18 +289,13 @@ IMPORTANT WRITING & STYLE RULES:
    - "Infra, Speed & Quantization"
    - "Coding, Data & Benchmarks"
    - "Applied AI & Science"
-4. "layman_story" MUST be an array of 4 rich, detailed editorial paragraphs in Thai (each 3–5 sentences long):
-   - Paragraph 1 (Hook & Problem): ปัญหาเดิมในโลกจริงคืออะไร ทำไมวิธีเก่าถึงตัน แพง หรือช้า พร้อมบริบทให้คนอ่านอินทันที
-   - Paragraph 2 (Core Innovation): เปเปอร์นี้คิดค้นเทคนิคหรือสถาปัตยกรรมใหม่อะไรขึ้นมา อธิบายกลไกการทำงานแบบละเอียดแต่ย่อยง่าย พร้อมอุปมาอุปไมยให้เห็นภาพ
-   - Paragraph 3 (Results & Evidence): ผลการทดลองและตัวเลขสำคัญที่ได้เจ๋งแค่ไหน แม่นยำขึ้น เร็วขึ้น หรือลดต้นทุนได้เท่าไหร่เมื่อเทียบกับคู่แข่ง
-   - Paragraph 4 (Big Picture & What's Next): ผลกระทบต่อวงการ AI และนักพัฒนาในอีก 6–12 เดือนข้างหน้า และสิ่งที่คนทำสายเทคควรจับตา
-5. "use_cases" MUST contain 3 distinct, concrete real-world applications across different roles (นักพัฒนา/AI Engineer, ธุรกิจ/SaaS, และองค์กร/สายงานเฉพาะทาง) with realistic implementation examples.
-6. "facebook_post" MUST be a complete, ready-to-paste Thai Facebook post (~200–320 words) formatted cleanly for mobile reading:
-   - บรรทัดแรกเป็นพาดหัว Hook ดึงสายตา
-   - ย่อหน้าเปิดสั้นกระชับ 2–3 บรรทัด
-   - สรุปไฮไลต์และกลไกสำคัญเป็นข้อๆ (ใช้ • และเว้นบรรทัดอ่านง่าย)
-   - ย่อหน้าวิเคราะห์ "เรื่องนี้สำคัญกับพวกเรายังไง?"
-   - ประโยคชวนแลกเปลี่ยนความคิดเห็นปิดท้าย + แฮชแท็ก 3–5 คำ (เช่น #AIResearch #HuggingFace #TechNews #RepoRadar)
+4. "layman_story" MUST be an array of 3-4 clear, deep editorial paragraphs in Thai (each 3-4 sentences):
+   - Paragraph 1 (Problem & Why Existing Approaches Fail): คอขวดเดิมคืออะไร ทำไมวิธีเก่าถึงพัง ช้า หรือแพง
+   - Paragraph 2 (Core Idea & Mental Model): เปเปอร์นี้แก้ยังไง อธิบายแก่นไอเดียด้วยภาพจำ/อนาโลยีที่นักพัฒนาเข้าใจทันที
+   - Paragraph 3 (Real Experimental Evidence): ผลทดลองและตัวเลขจริงจากเปเปอร์ (เทียบ Baseline อะไร ได้คะแนน/ความเร็วเพิ่มแค่ไหน)
+   - Paragraph 4 (Honest Assessment): งานนี้เอาไปใช้จริงได้เลยไหม หรือยังเป็นแค่งานวิจัยพื้นฐาน และน่าจับตาอย่างไร
+5. "use_cases" MUST contain 2-3 concrete engineering/technical application scenarios (keep schema compatible; focus on real engineering problems rather than generic "สร้าง SaaS").
+6. "facebook_post" MUST be a clean Thai summary draft (~180-280 words) grounded strictly in facts from the paper, with bullet points and 3-5 hashtags.
 
 Input Papers JSON:
 ${JSON.stringify(papersInput, null, 2)}
@@ -200,57 +306,52 @@ Return a JSON array where each element matches this exact structure:
     "id": "<paper id>",
     "category": "<one of the 6 categories>",
     "reading_time_minutes": 5,
-    "hook_headline": "พาดหัวภาษาไทยสไตล์สื่อเทคที่น่าดึงดูด ชวนกดอ่าน สรุปจุดเปลี่ยนสำคัญของเปเปอร์นี้ให้เข้าใจทันที",
-    "short_teaser": "เกริ่นนำเข้มข้น 2-3 ประโยคที่สรุปว่าเปเปอร์นี้แก้ปัญหาอะไร ใช้วิธีไหน และทำไมคุณถึงไม่ควรพลาด (ภาษาไทย)",
+    "hook_headline": "พาดหัวภาษาไทยที่คมชัด บอกปัญหาและวิธีแก้หลักของเปเปอร์นี้ทันที (ไม่เวอร์เกินจริง)",
+    "short_teaser": "เกริ่นนำ 2 ประโยคที่สรุปปัญหา กลไกใหม่ และผลลัพธ์จริงจากเปเปอร์ (ภาษาไทย)",
     "tldr_takeaways": [
-      "สรุปประเด็นสำคัญข้อที่ 1 แบบเจาะจงและได้สาระทันที (ภาษาไทย)",
-      "สรุปประเด็นสำคัญข้อที่ 2 แบบเจาะจงและได้สาระทันที (ภาษาไทย)",
-      "สรุปประเด็นสำคัญข้อที่ 3 แบบเจาะจงและได้สาระทันที (ภาษาไทย)"
+      "สรุปแก่นข้อที่ 1 แบบเจาะจง (ภาษาไทย)",
+      "สรุปแก่นข้อที่ 2 พร้อมวิธีทำหรือตัวเลขจริง (ภาษาไทย)",
+      "สรุปแก่นข้อที่ 3 พร้อมข้อจำกัดหรือสถานะโค้ด (ภาษาไทย)"
     ],
     "layman_story": [
-      "ย่อหน้าที่ 1: เล่าถึงปัญหาเดิมและคอขวดที่คนทำ AI หรือผู้ใช้งานต้องเจออย่างละเอียด...",
-      "ย่อหน้าที่ 2: อธิบายกลไกและแนวคิดใหม่ของเปเปอร์นี้แบบละเอียดแต่เข้าใจง่ายเหมือนเล่าให้เพื่อนสายเทคฟัง...",
-      "ย่อหน้าที่ 3: เจาะลึกผลการทดลอง ตัวเลขเปรียบเทียบ และจุดที่ทำให้วิธีนี้เหนือกว่าวิธีเดิม...",
-      "ย่อหน้าที่ 4: มองภาพใหญ่ว่างานวิจัยนี้จะเปลี่ยนวงการ AI และการทำงานของนักพัฒนาอย่างไรต่อจากนี้..."
+      "ย่อหน้าที่ 1: ปัญหาเดิมและคอขวดที่วิธีเก่าติดอยู่...",
+      "ย่อหน้าที่ 2: กลไกหลักและภาพจำการทำงานของวิธีใหม่...",
+      "ย่อหน้าที่ 3: ผลทดลอง ตัวเลขเปรียบเทียบจริงจากเปเปอร์...",
+      "ย่อหน้าที่ 4: ประเมินตรงไปตรงมาว่าพร้อมใช้จริงแค่ไหน..."
     ],
     "impact_comparison": {
-      "before": "เมื่อก่อน: ต้องทำอย่างไร และมีข้อเสีย ต้นทุน หรือข้อจำกัดอย่างไรบ้างอย่างชัดเจน (ภาษาไทย)",
-      "after": "หลังจากมีเปเปอร์นี้: เปลี่ยนไปอย่างไร เร็วขึ้น แม่นขึ้น หรือประหยัดขึ้นแค่ไหน (ภาษาไทย)",
-      "why_it_matters": "ผลกระทบระยะยาวต่อนักพัฒนา ธุรกิจ และวงการเทคโนโลยี AI (ภาษาไทย)"
+      "before": "วิธีเดิม: ต้องทำอย่างไร และติดข้อจำกัดอะไรบ้าง (ภาษาไทย)",
+      "after": "วิธีใหม่จากเปเปอร์นี้: เปลี่ยนกลไกอย่างไร และดีขึ้นตรงไหนตามผลทดลอง (ภาษาไทย)",
+      "why_it_matters": "ทำไมแนวคิดนี้ถึงสำคัญต่อการพัฒนา AI ในทางปฏิบัติ (ภาษาไทย)"
     },
     "use_cases": [
       {
-        "title": "ชื่อยูสเคสที่ 1 (ภาษาไทย)",
-        "role": "สำหรับนักพัฒนา / AI Engineer",
-        "description": "อธิบายวิธีนำแนวคิดหรือโค้ดจากเปเปอร์นี้ไปปรับใช้ในระบบจริงอย่างเป็นขั้นเป็นตอน (ภาษาไทย)",
-        "example": "ตัวอย่างสถานการณ์ใช้งานจริงแบบเห็นภาพชัดเจน (ภาษาไทย)"
+        "title": "การประยุกต์เชิงวิศวกรรมที่ 1 (ภาษาไทย)",
+        "role": "งานด้าน AI / ML Engineering",
+        "description": "วิธีนำแนวคิดหรือโค้ดไปปรับใช้กับโจทย์เทคนิคจริง (ภาษาไทย)",
+        "example": "ตัวอย่างสถานการณ์ใช้งานจริง (ภาษาไทย)"
       },
       {
-        "title": "ชื่อยูสเคสที่ 2 (ภาษาไทย)",
-        "role": "สำหรับสร้าง Product / SaaS",
-        "description": "อธิบายการนำไปต่อยอดเป็นฟีเจอร์หรือบริการใหม่ที่สร้างความได้เปรียบ (ภาษาไทย)",
-        "example": "ตัวอย่างสถานการณ์ใช้งานจริงแบบเห็นภาพชัดเจน (ภาษาไทย)"
-      },
-      {
-        "title": "ชื่อยูสเคสที่ 3 (ภาษาไทย)",
-        "role": "สำหรับองค์กร / สายงานเฉพาะทาง",
-        "description": "อธิบายการนำไปแก้ปัญหาในอุตสาหกรรมหรือเวิร์กโฟลว์ประจำวัน (ภาษาไทย)",
-        "example": "ตัวอย่างสถานการณ์ใช้งานจริงแบบเห็นภาพชัดเจน (ภาษาไทย)"
+        "title": "การประยุกต์เชิงวิศวกรรมที่ 2 (ภาษาไทย)",
+        "role": "โปรเจกต์/ระบบที่เกี่ยวข้อง",
+        "description": "โจทย์ประเภทไหนที่จะได้ประโยชน์จากเทคนิคนี้มากที่สุด (ภาษาไทย)",
+        "example": "ตัวอย่างโจทย์จริง (ภาษาไทย)"
       }
     ],
     "community_pulse": {
-      "summary": "ภาพรวมความคิดเห็นของนักวิจัยและนักพัฒนาบน Hugging Face ต่อเปเปอร์นี้แบบมีมิติ (ภาษาไทย)",
+      "summary": "สรุปจุดแข็งและข้อควรระวังของเปเปอร์นี้ในมุมนักวิจัย/นักพัฒนา (ภาษาไทย)",
       "praises": [
-        "จุดที่คนในวงการชื่นชมมากที่สุด ข้อที่ 1 (ภาษาไทย)",
-        "จุดที่คนในวงการชื่นชมมากที่สุด ข้อที่ 2 (ภาษาไทย)"
+        "จุดแข็งเชิงเทคนิคที่โดดเด่น ข้อที่ 1 (ภาษาไทย)",
+        "จุดแข็งเชิงเทคนิคที่โดดเด่น ข้อที่ 2 (ภาษาไทย)"
       ],
       "critiques": [
-        "ข้อจำกัดหรือข้อควรระวังในการนำไปใช้งานจริง ข้อที่ 1 (ภาษาไทย)",
-        "ข้อจำกัดหรือข้อควรระวังในการนำไปใช้งานจริง ข้อที่ 2 (ภาษาไทย)"
+        "ข้อจำกัด/จุดอ่อน/ต้นทุนแฝงที่ต้องรู้ ข้อที่ 1 (ภาษาไทย)",
+        "ข้อจำกัด/จุดอ่อน/ต้นทุนแฝงที่ต้องรู้ ข้อที่ 2 (ภาษาไทย)"
       ],
-      "hype_score": 8.5
+      "hype_score": 8.0
     },
-    "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยฉบับสมบูรณ์พร้อมก๊อปวางแชร์ได้ทันที มี Hook, ข้อสรุปอ่านง่าย, มุมมองต่อยอด และแฮชแท็ก"
+    ${DEEP_READING_JSON_SPEC},
+    "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยพร้อมแชร์ในอนาคต อิงข้อมูลจริงจากเปเปอร์เท่านั้น"
   }
 ]
 `;
@@ -268,17 +369,18 @@ Return a JSON array where each element matches this exact structure:
         const arr = Array.isArray(parsed) ? parsed : parsed?.papers || [];
         for (const item of arr) {
           if (item && item.id) {
-            resultMap.set(String(item.id), item);
+            resultMap.set(String(item.id), item as Record<string, unknown>);
           }
         }
         if (resultMap.size > 0) {
           return resultMap;
         }
-      } catch (error: any) {
-        const status = error?.status;
+      } catch (error: unknown) {
+        const errObj = error as { status?: number; message?: string };
+        const status = errObj?.status;
         const isFatal = status === 404 || status === 401 || status === 403;
         console.warn(
-          `[${modelName}] Paper batch attempt ${attempt} failed (${status ?? "error"}): ${error?.message || error}`
+          `[${modelName}] Paper batch attempt ${attempt} failed (${status ?? "error"}): ${errObj?.message || String(error)}`
         );
         if (!isFatal && attempt < 3) {
           await new Promise((r) => setTimeout(r, 2500 * attempt));
@@ -292,7 +394,13 @@ Return a JSON array where each element matches this exact structure:
   return resultMap;
 }
 
-function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string): PaperData {
+function buildPaperObject(
+  item: HFDailyPaperItem,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  aiData: any,
+  dateStr: string,
+  sourceDepth?: DeepReadingGuide["source_depth"]
+): PaperData {
   const id = item.paper.id;
   const title = item.title || item.paper.title;
   const summary = item.summary || item.paper.summary || "";
@@ -309,6 +417,11 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
     : fallbackCategory;
 
   const nowIso = new Date().toISOString();
+  const readingGuide = sanitizeReadingGuide(
+    aiData?.reading_guide,
+    sourceDepth || "abstract_only"
+  );
+
   const full: PaperData = {
     id,
     title,
@@ -336,7 +449,7 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
       `เจาะลึก ${title}: นวัตกรรมใหม่ในกลุ่ม ${category}`,
     short_teaser:
       aiData?.short_teaser ||
-      `งานวิจัยที่กำลังได้รับความสนใจบน Hugging Face (${item.paper.upvotes || 0} Upvotes) นำเสนอแนวทางใหม่ในการยกระดับประสิทธิภาพของระบบ AI`,
+      `งานวิจัยบน Hugging Face (${item.paper.upvotes || 0} Upvotes) นำเสนอแนวทางใหม่ในกลุ่ม ${category}`,
     tldr_takeaways:
       Array.isArray(aiData?.tldr_takeaways) && aiData.tldr_takeaways.length > 0
         ? aiData.tldr_takeaways.slice(0, 3)
@@ -354,13 +467,13 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
     impact_comparison: {
       before:
         aiData?.impact_comparison?.before ||
-        "ระบบเดิมมีข้อจำกัดด้านความแม่นยำและใช้ทรัพยากรในการประมวลผลสูงเมื่อเจองานที่ซับซ้อน",
+        "วิธีเดิมมีข้อจำกัดด้านความแม่นยำและใช้ทรัพยากรในการประมวลผลสูงเมื่อเจองานที่ซับซ้อน",
       after:
         aiData?.impact_comparison?.after ||
         "ลดข้อจำกัดเดิมด้วยวิธีคิดใหม่ที่ช่วยให้โมเดลทำงานได้มีประสิทธิภาพและเสถียรขึ้น",
       why_it_matters:
         aiData?.impact_comparison?.why_it_matters ||
-        "ช่วยให้นักพัฒนาสามารถนำเทคนิคนี้ไปประยุกต์ใช้สร้างระบบ AI ที่ใช้งานได้จริงในโปรดักชัน",
+        "ช่วยให้เข้าใจทิศทางการแก้คอขวดสำคัญในระบบ AI ยุคใหม่",
     },
     use_cases:
       Array.isArray(aiData?.use_cases) && aiData.use_cases.length > 0
@@ -368,7 +481,7 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
         : [
             {
               title: "ยกระดับประสิทธิภาพโมเดลในระบบจริง",
-              role: "สำหรับนักพัฒนา / AI Engineer",
+              role: "งานด้าน AI / ML Engineering",
               description: "นำแนวคิดจากเปเปอร์ไปปรับปรุง Pipeline การทำงานของ AI",
               example: "ประยุกต์ใช้กับระบบ Backend ที่ต้องการความแม่นยำสูง",
             },
@@ -396,10 +509,20 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
       hype_score:
         typeof aiData?.community_pulse?.hype_score === "number"
           ? Math.min(10, Math.max(0, aiData.community_pulse.hype_score))
-          : Math.min(9.5, Math.max(6.5, Number((6.5 + Math.log10((item.paper.upvotes || 1) + 1) * 1.4).toFixed(1)))),
+          : Math.min(
+              9.5,
+              Math.max(
+                6.5,
+                Number(
+                  (6.5 + Math.log10((item.paper.upvotes || 1) + 1) * 1.4).toFixed(1)
+                )
+              )
+            ),
     },
+    reading_guide: readingGuide,
     facebook_post:
-      typeof aiData?.facebook_post === "string" && aiData.facebook_post.trim().length > 0
+      typeof aiData?.facebook_post === "string" &&
+      aiData.facebook_post.trim().length > 0
         ? aiData.facebook_post.trim()
         : undefined,
   };
@@ -408,7 +531,10 @@ function buildPaperObject(item: HFDailyPaperItem, aiData: any, dateStr: string):
 }
 
 async function main() {
-  console.log("Starting RepoRadar Daily Papers Pipeline...");
+  const refreshLatest = hasRefreshLatestFlag();
+  console.log(
+    `Starting RepoRadar Daily Papers Pipeline...${refreshLatest ? " [REFRESH LATEST MODE]" : ""}`
+  );
 
   const { existingDays, cachedById } = await loadExistingPapers();
   const hfItems = await fetchHFDailyPapers();
@@ -422,7 +548,8 @@ async function main() {
   const groupedByDate = new Map<string, HFDailyPaperItem[]>();
   for (const item of hfItems) {
     if (!item?.paper?.id) continue;
-    const rawDate = item.paper.submittedOnDailyAt || item.publishedAt || new Date().toISOString();
+    const rawDate =
+      item.paper.submittedOnDailyAt || item.publishedAt || new Date().toISOString();
     const dateStr = rawDate.slice(0, 10);
     const list = groupedByDate.get(dateStr) || [];
     list.push(item);
@@ -430,8 +557,11 @@ async function main() {
   }
 
   // Sort dates newest first, take top 2 active dates from API to refresh, merge with existing rolling 7 days
-  const apiDates = Array.from(groupedByDate.keys()).sort((a, b) => b.localeCompare(a));
-  const datesToProcess = apiDates.slice(0, 2); // Today & Yesterday from live API
+  const apiDates = Array.from(groupedByDate.keys()).sort((a, b) =>
+    b.localeCompare(a)
+  );
+  const datesToProcess = apiDates.slice(0, 2);
+  const latestDateStr = datesToProcess[0];
 
   const updatedDaysMap = new Map<string, PaperData[]>();
   for (const oldDay of existingDays) {
@@ -445,23 +575,39 @@ async function main() {
 
     console.log(`Date ${dateStr}: found ${dayItems.length} papers.`);
 
+    const forceRefreshDay = refreshLatest && dateStr === latestDateStr;
     const needGemini: HFDailyPaperItem[] = [];
     for (const item of dayItems) {
       const existing = cachedById.get(item.paper.id);
-      if (!existing || existing.layman_story.length < 3) {
+      if (forceRefreshDay || !existing || existing.layman_story.length < 3) {
         needGemini.push(item);
       }
     }
 
-    const aiResultsMap = new Map<string, any>();
+    const aiResultsMap = new Map<string, Record<string, unknown>>();
+    let sourceContextMap = new Map<string, PaperSourceContext>();
+
     if (GEMINI_API_KEY && needGemini.length > 0) {
-      console.log(`Processing ${needGemini.length} papers for ${dateStr} in batches of ${BATCH_SIZE}...`);
+      console.log(
+        `Fetching arXiv HTML & GitHub READMEs for ${needGemini.length} papers...`
+      );
+      sourceContextMap = await enrichPapersWithSourceContext(needGemini);
+      const enrichedCount = Array.from(sourceContextMap.values()).filter(
+        (c) => c.sourceDepth !== "abstract_only"
+      ).length;
+      console.log(
+        `  -> Enriched ${enrichedCount}/${needGemini.length} papers beyond abstract.`
+      );
+
+      console.log(
+        `Processing ${needGemini.length} papers for ${dateStr} in batches of ${BATCH_SIZE}...`
+      );
       for (let i = 0; i < needGemini.length; i += BATCH_SIZE) {
         const batch = needGemini.slice(i, i + BATCH_SIZE);
         console.log(
           `  -> Batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(needGemini.length / BATCH_SIZE)} (${batch.map((b) => b.paper.id).join(", ")})`
         );
-        const batchMap = await processBatchWithGemini(batch);
+        const batchMap = await processBatchWithGemini(batch, sourceContextMap);
         for (const [k, v] of batchMap.entries()) {
           aiResultsMap.set(k, v);
         }
@@ -474,7 +620,15 @@ async function main() {
       const cached = cachedById.get(item.paper.id);
       const aiData = aiResultsMap.get(item.paper.id);
 
-      if (cached && cached.layman_story.length >= 3 && !aiData) {
+      if (aiData) {
+        const sourceDepth = sourceContextMap.get(item.paper.id)?.sourceDepth;
+        const built = buildPaperObject(item, aiData, dateStr, sourceDepth);
+        if (cached?.first_seen_at) {
+          built.first_seen_at = cached.first_seen_at;
+        }
+        dayPapers.push(built);
+        cachedById.set(built.id, built);
+      } else if (cached && cached.layman_story.length >= 3) {
         dayPapers.push({
           ...cached,
           upvotes: item.paper.upvotes || cached.upvotes,
@@ -485,13 +639,6 @@ async function main() {
           first_seen_at: cached.first_seen_at || cached.updated_at,
           updated_at: new Date().toISOString(),
         });
-      } else if (aiData) {
-        const built = buildPaperObject(item, aiData, dateStr);
-        if (cached?.first_seen_at) {
-          built.first_seen_at = cached.first_seen_at;
-        }
-        dayPapers.push(built);
-        cachedById.set(built.id, built);
       } else if (cached) {
         dayPapers.push({
           ...cached,
@@ -501,7 +648,7 @@ async function main() {
           updated_at: new Date().toISOString(),
         });
       } else if (process.env.ALLOW_PAPER_FALLBACK === "true") {
-        const built = buildPaperObject(item, null, dateStr);
+        const built = buildPaperObject(item, null, dateStr, "abstract_only");
         dayPapers.push(built);
         cachedById.set(built.id, built);
       }

@@ -1,5 +1,50 @@
 import { z } from "zod";
 
+export const GlossaryTermSchema = z.object({
+  term: z.string(),
+  meaning: z.string(),
+  analogy: z.string(),
+});
+
+export const EvidenceItemSchema = z.object({
+  metric: z.string(),
+  value: z.string(),
+  context: z.string(),
+});
+
+export const HowItWorksStepSchema = z.object({
+  step: z.string(),
+  detail: z.string(),
+});
+
+export const DeepReadingGuideSchema = z.object({
+  pass1_triage: z.object({
+    core_idea: z.string(),
+    prerequisite_level: z.string(),
+    worth_deep_dive: z.string(),
+    context_lineage: z.string(),
+  }),
+  glossary: z.array(GlossaryTermSchema),
+  how_it_works: z.array(HowItWorksStepSchema),
+  hard_evidence: z.array(EvidenceItemSchema),
+  pass3_hands_on: z.object({
+    prerequisites: z.array(z.string()),
+    try_it_steps: z.array(z.string()),
+    next_to_learn: z.array(z.string()),
+  }),
+  source_depth: z
+    .enum([
+      "full_article",
+      "arxiv_html",
+      "arxiv_and_readme",
+      "readme_and_issues",
+      "abstract_only",
+    ])
+    .optional(),
+});
+
+export type DeepReadingGuide = z.infer<typeof DeepReadingGuideSchema>;
+
 export const RepositorySchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -34,6 +79,7 @@ export const RepositorySchema = z.object({
   updated_at: z.string(), // ISO String
   first_seen_at: z.string().optional(), // ISO String when first discovered by RepoRadar
   deep_dive_paragraphs: z.array(z.string()).optional(), // Detailed blog-style narrative paragraphs
+  reading_guide: DeepReadingGuideSchema.optional(), // 3-Pass + Scaffolding deep reading guide
   facebook_post: z.string().optional(), // Ready-to-share Thai Facebook post draft
 });
 
@@ -100,6 +146,7 @@ export const PaperSchema = z.object({
     critiques: z.array(z.string()),
     hype_score: z.number().min(0).max(10),
   }),
+  reading_guide: DeepReadingGuideSchema.optional(), // 3-Pass + Scaffolding deep reading guide
   facebook_post: z.string().optional(), // Ready-to-share Thai Facebook post draft
 });
 
@@ -161,6 +208,7 @@ export const NewsArticleSchema = z.object({
     whats_new: z.array(z.string()),
     watchouts: z.array(z.string()),
   }),
+  reading_guide: DeepReadingGuideSchema.optional(), // 3-Pass + Scaffolding deep reading guide
   facebook_post: z.string().optional(), // Ready-to-share Thai Facebook post draft
 });
 

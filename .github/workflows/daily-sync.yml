@@ -7,7 +7,13 @@ on:
     - cron: '37 23 * * *' # รอบหลัก   06:37 น. เวลาไทย (23:37 UTC ของวันก่อน)
     - cron: '23 1 * * *'  # รอบสำรอง 1 08:23 น. เวลาไทย
     - cron: '47 2 * * *'  # รอบสำรอง 2 09:47 น. เวลาไทย
-  workflow_dispatch: # กดรันเองได้เสมอ (บังคับซิงก์)
+  workflow_dispatch: # กดรันเองได้เสมอ (บังคับซิงก์ หรือ refresh บทความล่าสุดเป็นรูปแบบ 3-Pass)
+    inputs:
+      refresh_latest:
+        description: 'Re-generate today papers, today repos, and latest 10 news with 3-Pass deep reading (skips duplicate Telegram alert)'
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: daily-sync
@@ -64,7 +70,13 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SITE_URL: ${{ secrets.SITE_URL }}
-        run: npm run pipeline
+          REFRESH_LATEST: ${{ github.event.inputs.refresh_latest == 'true' && 'true' || 'false' }}
+        run: |
+          if [ "$REFRESH_LATEST" = "true" ]; then
+            npm run pipeline:refresh
+          else
+            npm run pipeline
+          fi
 
       - name: Check for changes
         if: steps.guard.outputs.skip != 'true'

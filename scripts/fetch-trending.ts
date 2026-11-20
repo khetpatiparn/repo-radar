@@ -2,8 +2,13 @@ import dotenv from "dotenv";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import fs from "fs/promises";
 import path from "path";
-import { z } from "zod";
 import { RepositorySchema, type RepositoryData } from "../src/types";
+import {
+  DEEP_READING_JSON_SPEC,
+  DEEP_READING_RULES,
+  hasRefreshLatestFlag,
+  sanitizeReadingGuide,
+} from "./lib/deep-reading";
 
 dotenv.config({ path: ".env.local" });
 
@@ -12,7 +17,6 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 const REPOS_FILE_PATH = path.join(process.cwd(), "src/data/repos.json");
 
-// Types for GitHub API responses
 interface GitHubSearchRepoItem {
   id: number;
   name: string;
@@ -76,7 +80,7 @@ function getStarsTodayApprox(repo: GitHubSearchRepoItem): number {
  */
 async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
   const headers: HeadersInit = {
-    "Accept": "application/vnd.github.v3+json",
+    Accept: "application/vnd.github.v3+json",
     "User-Agent": "RepoRadar-Script",
   };
 
@@ -87,10 +91,9 @@ async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
   const collected: GitHubSearchRepoItem[] = [];
   const seen = new Set<string>();
 
-  // 1. Scrape GitHub Daily Trending page for real surging repos & real stars today
   try {
     const trendingRes = await fetch("https://github.com/trending?since=daily", {
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; RepoRadar/1.0)" },
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; RepoRadar/2.0)" },
     });
     if (trendingRes.ok) {
       const html = await trendingRes.text();
@@ -101,7 +104,7 @@ async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
         const repoMatch = article.match(/<h2[\s\S]*?<a[^>]*href="\/([^/"\s]+\/[^/"\s]+)"/);
         const todayMatch = article.match(/([\d,]+)\s+stars today/);
         const fullName = repoMatch?.[1];
-        if (!fullName || seen.has(fullName)) continue;
+        if (!fullName || seen.has(fullName.toLowerCase())) continue;
 
         const repoName = fullName.split("/")[1] || "";
         if (!isInterestingCodeRepo(repoName)) continue;
@@ -117,7 +120,7 @@ async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
             collected.push(repoData);
             seen.add(repoData.full_name.toLowerCase());
           }
-        } catch (err) {
+        } catch {
           console.warn(`Could not fetch metadata for trending repo ${fullName}`);
         }
       }
@@ -127,7 +130,6 @@ async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
     console.warn("Could not scrape github.com/trending, falling back to search API:", error);
   }
 
-  // 2. Supplement up to TARGET_REPO_COUNT with breakout repos created in the last 30 days
   if (collected.length < TARGET_REPO_COUNT) {
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
@@ -162,46 +164,75 @@ async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
 }
 
 /**
- * Fetch GitHub README and Issues/Discussions summaries
+ * Fetch GitHub README, root directory tree, and top Issues
  */
 async function fetchRepoDetails(owner: string, repo: string) {
   const headers: HeadersInit = {
-    "Accept": "application/vnd.github.v3+json",
+    Accept: "application/vnd.github.v3+json",
     "User-Agent": "RepoRadar-Script",
   };
   if (GITHUB_TOKEN) {
     headers["Authorization"] = `token ${GITHUB_TOKEN}`;
   }
 
-  // Fetch README
   let readme = "";
   try {
-    const readmeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/readme`, { headers });
+    const readmeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/readme`, {
+      headers,
+    });
     if (readmeRes.ok) {
-      const readmeData = await readmeRes.json();
+      const readmeData = (await readmeRes.json()) as { content?: string };
       if (readmeData.content) {
-        readme = Buffer.from(readmeData.content, 'base64').toString('utf-8');
+        readme = Buffer.from(readmeData.content, "base64").toString("utf-8");
       }
     }
-  } catch (e) {
+  } catch {
     console.warn(`Could not fetch README for ${owner}/${repo}`);
   }
 
-  // Fetch Top 5 Issues
+  let rootTree = "";
+  try {
+    const treeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents`, {
+      headers,
+    });
+    if (treeRes.ok) {
+      const entries = (await treeRes.json()) as Array<{ name: string; type: string }>;
+      if (Array.isArray(entries)) {
+        rootTree = entries
+          .slice(0, 30)
+          .map((e) => `${e.type === "dir" ? "[dir]" : "[file]"} ${e.name}`)
+          .join(", ");
+      }
+    }
+  } catch {
+    // Non-critical
+  }
+
   let issuesContext = "";
   try {
-    const issuesRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/issues?state=all&sort=comments&direction=desc&per_page=5`, { headers });
+    const issuesRes = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/issues?state=all&sort=comments&direction=desc&per_page=5`,
+      { headers }
+    );
     if (issuesRes.ok) {
-      const issuesData = await issuesRes.json();
-      issuesContext = issuesData.map((issue: any) => `Issue: ${issue.title}\nBody: ${issue.body?.substring(0, 100)}...`).join("\n\n");
+      const issuesData = (await issuesRes.json()) as Array<{ title?: string; body?: string }>;
+      if (Array.isArray(issuesData)) {
+        issuesContext = issuesData
+          .map(
+            (issue) =>
+              `Issue: ${issue.title}\nBody: ${(issue.body || "").substring(0, 220)}...`
+          )
+          .join("\n\n");
+      }
     }
-  } catch (e) {
+  } catch {
     console.warn(`Could not fetch issues for ${owner}/${repo}`);
   }
 
   return {
-    readme: readme.substring(0, 5000), // Limit to avoid massive context
-    issuesContext
+    readme: readme.substring(0, 6500),
+    rootTree,
+    issuesContext,
   };
 }
 
@@ -214,10 +245,7 @@ async function fetchHNSentiment(repoName: string): Promise<string> {
     const res = await fetch(url);
     if (!res.ok) throw new Error("HN API failed");
     const data = (await res.json()) as HNSearchResponse;
-    
-    // We only have stories, fetching comments is an extra API call per story.
-    // For brevity, we return titles. In a full implementation, we'd fetch story IDs and get top comments.
-    return data.hits.map(hit => `HN Discussion: ${hit.title} (${hit.url})`).join("\n");
+    return data.hits.map((hit) => `HN Discussion: ${hit.title} (${hit.url})`).join("\n");
   } catch (error) {
     console.error("Error fetching HN:", error);
     return "";
@@ -225,11 +253,12 @@ async function fetchHNSentiment(repoName: string): Promise<string> {
 }
 
 /**
- * Process repo data with Gemini to extract structured info
+ * Process repo data with Gemini to extract 3-Pass Deep Reading guide + structured info
  */
 async function processWithGemini(
   repo: GitHubSearchRepoItem,
   readme: string,
+  rootTree: string,
   issuesContext: string,
   hnContext: string
 ): Promise<RepositoryData | null> {
@@ -244,31 +273,31 @@ async function processWithGemini(
     "gemini-3.5-flash-lite",
     "gemini-3.6-flash",
   ];
+
   const prompt = `
-You are a senior Thai tech columnist, developer relations engineer, and popular tech Facebook page editor.
-Analyze the following GitHub repository and community context to produce a deeply informative, engaging, blog-post-grade JSON response strictly adhering to the requested schema.
+You are a senior Thai principal engineer reviewing a trending GitHub repository for a solo Thai developer who wants to deeply understand HOW the codebase works, what real problem it solves, what prerequisites/gotchas it has, and how to test it locally — NOT generic SaaS/Next.js/Supabase boilerplate.
+
+${DEEP_READING_RULES}
 
 IMPORTANT LANGUAGE & WRITING STYLE REQUIREMENTS:
-1. Write ALL descriptive text fields (one_liner, problem_solved, alternative_comparison, maturity_reason, monetization_idea, stack_synergy, pros, gotchas_and_traps, deep_dive_paragraphs, facebook_post) in natural, vivid, engaging **Thai (ภาษาไทย)** like a top Thai tech blogger explaining to fellow developers and builders (keep technical terms like API, CLI, Next.js, Supabase, Docker, LLM, Agent, SDK in English).
-2. Be **detailed and concrete** — avoid generic 1-sentence filler. Reference real capabilities, architecture, workflows, or metrics visible in the README/Issues/HN context.
-3. "deep_dive_paragraphs" MUST be 3 rich editorial paragraphs in Thai that read like a real tech blog article:
-   - Paragraph 1 (Hook & Context): ทำไมโปรเจกต์นี้ถึงกำลังเป็นกระแสในวงการ Dev ตอนนี้ และแก้คอขวดเดิมอย่างไร
-   - Paragraph 2 (How It Works): เจาะลึกกลไก ฟีเจอร์เด่น หรือสถาปัตยกรรมเบื้องหลังแบบเห็นภาพและเข้าใจง่าย
-   - Paragraph 3 (Verdict & Outlook): เหมาะกับใคร ควรเริ่มลองใช้ตรงไหน และอนาคตของโปรเจกต์นี้น่าจับตาอย่างไร
-4. "facebook_post" MUST be a complete, ready-to-publish Thai Facebook post (~180–280 words) with:
-   - พาดหัว Hook ที่ชวนหยุดเลื่อนฟีด
-   - ย่อหน้าเปิดสั้นๆ เล่าว่าเครื่องมือนี้คืออะไรและทำไมกำลังมาแรง
-   - สรุปจุดเด่นเป็นข้อๆ (ใช้เครื่องหมาย • หรือ — แบ่งบรรทัดอ่านง่ายบนมือถือ)
-   - ไอเดียการใช้งานจริงหรือต่อยอด
-   - ประโยคชวนคอมเมนต์ปิดท้าย + แฮชแท็กที่เกี่ยวข้อง 3–5 คำ (เช่น #GitHubTrending #OpenSource #AI #DevTools #RepoRadar)
+1. Write ALL descriptive text fields in natural, sharp, technically grounded **Thai (ภาษาไทย)** (keep technical terms like API, CLI, Docker, LLM, Agent, SDK, AST, MCP, Python, Rust, TypeScript in English).
+2. STRICTLY NO COPY-PASTE STACK CLICHÉS: Do NOT default to "Next.js + Supabase + SaaS Dashboard" unless the repository itself actually uses them! Base your analysis strictly on the actual language, root files, README, and Issues below.
+3. "deep_dive_paragraphs" MUST be 3 substantive editorial paragraphs in Thai:
+   - Paragraph 1 (Why It Exists & Pain Point): คอขวดจริงของนักพัฒนาที่โปรเจกต์นี้เข้ามาแก้คืออะไร
+   - Paragraph 2 (Architecture & Under the Hood): ข้างในมันทำงานยังไง อ้างอิงโครงสร้างไฟล์ กลไก หรือฟีเจอร์จริงจาก README
+   - Paragraph 3 (Honest Engineering Verdict): คุ้มที่จะเอามาใช้หรือศึกษาโค้ดแค่ไหน และมีข้อจำกัดอะไรที่ควรรู้ก่อน
+4. "quick_start" MUST be real, minimal executable commands directly from the README (never invent fake npm/pip package names!).
 5. Keep "maturity_rating" strictly in English as one of: "Production-Ready", "Experimental", or "PoC".
-6. Keep "quick_start" as executable terminal commands or code snippets.
+6. "facebook_post" MUST be a clean Thai summary draft (~180-250 words) grounded in real facts from the README, with bullet points and 3-5 hashtags.
 
 Repository: ${repo.full_name}
 Stars: ${repo.stargazers_count} (+${getStarsTodayApprox(repo)} today)
 URL: ${repo.html_url}
 Topics: ${repo.topics.join(", ")}
 Language: ${repo.language}
+License: ${repo.license?.spdx_id || "None"}
+Open Issues: ${repo.open_issues_count}
+Root Directory Structure: ${rootTree || "Unavailable"}
 
 README Snippet:
 ${readme}
@@ -281,27 +310,28 @@ ${hnContext}
 
 Provide the output strictly in the following JSON structure:
 {
-  "one_liner": "พาดหัวสรุปโปรเจกต์ 1 ประโยคที่คมชัดและน่ากดอ่านแบบสื่อเทคโนโลยี (ภาษาไทย)",
-  "problem_solved": "อธิบาย Pain point และปัญหาหลักในชีวิตจริงของนักพัฒนาอย่างละเอียด 3-4 ประโยค ว่าเครื่องมือเดิมติดขัดตรงไหนและโปรเจกต์นี้เข้ามาปลดล็อกอย่างไร (ภาษาไทย)",
-  "alternative_comparison": "เปรียบเทียบเชิงลึกกับเครื่องมือหรือเฟรมเวิร์กที่ใกล้เคียง 2-3 ประโยค ระบุให้ชัดว่าต่างกันอย่างไรและเมื่อไหร่ควรเลือกใช้ตัวนี้ (ภาษาไทย)",
+  "one_liner": "สรุปโปรเจกต์ 1 ประโยคที่คมชัดและตรงความจริงว่ามันคืออะไรและทำอะไรได้ (ภาษาไทย)",
+  "problem_solved": "อธิบาย Pain point และปัญหาจริงทางเทคนิค 3 ประโยคว่าวิธีเดิมติดขัดตรงไหนและโปรเจกต์นี้แก้ยังไง (ภาษาไทย)",
+  "alternative_comparison": "เปรียบเทียบกับเครื่องมือหรือเฟรมเวิร์กที่ใกล้เคียง 2-3 ประโยค ระบุชัดว่าต่างกันตรงไหนและควรเลือกตัวไหนเมื่อไหร่ (ภาษาไทย)",
   "maturity_rating": "One of: 'Production-Ready', 'Experimental', 'PoC'",
-  "maturity_reason": "เหตุผลเชิงประจักษ์ 2 ประโยคที่ประเมินจากโค้ดเบส ความถี่ในการอัปเดต เอกสาร และ Issues (ภาษาไทย)",
+  "maturity_reason": "เหตุผลเชิงประจักษ์ 2 ประโยคจากโครงสร้างโค้ด ไลเซนส์ เอกสาร และ Issues (ภาษาไทย)",
   "ai_opportunity": {
-    "monetization_idea": "ไอเดียการนำไปต่อยอดสร้างรายได้ ทำ Micro-SaaS, Internal Tool หรือ API Service แบบลงรายละเอียดกลุ่มเป้าหมายและโมเดลรายได้ (ภาษาไทย)",
-    "stack_synergy": "แนวทางการเชื่อมต่อร่วมกับ Modern Stack เช่น Next.js, Supabase, Vercel, Docker หรือ AI Workflow พร้อมตัวอย่างสถาปัตยกรรมสั้นๆ (ภาษาไทย)"
+    "monetization_idea": "การประยุกต์ใช้งานจริงในโปรเจกต์ส่วนตัวหรือเวิร์กโฟลว์นักพัฒนา (ไม่จำเป็นต้องฝืนคิด SaaS ถ้าไม่เข้ากับตัวเครื่องมือ) (ภาษาไทย)",
+    "stack_synergy": "เทคโนโลยีหรือเครื่องมือที่เข้าคู่กับโปรเจกต์นี้จริงตามภาษาและสถาปัตยกรรมของมัน (ภาษาไทย)"
   },
   "human_vibe_check": {
-    "pros": ["จุดเด่นที่นักพัฒนาชื่นชอบพร้อมเหตุผล ข้อที่ 1 (ภาษาไทย)", "จุดเด่นที่นักพัฒนาชื่นชอบพร้อมเหตุผล ข้อที่ 2 (ภาษาไทย)"],
-    "gotchas_and_traps": ["ข้อควรระวังหรือข้อจำกัดที่ควรรู้ก่อนขึ้นโปรดักชัน ข้อที่ 1 (ภาษาไทย)", "ข้อควรระวังหรือข้อจำกัดที่ควรรู้ก่อนขึ้นโปรดักชัน ข้อที่ 2 (ภาษาไทย)"],
+    "pros": ["จุดแข็งเชิงเทคนิคจาก README/คอมมูนิตี้ ข้อที่ 1 (ภาษาไทย)", "จุดแข็งเชิงเทคนิค ข้อที่ 2 (ภาษาไทย)"],
+    "gotchas_and_traps": ["ข้อควรระวัง กับดัก หรือข้อจำกัดจริงที่ควรรู้ก่อนลอง ข้อที่ 1 (ภาษาไทย)", "ข้อควรระวังหรือข้อจำกัด ข้อที่ 2 (ภาษาไทย)"],
     "hype_vs_reality": <number between 0 and 10>
   },
   "deep_dive_paragraphs": [
-    "ย่อหน้าที่ 1: เปิดเรื่องและบริบทว่าทำไมโปรเจกต์นี้ถึงกำลังพุ่งแรง...",
-    "ย่อหน้าที่ 2: เจาะลึกการทำงาน ฟีเจอร์สำคัญ และวิธีคิดเบื้องหลัง...",
-    "ย่อหน้าที่ 3: บทสรุปว่าใครควรลองใช้และผลกระทบต่อเวิร์กโฟลว์นักพัฒนา..."
+    "ย่อหน้าที่ 1: ปัญหาจริงและเหตุผลที่โปรเจกต์นี้กำลังมาแรง...",
+    "ย่อหน้าที่ 2: เจาะลึกโครงสร้างและกลไกการทำงานจริงข้างใน...",
+    "ย่อหน้าที่ 3: สรุปแบบตรงไปตรงมาว่าคุ้มค่ากับการลองใช้หรืออ่านโค้ดแค่ไหน..."
   ],
-  "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยพร้อมแชร์ มี Hook แบ่งย่อหน้าสวยๆ อ่านง่ายบนมือถือ พร้อมข้อสรุปและแฮชแท็ก",
-  "quick_start": "The shortest terminal command or 3-line code snippet to run this."
+  ${DEEP_READING_JSON_SPEC},
+  "facebook_post": "ฉบับร่างโพสต์ Facebook ภาษาไทยพร้อมแชร์ในอนาคต อิงข้อมูลจริงจาก README เท่านั้น",
+  "quick_start": "The shortest real executable terminal command(s) directly from the README."
 }
 `;
 
@@ -316,7 +346,6 @@ Provide the output strictly in the following JSON structure:
         const result = await model.generateContent(prompt);
         const responseText = result.response.text();
 
-        // Parse and validate with Zod
         const aiData = JSON.parse(responseText);
         if (aiData?.human_vibe_check) {
           if (Array.isArray(aiData.human_vibe_check.pros)) {
@@ -333,9 +362,13 @@ Provide the output strictly in the following JSON structure:
             .slice(0, 4);
         }
 
+        aiData.reading_guide = sanitizeReadingGuide(
+          aiData?.reading_guide,
+          "readme_and_issues"
+        );
+
         const nowIso = new Date().toISOString();
 
-        // Combine with base data
         const fullData = {
           id: repo.id.toString(),
           name: repo.name,
@@ -353,11 +386,12 @@ Provide the output strictly in the following JSON structure:
         };
 
         return RepositorySchema.parse(fullData);
-      } catch (error: any) {
-        const status = error?.status;
+      } catch (error: unknown) {
+        const errObj = error as { status?: number; message?: string };
+        const status = errObj?.status;
         const isFatalModelError = status === 404 || status === 401 || status === 403;
         console.warn(
-          `[${modelName}] Attempt ${attempt} failed for ${repo.full_name} (status: ${status ?? "parse/validation"}): ${error?.message || error}`
+          `[${modelName}] Attempt ${attempt} failed for ${repo.full_name} (status: ${status ?? "parse/validation"}): ${errObj?.message || String(error)}`
         );
         if (!isFatalModelError && attempt < 3) {
           const delayMs = 2500 * attempt;
@@ -387,7 +421,6 @@ async function loadPreviousFeed(): Promise<{
     const parsed = JSON.parse(raw);
 
     if (Array.isArray(parsed)) {
-      // Legacy flat array -> treat as yesterday's data on migration
       yesterdayRepos = parsed as RepositoryData[];
       for (const r of yesterdayRepos) {
         cachedById.set(r.id, r);
@@ -395,7 +428,9 @@ async function loadPreviousFeed(): Promise<{
       }
     } else if (parsed && typeof parsed === "object") {
       const prevToday: RepositoryData[] = Array.isArray(parsed.today) ? parsed.today : [];
-      const prevYesterday: RepositoryData[] = Array.isArray(parsed.yesterday) ? parsed.yesterday : [];
+      const prevYesterday: RepositoryData[] = Array.isArray(parsed.yesterday)
+        ? parsed.yesterday
+        : [];
 
       for (const r of [...prevYesterday, ...prevToday]) {
         cachedById.set(r.id, r);
@@ -405,14 +440,13 @@ async function loadPreviousFeed(): Promise<{
       const prevDate = prevToday[0]?.updated_at?.slice(0, 10);
       const currDate = new Date().toISOString().slice(0, 10);
 
-      // Rotate prevToday into yesterday if it's a new day or yesterday is empty
       if ((prevDate && prevDate !== currDate) || prevYesterday.length === 0) {
         yesterdayRepos = prevToday;
       } else {
         yesterdayRepos = prevYesterday;
       }
     }
-  } catch (err) {
+  } catch {
     console.warn("Could not read existing repos.json, starting fresh.");
   }
 
@@ -420,10 +454,15 @@ async function loadPreviousFeed(): Promise<{
 }
 
 async function main() {
-  console.log("Starting RepoRadar Data Pipeline...");
-  
+  const refreshLatest = hasRefreshLatestFlag();
+  console.log(
+    `Starting RepoRadar Data Pipeline...${refreshLatest ? " [REFRESH LATEST MODE]" : ""}`
+  );
+
   if (!GITHUB_TOKEN || !GEMINI_API_KEY) {
-    console.warn("Missing GITHUB_TOKEN or GEMINI_API_KEY. The pipeline requires both to fetch and process real data.");
+    console.warn(
+      "Missing GITHUB_TOKEN or GEMINI_API_KEY. The pipeline requires both to fetch and process real data."
+    );
     console.warn("Make sure they are set in .env.local or environment variables.");
     if (!process.env.CI) {
       console.log("Exiting gracefully. Mock data will be used.");
@@ -448,8 +487,10 @@ async function main() {
       cachedById.get(repo.id.toString()) ||
       cachedById.get(repo.full_name.toLowerCase());
 
-    if (existing) {
-      console.log(`♻️ Reusing existing AI analysis for ${repo.full_name} & updating live stats...`);
+    if (existing && !refreshLatest) {
+      console.log(
+        `♻️ Reusing existing AI analysis for ${repo.full_name} & updating live stats...`
+      );
       results.push({
         ...existing,
         id: repo.id.toString(),
@@ -468,18 +509,38 @@ async function main() {
       continue;
     }
 
-    console.log(`Processing: ${repo.full_name}...`);
-    // Delay slightly to respect rate limits
-    await new Promise(r => setTimeout(r, 3500));
-    
+    console.log(
+      `${refreshLatest && existing ? "🔄 Refreshing" : "Processing"}: ${repo.full_name}...`
+    );
+    await new Promise((r) => setTimeout(r, 3000));
+
     const details = await fetchRepoDetails(repo.owner.login, repo.name);
     const hnContext = await fetchHNSentiment(repo.name);
-    
-    const processed = await processWithGemini(repo, details.readme, details.issuesContext, hnContext);
-    
+
+    const processed = await processWithGemini(
+      repo,
+      details.readme,
+      details.rootTree,
+      details.issuesContext,
+      hnContext
+    );
+
     if (processed) {
+      if (existing?.first_seen_at) {
+        processed.first_seen_at = existing.first_seen_at;
+      }
       results.push(processed);
       console.log(`✅ Successfully processed ${repo.full_name}`);
+    } else if (existing) {
+      // Safe fallback to existing analysis if refresh fails for one repo
+      results.push({
+        ...existing,
+        stars: repo.stargazers_count,
+        stars_today: getStarsTodayApprox(repo),
+        open_issues: repo.open_issues_count,
+        updated_at: new Date().toISOString(),
+      });
+      console.log(`⚠️ Refresh failed for ${repo.full_name}, preserved cached version.`);
     } else {
       console.log(`❌ Failed to process ${repo.full_name}`);
     }
@@ -500,4 +561,3 @@ async function main() {
 }
 
 main().catch(console.error);
-
