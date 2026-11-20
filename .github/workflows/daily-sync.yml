@@ -43,18 +43,33 @@ jobs:
             exit 0
           fi
           TODAY=$(TZ=Asia/Bangkok date +%F)
-          LAST_SYNC_DATE=$(node -e '
+          GUARD_STATE=$(node -e '
             const fs = require("fs");
+            const toIct = (iso) => {
+              if (!iso) return "none";
+              const d = new Date(iso);
+              if (Number.isNaN(d.getTime())) return "none";
+              return new Intl.DateTimeFormat("en-CA", {
+                timeZone: "Asia/Bangkok",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+              }).format(d);
+            };
             try {
               const s = JSON.parse(fs.readFileSync("src/data/sync-status.json", "utf8"));
-              console.log(s.last_sync_date_ict || "none");
+              const syncDay = s.last_sync_date_ict || "none";
+              const tgDay = toIct(s.telegram_sent_at);
+              console.log(syncDay + "|" + tgDay);
             } catch {
-              console.log("none");
+              console.log("none|none");
             }
           ')
-          echo "Today (ICT): $TODAY | Last sync-status.json date (ICT): $LAST_SYNC_DATE"
-          if [ "$LAST_SYNC_DATE" = "$TODAY" ]; then
-            echo "Already synced today (ICT) -> skipping backup schedule slot."
+          LAST_SYNC_DATE="${GUARD_STATE%%|*}"
+          LAST_TG_DATE="${GUARD_STATE##*|}"
+          echo "Today (ICT): $TODAY | Last sync (ICT): $LAST_SYNC_DATE | Last Telegram sent (ICT): $LAST_TG_DATE"
+          if [ "$LAST_SYNC_DATE" = "$TODAY" ] && [ "$LAST_TG_DATE" = "$TODAY" ]; then
+            echo "Already synced and Telegram sent today (ICT) -> skipping backup schedule slot."
             echo "skip=true" >> $GITHUB_OUTPUT
           else
             echo "skip=false" >> $GITHUB_OUTPUT

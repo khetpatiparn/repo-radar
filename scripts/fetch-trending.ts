@@ -437,10 +437,22 @@ async function loadPreviousFeed(): Promise<{
         cachedById.set(`${r.owner}/${r.name}`.toLowerCase(), r);
       }
 
-      const prevDate = prevToday[0]?.updated_at?.slice(0, 10);
-      const currDate = new Date().toISOString().slice(0, 10);
+      const toBangkokDate = (isoOrDate: string | Date | undefined): string | null => {
+        if (!isoOrDate) return null;
+        const d = typeof isoOrDate === "string" ? new Date(isoOrDate) : isoOrDate;
+        if (Number.isNaN(d.getTime())) return null;
+        return new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Asia/Bangkok",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).format(d);
+      };
 
-      if ((prevDate && prevDate !== currDate) || prevYesterday.length === 0) {
+      const prevDate = toBangkokDate(prevToday[0]?.updated_at);
+      const currDate = toBangkokDate(new Date());
+
+      if ((prevDate && currDate && prevDate !== currDate) || prevYesterday.length === 0) {
         yesterdayRepos = prevToday;
       } else {
         yesterdayRepos = prevYesterday;
