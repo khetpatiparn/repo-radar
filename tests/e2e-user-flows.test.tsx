@@ -226,10 +226,12 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     const readNewsBtn = screen.getByText(/กดอ่านข่าวเจาะลึก/i);
     fireEvent.click(readNewsBtn);
 
-    // Verify full reader TOC & sections
+    // Verify full reader TOC & sections (3-Pass Hands-On or legacy playbook)
     expect(screen.getByText(/สารบัญบทความ \(TOC\)/i)).toBeDefined();
     expect(screen.getByText(/เปรียบเทียบก่อนอัปเดต vs หลังอัปเดต/i)).toBeDefined();
-    expect(screen.getByText(/3 แนวทางการนำไปใช้ประโยชน์จริง/i)).toBeDefined();
+    expect(
+      screen.getByText(/Pass 3 · ลองทำตามจริง & หัวข้อศึกษาต่อ|3 แนวทางการนำไปใช้ประโยชน์จริง/i)
+    ).toBeDefined();
     expect(screen.getByText(/เปิดอ่านประกาศต้นฉบับบน Google Blog/i)).toBeDefined();
 
     // Bookmark the news article from reader and verify in Saved section

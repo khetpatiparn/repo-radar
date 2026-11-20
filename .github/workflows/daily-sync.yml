@@ -2,11 +2,12 @@ name: Daily Trending Sync
 
 on:
   schedule:
-    # GitHub อาจดีเลย์หรือ "ทิ้ง" scheduled run ได้เมื่อโหลดสูง (โดยเฉพาะช่วงต้นชั่วโมง)
-    # จึงตั้งรอบหลัก + รอบสำรอง โดยรอบสำรองจะข้ามเองถ้าวันนี้ซิงก์สำเร็จไปแล้ว
-    - cron: '37 23 * * *' # รอบหลัก   06:37 น. เวลาไทย (23:37 UTC ของวันก่อน)
-    - cron: '23 1 * * *'  # รอบสำรอง 1 08:23 น. เวลาไทย
-    - cron: '47 2 * * *'  # รอบสำรอง 2 09:47 น. เวลาไทย
+    # ตั้งเวลาหนีช่วงรถติดเที่ยงคืน UTC (23:30–00:30 UTC ที่ GitHub Actions มักดีเลย์ 4-5 ชม.)
+    # รอบหลักเริ่มก่อนเที่ยงคืน UTC 2.5 ชม. เพื่อให้ซิงก์เสร็จ + ส่ง Telegram ทันช่วงเช้าเวลาไทย (05:00-07:30 น.)
+    # มีรอบสำรองเผื่อ GitHub ทิ้งคิว โดยรอบสำรองจะข้ามเองถ้าวันนี้ซิงก์และส่งแจ้งเตือนไปแล้ว
+    - cron: '19 21 * * *' # รอบหลัก   04:19 น. เวลาไทย (21:19 UTC — คิวโล่งก่อนเที่ยงคืน UTC)
+    - cron: '43 22 * * *' # รอบสำรอง 1 05:43 น. เวลาไทย (22:43 UTC)
+    - cron: '19 0 * * *'  # รอบสำรอง 2 07:19 น. เวลาไทย (00:19 UTC)
   workflow_dispatch: # กดรันเองได้เสมอ (บังคับซิงก์ หรือ refresh บทความล่าสุดเป็นรูปแบบ 3-Pass)
     inputs:
       refresh_latest:
@@ -42,10 +43,18 @@ jobs:
             exit 0
           fi
           TODAY=$(TZ=Asia/Bangkok date +%F)
-          LAST=$(git log -1 --author="github-actions\[bot\]" --format=%cI -- src/data/ || true)
-          LAST_DAY=$( [ -n "$LAST" ] && TZ=Asia/Bangkok date -d "$LAST" +%F || echo none )
-          echo "Today (ICT): $TODAY | Last bot data sync (ICT): $LAST_DAY"
-          if [ "$LAST_DAY" = "$TODAY" ]; then
+          LAST_SYNC_DATE=$(node -e '
+            const fs = require("fs");
+            try {
+              const s = JSON.parse(fs.readFileSync("src/data/sync-status.json", "utf8"));
+              console.log(s.last_sync_date_ict || "none");
+            } catch {
+              console.log("none");
+            }
+          ')
+          echo "Today (ICT): $TODAY | Last sync-status.json date (ICT): $LAST_SYNC_DATE"
+          if [ "$LAST_SYNC_DATE" = "$TODAY" ]; then
+            echo "Already synced today (ICT) -> skipping backup schedule slot."
             echo "skip=true" >> $GITHUB_OUTPUT
           else
             echo "skip=false" >> $GITHUB_OUTPUT
