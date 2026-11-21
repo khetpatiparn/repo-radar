@@ -1,6 +1,124 @@
 {
-  "updated_at": "2026-11-20T07:22:30.580Z",
+  "updated_at": "2026-11-21T02:36:09.766Z",
   "articles": [
+    {
+      "id": "search-connected-apps-holiday-errands-0f4da9",
+      "title": "Get your year-end tasks done with new Connected Apps.",
+      "url": "https://blog.google/products-and-platforms/products/search/connected-apps-holiday-errands/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-20",
+      "published_at": "2026-11-20T18:00:00.000Z",
+      "updated_at": "2026-11-21T02:36:09.755Z",
+      "first_seen_at": "2026-11-21T02:36:09.755Z",
+      "authors": [],
+      "rss_categories": [
+        "Gemini App",
+        "Search"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Connected_apps_-_Social_share_a.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google เปิดตัว Connected Apps ใน Search และ Gemini ช่วยจัดการงานจุกจิกปลายปีอัตโนมัติ",
+      "short_teaser": "Google นำเสนอโซลูชันเชื่อมต่อบริการต่างๆ เข้าสู่ Search และ Gemini เพื่อจัดการ Grocery, การเงิน และงานบ้านได้โดยตรง",
+      "tldr_takeaways": [
+        "รองรับการจัดการ Grocery ผ่าน Albertsons, Safeway, Shaw’s และ Target โดยใช้ Universal Commerce Protocol",
+        "Experian เพิ่มความสามารถในการตรวจสอบเครดิตและเลือกสินเชื่อส่วนบุคคลได้โดยตรงจาก Search",
+        "H&R Block ช่วยคำนวณภาษีและประเมินยอดคืนเงินภายในหน้า Search"
+      ],
+      "layman_story": [
+        "Google พยายามลดขั้นตอนการสลับแอปไปมาด้วยการนำ 'Connected Apps' มาไว้ใน Search และ Gemini เพื่อจัดการ To-do list ช่วงเทศกาลที่วุ่นวายโดยเฉพาะ",
+        "หัวใจสำคัญคือการใช้ Universal Commerce Protocol ที่อนุญาตให้ข้อมูลจาก Third-party บริการอย่างร้านขายของชำ หรือบริการสินเชื่อ ทำงานประสานกันแบบเรียลไทม์ผ่านหน้าการค้นหาหลัก",
+        "ปัจจุบันฟีเจอร์นี้เน้นกลุ่มผู้ใช้ในสหรัฐฯ เป็นหลัก โดยเตรียมขยายไปถึงการค้นหาช่างซ่อมบ้านผ่าน Angi และ Thumbtack ในอนาคตอันใกล้"
+      ],
+      "impact_comparison": {
+        "before": "ต้องเข้าแอปหรือเว็บไซต์แต่ละที่แยกกันเพื่อเช็กเครดิต คำนวณภาษี หรือสั่งของชำ",
+        "after": "รวมศูนย์งาน Logistical เหล่านี้ไว้ใน Search query เดียว",
+        "why_it_matters": "เป็นการเปลี่ยน Search จากเครื่องมือค้นข้อมูลเป็น 'Action Hub' ที่ทำธุรกรรมได้จริง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ตรวจสอบ Availability",
+          "role": "ทดสอบฟีเจอร์",
+          "description": "หากคุณอยู่ในสหรัฐฯ ให้ทดลองพิมพ์ค้นหาบริการเหล่านั้นใน Gemini App",
+          "example": "ลองสั่ง Grocery ผ่าน Search เพื่อดู Flow ของ Universal Commerce Protocol"
+        },
+        {
+          "title": "ศึกษาแนวคิด Agentic Search",
+          "role": "วิเคราะห์เทคโนโลยี",
+          "description": "ดูว่า Google จัดการ Workflow เหล่านี้อย่างไรผ่าน Search",
+          "example": "เปรียบเทียบผลลัพธ์การค้นหาแบบปกติ กับการใช้งาน Connected Apps"
+        },
+        {
+          "title": "ติดตามเอกสารนักพัฒนา",
+          "role": "เตรียมตัว",
+          "description": "คอยดูว่าจะมี SDK หรือ API สำหรับ Universal Commerce Protocol หรือไม่",
+          "example": "หาข้อมูลเพิ่มเติมเกี่ยวกับ Universal Commerce Protocol"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เชื่อมต่อบริการร้านชำใหญ่ๆ ในสหรัฐฯ เข้ากับระบบสั่งซื้อของ Search",
+          "การคำนวณภาษีและสินเชื่อส่วนบุคคลผ่าน Experian และ H&R Block ในหน้า Search"
+        ],
+        "watchouts": [
+          "ปัจจุบันใช้งานได้เฉพาะในสหรัฐอเมริกาเท่านั้น",
+          "ยังไม่มีข้อมูลเปิดกว้างสำหรับนักพัฒนาภายนอกที่จะเชื่อมต่อแอปของตนเองในตอนนี้"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "การรวมบริการภายนอกเข้ามาเป็นส่วนหนึ่งของ Search Experience เพื่อจัดการงานธุรการปลายปี",
+          "prerequisite_level": "เข้าใจการใช้งาน Search ทั่วไปและ AI App",
+          "worth_deep_dive": "คุ้มค่าสำหรับคนที่สนใจด้าน UX ของ Search Engine อนาคต",
+          "context_lineage": "ต่อยอดจากโปรเจกต์ Google Assistant และการผสานรวม Gemini เข้ากับระบบนิเวศ Search"
+        },
+        "glossary": [
+          {
+            "term": "Universal Commerce Protocol",
+            "meaning": "มาตรฐานกลางที่ Google ใช้เชื่อมต่อกับระบบหลังบ้านของร้านค้าเพื่อทำธุรกรรม",
+            "analogy": "เหมือนภาษากลางที่ทำให้แอปคุยกันรู้เรื่องและสั่งซื้อของได้โดยไม่ต้องเข้าเว็บร้าน"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Triggering",
+            "detail": "ผู้ใช้ค้นหาบริการ (เช่น Grocery) ผ่านช่องค้นหา"
+          },
+          {
+            "step": "Authentication & Mapping",
+            "detail": "ระบบตรวจสอบบัญชีผู้ใช้และดึงข้อมูลจาก Partner ผ่านโปรโตคอลกลาง"
+          },
+          {
+            "step": "Transaction UI",
+            "detail": "แสดงผลหน้าสั่งซื้อหรือคำนวณเงินใน UI ของ Search โดยตรง"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "รายชื่อ Partner",
+            "value": "Albertsons, Safeway, Shaw’s, Target, Experian, H&R Block, Angi, Thumbtack",
+            "context": "รายชื่อบริการที่รองรับ ณ ปัจจุบัน"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "บัญชี Google ที่อยู่ในสหรัฐอเมริกา",
+            "แอป Gemini หรือเข้าผ่าน Google Search"
+          ],
+          "try_it_steps": [
+            "ทดสอบค้นหาบริการที่ระบุเพื่อดูความแตกต่างของ UI",
+            "สังเกตว่าการตอบสนองเป็นแบบ Interactive มากกว่าเว็บปกติหรือไม่",
+            "ดูข้อจำกัดของการแสดงผลข้อมูลว่ามีความแม่นยำแค่ไหน"
+          ],
+          "next_to_learn": [
+            "Commercial API standards",
+            "Agentic Workflow ใน Search"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "สาย Dev สาย Prod ต้องดู! Google ประกาศอัปเดต 'Connected Apps' ใน Search และ Gemini ที่จะทำให้งานปลายปีจบได้ในที่เดียว ไม่ต้องเข้าหลายแอป\n\nไฮไลท์สำคัญ:\n✅ สั่งของชำจาก Albertsons, Target ฯลฯ ผ่านหน้า Search ได้เลย\n✅ เช็กเครดิตและสินเชื่อส่วนบุคคลกับ Experian ได้ทันที\n✅ คำนวณภาษีกับ H&R Block ในตัว\n✅ กำลังขยายไปถึงการจ้างงานซ่อมบ้านผ่าน Angi/Thumbtack\n\nนี่คือตัวอย่างการใช้ Universal Commerce Protocol มาทำลายกำแพงระหว่าง App ช่วยให้ Search กลายเป็นศูนย์กลางทำธุรกรรมจริง ไม่ใช่แค่หาข้อมูลอีกต่อไป ถึงตอนนี้จะเปิดแค่ในสหรัฐฯ แต่เป็นเทรนด์ Agentic ที่น่าจับตามองมากครับ\n\n#GoogleAI #Gemini #Search #DeveloperUpdate #AIIntegration"
+    },
     {
       "id": "gemini-app-switch-ai-assistants-transfer-history-63715c",
       "title": "ICYMI: Transfer your history from other AI apps into Gemini.",
@@ -8,7 +126,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T20:30:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.569Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.483Z",
       "authors": [],
       "rss_categories": [
@@ -129,7 +247,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T19:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.577Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.488Z",
       "authors": [],
       "rss_categories": [
@@ -256,7 +374,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T18:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.577Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Lucia Loher",
@@ -392,7 +510,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.577Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Yulie Kwon Kim"
@@ -513,7 +631,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [],
       "rss_categories": [
@@ -646,7 +764,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Michael Friedman"
@@ -770,7 +888,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.577Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T07:22:30.577Z",
       "authors": [],
       "rss_categories": [
@@ -886,7 +1004,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T07:22:30.578Z",
       "authors": [],
       "rss_categories": [
@@ -1008,7 +1126,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T16:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Brianna Doyle"
@@ -1131,7 +1249,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T15:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Katy Bowman"
@@ -1259,7 +1377,7 @@
       "source": "Google Research",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T13:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Travis Beals"
@@ -1382,7 +1500,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T21:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-19T04:37:36.106Z",
       "authors": [
         "Koray Kavukcuoglu"
@@ -1450,7 +1568,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T18:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Diego Rivas",
@@ -1589,7 +1707,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Angus Logan"
@@ -1725,7 +1843,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T22:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Lindsey Lanquist"
       ],
@@ -1859,7 +1977,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "The EmbeddingGemma 2 team"
       ],
@@ -1925,7 +2043,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Josh Woodward"
       ],
@@ -2124,7 +2242,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [],
       "rss_categories": [
         "Google Workspace"
@@ -2253,7 +2371,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T18:30:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Google Threat Intelligence Group (GTIG)"
       ],
@@ -2385,7 +2503,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T16:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud"
@@ -2514,7 +2632,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T14:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Maz Khorasani"
       ],
@@ -2710,7 +2828,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-13",
       "published_at": "2026-11-13T20:30:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Bala Muthukrishnan",
         "Seth Odoom"
@@ -2908,7 +3026,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Robby Stein"
       ],
@@ -2976,7 +3094,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [],
       "rss_categories": [
         "Gemini models",
@@ -3041,7 +3159,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Koray Kavukcuoglu"
       ],
@@ -3302,7 +3420,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T18:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Min Choi",
         "Felix Yu"
@@ -3370,7 +3488,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud",
@@ -3435,7 +3553,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
+      "updated_at": "2026-11-21T02:36:09.762Z",
       "authors": [
         "Gary Eimerman"
       ],
@@ -3559,73 +3677,6 @@
           "ควรใช้งานด้วยความระมัดระวังเพื่อความปลอดภัยบนท้องถนน"
         ]
       }
-    },
-    {
-      "id": "google-labs-tabletop-97adab",
-      "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do more together.",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
-      "source": "Google Labs",
-      "published_date": "2026-11-11",
-      "published_at": "2026-11-11T16:00:00.000Z",
-      "updated_at": "2026-11-20T07:22:30.578Z",
-      "authors": [
-        "Roman Nurik"
-      ],
-      "rss_categories": [
-        "Google Labs",
-        "AI"
-      ],
-      "category": "Google Research & Labs",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/labs_tabletop_blog_image_2784x1.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "ลองใช้ Tabletop จาก Google Labs: พื้นที่ทำงานร่วมกันแบบปรับแต่งได้สำหรับวางแผน โหวต และจัดทริปเป็นกลุ่ม",
-      "short_teaser": "Google Labs เปิดตัว Tabletop การทดลองใหม่ที่รวมพื้นที่ทำงานร่วมกันแบบยืดหยุ่น ให้ทีมหรือกลุ่มเพื่อนสร้างแผนการเดินทาง โพลโหวต และตารางแข่งขันได้ในที่เดียว",
-      "tldr_takeaways": [
-        "Tabletop คือโปรเจกต์ทดลองใหม่จาก Google Labs สำหรับการทำงานและวางแผนร่วมกันเป็นกลุ่ม",
-        "สร้าง Interactive Itineraries (แผนเดินทาง), Polls (โพลโหวต) และ Brackets (สายแข่งขัน) ได้ในพื้นที่เดียว",
-        "เปิดให้ลงทะเบียนเข้าร่วม Waitlist เพื่อทดลองใช้งานแล้ว"
-      ],
-      "layman_story": [
-        "เวลาจะนัดเพื่อนไปเที่ยว หรือให้ทีมช่วยกันเลือกไอเดียและจัดตารางกิจกรรม เรามักต้องกระโดดข้ามไปมาระหว่างแชตกลุ่ม Google Docs ฟอร์มโหวต และสเปรดชีต จนข้อมูลกระจัดกระจายและสรุปไม่ได้สักที",
-        "Tabletop จาก Google Labs ออกแบบมาเป็น 'โต๊ะทำงานดิจิทัลสำหรับกลุ่ม' ที่ปรับเปลี่ยนชิ้นส่วนได้ตามสถานการณ์ อยากใส่ตารางแพลนเที่ยว อยากตั้งโพลโหวตเลือกร้านอาหาร หรืออยากทำตารางโหวตแบบทัวร์นาเมนต์ก็หยิบมาวางร่วมกันได้ทันที",
-        "แม้จะเป็นผลิตภัณฑ์ระดับ Labs แต่แนวคิดการรวม Collaboration Blocks แบบเบาสบายเข้าด้วยกันน่าสนใจมากสำหรับสาย Productivity และเครื่องมือทำงานเป็นทีม"
-      ],
-      "impact_comparison": {
-        "before": "ก่อนอัปเดต: การวางแผนกลุ่มต้องเปิดหลายแอปสลับกัน ทั้งแชต เอกสาร และเครื่องมือทำโพลแยกส่วน",
-        "after": "หลังอัปเดต: รวมแผนการ โพลโหวต และโมดูลโต้ตอบไว้ในพื้นที่เดียวที่ปรับแต่งได้ง่าย",
-        "why_it_matters": "แสดงให้เห็นการทดลอง UX รูปแบบใหม่ของ Google Labs ในหมวด Social Productivity"
-      },
-      "actionable_playbook": [
-        {
-          "title": "ลงทะเบียน Waitlist เพื่อทดลองใช้กับทีมขนาดเล็ก",
-          "role": "สำหรับผู้ใช้งานทั่วไป / ทีมงาน",
-          "description": "สมัครคิวทดลองใช้สำหรับกิจกรรมวางแผนทริปทีมหรือโหวตหัวข้องาน Hackathon",
-          "example": "ใช้จัดโพลเลือกวันและกิจกรรม Outing ประจำปีของทีม"
-        },
-        {
-          "title": "ศึกษาโครงสร้าง Modular UI สำหรับแอป Collaboration",
-          "role": "สำหรับ Product Manager / UX Designer",
-          "description": "สังเกตวิธีออกแบบ Interactive Blocks (Itinerary, Poll, Bracket) ให้ใช้งานง่ายไม่ซับซ้อน",
-          "example": "นำแนวคิด Widget แบบหยิบวางมาปรับปรุงหน้า Dashboard ของทีม"
-        },
-        {
-          "title": "ประยุกต์ใช้ในการจัดเวิร์กชอปและการเรียนการสอน",
-          "role": "สำหรับวิทยากร / อาจารย์",
-          "description": "ใช้โมดูลโหวตและจัดอันดับช่วยกระตุ้นการมีส่วนร่วมของผู้เรียนในห้อง",
-          "example": "ให้ผู้เรียนร่วมโหวตไอเดียโปรเจกต์ที่ดีที่สุดแบบเรียลไทม์"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "เปิดตัว Tabletop บน Google Labs สำหรับ Group Collaboration",
-          "รองรับโมดูล Interactive Itineraries, Polls และ Brackets"
-        ],
-        "watchouts": [
-          "ยังอยู่ในสถานะ Google Labs Experiment และเปิดผ่าน Waitlist",
-          "ฟีเจอร์ทดลองอาจมีการปรับเปลี่ยนหรือจำกัดภูมิภาคในระยะแรก"
-        ]
-      },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
     }
   ]
 }
