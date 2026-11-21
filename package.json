@@ -12,6 +12,8 @@
     "test:regression": "vitest run tests/regression.test.ts",
     "pipeline": "tsx scripts/fetch-trending.ts && tsx scripts/fetch-papers.ts && tsx scripts/fetch-news.ts && tsx scripts/notify-telegram.ts",
     "pipeline:refresh": "tsx scripts/fetch-trending.ts --refresh-latest && tsx scripts/fetch-papers.ts --refresh-latest && tsx scripts/fetch-news.ts --refresh-latest",
+    "pipeline:backfill": "tsx scripts/fetch-news.ts --backfill-3pass && tsx scripts/fetch-trending.ts --backfill-3pass && tsx scripts/fetch-papers.ts --backfill-3pass",
+    "pipeline:backfill:news": "tsx scripts/fetch-news.ts --backfill-3pass",
     "pipeline:papers": "tsx scripts/fetch-papers.ts",
     "pipeline:news": "tsx scripts/fetch-news.ts",
     "notify:telegram": "tsx scripts/notify-telegram.ts"

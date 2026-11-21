@@ -15,6 +15,7 @@ import {
   DEEP_READING_JSON_SPEC,
   DEEP_READING_RULES,
   extractArxivHtmlHighlights,
+  hasBackfill3PassFlag,
   hasRefreshLatestFlag,
   sanitizeReadingGuide,
 } from "./lib/deep-reading";
@@ -530,16 +531,48 @@ function buildPaperObject(
   return PaperSchema.parse(full);
 }
 
+function cachedPaperToHfItem(paper: PaperData): HFDailyPaperItem {
+  return {
+    title: paper.title,
+    summary: paper.layman_story[0] || paper.short_teaser || paper.title,
+    publishedAt: `${paper.published_date}T00:00:00.000Z`,
+    thumbnail: paper.thumbnail_url,
+    mediaUrls: paper.media_urls,
+    numComments: paper.num_comments,
+    organization: paper.organization ? { fullname: paper.organization } : undefined,
+    paper: {
+      id: paper.id,
+      title: paper.title,
+      summary: paper.layman_story[0] || paper.short_teaser || paper.title,
+      upvotes: paper.upvotes,
+      publishedAt: `${paper.published_date}T00:00:00.000Z`,
+      submittedOnDailyAt: `${paper.published_date}T00:00:00.000Z`,
+      githubRepo: paper.github_url || undefined,
+      githubStars: paper.github_stars ?? undefined,
+      projectPage: paper.project_url || undefined,
+      authors: paper.authors.map((name) => ({ name })),
+      organization: paper.organization ? { fullname: paper.organization } : undefined,
+    },
+  };
+}
+
 async function main() {
   const refreshLatest = hasRefreshLatestFlag();
+  const backfill3Pass = hasBackfill3PassFlag();
   console.log(
-    `Starting RepoRadar Daily Papers Pipeline...${refreshLatest ? " [REFRESH LATEST MODE]" : ""}`
+    `Starting RepoRadar Daily Papers Pipeline...${
+      backfill3Pass
+        ? " [BACKFILL 3-PASS MODE]"
+        : refreshLatest
+        ? " [REFRESH LATEST MODE]"
+        : ""
+    }`
   );
 
   const { existingDays, cachedById } = await loadExistingPapers();
   const hfItems = await fetchHFDailyPapers();
 
-  if (hfItems.length === 0) {
+  if (hfItems.length === 0 && !backfill3Pass) {
     console.log("No papers fetched from Hugging Face API. Exiting.");
     return;
   }
@@ -579,7 +612,12 @@ async function main() {
     const needGemini: HFDailyPaperItem[] = [];
     for (const item of dayItems) {
       const existing = cachedById.get(item.paper.id);
-      if (forceRefreshDay || !existing || existing.layman_story.length < 3) {
+      if (
+        forceRefreshDay ||
+        !existing ||
+        existing.layman_story.length < 3 ||
+        !existing.reading_guide
+      ) {
         needGemini.push(item);
       }
     }
@@ -656,6 +694,56 @@ async function main() {
 
     if (dayPapers.length > 0) {
       updatedDaysMap.set(dateStr, dayPapers);
+    }
+  }
+
+  // In --backfill-3pass mode, upgrade any remaining legacy papers across the rolling 7-day window
+  if (backfill3Pass && GEMINI_API_KEY) {
+    const processedApiDateSet = new Set(datesToProcess);
+    const backfillDates = Array.from(updatedDaysMap.keys())
+      .filter((d) => !processedApiDateSet.has(d))
+      .sort((a, b) => b.localeCompare(a));
+
+    for (const dateStr of backfillDates) {
+      const existingList = updatedDaysMap.get(dateStr) || [];
+      const legacyPapers = existingList.filter((p) => !p.reading_guide);
+      if (legacyPapers.length === 0) continue;
+
+      console.log(
+        `[Backfill 3-Pass] Date ${dateStr}: upgrading ${legacyPapers.length}/${existingList.length} legacy papers...`
+      );
+      const hfLikeItems = legacyPapers.map(cachedPaperToHfItem);
+      const sourceContextMap = await enrichPapersWithSourceContext(hfLikeItems);
+      const aiResultsMap = new Map<string, Record<string, unknown>>();
+
+      for (let i = 0; i < hfLikeItems.length; i += BATCH_SIZE) {
+        const batch = hfLikeItems.slice(i, i + BATCH_SIZE);
+        console.log(
+          `  -> Backfill batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(hfLikeItems.length / BATCH_SIZE)} (${batch.map((b) => b.paper.id).join(", ")})`
+        );
+        const batchMap = await processBatchWithGemini(batch, sourceContextMap);
+        for (const [k, v] of batchMap.entries()) {
+          aiResultsMap.set(k, v);
+        }
+        await new Promise((r) => setTimeout(r, 2500));
+      }
+
+      const upgradedList = existingList.map((paper) => {
+        const aiData = aiResultsMap.get(paper.id);
+        if (!aiData) return paper;
+        const sourceDepth = sourceContextMap.get(paper.id)?.sourceDepth;
+        const built = buildPaperObject(
+          cachedPaperToHfItem(paper),
+          aiData,
+          dateStr,
+          sourceDepth
+        );
+        if (paper.first_seen_at) {
+          built.first_seen_at = paper.first_seen_at;
+        }
+        return built;
+      });
+      updatedDaysMap.set(dateStr, upgradedList);
     }
   }
 

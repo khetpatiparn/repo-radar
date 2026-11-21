@@ -8,10 +8,15 @@ on:
     - cron: '19 21 * * *' # รอบหลัก   04:19 น. เวลาไทย (21:19 UTC — คิวโล่งก่อนเที่ยงคืน UTC)
     - cron: '43 22 * * *' # รอบสำรอง 1 05:43 น. เวลาไทย (22:43 UTC)
     - cron: '19 0 * * *'  # รอบสำรอง 2 07:19 น. เวลาไทย (00:19 UTC)
-  workflow_dispatch: # กดรันเองได้เสมอ (บังคับซิงก์ หรือ refresh บทความล่าสุดเป็นรูปแบบ 3-Pass)
+  workflow_dispatch: # กดรันเองได้เสมอ (บังคับซิงก์ หรือ refresh/backfill บทความเก่าเป็นรูปแบบ 3-Pass)
     inputs:
       refresh_latest:
         description: 'Re-generate today papers, today repos, and latest 10 news with 3-Pass deep reading (skips duplicate Telegram alert)'
+        required: false
+        type: boolean
+        default: false
+      backfill_3pass:
+        description: 'Backfill ALL legacy news blogs, repos, and 7-day papers that are missing 3-Pass reading_guide (skips duplicate Telegram alert)'
         required: false
         type: boolean
         default: false
@@ -95,8 +100,11 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SITE_URL: ${{ secrets.SITE_URL }}
           REFRESH_LATEST: ${{ github.event.inputs.refresh_latest == 'true' && 'true' || 'false' }}
+          BACKFILL_3PASS: ${{ github.event.inputs.backfill_3pass == 'true' && 'true' || 'false' }}
         run: |
-          if [ "$REFRESH_LATEST" = "true" ]; then
+          if [ "$BACKFILL_3PASS" = "true" ]; then
+            npm run pipeline:backfill
+          elif [ "$REFRESH_LATEST" = "true" ]; then
             npm run pipeline:refresh
           else
             npm run pipeline

@@ -39,6 +39,7 @@ export const DeepReadingGuideSchema = z.object({
       "arxiv_and_readme",
       "readme_and_issues",
       "abstract_only",
+      "legacy_adapted",
     ])
     .optional(),
 });

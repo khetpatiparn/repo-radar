@@ -17,6 +17,7 @@ import {
   DEEP_READING_RULES,
   decodeHtmlEntities,
   extractReadableTextFromHtml,
+  hasBackfill3PassFlag,
   hasRefreshLatestFlag,
   sanitizeReadingGuide,
 } from "./lib/deep-reading";
@@ -648,8 +649,15 @@ function buildNewsObject(
 
 async function main() {
   const refreshLatest = hasRefreshLatestFlag();
+  const backfill3Pass = hasBackfill3PassFlag();
   console.log(
-    `📰 Starting Google Official Blog RSS Sync...${refreshLatest ? " [REFRESH LATEST MODE]" : ""}`
+    `📰 Starting Google Official Blog RSS Sync...${
+      backfill3Pass
+        ? " [BACKFILL 3-PASS MODE]"
+        : refreshLatest
+        ? " [REFRESH LATEST MODE]"
+        : ""
+    }`
   );
 
   const cachedByUrl = await loadExistingNews();
@@ -660,13 +668,44 @@ async function main() {
     `Found ${rssItems.length} relevant AI/Tech news items from Google Blog RSS.`
   );
 
-  if (rssItems.length === 0) {
+  if (rssItems.length === 0 && !backfill3Pass) {
     console.log("No RSS items fetched. Keeping existing news.json intact.");
     return;
   }
 
   let toSummarize: RawRSSItem[];
-  if (refreshLatest) {
+  if (backfill3Pass) {
+    // Backfill ALL cached articles and RSS items that are still missing 3-Pass reading_guide
+    const byUrl = new Map<string, RawRSSItem>();
+    for (const item of rssItems) {
+      const cached = cachedByUrl.get(item.url);
+      if (!cached || cached.layman_story.length < 2 || !cached.reading_guide) {
+        byUrl.set(item.url, item);
+      }
+    }
+    for (const [url, art] of cachedByUrl.entries()) {
+      if (byUrl.has(url)) continue;
+      if (!isRelevantAITechItem(art.title, art.short_teaser, art.rss_categories, art.url)) {
+        continue;
+      }
+      if (!art.reading_guide || art.layman_story.length < 2) {
+        byUrl.set(url, {
+          id: art.id,
+          title: art.title,
+          url: art.url,
+          description: art.short_teaser || art.title,
+          published_at: art.published_at,
+          published_date: art.published_date,
+          rss_categories: art.rss_categories,
+          thumbnail_url: art.thumbnail_url,
+          authors: art.authors,
+        });
+      }
+    }
+    toSummarize = Array.from(byUrl.values()).sort((a, b) =>
+      b.published_at.localeCompare(a.published_at)
+    );
+  } else if (refreshLatest) {
     // Re-generate top N latest articles with full body + 3-Pass reading_guide
     const latestSet = new Set(
       rssItems.slice(0, REFRESH_LATEST_NEWS_COUNT).map((item) => item.url)
@@ -675,14 +714,14 @@ async function main() {
       .filter((item) => {
         if (latestSet.has(item.url)) return true;
         const cached = cachedByUrl.get(item.url);
-        return !cached || cached.layman_story.length < 2;
+        return !cached || cached.layman_story.length < 2 || !cached.reading_guide;
       })
       .slice(0, MAX_NEW_PER_RUN);
   } else {
     toSummarize = rssItems
       .filter((item) => {
         const cached = cachedByUrl.get(item.url);
-        return !cached || cached.layman_story.length < 2;
+        return !cached || cached.layman_story.length < 2 || !cached.reading_guide;
       })
       .slice(0, MAX_NEW_PER_RUN);
   }
@@ -723,8 +762,18 @@ async function main() {
     }
   }
 
-  // Add/update from latest RSS
+  // Merge both live RSS items and any backfilled cached articles
+  const itemsToMerge = new Map<string, RawRSSItem>();
   for (const item of rssItems) {
+    itemsToMerge.set(item.url, item);
+  }
+  for (const item of toSummarize) {
+    if (!itemsToMerge.has(item.url)) {
+      itemsToMerge.set(item.url, item);
+    }
+  }
+
+  for (const item of itemsToMerge.values()) {
     const cached = cachedByUrl.get(item.url);
     const aiData = aiResultsMap.get(item.id);
 

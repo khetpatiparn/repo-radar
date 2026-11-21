@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { render, screen, fireEvent, within } from "@testing-library/react";
+import { render, screen, fireEvent, within, waitFor } from "@testing-library/react";
 import Home from "../src/app/page";
 
 describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
@@ -385,6 +385,62 @@ describe("End-to-End User Journeys (E2E Integration & Usability)", () => {
     const pass3Summary = screen.getByText(/Pass 3 · ลองทำตามจริง & หัวข้อศึกษาต่อ/i);
     fireEvent.click(pass3Summary);
     expect(screen.getByText(/Singular Value Decomposition \(SVD\)/i)).toBeDefined();
+  });
+
+  it("E2E Journey 13: Bookmarked Pre-3-Pass Blogs Auto-Upgrade & Archived Bookmarks Render in 3-Pass Layout", async () => {
+    const newsModule = await import("../src/data/news.json");
+    const articles = newsModule.default
+      .articles as unknown as import("../src/types").NewsArticleData[];
+    const live3PassNews = articles.find((a) => Boolean(a.reading_guide));
+    expect(live3PassNews).toBeDefined();
+    if (!live3PassNews) return;
+
+    // Seed localStorage with:
+    // 1) Stale pre-3-Pass snapshot of a live 3-Pass news article
+    // 2) Archived pre-3-Pass blog no longer in news.json
+    const staleLiveCopy = { ...live3PassNews, reading_guide: undefined };
+    const archivedBlog = {
+      ...live3PassNews,
+      id: "archived-legacy-google-blog-001",
+      url: "https://blog.google/technology/ai/archived-legacy-blog-001/",
+      hook_headline: "ข่าวเก่าที่คั่นหน้าไว้ก่อนมีระบบ 3-Pass",
+      reading_guide: undefined,
+    };
+
+    localStorage.setItem(
+      "reporadar_saved_news_v1",
+      JSON.stringify({
+        [staleLiveCopy.id]: staleLiveCopy,
+        [archivedBlog.id]: archivedBlog,
+      })
+    );
+
+    render(<Home />);
+
+    // Verify localStorage snapshot for live article was automatically upgraded to real 3-Pass
+    await waitFor(() => {
+      const persistedRaw = localStorage.getItem("reporadar_saved_news_v1");
+      expect(persistedRaw).toBeTruthy();
+      const persisted = JSON.parse(persistedRaw!);
+      expect(persisted[staleLiveCopy.id]?.reading_guide).toBeDefined();
+      expect(persisted[staleLiveCopy.id]?.reading_guide?.source_depth).not.toBe("legacy_adapted");
+    });
+
+    // Navigate to Saved tab
+    const nav = screen.getByRole("navigation", { name: "หมวดหมู่หลักของวารสาร" });
+    const savedTab = within(nav).getByRole("button", { name: /คั่นหน้า/i });
+    fireEvent.click(savedTab);
+
+    // Open the archived pre-3-Pass blog -> must still render in unified 3-Pass layout
+    const archivedCardHeading = screen.getByText("ข่าวเก่าที่คั่นหน้าไว้ก่อนมีระบบ 3-Pass");
+    fireEvent.click(archivedCardHeading);
+
+    expect(screen.getByText(/Pass 1 · คัดกรองก่อนลงลึก \(5 Cs\)/i)).toBeDefined();
+    expect(screen.getByText(/จัดรูป 3-Pass จากฉบับสรุปเดิม/i)).toBeDefined();
+    expect(screen.getByText(/Pass 2 · กลไกการทำงานจริง/i)).toBeDefined();
+    expect(screen.getByText(/Pass 3 · ลองทำตามจริง & หัวข้อศึกษาต่อ/i)).toBeDefined();
+
+    localStorage.removeItem("reporadar_saved_news_v1");
   });
 });
 

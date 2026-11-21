@@ -330,6 +330,97 @@ describe("Regression Tests: Data Schemas & Pipeline Integrity", () => {
     expect(sanitized?.how_it_works.length).toBe(1);
     expect(sanitized?.hard_evidence[0].value).toBe("ต้นฉบับไม่ระบุตัวเลข");
   });
+
+  it("should reconcile stale pre-3-Pass bookmarks against latest 3-Pass feed data without downgrading", async () => {
+    const {
+      reconcileSavedNews,
+      reconcileSavedPapers,
+      reconcileSavedRepos,
+    } = await import("../src/lib/savedReconcile");
+    const nFeed = newsData as unknown as NewsFeedData;
+    const pFeed = papersData as unknown as PapersFeedData;
+    const rFeed = reposData as unknown as ReposFeedData;
+
+    // 1. News: stale bookmark without reading_guide upgrades to live 3-Pass article
+    const freshNewsWith3Pass = nFeed.articles.find((a) => Boolean(a.reading_guide));
+    expect(freshNewsWith3Pass).toBeDefined();
+    if (freshNewsWith3Pass) {
+      const staleNews = { ...freshNewsWith3Pass, reading_guide: undefined };
+      const { map, changed, upgradedCount } = reconcileSavedNews(
+        { [staleNews.id]: staleNews },
+        nFeed.articles
+      );
+      expect(changed).toBe(true);
+      expect(upgradedCount).toBe(1);
+      expect(map[freshNewsWith3Pass.id].reading_guide).toBeDefined();
+
+      // Never downgrade an existing 3-Pass bookmark if feed lacked reading_guide
+      const downgradedFeed = [{ ...freshNewsWith3Pass, reading_guide: undefined }];
+      const noDowngrade = reconcileSavedNews(
+        { [freshNewsWith3Pass.id]: freshNewsWith3Pass },
+        downgradedFeed
+      );
+      expect(noDowngrade.changed).toBe(false);
+      expect(noDowngrade.map[freshNewsWith3Pass.id].reading_guide).toBeDefined();
+    }
+
+    // 2. Paper: stale bookmark upgrades cleanly
+    const freshPaperWith3Pass = pFeed.days[0].papers.find((p) => Boolean(p.reading_guide));
+    expect(freshPaperWith3Pass).toBeDefined();
+    if (freshPaperWith3Pass) {
+      const stalePaper = { ...freshPaperWith3Pass, reading_guide: undefined };
+      const res = reconcileSavedPapers(
+        { [stalePaper.id]: stalePaper },
+        pFeed.days[0].papers
+      );
+      expect(res.changed).toBe(true);
+      expect(res.map[freshPaperWith3Pass.id].reading_guide).toBeDefined();
+    }
+
+    // 3. Repo: stale bookmark upgrades cleanly
+    const freshRepoWith3Pass = rFeed.today.find((r) => Boolean(r.reading_guide));
+    expect(freshRepoWith3Pass).toBeDefined();
+    if (freshRepoWith3Pass) {
+      const staleRepo = { ...freshRepoWith3Pass, reading_guide: undefined };
+      const res = reconcileSavedRepos(
+        { [staleRepo.id]: staleRepo },
+        rFeed.today
+      );
+      expect(res.changed).toBe(true);
+      expect(res.map[freshRepoWith3Pass.id].reading_guide).toBeDefined();
+    }
+  });
+
+  it("should honestly adapt legacy items without reading_guide into valid 3-Pass DeepReadingGuide", async () => {
+    const {
+      resolveNewsReadingGuide,
+      resolvePaperReadingGuide,
+      resolveRepoReadingGuide,
+    } = await import("../src/lib/legacyReadingGuide");
+    const { DeepReadingGuideSchema } = await import("../src/types");
+    const nFeed = newsData as unknown as NewsFeedData;
+    const pFeed = papersData as unknown as PapersFeedData;
+    const rFeed = reposData as unknown as ReposFeedData;
+
+    const legacyNews = { ...nFeed.articles[0], reading_guide: undefined };
+    const newsGuide = resolveNewsReadingGuide(legacyNews);
+    expect(DeepReadingGuideSchema.safeParse(newsGuide).success).toBe(true);
+    expect(newsGuide.source_depth).toBe("legacy_adapted");
+    expect(newsGuide.glossary).toEqual([]);
+    expect(newsGuide.pass3_hands_on.try_it_steps.length).toBeGreaterThan(0);
+
+    const legacyPaper = { ...pFeed.days[0].papers[0], reading_guide: undefined };
+    const paperGuide = resolvePaperReadingGuide(legacyPaper);
+    expect(DeepReadingGuideSchema.safeParse(paperGuide).success).toBe(true);
+    expect(paperGuide.source_depth).toBe("legacy_adapted");
+    expect(paperGuide.glossary).toEqual([]);
+
+    const legacyRepo = { ...rFeed.today[0], reading_guide: undefined };
+    const repoGuide = resolveRepoReadingGuide(legacyRepo);
+    expect(DeepReadingGuideSchema.safeParse(repoGuide).success).toBe(true);
+    expect(repoGuide.source_depth).toBe("legacy_adapted");
+    expect(repoGuide.glossary).toEqual([]);
+  });
 });
 
 

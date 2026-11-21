@@ -6,6 +6,7 @@ import { RepositorySchema, type RepositoryData } from "../src/types";
 import {
   DEEP_READING_JSON_SPEC,
   DEEP_READING_RULES,
+  hasBackfill3PassFlag,
   hasRefreshLatestFlag,
   sanitizeReadingGuide,
 } from "./lib/deep-reading";
@@ -467,8 +468,15 @@ async function loadPreviousFeed(): Promise<{
 
 async function main() {
   const refreshLatest = hasRefreshLatestFlag();
+  const backfill3Pass = hasBackfill3PassFlag();
   console.log(
-    `Starting RepoRadar Data Pipeline...${refreshLatest ? " [REFRESH LATEST MODE]" : ""}`
+    `Starting RepoRadar Data Pipeline...${
+      backfill3Pass
+        ? " [BACKFILL 3-PASS MODE]"
+        : refreshLatest
+        ? " [REFRESH LATEST MODE]"
+        : ""
+    }`
   );
 
   if (!GITHUB_TOKEN || !GEMINI_API_KEY) {
@@ -499,7 +507,7 @@ async function main() {
       cachedById.get(repo.id.toString()) ||
       cachedById.get(repo.full_name.toLowerCase());
 
-    if (existing && !refreshLatest) {
+    if (existing && !refreshLatest && existing.reading_guide) {
       console.log(
         `♻️ Reusing existing AI analysis for ${repo.full_name} & updating live stats...`
       );
@@ -522,7 +530,7 @@ async function main() {
     }
 
     console.log(
-      `${refreshLatest && existing ? "🔄 Refreshing" : "Processing"}: ${repo.full_name}...`
+      `${(refreshLatest || backfill3Pass) && existing ? "🔄 Refreshing" : "Processing"}: ${repo.full_name}...`
     );
     await new Promise((r) => setTimeout(r, 3000));
 

@@ -20,6 +20,11 @@ import {
   READ_IDS_STORAGE_KEY,
   getFreshnessInfo,
 } from "../lib/freshness";
+import {
+  reconcileSavedPapers,
+  reconcileSavedRepos,
+  reconcileSavedNews,
+} from "../lib/savedReconcile";
 import { Header, type MainSection } from "../components/Header";
 import { ArticleReader } from "../components/ArticleReader";
 import { PapersSection } from "../components/PapersSection";
@@ -46,6 +51,12 @@ const rawNewsFeed = newsData as unknown as NewsFeedData;
 const allNewsArticles: NewsArticleData[] = Array.isArray(rawNewsFeed?.articles)
   ? rawNewsFeed.articles
   : [];
+
+// Ordered oldest -> newest so newer entries override older ones during bookmark reconciliation
+const allPapersForReconcile: PaperData[] = [...paperDays]
+  .reverse()
+  .flatMap((day) => day.papers || []);
+const allReposForReconcile: RepositoryData[] = [...yesterdayRepos, ...todayRepos];
 
 // Parse Live Sync Status
 const syncStatus = syncStatusRaw as unknown as SyncStatusData;
@@ -102,11 +113,38 @@ export default function Home() {
     const hydrateFromStorage = () => {
       try {
         const sp = localStorage.getItem(SAVED_PAPERS_KEY);
-        if (sp) setSavedPapersMap(JSON.parse(sp));
+        if (sp) {
+          const { map, changed } = reconcileSavedPapers(
+            JSON.parse(sp),
+            allPapersForReconcile
+          );
+          setSavedPapersMap(map);
+          if (changed) {
+            localStorage.setItem(SAVED_PAPERS_KEY, JSON.stringify(map));
+          }
+        }
         const sr = localStorage.getItem(SAVED_REPOS_KEY);
-        if (sr) setSavedReposMap(JSON.parse(sr));
+        if (sr) {
+          const { map, changed } = reconcileSavedRepos(
+            JSON.parse(sr),
+            allReposForReconcile
+          );
+          setSavedReposMap(map);
+          if (changed) {
+            localStorage.setItem(SAVED_REPOS_KEY, JSON.stringify(map));
+          }
+        }
         const sn = localStorage.getItem(SAVED_NEWS_KEY);
-        if (sn) setSavedNewsMap(JSON.parse(sn));
+        if (sn) {
+          const { map, changed } = reconcileSavedNews(
+            JSON.parse(sn),
+            allNewsArticles
+          );
+          setSavedNewsMap(map);
+          if (changed) {
+            localStorage.setItem(SAVED_NEWS_KEY, JSON.stringify(map));
+          }
+        }
         const storedRead = localStorage.getItem(READ_IDS_STORAGE_KEY);
         if (storedRead) {
           const arr = JSON.parse(storedRead);

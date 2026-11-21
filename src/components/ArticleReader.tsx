@@ -21,6 +21,11 @@ import {
   Pass3HandsOnDrawer,
 } from "./DeepReadingBlocks";
 import {
+  resolvePaperReadingGuide,
+  resolveRepoReadingGuide,
+  resolveNewsReadingGuide,
+} from "../lib/legacyReadingGuide";
+import {
   ArrowLeft,
   Bookmark,
   BookmarkCheck,
@@ -575,7 +580,7 @@ export function ArticleReader({
   );
 
   if (paper) {
-    const guide = paper.reading_guide;
+    const guide = resolvePaperReadingGuide(paper);
     const tocItems: TocItem[] = [
       { id: "sec-tldr", num: "01", label: guide ? "Pass 1: คัดกรอง & TL;DR" : "สรุปใจความสำคัญ (TL;DR)" },
       { id: "sec-figure", num: "02", label: "ภาพประกอบจากงานวิจัย" },
@@ -1015,7 +1020,7 @@ export function ArticleReader({
   }
 
   if (repo) {
-    const guide = repo.reading_guide;
+    const guide = resolveRepoReadingGuide(repo);
     const repoToc: TocItem[] = [
       { id: "repo-overview", num: "01", label: guide ? "Pass 1: คัดกรอง & ปัญหาที่แก้" : "บทนำ & ปัญหาที่โปรเจกต์นี้เข้ามาแก้" },
       { id: "repo-compare", num: "02", label: guide ? "Pass 2: กลไก & เปรียบเทียบ" : "เปรียบเทียบกับเครื่องมืออื่นในตลาด" },
@@ -1351,7 +1356,7 @@ export function ArticleReader({
   }
 
   if (news) {
-    const guide = news.reading_guide;
+    const guide = resolveNewsReadingGuide(news);
     const newsToc: TocItem[] = [
       { id: "news-tldr", num: "01", label: guide ? "Pass 1: คัดกรอง & TL;DR" : "สรุปใจความสำคัญ (TL;DR)" },
       { id: "news-figure", num: "02", label: "ภาพประกอบข่าว" },

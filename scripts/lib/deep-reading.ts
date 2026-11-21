@@ -7,6 +7,13 @@ export function hasRefreshLatestFlag(): boolean {
   );
 }
 
+export function hasBackfill3PassFlag(): boolean {
+  return (
+    process.argv.includes("--backfill-3pass") ||
+    process.env.BACKFILL_3PASS === "true"
+  );
+}
+
 export function decodeHtmlEntities(str: string): string {
   return str
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")

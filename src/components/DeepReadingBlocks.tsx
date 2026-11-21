@@ -21,6 +21,7 @@ const SOURCE_DEPTH_LABELS: Record<
   arxiv_html: "สกัดจาก arXiv HTML ฉบับเต็ม",
   readme_and_issues: "สกัดจาก README + โครงสร้างไฟล์ + Issues",
   abstract_only: "สกัดจากบทคัดย่อ (Abstract)",
+  legacy_adapted: "จัดรูป 3-Pass จากฉบับสรุปเดิม",
 };
 
 export function Pass1TriageStrip({ guide }: { guide: DeepReadingGuide }) {
