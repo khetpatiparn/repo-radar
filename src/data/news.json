@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T02:36:09.766Z",
+  "updated_at": "2026-11-22T01:30:15.709Z",
   "articles": [
     {
       "id": "search-connected-apps-holiday-errands-0f4da9",
@@ -8,7 +8,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-20",
       "published_at": "2026-11-20T18:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.755Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-21T02:36:09.755Z",
       "authors": [],
       "rss_categories": [
@@ -126,7 +126,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T20:30:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.483Z",
       "authors": [],
       "rss_categories": [
@@ -247,7 +247,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T19:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.488Z",
       "authors": [],
       "rss_categories": [
@@ -374,7 +374,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T18:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Lucia Loher",
@@ -510,7 +510,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Yulie Kwon Kim"
@@ -631,7 +631,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [],
       "rss_categories": [
@@ -764,7 +764,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Michael Friedman"
@@ -888,7 +888,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T07:22:30.577Z",
       "authors": [],
       "rss_categories": [
@@ -1004,7 +1004,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T07:22:30.578Z",
       "authors": [],
       "rss_categories": [
@@ -1126,7 +1126,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T16:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Brianna Doyle"
@@ -1249,7 +1249,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T15:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Katy Bowman"
@@ -1377,7 +1377,7 @@
       "source": "Google Research",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T13:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Travis Beals"
@@ -1500,7 +1500,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T21:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.700Z",
       "first_seen_at": "2026-11-19T04:37:36.106Z",
       "authors": [
         "Koray Kavukcuoglu"
@@ -1510,56 +1510,121 @@
       ],
       "category": "Gemini & Models",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-neon__blog-header__sm.max-600x600.format-webp.webp",
-      "reading_time_minutes": 4,
-      "hook_headline": "ยกระดับอีกขั้น! เปิดตัว Gemini 4 Neon โมเดลใหม่จาก Google ที่ฉลาดและไวกว่าเดิม",
-      "short_teaser": "Google ประกาศเปิดตัว Gemini 4 Neon สมาชิกใหม่ล่าสุดในตระกูลโมเดลระดับเรือธง พร้อมประสิทธิภาพที่ได้รับการอัปเกรดเพื่อตอบโจทย์งานระดับสูงและงานประมวลผลที่ซับซ้อนขึ้นอย่างเห็นได้ชัด",
+      "reading_time_minutes": 5,
+      "hook_headline": "Google เปิดตัว Gemini 4 Neon: รุ่นเน้นงาน Engineering/Science พร้อมราคาเริ่มต้นที่ถูกลง",
+      "short_teaser": "Gemini 4 Neon คือโมเดลใหม่ที่ออกแบบมาเพื่องานซับซ้อนและการเขียนโค้ดโดยเฉพาะ มาพร้อม context window 1 ล้าน token และโครงสร้างราคาที่ประหยัดขึ้นสูงสุด 95% สำหรับ input ที่ cache ไว้",
       "tldr_takeaways": [
-        "Gemini 4 Neon คือก้าวต่อไปของโมเดล AI ตระกูล Gemini ที่เน้นประสิทธิภาพและความรวดเร็ว",
-        "รองรับงานที่ต้องใช้เหตุผลเชิงลึกและการประมวลผลข้อมูลปริมาณมหาศาลแบบ Real-time",
-        "ถูกออกแบบมาเพื่อให้นักพัฒนาสร้างแอปพลิเคชันที่ตอบสนองได้เฉียบคมและแม่นยำยิ่งขึ้นกว่ารุ่นก่อน"
+        "ประสิทธิภาพสูงสุด: ติดอันดับ 3 บน Artificial Analysis Intelligence Index และอันดับ 2 บน Vals Index",
+        "โครงสร้างราคา: $3 ต่อล้าน input tokens และ $15 ต่อล้าน output tokens พร้อมระบบ cached input tokens ที่ประหยัดถึง 95%",
+        "ความสามารถพิเศษ: พัฒนามาเพื่อการเขียนโค้ด (SWE-sweep mini 12.8% - 39.0%) และงานเชิงวิทยาศาสตร์โดยเฉพาะ"
       ],
       "layman_story": [
-        "ในโลกที่ AI พัฒนาแบบก้าวกระโดด Google ต้องรับมือกับความท้าทายเรื่องความหน่วง (Latency) และความฉลาดในการเข้าใจบริบทที่ซับซ้อน การเปิดตัว Gemini 4 Neon จึงเข้ามาเพื่ออุดช่องว่างดังกล่าว โดยเน้นไปที่การสร้างมาตรฐานใหม่ของความเร็วในการตอบสนองโดยไม่สูญเสียความแม่นยำเชิงเหตุผล",
-        "Gemini 4 Neon ถูกปรับจูนสถาปัตยกรรมภายในใหม่ให้มีประสิทธิภาพในการประมวลผลภาษาและข้อมูลมัลติโมดัล (Multimodal) ได้ลึกซึ้งยิ่งขึ้น ไม่ใช่แค่การตอบคำถามได้ตรงจุด แต่ยังเข้าใจความต่อเนื่องของงานที่ยาวนานได้ดีขึ้นกว่ารุ่นเดิมอย่างมหาศาล ทำให้การสร้าง Agent ที่ทำงานได้อิสระทำได้ง่ายขึ้น",
-        "ความเคลื่อนไหวนี้ถือเป็นการกดดันคู่แข่งอย่างหนัก เพราะ Google ต้องการยึดฐานที่มั่นในกลุ่มนักพัฒนาที่มองหาโมเดลต้นทุนต่อประสิทธิภาพที่คุ้มค่า การเปิดตัวครั้งนี้สะท้อนชัดว่าเทรนด์ AI กำลังเปลี่ยนจากเรื่องของการแข่งขันด้านจำนวนพารามิเตอร์ ไปสู่การเป็นโมเดลที่ 'ใช้งานได้จริง' ในโปรดักชัน",
-        "ก้าวต่อไปที่ต้องจับตาคือการผสาน Gemini 4 Neon เข้ากับระบบนิเวศของ Google Cloud แบบเต็มสูบ ซึ่งจะทำให้นักพัฒนาสามารถปรับแต่งโมเดลผ่าน Vertex AI ได้ง่ายและลึกกว่าเดิม ถือเป็นจุดเปลี่ยนสำคัญที่ธุรกิจขนาดใหญ่ไม่ควรพลาดที่จะเริ่มทดสอบใช้งาน"
+        "Gemini 4 Neon ถูกวางตัวมาเป็น 'Workhorse' สำหรับนักพัฒนาและนักวิจัย เพื่อแก้ปัญหาความหน่วงและต้นทุนในงานที่ต้องทำซ้ำๆ เช่น การ debug โค้ดหลายไฟล์ หรือการประมวลผลข้อมูลวิทยาศาสตร์ชุดใหญ่",
+        "ตัวโมเดลถูกเทรนให้เน้นความแม่นยำ (low fabrication rate) และความสามารถในการฟังคำสั่งที่ซับซ้อน (multi-step instruction following) รวมถึงรองรับ context window ขนาด 1 ล้าน token เพื่ออ่านเอกสารหรือ codebase ขนาดใหญ่ในทีเดียว",
+        "เทียบกับรุ่นก่อนหน้า Neon โดดเด่นที่การคุมต้นทุนต่อ Task ที่ต่ำกว่า Carbon สูงสุดถึง 32% (ที่ระดับความฉลาดเท่ากัน) แต่ข้อจำกัดคือเป็นโมเดลที่เน้นประสิทธิภาพเฉพาะทาง หากต้องการงานที่ต้องการความ Creative ทั่วไปอาจต้องเทียบกับรุ่นอื่นในซีรีส์"
       ],
       "impact_comparison": {
-        "before": "โมเดลรุ่นก่อนอาจมีข้อจำกัดเรื่องความหน่วงในการประมวลผลงานขนาดใหญ่ และการเชื่อมโยงบริบทที่ซับซ้อนในระยะยาว",
-        "after": "Gemini 4 Neon เข้ามาแก้ปัญหาความล่าช้า เพิ่มความเร็วในการประมวลผล และมีความเข้าใจบริบทที่แม่นยำกว่าเดิม",
-        "why_it_matters": "เป็นการสร้างสมดุลระหว่างความฉลาดระดับท็อปและความคล่องตัวในการนำไปใช้จริง ซึ่งจำเป็นมากสำหรับการขยายตัวของ AI ในระดับองค์กร"
+        "before": "การทำ Coding Agent งานหนักๆ มักมีต้นทุนสูงและมักเกิดการ 'หลอน' หรือเขียนโค้ดที่ไม่ปลอดภัย",
+        "after": "Neon ให้ผลลัพธ์ที่ปลอดภัยกว่า (State-of-the-art บน AutoBaxBench) และประหยัดงบด้วยระบบ cache input",
+        "why_it_matters": "นี่คือโมเดลแรกๆ ที่พุ่งเป้าไปที่ผลลัพธ์เชิงวิศวกรรมแบบจับต้องได้จริง (Production-ready code)"
       },
       "actionable_playbook": [
         {
-          "title": "ทดสอบประสิทธิภาพผ่าน AI Studio",
-          "role": "สำหรับนักพัฒนา / AI Builder",
-          "description": "เริ่มต้นนำโปรเจกต์เดิมมาทดสอบรันบนโมเดลใหม่เพื่อดูการตอบสนองที่เร็วกว่าเดิม",
-          "example": "เปรียบเทียบ Latency ของการเรียกใช้ API ในงานประเภท Summarization ยาวๆ"
+          "title": "ทดสอบผ่าน AI Studio",
+          "role": "ทดลองใช้งานจริง",
+          "description": "ใช้ AI Studio ทดสอบ prompt การเขียนโปรแกรมที่ซับซ้อน",
+          "example": "ลองสั่งให้ Neon รีแฟคเตอร์ไฟล์โค้ดหลายไฟล์พร้อมกันเพื่อดูความฉลาดในการจัดการ context"
         },
         {
-          "title": "ปรับจูน Workflow ของ AI Agent",
-          "role": "สำหรับทีม Product / ธุรกิจ",
-          "description": "นำโมเดลไปใช้กับ Agent ที่ต้องการการตัดสินใจแบบกึ่ง Real-time เพื่อลดขั้นตอนของ Workflow เดิม",
-          "example": "ใช้ในระบบ Customer Support อัตโนมัติที่ต้องสรุปเคสลูกค้าทันที"
+          "title": "ประเมินค่าใช้จ่าย",
+          "role": "คำนวณงบประมาณ",
+          "description": "คำนวณส่วนต่างราคาจากระบบ Cache Input",
+          "example": "ใช้ราคา $0.15 ต่อล้าน token สำหรับข้อมูลที่เรียกซ้ำบ่อยๆ เทียบกับราคาเต็ม"
         },
         {
-          "title": "เปรียบเทียบผลลัพธ์ผ่าน Prompt Engineering",
-          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-          "description": "ศึกษาการเขียน Prompt ใหม่ที่สอดคล้องกับความสามารถที่เพิ่มขึ้นของ Gemini 4 Neon",
-          "example": "การใช้งานโมเดลวิเคราะห์เอกสารทางธุรกิจขนาดใหญ่ที่ซับซ้อน"
+          "title": "ศึกษาแนวทาง Agent Workflows",
+          "role": "ต่อยอด",
+          "description": "ดูการใช้งาน /swarm ใน Google Antigravity",
+          "example": "ศึกษาความสามารถในการประสานงานระหว่าง sub-agents"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "ประสิทธิภาพการตอบสนองที่รวดเร็วกว่า Gemini รุ่นก่อน",
-          "ความสามารถในการจัดการบริบทข้อมูลที่ซับซ้อนได้ลึกซึ้งยิ่งขึ้น"
+          "คะแนน 76% บน AutoBaxBench (Hard Tier) ยืนยันเรื่องความปลอดภัยของโค้ด",
+          "รองรับการใช้งานผ่าน Gemini API และ Google AI Studio แล้ววันนี้"
         ],
         "watchouts": [
-          "ค่าใช้จ่ายในการเรียกใช้งาน API ที่อาจปรับเปลี่ยนตามประสิทธิภาพโมเดล",
-          "ข้อจำกัดเรื่องการรองรับภาษาเฉพาะทางบางภาษาในระยะเริ่มต้น"
+          "ราคาต่อล้าน output tokens ($15) สูงกว่า input tokens อย่างเห็นได้ชัด",
+          "ต้นฉบับไม่ระบุวันที่สิ้นสุดการรองรับหรือแผนการอัปเดตโมเดลในอนาคต"
         ]
       },
-      "facebook_post": "🚀 Google จัดหนัก! เปิดตัว Gemini 4 Neon โมเดลใหม่ที่ฉลาดและไวกว่าเดิม\n\nใครที่เป็นสาย Developer หรือทำโปรดักต์ AI ต้องฟังทางนี้ครับ Google เพิ่งประกาศเปิดตัว 'Gemini 4 Neon' สมาชิกใหม่ล่าสุดที่จะมาเปลี่ยนเกมการประมวลผล AI ให้เร็วและแม่นยำขึ้นไปอีกขั้น\n\nทำไมตัวนี้ถึงน่าสนใจ?\n• ความเร็วที่เหนือกว่า: เน้นลด Latency สำหรับงานที่ต้องตอบสนองฉับไว\n• Context Window ที่ฉลาดขึ้น: เข้าใจงานซับซ้อนต่อเนื่องได้ดีเยี่ยม\n• เหมาะกับโปรดักชัน: ออกแบบมาให้สาย Build ใช้งานจริงได้เสถียรกว่าเดิม\n\nสำหรับนักพัฒนา นี่คือโอกาสดีที่จะลองเอามาแทนโมเดลเดิมในระบบ เพื่อดูว่า AI Agent ของเราจะทำงานได้ลื่นไหลขึ้นขนาดไหน บอกเลยว่านี่คือยุคของ AI ที่เน้น 'ประสิทธิภาพที่จับต้องได้' อย่างแท้จริง\n\nเพื่อนๆ สาย AI สนใจจะลองเอา Gemini 4 Neon ไปปรับใช้ในโปรเจกต์ไหนกันบ้าง? คอมเมนต์มาคุยกันหน่อยครับ!\n\n#GoogleAI #Gemini #Gemini4Neon #AIUpdate #TechNews"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "โมเดลใหม่ที่เน้นงาน Coding และ Scientific Workflow ที่ลดค่าใช้จ่ายและเพิ่มความแม่นยำ",
+          "prerequisite_level": "เข้าใจการเรียกใช้ LLM API และพื้นฐานงาน Software Engineering",
+          "worth_deep_dive": "คุ้มค่ามากสำหรับ Dev ที่ต้องรัน Agent บ่อยๆ",
+          "context_lineage": "เป็นวิวัฒนาการต่อจากตระกูล Gemini รุ่นก่อน โดยเน้นประสิทธิภาพการทำ Task ที่ยาวนาน"
+        },
+        "glossary": [
+          {
+            "term": "Cached Input Tokens",
+            "meaning": "ระบบจัดเก็บ Input ที่ใช้บ่อยไว้ในหน่วยความจำชั่วคราวเพื่อลดค่าใช้จ่าย",
+            "analogy": "เหมือนการเซฟไฟล์ไว้ใน RAM แทนที่จะต้องโหลดจาก Disk ใหม่ทุกครั้ง"
+          },
+          {
+            "term": "Steerability",
+            "meaning": "ความสามารถของโมเดลในการปรับเปลี่ยนพฤติกรรมตามคำสั่งแทรกกลางคัน",
+            "analogy": "เหมือนการขับรถที่หักเลี้ยวได้ดั่งใจ ไม่ดื้อไปตามทางที่กำหนดไว้ตอนแรก"
+          },
+          {
+            "term": "Agent Arena Index",
+            "meaning": "ดัชนีวัดผลการทำงานของ AI ในรูปแบบ Agent ที่ต้องทำภารกิจให้สำเร็จ",
+            "analogy": "สนามสอบสำหรับ AI ที่ไม่ใช่แค่ตอบคำถาม แต่ต้องลงมือทำภารกิจให้จบ"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Context Compaction",
+            "detail": "ย่อข้อมูลในบริบทที่ยาวนานให้กระชับเพื่อคงความแม่นยำในการทำภารกิจต่อเนื่อง"
+          },
+          {
+            "step": "Thinking Levels",
+            "detail": "การเลือกปรับระดับความลึกของการใช้เหตุผล (High vs XHigh) เพื่อ balance ระหว่างความเร็วและต้นทุน"
+          },
+          {
+            "step": "Orchestrator Role",
+            "detail": "Neon ทำหน้าที่เป็นตัวหลักในการควบคุม sub-agents เพื่อทำภารกิจคู่ขนาน"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "ราคา Cached Input",
+            "value": "$0.15 ต่อล้าน tokens",
+            "context": "เป็นส่วนลด 95% จากราคาปกติของ input tokens"
+          },
+          {
+            "metric": "คะแนน SWE-sweep (Google Antigravity)",
+            "value": "39.0%",
+            "context": "ค่าสถานะสูงสุดในปัจจุบันสำหรับ Benchmark งานวิศวกรรมซอฟต์แวร์"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Google Cloud API Key หรือเข้าใช้งานผ่าน Gemini API / AI Studio"
+          ],
+          "try_it_steps": [
+            "ทดลองใช้ API เรียกใช้ Gemini 4 Neon กับโปรเจกต์โค้ดจริง",
+            "ตรวจสอบการใช้งาน Context Caching ผ่าน SDK เพื่อลด cost",
+            "ทดสอบความสามารถในการทำ Multi-step Task ด้วยการส่งโจทย์ที่ต้องใช้การคิดหลายขั้นตอน"
+          ],
+          "next_to_learn": [
+            "การปรับใช้ /swarm ในระบบ Agent",
+            "รายละเอียดของ AutoBaxBench สำหรับงานด้านความปลอดภัย"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Google เปิดตัว Gemini 4 Neon! โมเดลที่ Dev ต้องจับตาสำหรับสาย Coding และงานวิจัย 🚀\n\nจุดเด่นที่น่าสนใจ:\n✅ ออกแบบมาเพื่อการเขียนโค้ดและ Debug งานหนักๆ โดยเฉพาะ (SWE-sweep สูงถึง 39%)\n✅ รองรับ Context Window 1 ล้าน Token\n✅ ประหยัดงบด้วย Cached Input Tokens ลดสูงสุด 95%!\n✅ ปลอดภัยกว่าเดิมด้วยคะแนนความปลอดภัยบน AutoBaxBench ระดับ State-of-the-art\n\nสำหรับสาย Agent ที่ต้องรันงานซับซ้อน หรือใครที่ใช้ Token จำนวนมหาศาลต่อเดือน นี่คือจิ๊กซอว์ตัวใหม่ที่จะช่วยลด Cost ได้มหาศาลครับ ไปลองทดสอบกันได้ที่ Gemini API และ AI Studio วันนี้เลย\n\n#Gemini4Neon #GoogleAI #CodingAgent #SoftwareEngineering #GenAI"
     },
     {
       "id": "google-deepmind-genie-4-now-available-project-ge-bb5459",
@@ -1568,7 +1633,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T18:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.706Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Diego Rivas",
@@ -1707,7 +1772,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.706Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Angus Logan"
@@ -1843,7 +1908,8 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T22:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.706Z",
+      "first_seen_at": "2026-11-18T04:52:36.444Z",
       "authors": [
         "Lindsey Lanquist"
       ],
@@ -1854,55 +1920,121 @@
       ],
       "category": "Google Research & Labs",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/hero_ZCQxfQQ.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "ไขรหัสพันธุกรรม: Google DeepMind เปิดตัว AlphaGenome ปฏิวัติการวิจัยโรคภัยด้วย AI",
-      "short_teaser": "Google DeepMind เผยโฉม AlphaGenome และ AlphaGenome Atlas เครื่องมือใหม่ที่จะช่วยให้นักวิทยาศาสตร์เข้าใจความซับซ้อนของโรคผ่านแผนที่พันธุกรรม",
+      "reading_time_minutes": 4,
+      "hook_headline": "Google DeepMind เปิดตัว AlphaGenome 2 เจาะลึกรหัสพันธุกรรมระดับ Cell-type specificity",
+      "short_teaser": "AlphaGenome Atlas ช่วยสรุปข้อมูลจาก 9 พันล้านการเปลี่ยนแปลงของ DNA ให้เหลือเพียง AVI Score เพื่อระบุจุดผิดปกติในยีนได้เร็วขึ้น สำหรับรุ่นล่าสุด AlphaGenome 2 ยกระดับความแม่นยำไปถึงระดับชนิดของเซลล์ (Cell type) แล้ว",
       "tldr_takeaways": [
-        "AlphaGenome ใช้ AI วิเคราะห์ความสัมพันธ์ที่ซับซ้อนในข้อมูลจีโนม",
-        "ช่วยให้นักวิจัยระบุสาเหตุของโรคได้แม่นยำและรวดเร็วกว่าเดิม",
-        "เป็นก้าวสำคัญของการแพทย์แม่นยำ (Precision Medicine) ในอนาคต"
+        "AlphaGenome Atlas เปลี่ยนการวิเคราะห์ DNA 3 พันล้านคู่เบสให้เป็น AVI (AlphaGenome Variant Impact) score ที่วัดผลได้ทันที",
+        "AlphaGenome 2 แก้ข้อจำกัดเดิมที่เคยเทรนบนข้อมูลระดับเนื้อเยื่อ (Tissue) ให้สามารถระบุความผิดปกติในระดับเซลล์เฉพาะทางได้",
+        "ปัจจุบันถูกนำไปใช้ในงานวิจัยจริงแล้ว เช่น การจัดกลุ่ม variant ที่มีผลต่อดัชนีมวลกาย (BMI) และการวินิจฉัยโรคหายากในระดับโมเลกุล"
       ],
       "layman_story": [
-        "ในอดีต การวิจัยโรคทางพันธุกรรมเป็นเรื่องที่ใช้เวลานานและซับซ้อนมหาศาล เนื่องจากข้อมูล DNA มนุษย์นั้นมีขนาดใหญ่และมีความสัมพันธ์ที่ยากจะตีความด้วยวิธีดั้งเดิม ทำให้การค้นหาความผิดปกติที่ก่อให้เกิดโรคเป็นเหมือนการงมเข็มในมหาสมุทร",
-        "AlphaGenome และ AlphaGenome Atlas เข้ามาแก้ปัญหานี้ด้วยการสร้างโมเดลที่สามารถ 'อ่าน' และเชื่อมโยงข้อมูลพันธุกรรมได้เสมือนแผนที่นำทางอัจฉริยะ โดยใช้พลังการประมวลผลของ AI วิเคราะห์โครงสร้างจีโนมในเชิงลึก เพื่อระบุว่ายีนส่วนไหนที่ส่งผลต่อการเกิดโรคอย่างมีนัยสำคัญ",
-        "ผลลัพธ์นี้จะช่วยย่นระยะเวลาการทำวิจัยยาและวิธีการรักษาใหม่ๆ ลงอย่างมหาศาล ในอนาคตเราอาจได้เห็นการรักษาแบบเฉพาะบุคคล (Personalized Medicine) ที่แม่นยำยิ่งขึ้น ช่วยชีวิตผู้คนจากโรคที่เคยรักษาไม่ได้"
+        "การเข้าใจจีโนมมนุษย์เปรียบเสมือนการอ่านคู่มือการประกอบร่างที่ซับซ้อนที่สุด โดยมี DNA กว่า 3 พันล้านคู่เบส การจะหาว่าจุดไหนที่ทำให้เกิดโรคใน 9 พันล้านตำแหน่งที่เป็นไปได้นั้นยากพอๆ กับการงมเข็มในมหาสมุทร",
+        "AlphaGenome 2 ใช้สถาปัตยกรรมโมเดล Deep Learning ขั้นสูงในการจำลองผลกระทบของ single-letter changes ในระดับ Cell-type โดยไม่ต้องพึ่งพาการทดลองในห้องแล็บ (Wet-lab) ที่สิ้นเปลืองเวลาและงบประมาณ",
+        "แม้จะเป็นเครื่องมือที่ทรงพลัง แต่ต้นฉบับย้ำชัดว่าการใช้ AI ทำนายผลต้องตีความควบคู่ไปกับแหล่งข้อมูลอื่นเสมอ และตัวโมเดลยังคงอยู่ในช่วงพัฒนาเพื่อเพิ่มความมั่นใจ (Confidence measurement) ในแต่ละผลลัพธ์"
       ],
       "impact_comparison": {
-        "before": "การค้นหาความผิดปกติของยีนต้องใช้เวลาหลายเดือนและอาศัยการทดลองในห้องแล็บที่ซับซ้อน",
-        "after": "นักวิจัยสามารถระบุความผิดปกติเบื้องต้นผ่านโมเดล AI ได้อย่างรวดเร็วและเห็นภาพรวมผ่าน Atlas",
-        "why_it_matters": "นี่คือจุดเปลี่ยนสำคัญที่จะทำให้ข้อมูลชีวภาพกลายเป็นความรู้ที่เข้าถึงได้และนำไปใช้งานต่อได้จริง"
+        "before": "การค้นหาความผิดปกติของยีนต้องพึ่งพาการทดลอง Lab ที่ใช้เวลานานและมีโอกาสผิดพลาดสูงในการระบุตัวแปร (variants) ที่ก่อโรค",
+        "after": "สามารถใช้ AVI Score คัดกรองตัวแปรสำคัญจากรายการหลักล้านให้เหลือกลุ่มที่น่าสนใจได้ในระดับวินาที",
+        "why_it_matters": "นี่คือจุดเปลี่ยนสำคัญในการทำ Precision Medicine ที่เปลี่ยนงานวิจัยระดับปีให้จบได้เร็วขึ้นด้วย Data-driven approach"
       },
       "actionable_playbook": [
         {
-          "title": "ศึกษาแนวทางการประยุกต์ใช้",
-          "role": "สำหรับนักวิจัย / Data Scientist",
-          "description": "ติดตามการตีพิมพ์ผลงานวิจัยเพื่อทำความเข้าใจโครงสร้างข้อมูล AlphaGenome",
-          "example": "การทำโครงการร่วมวิจัยที่ใช้ข้อมูลพันธุกรรมมาวิเคราะห์คู่กับ AI"
+          "title": "ลองใช้งานผ่าน Research Paper/Resources",
+          "role": "นักวิจัย/นักพัฒนา",
+          "description": "ค้นหา AlphaGenome Atlas บนเว็บไซต์ของ Google DeepMind เพื่อดูวิธีการนำ AVI Score ไปใช้ในโปรเจกต์ชีวสารสนเทศ",
+          "example": "ลองนำกลุ่ม Variant ที่มี AVI score สูงมา cross-check กับข้อมูลยีนที่ทราบผลลัพธ์แล้ว"
         },
         {
-          "title": "สำรวจโอกาสในอุตสาหกรรม BioTech",
-          "role": "สำหรับทีม Product / ธุรกิจ",
-          "description": "วิเคราะห์ความเป็นไปได้ในการร่วมมือกับสถาบันวิจัยที่ใช้เครื่องมือของ Google",
-          "example": "การพัฒนาซอฟต์แวร์วิเคราะห์ข้อมูลเชิงลึกสำหรับห้องแล็บเอกชน"
+          "title": "ศึกษาแนวคิด Cell-type specificity",
+          "role": "Data Scientist",
+          "description": "ทำความเข้าใจว่าการเปลี่ยนจาก Tissue-level มาเป็น Cell-type level จะส่งผลต่อความซับซ้อนของโมเดลอย่างไร",
+          "example": "ศึกษาความแตกต่างระหว่างการเทรนบนข้อมูล bulk tissue กับ single-cell data"
         },
         {
-          "title": "ติดตามเทรนด์การแพทย์แม่นยำ",
-          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-          "description": "ติดตามข่าวสารด้านการแพทย์สมัยใหม่ที่ขับเคลื่อนโดย AI",
-          "example": "การเตรียมตัวเลือกการตรวจสุขภาพเชิงรุกโดยใช้ข้อมูลจีโนมในอนาคต"
+          "title": "ติดตามความก้าวหน้า Confidence Measurement",
+          "role": "ML Engineer",
+          "description": "ศึกษาแนวทางการวัดความมั่นใจของโมเดล (Uncertainty Estimation) ในโปรเจกต์งานวิจัย",
+          "example": "นำเทคนิคการทำ Uncertainty estimation ไปประยุกต์ใช้กับโมเดล Classification อื่นๆ"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "การเปิดตัวชุดเครื่องมือวิเคราะห์พันธุกรรม AlphaGenome",
-          "ระบบ AlphaGenome Atlas ที่ช่วยจัดการข้อมูลจีโนมมหาศาลให้เป็นระเบียบ"
+          "เปิดตัว AlphaGenome 2 รองรับความละเอียดระดับ Cell-type",
+          "AlphaGenome Atlas Dataset ที่สรุปคะแนน AVI จาก 9 พันล้านตำแหน่ง"
         ],
         "watchouts": [
-          "ข้อกำหนดด้านจริยธรรมข้อมูลส่วนบุคคลที่เข้มงวด",
-          "การนำไปใช้จำเป็นต้องอาศัยผู้เชี่ยวชาญเฉพาะทางทางพันธุกรรม"
+          "ผลลัพธ์ควรใช้เป็นคำแนะนำเบื้องต้นและต้องตรวจสอบกับแหล่งข้อมูลอื่นเสมอ",
+          "เป็นงานวิจัยที่ต้องอาศัยผู้เชี่ยวชาญเฉพาะทางในการตีความผลลัพธ์"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.444Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "AI วิเคราะห์พันธุกรรมระดับ Cell-type เพื่อระบุยีนที่ก่อโรคได้แม่นยำและรวดเร็วกว่าเดิม",
+          "prerequisite_level": "มีความรู้เรื่อง Genomics เบื้องต้นและโครงสร้าง Data science/ML",
+          "worth_deep_dive": "คุ้มค่าสำหรับสาย Biotech/Bioinformatics Engineer",
+          "context_lineage": "ต่อยอดจาก AlphaFold ของ Google DeepMind สู่การถอดรหัสพันธุกรรม"
+        },
+        "glossary": [
+          {
+            "term": "Base Pairs",
+            "meaning": "หน่วยย่อยของ DNA ที่จับคู่กัน (A-T, C-G)",
+            "analogy": "เหมือนตัวอักษรในภาษาโปรแกรมที่เรียงต่อกันเป็น Source code ของชีวิต"
+          },
+          {
+            "term": "AVI Score",
+            "meaning": "ค่าคะแนนที่ระบุว่ายีนที่เปลี่ยนไปนั้นส่งผลกระทบต่อร่างกายมากแค่ไหน",
+            "analogy": "เหมือน Error Log ที่บอกความรุนแรงของ Bug ในโปรแกรม"
+          },
+          {
+            "term": "Cell-type specificity",
+            "meaning": "ความละเอียดในการวิเคราะห์ที่แยกย่อยถึงระดับชนิดของเซลล์",
+            "analogy": "เหมือนการ Debug โค้ดที่เจาะลึกไปถึงระดับ Function เฉพาะตัว แทนที่จะดูแค่ภาพรวมของทั้ง Module"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Input Processing",
+            "detail": "โมเดลรับ DNA sequence ยาว 1 ล้านคู่เบสเป็น input เพื่อทำการประมวลผล"
+          },
+          {
+            "step": "Variant Prediction",
+            "detail": "AlphaGenome ทำนายผลกระทบของการเปลี่ยนแปลงแต่ละตัวอักษร (Single-letter changes) จาก 9 พันล้านตำแหน่ง"
+          },
+          {
+            "step": "Scoring & Filtering",
+            "detail": "แปลงค่าที่ได้เป็น AVI Score เพื่อคัดกรองเฉพาะตัวแปรที่มีนัยสำคัญสูง"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "จำนวนคู่เบส DNA ที่โมเดลประมวลผล",
+            "value": "3 พันล้านคู่เบส",
+            "context": "ปริมาณข้อมูลมาตรฐานในจีโนมมนุษย์หนึ่งชุด"
+          },
+          {
+            "metric": "จำนวนตัวแปรที่ AlphaGenome คาดการณ์",
+            "value": "9 พันล้านตัวแปร",
+            "context": "จากการเปลี่ยนตำแหน่งตัวอักษร 1 ตำแหน่งใน DNA"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "ความเข้าใจในด้าน Molecular Biology และพื้นฐาน Python"
+          ],
+          "try_it_steps": [
+            "เข้าไปที่หน้า Google DeepMind AlphaGenome เพื่ออ่านกรณีศึกษาการใช้งานของ Gareth Hawkes และ Laura Covill",
+            "ศึกษา Data format ของ AlphaGenome Atlas ในงานวิจัยเพื่อทำความเข้าใจโครงสร้างข้อมูลก่อนเริ่มโปรเจกต์",
+            "ลองทำ Data Exploration บน Genetic variants ที่มี AVI score สูงด้วย Library เช่น Pandas เพื่อฝึกจัดกลุ่มข้อมูล"
+          ],
+          "next_to_learn": [
+            "Bioinformatics API ที่รองรับการ query ข้อมูลระดับยีน",
+            "เทคนิคการทำ AI-driven Drug Discovery"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Google DeepMind ตอกย้ำความล้ำในงานวิจัยชีวภาพด้วย AlphaGenome 2! 🧬\n\nหัวใจสำคัญของการประกาศนี้คือการยกระดับการถอดรหัสพันธุกรรม ไม่ใช่แค่การอ่าน แต่เป็นการทำนายความผิดปกติที่อาจเกิดขึ้นกับยีนได้แม่นยำขึ้นมาก โดยเฉพาะในระดับ 'Cell-type' ที่ระบุเจาะจงชนิดของเซลล์ได้เลย\n\nประเด็นสำคัญที่น่าสนใจ:\n✅ AlphaGenome Atlas ช่วยสรุปการเปลี่ยนแปลงใน DNA 9 พันล้านจุด ให้เหลือเพียง AVI Score ทำให้การคัดกรอง Variant ที่ก่อโรคทำได้เร็วกว่าเดิมหลายเท่า\n✅ งานนี้ช่วยลดช่องว่างระหว่างการวิจัยในห้องแล็บที่กินเวลาหลายปี ให้สั้นลงด้วย AI\n✅ ปัจจุบันถูกนำไปใช้ในงานวิจัยโรคหายาก (Rare diseases) และการหาความสัมพันธ์ของยีนกับสุขภาพอย่างได้ผลจริง\n\nสำหรับนักพัฒนาที่สนใจสาย AI for Science นี่เป็นเครื่องมือที่ต้องจับตาครับ เพราะมันคือการเปลี่ยน Biology ให้กลายเป็นเรื่องของ Data Engineering เต็มตัว!\n\n#GoogleDeepMind #AlphaGenome #AI #Genomics #Bioinformatics #HealthTech"
     },
     {
       "id": "gemini-gemini-4-carbon-builders-cdc732",
@@ -1977,64 +2109,122 @@
       "source": "Google Developers",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.706Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "The EmbeddingGemma 2 team"
       ],
       "rss_categories": [
         "Developer tools"
       ],
-      "category": "Cloud & Developer Tools",
+      "category": "Gemini & Models",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/EmbeddingGemma_2_explained_soci.max-600x600.format-webp.webp",
       "reading_time_minutes": 3,
-      "hook_headline": "เปิดตำรา EmbeddingGemma 2: อาวุธใหม่สำหรับนักพัฒนา AI สาย Multimodal",
-      "short_teaser": "เจาะลึก technical report ของ EmbeddingGemma 2 โมเดลใหม่ที่ออกแบบมาเพื่อความคล่องตัวและประสิทธิภาพระดับสูง",
+      "hook_headline": "Google เปิดตัว EmbeddingGemma 2: โมเดล Embeddings แบบมัลติโมดอลที่คอมแพคและประหยัดพื้นที่",
+      "short_teaser": "EmbeddingGemma 2 ขยับจากการรองรับแค่ Text มาเป็นโมเดลที่เข้าใจทั้งภาพ เสียง วิดีโอ และข้อความใน Vector Space เดียวกัน โดยเน้นสถาปัตยกรรมที่กะทัดรัดขึ้น",
       "tldr_takeaways": [
-        "EmbeddingGemma 2 คือโมเดลใหม่ที่รวม Vector Space ไว้ในที่เดียว",
-        "ออกแบบให้กะทัดรัดแต่มีประสิทธิภาพสูง เหมาะกับการรันบนระบบที่จำกัด",
-        "เหมาะอย่างยิ่งสำหรับนักพัฒนาที่ต้องการทำ RAG หรือระบบค้นหาอัจฉริยะ"
+        "รองรับ Input หลากหลายประเภท ได้แก่ ข้อความ รูปภาพ เสียง และวิดีโอ",
+        "ใช้กลยุทธ์การเทรนที่ต่อยอดมาจาก Gemma 4 และ Gemini Embedding 2",
+        "ออกแบบมาให้มีขนาดเล็กลง (Compact profile) ในขณะที่รักษาประสิทธิภาพการแมปข้อมูลเข้าสู่ Vector Space"
       ],
       "layman_story": [
-        "หัวใจสำคัญของการทำระบบค้นหาอัจฉริยะหรือแอปพลิเคชันที่เข้าใจบริบทคือ 'Embedding' หรือการแปลงข้อมูลให้เป็นชุดตัวเลขที่ AI เข้าใจ ซึ่งบ่อยครั้งการใช้หลายโมเดลร่วมกันสร้างความยุ่งยากและกินทรัพยากรเครื่อง",
-        "EmbeddingGemma 2 มาพร้อมกับแนวคิด Unified Vector Space ที่ทำให้โมเดลเดียวสามารถประมวลผลข้อมูลได้หลากหลายประเภท (Multimodal) ในคราวเดียว อีกทั้งยังเน้นการออกแบบที่ 'กะทัดรัด' เพื่อให้รันได้รวดเร็วแม้ในสเปกคอมพิวเตอร์ที่ไม่สูงมาก",
-        "รายงานฉบับนี้ไม่ได้มีไว้แค่โชว์สเปก แต่เป็นคู่มือให้นักพัฒนาเห็นทิศทางว่าอนาคตของระบบค้นหาจะแม่นยำและเบาบางลงอย่างไร ส่งผลให้นักพัฒนาสามารถสร้างแอปฯ ที่ประหยัดต้นทุนแต่มีประสิทธิภาพระดับโปร"
+        "EmbeddingGemma 2 คือก้าวสำคัญของเครื่องมือ Open Models ที่พยายามแก้ปัญหาคอขวดของการจัดการข้อมูลมัลติโมดอล โดยการบีบอัดข้อมูลที่ต่างประเภทกันให้มาอยู่ใน 'ภาษาเดียวกัน' (Vector Space) ได้อย่างมีประสิทธิภาพ",
+        "สถาปัตยกรรมตัวนี้เป็นการรวมความสามารถในการประมวลผล Text, Image, Audio และ Video เข้ามาไว้ในโมเดลเดียว ทำให้ Developer สามารถทำ Semantic Search หรือ Similarity Matching ข้ามประเภทข้อมูลได้ง่ายขึ้น",
+        "แม้จะมีจุดเด่นเรื่องความคอมแพค แต่ผู้ใช้ควรศึกษา Technical Report ให้ละเอียดก่อนนำไป Production เพราะโมเดลนี้เป็นการต่อยอดจาก Gemma 4 ซึ่งอาจมีข้อจำกัดด้านทรัพยากรประมวลผลที่ต้องคำนวณตาม Use Case"
       ],
       "impact_comparison": {
-        "before": "การทำระบบ RAG ต้องพึ่งพาโมเดลขนาดใหญ่หลายตัวเพื่อจัดการ Embedding แต่ละประเภท",
-        "after": "ใช้โมเดลเดียวจาก EmbeddingGemma 2 จัดการงานได้จบในตัว",
-        "why_it_matters": "ลดความซับซ้อนใน Infrastructure และประหยัดค่าใช้จ่ายด้าน Compute อย่างมาก"
+        "before": "การทำ Embeddings แยกส่วนกันระหว่าง Text และรูปภาพ ทำให้การค้นหาข้ามโหมดมีความซับซ้อนและต้องใช้โมเดลหลายตัว",
+        "after": "ใช้โมเดลตัวเดียว EmbeddingGemma 2 รองรับข้อมูลหลายรูปแบบใน Space เดียว ช่วยลดความซับซ้อนของ Pipeline",
+        "why_it_matters": "ช่วยให้งานด้าน Retrieval-Augmented Generation (RAG) ที่ซับซ้อนขึ้น สามารถประมวลผลข้อมูลมัลติโมดอลได้ด้วยสถาปัตยกรรมที่เบากว่าเดิม"
       },
       "actionable_playbook": [
         {
-          "title": "ศึกษา Technical Report",
-          "role": "สำหรับนักพัฒนา / AI Builder",
-          "description": "อ่านรายละเอียดโครงสร้างโมเดลเพื่อวางแผนการปรับปรุงระบบค้นหา",
-          "example": "เปลี่ยนมาใช้ EmbeddingGemma 2 เพื่อลด latency ในระบบ Search"
+          "title": "อ่าน Technical Report",
+          "role": "วิศวกรข้อมูล",
+          "description": "เจาะลึกวิธีการเทรนและกลยุทธ์ Vector Space เพื่อประเมินความเหมาะสมกับโปรเจกต์",
+          "example": "อ่านหัวข้อ Evaluation methodology ในเอกสารอย่างเป็นทางการ"
         },
         {
-          "title": "ปรับจูนสถาปัตยกรรมระบบ",
-          "role": "สำหรับทีม Product / ธุรกิจ",
-          "description": "ให้ทีม Engineer ทดสอบการทำงานร่วมกับระบบฐานข้อมูลเดิม",
-          "example": "การอัปเกรดระบบแนะนำสินค้าที่แม่นยำขึ้นด้วยเทคนิค Embedding ใหม่"
+          "title": "ทดสอบด้วยข้อมูลตัวอย่าง",
+          "role": "นักพัฒนา AI",
+          "description": "ลองใช้โมเดลในการ Map ข้อมูลที่ต่างประเภทกันแล้วเทียบค่า Cosine Similarity",
+          "example": "ทดลองป้อนภาพและข้อความเข้าสู่โมเดลแล้วเช็ก Vector Output"
         },
         {
-          "title": "สร้างระบบข้อมูลอัจฉริยะ",
-          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-          "description": "นำเครื่องมือนี้ไปใช้พัฒนา Knowledge Base ขององค์กรให้ค้นหาง่ายขึ้น",
-          "example": "สร้าง Chatbot ที่เข้าถึงฐานข้อมูลเอกสารบริษัทได้ถูกต้องแม่นยำ"
+          "title": "ดูวิดีโออธิบายการทำงาน",
+          "role": "ผู้สนใจทั่วไป",
+          "description": "Google มีคลิปอธิบาย 5 นาทีที่สรุปการพัฒนาโมเดลตัวนี้",
+          "example": "กดดู Five-minute explainer จากหน้าเว็บหลัก"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "โมเดลขนาดกะทัดรัดที่รองรับข้อมูล Multimodal",
-          "Unified Vector Space สำหรับการค้นหาที่แม่นยำขึ้น"
+          "ความสามารถ Native Multimodal Understanding (รองรับภาพ เสียง วิดีโอ)",
+          "การบีบอัดสถาปัตยกรรม (Backbone compression) ให้ประหยัดทรัพยากร"
         ],
         "watchouts": [
-          "ต้องใช้เวลาเรียนรู้การจัดการ Vector Database ที่สอดคล้องกัน",
-          "การปรับจูน Hyperparameter เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด"
+          "ต้นฉบับไม่ระบุตัวเลข Benchmark เฉพาะเจาะจงที่ทดสอบได้เองตอนนี้",
+          "ต้องอ้างอิงสถาปัตยกรรมจาก Gemma 4 ซึ่งอาจต้องใช้ความเข้าใจในการ Deploy"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "โมเดล Open Embedding ที่ขยายจากการทำ Text-only มาเป็น Multimodal โดยเน้นความกะทัดรัด",
+          "prerequisite_level": "เข้าใจแนวคิดเรื่อง Embedding, Vector Database และพื้นฐาน Transformer",
+          "worth_deep_dive": "คุ้มค่าสำหรับสาย RAG ที่ต้องการทำระบบค้นหาข้อมูลหลากหลายประเภทในที่เดียว",
+          "context_lineage": "พัฒนาต่อยอดจากความสำเร็จของ Gemma 4 และ Gemini Embedding 2"
+        },
+        "glossary": [
+          {
+            "term": "Unified Vector Space",
+            "meaning": "พื้นที่เชิงตัวเลขที่ข้อมูลทุกประเภทถูกแปลงมาเป็นเวกเตอร์เพื่อให้เปรียบเทียบกันได้โดยตรง",
+            "analogy": "เหมือนการแปลงทุกอย่างเป็นพิกัดบนแผนที่ ไม่ว่าจะเป็นรูปหรือคำก็วางลงบนจุดเดียวกันได้"
+          },
+          {
+            "term": "Multimodal",
+            "meaning": "ระบบที่สามารถประมวลผลและเข้าใจข้อมูลได้มากกว่า 1 รูปแบบ เช่น ทั้งข้อความและรูปภาพ",
+            "analogy": "มนุษย์ที่ฟัง พูด อ่าน เขียน ได้ในคนเดียว"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Input Processing",
+            "detail": "รับข้อมูลประเภท Text, Image, Audio หรือ Video เข้าสู่โมเดลพร้อมกัน"
+          },
+          {
+            "step": "Unified Embedding",
+            "detail": "โมเดลแมปข้อมูลทุกประเภทลงไปใน Vector Space เดียวกันโดยใช้สถาปัตยกรรมที่พัฒนาจาก Gemma 4"
+          },
+          {
+            "step": "Compression",
+            "detail": "ใช้เทคนิคการบีบอัด Backbone ทำให้โมเดลมีขนาดกะทัดรัดสำหรับงานโปรดักชั่น"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "สเปกด้านประสิทธิภาพและ Benchmark",
+            "value": "ต้นฉบับไม่ระบุตัวเลข",
+            "context": "ต้องดูในตัว Technical Report สำหรับตัวเลขคะแนนทดสอบ"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "พื้นฐาน Python",
+            "ความเข้าใจเรื่อง Vector Embeddings"
+          ],
+          "try_it_steps": [
+            "ดาวน์โหลด Technical Report มาศึกษาโครงสร้าง",
+            "ลองทำความเข้าใจวิธีการคำนวณ Vector สำหรับ Data 2 รูปแบบที่ต่างกัน",
+            "วางแผนทดสอบการทำ Similarity Search ใน Vector Database ของคุณ"
+          ],
+          "next_to_learn": [
+            "Gemma 4 architecture เพื่อทำความเข้าใจพื้นฐาน",
+            "Vector Space Alignment เทคนิคการทำให้ข้อมูลต่างชนิดกันคุยกันรู้เรื่อง"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "สาย RAG ห้ามพลาด! Google ปล่อย 'EmbeddingGemma 2' ที่ขยับขยายจากโมเดลข้อความธรรมดา สู่พลังมัลติโมดอลเต็มตัว\n\nสิ่งที่น่าสนใจ:\n✅ รองรับทั้งข้อความ, ภาพ, เสียง และวิดีโอ ภายใน Vector Space เดียวกัน\n✅ พัฒนาต่อยอดจากเทคโนโลยีของ Gemma 4 และ Gemini Embedding 2\n✅ ออกแบบมาให้มีขนาดกะทัดรัด (Compact Profile) เหมาะกับการนำไปใช้งานจริง\n\nใครทำระบบ Search หรือ AI ที่ต้องจัดการข้อมูลหลายรูปแบบ นี่คือตัวเลือกที่น่าสนใจมาก ลองไปอ่าน Technical Report กันครับ\n\n#GoogleAI #Gemma2 #Embedding #AI #DataEngineering"
     },
     {
       "id": "gemini-app-tasks-in-gemini-free-new-features-357d08",
@@ -2043,7 +2233,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.706Z",
       "authors": [
         "Josh Woodward"
       ],
@@ -2242,7 +2432,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.706Z",
       "authors": [],
       "rss_categories": [
         "Google Workspace"
@@ -2366,12 +2556,13 @@
     },
     {
       "id": "google-cloud-gtig-ai-threat-tracker-q4-2026-0bb15d",
-      "title": "The era of autonomous attacks has arrived.",
+      "title": "Outpace automated cyber threats with security built for nonstop defense.",
       "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gtig-ai-threat-tracker-q4-2026/",
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T18:30:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.707Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Google Threat Intelligence Group (GTIG)"
       ],
@@ -2381,54 +2572,111 @@
       "category": "Cloud & Developer Tools",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Threat_Tracker.max-600x600.format-webp.webp",
       "reading_time_minutes": 3,
-      "hook_headline": "เมื่อ AI กลายเป็นอาวุธยุคใหม่: Google เผยเทรนด์ภัยคุกคามอัตโนมัติและวิธีใช้ Gemini ป้องกันการโจมตี",
-      "short_teaser": "โลกไซเบอร์กำลังเผชิญกับการเปลี่ยนแปลงครั้งใหญ่เมื่อแฮกเกอร์หันมาใช้ AI ในการสร้างการโจมตีแบบอัตโนมัติ Google Threat Intelligence (GTIG) จึงต้องยกระดับการป้องกันผ่าน Gemini เพื่อรับมือกับภัยคุกคามรูปแบบใหม่นี้",
+      "hook_headline": "Google เตือน: แฮกเกอร์ใช้ Autonomous LLM สแกนช่องโหว่ซอฟต์แวร์ด้วยความเร็วเครื่องจักร",
+      "short_teaser": "รายงาน GTIG Q4 2026 เผยแฮกเกอร์หันมาใช้ระบบ LLM อัตโนมัติเพื่อค้นหาช่องโหว่ทันทีหลังแพตช์ออก Google จึงเปิดตัว AI Threat Defense มาแก้เกม",
       "tldr_takeaways": [
-        "ภัยคุกคามไซเบอร์กำลังเปลี่ยนเป็นแบบอัตโนมัติ (Autonomous Attacks) ด้วย AI",
-        "Google ใช้ Gemini เข้ามาช่วยวิเคราะห์และป้องกันการโจมตีที่ตรวจจับได้ยาก",
-        "เน้นย้ำความสำคัญของการใช้ AI ป้องกัน AI (AI-driven Defense)"
+        "แฮกเกอร์ใช้ Autonomous LLM สแกนหาช่องโหว่จากซอฟต์แวร์อัปเดตแบบอัตโนมัติ",
+        "การป้องกันด้วยคนไม่ทันการณ์ Google จึงใช้ Gemini ผสานความร่วมมือในระบบใหม่",
+        "Google AI Threat Defense รวบรวมเทคโนโลยีจาก Gemini, Wiz, CodeMender และ Mandiant"
       ],
       "layman_story": [
-        "ในอดีตการโจมตีทางไซเบอร์มักเป็นฝีมือของมนุษย์ที่ค่อยๆ หาช่องโหว่ แต่ปัจจุบันอาชญากรไซเบอร์เริ่มนำ AI มาใช้สร้างซอฟต์แวร์ที่สามารถค้นหาและโจมตีระบบแบบอัตโนมัติได้ตลอด 24 ชั่วโมง ทำให้ความเร็วในการโจมตีเหนือกว่าวิธีป้องกันแบบดั้งเดิมที่ต้องรอให้มนุษย์เข้ามาตรวจสอบ",
-        "Google แก้ปัญหานี้ด้วยการใช้ AI Threat Defense ที่ขับเคลื่อนโดย Gemini โดยตัวระบบสามารถอ่านข้อมูลมหาศาลเพื่อตรวจจับความผิดปกติที่ซับซ้อนในระดับมิลลิวินาที พร้อมทั้งแนะนำแนวทางการแก้ไขแบบ Real-time เปรียบเสมือนมีผู้เชี่ยวชาญด้านความปลอดภัยนั่งเฝ้าระวังระบบให้คุณอยู่ตลอดเวลา",
-        "สำหรับองค์กรและนักพัฒนา นี่เป็นสัญญาณเตือนว่ากลยุทธ์ Cybersecurity แบบเดิมไม่เพียงพออีกต่อไป การปรับตัวไปใช้ระบบความปลอดภัยที่ขับเคลื่อนด้วย AI จะกลายเป็นมาตรฐานใหม่ที่ธุรกิจต้องลงทุน เพื่อให้ทันต่อเล่ห์เหลี่ยมของแฮกเกอร์ที่ใช้ AI เป็นเครื่องมือหลัก"
+        "โลกความปลอดภัยไซเบอร์เข้าสู่ยุค 'Agentic Era' อย่างเต็มตัว เมื่อแฮกเกอร์ไม่ได้ใช้คนนั่งเฝ้า แต่ใช้ AI ทำงานแทนตลอด 24 ชั่วโมงเพื่อหาจุดอ่อนใน Code ที่เราเพิ่ง Patch ไป",
+        "Google Threat Intelligence Group (GTIG) รายงานว่ากระบวนการนี้ทำได้รวดเร็วระดับที่มนุษย์ป้องกันไม่ทัน ดังนั้นทางออกคือต้องใช้ AI สู้กับ AI โดยการนำ Gemini เข้ามาช่วยวิเคราะห์และตอบโต้ในความเร็วระดับเครื่องจักร",
+        "ระบบ AI Threat Defense ไม่ได้มาตัวเดียว แต่รวมพลังทั้ง Wiz (การจัดลำดับความสำคัญ), CodeMender (การ Patch อัตโนมัติ) และ Mandiant (ข้อมูลเจาะลึกภัยคุกคาม) เพื่อสร้างเกราะป้องกันแบบ nonstop"
       ],
       "impact_comparison": {
-        "before": "การตรวจสอบช่องโหว่ทำได้ล่าช้าและขึ้นอยู่กับจำนวนบุคลากรที่มีจำกัด",
-        "after": "การป้องกันเป็นแบบเชิงรุก (Proactive) และทำงานอัตโนมัติด้วยความเร็วที่เหนือกว่ามนุษย์",
-        "why_it_matters": "ความปลอดภัยในโลกยุคใหม่คือการแข่งความเร็วระหว่าง AI ของผู้ปกป้องกับ AI ของผู้โจมตี"
+        "before": "การตรวจสอบช่องโหว่และความปลอดภัยขึ้นอยู่กับความเร็วในการวิเคราะห์และลงมือของมนุษย์",
+        "after": "เปลี่ยนเป็นระบบอัตโนมัติที่ผสาน AI ของ Google ในการตรวจจับและแก้ไขทันที",
+        "why_it_matters": "เพราะแฮกเกอร์ใช้ AI สแกนเราทุกวินาที เราจึงจำเป็นต้องมีระบบที่อัปเกรดความเร็วในการป้องกันขึ้นมาสู้"
       },
       "actionable_playbook": [
         {
-          "title": "ปรับปรุง Security Operations",
-          "role": "สำหรับนักพัฒนา / AI Builder",
-          "description": "นำ Gemini เข้ามาช่วยทำ Code Review เพื่อหาช่องโหว่ในซอร์สโค้ดก่อนทำการ Deploy",
-          "example": "ใช้ Gemini วิเคราะห์ Log เพื่อตรวจจับ Pattern การโจมตีอัตโนมัติที่ซับซ้อน"
+          "title": "อ่านรายงาน AI Threat Tracker",
+          "role": "Security Engineer",
+          "description": "ทำความเข้าใจพฤติกรรมแฮกเกอร์ในปัจจุบัน",
+          "example": "ไปที่ Google Cloud Threat Intelligence blog"
         },
         {
-          "title": "ประเมินความเสี่ยงองค์กร",
-          "role": "สำหรับทีม Product / ธุรกิจ",
-          "description": "นำรายงานจาก Google Threat Intelligence มาวางแผนเตรียมรับมือภัยคุกคามรายไตรมาส",
-          "example": "ปรับปรุงนโยบายการเข้าถึงข้อมูลให้มีความละเอียดมากขึ้นตามความเสี่ยงที่พบจากรายงาน"
+          "title": "ประเมินความเสี่ยงโปรเจกต์",
+          "role": "Lead Dev",
+          "description": "เช็กว่าระบบที่คุณคุมอยู่มีกลไกรับมือการสแกนอัตโนมัติไหม",
+          "example": "ลองตรวจสอบช่องโหว่หลังจาก Deploy ซอฟต์แวร์อัปเดต"
         },
         {
-          "title": "ตระหนักรู้เรื่องความปลอดภัย AI",
-          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-          "description": "ติดตามข่าวสารด้านความปลอดภัยจาก Google เพื่อเตรียมรับมือกับภัยคุกคามในรูปแบบใหม่ๆ",
-          "example": "เปิดใช้งานฟีเจอร์ความปลอดภัยขั้นสูงใน Google Cloud Platform"
+          "title": "ศึกษาเครื่องมือ AI Defense",
+          "role": "Cloud Architect",
+          "description": "ทำความรู้จัก Wiz, CodeMender และ Mandiant เพื่อเตรียมพร้อมใช้งาน",
+          "example": "อ่านรายละเอียด Google AI Threat Defense บน Cloud"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "การตรวจจับภัยคุกคามแบบอัตโนมัติด้วย AI",
-          "การผสานรวมความรู้ของ Gemini เข้าสู่ระบบ Threat Defense"
+          "Google AI Threat Defense (ระบบป้องกันแบบผสานหลายเทคโนโลยี)",
+          "การตรวจจับภัยคุกคามระดับ Autonomous LLM"
         ],
         "watchouts": [
-          "ภัยคุกคามมีการเปลี่ยนแปลงตลอดเวลา ต้องอัปเดตข้อมูลสม่ำเสมอ",
-          "การพึ่งพา AI อย่างเดียวอาจไม่เพียงพอ ต้องทำคู่กับการรักษาความปลอดภัยระดับพื้นฐาน (Zero Trust)"
+          "ภัยคุกคามมาในรูปแบบ Automation ทำให้ต้องป้องกัน 24/7",
+          "ต้นฉบับไม่ระบุราคาหรือแผนการใช้งานสำหรับบุคคลทั่วไป"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "แฮกเกอร์ใช้ AI สแกนหาช่องโหว่โดยอัตโนมัติ Google จึงเปิดตัว AI Threat Defense มาสู้กลับ",
+          "prerequisite_level": "มีความเข้าใจพื้นฐานด้าน Cybersecurity และ Software Development Lifecycle (SDLC)",
+          "worth_deep_dive": "เหมาะมากสำหรับทีม Infra และ Security ที่ต้องการรู้ทิศทางภัยคุกคาม",
+          "context_lineage": "เป็นการนำ Gemini มาต่อยอดในเชิง Defensive AI ของ Google Cloud"
+        },
+        "glossary": [
+          {
+            "term": "Autonomous LLM frameworks",
+            "meaning": "ระบบ AI ที่ทำงานเองได้โดยไม่ต้องให้มนุษย์สั่งการตลอดเวลา",
+            "analogy": "เหมือนหุ่นยนต์ที่เดินสำรวจบ้านเพื่อหาประตูที่ลืมล็อกเองตลอดเวลา"
+          },
+          {
+            "term": "Agentic era",
+            "meaning": "ยุคที่ซอฟต์แวร์หรือ AI สามารถตัดสินใจและปฏิบัติการแทนมนุษย์ได้ในระดับที่ซับซ้อน",
+            "analogy": "จากเดิมที่เหมือนเป็น 'เครื่องพิมพ์ดีดอัจฉริยะ' เปลี่ยนมาเป็น 'พนักงานที่ตัดสินใจได้เอง'"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Threat Monitoring",
+            "detail": "แฮกเกอร์ใช้ระบบ AI สแกนอัปเดตซอฟต์แวร์เพื่อหาช่องโหว่ทันที"
+          },
+          {
+            "step": "AI Defensive Response",
+            "detail": "Google ใช้ Gemini ร่วมกับ Wiz/CodeMender เพื่อตรวจจับและวิเคราะห์ความเสี่ยงที่เกิดขึ้น"
+          },
+          {
+            "step": "Automated Remediation",
+            "detail": "ระบบใช้ CodeMender ปิดช่องโหว่แบบอัตโนมัติก่อนที่แฮกเกอร์จะโจมตีสำเร็จ"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "สถานะการโจมตี",
+            "value": "แฮกเกอร์เริ่มใช้ Autonomous LLM สแกนซอฟต์แวร์โดยไม่มีมนุษย์คอยสั่ง",
+            "context": "อ้างอิงจากรายงาน AI Threat Tracker Q4 2026"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "ความเข้าใจใน Google Cloud Security",
+            "ความรู้เกี่ยวกับช่องโหว่ทั่วไป (CVE)"
+          ],
+          "try_it_steps": [
+            "สรุปความเสี่ยงที่ระบบของคุณอาจถูกสแกนด้วย AI",
+            "ทดลองใช้โซลูชันด้านความปลอดภัยของ Google ที่มีให้ในคอนโซล",
+            "ติดตามรายงานจาก Mandiant เพื่ออัปเดตเทคนิคการโจมตีใหม่ๆ"
+          ],
+          "next_to_learn": [
+            "Automated Patching Strategies (การแพตช์ระบบอัตโนมัติ)",
+            "AI-driven Cyber Threat Detection"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "ยุคนี้แค่ตั้งรับไม่พอ! รายงานจาก GTIG Q4 2026 เผยแฮกเกอร์เริ่มใช้ AI สแกนหาช่องโหว่แบบอัตโนมัติ (Autonomous LLM) โดยไม่ต้องใช้คนเฝ้าตลอด 24 ชั่วโมง 🤖\n\nGoogle จึงต้องเปิดตัว 'AI Threat Defense' มาแก้เกมด้วยการ:\n🛡️ ใช้ Gemini วิเคราะห์ภัยคุกคามแบบ Real-time\n🛡️ ผสานพลัง Wiz, CodeMender และ Mandiant\n🛡️ ปิดช่องโหว่แบบอัตโนมัติก่อนโดนโจมตี\n\nใครที่เป็น Dev หรือดูแล Infra อย่าลืมไปเช็กรายงาน AI Threat Tracker กันนะครับ ปลอดภัยไว้ก่อนดีที่สุด!\n\n#GoogleCloud #CyberSecurity #AI #Gemini #GTIG"
     },
     {
       "id": "publisher-connections-new-google-admob-tools-0c0137",
@@ -2498,67 +2746,130 @@
     },
     {
       "id": "google-cloud-training-performance-benchmarks-tpu-418b71",
-      "title": "New AI training performance benchmarks for Google TPUs",
+      "title": "New AI training performance benchmarks for Google TPUs and NVIDIA GPUs on Google Cloud",
       "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/training-performance-benchmarks-tpus/",
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T16:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.707Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud"
       ],
-      "category": "Google Research & Labs",
+      "category": "Cloud & Developer Tools",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Ironwood_board.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "ยกระดับการเทรน AI ด้วย Ironwood TPU และ NVIDIA GPU: Google เผยผล Benchmark ใหม่ที่เร็วและทรงพลังกว่าเดิม",
-      "short_teaser": "Google ประกาศความสำเร็จด้านการประมวลผลผ่านมาตรฐาน MLPerf v6.1 โดยนำเสนอขุมพลังจาก TPU รุ่นล่าสุดและ GPU ระดับไฮเอนด์ เพื่อเร่งความเร็วการเทรนโมเดล AI ให้รวดเร็วและคุ้มค่าที่สุด",
+      "reading_time_minutes": 4,
+      "hook_headline": "Google โชว์ประสิทธิภาพ TPU v7 และ NVIDIA Blackwell ใน MLPerf Training v6.1: อัปเกรดงาน Pre-training และ Agentic RL",
+      "short_teaser": "Google Cloud เผยผล Benchmark รอบล่าสุดกับชิป Ironwood TPUs และ NVIDIA Blackwell ซึ่งทำผลงานเด่นในงาน Pre-training และการเรียนรู้แบบ Agentic Reinforcement Learning",
       "tldr_takeaways": [
-        "เผยผลทดสอบ MLPerf v6.1 แสดงประสิทธิภาพสูงสุดของ Ironwood TPU และ NVIDIA Grace Blackwell",
-        "ครอบคลุมการเทรนโมเดล AI ขนาดใหญ่ 10 รูปแบบ",
-        "ตอกย้ำความเป็นผู้นำด้านโครงสร้างพื้นฐานสำหรับการทำ Deep Learning"
+        "ใช้ชิป Ironwood TPUs (Generation 7) ทำงาน Pre-training ได้ใน 1.70 นาที ด้วย 8,192 ชิป",
+        "NVIDIA Blackwell Ultra GPUs (256 ชิป) ทำงาน Pre-training ได้ใน 31.96 นาที",
+        "มีผล Benchmark ของ Agentic RL (Reinforcement Learning) ครั้งแรกใน MLPerf"
       ],
       "layman_story": [
-        "การเทรน AI ขนาดใหญ่หรือ LLMs ในปัจจุบันต้องใช้เวลาและทรัพยากรคำนวณมหาศาล ปัญหาที่นักพัฒนาและนักวิจัยพบคือฮาร์ดแวร์ทั่วไปมักรับมือกับงานประมวลผลที่ซับซ้อนไม่ไหว ทำให้ต้นทุนการวิจัยพุ่งสูงขึ้นและใช้เวลานานเกินไป",
-        "การทดสอบ MLPerf v6.1 ครั้งนี้เปรียบเสมือนการโชว์สมรรถนะของ Google Cloud ในการรีดเค้นประสิทธิภาพจาก Ironwood TPU (รุ่นที่ 7) และ NVIDIA Grace Blackwell เพื่อให้ได้ผลลัพธ์ที่เร็วขึ้นและเสถียรที่สุด โดยแสดงให้เห็นว่าไม่ว่าจะเป็นโมเดลประเภทใด ทั้งภาพ ภาษา หรือข้อมูลเชิงซ้อน โครงสร้างพื้นฐานของ Google ก็รองรับได้ในระดับโลก",
-        "สำหรับนักพัฒนา นี่คือข่าวดีที่คุณจะได้รับประโยชน์จากความเร็วในการเทรนโมเดลที่เพิ่มขึ้น การมีผล Benchmark นี้ช่วยให้คุณเลือกใช้โครงสร้างพื้นฐานได้อย่างถูกต้องและคุ้มค่าที่สุดตามขนาดและประเภทของโมเดลที่กำลังพัฒนา ซึ่งจะส่งผลให้วงการ AI ขยับตัวไปข้างหน้าได้เร็วยิ่งขึ้น"
+        "การแข่งขันวัดความเร็วฝึกโมเดล AI (MLPerf) ครั้งล่าสุดพิสูจน์ให้เห็นว่า Google Cloud ไม่ได้มีแค่ชิปตัวเอง (TPU Ironwood) ที่แรงมาก แต่ยังรองรับ NVIDIA Blackwell รุ่นใหม่ล่าสุดเพื่อตอบโจทย์ลูกค้าที่ต้องการสเกลงานขนาดใหญ่",
+        "จุดที่น่าสนใจคือความเร็วในการ Pre-training ของชิป Ironwood ที่ใช้ 8,192 ชิปทำงานเสร็จในเวลาเพียง 1.7 นาที นอกจากนี้ยังมีการทำ Benchmark งาน Agentic Reinforcement Learning (RL) ซึ่งเป็นการฝึกให้ AI รู้จักเขียนโค้ดและเรียนรู้ไปพร้อมกัน",
+        "ประสิทธิภาพเหล่านี้เกิดจากการออกแบบระบบ AI Hypercomputer ที่เชื่อมโยง Hardware และ Software เข้าด้วยกัน ทำให้การเทรนขนาดใหญ่มีประสิทธิภาพสูงสุดโดยแทบไม่มีช่วงที่ชิปต้องรอคอยงาน (Idle time)"
       ],
       "impact_comparison": {
-        "before": "การเทรนโมเดลใช้เวลานานและยากต่อการคาดการณ์ต้นทุนและระยะเวลาที่แน่นอน",
-        "after": "นักพัฒนาได้รับมาตรฐานที่ชัดเจนในการประเมินประสิทธิภาพฮาร์ดแวร์และลดเวลาการเทรนลง",
-        "why_it_matters": "ประสิทธิภาพของฮาร์ดแวร์คือกุญแจสำคัญของการพัฒนา AI ให้ก้าวข้ามขีดจำกัดเดิมๆ"
+        "before": "การเทรนโมเดลขนาดใหญ่ใช้เวลานานและมักพบปัญหาคอขวดที่การสื่อสารระหว่างชิป (Networking)",
+        "after": "ด้วย Ironwood และ Blackwell บนสถาปัตยกรรม AI Hypercomputer การเทรนทำได้เร็วขึ้นและรองรับการ Scale ได้มากกว่า 4,000 ชิปด้วยประสิทธิภาพสูงถึง 96%",
+        "why_it_matters": "ช่วยให้บริษัทที่ต้องการเทรนโมเดลระดับ Frontier ประหยัดเวลาและทรัพยากรไปได้มหาศาล"
       },
       "actionable_playbook": [
         {
-          "title": "เลือกโครงสร้างพื้นฐานให้เหมาะกับงาน",
-          "role": "สำหรับนักพัฒนา / AI Builder",
-          "description": "ดูผล Benchmark เปรียบเทียบระหว่าง TPU และ GPU บน Google Cloud เพื่อเลือกใช้เครื่องที่ตรงกับโมเดลของคุณ",
-          "example": "เลือก TPU สำหรับงานที่ต้องการประมวลผล Tensor ขนาดใหญ่ในโปรเจกต์ Deep Learning"
+          "title": "ศึกษาผล Benchmark",
+          "role": "ML Engineer",
+          "description": "ดูความต่างระหว่างชิปแต่ละรุ่นเพื่อเลือกใช้ตามงาน",
+          "example": "เปรียบเทียบเลข 1.70 นาที (TPU) กับ 31.96 นาที (NVIDIA)"
         },
         {
-          "title": "วางแผนงบประมาณ AI",
-          "role": "สำหรับทีม Product / ธุรกิจ",
-          "description": "นำผลประสิทธิภาพความเร็วไปคำนวณ Return on Investment (ROI) ของการเทรนโมเดลใหม่",
-          "example": "ประเมินว่าการเทรนเร็วขึ้น 20% จะช่วยลดค่าใช้จ่ายรายเดือนได้กี่บาท"
+          "title": "เตรียมโครงสร้างพื้นฐาน",
+          "role": "Cloud Architect",
+          "description": "มองหาการใช้ AI Hypercomputer บน Google Cloud",
+          "example": "สำรวจ Availability ของ A4X Max Instances"
         },
         {
-          "title": "ติดตามมาตรฐานอุตสาหกรรม",
-          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-          "description": "เรียนรู้เกี่ยวกับมาตรฐาน MLPerf เพื่อนำมาใช้ในการพิจารณาซื้อหรือเช่าบริการ AI",
-          "example": "ใช้ข้อมูล MLPerf ในการเปรียบเทียบผู้ให้บริการ Cloud ก่อนการเซ็นสัญญา"
+          "title": "ติดตามมาตรฐาน MLPerf",
+          "role": "AI Researcher",
+          "description": "ใช้ MLPerf เป็นเกณฑ์วัดมาตรฐานงานวิจัย AI",
+          "example": "อ่านรายละเอียดของเวอร์ชัน 6.1"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "ผลทดสอบจาก Ironwood TPU รุ่นล่าสุดและ NVIDIA Grace Blackwell",
-          "ผลการทดสอบที่ครอบคลุมการใช้งานถึง 10 รูปแบบในมาตรฐาน MLPerf"
+          "ผล Benchmark ของ Ironwood TPUs (Gen 7) และ NVIDIA Blackwell Ultra GPUs",
+          "การทดสอบ Agentic Reinforcement Learning ครั้งแรกใน MLPerf"
         ],
         "watchouts": [
-          "ประสิทธิภาพสูงสุดขึ้นอยู่กับการปรับจูน Code และ Data Pipeline ให้เข้ากับฮาร์ดแวร์",
-          "ราคาและ Availability ของฮาร์ดแวร์ในแต่ละภูมิภาคอาจแตกต่างกันไป"
+          "ตัวเลขเป็น Benchmark ภายใต้เงื่อนไขเฉพาะของ Google Cloud",
+          "การเลือกใช้ชิปควรพิจารณาถึงความเข้ากันได้ของ Framework ที่ใช้"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "รายงานความเร็วในการเทรน AI บน Google Cloud โดยใช้ชิปแรงที่สุดในตลาดปัจจุบัน",
+          "prerequisite_level": "เข้าใจเรื่อง High-Performance Computing (HPC) และระบบกระจายงาน (Distributed Training)",
+          "worth_deep_dive": "เหมาะมากสำหรับทีมที่ต้องการ Scale งาน AI ให้เร็วและคุ้มค่าที่สุด",
+          "context_lineage": "ต่อยอดจาก AI Hypercomputer ของ Google และการร่วมมือกับ NVIDIA"
+        },
+        "glossary": [
+          {
+            "term": "MLPerf",
+            "meaning": "มาตรฐานกลางที่ใช้วัดประสิทธิภาพความเร็วในการเทรนโมเดล AI ของค่ายต่างๆ",
+            "analogy": "สนามแข่งรถที่กำหนดระยะทางไว้ ทุกคนต้องมาแข่งในเงื่อนไขเดียวกัน"
+          },
+          {
+            "term": "Agentic RL",
+            "meaning": "การฝึก AI ให้เป็น 'Agent' ที่ตัดสินใจและเรียนรู้จากการทำภารกิจ (เช่น การเขียนโค้ด) ด้วยตัวเอง",
+            "analogy": "ให้หุ่นยนต์ลองเขียนโปรแกรมผิดๆ ถูกๆ จนสุดท้ายมันจะเริ่มเขียนได้เอง"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Infrastructure Orchestration",
+            "detail": "เชื่อมชิป 8,192 ตัวเข้าด้วยกันผ่านระบบ AI Hypercomputer ที่ลด Idle time ของชิป"
+          },
+          {
+            "step": "Concurrent Training",
+            "detail": "รันงานโค้ดเจนเนอเรชันควบคู่ไปกับการเรียนรู้ (Learning) ในงาน RL"
+          },
+          {
+            "step": "Optimized Benchmarking",
+            "detail": "ใช้ซอฟต์แวร์ที่ปรับจูนร่วมกับ Hardware เพื่อบรรลุเป้าหมายคุณภาพของโมเดลอย่างรวดเร็ว"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "Ironwood TPU Training",
+            "value": "1.70 นาที (ด้วยชิป 8,192 ตัว)",
+            "context": "งาน Pre-training ตามมาตรฐาน MLPerf"
+          },
+          {
+            "metric": "NVIDIA Blackwell Training",
+            "value": "31.96 นาที (ด้วยชิป 256 ตัว)",
+            "context": "งาน Pre-training ตามมาตรฐาน MLPerf"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Google Cloud Access",
+            "ความเข้าใจพื้นฐาน Distributed Training"
+          ],
+          "try_it_steps": [
+            "ศึกษาความแตกต่างระหว่าง TPU และ GPU สำหรับงานเทรน",
+            "วางแผนการจัดสเปกเครื่องใน Google Cloud ให้เหมาะสมกับขนาดโมเดล",
+            "ลองทำความเข้าใจผลลัพธ์ของ Agentic RL ในเอกสาร MLPerf v6.1"
+          ],
+          "next_to_learn": [
+            "AI Hypercomputer Architecture",
+            "Distributed Training ใน PyTorch/JAX"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "ความเร็วคือทุกอย่าง! Google Cloud เผยผล Benchmark งานเทรน AI ล่าสุดใน MLPerf v6.1:\n\n🔥 Ironwood TPUs (Gen 7) ใช้ 8,192 ชิป ทำ Pre-training เสร็จใน 1.7 นาที!\n🚀 NVIDIA Blackwell Ultra ก็ไม่น้อยหน้า ทำงานเสร็จใน 31.96 นาที\n✅ ครั้งแรกกับผลทดสอบ Agentic RL บน MLPerf\n\nทั้งหมดนี้รันบนสถาปัตยกรรม AI Hypercomputer ที่ลดช่วง Idle time ของชิปจนต่ำกว่า 3% ใครที่เทรนโมเดลใหญ่ๆ ต้องดูตัวเลขพวกนี้ประกอบการตัดสินใจเรื่อง Infra เลยครับ!\n\n#GoogleCloud #AI #MachineLearning #TPU #NVIDIA #MLPerf"
     },
     {
       "id": "gemini-notebook-interactive-sites-6987a1",
@@ -2632,7 +2943,8 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T14:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.707Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Maz Khorasani"
       ],
@@ -2644,54 +2956,111 @@
       "category": "AI Products & Ecosystem",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Ask_Maps_November_herosocial.max-600x600.format-webp.webp",
       "reading_time_minutes": 3,
-      "hook_headline": "Ask Maps อัปเกรดใหม่! ตัวช่วยวางแผนเที่ยวช่วงเทศกาลที่รู้ใจคุณมากกว่าที่เคย",
-      "short_teaser": "Google Maps เสริมอาวุธด้วย AI รุ่นใหม่ ช่วยให้คุณวางแผนทริปวันหยุดและค้นหาข้อมูลในลิสต์ส่วนตัวได้อย่างแม่นยำ เตรียมรับมือความวุ่นวายช่วงเทศกาลได้อย่างไร้กังวล",
+      "hook_headline": "Ask Maps อัปเดตใหม่: เพิ่มขีดความสามารถ Agentic จัดทริปและจองคิวบริการ",
+      "short_teaser": "Google Maps เปิดตัวฟีเจอร์ช่วยวางแผนทริปและจองคิวด้วย AI ในกว่า 200 ประเทศ รองรับการจัดการตารางเที่ยวรายวันและค้นหาที่ว่างแบบ Real-time",
       "tldr_takeaways": [
-        "Ask Maps รองรับการวางแผน Road Trip ที่ซับซ้อนพร้อมแนะนำเส้นทางที่ดีที่สุด",
-        "ช่วยค้นหาและแนะนำการนัดหมายหรือจุดแวะพักในพื้นที่ได้รวดเร็ว",
-        "ค้นหาข้อมูลเชิงลึกจาก Saved Lists ของคุณเองได้เพียงแค่ถามด้วยภาษาธรรมชาติ"
+        "สามารถสร้างแผนการเดินทางรายวัน (Itinerary) พร้อมปักหมุดกิจกรรม Shopping และ Dining",
+        "มีฟีเจอร์ Agentic ช่วยติดต่อธุรกิจเพื่อจองคิว Beauty, Pet care, Home repair (ใช้ได้ใน U.S. ก่อน)",
+        "ขยายการใช้งาน Ask Maps ไปยัง 30 ประเทศในยุโรป ครอบคลุมผู้ใช้ทั่วโลกมากกว่า 200 ประเทศ"
       ],
       "layman_story": [
-        "การเดินทางช่วงเทศกาลมักมาพร้อมความวุ่นวาย ทั้งการวางแผนเส้นทางที่แวะได้หลายที่ การหาสถานที่ที่คนไม่แน่นเกินไป หรือการจำไม่ได้ว่าเราเคยเซฟร้านอาหารน่าสนใจไว้ในลิสต์ไหนบ้าง ซึ่งเป็นจุดที่ผู้ใช้งานมักเสียเวลาและเกิดความหงุดหงิด",
-        "ฟีเจอร์ใหม่ของ Ask Maps ใช้โมเดล Gemini มาช่วยวิเคราะห์ข้อมูลแผนที่ทั่วโลกผสมผสานกับข้อมูลส่วนตัวของคุณ ระบบจะทำงานเหมือนผู้ช่วยส่วนตัวที่เข้าใจบริบทการเดินทาง คุณสามารถถามคำถามยาวๆ ได้ เช่น 'มีเส้นทางขับรถไปเชียงใหม่ที่แวะร้านกาแฟสวยๆ ได้บ้างไหม' หรือ 'จากลิสต์ที่ฉันเซฟไว้ มีที่ไหนบ้างที่จองคิวออนไลน์ได้ทันที'",
-        "อัปเดตนี้เปลี่ยน Google Maps จากแค่แอปดูทาง ให้กลายเป็นเครื่องมือช่วยตัดสินใจ (Decision Tool) ซึ่งมีผลกระทบอย่างมากต่อการเดินทางและการจัดการเวลา ช่วยให้ผู้ใช้งานประหยัดเวลาวางแผนและสามารถดื่มด่ำกับวันหยุดได้อย่างเต็มที่"
+        "ประกาศนี้คือการอัปเกรด Google Maps ให้กลายเป็น AI Planning Agent ที่ไม่ได้แค่บอกทาง แต่ช่วยจัดการ Logistics ตลอดทริป แก้ปัญหาความยุ่งยากในการไล่หาข้อมูลทีละจุดและการจองคิวในช่วงเทศกาล",
+        "เบื้องหลังสถาปัตยกรรมคือการเชื่อมต่อโมเดล Generative AI เข้ากับฐานข้อมูล Real-time ของ Maps (Traffic, Business Hours, Availability) ทำให้ AI สามารถจัดตารางพร้อมแนะนำจุดแวะพักตามความเหมาะสมของเวลา",
+        "ข้อจำกัดหลักคือฟีเจอร์ 'Know before you go' และการจองคิวอัตโนมัติ (Agentic booking) จะเริ่มให้บริการใน U.S. เป็นที่แรก ส่วนฟีเจอร์จัดตารางทริปเปิดให้ใช้งานทั่วโลกแล้ว"
       ],
       "impact_comparison": {
-        "before": "ต้องคอยเลื่อนดูลิสต์เองทีละอันและค้นหาเส้นทางแยกกันในแต่ละจุดแวะ",
-        "after": "พิมพ์ถามด้วยคำถามเดียว ได้คำตอบทั้งเส้นทางและสถานที่แนะนำที่ตรงกับความชอบ",
-        "why_it_matters": "การนำ AI มาเชื่อมต่อข้อมูลส่วนตัวกับข้อมูลแผนที่โลกช่วยสร้างประสบการณ์การใช้งานที่เป็นเอกลักษณ์ (Personalized AI)"
+        "before": "ต้องค้นหาด้วยตัวเองทีละที่แล้วนำมาวางแผนในสมุดโน้ตหรือแอปจดบันทึก",
+        "after": "AI ช่วยจัดตารางรายวันให้พร้อม Export ไปยัง Google Docs และเช็กความพร้อมของสถานที่ได้ทันที",
+        "why_it_matters": "สะท้อนแนวทางการทำ AI ที่เน้นการ 'ลงมือทำ' (Agentic) มากกว่าแค่การ 'แนะนำ' (Conversational)"
       },
       "actionable_playbook": [
         {
-          "title": "ให้ AI วางแผนเส้นทางขับรถ",
-          "role": "สำหรับนักพัฒนา / AI Builder",
-          "description": "ลองใช้งานฟีเจอร์การถามเส้นทางแบบใส่เงื่อนไขหลายชั้น เช่น แวะที่เที่ยวและหาร้านอาหาร",
-          "example": "ถามหาเส้นทางกลับบ้านช่วงปีใหม่ที่เลี่ยงรถติดและผ่านร้านอาหารที่เปิดอยู่"
+          "title": "ทดสอบฟีเจอร์ Itinerary",
+          "role": "วางแผนทริปด้วยตัวเอง",
+          "description": "ลองให้ Ask Maps ช่วยสร้างตารางการเดินทาง 3 วันในเมืองท่องเที่ยว",
+          "example": "ใช้คำสั่ง: 'Plan a 3-day road trip in [City] with stops for scenic views and dining'"
         },
         {
-          "title": "บริหารจัดการร้านอาหารในลิสต์เพื่อลูกค้า",
-          "role": "สำหรับทีม Product / ธุรกิจ",
-          "description": "หากคุณทำธุรกิจสถานที่ท่องเที่ยว ตรวจสอบให้แน่ใจว่าข้อมูลใน Google Maps อัปเดตเพื่อให้ Ask Maps ค้นหาเจอ",
-          "example": "อัปเดตสถานะการจองคิวออนไลน์เพื่อให้ผู้ใช้ค้นหาได้ง่ายขึ้น"
+          "title": "ค้นหา Availability",
+          "role": "ทดลองใช้ List search",
+          "description": "ใช้คำสั่งถามหาที่ว่างใน List สถานที่ที่คุณเซฟไว้",
+          "example": "ถามว่า: 'Which spots in my saved lists have availability for 5 people in the next 30 minutes?'"
         },
         {
-          "title": "เคลียร์ลิสต์ที่เซฟไว้ให้เป็นระบบ",
-          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-          "description": "ใช้ฟีเจอร์ค้นหาจาก Saved Lists เพื่อจัดการทริปที่เคยเซฟไว้หลายปี",
-          "example": "ถาม Ask Maps ว่า 'ลิสต์ร้านกาแฟที่เซฟไว้ มีที่ไหนบ้างที่เปิดพรุ่งนี้'"
+          "title": "Export ผลลัพธ์",
+          "role": "จัดการข้อมูล",
+          "description": "ทดลอง Export ข้อมูลแผนการเดินทางไปยังเครื่องมืออื่น",
+          "example": "ใช้ปุ่ม Share หรือ Export to Google Docs จากในหน้า Chat ของ Ask Maps"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "การค้นหาเชิงลึกจาก Saved Lists ด้วยภาษาธรรมชาติ",
-          "ระบบแนะนำเส้นทาง Road Trip อัจฉริยะ"
+          "ฟีเจอร์สร้างแผนการเดินทางแบบ Step-by-step พร้อมข้อมูลจราจร Real-time",
+          "Agentic capabilities สำหรับช่วยจองบริการซ่อมบ้านและดูแลสัตว์เลี้ยง"
         ],
         "watchouts": [
-          "ข้อมูลใน Saved Lists ของคุณต้องมีการจัดการที่ดีถึงจะดึงมาใช้ได้แม่นยำ",
-          "ประสิทธิภาพของ AI ขึ้นอยู่กับการอัปเดตข้อมูลสถานที่จริงของร้านค้านั้นๆ"
+          "ฟีเจอร์จองคิวอัตโนมัติและ Know before you go จำกัดเฉพาะ U.S. ในเฟสแรก",
+          "ความแม่นยำขึ้นอยู่กับข้อมูล Real-time ของธุรกิจในพื้นที่นั้นๆ"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "เปลี่ยน Google Maps ให้เป็นผู้ช่วยวางแผนทริปและจัดการนัดหมายแบบครบวงจรผ่าน Generative AI",
+          "prerequisite_level": "ผู้ใช้ทั่วไปที่มีสมาร์ทโฟน Android หรือ iOS",
+          "worth_deep_dive": "คุ้มค่าสำหรับคนที่สนใจการประยุกต์ใช้ Agentic AI ในชีวิตประจำวัน",
+          "context_lineage": "ต่อยอดจากโมเดล Generative AI ใน Search และระบบฐานข้อมูลพิกัดสถานที่ของ Google"
+        },
+        "glossary": [
+          {
+            "term": "Agentic capabilities",
+            "meaning": "ความสามารถของ AI ที่ไม่ได้แค่คุยโต้ตอบ แต่สามารถทำภารกิจหรือสั่งการแทนผู้ใช้ได้ เช่น การโทรไปจองคิว",
+            "analogy": "เหมือนมีเลขาส่วนตัวที่โทรนัดหมอให้เราแทน"
+          },
+          {
+            "term": "Itinerary",
+            "meaning": "แผนการเดินทางเชิงตรรกะที่เรียงลำดับเวลาและสถานที่เข้าด้วยกัน",
+            "analogy": "ตารางเรียนที่รวมการเดินทางเข้าไปด้วย"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Intent Parsing",
+            "detail": "AI วิเคราะห์คำถามเพื่อเข้าใจเป้าหมายทริปและความสนใจของผู้ใช้"
+          },
+          {
+            "step": "Data Correlation",
+            "detail": "ดึงข้อมูล Real-time จาก Maps (Traffic, Availability, Operating Hours) มาประมวลผลร่วมกัน"
+          },
+          {
+            "step": "Action Execution",
+            "detail": "ในกรณีจองคิว AI จะทำหน้าที่ติดต่อบริการปลายทางเพื่อเช็กและลงนัดหมายตามคำขอ"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "ขอบเขตการใช้งาน",
+            "value": "มากกว่า 200 ประเทศและดินแดนทั่วโลก",
+            "context": "เป็นการขยายบริการผ่านการอัปเดตฟีเจอร์ใน Maps บน iOS และ Android"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Google Maps App (เวอร์ชันล่าสุดที่รองรับ AI)",
+            "เข้าถึงฟีเจอร์ Ask Maps ในเขตที่เปิดให้บริการ"
+          ],
+          "try_it_steps": [
+            "เปิด Google Maps และแตะที่ปุ่ม Ask Maps",
+            "ลองพิมพ์คำสั่งวางแผนทริปยาวๆ เพื่อดูการจัดลำดับเวลา",
+            "ตรวจสอบป้าย 'Itinerary' ใน Chat History เพื่อดูข้อมูลการเดินทาง"
+          ],
+          "next_to_learn": [
+            "Prompt Engineering สำหรับ Agentic workflow",
+            "ขอบเขตของ Local Data ใน Google Maps"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Google Maps อัปเดตใหญ่! เพิ่มฟีเจอร์ 'Ask Maps' ให้กลายเป็นเลขาส่วนตัว ช่วยวางแผนทริปและจองคิวบริการแบบมือโปร\n\nสิ่งที่ทำได้:\n📍 สร้างตารางเที่ยวรายวัน (Itinerary) พร้อมปักหมุดที่กินที่เที่ยว\n🕒 เช็กคิวว่างแบบ Real-time ของร้านค้าและบริการใน List ที่เซฟไว้\n📞 ฟีเจอร์ Agentic ช่วยจองคิว (เช่น ทำผม, ซ่อมบ้าน) เริ่มใช้งานใน U.S. แล้ว\n\nตอนนี้อัปเดตกระจายไปกว่า 200 ประเทศทั่วโลก (รวมถึงหลายประเทศในยุโรปที่เพิ่งเปิดเพิ่ม) ใครวางแผนเที่ยวช่วงวันหยุดยาว ลองเข้าไปถามได้เลยครับ\n\n#GoogleMaps #AskMaps #AI #TravelTech #GenerativeAI"
     },
     {
       "id": "search-holiday-prep-search-2026-45d13c",
@@ -2828,7 +3197,8 @@
       "source": "Google Developers",
       "published_date": "2026-11-13",
       "published_at": "2026-11-13T20:30:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.707Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Bala Muthukrishnan",
         "Seth Odoom"
@@ -2838,55 +3208,117 @@
       ],
       "category": "Cloud & Developer Tools",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Studio_BlogBanner_990x556.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "นักพัฒนาเฮ! Google เปิดทางเคลม Google Cloud Credits ง่ายๆ ตรงจาก AI Studio",
-      "short_teaser": "Google ปรับปรุงประสบการณ์นักพัฒนาด้วยการรวมระบบเบิกใช้เครดิต Cloud เข้าไว้ใน Google AI Studio ช่วยลดความซับซ้อนในการเข้าถึงทรัพยากรประมวลผลสำหรับงาน AI ให้สะดวกยิ่งขึ้น",
+      "reading_time_minutes": 2,
+      "hook_headline": "Google AI Studio รวมระบบ Cloud Credits เข้าในตัว: จัดการงบ API ได้จากที่เดียว",
+      "short_teaser": "ผู้ใช้ Google AI Pro และ Ultra สามารถจัดการ Google Cloud Credits สำหรับใช้งาน Gemini API ได้โดยตรงผ่านเมนูใน AI Studio",
       "tldr_takeaways": [
-        "นักพัฒนาสามารถกดรับ Google Cloud Credits ได้โดยตรงผ่านหน้าจอ Google AI Studio",
-        "ช่วยลดขั้นตอนการสลับแพลตฟอร์มเพื่อบริหารจัดการงบประมาณค่า Cloud",
-        "สนับสนุนให้นักพัฒนานำโมเดลไปต่อยอดใช้งานบนระบบ Production ของ Google Cloud ได้ทันที"
+        "ไม่ต้องสลับหน้าจอ: ตั้งค่า Billing และดูยอดเครดิตที่คงเหลือได้ใน AI Studio",
+        "เครดิตมีอายุการใช้งาน 12 เดือนและมีการทบยอดรายเดือนให้โดยอัตโนมัติ",
+        "ต้องทำ Google Developer Program profile ก่อนจึงจะเริ่มเคลมเครดิตได้"
       ],
       "layman_story": [
-        "ที่ผ่านมานักพัฒนาที่สร้างต้นแบบบน Google AI Studio มักประสบปัญหาความยุ่งยากในการเชื่อมต่อและขอรับสิทธิ์สนับสนุนค่าใช้จ่ายเพื่อขยายผลงานไปสู่ระดับการผลิต ทำให้ขั้นตอนการเปลี่ยนจากโปรเจกต์ทดลองไปสู่แอปพลิเคชันจริงมีความติดขัด",
-        "การอัปเดตครั้งนี้เป็นการรวมเอาหน้าจัดการ Google Cloud Credits มาไว้ใน Google AI Studio โดยตรง ช่วยให้นักพัฒนาสามารถดูสถานะและกดใช้เครดิตเพื่อครอบคลุมค่าบริการบน Google Cloud ได้ทันทีผ่าน Interface ที่คุ้นเคย",
-        "ความเปลี่ยนแปลงนี้สะท้อนถึงกลยุทธ์ของ Google ที่ต้องการลด Friction สำหรับนักพัฒนา AI ช่วยให้เหล่า Builders สามารถโฟกัสกับการเขียน Prompt หรือจูนโมเดลได้โดยไม่ต้องพะวงเรื่องการจัดการงบประมาณในหลายจุด เป็นสัญญาณว่า Google กำลังผลักดันให้ AI Studio เป็นจุดเริ่มต้นของทุกโปรเจกต์ AI"
+        "การอัปเดตนี้ลดความซับซ้อนของ Dev Workflow ที่ปกติจะต้องสลับไปมาระหว่าง Console ของ Google Cloud กับ AI Studio เพื่อจัดการค่าใช้จ่าย",
+        "สำหรับสมาชิก AI Pro และ Ultra ตอนนี้สามารถดู Balance และตั้งค่า Billing ได้โดยตรงในหน้า Workspace ของ AI Studio ทำให้การต่อยอดโปรเจกต์จาก Prototype ไปสู่ Production ทำได้ลื่นไหลขึ้น",
+        "ข้อควรระวังคือเงื่อนไข 'Prepayment' ขั้นต่ำ 5 ดอลลาร์สำหรับการใช้งาน API ร่วมกับ Billing และสิทธิ์ที่จำกัดเฉพาะสมาชิกหลักของโปรแกรมเท่านั้น"
       ],
       "impact_comparison": {
-        "before": "นักพัฒนาต้องสลับหน้าจอระหว่างเครื่องมือ AI Studio กับ Google Cloud Console เพื่อจัดการงบและเครดิต",
-        "after": "เคลมและจัดการเครดิตผ่านหน้าต่างเดียวได้ทันที เพิ่มความลื่นไหลในการพัฒนา",
-        "why_it_matters": "ช่วยประหยัดเวลาการทำงานของ DevOps และนักพัฒนา ทำให้การ Scale งานจากโมเดลทดลองไปสู่ระบบใหญ่ทำได้รวดเร็วขึ้น"
+        "before": "ต้องสลับหน้าต่างไปที่ Google Cloud Console เพื่อดู Quota และ Billing แยกต่างหาก",
+        "after": "เคลมและติดตามยอดเครดิตได้ภายใน Workspace เดียว ลดการสะดุดของ Workflow",
+        "why_it_matters": "เป็นการดึงประสบการณ์ Developer Experience (DX) ให้รวมศูนย์อยู่ในที่เดียว"
       },
       "actionable_playbook": [
         {
-          "title": "ตรวจสอบสิทธิ์ใน AI Studio",
-          "role": "สำหรับนักพัฒนา / AI Builder",
-          "description": "ล็อกอินเข้าสู่ Google AI Studio และเข้าไปที่ส่วนการจัดการ Credits เพื่อดูว่าบัญชีของคุณได้รับสิทธิ์ในการเคลมเครดิตหรือไม่",
-          "example": "ใช้เครดิตที่ได้เริ่มทดสอบยิง API ไปยังโมเดล Gemini บนระบบ Production เพื่อดูประสิทธิภาพจริง"
+          "title": "ตรวจเช็กเครดิตใน AI Studio",
+          "role": "ตรวจสอบสิทธิ์",
+          "description": "ล็อกอินเข้า AI Studio แล้วดูที่แถบเมนูด้านซ้าย",
+          "example": "ตรวจสอบยอดใน Billing Section ใน aistudio.google.com/billing"
         },
         {
-          "title": "คำนวณต้นทุนการใช้งาน (Cost Modeling)",
-          "role": "สำหรับทีม Product / ธุรกิจ",
-          "description": "วางแผนการใช้เครดิตให้สอดคล้องกับการขยายฟีเจอร์ AI ในระยะยาว",
-          "example": "ประเมินจำนวน Token ที่ต้องการใช้ต่อเดือนและนำเครดิตที่ได้รับไปหักลบค่าใช้จ่ายเบื้องต้นในช่วง Beta"
+          "title": "ตั้งค่า Billing Profile",
+          "role": "เปิดการใช้งาน",
+          "description": "สร้าง Developer Program Profile หากยังไม่มีเพื่อเปิดรับสิทธิ์เครดิต",
+          "example": "ปฏิบัติตามคำแนะนำใน dialog ที่เด้งขึ้นมาในหน้า AI Studio"
         },
         {
-          "title": "บริหารจัดการโปรเจกต์ผ่าน Dashboard",
-          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-          "description": "ใช้หน้าจอของ AI Studio ในการควบคุมการใช้ทรัพยากรของทั้งทีมในที่เดียว",
-          "example": "ตรวจสอบว่ามีการใช้งาน API เกินกว่างบประมาณที่กำหนดไว้หรือไม่ผ่านเมนู Credits โดยตรง"
+          "title": "วางแผนการใช้ API",
+          "role": "คำนวณต้นทุน",
+          "description": "ประเมิน Quota จากแผนที่สมัครและวางแผน Deploy ผ่าน Cloud Run",
+          "example": "ศึกษา Guide การใช้ credits ใน doc ของ Google AI Studio"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "ระบบการเคลม Cloud Credits ภายในหน้าจอ AI Studio",
-          "การเชื่อมโยงข้อมูลการใช้งานระหว่าง AI Studio และ Google Cloud โปรเจกต์"
+          "In-product billing management สำหรับผู้ใช้ AI Pro/Ultra",
+          "ระบบแจ้งเตือนและติดตามยอดใช้จ่ายแบบ Real-time"
         ],
         "watchouts": [
-          "เงื่อนไขการให้เครดิตอาจขึ้นอยู่กับระดับของโปรเจกต์และภูมิภาค",
-          "ต้องตรวจสอบข้อกำหนดการใช้งานเครดิตให้ดีก่อนกดยืนยัน"
+          "ต้องจ่ายเงินล่วงหน้าขั้นต่ำ 5 ดอลลาร์เพื่อเปิดใช้ Billing",
+          "เครดิตไม่สามารถโอนให้สมาชิกในครอบครัวหรือบัญชีอื่นได้"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "รวมศูนย์การจัดการเงินและงบประมาณ API สำหรับนักพัฒนา Gemini เข้าไว้ในที่เดียว",
+          "prerequisite_level": "ผู้ที่ใช้งาน Gemini API ใน AI Studio และมีสิทธิ์ Pro/Ultra",
+          "worth_deep_dive": "จำเป็นสำหรับ Dev ที่ใช้ API ระดับ Production",
+          "context_lineage": "เป็นส่วนหนึ่งของการปรับปรุง Developer Experience ใน Ecosystem ของ Google Cloud"
+        },
+        "glossary": [
+          {
+            "term": "Google Developer Program",
+            "meaning": "โครงการรวมเครื่องมือและ Perk สำหรับนักพัฒนาของ Google",
+            "analogy": "เหมือนบัตรสมาชิก VIP ที่รวมสิทธิพิเศษสำหรับ Dev ไว้ทั้งหมด"
+          },
+          {
+            "term": "Prepayment",
+            "meaning": "การจ่ายเงินล่วงหน้าเพื่อเปิดใช้ระบบ Cloud Billing",
+            "analogy": "เงินมัดจำในระบบมือถือแบบเติมเงิน"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Authentication",
+            "detail": "ยืนยันสิทธิ์สมาชิก AI Pro/Ultra"
+          },
+          {
+            "step": "Profile Sync",
+            "detail": "เชื่อมต่อบัญชีกับ Google Developer Program"
+          },
+          {
+            "step": "Billing Attachment",
+            "detail": "ผูกบัญชี Cloud Billing และดึงเครดิตมาใช้เป็นค่าใช้จ่าย API"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "เครดิตคงคลัง",
+            "value": "อายุ 12 เดือน (12-month rolling validity)",
+            "context": "ระบบมีการทบยอดให้โดยอัตโนมัติรายเดือน"
+          },
+          {
+            "metric": "เงื่อนไขการใช้จ่าย",
+            "value": "ขั้นต่ำ 5 ดอลลาร์ (Prepayment)",
+            "context": "จำเป็นเพื่อให้สามารถตัดเครดิตโปรโมชั่นได้"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "บัญชีสมาชิก Google AI Pro หรือ Ultra",
+            "บัญชี Google Cloud ที่ผ่านการตรวจสอบ"
+          ],
+          "try_it_steps": [
+            "ไปที่ aistudio.google.com",
+            "มองหาเมนู Billing ใน Sidebar",
+            "กด Claim Credit หากมียอดแจ้งเตือน"
+          ],
+          "next_to_learn": [
+            "Google Cloud Run สำหรับการ Deploy โมเดล",
+            "การจัดการ Quota API ผ่าน Vertex AI Console"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Dev สาย Gemini API ต้องดู! ตอนนี้จัดการเรื่อง Billing และ Credits ได้ง่ายขึ้นแล้วผ่านหน้า AI Studio โดยตรง\n\nไม่ต้องสลับหน้าจอไปที่ Google Cloud Console แล้ว! ใครเป็นสมาชิก AI Pro/Ultra สามารถ:\n✅ เคลมเครดิตรายเดือนได้ในคลิกเดียว\n✅ ติดตามการใช้งาน API และยอดคงเหลือแบบ Real-time\n✅ ตั้งค่า Billing ได้ทันทีเพื่อเริ่มงาน Production\n\n*หมายเหตุ: ต้องมีการชำระเงินล่วงหน้าขั้นต่ำ $5 เพื่อเริ่มใช้ระบบครับ\n\nใครกำลังทำโปรเจกต์ AI อย่าลืมเข้าไปเช็กสิทธิ์กันครับ\n\n#GoogleAI #GeminiAPI #CloudCredits #DeveloperTools #AIStudio"
     },
     {
       "id": "gemini-app-google-wallet-gemini-app-12b921",
@@ -3026,7 +3458,8 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.707Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Robby Stein"
       ],
@@ -3038,54 +3471,115 @@
       "category": "Gemini & Models",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/HydrogenUI_socialshare.max-600x600.format-webp.webp",
       "reading_time_minutes": 3,
-      "hook_headline": "Google Search อัปเกรดใหญ่ระดับโลกด้วยขุมพลัง Gemini 4 Hydrogen ตอบคำถามเป็นภาพและเข้าใจง่ายขึ้น",
-      "short_teaser": "Google นำโมเดล Gemini 4 Hydrogen เข้ามาขับเคลื่อน Google Search ทั่วโลก เพื่อเปลี่ยนหน้าผลลัพธ์การค้นหาให้โต้ตอบฉลาดขึ้น เห็นภาพชัดขึ้น และตรงจุดกว่าเดิม",
+      "hook_headline": "Google Search อัปเกรดใหญ่ด้วย Gemini 4 Hydrogen: ตอบคำถามซับซ้อนได้แม่นยำขึ้น",
+      "short_teaser": "Google นำโมเดล Gemini 4 Hydrogen มาใช้ใน Search เพิ่มประสิทธิภาพการเข้าใจ Intent และการแสดงผลข้อมูลแบบตารางและภาพ",
       "tldr_takeaways": [
-        "Google Search ทั่วโลกได้รับการอัปเกรดด้วยโมเดลรุ่นใหม่ Gemini 4 Hydrogen",
-        "เน้นการสรุปคำตอบที่ช่วยตัดสินใจได้จริง พร้อมการจัดวางข้อมูลเชิงภาพ (Visual) และคำอธิบายที่เข้าใจง่าย",
-        "รองรับคำถามซับซ้อนหลายขั้นตอนได้ดีขึ้น ลดเวลาที่ผู้ใช้ต้องเปิดเทียบหลายแท็บ"
+        "รองรับคำถามที่ซับซ้อน (Multi-part) ได้ดีขึ้น พร้อมเข้าใจ Typo ของผู้ใช้งาน",
+        "เพิ่มการแสดงผลในรูปแบบ Visual (ตารางเปรียบเทียบ, รูปภาพ, Custom tools)",
+        "ขยายการเชื่อมต่อข้อมูลผ่าน Query fan-out ที่ชาญฉลาดขึ้นเพื่อค้นหาแหล่งข้อมูลที่หลากหลาย"
       ],
       "layman_story": [
-        "เวลาเราค้นหาเรื่องที่ซับซ้อนบน Google เช่น การวางแผนทริป เทียบสเปกอุปกรณ์ หรือแก้ปัญหาเทคนิค เรามักต้องคลิกเปิดลิงก์หลายสิบหน้าแล้วมานั่งปะติดปะต่อข้อมูลเอง ซึ่งเสียเวลาและชวนสับสน",
-        "การอัปเกรด Google Search ด้วย Gemini 4 Hydrogen ช่วยให้ระบบค้นหาเข้าใจบริบทเชิงลึกของคำถามมากขึ้น และนำข้อมูลมาเรียบเรียงเป็นคำตอบที่มีโครงสร้างชัดเจน พร้อมองค์ประกอบเชิงภาพที่ช่วยให้สแกนทำความเข้าใจได้ทันที",
-        "ความเปลี่ยนแปลงนี้ยกระดับ Search จาก 'สารบัญลิงก์' ไปสู่ 'ผู้ช่วยวิเคราะห์ข้อมูลแบบเรียลไทม์' ซึ่งส่งผลโดยตรงต่อทั้งพฤติกรรมผู้ใช้งานทั่วไปและการทำ SEO/Content ของธุรกิจ"
+        "นี่คือการเปลี่ยนผ่านครั้งสำคัญของ Search Engine จากการคัดเลือก Link มาเป็นการ 'สรุปความ' ด้วยโมเดล Gemini 4 Hydrogen ที่เน้นความฉลาดในการตีความเจตนาของผู้ใช้ (Intent)",
+        "ความน่าสนใจอยู่ที่กลไก Query fan-out ที่ถูกปรับปรุงให้แตกคำถามซับซ้อนออกเป็น sub-queries ย่อยๆ เพื่อดึงคำตอบจากแหล่งข้อมูลที่เฉพาะเจาะจงมากขึ้น ทำให้ได้คำตอบที่เป็นตารางเปรียบเทียบหรือข้อมูลโครงสร้าง",
+        "ข้อดีสำหรับผู้ใช้คือการประหยัดเวลาอ่าน เพราะระบบจะแสดงข้อมูลที่สรุปมาให้แล้วแทนที่จะให้เราคลิกเข้าไปอ่านทุก Link เอง"
       ],
       "impact_comparison": {
-        "before": "ก่อนอัปเดต: การค้นหาคำถามซับซ้อนมักต้องเปิดหลายเว็บและอ่านเทียบข้อมูลเองทีละหน้า",
-        "after": "หลังอัปเดต: Gemini 4 Hydrogen ช่วยสังเคราะห์คำตอบพร้อมภาพและโครงสร้างที่อ่านเข้าใจทันทีในหน้าค้นหา",
-        "why_it_matters": "เป็นการอัปเกรดแกนหลักของ Google Search ที่เข้าถึงผู้ใช้งานหลายพันล้านคนพร้อมกันทั่วโลก"
+        "before": "Search จะแสดงรายการลิงก์และ Snippets สั้นๆ ผู้ใช้ต้องกรองข้อมูลเอง",
+        "after": "Search แสดงคำตอบสรุปแบบโครงสร้าง ตารางเปรียบเทียบ และเครื่องมือเฉพาะทาง",
+        "why_it_matters": "เป็นการเปลี่ยนมาตรฐานการตอบคำถามให้มีความเป็น 'Context-aware' มากขึ้น"
       },
       "actionable_playbook": [
         {
-          "title": "ปรับกลยุทธ์คอนเทนต์ให้ตอบโจทย์คำถามเชิงลึก",
-          "role": "สำหรับทีม Content / SEO",
-          "description": "เน้นสร้างเนื้อหาที่มีข้อมูลเฉพาะทาง ตารางเปรียบเทียบ และมุมมองจากประสบการณ์จริงที่ AI สรุปอ้างอิงได้ง่าย",
-          "example": "จัดทำคู่มือแก้ปัญหาเฉพาะทางพร้อม Structured Data ที่ชัดเจนบนเว็บไซต์"
+          "title": "ทดสอบถามคำถามซับซ้อน",
+          "role": "ทดสอบ Intent understanding",
+          "description": "ลองถามคำถามที่มีหลายเงื่อนไขในประโยคเดียว",
+          "example": "ลองถาม: 'What are the best hiking spots in [City] for beginners, and where can I find affordable gear nearby?'"
         },
         {
-          "title": "ใช้ Search สำหรับการวิจัยตลาดและเทคโนโลยีแบบรวดเร็ว",
-          "role": "สำหรับผู้ประกอบการ / นักวิเคราะห์",
-          "description": "ตั้งคำถามแบบเปรียบเทียบหลายเงื่อนไขในครั้งเดียวเพื่อประหยัดเวลาสืบค้นเบื้องต้น",
-          "example": "ค้นหาเปรียบเทียบโซลูชัน Cloud หรือกฎระเบียบเฉพาะทางพร้อมจุดต่างสำคัญ"
+          "title": "เปรียบเทียบข้อมูล",
+          "role": "ใช้ประโยชน์จาก Structured output",
+          "description": "ขอให้ Search สร้างตารางเปรียบเทียบสินค้าหรือบริการ",
+          "example": "ถามว่า: 'Create a comparison table for the best noise-canceling headphones in 2026.'"
         },
         {
-          "title": "ออกแบบผลิตภัณฑ์ให้ทำงานร่วมกับ AI Search",
-          "role": "สำหรับนักพัฒนาเว็บ / E-commerce",
-          "description": "ตรวจเช็กข้อมูลสินค้า ราคา และรีวิวในรูปแบบ Schema Markup เพื่อให้แสดงผลในคำตอบเชิงภาพได้ครบถ้วน",
-          "example": "เพิ่ม Product Schema และ FAQ Schema ให้หน้าสินค้าหลักของร้าน"
+          "title": "สังเกต Query Fan-out",
+          "role": "วิเคราะห์แหล่งข้อมูล",
+          "description": "สังเกตความหลากหลายของแหล่งข้อมูลที่ปรากฏในคำตอบ",
+          "example": "ดูว่าโมเดลรวบรวมข้อมูลจากกี่แหล่งในสรุปเดียว"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "ผสาน Gemini 4 Hydrogen เข้ากับ Google Search ระดับ Global",
-          "ปรับการแสดงผลให้เน้น Visual และความเข้าใจง่าย (Intuitive Responses)"
+          "Gemini 4 Hydrogen (Model Upgrade)",
+          "Improved Query fan-out technique"
         ],
         "watchouts": [
-          "เว็บไซต์ข่าวและบล็อกต้องปรับตัวรับทราฟฟิกที่อาจเปลี่ยนไปจาก AI Overview",
-          "ความแม่นยำในคำถามเฉพาะทางระดับลึกยังควรตรวจสอบจากแหล่งอ้างอิงต้นทาง"
+          "ต้นฉบับไม่ระบุตัวเลข Benchmark ความเร็วหรือ Latency",
+          "ความแม่นยำขึ้นอยู่กับ Intent ของคำถาม"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "ยกระดับ Google Search ให้เป็น Search ที่เข้าใจภาษาธรรมชาติระดับซับซ้อนและให้ผลลัพธ์เป็นโครงสร้างด้วยโมเดล Gemini 4 Hydrogen",
+          "prerequisite_level": "ผู้ใช้ทั่วไปหรือนักพัฒนาที่ต้องการความเข้าใจในพฤติกรรมของ Search Engine",
+          "worth_deep_dive": "ควรลองใช้เพื่อปรับตัวให้เข้ากับวิธีการ Search แบบใหม่",
+          "context_lineage": "ต่อยอดจากโมเดลตระกูล Gemini ใน Search Generative Experience (SGE)"
+        },
+        "glossary": [
+          {
+            "term": "Query fan-out",
+            "meaning": "เทคนิคการแตกคำถามเดียวออกเป็นคำถามย่อยหลายประเด็นเพื่อหาคำตอบจากแหล่งข้อมูลที่ต่างกัน",
+            "analogy": "การมอบหมายงานให้ทีมงานหลายฝ่ายไปหาข้อมูลแล้วกลับมารวมกันเป็นไฟล์เดียว"
+          },
+          {
+            "term": "Gemini 4 Hydrogen",
+            "meaning": "โมเดล AI รุ่นใหม่ที่ Google นำมาใช้ขับเคลื่อน Search Engine",
+            "analogy": "สมองส่วนกลางใหม่ที่ทำงานได้เร็วและเข้าใจภาษาดีขึ้น"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Intent Recognition",
+            "detail": "วิเคราะห์เจตนาของผู้ใช้แม้คำถามจะสั้น, มี Typo หรือซับซ้อน"
+          },
+          {
+            "step": "Parallel Querying",
+            "detail": "แตกประเด็นในคำถามเพื่อสืบค้นข้อมูลจากหลาย Source พร้อมกัน"
+          },
+          {
+            "step": "Structured Synthesis",
+            "detail": "เรียบเรียงคำตอบเป็นตาราง, ภาพ และข้อความสรุป"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "Model Name",
+            "value": "Gemini 4 Hydrogen",
+            "context": "เป็นหัวใจหลักของอัปเกรดนี้"
+          },
+          {
+            "metric": "ความพร้อมใช้งาน",
+            "value": "Global launch",
+            "context": "รองรับทุกภาษาที่ AI รุ่นปัจจุบันรองรับ"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Google Search (Web หรือ Mobile App)"
+          ],
+          "try_it_steps": [
+            "ลองพิมพ์คำถามที่ยากและมีหลายประเด็นรวมกัน",
+            "เปรียบเทียบผลลัพธ์ที่ได้กับแบบเดิมว่ามีความ Structured ขึ้นไหม",
+            "คลิกดูแหล่งข้อมูลเพื่อประเมินความฉลาดของ Query fan-out"
+          ],
+          "next_to_learn": [
+            "Prompting for Search",
+            "วิธีการจัดการข้อมูลที่เป็นตารางในโมเดล LLM"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Google Search ครั้งใหญ่! อัปเกรดเป็น Gemini 4 Hydrogen แล้ว\n\nการค้นหาแบบเดิมอาจจะหลบไป เพราะรอบนี้ Google เอาโมเดล Gemini 4 Hydrogen มาคุมเครื่อง ยกระดับการตอบคำถามแบบก้าวกระโดด:\n\n✅ เข้าใจคำถามซับซ้อน: ถามยาวๆ, พิมพ์ผิด, หรือคำถามหลายประเด็น โมเดลนี้เอาอยู่\n✅ ตอบเป็นตารางและภาพ: ไม่ต้องนั่งอ่าน Link เอง ระบบสรุปมาให้เป็นตารางเปรียบเทียบให้เลย\n✅ สืบค้นฉลาดขึ้น: ใช้เทคนิค Query fan-out ช่วยแตกประเด็นหาข้อมูลจากหลายแหล่งให้ครบถ้วน\n\nใครอยากรู้ว่าฉลาดแค่ไหน ลองถามคำถามยากๆ ใน Google Search ดูได้เลยครับ เริ่มทยอยใช้ได้ทั่วโลกแล้ว!\n\n#GoogleSearch #Gemini4Hydrogen #AI #SearchUpgrade #TechUpdate"
     },
     {
       "id": "developers-tools-build-with-gemini-4-hydrogen-7954da",
@@ -3094,7 +3588,8 @@
       "source": "Google Developers",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.707Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
         "Gemini models",
@@ -3102,55 +3597,122 @@
       ],
       "category": "Gemini & Models",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hydrogen_socialshare.max-600x600.format-webp.webp",
-      "reading_time_minutes": 4,
-      "hook_headline": "เจาะลึก Gemini 4 Hydrogen สำหรับนักพัฒนา: โมเดลคู่ใจสาย Agentic Coding ที่เร็วและประหยัดต้นทุน",
-      "short_teaser": "Google เปิดให้ใช้งาน Gemini 4 Hydrogen บน Google AI Studio แล้ว ชูจุดเด่นด้านการเขียนโค้ด การดีบัก และเวิร์กโฟลว์แบบ Agent ที่คุ้มค่าต้นทุนสำหรับใช้งานทุกวัน",
+      "reading_time_minutes": 5,
+      "hook_headline": "เปิดตัว Gemini 4 Hydrogen: โมเดลสายลุยสำหรับงาน Coding และ Agentic Workflows",
+      "short_teaser": "Google ปล่อย Gemini 4 Hydrogen ที่เน้นความเร็วและประสิทธิภาพสูงสำหรับการเขียนโปรแกรมและ Debugging พร้อมระบบ Orchestrator เพื่อการทำงานแบบ multi-model.",
       "tldr_takeaways": [
-        "Gemini 4 Hydrogen ออกแบบมาเพื่อเป็น 'Daily Driver' สำหรับงาน Coding, Debugging และ Agentic Workflows",
-        "เน้นสมดุลระหว่างความฉลาด ความเร็ว และต้นทุนต่อโทเคนที่ต่ำลง",
-        "พร้อมใช้งานทันทีผ่าน Google AI Studio และ Gemini API"
+        "Gemini 4 Hydrogen ออกแบบมาเพื่อเป็น Daily driver ในงาน Coding งานซ่อมบั๊ก และงานเอกสาร",
+        "มีระบบ Orchestrator ใหม่ ช่วยสลับโมเดลระหว่าง Carbon, Argon และ Hydrogen อัตโนมัติใน Workflow เดียวกัน",
+        "ราคา Input อยู่ที่ $1.50/1M tokens และ Output ที่ $7.50/1M tokens"
       ],
       "layman_story": [
-        "นักพัฒนาที่สร้าง AI Agent หรือใช้ AI ช่วยเขียนโค้ดทุกวันมักเจอปัญหาคอขวดสองอย่าง คือโมเดลตัวใหญ่ที่สุดก็ช้าและแพงเกินกว่าจะรันวนลูปหลายรอบ ส่วนโมเดลตัวเล็กก็มักหลงบริบทเวลาเจอโค้ดหลายไฟล์",
-        "Gemini 4 Hydrogen ถูกวางตำแหน่งมาแก้โจทย์นี้โดยตรงในฐานะ 'โมเดลใช้งานประจำวันสำหรับงาน Agent' มันถูกจูนให้เรียกใช้เครื่องมือ (Tool Calling) อ่านไฟล์โค้ด และไล่หาจุดผิดพลาดในเทอร์มินัลได้อย่างต่อเนื่องโดยไม่เปลืองงบ",
-        "สำหรับทีมพัฒนาซอฟต์แวร์และสาย Micro-SaaS นี่คือโมเดลที่น่าจับตามากสำหรับการนำไปทำ Backend Agent, ระบบ Automated Code Review หรือผู้ช่วยเขียนโค้ดที่ต้องรันคำขอจำนวนมากทุกวัน"
+        "Gemini 4 Hydrogen คือโมเดลระดับกลางถึงสูงที่ถูกปรับจูนมาเพื่อเป็น 'แรงงานหลัก' ในการพัฒนาซอฟต์แวร์โดยเฉพาะ ช่วยแก้ปัญหาการใช้โมเดลใหญ่เกินความจำเป็นในงานย่อยๆ ที่ต้องการความรวดเร็วและแม่นยำในการทำตามคำสั่ง",
+        "สถาปัตยกรรมรองรับ Thinking levels ถึง 4 ระดับ (low to xhigh) และสามารถรันแยกตัวเดียวหรือรันร่วมกับโมเดลใหญ่เพื่อทำหน้าที่เป็น Execution engine โดยมีจุดเด่นเรื่องการทำไฟล์ Batch read/search แบบขนาน ช่วยลด Token usage ลง 12-23% เมื่อเทียบกับรุ่น 3.8 Flash",
+        "อย่างไรก็ตาม แม้จะอ้างว่าเก่งกว่ารุ่นก่อนหน้าถึง 2.5 เท่า แต่การใช้งานต้องระวังเรื่องการเลือก Thinking level ให้เหมาะสมกับงาน หากใช้ระดับสูงสุดอาจแลกมาด้วย Latency ที่เพิ่มขึ้น ซึ่งต้องทดสอบผ่านระบบ Orchestrator ใน Google Antigravity เพื่อความคุ้มค่า"
       ],
       "impact_comparison": {
-        "before": "ก่อนอัปเดต: งาน Agentic Coding ที่ต้องรันหลายขั้นตอนมักติดปัญหาค่า API แพงหรือความหน่วงสูงเมื่อใช้โมเดลใหญ่",
-        "after": "หลังอัปเดต: ได้โมเดลที่จูนมาเฉพาะทางสำหรับ Coding และ Agent Loops โดยยังคงต้นทุนที่รันได้จริงในโปรดักชัน",
-        "why_it_matters": "ช่วยให้นักพัฒนาสามารถขยายระบบ AI Agent จากต้นแบบทดลองไปสู่ระบบจริงที่รับโหลดสูงได้"
+        "before": "การใช้ LLM ในการเขียนโค้ดมักต้องพึ่งพาโมเดลตัวใหญ่ตัวเดียว หรือใช้ Flash ที่อาจขาดความแม่นยำในการสั่งการ",
+        "after": "ใช้ Hydrogen ทำงานย่อยๆ โดยโมเดลใหญ่ (Carbon/Argon) คอยคุมทิศทางสถาปัตยกรรม ทำให้ประหยัดงบและงานเสร็จไวขึ้น 19% บน Terminal-Bench 4.0",
+        "why_it_matters": "นี่คือจุดเปลี่ยนสำหรับสาย Dev ที่ต้องการ Workflow อัตโนมัติ (Agentic) ในระดับ Production โดยไม่ต้องการจ่ายค่า Token แพงเกินเหตุ"
       },
       "actionable_playbook": [
         {
-          "title": "ทดสอบแทนโมเดลเดิมใน Coding & Tool-use Pipeline",
-          "role": "สำหรับ AI Engineer / Backend Dev",
-          "description": "ลองสลับ Endpoint ใน Google AI Studio เพื่อเทียบความแม่นยำและต้นทุนกับเวิร์กโฟลว์เดิมของทีม",
-          "example": "ใช้ Gemini 4 Hydrogen รันสคริปต์ตรวจ Pull Request และสร้าง Unit Test อัตโนมัติ"
+          "title": "ทดลองตั้งค่า Thinking Level",
+          "role": "ทดสอบประสิทธิภาพ",
+          "description": "ลองปรับระดับ Thinking ของ Hydrogen ใน AI Studio เพื่อดูว่าระดับไหนที่ให้ผลลัพธ์ Code ถูกต้องโดยไม่เสียเวลารอนานเกินไป",
+          "example": "เปรียบเทียบผลลัพธ์ระหว่างระดับ high (Default) กับ xhigh ในการแก้บั๊กยากๆ"
         },
         {
-          "title": "สร้างระบบ Multi-step Agent ที่ต้นทุนควบคุมได้",
-          "role": "สำหรับผู้สร้าง Micro-SaaS",
-          "description": "ใช้ Hydrogen เป็น Worker Model สำหรับงานย่อยที่ต้องเรียก Tool หลายรอบ เช่น ค้นข้อมูล วิเคราะห์ และจัดรูปแบบ",
-          "example": "สร้างบอทสรุปรายงานการขายหรือช่วยตอบ Ticket ลูกค้าที่ต่อเข้ากับฐานข้อมูลภายใน"
+          "title": "ใช้ระบบ Orchestrator",
+          "role": "คุมต้นทุน",
+          "description": "ศึกษาการทำ Multi-model workflow ที่ให้ Carbon ตัดสินใจและ Hydrogen ทำงาน Routine",
+          "example": "สร้าง Pipeline ให้ Carbon วางโครงสร้างโปรเจกต์ และให้ Hydrogen เขียน Unit Test และ Fix บั๊ก"
         },
         {
-          "title": "ใช้ช่วยไล่บั๊กและ Refactor โค้ดประจำวัน",
-          "role": "สำหรับ Full-stack Developer",
-          "description": "เชื่อมต่อผ่าน API เข้ากับ IDE หรือ CLI เพื่อช่วยดีบัก Error Log และเสนอแพตช์แก้ไขอย่างรวดเร็ว",
-          "example": "รันวิเคราะห์ Stack Trace พร้อมไฟล์ที่เกี่ยวข้องเพื่อหาสาเหตุของบั๊ก"
+          "title": "อ่าน Google Antigravity Blog",
+          "role": "ศึกษาระบบใหม่",
+          "description": "ทำความเข้าใจการเชื่อมต่อโมเดลผ่าน Orchestrator ที่เป็นหัวใจหลักของ Gemini 4",
+          "example": "ศึกษา Tutorial การใช้ Orchestrator คู่กับงานเขียนโปรแกรมจริง"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "เปิดตัว Gemini 4 Hydrogen ใน Google AI Studio สำหรับนักพัฒนา",
-          "เน้นประสิทธิภาพด้าน Agentic Coding, Debugging และความคุ้มค่าต่อ Token"
+          "4 Configurable Thinking levels สำหรับปรับสมดุลความเร็วและคุณภาพ",
+          "การทำ Parallel file-read และ search เพื่อลด Token usage ในการอ่าน Repo"
         ],
         "watchouts": [
-          "งานที่ต้องการการวางแผนเชิงลึกขั้นสูงสุดอาจยังต้องสลับใช้รุ่น Flagship อย่าง Gemini 4 Carbon",
-          "ควรตั้ง Benchmark วัดผลกับชุดทดสอบเฉพาะงานของทีมก่อนเปลี่ยนระบบทั้งหมด"
+          "ราคา Output tokens ค่อนข้างสูง ($7.50/1M) เมื่อเทียบกับโมเดลสาย Flash เดิม",
+          "ฟีเจอร์ Orchestrator และการเข้าถึงเต็มรูปแบบต้องทำผ่าน Google Antigravity เท่านั้น"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "โมเดลสาย Coding ที่เน้นประสิทธิภาพและราคาประหยัด มาพร้อมระบบ Multi-model orchestration",
+          "prerequisite_level": "เข้าใจพื้นฐาน Prompt Engineering และ Workflow ของการทำ Software Development",
+          "worth_deep_dive": "คุ้มมากสำหรับ Dev ที่ต้องทำ Automate coding agent",
+          "context_lineage": "ต่อยอดจาก Gemini 3.8 Flash เข้าสู่ Gemini 4 Series ที่เป็นระดับ Frontier"
+        },
+        "glossary": [
+          {
+            "term": "Agentic Workflows",
+            "meaning": "ระบบที่ให้ AI ทำงานเป็นขั้นตอนอัตโนมัติหลายๆ งานจนจบงานใหญ่เอง",
+            "analogy": "เหมือนจ้าง Junior Dev ที่ฉลาดมากมาจัดการงานย่อยๆ ให้เราตามโจทย์ที่วางไว้"
+          },
+          {
+            "term": "Orchestrator",
+            "meaning": "ระบบตัวกลางที่ตัดสินใจว่าต้องใช้โมเดลตัวไหน (ใหญ่/เล็ก) เพื่อแก้ปัญหาในตอนนั้น",
+            "analogy": "เหมือนหัวหน้าทีมที่สั่งงานตามความยากง่ายของโปรเจกต์"
+          },
+          {
+            "term": "Thinking levels",
+            "meaning": "การให้ AI ใช้เวลาคิดไตร่ตรองมากขึ้นก่อนตอบ โดยมีระดับความลึกให้เลือก",
+            "analogy": "เหมือนสวิตช์เลือกโหมด 'คิดเร็ว' หรือ 'คิดละเอียด' ก่อนพูด"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Input Processing",
+            "detail": "โมเดลอ่าน Repo ด้วยการทำ Parallel batch read เพื่อลดจำนวนโทเค็นและเวลาในการเข้าถึงไฟล์"
+          },
+          {
+            "step": "Dynamic Routing",
+            "detail": "Orchestrator วิเคราะห์ความยากของงานและเลือกระหว่าง Hydrogen, Carbon หรือ Argon"
+          },
+          {
+            "step": "Execution & Verification",
+            "detail": "Hydrogen รันงานโค้ด ทดสอบและซ่อมแซมตัวเองผ่าน Tool calls ในพื้นที่ Isolated workspace"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "ราคา Input/Output tokens",
+            "value": "$1.50 / $7.50 ต่อ 1 ล้าน tokens",
+            "context": "ราคามาตรฐานต่อ 1 ล้านโทเค็นใน context window 1 ล้านโทเค็น"
+          },
+          {
+            "metric": "Terminal-Bench 4.1 score",
+            "value": "57% vs 18.2%",
+            "context": "เทียบ Hydrogen กับ Gemini 3.8 Flash"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Google AI Studio API Key",
+            "ความเข้าใจในตัวอย่าง Repo เล็กๆ สำหรับทดสอบการ Debug"
+          ],
+          "try_it_steps": [
+            "ลองใช้ AI Studio ส่งคำสั่งให้ Hydrogen ช่วยเขียน Function ซับซ้อนและดูว่ามัน Batch ไฟล์อ่านอย่างไร",
+            "เปรียบเทียบคุณภาพของโค้ดเมื่อรันผ่านระดับ Medium และ xhigh",
+            "ลองสร้าง Prompt chain ที่ให้ AI ช่วยวางแผนงานก่อนสั่งให้เขียนโค้ดเพื่อทดสอบระบบ Agentic"
+          ],
+          "next_to_learn": [
+            "Multi-model prompting เพื่อเข้าใจวิธีใช้โมเดลหลายตัวทำงานร่วมกัน",
+            "Prompting technique สำหรับงาน Coding ที่ช่วยลดจำนวน Token ในการดึงข้อมูล Repo"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Google เปิดตัว Gemini 4 Hydrogen แล้วครับ! ใครสาย Dev ที่ต้องการ Coding Agent ต้องดูตัวนี้เลย \n\nจุดเด่นคือถูกจูนมาเพื่องาน Coding และ Debugging โดยเฉพาะ ทำงานได้เร็วและแม่นยำขึ้นมากเมื่อเทียบกับรุ่นก่อน มีระบบ Orchestrator สลับโมเดลให้อัตโนมัติ ช่วยลด Token usage และประหยัดงบได้เยอะ\n\nFacts น่ารู้:\n- ราคา $1.50 (Input) / $7.50 (Output) ต่อ 1M tokens\n- มี Thinking levels 4 ระดับ เลือกปรับได้ตามงาน\n- เหนือกว่า 3.8 Flash ในแง่ความเร็วและการทำ Task ได้สำเร็จ\n- เหมาะมากสำหรับงานทำซ้ำๆ อย่าง Debugging หรือเขียน UI\n\nตอนนี้ลองเข้าไปเล่นได้เลยที่ Google AI Studio ใครลองแล้วเป็นไงบ้าง มาแชร์กัน!\n\n#Gemini4 #GoogleAI #CodingAssistant #DeveloperTools #AI"
     },
     {
       "id": "gemini-models-introducing-gemini-4-hydrogen-ec9fd4",
@@ -3159,7 +3721,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.708Z",
       "authors": [
         "Koray Kavukcuoglu"
       ],
@@ -3420,7 +3982,8 @@
       "source": "Google Developers",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T18:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.708Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Min Choi",
         "Felix Yu"
@@ -3429,57 +3992,124 @@
         "Developer tools",
         "AI"
       ],
-      "category": "Gemini & Models",
+      "category": "Cloud & Developer Tools",
       "thumbnail_url": null,
-      "reading_time_minutes": 4,
-      "hook_headline": "Google เปิดตัว Gemini Decisions API: API ตัดสินใจแบบ Multimodal ที่เร็วและคาลิเบรตความมั่นใจมาอย่างแม่นยำ",
-      "short_teaser": "พบกับ Gemini Decisions API ที่ขับเคลื่อนด้วยโมเดล Gemini Decision สำหรับงานตัดสินใจ วิเคราะห์ภาพ-ข้อความ และจัดหมวดหมู่แบบความหน่วงต่ำที่เชื่อถือได้",
+      "reading_time_minutes": 3,
+      "hook_headline": "Gemini Decisions API: จบงานคัดกรอง ข้อมูลตัดสินใจได้ใน 150-250ms",
+      "short_teaser": "Google เปิดตัว Decisions API ที่ขับเคลื่อนด้วยโมเดล Gemini Decision 1 เพื่อใช้ตัดสินใจเชิงตรรกะแบบ Yes/No หรือ Grading ได้เร็วโดยไม่ต้องรอการเจนข้อความทีละตัว",
       "tldr_takeaways": [
-        "Gemini Decisions API ถูกสร้างมาเพื่องานตัดสินใจ (Classification, Routing, Verification) ที่ต้องการความเร็วสูง",
-        "จุดเด่นคือ 'Calibrated Multimodal Decisions' ให้ค่าความน่าจะเป็นหรือความมั่นใจที่เชื่อถือได้ทั้งจากข้อความและภาพ",
-        "เหมาะสำหรับระบบ Moderate เนื้อหา, ตรวจจับความผิดปกติ, และตัวตัดสินใจใน Agent Pipeline"
+        "Gemini Decision 1 ออกแบบมาเพื่อทำ Classification/Routing โดยเฉพาะ ไม่มีการเจน Output tokens จึงไม่มีค่าใช้จ่ายตรงส่วนนี้",
+        "รองรับ Input มัลติโมดัล (Text, Image, Audio, Video, PDF) ได้ถึง 1,000 คำถามในครั้งเดียว",
+        "Latency ต่ำมาก อยู่ที่ 150-250ms ทำให้ใช้งานในระบบ Real-time ได้"
       ],
       "layman_story": [
-        "ในระบบซอฟต์แวร์จริง ไม่ได้มีแค่งานที่ให้ AI เขียนเรียงความยาวๆ แต่งานสำคัญมากอีกกลุ่มคือ 'การตัดสินใจแบบใช่หรือไม่ใช่ / หมวดไหน / ปลอดภัยไหม' เช่น รูปนี้ผ่านเกณฑ์ไหม อีเมลนี้ควรส่งให้แผนกไหน หรือเอกสารนี้ตรงเงื่อนไขหรือไม่",
-        "ที่ผ่านมาการเอาโมเดล LLM ทั่วไปมาทำงานแบบนี้มักช้าเกินไป และค่าความมั่นใจ (Confidence) ไม่เสถียร ทำให้ตั้ง Threshold ลำบาก Google จึงเปิดตัว Gemini Decisions API พร้อมโมเดลเฉพาะทางชื่อ Gemini Decision ที่ตอบสนองไวและคาลิเบรตความมั่นใจของคำตอบมาอย่างแม่นยำ",
-        "สำหรับทีมวิศวกร AI นี่ช่วยลดความซับซ้อนในการเทรนโมเดล Classifier เอง และสามารถนำไปเสียบเป็นด่านตรวจคุณภาพ (Guardrails & Routing) ในระบบขนาดใหญ่ได้ทันที"
+        "ในงาน Software จริง บางทีเราไม่ได้อยากให้ AI เขียนเรียงความ แต่เราต้องการแค่ให้มัน 'ตัดสินใจ' ว่าสิ่งนี้คืออะไร เช่น 'รูปนี้เป็นรูปที่ผิดกฎหรือไม่?' หรือ 'ข้อความนี้เป็นภาษาอะไร?' ซึ่งที่ผ่านมาเราต้องเสียค่า Output token ในการเจนคำตอบ",
+        "Gemini Decision 1 มาแก้ปัญหานี้โดยเปลี่ยนจากระบบ Generative เป็นระบบ 'Probability Scoring' ที่จะคืนค่าความมั่นใจ (Confidence Score) ออกมาแทน ทำให้ทำงานได้เร็วและประหยัดค่าใช้จ่ายขึ้นมาก โดยคิดราคาเฉพาะ Input token เท่านั้น",
+        "เครื่องมือนี้เหมาะมากสำหรับ Dev ที่ทำระบบ Router, ระบบตรวจจับเนื้อหา หรือระบบ Grade คะแนนแบบอัตโนมัติ เพราะมันช่วยลดความซับซ้อนในการเขียน Custom Classifier ลงไปได้เยอะ"
       ],
       "impact_comparison": {
-        "before": "ก่อนอัปเดต: ต้องใช้ LLM ทั่วไปที่ช้า หรือต้องสะสมข้อมูลมาเทรนโมเดล Classification เฉพาะทางเอง",
-        "after": "หลังอัปเดต: เรียกใช้ API เดียวได้ผลตัดสินใจแบบ Multimodal ที่รวดเร็วและค่าความมั่นใจเชื่อถือได้",
-        "why_it_matters": "ช่วยให้ระบบ AI ในโปรดักชันมี Guardrails และ Router ที่แม่นยำ รวดเร็ว และคุ้มค่ามากขึ้น"
+        "before": "ต้องเสียเงินค่า Output token ในการทำ classification และต้องมานั่งเขียนโค้ด Parse ข้อความคำตอบอีกที",
+        "after": "ได้ค่า Score ตรงๆ ไม่เสียเงินค่า Output และ latency ต่ำมาก เหมาะกับการทำ Control plane ในโปรเจกต์",
+        "why_it_matters": "นี่คือโมเดลเฉพาะทางที่จะเข้ามาเป็น 'โครงสร้างพื้นฐาน' ให้กับแอป AI ที่ต้องการความเร็วและต้นทุนต่ำ"
       },
       "actionable_playbook": [
         {
-          "title": "ใช้เป็นด่านคัดกรอง (Guardrails & Router) ก่อนส่งเข้าโมเดลใหญ่",
-          "role": "สำหรับ AI Engineer",
-          "description": "ประเมินเจตนาหรือความปลอดภัยของอินพุตทั้งข้อความและภาพก่อนส่งต่อไปประมวลผลขั้นสูง",
-          "example": "คัดกรองรูปสลิปโอนเงินหรือเอกสารยืนยันตัวตนเบื้องต้นแบบเรียลไทม์"
+          "title": "ทดลองใช้ใน AI Studio",
+          "role": "ทดสอบ Logic",
+          "description": "ใช้เมนู Decisions API ใน AI Studio เพื่อใส่รูปและตั้งค่าคำถามแบบ Yes/No",
+          "example": "อัปโหลดภาพใบเสร็จแล้วถามว่า 'ใบเสร็จนี้มีตราประทับหรือไม่' (Yes/No)"
         },
         {
-          "title": "ปรับปรุงระบบ Content Moderation และ QA",
-          "role": "สำหรับทีม Trust & Safety / Product",
-          "description": "ใช้ค่า Calibration เพื่อตั้งเกณฑ์ว่ากรณีไหนผ่านอัตโนมัติ และกรณีไหนส่งให้คนตรวจซ้ำ",
-          "example": "ตั้ง Rule ว่าถ้าความมั่นใจต่ำกว่า 85% ให้ส่งเข้าคิวแอดมินตรวจสอบ"
+          "title": "เปรียบเทียบต้นทุน",
+          "role": "ประเมินงบ",
+          "description": "คำนวณส่วนต่างระหว่างการใช้ Generative model ปกติ vs Decisions API",
+          "example": "ลองเทียบจำนวนคำถาม 1,000 คำถามต่อ 1 Request ว่า Decisions API ช่วยลดคอสได้เท่าไหร่"
         },
         {
-          "title": "ลดต้นทุนจากการเทรนและดูแลโมเดล Classifier เอง",
-          "role": "สำหรับทีมขนาดเล็ก / Startup",
-          "description": "เริ่มต้นใช้งาน Multimodal Classification ได้ทันทีโดยไม่ต้องมีทีม ML ดูแล Infrastructure เอง",
-          "example": "จัดหมวดหมู่สินค้าจากรูปถ่ายและคำอธิบายอัตโนมัติในแพลตฟอร์ม Marketplace"
+          "title": "เชื่อมต่อกับระบบเดิม",
+          "role": "การประยุกต์ใช้",
+          "description": "ใช้ API นี้เป็นตัวกรองข้อมูลก่อนส่งให้โมเดลตัวใหญ่ทำงาน",
+          "example": "ใช้ตรวจสอบว่าข้อมูล Input เข้าเงื่อนไขที่ต้องใช้โมเดลใหญ่หรือไม่ ถ้าไม่ก็ให้จบการทำงานที่ตรงนี้"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "เปิดตัว Gemini Decisions API ขับเคลื่อนด้วยโมเดล Gemini Decision",
-          "เน้นความเร็วและผลลัพธ์แบบ Calibrated Multimodal Decisions"
+          "Gemini Decision 1 (gemini-decision-1) โมเดลที่ไม่มี Output tokens",
+          "การประมวลผลข้อมูลมัลติโมดัลพร้อมคำถามสูงสุด 1,000 ข้อใน 1 Request"
         ],
         "watchouts": [
-          "ควรทดสอบ Threshold ของค่าความมั่นใจกับข้อมูลจริงของธุรกิจก่อนเปิดใช้งานอัตโนมัติ 100%",
-          "ตรวจสอบ Latency และราคาต่อ Request เทียบกับปริมาณทราฟฟิกของระบบ"
+          "รองรับ Context window สูงสุด 256K tokens เท่านั้น",
+          "ผลลัพธ์จะเป็นความน่าจะเป็น (Probability) Dev ต้องเขียนโค้ดจัดการค่า Threshold เอง"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "API ตัวใหม่ที่เน้นทำ Decision making แบบรวดเร็วและประหยัดต้นทุน",
+          "prerequisite_level": "เข้าใจ API Integration และพื้นฐาน ML Classification",
+          "worth_deep_dive": "คุ้มค่ามากหากโปรเจกต์คุณต้องการตัวคัดกรอง (Router) ข้อมูล",
+          "context_lineage": "เป็นเครื่องมือต่อยอดจาก Gemini Multimodal API"
+        },
+        "glossary": [
+          {
+            "term": "Probabilistic Choices",
+            "meaning": "การให้โมเดลตอบกลับมาเป็นค่าความน่าจะเป็นแทนการเขียนตอบเป็นคำๆ",
+            "analogy": "เหมือนเครื่องเช็กข้อสอบแบบกากบาทที่บอกความมั่นใจออกมาด้วย"
+          },
+          {
+            "term": "Rubric scoring",
+            "meaning": "การให้คะแนนตามเกณฑ์ที่กำหนดไว้ล่วงหน้า",
+            "analogy": "เหมือนการตรวจงานตามเช็กลิสต์"
+          },
+          {
+            "term": "Zero output tokens",
+            "meaning": "การที่โมเดลไม่เจนข้อความออกมา เลยไม่มีค่าใช้จ่ายส่วนนี้",
+            "analogy": "เหมือนจ่ายเงินแค่ค่าตรวจ ไม่เสียค่ากระดาษคำตอบเพิ่ม"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Input ingestion",
+            "detail": "รับไฟล์มัลติโมดัล (PDF, Video, Image) และรายการคำถาม (Yes/No, Choice, Score) ไปพร้อมกัน"
+          },
+          {
+            "step": "Forward pass",
+            "detail": "โมเดลประมวลผลผ่าน Neural network เพื่อหาผลลัพธ์เชิงตรรกะในรอบเดียว (Single pass)"
+          },
+          {
+            "step": "Output generation",
+            "detail": "คืนค่าเป็นค่าความเชื่อมั่น (Confidence score) ของแต่ละตัวเลือกออกมาทันที"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "End-to-end latency",
+            "value": "150-250 ms",
+            "context": "ความเร็วเฉลี่ยในการประมวลผลคำถามพร้อมกันหลายรายการ"
+          },
+          {
+            "metric": "Pricing",
+            "value": "$0.10 ต่อ 1 ล้าน input tokens",
+            "context": "ค่าใช้จ่ายต่อ 1 ล้าน input tokens และไม่มีค่า output tokens"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Python SDK, หรือ REST API access",
+            "Google AI Studio Project"
+          ],
+          "try_it_steps": [
+            "ใช้ Python SDK เรียก `client.decisions.create` โดยกำหนด Model เป็น `gemini-decision-1`",
+            "ทดสอบสร้างคำถาม 3 รูปแบบ (Yes/No, Multiple Choice, Score) ใน Request เดียว",
+            "ดึงค่า Confidence score ออกมาและเขียนเงื่อนไข If-else เพื่อจัดการเคสที่ความมั่นใจต่ำ (เช่น < 0.5)"
+          ],
+          "next_to_learn": [
+            "การจัดการ Threshold ของ Confidence score เพื่อลด False Positive",
+            "วิธีทำ Dynamic Routing โดยใช้ API นี้เป็นตัวแยกประเภท Request ของผู้ใช้"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Gemini Decisions API มาแล้ว! สาย Dev คนไหนกำลังหาตัวช่วยคัดกรองข้อมูล หรือทำ AI Router ต้องลองตัวนี้ครับ\n\nGemini Decision 1 ออกแบบมาเพื่อ 'ตัดสินใจ' โดยเฉพาะ ไม่มีการเจนคำตอบยืดยาว ทำให้ทำงานเร็วมาก (150-250ms) และที่สำคัญคือ 'ไม่มีค่า Output tokens' จ่ายแค่ค่า Input เท่านั้น\n\nจุดที่น่าสนใจ:\n- รับได้หมดทั้ง Text, Image, Audio, Video, PDF\n- ถามได้สูงสุด 1,000 คำถามต่อ 1 รอบการทำงาน\n- ได้ Confidence score เอาไปเขียนโปรแกรมต่อได้ทันที\n- latency ต่ำ เหมาะทำระบบ Real-time\n\nใครทำระบบที่ต้องแยกแยะประเภทงาน หรือคัดกรองข้อมูลก่อนส่งให้โมเดลใหญ่ นี่คือเครื่องมือที่จะช่วยประหยัดงบและเพิ่มความเร็วได้มหาศาลครับ\n\n#GeminiAPI #CloudComputing #AIEngineer #GoogleCloud #DecisionsAPI"
     },
     {
       "id": "google-cloud-cybersecurity-2027-2ab224",
@@ -3488,7 +4118,8 @@
       "source": "Google Cloud",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.708Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
         "Google Cloud",
@@ -3496,55 +4127,111 @@
       ],
       "category": "Cloud & Developer Tools",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Security_social-share.max-600x600.format-webp.webp",
-      "reading_time_minutes": 4,
-      "hook_headline": "Google Cloud และ Mandiant เผยรายงาน Cybersecurity 2027: เทรนด์ภัยไซเบอร์และแนวทางป้องกันยุค AI",
-      "short_teaser": "ผู้บริหารด้านความปลอดภัยจาก Google, Google Cloud และ Mandiant ร่วมวิเคราะห์แนวโน้มสำคัญที่จะกำหนดทิศทางการป้องกันภัยไซเบอร์ในปี 2027",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google Cloud เผยเทรนด์ Cybersecurity 2027: เปลี่ยนจากการป้องกันซอฟต์แวร์สู่การคุม Autonomous Agents",
+      "short_teaser": "Google และ Mandiant ชี้แนวโน้มการรักษาความปลอดภัยในยุคที่ AI Agent เข้ามาจัดการ Core Operation ขององค์กรแทนที่ซอฟต์แวร์แบบเดิม. เน้นหนักเรื่องการตรวจสอบความโปร่งใสและการทำงานที่รวดเร็วระดับ Machine Speed.",
       "tldr_takeaways": [
-        "รายงาน Security 2027 วิเคราะห์การเปลี่ยนแปลงของภัยคุกคามไซเบอร์เมื่อทั้งฝ่ายโจมตีและฝ่ายป้องกันต่างใช้ AI",
-        "เน้นการยกระดับ Security Operations ด้วยระบบอัตโนมัติและการตรวจจับเชิงรุกแบบเรียลไทม์",
-        "สรุปบทเรียนจากข่าวกรองภัยคุกคามระดับโลกของ Mandiant และโครงสร้างพื้นฐาน Google Cloud"
+        "เปลี่ยนมุมมองจากการป้องกันแอปพลิเคชันแบบ Static ไปสู่การคุม Autonomous Agents ที่จัดการงานระดับธุรกิจ",
+        "เน้นกลยุทธ์ 'Beyond Zero' ไม่ไว้วางใจเครื่องมือ AI ใดๆ โดยอัตโนมัติ ต้องมองเห็นการเข้าถึงและพฤติกรรมของ Agent ได้ชัดเจน",
+        "ใช้แนวทาง Multi-model AI Ensembles เพื่อวิเคราะห์และแก้ไขภัยคุกคามให้ทันก่อนที่ผู้โจมตีจะเริ่มกระบวนการ"
       ],
       "layman_story": [
-        "เมื่อ AI ทำให้การเขียนโค้ดและทำงานอัตโนมัติง่ายขึ้น ฝั่งผู้ไม่หวังดีก็ใช้ AI ช่วยหาช่องโหว่และสร้างการโจมตีที่ซับซ้อนขึ้นตามไปด้วย ทีม Security แบบดั้งเดิมที่ใช้คนคอยไล่อ่าน Log จึงรับมือไม่ทันอีกต่อไป",
-        "ในรายงาน Security 2027 ทีมผู้นำของ Google, Google Cloud และ Mandiant ได้สรุปภาพอนาคตของการป้องกันภัยไซเบอร์ เช่น การใช้ AI Agent ช่วยคัดกรองและตอบสนองต่อเหตุผิดปกติ การป้องกันระบบ Cloud-native และความปลอดภัยของตัวโมเดล AI เอง",
-        "รายงานนี้เป็นเข็มทิศสำคัญสำหรับ CTO, CISO และทีม DevSecOps ในการวางงบประมาณและเตรียมสถาปัตยกรรมความปลอดภัยล่วงหน้าสำหรับปีถัดไป"
+        "ในอีกไม่กี่ปีข้างหน้า ซอฟต์แวร์แบบที่เราเขียนขึ้นมานิ่งๆ จะถูกแทนที่ด้วย Autonomous Agents ที่ทำงานอัตโนมัติ นี่คือโจทย์ใหญ่ของ Google Cloud ในการออกแบบระบบรักษาความปลอดภัยยุค 2027.",
+        "หัวใจสำคัญคือการปกป้อง 'Decision Integrity' หรือความถูกต้องของการตัดสินใจโดย AI ทุกการกระทำต้องอธิบายได้ (Explainable) และต้องรู้แน่ชัดว่า Agent เข้าถึงอะไรได้บ้างเพื่อลดความเสี่ยงที่ AI จะถูกใช้ในทางที่ผิด",
+        "ต่างจากอดีตที่เน้นตั้งกำแพงไฟร์วอลล์ สถาปัตยกรรมปี 2027 จะใช้ AI หลายโมเดลช่วยกันตรวจสอบความปลอดภัยแบบเรียลไทม์ (Machine Speed) เพื่ออุดช่องโหว่ก่อนที่ผู้โจมตีจะเจาะเข้าถึงข้อมูลสำคัญได้"
       ],
       "impact_comparison": {
-        "before": "ก่อนอัปเดต: ทีมความปลอดภัยต้องพึ่งพาการไล่ตรวจสอบ Alert ด้วยมือและรับมือเหตุการณ์หลังเกิดการโจมตี",
-        "after": "หลังอัปเดต: มุ่งสู่ Agentic Defense ที่ใช้ AI วิเคราะห์ข่าวกรองภัยคุกคามและปิดช่องโหว่เชิงรุกอัตโนมัติ",
-        "why_it_matters": "ช่วยให้องค์กรเตรียมพร้อมรับมือภัยคุกคามยุค AI-powered Attacks ได้อย่างเป็นระบบ"
+        "before": "การป้องกันเน้นที่ความปลอดภัยของตัวซอฟต์แวร์และการจัดการสิทธิ์การเข้าถึงแบบคงที่",
+        "after": "การป้องกันเน้นที่ 'การตรวจสอบพฤติกรรม' และ 'ที่มาของการตัดสินใจ' (Ground Truth) ของ AI Agent",
+        "why_it_matters": "นักพัฒนาต้องออกแบบระบบที่รองรับการ Trace การตัดสินใจของ Agent ตั้งแต่วันนี้ เพื่อไม่ให้เป็นจุดบอดของระบบในอนาคต"
       },
       "actionable_playbook": [
         {
-          "title": "ทบทวนความปลอดภัยของ AI Pipeline และ API",
-          "role": "สำหรับทีม DevSecOps / Cloud Architect",
-          "description": "ตรวจสอบสิทธิ์การเข้าถึงข้อมูล (IAM) และจุดเสี่ยงจาก Prompt Injection หรือข้อมูลรั่วไหลในแอป AI",
-          "example": "แยกสิทธิ์ Service Account ของ AI Agent ให้เข้าถึงเฉพาะฐานข้อมูลที่จำเป็นเท่านั้น"
+          "title": "ประเมินความโปร่งใสของระบบ",
+          "role": "System Auditor",
+          "description": "สำรวจว่างานที่ AI ในปัจจุบันของคุณทำอยู่ มีขั้นตอนตรวจสอบ (Logging/Monitoring) ที่อธิบายได้หรือไม่",
+          "example": "ทดลองทำ Audit Logs ในทุกขั้นตอนการตัดสินใจของ LLM Chain"
         },
         {
-          "title": "วางแผนนำ AI มาช่วยลดภาระทีม SOC",
-          "role": "สำหรับผู้บริหารด้าน IT / CISO",
-          "description": "ประเมินเครื่องมือวิเคราะห์ Log และ Threat Intelligence เพื่อลดเวลา Mean Time to Detect (MTTD)",
-          "example": "ตั้งระบบสรุป Security Alert อัตโนมัติพร้อมแนะนำขั้นตอนแก้ไขเบื้องต้น"
+          "title": "ศึกษาแนวคิด Multi-model",
+          "role": "Security Architect",
+          "description": "ลองวางกลไกตรวจสอบงานของ Model A ด้วย Model B (Ensemble approach)",
+          "example": "สร้าง prompt ตรวจสอบคำตอบจาก model หลักว่าเป็นอันตรายหรือไม่"
         },
         {
-          "title": "อัปเดตทักษะทีมวิศวกรด้าน Cloud Security",
-          "role": "สำหรับทีมพัฒนาซอฟต์แวร์",
-          "description": "นำ Checklist ความปลอดภัยปี 2027 มาจัดอบรมสั้นๆ ในทีมเพื่อป้องกันช่องโหว่ตั้งแต่ขั้นตอนเขียนโค้ด",
-          "example": "เพิ่มระบบสแกน Secret และ Dependency Vulnerability ใน CI/CD Pipeline"
+          "title": "วางโครงสร้าง Zero Trust",
+          "role": "Security Engineer",
+          "description": "จำกัดการเข้าถึงของ Agent ให้ทำได้เฉพาะส่วนที่จำเป็นตามคอนเซปต์ 'Never trust, always verify'",
+          "example": "รัดกุม API Token scopes ของ AI ที่ใช้เชื่อมต่อฐานข้อมูล"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "เผยแพร่รายงานวิเคราะห์แนวโน้มความปลอดภัยไซเบอร์ Security 2027",
-          "รวมมุมมองจากทั้ง Google, Google Cloud และทีมข่าวกรอง Mandiant"
+          "แนวคิดการป้องกันแบบ Multi-model AI Ensembles เพื่อตรวจจับความเสี่ยง",
+          "การยกระดับเรื่อง 100% Explainability สำหรับ autonomous action"
         ],
         "watchouts": [
-          "รายงานเป็นภาพรวมเชิงกลยุทธ์ องค์กรต้องนำไปปรับให้เข้ากับบริบทและกฎหมาย PDPA/Compliance ของตนเอง",
-          "การใช้ AI ด้าน Security ต้องมีขั้นตอนอนุมัติจากมนุษย์ (Human Approval) ในคำสั่งที่มีผลกระทบสูง"
+          "ต้นฉบับไม่ระบุตัวเลข (ยังเป็นแนวคิดเชิงกลยุทธ์)",
+          "ไม่มีเครื่องมือใหม่ที่ดาวน์โหลดได้ในขณะนี้"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "เป็นการเปลี่ยนผ่านจากการรักษาความปลอดภัยซอฟต์แวร์ทั่วไป สู่การกำกับดูแลการตัดสินใจของ AI Agents",
+          "prerequisite_level": "เข้าใจแนวคิด Zero Trust และพื้นฐานการทำงานของ LLM",
+          "worth_deep_dive": "เหมาะสำหรับอ่านเพื่อวาง Roadmap งานสถาปัตยกรรมระบบในอีก 1-2 ปีข้างหน้า",
+          "context_lineage": "ต่อยอดจากแนวคิด Mandiant security และการจัดการ Cloud Native Security"
+        },
+        "glossary": [
+          {
+            "term": "Decision Integrity",
+            "meaning": "ความถูกต้องและความน่าเชื่อถือของการตัดสินใจที่ AI เป็นคนสั่ง",
+            "analogy": "เหมือนการมีสมุดจดที่ระบุได้ว่าทำไม AI ถึงตัดสินใจเลี้ยวซ้ายหรือขวาในเหตุการณ์นั้นๆ"
+          },
+          {
+            "term": "Beyond Zero",
+            "meaning": "การขยายแนวคิด Zero Trust ให้เข้มงวดขึ้นในยุค AI",
+            "analogy": "เหมือนไม่เชื่อแม้แต่เลขาส่วนตัว ต้องมีการตรวจสอบทุกคำสั่งที่เลขาพิมพ์ให้"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Visibility Mapping",
+            "detail": "การตรวจจับว่า AI Agent กำลังเข้าถึงทรัพยากรส่วนไหนของระบบบ้าง"
+          },
+          {
+            "step": "Ensemble Correlation",
+            "detail": "ใช้ AI อีกกลุ่ม (Model Ensemble) คอยจับผิดพฤติกรรมที่ผิดปกติ"
+          },
+          {
+            "step": "Explainable Remediation",
+            "detail": "การหยุดหรือแก้ไขคำสั่งที่อันตรายและสามารถให้เหตุผลว่าทำไมถึงต้องหยุด"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "อัตราส่วนการตรวจสอบ",
+            "value": "ต้นฉบับไม่ระบุตัวเลข",
+            "context": "ไม่มีการให้ข้อมูลเชิงสถิติจากผลการทดสอบในเอกสารนี้"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "ความเข้าใจใน Architecture ของ Agentic AI"
+          ],
+          "try_it_steps": [
+            "ลองทำ Log Analysis ในแอป Agent ของตัวเอง",
+            "จำลอง scenario ที่ AI ตัดสินใจพลาดแล้วหาจุดผิดพลาด",
+            "สรุปความต้องการด้าน Audit เพื่อให้เป็นระบบ 'Explainable'"
+          ],
+          "next_to_learn": [
+            "Mandiant Threat Intelligence report เพื่อเข้าใจรูปแบบการโจมตีใหม่",
+            "Explainable AI (XAI) เพื่อทำความเข้าใจโมเดล"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "สาย Security สาย Cloud ต้องอ่าน: Google Cloud ออกสรุปทิศทาง Cybersecurity ปี 2027 แล้วครับ!\n\nไม่ใช่แค่เรื่องป้องกัน Hack ทั่วไป แต่โจทย์คือเราจะ 'คุม' AI Agents ที่เข้ามาทำงานแทนมนุษย์ยังไงให้ปลอดภัยที่สุด\n\nหัวใจสำคัญคือ:\n✅ Decision Integrity: ทุกการตัดสินใจของ AI ต้อง 'อธิบายได้' (Explainable) 100%\n✅ Beyond Zero Trust: ไม่เชื่อใจ AI ทุกตัว ต้องตรวจสอบการเข้าถึงตลอดเวลา\n✅ Multi-model Ensemble: ใช้ AI หลายตัวช่วยกันจับผิด (Machine Speed) ก่อนเกิดเรื่อง\n\nใครกำลังทำระบบ Agent อย่าลืมออกแบบระบบ Log/Audit ให้ชัดเจนนะครับ เพราะอนาคตถ้า AI ตัดสินใจผิด แล้วเราตอบไม่ได้ว่าทำไม นั่นคือช่องโหว่ระดับองค์กรเลย!\n\n#GoogleCloud #Cybersecurity2027 #AI #ZeroTrust #Mandiant"
     },
     {
       "id": "google-cloud-professional-agentic-architect-322b72",
@@ -3553,7 +4240,8 @@
       "source": "Google Cloud",
       "published_date": "2026-11-11",
       "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-21T02:36:09.762Z",
+      "updated_at": "2026-11-22T01:30:15.708Z",
+      "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Gary Eimerman"
       ],
@@ -3563,55 +4251,112 @@
       ],
       "category": "Cloud & Developer Tools",
       "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/google_cloud_certified_social.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "Google Cloud เปิดตัวใบรับรองใหม่ 'Professional Agentic Architect' ปั้นสายงานออกแบบระบบ AI Agent มืออาชีพ",
-      "short_teaser": "Google Cloud ประกาศเปิดตัวใบรับรองวิชาชีพใหม่ Professional Agentic Architect เพื่อรับรองความเชี่ยวชาญด้านการออกแบบและวางระบบ AI Agent ระดับองค์กร",
+      "reading_time_minutes": 2,
+      "hook_headline": "Google เปิดตัวใบเซอร์ใหม่: 'Professional Agentic Architect' รับเทรนด์ AI Agents",
+      "short_teaser": "ประกาศเปิดตัว Certification ใหม่สำหรับสถาปนิกที่เน้นการสร้างและ Deploy AI Agents บน Google Cloud โดยเน้นทักษะการทำ Automation แบบ Multi-app/Multi-step",
       "tldr_takeaways": [
-        "Google Cloud ออกใบรับรองใหม่เฉพาะทาง: Professional Agentic Architect",
-        "สะท้อนว่าตลาดองค์กรต้องการสถาปนิกที่ออกแบบระบบ Multi-agent, Tool Use และความปลอดภัยบน Cloud ได้จริง",
-        "ช่วยกำหนดมาตรฐานทักษะสำหรับวิศวกร AI และ Cloud Architect ในยุค Agentic AI"
+        "สอบผ่าน 2 ส่วน: ข้อสอบปรนัย (Foundational knowledge) และ Google Skills labs (Hands-on)",
+        "เน้นทักษะการสร้าง Enterprise-grade agents ที่ทำงานข้ามแอปพลิเคชันได้",
+        "มีโปรโมชั่น Gemini Agent Ready ให้ learning credits 35 หน่วยฟรี"
       ],
       "layman_story": [
-        "แค่เรียก API ของ ChatGPT หรือ Gemini มาตอบคำถามพื้นฐานใครๆ ก็ทำได้ แต่การออกแบบระบบ 'AI Agent' ที่ทำงานซับซ้อน เชื่อมต่อฐานข้อมูลองค์กร ควบคุมต้นทุน และปลอดภัยไม่หลอนในระดับโปรดักชัน ต้องอาศัยทักษะเชิงสถาปัตยกรรมที่เฉพาะทางมาก",
-        "Google Cloud จึงเปิดตัวใบรับรอง Professional Agentic Architect ขึ้นมาเป็นมาตรฐานใหม่ในการวัดผลทักษะการออกแบบระบบ Agentic ตั้งแต่การเลือกโมเดล การจัดการ Memory/RAG ไปจนถึงการสังเกตการณ์ (Observability) และ Governance",
-        "สำหรับสาย Cloud Engineer และ AI Developer ใบรับรองนี้จะกลายเป็นอีกหนึ่งแต้มต่อสำคัญในสายอาชีพยุคที่องค์กรกำลังเปลี่ยนผ่านจาก Chatbot ไปสู่ Agentic Systems"
+        "ถ้าคุณเป็น Dev หรือ Architect ที่กำลังปั้น Agent อยู่ ตอนนี้ Google มีใบเซอร์ที่ตอบโจทย์ตรงตัวแล้ว คือ Professional Agentic Architect เพื่อรับรองว่าคุณเก่งจริงในเรื่องการ Deploy ระบบ AI อัตโนมัติ.",
+        "หลักสูตรนี้ไม่ได้วัดแค่ทฤษฎี แต่มีภาคปฏิบัติผ่าน Google Skills labs ทำให้เรามั่นใจได้ว่าสิ่งที่เรียนไปสามารถเอาไปใช้งานจริงได้ในระดับ Enterprise ไม่ใช่งานของเล่น.",
+        "สำหรับคนที่มองหาโอกาสอัปเงินเดือนหรือโปรไฟล์ นี่เป็นโอกาสที่ดีเพราะเป็นทักษะที่ตลาดกำลังต้องการสูง ยิ่งมีสถิติบอกว่าคนถือใบเซอร์ของ Google มีโอกาสก้าวหน้ามากกว่าเดิมด้วย"
       ],
       "impact_comparison": {
-        "before": "ก่อนอัปเดต: ยังไม่มีใบรับรองระดับ Cloud Professional ที่วัดทักษะการออกแบบระบบ Agentic AI โดยเฉพาะ",
-        "after": "หลังอัปเดต: มีเส้นทางเรียนรู้และใบรับรองมาตรฐานสำหรับ Agentic Systems Architect บน Google Cloud",
-        "why_it_matters": "ยืนยันว่าตำแหน่ง Agentic Architect กำลังกลายเป็นทักษะหลักที่องค์กรต้องการตัวมากที่สุด"
+        "before": "ไม่มีใบเซอร์ที่โฟกัสเรื่อง Agent โดยเฉพาะ การวัดทักษะมักเป็น Generic Cloud Certification",
+        "after": "มีมาตรฐานการวัดทักษะเรื่องการออกแบบและ Deploy Agent อย่างชัดเจน",
+        "why_it_matters": "ช่วยยืนยันความสามารถในยุคที่บริษัทหันมาใช้ AI Agent มากขึ้น"
       },
       "actionable_playbook": [
         {
-          "title": "ศึกษา Exam Guide เพื่ออัปสกิลสถาปัตยกรรม Agent",
-          "role": "สำหรับ Cloud / AI Engineer",
-          "description": "นำหัวข้อสอบของ Professional Agentic Architect มาใช้เป็น Roadmap การเรียนรู้แม้ยังไม่สมัครสอบทันที",
-          "example": "ทบทวนเรื่อง Agent Evaluation, Guardrails, RAG และ Vertex AI Agent Builder"
+          "title": "สมัคร Gemini Agent Ready",
+          "role": "Learner",
+          "description": "สมัครเพื่อเอา learning credits และเข้าถึง Labs ฟรี",
+          "example": "ไปที่หน้าเว็บ Google Cloud แล้วสมัครโปรแกรมเพื่อรับ 35 credits"
         },
         {
-          "title": "ใช้วางกรอบการพัฒนาทีมวิศวกรในบริษัท",
-          "role": "สำหรับ Tech Lead / Engineering Manager",
-          "description": "กำหนดมาตรฐานการออกแบบระบบ AI ในองค์กรให้สอดคล้องกับแนวทางปฏิบัติระดับ Enterprise",
-          "example": "ตั้งเป้าหมายให้ทีมศึกษาคู่มือสถาปัตยกรรม Agentic เพื่อลด Technical Debt ในโปรเจกต์ใหม่"
+          "title": "เตรียมสอบ Lab",
+          "role": "Practitioner",
+          "description": "ฝึกทำเคสจริงเรื่อง multi-step workflow ใน lab",
+          "example": "ฝึกสร้าง Agent เชื่อมต่อ BigQuery กับ Vertex AI"
         },
         {
-          "title": "เตรียมพอร์ตโฟลิโอโปรเจกต์ Multi-agent จริง",
-          "role": "สำหรับผู้ที่กำลังเปลี่ยนสายงานเข้าสู่วงการ AI",
-          "description": "สร้างตัวอย่างระบบ Agent ที่มีการทดสอบความแม่นยำและการควบคุมความปลอดภัยประกอบกับความรู้ตามหลักสูตร",
-          "example": "สร้าง Demo ระบบผู้ช่วยวิเคราะห์เอกสารที่มี Tracing และ Evaluation ชัดเจน"
+          "title": "เช็กสเปกเนื้อหา",
+          "role": "Architect",
+          "description": "อ่านขอบเขตสอบว่าต้องรู้เรื่องความปลอดภัยและ scale ระดับไหน",
+          "example": "ทบทวนการจัดการความปลอดภัยใน Agentic Pipeline"
         }
       ],
       "key_highlights": {
         "whats_new": [
-          "เปิดตัวใบรับรองใหม่ Google Cloud Professional Agentic Architect",
-          "มุ่งเน้นทักษะการออกแบบระบบ AI Agent ที่เสถียรและปลอดภัยในระดับองค์กร"
+          "Professional Agentic Architect Certification",
+          "Gemini Agent Ready program ที่ให้ learning credits"
         ],
         "watchouts": [
-          "ตรวจสอบวันเปิดสอบจริง เอกสารเตรียมสอบ และค่าธรรมเนียมจากหน้า Google Cloud Certification",
-          "เน้นลงมือสร้างระบบจริงควบคู่กับการอ่านทฤษฎีเพื่อให้ใช้งานได้จริง"
+          "ยังไม่มีรายละเอียดค่าธรรมเนียมการสอบแยกออกมา (ระบุแค่โปรแกรมเรียนฟรีบางส่วน)",
+          "ต้องใช้เวลาเตรียมตัวสอบทั้งภาคทฤษฎีและปฏิบัติ"
         ]
       },
-      "first_seen_at": "2026-11-18T04:52:36.449Z"
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "เป็นการยกระดับมาตรฐานวิศวกร AI ด้วยการมี Certification สำหรับ Agentic Architecture โดยเฉพาะ",
+          "prerequisite_level": "มีความรู้เรื่อง Google Cloud Platform พื้นฐาน",
+          "worth_deep_dive": "คุ้มมากสำหรับคนที่ต้องการอัปโปรไฟล์ด้าน AI Agent",
+          "context_lineage": "ต่อยอดจาก Google Cloud Certification program เดิม"
+        },
+        "glossary": [
+          {
+            "term": "Agentic Architecture",
+            "meaning": "การออกแบบระบบที่ AI สามารถตัดสินใจและลงมือทำแทนคนได้",
+            "analogy": "เหมือนการวางผังการทำงานของหุ่นยนต์อัตโนมัติ"
+          },
+          {
+            "term": "Forward deployed engineers",
+            "meaning": "วิศวกรที่ทำงานหน้างานจริงร่วมกับลูกค้า",
+            "analogy": "เหมือนทีม Engineer สายลุยที่ลงหน้างานจริง"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Foundational Exam",
+            "detail": "วัดความรู้พื้นฐานเรื่อง Agent การทำงานของโมเดลและการเชื่อมต่อ"
+          },
+          {
+            "step": "Skills Labs",
+            "detail": "ทดสอบการลงมือสร้างจริงบน Google Cloud Environment"
+          },
+          {
+            "step": "Credentialing",
+            "detail": "การรับรองมาตรฐานเพื่อเป็นโปรไฟล์ในตลาดแรงงาน"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "รายได้และโอกาสงาน",
+            "value": "82% ของผู้สอบได้เงินเดือนสูงขึ้น",
+            "context": "สถิติจากผู้ถือ Certification ของ Google Cloud เดิม"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Google Cloud Account",
+            "พื้นฐานภาษา Python / SDK"
+          ],
+          "try_it_steps": [
+            "ลงทะเบียนโปรแกรม Gemini Agent Ready",
+            "เริ่มทำ Labs ตามหัวข้อที่กำหนด",
+            "ลอง Implement Agent ตัวเล็กๆ บน Vertex AI"
+          ],
+          "next_to_learn": [
+            "Vertex AI Agent Builder",
+            "Multi-app workflow design"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "สาย Cloud เตรียมตัวให้พร้อม! Google Cloud เปิดตัวใบเซอร์ใหม่ 'Professional Agentic Architect' มาแล้วครับ 🚀\n\nใครที่เป็น Architect หรือ Dev ที่กำลังอินกับ AI Agent นี่คือสิ่งที่ต้องมีติดพอร์ต:\n\n✅ รับรองทักษะการสร้างระบบ AI ที่ทำงานอัตโนมัติ (Multi-step / Multi-app)\n✅ สอบ 2 ส่วน: ข้อสอบทฤษฎี + Lab ภาคปฏิบัติ (ทำจริง ไม่ได้แค่จำ)\n✅ ตอนนี้มีโปรแกรม Gemini Agent Ready ให้ Learning Credits 35 หน่วยฟรี!\n\nจากสถิติของ Google คนที่ถือเซอร์ของเขา 82% บอกว่าช่วยให้รายได้เพิ่มขึ้น ใครสนใจลองไปเช็กรายละเอียดได้ที่ Google Cloud Blog เลยครับ\n\n#GoogleCloud #AgenticAI #Certification #DeveloperLife #Upskill"
     },
     {
       "id": "gemini-app-gemini-on-apple-carplay-845b20",
