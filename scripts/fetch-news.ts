@@ -718,7 +718,10 @@ async function main() {
       })
       .slice(0, MAX_NEW_PER_RUN);
   } else {
+    // Only consider the newest MAX_ARTICLES items that can actually survive the final slice;
+    // otherwise older RSS items outside the top 45 get scraped & summarized on every run and discarded.
     toSummarize = rssItems
+      .slice(0, MAX_ARTICLES)
       .filter((item) => {
         const cached = cachedByUrl.get(item.url);
         return !cached || cached.layman_story.length < 2 || !cached.reading_guide;
