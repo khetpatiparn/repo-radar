@@ -1,6 +1,615 @@
 {
-  "updated_at": "2026-11-23T01:52:20.819Z",
+  "updated_at": "2026-11-24T05:28:25.875Z",
   "articles": [
+    {
+      "id": "gemini-models-gemini-4-hydrogen-builders-ea7cf6",
+      "title": "See what 6 builders are making with Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-hydrogen-builders/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-23",
+      "published_at": "2026-11-23T18:00:00.000Z",
+      "updated_at": "2026-11-24T05:28:25.868Z",
+      "first_seen_at": "2026-11-24T05:28:25.868Z",
+      "authors": [
+        "Molly McHugh-Johnson"
+      ],
+      "rss_categories": [
+        "Gemini models"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/6_Builders_Hydrogen_herosocial_.max-600x600.format-webp.webp",
+      "reading_time_minutes": 4,
+      "hook_headline": "เปิดตัว Gemini 4 Hydrogen: โมเดลใหม่เน้น Agentic Workflows และการทำงานแบบ Multi-model",
+      "short_teaser": "Google ปล่อย Gemini 4 Hydrogen โมเดลล่าสุดที่เน้นความเร็วในการรันงาน Agentic และรองรับการทำงานประสานกับโมเดล Carbon",
+      "tldr_takeaways": [
+        "Gemini 4 Hydrogen ออกแบบมาเพื่อเน้นการประมวลผลที่รวดเร็ว (Rapid Execution) เหมาะกับงานจำพวก Agentic workflows",
+        "รองรับการใช้งานร่วมกับ Gemini 4 Carbon ในรูปแบบ Multi-model workflows โดยให้ Carbon เป็นตัว Orchestrator (สมองสั่งการ) และ Hydrogen เป็น Execution Engine (แรงงาน)",
+        "พร้อมใช้งานแล้วผ่าน Gemini API ใน Google AI Studio, Android Studio และบริการ Enterprise อื่นๆ"
+      ],
+      "layman_story": [
+        "Gemini 4 Hydrogen ถูกสร้างขึ้นมาเพื่อแก้ปัญหาคอขวดในงานประมวลผลที่ซับซ้อนและต้องการความเร็วสูง โดยมันสามารถทำงานได้ทั้งแบบเดี่ยวหรือทำงานร่วมกับ Carbon ในโครงสร้างแบบ 'หัวหน้า-ลูกน้อง' (Orchestrator-Worker) เพื่อเพิ่มประสิทธิภาพในงานที่มีความละเอียดอ่อนต่อ Latency",
+        "ในเชิงสถาปัตยกรรม Hydrogen เน้นการตอบสนองที่ฉับไว ทำให้เหมาะกับการเขียนโค้ดที่ต้องการการแสดงผลแบบ realtime เช่น Three.js หรือ 3D voxel objects ซึ่งมีตัวอย่างการทดสอบเปรียบเทียบกับรุ่นก่อนอย่าง 3.8 Flash พบว่า Hydrogen สามารถขึ้นรูปโมเดล 3D ได้ในเวลาไม่ถึง 1 นาที",
+        "ข้อควรทราบคือ Hydrogen ไม่ใช่โมเดลที่พยายามทำทุกอย่างแบบ 'All-in-one' แต่ถูกวางตัวมาให้เป็น 'Execution Engine' ที่แม่นยำและรวดเร็ว โดยผู้ใช้ควรพิจารณาเลือกใช้ตามความเหมาะสมของงาน หากต้องการการวิเคราะห์ที่ซับซ้อนสูงอาจต้องใช้คู่กับโมเดลตระกูล Carbon"
+      ],
+      "impact_comparison": {
+        "before": "การใช้ LLM ในงานจำพวก 3D/Real-time animation มักเจอ Latency สูงจนนำไปใช้จริงไม่ได้",
+        "after": "Hydrogen ลดเวลาการประมวลผลงานกราฟิกและ Interactive workflows ได้ต่ำกว่า 1 นาที (อ้างอิงจากตัวอย่าง 3D Desert Ranch)",
+        "why_it_matters": "นักพัฒนาจะมีตัวเลือกโมเดลที่แยกชัดเจนระหว่าง 'ความเร็ว' และ 'ความซับซ้อน' ทำให้จัดการต้นทุนและ Latency ได้ดีขึ้น"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทดสอบผ่าน Google AI Studio",
+          "role": "นักพัฒนาตัวแทน",
+          "description": "ใช้ AI Studio ทดสอบโมเดล Hydrogen กับงานที่ต้อง generate code 3D หรือ animation",
+          "example": "ลองใช้ Prompt สั่งให้เขียนโค้ด 3D Voxel เพื่อเทียบกับโมเดลรุ่นก่อนหน้า"
+        },
+        {
+          "title": "ทดลองใช้คู่กับ Carbon (Orchestration)",
+          "role": "สถาปนิกซอฟต์แวร์",
+          "description": "ลองออกแบบ Pipeline ที่ใช้ Carbon เป็นตัววางแผนงานและส่งต่อให้ Hydrogen เป็นคนรันงานย่อย",
+          "example": "ใช้ Carbon วิเคราะห์โจทย์ แล้วให้ Hydrogen เขียนโค้ดตามความต้องการ"
+        },
+        {
+          "title": "ศึกษาการต่อผ่าน SDK",
+          "role": "นักพัฒนาแอปพลิเคชัน",
+          "description": "ติดตั้ง Gemini API SDK ล่าสุดใน Android Studio เพื่อเชื่อมต่อกับ Hydrogen",
+          "example": "ทดสอบเชื่อมต่อ API เข้ากับแอปฯ เพื่อเรียกใช้ Hydrogen ในฝั่งฝั่ง Client"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Gemini 4 Hydrogen ออกแบบมาเพื่อ Agentic workflows",
+          "รองรับการใช้งานผ่าน Google AI Studio และ Android Studio"
+        ],
+        "watchouts": [
+          "ประสิทธิภาพที่แน่นอนในแต่ละ Region ยังไม่ระบุในบทความ",
+          "ข้อมูลราคาต่อ Token ยังไม่เปิดเผยในเอกสารฉบับนี้ (ต้นฉบับไม่ระบุตัวเลข)"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "แนะนำโมเดล Gemini 4 Hydrogen ที่เน้นความเร็วในการรันงาน Agentic และการทำงานประสานโมเดล (Multi-model)",
+          "prerequisite_level": "เข้าใจพื้นฐาน LLM API และงานจำพวก Multi-model Agentic flow",
+          "worth_deep_dive": "ควรศึกษาหากกำลังพัฒนางานสาย Agentic ที่ต้องการ Latency ต่ำ",
+          "context_lineage": "ต่อยอดจากซีรีส์ Gemini 3.8 Flash มาสู่ยุคใหม่ที่เน้นความเร็วสูง"
+        },
+        "glossary": [
+          {
+            "term": "Agentic Workflows",
+            "meaning": "รูปแบบการสั่งงานที่ให้ AI ตัดสินใจและลงมือทำงานเป็นขั้นตอนตามโจทย์ที่ได้รับ",
+            "analogy": "เหมือนสั่งพนักงานที่สามารถคิดเองได้ว่าจะหยิบอุปกรณ์ชิ้นไหนมาทำจนจบงาน"
+          },
+          {
+            "term": "Orchestrator",
+            "meaning": "ตัวควบคุมหรือ 'หัวหน้า' ที่ทำหน้าที่วางแผนและแจกจ่ายงานให้โมเดลย่อย",
+            "analogy": "เหมือนวาทยกรที่ควบคุมการเล่นดนตรีของนักดนตรีแต่ละชิ้นให้เข้ากัน"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Model Orchestration",
+            "detail": "ใช้ Carbon เป็นโมเดลหลักในการวางแผนและสรุปงานเชิงตรรกะ"
+          },
+          {
+            "step": "Task Decomposition",
+            "detail": "แตกงานย่อยให้ Hydrogen ประมวลผลและเขียนโค้ด/สร้าง Assets ตามเงื่อนไข"
+          },
+          {
+            "step": "Execution Loop",
+            "detail": "Hydrogen รันงานผ่านสภาพแวดล้อมจำลอง (เช่น Google Antigravity) เพื่อผลิตผลลัพธ์สุดท้าย"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "Latency ในงาน 3D Desert Ranch",
+            "value": "< 1 นาที",
+            "context": "เทียบกับการรันงานเดียวกันในโมเดล Gemini 3.8 Flash"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Google Cloud Project",
+            "API Key สำหรับ Gemini 4",
+            "Android Studio (สำหรับงานฝั่งโมบายล์)"
+          ],
+          "try_it_steps": [
+            "สมัครใช้งาน AI Studio และเข้าถึงโมเดล Gemini 4 Hydrogen",
+            "เลือกใช้ Prompt เกี่ยวกับ Three.js เพื่อดูความสามารถในการเขียนโค้ดของโมเดล",
+            "ทดลองรันงานเดียวกันเปรียบเทียบกับ Flash รุ่นเดิม"
+          ],
+          "next_to_learn": [
+            "Multi-model workflows: การต่อโมเดลเข้าด้วยกันเพื่อประสิทธิภาพที่ดีขึ้น",
+            "Agentic Systems: ศึกษาแนวทางสร้าง Agent ที่ทำงานได้เองจนจบ"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "🚀 เปิดตัว Gemini 4 Hydrogen! โมเดลใหม่จาก Google ที่เน้นงานสาย Agentic และความเร็วเป็นหลัก! \n\nใครกำลังหาโมเดลสำหรับงานที่ต้องการ Response รวดเร็วหรืองานแนว Multi-model ต้องห้ามพลาด:\n- ออกแบบมาให้ทำงานแบบคู่หู: ใช้ Carbon เป็นสมองวางแผน และ Hydrogen เป็นแรงงานรันงาน (Execution Engine)\n- พิสูจน์แล้ว: ทำงาน 3D Animation ได้เร็วกว่า Gemini 3.8 Flash (ใช้เวลา < 1 นาที!)\n- พร้อมใช้งานผ่าน: Google AI Studio และ Android Studio แล้ววันนี้\n\nสาย Dev ที่ทำงานกับ Agentic workflows หรือต้องการงาน Real-time 3D/Interactive ต้องลองไปทดสอบใน AI Studio เลยครับ \n\n#Gemini4 #GoogleAI #AIModel #Developer #AgenticAI #Hydrogen"
+    },
+    {
+      "id": "gemini-app-gemini-canvas-tasks-fb9ed0",
+      "title": "Here are 4 things you didn’t know you could do with Gemini Canvas.",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-canvas-tasks/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-23",
+      "published_at": "2026-11-23T18:00:00.000Z",
+      "updated_at": "2026-11-24T05:28:25.873Z",
+      "first_seen_at": "2026-11-24T05:28:25.873Z",
+      "authors": [],
+      "rss_categories": [
+        "Gemini App"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/02_hero_video_poster.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "4 วิธีใช้งาน Gemini Canvas ช่วยเพิ่ม Productivity ให้ Developer และสายงานเอกสาร",
+      "short_teaser": "เจาะลึกฟีเจอร์ Gemini Canvas พื้นที่ทำงานแบบ Interactive ที่ช่วยคุณสร้างเว็บแอปฯ, สรุปงาน และจัดการเอกสารไปพร้อมกับการแชท",
+      "tldr_takeaways": [
+        "Gemini Canvas เป็นพื้นที่ทำงานข้างหน้าแชท (Side-by-side workspace) ที่ช่วยให้แก้ไขและจัดการงานได้โดยไม่ต้องสลับหน้าจอ",
+        "ใช้งานได้ 4 รูปแบบหลัก: สร้างเว็บแอป/มินิเกม, ทำสื่อการสอน/Quiz, จัดการตารางข้อมูล (Spreadsheet), และแก้ไขงานเขียน",
+        "เป็นเครื่องมือที่เน้น Workflow ของผู้ใช้งานที่ต้องการสร้างเนื้อหาเชิงเทคนิคหรืองานเอกสารเชิงลึก"
+      ],
+      "layman_story": [
+        "Gemini Canvas พัฒนามาเพื่อแก้ปัญหา 'หน้าต่างแชทอย่างเดียวไม่พอ' โดยเฉพาะเวลาต้องเขียนโค้ดโปรเจกต์ขนาดเล็กหรือร่างเอกสารยาวๆ ทำให้คุณไม่ต้องก๊อปปี้ไปมาแล้วต้องนั่งแก้ไขทีละจุดในโปรแกรมอื่น",
+        "ด้วยฟีเจอร์นี้ คุณสามารถสั่งงาน AI ให้สร้างมินิเกมแบบ 3D หรือทำ Sales Tracker จากตารางข้อมูลได้ทันทีผ่านพื้นที่ Canvas ด้านข้าง ซึ่งระบบจะช่วยรักษาสภาพแวดล้อมงานเอาไว้ให้คุณปรับแต่งได้แบบ real-time",
+        "ข้อจำกัดของฟีเจอร์นี้คือเป็นเครื่องมือช่วยเร่งความเร็วในการทำงาน (Productivity booster) มากกว่าจะเป็นโปรแกรม Development IDE เต็มตัว ดังนั้นจึงเหมาะกับงาน Rapid Prototyping หรือการจัดการเนื้อหาเบื้องต้นเท่านั้น"
+      ],
+      "impact_comparison": {
+        "before": "การคุยกับ AI เพื่อเขียนโปรเจกต์มักจบที่ข้อความ แล้วต้องก๊อปปี้โค้ดไปวางใน IDE หรือ Editor เอง",
+        "after": "ใช้ Canvas ช่วยสร้างเว็บและแก้ไขงานเอกสารได้โดยตรงใน UI ของแอป ทำให้ Workflow ลื่นไหลขึ้น",
+        "why_it_matters": "ลดระยะเวลาในการสลับบริบท (Context Switching) ระหว่างการคุยกับ AI และการจัดทำผลงานจริง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "สร้างมินิเกมบนเว็บ",
+          "role": "นักพัฒนา",
+          "description": "ลองให้ Gemini เขียนโค้ดมินิเกมผ่าน Canvas",
+          "example": "สั่ง 'Create a 3D visualizer for sorting algorithm'"
+        },
+        {
+          "title": "จัดการเอกสารงานขาย",
+          "role": "Product Manager",
+          "description": "แปลงตารางข้อมูลดิบเป็น Task list บน Canvas",
+          "example": "อัปโหลด PDF แล้วสั่งให้สรุปเป็น Sales Tracker"
+        },
+        {
+          "title": "รีไรท์งานเขียนเชิงลึก",
+          "role": "Technical Writer",
+          "description": "ใช้เครื่องมือ highlight เพื่อปรับโทนของเนื้อหา",
+          "example": "คลุมดำส่วนที่ต้องการแล้วเลือก 'Rephrase' หรือ 'Adjust tone'"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "พื้นที่ทำงาน Side-by-side Canvas",
+          "รองรับการปรับแต่งเชิงลึกด้วยการคลิกเลือกส่วนที่ต้องการ"
+        ],
+        "watchouts": [
+          "ความซับซ้อนของเว็บแอปที่สร้างได้มีจำกัด",
+          "ฟีเจอร์นี้ถูกออกแบบมาเพื่อแอป Gemini (ไม่ใช่อุปกรณ์เสริมสำหรับ IDE ภายนอก)"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "Gemini Canvas เป็นพื้นที่ทำงานแยกส่วนจากแชทเพื่อจัดการงานที่ต้องใช้การแก้ไขและปรับปรุงต่อเนื่อง",
+          "prerequisite_level": "ผู้ใช้งานทั่วไปที่ต้องการความเร็วในการจัดการเนื้อหา",
+          "worth_deep_dive": "เหมาะสำหรับผู้ใช้ Gemini ที่ต้องการความเร็วในการสร้างต้นแบบแอปหรือแก้ไขเอกสาร",
+          "context_lineage": "เป็นหนึ่งในชุดเครื่องมือพัฒนา Productivity ของ Gemini App"
+        },
+        "glossary": [
+          {
+            "term": "Canvas",
+            "meaning": "พื้นที่ทำงานแยกต่างหากที่ AI แสดงผลงานแบบ Interactive",
+            "analogy": "เหมือนมีกระดานไวท์บอร์ดส่วนตัวข้างหน้าแชทที่เราสามารถขีดเขียนหรือสั่งแก้ได้ตลอดเวลา"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Initiation",
+            "detail": "ผู้ใช้ป้อนคำสั่งให้สร้างชิ้นงานในแชท"
+          },
+          {
+            "step": "Side-by-side View",
+            "detail": "ระบบเปิดหน้าจอ Canvas ด้านข้างเพื่อแสดงผลลัพธ์แบบที่แก้ไขได้"
+          },
+          {
+            "step": "Iteration",
+            "detail": "ผู้ใช้คลิกส่วนต่างๆ เพื่อสั่งปรับแก้ หรือพิมพ์คำสั่งเพิ่มในแชทเพื่ออัปเดต Canvas"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "สถานะการใช้งาน",
+            "value": "พร้อมใช้งานแล้ว",
+            "context": "ต้นฉบับไม่ระบุข้อจำกัดระดับ VRAM หรือจำนวน Token ที่ชัดเจน"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "บัญชี Gemini",
+            "การเชื่อมต่ออินเทอร์เน็ต"
+          ],
+          "try_it_steps": [
+            "เปิดใช้งาน Gemini App และทดลองสั่งสร้างเว็บไซต์ง่ายๆ",
+            "ทดสอบปรับแก้ (Edit) เนื้อหาบน Canvas",
+            "ใช้งานฟีเจอร์ Quiz Generator เพื่อสร้างสื่อการเรียนจากเอกสารที่คุณมี"
+          ],
+          "next_to_learn": [
+            "Prompt Engineering สำหรับการจัดการ Canvas",
+            "การบูรณาการข้อมูลจากไฟล์ส่วนตัวมาใช้ใน Canvas"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "เบื่อไหมที่ต้องก๊อปปี้โค้ดจากแชทไปแปะ IDE บ่อยๆ? 🎨 Gemini Canvas มาแล้วครับ! \n\nฟีเจอร์ใหม่ที่ช่วยให้คุณทำงานข้างๆ หน้าต่างแชทได้ทันที:\n✅ สร้างเว็บแอป/มินิเกมได้เร็วกว่าเดิม\n✅ ปรับแต่งเนื้อหา/เอกสารได้แบบ Real-time\n✅ เปลี่ยนตารางข้อมูลให้เป็น Sales Tracker ง่ายๆ\n\nสำหรับ Dev หรือใครที่ต้องการ Workspace ที่จัดการงานได้ทันที ต้องลองไปเล่นดูครับ!\n\n#GeminiCanvas #ProductivityTools #Gemini #GoogleAI #WebDev"
+    },
+    {
+      "id": "search-google-search-personal-intelligence-apps-c5903c",
+      "title": "A more tailored Google Search that’s uniquely yours",
+      "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-23",
+      "published_at": "2026-11-23T17:00:00.000Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
+      "first_seen_at": "2026-11-24T05:28:25.874Z",
+      "authors": [
+        "Robby Stein"
+      ],
+      "rss_categories": [
+        "Search",
+        "Gemini",
+        "Google Play",
+        "AI"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_pContext_Drive_1118.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google Search ฉลาดขึ้น: เชื่อมต่อ Google Wallet และ Drive เข้ากับ AI Mode ได้แล้ว",
+      "short_teaser": "Google ยกระดับ Personal Intelligence ในการค้นหา ช่วยให้ Search ดึงบริบทจาก Wallet และ Drive มาตอบคำถามส่วนตัวได้แม่นยำขึ้น",
+      "tldr_takeaways": [
+        "สามารถเชื่อมต่อ Google Wallet เข้ากับ AI Mode ใน Search เพื่อติดตามการใช้จ่ายและสิทธิประโยชน์จากบัตรเครดิต",
+        "การเชื่อมต่อ Google Drive จะช่วยให้ Search ค้นหาข้อมูลจากไฟล์ Doc/Sheet/PDF เพื่อตอบคำถามเชิงลึกได้",
+        "ระบบรักษาความเป็นส่วนตัว: คุณเป็นผู้เลือก (Opt-in) และสามารถเปิด/ปิดการเชื่อมต่อแอปได้เสมอ"
+      ],
+      "layman_story": [
+        "Personal Intelligence ของ Google กำลังยกระดับจากการค้นหาข้อมูลทั่วไปสู่การเป็นผู้ช่วยส่วนตัวที่ 'รู้จัก' ข้อมูลการเงินและการทำงานของคุณ โดยการเชื่อมต่อกับ Wallet และ Drive ทำให้ AI สามารถตอบคำถามที่ซับซ้อน เช่น 'ยอดรวมค่าเดินทางเดือนนี้เท่าไหร่' หรือ 'สรุปแผนงานจากไฟล์ใน Drive ให้หน่อย'",
+        "หัวใจสำคัญของฟีเจอร์นี้คือการรักษาความปลอดภัย โดยข้อมูลทั้งหมดผ่านการควบคุมโดยผู้ใช้งานเองผ่านหน้า Search Personalization คุณสามารถเลือกได้ว่าจะเชื่อมต่อแอปไหน และสามารถสั่งแก้ไขบริบทได้ทันที เช่น บอก AI ว่า 'เลิกทานมังสวิรัติแล้ว' ซึ่ง AI จะปรับปรุงผลลัพธ์ให้ทันที",
+        "ข้อจำกัดที่ควรทราบคือ AI Mode ใน Search ยังเป็นระบบทดลอง (Experimental) และเป็นฟีเจอร์ที่ต้องอาศัยการยินยอม (Opt-in) ซึ่งหมายความว่าข้อมูลส่วนตัวของคุณจะถูกนำมาใช้ประกอบการตอบคำถามเท่านั้น ไม่ได้นำไปเทรนโมเดลโดยไม่ได้รับอนุญาต (ตามที่ระบุในนโยบายส่วนบุคคล)"
+      ],
+      "impact_comparison": {
+        "before": "การค้นหาข้อมูลใน Search จำเป็นต้องเข้าแอปแยกกัน (Wallet, Drive) แล้วมาสรุปผลด้วยตัวเอง",
+        "after": "Search กลายเป็น Hub ที่รวบรวมบริบทจากหลายแหล่งมาตอบคำถามเดียวได้เลย",
+        "why_it_matters": "ช่วยประหยัดเวลาในการค้นหาข้อมูลกระจัดกระจาย และเพิ่มความแม่นยำในการวางแผนชีวิตส่วนตัวและงาน"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ตั้งค่า Personalization",
+          "role": "ผู้ใช้งานทั่วไป",
+          "description": "ไปที่ Search Personalization เพื่อเลือกเชื่อมต่อ Wallet หรือ Drive",
+          "example": "เปิดหน้า Search Settings แล้วเลือก Connected Apps"
+        },
+        {
+          "title": "สอบถามแผนการเงิน",
+          "role": "สายวางแผนการเงิน",
+          "description": "ลองถามคำถามที่อ้างอิงจากข้อมูลใน Wallet",
+          "example": "ถามว่า 'บัตรเครดิตใบไหนได้ Cash back คุ้มสุดสำหรับค่าอาหาร'"
+        },
+        {
+          "title": "เตรียมข้อมูลโครงการ",
+          "role": "พนักงานออฟฟิศ",
+          "description": "ใช้ Search เพื่อสรุปข้อมูลจากไฟล์โปรเจกต์ใน Drive",
+          "example": "ถามว่า 'สรุปงานจากไฟล์ PDF แผนการตลาดประจำไตรมาสให้หน่อย'"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "เชื่อมต่อข้อมูล Google Wallet เพื่อติดตามค่าใช้จ่ายและรางวัลบัตร",
+          "เชื่อมต่อ Google Drive เพื่อค้นหาข้อมูลจากไฟล์งาน"
+        ],
+        "watchouts": [
+          "ฟีเจอร์นี้ทยอยเปิดใช้งาน (Roll out today/coming weeks)",
+          "เป็นการค้นหาผ่าน AI Mode เท่านั้น ยังไม่ใช่ระบบหลักของ Search แบบปกติ"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "นำข้อมูลส่วนตัวจาก Wallet และ Drive มาเชื่อมกับ Search AI เพื่อผลลัพธ์ที่ตรงจุดและเป็นส่วนตัวมากขึ้น",
+          "prerequisite_level": "ผู้ใช้งาน Google Account ทั่วไป",
+          "worth_deep_dive": "เหมาะสำหรับคนที่ต้องการผู้ช่วยส่วนตัวในการจัดการชีวิตและการทำงาน",
+          "context_lineage": "การพัฒนาต่อยอดระบบ AI Overviews ของ Google Search ให้ลึกขึ้น"
+        },
+        "glossary": [
+          {
+            "term": "AI Mode",
+            "meaning": "โหมดการค้นหาที่ใช้ความสามารถของ Gemini ช่วยวิเคราะห์และสรุปคำตอบ",
+            "analogy": "เหมือนมีผู้เชี่ยวชาญมาคอยอ่านข้อมูลแล้วสรุปให้เรา แทนที่จะแค่โยนลิ้งก์บทความมาให้"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Opt-in / Connectivity",
+            "detail": "ผู้ใช้เปิดสิทธิ์เชื่อมต่อแอป (Wallet, Drive) ผ่าน Search Settings"
+          },
+          {
+            "step": "Context Retrieval",
+            "detail": "ระบบดึงบริบท (Context) จากข้อมูลส่วนตัวเมื่อมีการค้นหาที่เกี่ยวข้อง"
+          },
+          {
+            "step": "Personalized Synthesis",
+            "detail": "AI Mode ประมวลผลคำตอบโดยใช้บริบทที่เชื่อมต่อมาประกอบ"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "ความพร้อมใช้งาน",
+            "value": "เริ่มวันนี้ (สำหรับ Wallet) และสัปดาห์ถัดไป (Drive)",
+            "context": "ข้อมูลจากประกาศทางการ"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "บัญชี Google",
+            "แอปที่เชื่อมต่อ (Wallet/Drive)"
+          ],
+          "try_it_steps": [
+            "ไปที่ Search Personalization Settings",
+            "เปิดการใช้งาน Connected Apps",
+            "ทดสอบคำถามเชิงบริบทส่วนตัวใน AI Mode"
+          ],
+          "next_to_learn": [
+            "นโยบายความเป็นส่วนตัวของ Google AI",
+            "การจัดการข้อมูลใน Search History และ Personalization Settings"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Search ยุคใหม่! Google อัปเกรดให้เชื่อมต่อกับ Wallet และ Drive ได้แล้วครับ 🔍\n\nใครอยากให้ Google Search เป็นผู้ช่วยส่วนตัวที่เข้าใจชีวิตคุณมากขึ้น ห้ามพลาด:\n- เชื่อม Google Wallet: เช็กค่าใช้จ่าย และวิธีใช้สิทธิประโยชน์บัตรเครดิตได้ผ่าน AI Mode\n- เชื่อม Google Drive: ค้นหาข้อมูลหรือสรุปไฟล์ Doc/PDF ได้ตรงใจในคำค้นหาเดียว\n- ความเป็นส่วนตัว: คุณคุมเอง 100% ว่าจะให้เข้าถึงข้อมูลไหนบ้าง\n\nฟีเจอร์นี้เริ่มปล่อยแล้วตั้งแต่วันนี้ ลองไปตั้งค่าใน Search ได้เลยครับ \n\n#GoogleSearch #PersonalIntelligence #GoogleWallet #GoogleDrive #AI #SmartSearch"
+    },
+    {
+      "id": "photos-google-photo-tools-holiday-season-2026-fcdc7c",
+      "title": "Organize and share your holiday memories with these five updates in Google Photos.",
+      "url": "https://blog.google/products-and-platforms/products/photos/google-photo-tools-holiday-season-2026/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-23",
+      "published_at": "2026-11-23T17:00:00.000Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
+      "first_seen_at": "2026-11-24T05:28:25.874Z",
+      "authors": [],
+      "rss_categories": [
+        "Photos"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/video_6262_wagtailvideo-cdfg3q0i_thumb.jpg",
+      "reading_time_minutes": 2,
+      "hook_headline": "Google Photos อัปเดตใหม่ต้อนรับเทศกาล เพิ่มฟีเจอร์ AI จัดการอัลบั้มและสร้างงานคราฟต์",
+      "short_teaser": "Google Photos เปิดตัว 5 ฟีเจอร์ใหม่เน้นการจัดระเบียบรูปภาพและการทำสื่อประชาสัมพันธ์ด้วย Gemini สำหรับผู้ใช้งานทั่วไปในช่วงเทศกาลปี 2026",
+      "tldr_takeaways": [
+        "เพิ่ม Gemini ช่วยงานวิดีโอและทำ Recap สรุปเรื่องราวในวันสำคัญ",
+        "มี 12 Remix templates ใหม่สำหรับเปลี่ยนรูปภาพเป็นงานแนว Scrapbook หรือภาพวาดสีพาสเทล",
+        "อัปเดต UX จัดการ Shared Albums โดยรองรับการ Filter ตามใบหน้าของคนหรือสัตว์เลี้ยง"
+      ],
+      "layman_story": [
+        "ประกาศนี้เป็นการเน้นย้ำความสามารถของ AI ในแอป Google Photos เพื่อลดความซับซ้อนในการจัดการรูปภาพช่วงเทศกาล โดยเน้นการดึง Gemini มาช่วยจัดการวิดีโอและสรุปภาพรวมของงานให้โดยอัตโนมัติ",
+        "ฟีเจอร์ใหม่ครอบคลุมตั้งแต่เครื่องมือตกแต่งรูปภาพด้วย template 12 แบบ, การคัดกรองรูปภาพใน Shared Albums ด้วยระบบจดจำใบหน้า, ไปจนถึงการปรับแต่งหน้าตาของแอป (Collections tab) ให้เข้ากับความชอบส่วนบุคคล",
+        "การอัปเดตนี้ไม่ได้เปลี่ยนโมเดลการประมวลผลหลัก แต่เป็นเครื่องมืออำนวยความสะดวกสำหรับผู้ใช้ทั่วไป ข้อจำกัดคือฟีเจอร์บางอย่างผูกกับแพลตฟอร์มเฉพาะ (เช่น Fujifilm Print Store) และต้องตรวจสอบการรองรับในแต่ละภูมิภาคอีกครั้ง"
+      ],
+      "impact_comparison": {
+        "before": "การค้นหารูปหรือจัดระเบียบอัลบั้มรวมต้องเลื่อนดูด้วยมือ และการทำวิดีโอสรุปต้องใช้เวลาเลือกคลิปเอง",
+        "after": "ใช้ Gemini ช่วยสรุปวิดีโอได้เร็วขึ้น และกรองรูปภาพในอัลบั้มรวมได้ทันทีตามใบหน้าคนหรือสัตว์เลี้ยง",
+        "why_it_matters": "สะท้อนแนวทางการนำ AI มาย่อยให้เป็นฟีเจอร์ Consumer-facing ที่ช่วยแก้ปัญหาเรื่องการจัดการ Digital clutter"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทดสอบฟีเจอร์จัดการภาพ",
+          "role": "ผู้ใช้งานทั่วไป",
+          "description": "ลองใช้หน้า Shared Albums เพื่อทดสอบระบบ Filter ตามบุคคล",
+          "example": "แตะใบหน้าใน Carousel ของอัลบั้มแชร์ เพื่อดูว่าระบบคัดแยกรูปได้แม่นยำแค่ไหน"
+        },
+        {
+          "title": "ทดลองใช้ 12 Remix templates",
+          "role": "นักสร้างคอนเทนต์",
+          "description": "เลือกรูปภาพเก่ามาใส่ Template เพื่อดูผลลัพธ์",
+          "example": "เปลี่ยนรูปทริปปีใหม่ให้เป็นงานสไตล์ Scrapbook หรือภาพวาดพาสเทล"
+        },
+        {
+          "title": "ปรับแต่งหน้า Collections",
+          "role": "ผู้ใช้งานทั่วไป",
+          "description": "ลอง Pin อัลบั้มที่ใช้บ่อยที่สุดขึ้นมาไว้ด้านบน",
+          "example": "จัดลำดับอัลบั้มความทรงจำปี 2026 ให้เข้าถึงได้ไวที่สุด"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ฟีเจอร์ Gemini สำหรับงานวิดีโอและ Recap ประจำวัน",
+          "12 รูปแบบ Remix templates สำหรับแต่งรูป"
+        ],
+        "watchouts": [
+          "ฟีเจอร์พิมพ์รูปผ่าน Fujifilm เป็นบริการเสริมภายนอก",
+          "การอัปเดตทยอยปล่อย อาจยังไม่พร้อมใช้งานในทุกบัญชีทันที"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "Google เพิ่มความสามารถด้าน AI ให้แอป Photos เพื่อให้คนจัดรูปได้เร็วขึ้นและนำเสนอภาพในรูปแบบใหม่ได้ง่ายขึ้น",
+          "prerequisite_level": "ผู้ใช้งานทั่วไป",
+          "worth_deep_dive": "เหมาะสำหรับผู้ใช้ทั่วไป ส่วน Dev เก็บไว้เป็นแนวทางว่า Google นำ AI ไปใช้ใน Product ระดับ Mass อย่างไร",
+          "context_lineage": "เป็นหนึ่งในงานอัปเดตฟีเจอร์ของ Google Photos ประจำปี 2026"
+        },
+        "glossary": [
+          {
+            "term": "Remix templates",
+            "meaning": "แม่แบบที่ AI เตรียมไว้ให้เพื่อปรับสไตล์ภาพถ่ายให้เป็นแนวศิลปะหรือการ์ด",
+            "analogy": "เหมือนฟิลเตอร์แต่งรูปขั้นสูงที่เปลี่ยนโทนภาพได้ทันที"
+          },
+          {
+            "term": "Collections tab",
+            "meaning": "หน้าสำหรับจัดการอัลบั้มและพื้นที่เก็บภาพต่างๆ",
+            "analogy": "เหมือนโฟลเดอร์หลักที่รวบรวมรูปภาพในเครื่อง"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "การกรองข้อมูล",
+            "detail": "ระบบใช้ Computer Vision คัดแยกใบหน้าบุคคลหรือสัตว์ใน Shared Album"
+          },
+          {
+            "step": "การทำ Generative Remix",
+            "detail": "Gemini รับข้อมูลภาพต้นฉบับไปประมวลผลเพื่อใส่สไตล์ใหม่ตามเทมเพลต"
+          },
+          {
+            "step": "การสรุปข้อมูล (Recap)",
+            "detail": "โมเดลภาษาวิเคราะห์ข้อมูลจากภาพและวิดีโอ เพื่อสร้างข้อความสรุปเรื่องราวของวัน"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "จำนวน Remix templates ใหม่",
+            "value": "12",
+            "context": "จำนวนเทมเพลตที่มีให้เลือกใช้แต่งภาพ"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "แอป Google Photos เวอร์ชันล่าสุด"
+          ],
+          "try_it_steps": [
+            "ลองเข้าไปที่ Shared Albums แล้วดูว่ามีตัวเลือกคัดกรองใบหน้าโผล่มาไหม",
+            "เลือกรูปแล้วมองหาปุ่ม Remix เพื่อเปลี่ยนสไตล์รูปด้วย 12 เทมเพลตใหม่",
+            "ทดสอบสร้าง Highlight อัลบั้มดูว่า Gemini สามารถเขียนสรุปเรื่องราวได้ตรงใจหรือไม่"
+          ],
+          "next_to_learn": [
+            "Computer Vision 101 เพื่อเข้าใจการตรวจจับใบหน้า",
+            "การปรับแต่ง UX ในแอปมือถือ"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "สายเที่ยวห้ามพลาด! Google Photos ปล่อย 5 ฟีเจอร์ใหม่ต้อนรับเทศกาลส่งท้ายปี 2026 โดยใช้ Gemini ช่วยจัดการรูปภาพและวิดีโอให้เป็นระเบียบกว่าเดิม! \n\nสิ่งที่อัปเดตเข้ามา:\n✅ ใช้ Gemini สร้าง Recap สรุปวันสำคัญและวิดีโอไฮไลท์ได้อัตโนมัติ\n✅ สนุกกับ 12 Remix Templates ใหม่ เปลี่ยนรูปธรรมดาให้เป็น Scrapbook หรือลายเส้นพาสเทลสวยๆ\n✅ หาคนในอัลบั้มแชร์ได้ง่ายขึ้นด้วยระบบ Filter ตามใบหน้าคนและสัตว์เลี้ยง\n✅ ปรับแต่ง Collections tab ได้ตามใจชอบ พินอัลบั้มโปรดไว้ด้านหน้าได้เลย\n✅ มีบริการ FujiFilm สำหรับพิมพ์ภาพความทรงจำทำเป็นสมุดหรือของขวัญ\n\nใครอยากจัดระเบียบรูปภาพให้พร้อมต้อนรับปีใหม่ ลองไปอัปเดตและใช้งานกันดูครับ! \n\n#GooglePhotos #GeminiAI #TechUpdate #HolidayMemory #AI"
+    },
+    {
+      "id": "developers-tools-file-slicing-controls-6cdd85",
+      "title": "Introducing file slicing controls in the Gemini API",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/file-slicing-controls/",
+      "source": "Google Developers",
+      "published_date": "2026-11-23",
+      "published_at": "2026-11-23T16:12:00.000Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
+      "first_seen_at": "2026-11-24T05:28:25.874Z",
+      "authors": [
+        "Rohan Doshi",
+        "Ben Caine"
+      ],
+      "rss_categories": [
+        "Developer tools"
+      ],
+      "category": "Cloud & Developer Tools",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Introducing-File-Slicing-Contro.max-600x600.format-webp.webp",
+      "reading_time_minutes": 5,
+      "hook_headline": "Gemini API รองรับการทำ File Slicing ช่วยลดค่า Token และเพิ่มประสิทธิภาพการอ่านเอกสารยาวๆ",
+      "short_teaser": "Google เปิดตัว File Slicing controls ใน Gemini API ช่วยให้นักพัฒนาเลือกอ่านเฉพาะส่วนที่ต้องการจากไฟล์ขนาดใหญ่ได้โดยไม่ต้องอัปโหลดและประมวลผลไฟล์ทั้งหมด",
+      "tldr_takeaways": [
+        "รองรับการกำหนดช่วง Page range, Spreadsheet cells, และ Media segments (Video/Audio) แบบเจาะจง",
+        "ลดต้นทุนค่า Token โดยคิดเงินเฉพาะส่วนที่โมเดลเข้าไปอ่าน (Inspect)",
+        "รองรับไฟล์ประเภท PDF, Microsoft Office (Doc/Slide/Sheet), และไฟล์มัลติมีเดีย (Video/Audio)"
+      ],
+      "layman_story": [
+        "นักพัฒนาที่เคยเจอคอขวดตอนส่งไฟล์ PDF หรือวิดีโอยาวๆ เข้า Gemini API มักจะเจอปัญหาเรื่องค่า Token ที่สูงเกินจำเป็น หรือต้องเสียเวลาทำ Pre-processing ไฟล์ในเครื่องก่อนส่ง วันนี้ Gemini แก้ปัญหานี้ด้วย 'File Slicing Controls' ซึ่งช่วยให้เรากำหนดขอบเขตข้อมูลที่ต้องการส่งให้โมเดลอ่านได้แม่นยำขึ้น",
+        "การทำงานหลักคือ แทนที่จะส่งทั้งไฟล์เข้าไปใน Context Window เราสามารถสั่งให้โมเดลอ่านแค่ 'หน้า 3', 'ตารางที่ 2', หรือ 'วิดีโอช่วงนาทีที่ 1 ถึง 2' ได้ ซึ่งนอกจากจะช่วยประหยัด Token แล้ว ยังลดภาระเครื่องมือในฝั่ง Client ที่ต้องคอยแปลงไฟล์หรือตัดแต่งวิดีโอเอง",
+        "ฟีเจอร์นี้รองรับโมเดล Gemini 4 ทุกรุ่น ทำให้ Agent ที่พัฒนาขึ้นมีประสิทธิภาพมากขึ้น โดยเปลี่ยนโมเดลจากการอ่าน 'แบบเหมาเข่ง' เป็นการเลือกอ่านเฉพาะสิ่งที่สำคัญ (Skim then Zoom) อย่างไรก็ตามผู้พัฒนายังต้องระวังเรื่องข้อจำกัดขนาดไฟล์และจำนวนหน้าตามที่ API ระบุไว้เดิม"
+      ],
+      "impact_comparison": {
+        "before": "ต้องจัดการไฟล์ด้วยเครื่องมือภายนอก (เช่น ffmpeg, PDF renderers) เพื่อตัดแบ่งข้อมูลก่อนส่งเข้า API ทำให้เสียค่า Token เยอะ",
+        "after": "ใช้ API สั่งให้โมเดลเลือกอ่านเฉพาะ Page, Sheet, หรือช่วงเวลาที่ต้องการได้ทันที และจ่ายเงินเฉพาะส่วนที่อ่าน",
+        "why_it_matters": "ช่วยให้ต้นทุนการพัฒนา Agent ที่ต้องประมวลผลไฟล์เอกสารหนักๆ ลดลงอย่างเห็นได้ชัด และลดความซับซ้อนของ Codebase"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ทดสอบผ่าน Python SDK",
+          "role": "นักพัฒนา AI",
+          "description": "ทดลองใช้คำสั่ง `client.files.upload` พร้อมกับระบุ `page_options` เพื่อดึงเฉพาะเนื้อหาที่สนใจ",
+          "example": "ใช้ `skim` เพื่ออ่าน Text ก่อน แล้วค่อย `zoom` เข้าไปอ่าน Page image ในเนื้อหาที่ต้องการ"
+        },
+        {
+          "title": "ปรับจูน Token Consumption",
+          "role": "System Architect",
+          "description": "ประเมินการประหยัดต้นทุนเมื่อใช้การทำ Slicing เทียบกับแบบเดิม",
+          "example": "เปรียบเทียบราคา Token ที่จ่ายต่อไฟล์เมื่อสกัดข้อมูลแบบ Full-file vs Targeted slice"
+        },
+        {
+          "title": "ศึกษาแนวทางการทำ Agent",
+          "role": "AI Engineer",
+          "description": "อ่านเอกสารเรื่อง Multi-turn workflows ที่ระบุในบทความ",
+          "example": "ทดลองส่ง URI ไฟล์เข้า Function response เพื่อให้ Agent จัดการข้อมูลเอง"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "ฟีเจอร์ File Slicing บน Server-side สำหรับไฟล์ PDF, Office และมัลติมีเดีย",
+          "การคิดค่าใช้จ่าย (Billing) เฉพาะส่วนที่โมเดลเรียกอ่าน (Inspect)"
+        ],
+        "watchouts": [
+          "ต้นฉบับไม่ระบุตัวเลขราคา Token ที่แน่นอน (ต้นฉบับระบุว่าลดต้นทุนได้ แต่ไม่บอกตัวเลขชัดเจน)",
+          "ข้อจำกัดด้านขนาดไฟล์และจำนวนหน้ายังคงยึดตามข้อกำหนดเดิมของ Gemini API"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "Gemini API อัปเดตให้เลือกอ่านข้อมูลบางส่วนของไฟล์ได้ ช่วยประหยัดงบและเพิ่มความเร็วในการประมวลผล Agent",
+          "prerequisite_level": "เข้าใจการใช้งาน Python และ Gemini API พื้นฐาน",
+          "worth_deep_dive": "คุ้มมาก โดยเฉพาะคนทำ Document Processing/Agent workflow ที่ต้องรันไฟล์หนักๆ",
+          "context_lineage": "เป็นการอัปเกรดความสามารถด้าน Multimodal data handling ของ Gemini 4"
+        },
+        "glossary": [
+          {
+            "term": "File Slicing",
+            "meaning": "การตัดแบ่งไฟล์ให้เหลือเฉพาะส่วนที่เราสนใจก่อนส่งเข้าโมเดล",
+            "analogy": "เหมือนการเลือกว่าจะอ่านแค่หน้าไหนในหนังสือแทนที่จะอ่านทั้งเล่ม"
+          },
+          {
+            "term": "Files API URI",
+            "meaning": "การอ้างถึงไฟล์ที่อัปโหลดไว้บนระบบ Google ด้วย Unique Resource Identifier",
+            "analogy": "เหมือนการวาง Path ของไฟล์ไว้ในเซิร์ฟเวอร์เพื่อให้โมเดลดึงไปใช้งาน"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "อัปโหลดไฟล์",
+            "detail": "อัปโหลดไฟล์ผ่าน Files API เพื่อรับ URI"
+          },
+          {
+            "step": "กำหนดเงื่อนไข (Slicing)",
+            "detail": "ส่งพารามิเตอร์ผ่าน API (เช่น start_page, sheet_index) เพื่อกำหนดขอบเขต"
+          },
+          {
+            "step": "ประมวลผลบน Server",
+            "detail": "Gemini 4 ทำการ Render และ Tokenize เฉพาะส่วนที่ระบุบนฝั่ง Server"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "โมเดลที่รองรับ",
+            "value": "Gemini 4 ทุกรุ่น",
+            "context": "โมเดลทั้งหมดในตระกูลที่เปิดให้ใช้ผ่าน API"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Gemini API Key, Google AI Studio access, Python 3.x"
+          ],
+          "try_it_steps": [
+            "อัปโหลดไฟล์เอกสาร PDF ลงใน Files API",
+            "เรียกใช้ `client.interactions.create` พร้อมระบุ `page_options` เพื่อดึงข้อมูลเฉพาะหน้าที่ต้องการ",
+            "ตรวจสอบผลลัพธ์ว่าโมเดลแสดงข้อมูลเฉพาะส่วนที่ระบุหรือไม่"
+          ],
+          "next_to_learn": [
+            "Function Calling ใน Gemini",
+            "Prompt Engineering สำหรับ Multimodal RAG"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "ข่าวดีสำหรับชาว Dev! Gemini API อัปเดตใหม่ รองรับ 'File Slicing Controls' แล้ว 🚀\n\nเบื่อไหมที่ต้องส่งไฟล์ PDF หรือวิดีโอยาวๆ เข้า API แล้วเปลือง Token แถมต้องรันเครื่องมือตัดไฟล์เองบนเครื่อง? ต่อไปนี้ทำผ่าน Server ได้เลย!\n\nสิ่งที่เจ๋งคือ:\n✅ เลือกอ่านได้เจาะจง: ไม่ว่าจะเป็นหน้า PDF, เซลล์ใน Excel, หรือช่วงเวลาในวิดีโอ (Video/Audio)\n✅ ประหยัด Token: จ่ายเงินเฉพาะส่วนที่โมเดลเข้าไปอ่าน (Inspect) เท่านั้น\n✅ ลดภาระฝั่ง Client: ไม่ต้องเสียเวลารัน ffmpeg หรือ PDF library เอง\n✅ รองรับไฟล์ครอบคลุม: PDF, Office (Docs/Slides/Sheets), และไฟล์มัลติมีเดีย\n\nใครทำระบบ AI Agent หรือ RAG ที่ต้องอ่านเอกสารเยอะๆ บอกเลยว่าฟีเจอร์นี้ต้องโดนครับ ช่วยประหยัดต้นทุนและทำให้ Agent ทำงานเร็วขึ้นแน่นอน\n\n#GeminiAPI #GoogleAI #DevTool #AIagent #CloudDevelopment"
+    },
     {
       "id": "search-connected-apps-holiday-errands-0f4da9",
       "title": "Get your year-end tasks done with new Connected Apps.",
@@ -8,7 +617,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-20",
       "published_at": "2026-11-20T18:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-21T02:36:09.755Z",
       "authors": [],
       "rss_categories": [
@@ -126,7 +735,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T20:30:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.483Z",
       "authors": [],
       "rss_categories": [
@@ -247,7 +856,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T19:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.488Z",
       "authors": [],
       "rss_categories": [
@@ -374,7 +983,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T18:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Lucia Loher",
@@ -510,7 +1119,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Yulie Kwon Kim"
@@ -631,7 +1240,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [],
       "rss_categories": [
@@ -764,7 +1373,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Michael Friedman"
@@ -888,7 +1497,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T07:22:30.577Z",
       "authors": [],
       "rss_categories": [
@@ -1004,7 +1613,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T07:22:30.578Z",
       "authors": [],
       "rss_categories": [
@@ -1126,7 +1735,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T16:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Brianna Doyle"
@@ -1249,7 +1858,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T15:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Katy Bowman"
@@ -1377,7 +1986,7 @@
       "source": "Google Research",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T13:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Travis Beals"
@@ -1500,7 +2109,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T21:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-19T04:37:36.106Z",
       "authors": [
         "Koray Kavukcuoglu"
@@ -1633,7 +2242,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T18:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.808Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Diego Rivas",
@@ -1833,7 +2442,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.816Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Angus Logan"
@@ -2025,7 +2634,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T22:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.444Z",
       "authors": [
         "Lindsey Lanquist"
@@ -2226,7 +2835,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "The EmbeddingGemma 2 team"
@@ -2350,7 +2959,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Josh Woodward"
@@ -2612,7 +3221,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
@@ -2795,7 +3404,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T18:30:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Google Threat Intelligence Group (GTIG)"
@@ -2985,7 +3594,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T16:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
@@ -3177,7 +3786,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T14:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Maz Khorasani"
@@ -3431,7 +4040,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-13",
       "published_at": "2026-11-13T20:30:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Bala Muthukrishnan",
@@ -3692,7 +4301,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Robby Stein"
@@ -3822,7 +4431,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
@@ -3955,7 +4564,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
+      "updated_at": "2026-11-24T05:28:25.874Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Koray Kavukcuoglu"
@@ -4204,519 +4813,6 @@
         "watchouts": [
           "กฎหมายเรื่องการบันทึกภาพในที่สาธารณะแตกต่างกันไปในแต่ละประเทศ",
           "การใช้งานร่วมกับแอป Third-party ยังต้องคอยตรวจสอบการขอสิทธิ์เข้าถึงข้อมูล"
-        ]
-      }
-    },
-    {
-      "id": "xr-ar-google-intelligent-eyewear-collections-pre-6514a9",
-      "title": "See our intelligent eyewear lineup and pre-order your pair",
-      "url": "https://blog.google/innovation-and-ai/technology/xr-ar/google-intelligent-eyewear-collections-pre-order/",
-      "source": "Google Official Blog",
-      "published_date": "2026-11-12",
-      "published_at": "2026-11-12T14:00:00.000Z",
-      "updated_at": "2026-11-16T03:07:33.395Z",
-      "authors": [
-        "Shahram Izadi"
-      ],
-      "rss_categories": [
-        "XR and AR"
-      ],
-      "category": "AI Products & Ecosystem",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog1_Banner.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "Google เปิดให้พรีออเดอร์แว่นตาอัจฉริยะ XR/AI ดีไซน์โดย Warby Parker และ Gentle Monster ร่วมสร้างกับ Samsung",
-      "short_teaser": "Google เผยโฉมคอลเลกชันแว่นตาอัจฉริยะที่ร่วมออกแบบกับแบรนด์แฟชั่นดัง Warby Parker และ Gentle Monster พร้อมวิศวกรรมจาก Samsung และเปิดให้สั่งจองล่วงหน้าแล้ว",
-      "tldr_takeaways": [
-        "เปิด Pre-order แว่นตาอัจฉริยะคอลเลกชันแรกของ Google อย่างเป็นทางการ",
-        "ได้พาร์ทเนอร์แฟชั่นอย่าง Warby Parker และ Gentle Monster มาออกแบบให้ใส่ได้จริงในชีวิตประจำวัน",
-        "พัฒนาฮาร์ดแวร์ร่วมกับ Samsung พร้อมระบบ Android XR และผู้ช่วย Gemini ในตัว"
-      ],
-      "layman_story": [
-        "เหตุผลที่แว่นตาอัจฉริยะในอดีตไม่ค่อยติดตลาด ไม่ใช่แค่เรื่องซอฟต์แวร์ แต่เพราะหน้าตามันดูเหมือนอุปกรณ์ไซไฟมากกว่าแว่นตาที่คนอยากใส่เดินไปทำงานหรือนั่งคาเฟ่",
-        "Google จึงแก้เกมด้วยการจับมือกับแบรนด์แว่นตาชื่อดังอย่าง Warby Parker และ Gentle Monster เพื่อออกแบบกรอบแว่นให้สวยเบาเหมือนแว่นแฟชั่นทั่วไป ส่วนไส้ในพัฒนาด้านวิศวกรรมร่วมกับ Samsung ให้รองรับผู้ช่วย Gemini และประสบการณ์ XR/AR",
-        "การเปิดให้พรีออเดอร์ครั้งนี้ถือเป็นหมุดหมายสำคัญของสงครามอุปกรณ์ AI Wearable ที่จะมาแข่งกับ Meta Ray-Ban และอุปกรณ์รุ่นใหม่ในตลาดโลก"
-      ],
-      "impact_comparison": {
-        "before": "ก่อนอัปเดต: แว่นตา AR/AI ส่วนใหญ่ยังมีรูปทรงเทอะทะหรือเป็นเพียงรุ่นต้นแบบสำหรับนักพัฒนา",
-        "after": "หลังอัปเดต: มีคอลเลกชันแฟชั่นที่ใส่ได้จริงในชีวิตประจำวันพร้อมระบบนิเวศ Gemini และ Android XR",
-        "why_it_matters": "อาจเป็นจุดเริ่มต้นของการเปลี่ยนผ่านจากสมาร์ตโฟนไปสู่อุปกรณ์ AI แบบสวมใส่ที่เข้าถึงคนทั่วไป"
-      },
-      "actionable_playbook": [
-        {
-          "title": "เตรียมออกแบบประสบการณ์แอปแบบ Hands-free / Voice-first",
-          "role": "สำหรับนักพัฒนา Android / XR",
-          "description": "คิดฟีเจอร์ที่ทำงานได้ด้วยเสียง การมองเห็นสั้นๆ หรือบริบทรอบตัวของผู้ใช้",
-          "example": "สร้างแอปช่วยบอกข้อมูลสินค้า การนำทางเดินเท้า หรือแปลภาษาแบบเรียลไทม์"
-        },
-        {
-          "title": "ติดตามโอกาสทางการตลาดของสาย Wearable AI",
-          "role": "สำหรับแบรนด์และธุรกิจค้าปลีก",
-          "description": "วิเคราะห์พฤติกรรมผู้บริโภคเมื่อการค้นหาข้อมูลเกิดขึ้นผ่านมุมมองสายตาและเสียงพูด",
-          "example": "เตรียมข้อมูลหน้าร้านและเวลาเปิดปิดให้ค้นหาด้วยเสียงได้แม่นยำ"
-        },
-        {
-          "title": "เปรียบเทียบสเปกกับแว่น AI คู่แข่งในตลาด",
-          "role": "สำหรับผู้สนใจเทคโนโลยี",
-          "description": "เช็กน้ำหนัก แบตเตอรี่ การรองรับเลนส์สายตา และฟีเจอร์ที่ใช้งานได้จริงในประเทศที่รองรับ",
-          "example": "ดูรายละเอียดคอลเลกชันระหว่างรุ่นของ Warby Parker กับ Gentle Monster"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "เปิดให้ Pre-order แว่นตาอัจฉริยะของ Google อย่างเป็นทางการ",
-          "ความร่วมมือ 3 ประสานระหว่าง Google, Samsung และแบรนด์แว่นตาแฟชั่นระดับโลก"
-        ],
-        "watchouts": [
-          "การวางจำหน่ายระยะแรกมักจำกัดเฉพาะบางประเทศและต้องตรวจสอบการรองรับภาษาไทย",
-          "อายุการใช้งานแบตเตอรี่เมื่อเปิด AI ต่อเนื่องยังเป็นจุดที่ต้องรอดูรีวิวใช้งานจริง"
-        ]
-      }
-    },
-    {
-      "id": "developers-tools-gemini-decisions-api-8e4104",
-      "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
-      "source": "Google Developers",
-      "published_date": "2026-11-11",
-      "published_at": "2026-11-11T18:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
-      "first_seen_at": "2026-11-18T04:52:36.449Z",
-      "authors": [
-        "Min Choi",
-        "Felix Yu"
-      ],
-      "rss_categories": [
-        "Developer tools",
-        "AI"
-      ],
-      "category": "Cloud & Developer Tools",
-      "thumbnail_url": null,
-      "reading_time_minutes": 3,
-      "hook_headline": "Gemini Decisions API: จบงานคัดกรอง ข้อมูลตัดสินใจได้ใน 150-250ms",
-      "short_teaser": "Google เปิดตัว Decisions API ที่ขับเคลื่อนด้วยโมเดล Gemini Decision 1 เพื่อใช้ตัดสินใจเชิงตรรกะแบบ Yes/No หรือ Grading ได้เร็วโดยไม่ต้องรอการเจนข้อความทีละตัว",
-      "tldr_takeaways": [
-        "Gemini Decision 1 ออกแบบมาเพื่อทำ Classification/Routing โดยเฉพาะ ไม่มีการเจน Output tokens จึงไม่มีค่าใช้จ่ายตรงส่วนนี้",
-        "รองรับ Input มัลติโมดัล (Text, Image, Audio, Video, PDF) ได้ถึง 1,000 คำถามในครั้งเดียว",
-        "Latency ต่ำมาก อยู่ที่ 150-250ms ทำให้ใช้งานในระบบ Real-time ได้"
-      ],
-      "layman_story": [
-        "ในงาน Software จริง บางทีเราไม่ได้อยากให้ AI เขียนเรียงความ แต่เราต้องการแค่ให้มัน 'ตัดสินใจ' ว่าสิ่งนี้คืออะไร เช่น 'รูปนี้เป็นรูปที่ผิดกฎหรือไม่?' หรือ 'ข้อความนี้เป็นภาษาอะไร?' ซึ่งที่ผ่านมาเราต้องเสียค่า Output token ในการเจนคำตอบ",
-        "Gemini Decision 1 มาแก้ปัญหานี้โดยเปลี่ยนจากระบบ Generative เป็นระบบ 'Probability Scoring' ที่จะคืนค่าความมั่นใจ (Confidence Score) ออกมาแทน ทำให้ทำงานได้เร็วและประหยัดค่าใช้จ่ายขึ้นมาก โดยคิดราคาเฉพาะ Input token เท่านั้น",
-        "เครื่องมือนี้เหมาะมากสำหรับ Dev ที่ทำระบบ Router, ระบบตรวจจับเนื้อหา หรือระบบ Grade คะแนนแบบอัตโนมัติ เพราะมันช่วยลดความซับซ้อนในการเขียน Custom Classifier ลงไปได้เยอะ"
-      ],
-      "impact_comparison": {
-        "before": "ต้องเสียเงินค่า Output token ในการทำ classification และต้องมานั่งเขียนโค้ด Parse ข้อความคำตอบอีกที",
-        "after": "ได้ค่า Score ตรงๆ ไม่เสียเงินค่า Output และ latency ต่ำมาก เหมาะกับการทำ Control plane ในโปรเจกต์",
-        "why_it_matters": "นี่คือโมเดลเฉพาะทางที่จะเข้ามาเป็น 'โครงสร้างพื้นฐาน' ให้กับแอป AI ที่ต้องการความเร็วและต้นทุนต่ำ"
-      },
-      "actionable_playbook": [
-        {
-          "title": "ทดลองใช้ใน AI Studio",
-          "role": "ทดสอบ Logic",
-          "description": "ใช้เมนู Decisions API ใน AI Studio เพื่อใส่รูปและตั้งค่าคำถามแบบ Yes/No",
-          "example": "อัปโหลดภาพใบเสร็จแล้วถามว่า 'ใบเสร็จนี้มีตราประทับหรือไม่' (Yes/No)"
-        },
-        {
-          "title": "เปรียบเทียบต้นทุน",
-          "role": "ประเมินงบ",
-          "description": "คำนวณส่วนต่างระหว่างการใช้ Generative model ปกติ vs Decisions API",
-          "example": "ลองเทียบจำนวนคำถาม 1,000 คำถามต่อ 1 Request ว่า Decisions API ช่วยลดคอสได้เท่าไหร่"
-        },
-        {
-          "title": "เชื่อมต่อกับระบบเดิม",
-          "role": "การประยุกต์ใช้",
-          "description": "ใช้ API นี้เป็นตัวกรองข้อมูลก่อนส่งให้โมเดลตัวใหญ่ทำงาน",
-          "example": "ใช้ตรวจสอบว่าข้อมูล Input เข้าเงื่อนไขที่ต้องใช้โมเดลใหญ่หรือไม่ ถ้าไม่ก็ให้จบการทำงานที่ตรงนี้"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "Gemini Decision 1 (gemini-decision-1) โมเดลที่ไม่มี Output tokens",
-          "การประมวลผลข้อมูลมัลติโมดัลพร้อมคำถามสูงสุด 1,000 ข้อใน 1 Request"
-        ],
-        "watchouts": [
-          "รองรับ Context window สูงสุด 256K tokens เท่านั้น",
-          "ผลลัพธ์จะเป็นความน่าจะเป็น (Probability) Dev ต้องเขียนโค้ดจัดการค่า Threshold เอง"
-        ]
-      },
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "API ตัวใหม่ที่เน้นทำ Decision making แบบรวดเร็วและประหยัดต้นทุน",
-          "prerequisite_level": "เข้าใจ API Integration และพื้นฐาน ML Classification",
-          "worth_deep_dive": "คุ้มค่ามากหากโปรเจกต์คุณต้องการตัวคัดกรอง (Router) ข้อมูล",
-          "context_lineage": "เป็นเครื่องมือต่อยอดจาก Gemini Multimodal API"
-        },
-        "glossary": [
-          {
-            "term": "Probabilistic Choices",
-            "meaning": "การให้โมเดลตอบกลับมาเป็นค่าความน่าจะเป็นแทนการเขียนตอบเป็นคำๆ",
-            "analogy": "เหมือนเครื่องเช็กข้อสอบแบบกากบาทที่บอกความมั่นใจออกมาด้วย"
-          },
-          {
-            "term": "Rubric scoring",
-            "meaning": "การให้คะแนนตามเกณฑ์ที่กำหนดไว้ล่วงหน้า",
-            "analogy": "เหมือนการตรวจงานตามเช็กลิสต์"
-          },
-          {
-            "term": "Zero output tokens",
-            "meaning": "การที่โมเดลไม่เจนข้อความออกมา เลยไม่มีค่าใช้จ่ายส่วนนี้",
-            "analogy": "เหมือนจ่ายเงินแค่ค่าตรวจ ไม่เสียค่ากระดาษคำตอบเพิ่ม"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Input ingestion",
-            "detail": "รับไฟล์มัลติโมดัล (PDF, Video, Image) และรายการคำถาม (Yes/No, Choice, Score) ไปพร้อมกัน"
-          },
-          {
-            "step": "Forward pass",
-            "detail": "โมเดลประมวลผลผ่าน Neural network เพื่อหาผลลัพธ์เชิงตรรกะในรอบเดียว (Single pass)"
-          },
-          {
-            "step": "Output generation",
-            "detail": "คืนค่าเป็นค่าความเชื่อมั่น (Confidence score) ของแต่ละตัวเลือกออกมาทันที"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "End-to-end latency",
-            "value": "150-250 ms",
-            "context": "ความเร็วเฉลี่ยในการประมวลผลคำถามพร้อมกันหลายรายการ"
-          },
-          {
-            "metric": "Pricing",
-            "value": "$0.10 ต่อ 1 ล้าน input tokens",
-            "context": "ค่าใช้จ่ายต่อ 1 ล้าน input tokens และไม่มีค่า output tokens"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Python SDK, หรือ REST API access",
-            "Google AI Studio Project"
-          ],
-          "try_it_steps": [
-            "ใช้ Python SDK เรียก `client.decisions.create` โดยกำหนด Model เป็น `gemini-decision-1`",
-            "ทดสอบสร้างคำถาม 3 รูปแบบ (Yes/No, Multiple Choice, Score) ใน Request เดียว",
-            "ดึงค่า Confidence score ออกมาและเขียนเงื่อนไข If-else เพื่อจัดการเคสที่ความมั่นใจต่ำ (เช่น < 0.5)"
-          ],
-          "next_to_learn": [
-            "การจัดการ Threshold ของ Confidence score เพื่อลด False Positive",
-            "วิธีทำ Dynamic Routing โดยใช้ API นี้เป็นตัวแยกประเภท Request ของผู้ใช้"
-          ]
-        },
-        "source_depth": "full_article"
-      },
-      "facebook_post": "Gemini Decisions API มาแล้ว! สาย Dev คนไหนกำลังหาตัวช่วยคัดกรองข้อมูล หรือทำ AI Router ต้องลองตัวนี้ครับ\n\nGemini Decision 1 ออกแบบมาเพื่อ 'ตัดสินใจ' โดยเฉพาะ ไม่มีการเจนคำตอบยืดยาว ทำให้ทำงานเร็วมาก (150-250ms) และที่สำคัญคือ 'ไม่มีค่า Output tokens' จ่ายแค่ค่า Input เท่านั้น\n\nจุดที่น่าสนใจ:\n- รับได้หมดทั้ง Text, Image, Audio, Video, PDF\n- ถามได้สูงสุด 1,000 คำถามต่อ 1 รอบการทำงาน\n- ได้ Confidence score เอาไปเขียนโปรแกรมต่อได้ทันที\n- latency ต่ำ เหมาะทำระบบ Real-time\n\nใครทำระบบที่ต้องแยกแยะประเภทงาน หรือคัดกรองข้อมูลก่อนส่งให้โมเดลใหญ่ นี่คือเครื่องมือที่จะช่วยประหยัดงบและเพิ่มความเร็วได้มหาศาลครับ\n\n#GeminiAPI #CloudComputing #AIEngineer #GoogleCloud #DecisionsAPI"
-    },
-    {
-      "id": "google-cloud-cybersecurity-2027-2ab224",
-      "title": "Google Cloud leaders share what to expect in cybersecurity for 2027.",
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cybersecurity-2027/",
-      "source": "Google Cloud",
-      "published_date": "2026-11-11",
-      "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
-      "first_seen_at": "2026-11-18T04:52:36.449Z",
-      "authors": [],
-      "rss_categories": [
-        "Google Cloud",
-        "Safety & Security"
-      ],
-      "category": "Cloud & Developer Tools",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Security_social-share.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "Google Cloud เผยเทรนด์ Cybersecurity 2027: เปลี่ยนจากการป้องกันซอฟต์แวร์สู่การคุม Autonomous Agents",
-      "short_teaser": "Google และ Mandiant ชี้แนวโน้มการรักษาความปลอดภัยในยุคที่ AI Agent เข้ามาจัดการ Core Operation ขององค์กรแทนที่ซอฟต์แวร์แบบเดิม. เน้นหนักเรื่องการตรวจสอบความโปร่งใสและการทำงานที่รวดเร็วระดับ Machine Speed.",
-      "tldr_takeaways": [
-        "เปลี่ยนมุมมองจากการป้องกันแอปพลิเคชันแบบ Static ไปสู่การคุม Autonomous Agents ที่จัดการงานระดับธุรกิจ",
-        "เน้นกลยุทธ์ 'Beyond Zero' ไม่ไว้วางใจเครื่องมือ AI ใดๆ โดยอัตโนมัติ ต้องมองเห็นการเข้าถึงและพฤติกรรมของ Agent ได้ชัดเจน",
-        "ใช้แนวทาง Multi-model AI Ensembles เพื่อวิเคราะห์และแก้ไขภัยคุกคามให้ทันก่อนที่ผู้โจมตีจะเริ่มกระบวนการ"
-      ],
-      "layman_story": [
-        "ในอีกไม่กี่ปีข้างหน้า ซอฟต์แวร์แบบที่เราเขียนขึ้นมานิ่งๆ จะถูกแทนที่ด้วย Autonomous Agents ที่ทำงานอัตโนมัติ นี่คือโจทย์ใหญ่ของ Google Cloud ในการออกแบบระบบรักษาความปลอดภัยยุค 2027.",
-        "หัวใจสำคัญคือการปกป้อง 'Decision Integrity' หรือความถูกต้องของการตัดสินใจโดย AI ทุกการกระทำต้องอธิบายได้ (Explainable) และต้องรู้แน่ชัดว่า Agent เข้าถึงอะไรได้บ้างเพื่อลดความเสี่ยงที่ AI จะถูกใช้ในทางที่ผิด",
-        "ต่างจากอดีตที่เน้นตั้งกำแพงไฟร์วอลล์ สถาปัตยกรรมปี 2027 จะใช้ AI หลายโมเดลช่วยกันตรวจสอบความปลอดภัยแบบเรียลไทม์ (Machine Speed) เพื่ออุดช่องโหว่ก่อนที่ผู้โจมตีจะเจาะเข้าถึงข้อมูลสำคัญได้"
-      ],
-      "impact_comparison": {
-        "before": "การป้องกันเน้นที่ความปลอดภัยของตัวซอฟต์แวร์และการจัดการสิทธิ์การเข้าถึงแบบคงที่",
-        "after": "การป้องกันเน้นที่ 'การตรวจสอบพฤติกรรม' และ 'ที่มาของการตัดสินใจ' (Ground Truth) ของ AI Agent",
-        "why_it_matters": "นักพัฒนาต้องออกแบบระบบที่รองรับการ Trace การตัดสินใจของ Agent ตั้งแต่วันนี้ เพื่อไม่ให้เป็นจุดบอดของระบบในอนาคต"
-      },
-      "actionable_playbook": [
-        {
-          "title": "ประเมินความโปร่งใสของระบบ",
-          "role": "System Auditor",
-          "description": "สำรวจว่างานที่ AI ในปัจจุบันของคุณทำอยู่ มีขั้นตอนตรวจสอบ (Logging/Monitoring) ที่อธิบายได้หรือไม่",
-          "example": "ทดลองทำ Audit Logs ในทุกขั้นตอนการตัดสินใจของ LLM Chain"
-        },
-        {
-          "title": "ศึกษาแนวคิด Multi-model",
-          "role": "Security Architect",
-          "description": "ลองวางกลไกตรวจสอบงานของ Model A ด้วย Model B (Ensemble approach)",
-          "example": "สร้าง prompt ตรวจสอบคำตอบจาก model หลักว่าเป็นอันตรายหรือไม่"
-        },
-        {
-          "title": "วางโครงสร้าง Zero Trust",
-          "role": "Security Engineer",
-          "description": "จำกัดการเข้าถึงของ Agent ให้ทำได้เฉพาะส่วนที่จำเป็นตามคอนเซปต์ 'Never trust, always verify'",
-          "example": "รัดกุม API Token scopes ของ AI ที่ใช้เชื่อมต่อฐานข้อมูล"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "แนวคิดการป้องกันแบบ Multi-model AI Ensembles เพื่อตรวจจับความเสี่ยง",
-          "การยกระดับเรื่อง 100% Explainability สำหรับ autonomous action"
-        ],
-        "watchouts": [
-          "ต้นฉบับไม่ระบุตัวเลข (ยังเป็นแนวคิดเชิงกลยุทธ์)",
-          "ไม่มีเครื่องมือใหม่ที่ดาวน์โหลดได้ในขณะนี้"
-        ]
-      },
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "เป็นการเปลี่ยนผ่านจากการรักษาความปลอดภัยซอฟต์แวร์ทั่วไป สู่การกำกับดูแลการตัดสินใจของ AI Agents",
-          "prerequisite_level": "เข้าใจแนวคิด Zero Trust และพื้นฐานการทำงานของ LLM",
-          "worth_deep_dive": "เหมาะสำหรับอ่านเพื่อวาง Roadmap งานสถาปัตยกรรมระบบในอีก 1-2 ปีข้างหน้า",
-          "context_lineage": "ต่อยอดจากแนวคิด Mandiant security และการจัดการ Cloud Native Security"
-        },
-        "glossary": [
-          {
-            "term": "Decision Integrity",
-            "meaning": "ความถูกต้องและความน่าเชื่อถือของการตัดสินใจที่ AI เป็นคนสั่ง",
-            "analogy": "เหมือนการมีสมุดจดที่ระบุได้ว่าทำไม AI ถึงตัดสินใจเลี้ยวซ้ายหรือขวาในเหตุการณ์นั้นๆ"
-          },
-          {
-            "term": "Beyond Zero",
-            "meaning": "การขยายแนวคิด Zero Trust ให้เข้มงวดขึ้นในยุค AI",
-            "analogy": "เหมือนไม่เชื่อแม้แต่เลขาส่วนตัว ต้องมีการตรวจสอบทุกคำสั่งที่เลขาพิมพ์ให้"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Visibility Mapping",
-            "detail": "การตรวจจับว่า AI Agent กำลังเข้าถึงทรัพยากรส่วนไหนของระบบบ้าง"
-          },
-          {
-            "step": "Ensemble Correlation",
-            "detail": "ใช้ AI อีกกลุ่ม (Model Ensemble) คอยจับผิดพฤติกรรมที่ผิดปกติ"
-          },
-          {
-            "step": "Explainable Remediation",
-            "detail": "การหยุดหรือแก้ไขคำสั่งที่อันตรายและสามารถให้เหตุผลว่าทำไมถึงต้องหยุด"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "อัตราส่วนการตรวจสอบ",
-            "value": "ต้นฉบับไม่ระบุตัวเลข",
-            "context": "ไม่มีการให้ข้อมูลเชิงสถิติจากผลการทดสอบในเอกสารนี้"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "ความเข้าใจใน Architecture ของ Agentic AI"
-          ],
-          "try_it_steps": [
-            "ลองทำ Log Analysis ในแอป Agent ของตัวเอง",
-            "จำลอง scenario ที่ AI ตัดสินใจพลาดแล้วหาจุดผิดพลาด",
-            "สรุปความต้องการด้าน Audit เพื่อให้เป็นระบบ 'Explainable'"
-          ],
-          "next_to_learn": [
-            "Mandiant Threat Intelligence report เพื่อเข้าใจรูปแบบการโจมตีใหม่",
-            "Explainable AI (XAI) เพื่อทำความเข้าใจโมเดล"
-          ]
-        },
-        "source_depth": "full_article"
-      },
-      "facebook_post": "สาย Security สาย Cloud ต้องอ่าน: Google Cloud ออกสรุปทิศทาง Cybersecurity ปี 2027 แล้วครับ!\n\nไม่ใช่แค่เรื่องป้องกัน Hack ทั่วไป แต่โจทย์คือเราจะ 'คุม' AI Agents ที่เข้ามาทำงานแทนมนุษย์ยังไงให้ปลอดภัยที่สุด\n\nหัวใจสำคัญคือ:\n✅ Decision Integrity: ทุกการตัดสินใจของ AI ต้อง 'อธิบายได้' (Explainable) 100%\n✅ Beyond Zero Trust: ไม่เชื่อใจ AI ทุกตัว ต้องตรวจสอบการเข้าถึงตลอดเวลา\n✅ Multi-model Ensemble: ใช้ AI หลายตัวช่วยกันจับผิด (Machine Speed) ก่อนเกิดเรื่อง\n\nใครกำลังทำระบบ Agent อย่าลืมออกแบบระบบ Log/Audit ให้ชัดเจนนะครับ เพราะอนาคตถ้า AI ตัดสินใจผิด แล้วเราตอบไม่ได้ว่าทำไม นั่นคือช่องโหว่ระดับองค์กรเลย!\n\n#GoogleCloud #Cybersecurity2027 #AI #ZeroTrust #Mandiant"
-    },
-    {
-      "id": "google-cloud-professional-agentic-architect-322b72",
-      "title": "Get certified as a Google Cloud Professional Agentic Architect.",
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/professional-agentic-architect/",
-      "source": "Google Cloud",
-      "published_date": "2026-11-11",
-      "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-23T01:52:20.817Z",
-      "first_seen_at": "2026-11-18T04:52:36.449Z",
-      "authors": [
-        "Gary Eimerman"
-      ],
-      "rss_categories": [
-        "Google Cloud",
-        "Creating opportunity"
-      ],
-      "category": "Cloud & Developer Tools",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/google_cloud_certified_social.max-600x600.format-webp.webp",
-      "reading_time_minutes": 2,
-      "hook_headline": "Google เปิดตัวใบเซอร์ใหม่: 'Professional Agentic Architect' รับเทรนด์ AI Agents",
-      "short_teaser": "ประกาศเปิดตัว Certification ใหม่สำหรับสถาปนิกที่เน้นการสร้างและ Deploy AI Agents บน Google Cloud โดยเน้นทักษะการทำ Automation แบบ Multi-app/Multi-step",
-      "tldr_takeaways": [
-        "สอบผ่าน 2 ส่วน: ข้อสอบปรนัย (Foundational knowledge) และ Google Skills labs (Hands-on)",
-        "เน้นทักษะการสร้าง Enterprise-grade agents ที่ทำงานข้ามแอปพลิเคชันได้",
-        "มีโปรโมชั่น Gemini Agent Ready ให้ learning credits 35 หน่วยฟรี"
-      ],
-      "layman_story": [
-        "ถ้าคุณเป็น Dev หรือ Architect ที่กำลังปั้น Agent อยู่ ตอนนี้ Google มีใบเซอร์ที่ตอบโจทย์ตรงตัวแล้ว คือ Professional Agentic Architect เพื่อรับรองว่าคุณเก่งจริงในเรื่องการ Deploy ระบบ AI อัตโนมัติ.",
-        "หลักสูตรนี้ไม่ได้วัดแค่ทฤษฎี แต่มีภาคปฏิบัติผ่าน Google Skills labs ทำให้เรามั่นใจได้ว่าสิ่งที่เรียนไปสามารถเอาไปใช้งานจริงได้ในระดับ Enterprise ไม่ใช่งานของเล่น.",
-        "สำหรับคนที่มองหาโอกาสอัปเงินเดือนหรือโปรไฟล์ นี่เป็นโอกาสที่ดีเพราะเป็นทักษะที่ตลาดกำลังต้องการสูง ยิ่งมีสถิติบอกว่าคนถือใบเซอร์ของ Google มีโอกาสก้าวหน้ามากกว่าเดิมด้วย"
-      ],
-      "impact_comparison": {
-        "before": "ไม่มีใบเซอร์ที่โฟกัสเรื่อง Agent โดยเฉพาะ การวัดทักษะมักเป็น Generic Cloud Certification",
-        "after": "มีมาตรฐานการวัดทักษะเรื่องการออกแบบและ Deploy Agent อย่างชัดเจน",
-        "why_it_matters": "ช่วยยืนยันความสามารถในยุคที่บริษัทหันมาใช้ AI Agent มากขึ้น"
-      },
-      "actionable_playbook": [
-        {
-          "title": "สมัคร Gemini Agent Ready",
-          "role": "Learner",
-          "description": "สมัครเพื่อเอา learning credits และเข้าถึง Labs ฟรี",
-          "example": "ไปที่หน้าเว็บ Google Cloud แล้วสมัครโปรแกรมเพื่อรับ 35 credits"
-        },
-        {
-          "title": "เตรียมสอบ Lab",
-          "role": "Practitioner",
-          "description": "ฝึกทำเคสจริงเรื่อง multi-step workflow ใน lab",
-          "example": "ฝึกสร้าง Agent เชื่อมต่อ BigQuery กับ Vertex AI"
-        },
-        {
-          "title": "เช็กสเปกเนื้อหา",
-          "role": "Architect",
-          "description": "อ่านขอบเขตสอบว่าต้องรู้เรื่องความปลอดภัยและ scale ระดับไหน",
-          "example": "ทบทวนการจัดการความปลอดภัยใน Agentic Pipeline"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "Professional Agentic Architect Certification",
-          "Gemini Agent Ready program ที่ให้ learning credits"
-        ],
-        "watchouts": [
-          "ยังไม่มีรายละเอียดค่าธรรมเนียมการสอบแยกออกมา (ระบุแค่โปรแกรมเรียนฟรีบางส่วน)",
-          "ต้องใช้เวลาเตรียมตัวสอบทั้งภาคทฤษฎีและปฏิบัติ"
-        ]
-      },
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "เป็นการยกระดับมาตรฐานวิศวกร AI ด้วยการมี Certification สำหรับ Agentic Architecture โดยเฉพาะ",
-          "prerequisite_level": "มีความรู้เรื่อง Google Cloud Platform พื้นฐาน",
-          "worth_deep_dive": "คุ้มมากสำหรับคนที่ต้องการอัปโปรไฟล์ด้าน AI Agent",
-          "context_lineage": "ต่อยอดจาก Google Cloud Certification program เดิม"
-        },
-        "glossary": [
-          {
-            "term": "Agentic Architecture",
-            "meaning": "การออกแบบระบบที่ AI สามารถตัดสินใจและลงมือทำแทนคนได้",
-            "analogy": "เหมือนการวางผังการทำงานของหุ่นยนต์อัตโนมัติ"
-          },
-          {
-            "term": "Forward deployed engineers",
-            "meaning": "วิศวกรที่ทำงานหน้างานจริงร่วมกับลูกค้า",
-            "analogy": "เหมือนทีม Engineer สายลุยที่ลงหน้างานจริง"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Foundational Exam",
-            "detail": "วัดความรู้พื้นฐานเรื่อง Agent การทำงานของโมเดลและการเชื่อมต่อ"
-          },
-          {
-            "step": "Skills Labs",
-            "detail": "ทดสอบการลงมือสร้างจริงบน Google Cloud Environment"
-          },
-          {
-            "step": "Credentialing",
-            "detail": "การรับรองมาตรฐานเพื่อเป็นโปรไฟล์ในตลาดแรงงาน"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "รายได้และโอกาสงาน",
-            "value": "82% ของผู้สอบได้เงินเดือนสูงขึ้น",
-            "context": "สถิติจากผู้ถือ Certification ของ Google Cloud เดิม"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Google Cloud Account",
-            "พื้นฐานภาษา Python / SDK"
-          ],
-          "try_it_steps": [
-            "ลงทะเบียนโปรแกรม Gemini Agent Ready",
-            "เริ่มทำ Labs ตามหัวข้อที่กำหนด",
-            "ลอง Implement Agent ตัวเล็กๆ บน Vertex AI"
-          ],
-          "next_to_learn": [
-            "Vertex AI Agent Builder",
-            "Multi-app workflow design"
-          ]
-        },
-        "source_depth": "full_article"
-      },
-      "facebook_post": "สาย Cloud เตรียมตัวให้พร้อม! Google Cloud เปิดตัวใบเซอร์ใหม่ 'Professional Agentic Architect' มาแล้วครับ 🚀\n\nใครที่เป็น Architect หรือ Dev ที่กำลังอินกับ AI Agent นี่คือสิ่งที่ต้องมีติดพอร์ต:\n\n✅ รับรองทักษะการสร้างระบบ AI ที่ทำงานอัตโนมัติ (Multi-step / Multi-app)\n✅ สอบ 2 ส่วน: ข้อสอบทฤษฎี + Lab ภาคปฏิบัติ (ทำจริง ไม่ได้แค่จำ)\n✅ ตอนนี้มีโปรแกรม Gemini Agent Ready ให้ Learning Credits 35 หน่วยฟรี!\n\nจากสถิติของ Google คนที่ถือเซอร์ของเขา 82% บอกว่าช่วยให้รายได้เพิ่มขึ้น ใครสนใจลองไปเช็กรายละเอียดได้ที่ Google Cloud Blog เลยครับ\n\n#GoogleCloud #AgenticAI #Certification #DeveloperLife #Upskill"
-    },
-    {
-      "id": "gemini-app-gemini-on-apple-carplay-845b20",
-      "title": "Talk it through with Gemini, now on Apple CarPlay",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/",
-      "source": "Google Official Blog",
-      "published_date": "2026-11-11",
-      "published_at": "2026-11-11T17:00:00.000Z",
-      "updated_at": "2026-11-16T03:07:33.395Z",
-      "authors": [
-        "Karan Daryanani"
-      ],
-      "rss_categories": [
-        "Gemini App"
-      ],
-      "category": "AI Products & Ecosystem",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Carplay_hero_image.max-600x600.format-webp.webp",
-      "reading_time_minutes": 2,
-      "hook_headline": "ขับรถก็คุยกับ Gemini ได้! Google ส่ง Gemini ขึ้น Apple CarPlay อย่างเป็นทางการ",
-      "short_teaser": "ผู้ใช้ iPhone สามารถเรียกใช้ความสามารถของ Gemini ผ่านหน้าจอ Apple CarPlay ในรถยนต์ได้แล้ว ช่วยให้การเดินทางสะดวกและปลอดภัยยิ่งขึ้น",
-      "tldr_takeaways": [
-        "Gemini เข้ามาเป็นผู้ช่วยบนรถผ่านหน้าจอ Apple CarPlay",
-        "ช่วยตอบคำถาม นำทาง หรือช่วยงานเบื้องต้นระหว่างขับขี่ได้โดยไม่ต้องจับสมาร์ทโฟน",
-        "ยกระดับประสบการณ์การเชื่อมต่อระหว่างมือถือและระบบความบันเทิงในรถยนต์"
-      ],
-      "layman_story": [
-        "การใช้ AI ในรถยนต์มักมีข้อจำกัดด้านความปลอดภัยและความสะดวกในการสั่งงาน การต้องคอยมองหน้าจอมือถือขณะขับรถถือเป็นเรื่องอันตรายและไม่เอื้อต่อการใช้งานจริงอย่างต่อเนื่อง",
-        "การที่ Gemini มาปรากฏบน Apple CarPlay ช่วยให้ผู้ใช้งานสามารถสั่งงานหรือโต้ตอบกับ AI ได้ผ่านหน้าจอหลักของรถยนต์โดยตรง ไม่ว่าจะเป็นการถามทาง การสรุปเนื้อหา หรือแม้แต่การสอบถามข้อมูลต่างๆ ช่วยให้คนขับมีสมาธิอยู่กับท้องถนนได้มากกว่าเดิม",
-        "นี่คือการขยายขอบเขตของ Gemini ออกจากแค่ในแอปมือถือเข้าสู่ Ecosystem ของยานยนต์ ทำให้ AI กลายเป็นส่วนหนึ่งของการเดินทาง ไม่ใช่แค่อุปกรณ์ในมือ และในอนาคตอาจเชื่อมต่อกับระบบควบคุมภายในรถมากขึ้น"
-      ],
-      "impact_comparison": {
-        "before": "การใช้งาน AI ระหว่างขับรถทำได้ลำบาก หรือจำกัดอยู่เพียงระบบสั่งงานด้วยเสียงมาตรฐาน",
-        "after": "ใช้พลังของ Gemini ช่วยแก้ปัญหาหรือวางแผนเส้นทางผ่านหน้าจอ CarPlay ได้เลย",
-        "why_it_matters": "เป็นการขยายตัวของ AI เข้าสู่ทุกพื้นที่การใช้ชีวิต รวมถึงพื้นที่ส่วนตัวอย่างรถยนต์"
-      },
-      "actionable_playbook": [
-        {
-          "title": "ทดลองใช้คำสั่งเสียงบนรถ",
-          "role": "สำหรับนักพัฒนา / AI Builder",
-          "description": "ทดลองว่าการตอบโต้ของ Gemini บน CarPlay มีความเร็วและแม่นยำแค่ไหนเมื่อเทียบกับบนมือถือ",
-          "example": "สั่งงานด้วยเสียงให้ Gemini ช่วยสรุปข่าววันนี้ขณะติดไฟแดง"
-        },
-        {
-          "title": "วางแผนการเดินทางอัจฉริยะ",
-          "role": "สำหรับทีม Product / ธุรกิจ",
-          "description": "สำรวจโอกาสในการเชื่อมต่อบริการข้อมูลท้องถิ่นเข้ากับ AI บนรถยนต์",
-          "example": "ทดลองให้ Gemini ค้นหาจุดแวะพักหรือร้านอาหารตามเส้นทางที่ขับอยู่"
-        },
-        {
-          "title": "เพิ่มประสิทธิภาพการเดินทาง",
-          "role": "สำหรับผู้ใช้งานทั่วไป / องค์กร",
-          "description": "ปรับตัวให้เข้ากับการใช้งาน AI ระหว่างเดินทางเพื่อลดภาระในชีวิตประจำวัน",
-          "example": "ใช้ Gemini ช่วยร่างอีเมลหรือโน้ตสรุปการประชุมสั้นๆ ระหว่างรอถึงจุดหมาย"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "การรองรับ Gemini บนแพลตฟอร์ม Apple CarPlay",
-          "อินเทอร์เฟซที่ถูกปรับแต่งให้เหมาะกับการใช้งานในรถยนต์"
-        ],
-        "watchouts": [
-          "อาจยังมีข้อจำกัดด้านฟีเจอร์เมื่อเทียบกับบนมือถือโดยตรง",
-          "ควรใช้งานด้วยความระมัดระวังเพื่อความปลอดภัยบนท้องถนน"
         ]
       }
     }

@@ -1,27 +1,62 @@
 {
-  "last_sync_at": "2026-11-23T01:52:21.212Z",
-  "last_sync_date_ict": "2026-11-23",
+  "last_sync_at": "2026-11-24T05:28:26.182Z",
+  "last_sync_date_ict": "2026-11-24",
   "new_counts": {
     "repos": 0,
-    "papers": 0,
-    "news": 0,
-    "total": 0
+    "papers": 28,
+    "news": 5,
+    "total": 33
   },
   "total_counts": {
     "repos_today": 12,
-    "papers_today": 50,
+    "papers_today": 6,
     "news_total": 45
   },
   "new_ids": {
     "repos": [],
-    "papers": [],
-    "news": []
+    "papers": [
+      "2611.26516",
+      "2611.28202",
+      "2611.29338",
+      "2611.28833",
+      "2611.27319",
+      "2611.29361",
+      "2611.27193",
+      "2611.27963",
+      "2611.26954",
+      "2611.24636",
+      "2611.25773",
+      "2611.27973",
+      "2611.15449",
+      "2611.21485",
+      "2611.26613",
+      "2611.22343",
+      "2611.27915",
+      "2611.24077",
+      "2611.27398",
+      "2611.28123",
+      "2611.24249",
+      "2611.25534",
+      "2611.24025",
+      "2611.19247",
+      "2611.27211",
+      "2611.27490",
+      "2611.22495",
+      "2611.23417"
+    ],
+    "news": [
+      "gemini-models-gemini-4-hydrogen-builders-ea7cf6",
+      "gemini-app-gemini-canvas-tasks-fb9ed0",
+      "search-google-search-personal-intelligence-apps-c5903c",
+      "photos-google-photo-tools-holiday-season-2026-fcdc7c",
+      "developers-tools-file-slicing-controls-6cdd85"
+    ]
   },
   "highlights": {
-    "top_paper": "WeVisForensics: เปลี่ยนการตรวจจับ Video ปลอมจากการเดา เป็นการสอบสวนโดย Agent",
+    "top_paper": "Plan4D: สร้างโลก 4D ที่ 'วางแผนได้' จากวิดีโอทั่วไป",
     "top_repo": "elementalsouls/Claude-BugHunter: ชุดคำสั่งและ Skill bundle สำหรับยกระดับ Claude Code ให้กลายเป็นผู้ช่วยสาย Bug Hunting และ Red Teaming ระดับมืออาชีพ",
-    "top_news": "Google เปิดตัว Connected Apps ใน Search และ Gemini ช่วยจัดการงานจุกจิกปลายปีอัตโนมัติ"
+    "top_news": "เปิดตัว Gemini 4 Hydrogen: โมเดลใหม่เน้น Agentic Workflows และการทำงานแบบ Multi-model"
   },
-  "telegram_sent_at": "2026-11-23T01:52:21.945Z",
+  "telegram_sent_at": "2026-11-24T05:28:26.689Z",
   "run_source": "github-actions"
 }
