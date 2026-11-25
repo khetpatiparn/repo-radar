@@ -1,6 +1,508 @@
 {
-  "updated_at": "2026-11-24T05:28:25.875Z",
+  "updated_at": "2026-11-25T04:32:37.145Z",
   "articles": [
+    {
+      "id": "google-deepmind-humanitys-first-exam-18e10c",
+      "title": "We’re launching Humanity’s First Exam and a Kaggle hackathon to test LLM reliability.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/",
+      "source": "Google DeepMind",
+      "published_date": "2026-11-24",
+      "published_at": "2026-11-24T19:30:00.000Z",
+      "updated_at": "2026-11-25T04:32:37.134Z",
+      "first_seen_at": "2026-11-25T04:32:37.134Z",
+      "authors": [
+        "Oran Kelly"
+      ],
+      "rss_categories": [
+        "Google DeepMind"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Neon_Sign.max-600x600.format-webp.webp",
+      "reading_time_minutes": 3,
+      "hook_headline": "Google DeepMind เปิดตัว Humanity’s First Exam (HFE) เกณฑ์วัด LLM ใหม่ที่เน้นความน่าเชื่อถือในงานทั่วไป",
+      "short_teaser": "เลิกวัดแต่เรื่องคณิตศาสตร์ยากๆ แล้วหันมาทดสอบ LLM ด้วยโจทย์ชีวิตประจำวัน 544 ข้อ เพื่อวัดความสม่ำเสมอ (Consistency) ของโมเดล",
+      "tldr_takeaways": [
+        "HFE เน้นวัดผลความสามารถในโจทย์ง่ายๆ ที่ต้องทำซ้ำได้ถูกต้องทุกครั้ง (Reliability) ไม่ใช่แค่ทำได้ครั้งเดียว",
+        "ใช้ชุดข้อมูลทดสอบ 544 prompts ครอบคลุม 20 ด้านพื้นฐาน ทั้งข้อความและรูปภาพ",
+        "เปิดให้ Community มีส่วนร่วมใน Kaggle Hackathon จนถึงวันที่ 15 ธันวาคม 2026 เพื่อร่วมระบุคำถามที่โมเดลปัจจุบันยังสอบตก"
+      ],
+      "layman_story": [
+        "นักพัฒนาส่วนใหญ่มักหลงระเริงกับ Benchmark วัดความยากระดับเทพ แต่ในงานโปรดักชั่นจริง ปัญหาคอขวดมักเกิดจากโมเดลทำงานพลาดในคำสั่งง่ายๆ ซ้ำๆ Humanity’s First Exam (HFE) จึงถูกสร้างมาเพื่อทดสอบความ 'น่าเชื่อถือ' ของโมเดลเป็นหลัก",
+        "สถาปัตยกรรมของ HFE คือการวัดความสม่ำเสมอในชุดข้อมูล 544 ข้อ ซึ่งครอบคลุมความสามารถพื้นฐาน 20 ประเภท โดยเน้นไปที่การวัดว่าโมเดลจะแก้โจทย์เดิมและโจทย์ที่ดัดแปลงเล็กน้อยได้ถูกต้องทุกครั้งหรือไม่",
+        "ต่างจาก Benchmark เดิมที่วัดเพดานความฉลาด HFE วัด 'ความเสถียร' ซึ่งเป็นสิ่งสำคัญที่สุดหากคุณกำลังทำแอปฯ ที่ต้องคุยกับคนทั่วไป ข้อจำกัดคือปัจจุบันยังคงเน้นโจทย์เชิง Text และ Image พื้นฐานเป็นหลัก"
+      ],
+      "impact_comparison": {
+        "before": "การวัดผลเน้นแต่ความยาก (Coding, Math) ทำให้โมเดลอาจเก่งเลขแต่เอ๋อในงานทั่วไป",
+        "after": "มี Benchmark มาตรฐานใหม่ช่วยวัดว่าโมเดลตอบงานทั่วไปได้แม่นยำแค่ไหนในระยะยาว",
+        "why_it_matters": "ช่วยให้นักพัฒนาเลือกใช้โมเดลที่ทำงานได้เสถียรจริง ไม่ใช่แค่เก่งเฉพาะทางแต่ไว้ใจไม่ได้"
+      },
+      "actionable_playbook": [
+        {
+          "title": "สำรวจ Leaderboard",
+          "role": "วิจัย",
+          "description": "เข้าไปดูผลการทดสอบของโมเดลที่ Google นำมาเทียบใน HFE",
+          "example": "เช็กดูว่าโมเดลที่คุณใช้อยู่มีชื่อในตารางคะแนนหรือไม่ และได้คะแนนความสม่ำเสมอเท่าไหร่"
+        },
+        {
+          "title": "เข้าร่วม Hackathon",
+          "role": "Contribution",
+          "description": "ช่วยส่งเคสคำถามที่ LLM มักจะตอบผิดผ่าน Kaggle",
+          "example": "ระบุคำถามที่ดูเหมือนง่าย แต่โมเดลตอบมั่ว (เช่น การคำนวณตัวอักษรในภาพ)"
+        },
+        {
+          "title": "ศึกษาแนวคิด Reliability",
+          "role": "เรียนรู้",
+          "description": "อ่าน Technical Report ที่ Google แนบมาในประกาศ",
+          "example": "ลองทำ Unit Test ให้กับ Prompt ของตัวเองโดยใช้แนวทาง HFE"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Humanity’s First Exam (HFE) Benchmark ใหม่",
+          "Kaggle Hackathon เพื่อระดมสมองชุดข้อมูลทดสอบความสม่ำเสมอ"
+        ],
+        "watchouts": [
+          "กิจกรรม Hackathon สิ้นสุดวันที่ 15 ธันวาคม 2026",
+          "Benchmark นี้เน้นความสม่ำเสมอ ไม่ได้เน้นการแก้โจทย์ที่ซับซ้อนเกินจริง"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "HFE คือมาตรฐานใหม่ที่วัดความสม่ำเสมอและความแม่นยำของ LLM ในงานพื้นฐานประจำวัน",
+          "prerequisite_level": "เข้าใจพื้นฐานการทำ AI Evaluation",
+          "worth_deep_dive": "เหมาะสำหรับ Dev ที่ซีเรียสเรื่องความเสถียรของแอปฯ ตัวเอง",
+          "context_lineage": "เป็นหนึ่งในความพยายามลด Hallucination และเพิ่มความน่าเชื่อถือในโมเดลยุคหน้า"
+        },
+        "glossary": [
+          {
+            "term": "Reliability",
+            "meaning": "ความสม่ำเสมอในการตอบโจทย์เดิมให้ถูกต้องทุกครั้ง",
+            "analogy": "เหมือนพนักงานที่ทำงานเป๊ะทุกวันไม่ว่าจะเหนื่อยหรือไม่"
+          },
+          {
+            "term": "Frontier Models",
+            "meaning": "โมเดลระดับแนวหน้าที่ทรงพลังที่สุดในปัจจุบัน",
+            "analogy": "ตัวท็อปในตลาดที่มี Benchmark สูงสุด"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "คัดเลือกโจทย์",
+            "detail": "เลือกคำถาม 544 ข้อที่ดูเหมือนง่าย แต่ทดสอบทักษะพื้นฐาน 20 ประเภท"
+          },
+          {
+            "step": "ทดสอบซ้ำ",
+            "detail": "รันชุดคำถามเดียวกันซ้ำหลายรอบเพื่อดูความสม่ำเสมอของผลลัพธ์"
+          },
+          {
+            "step": "วัดผลความสำเร็จ",
+            "detail": "คำนวณสัดส่วนการตอบถูกในโจทย์ดัดแปลง (Variations)"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "จำนวน Prompt",
+            "value": "544",
+            "context": "จำนวนโจทย์ในชุดข้อมูล HFE"
+          },
+          {
+            "metric": "ระยะเวลาการแข่งขัน",
+            "value": "3 สัปดาห์ (สิ้นสุด 15 ธันวาคม 2026)",
+            "context": "ระยะเวลา Kaggle Hackathon"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "บัญชี Kaggle เพื่อเข้าดู Dataset"
+          ],
+          "try_it_steps": [
+            "เข้าไปที่ลิงก์ Kaggle ในประกาศ",
+            "ดาวน์โหลดตัวอย่าง Dataset มาวิเคราะห์รูปแบบ Prompt",
+            "นำคำถามตัวอย่างไปลองรันกับโมเดลใน AI Studio แล้วดูความแตกต่างในแต่ละรอบ"
+          ],
+          "next_to_learn": [
+            "Robustness in LLMs",
+            "Benchmark design for LLM Reliability"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Google DeepMind เปิดตัว HFE (Humanity’s First Exam) เปลี่ยนการวัดผล AI จากแค่ 'โมเดลทำเลขเก่งไหม' มาเป็น 'โมเดลน่าเชื่อถือแค่ไหนในงานทั่วไป' 🤖\n\nหัวใจสำคัญคือการวัดความสม่ำเสมอ (Reliability) ของโมเดลผ่าน 544 โจทย์พื้นฐาน ใครอยากร่วมพิสูจน์หรือมีคำถามที่โมเดลชอบตอบผิด ไปจัดกันได้ที่ Kaggle Hackathon ครับ\n\nใครทำสาย Agent หรือแอปที่ต้องคุยกับคน นี่คือสิ่งที่ต้องดูเลย เพราะความแม่นยำ 99% อาจไม่พอถ้ามันเอ๋อในจุดที่ง่ายที่สุด\n\n#GoogleDeepMind #LLM #HFE #AI #DataScience"
+    },
+    {
+      "id": "gemini-gemini-golden-state-8d6c7c",
+      "title": "How Gemini is changing the game for Golden State's organization and fans.",
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-golden-state/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-24",
+      "published_at": "2026-11-24T16:00:00.000Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
+      "first_seen_at": "2026-11-25T04:32:37.142Z",
+      "authors": [],
+      "rss_categories": [
+        "Gemini App",
+        "Gemini",
+        "AI"
+      ],
+      "category": "AI Products & Ecosystem",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Gemini_1.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "Google Gemini กลายเป็นพาร์ทเนอร์ AI หลักของทีม Golden State Warriors และ Valkyries",
+      "short_teaser": "การร่วมมือครั้งใหญ่ที่นำ Gemini ไปใช้ทั้งในสนาม Chase Center และการจัดการองค์กรของทีมกีฬา",
+      "tldr_takeaways": [
+        "Gemini เข้าเป็น Official AI Assistant Partner ของ Golden State Warriors และ Valkyries",
+        "ใช้ Gemini เพิ่มประสบการณ์ Interactive ให้แฟนๆ ทั้งในสนามและผ่านสื่อดิจิทัล",
+        "ทีมบริหารใช้ Gemini for business เพื่อสร้าง AI Agent มาช่วยงาน Business และ Basketball operations"
+      ],
+      "layman_story": [
+        "นี่คือการขยายขอบเขตการใช้งาน Generative AI ไปสู่ธุรกิจกีฬาเต็มตัว โดย Google Gemini ถูกนำมาเป็น Official AI Assistant Partner ของ Golden State Warriors และ Valkyries",
+        "ในแง่เทคนิคคือการนำ Enterprise LLM เข้าไปอยู่ในระบบหลังบ้าน (Operations) เพื่อทำระบบอัตโนมัติ และใช้ Generative AI สร้างประสบการณ์แบบ Interactive ให้กับแฟนๆ ใน Chase Center ผ่าน videoboard",
+        "เป้าหมายหลักคือการใช้ Gemini ทำหน้าที่เป็น AI Agent ช่วยลดภาระงานรูทีนของทีมงานทั้งฝั่งธุรกิจและฝั่งวิเคราะห์เกมบาสเกตบอล"
+      ],
+      "impact_comparison": {
+        "before": "การใช้เครื่องมือ AI แบบแยกส่วน (Silo) ในการจัดการงานกีฬา",
+        "after": "รวมศูนย์ด้วย Gemini เพื่อเป็น AI Assistant หลักของทั้งองค์กร",
+        "why_it_matters": "เป็นตัวอย่างการทำ Enterprise AI ในธุรกิจกีฬาและไลฟ์สไตล์ที่น่าจับตามอง"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ศึกษาการสร้าง AI Agents",
+          "role": "นักพัฒนาองค์กร",
+          "description": "ดูแนวทางการใช้ Gemini for business เพื่อแก้โจทย์ธุรกิจ",
+          "example": "ลองออกแบบ Agent ภายในบริษัทที่สรุปข้อมูลจากฐานข้อมูล"
+        },
+        {
+          "title": "ประเมิน Use Case",
+          "role": "วางกลยุทธ์",
+          "description": "มองหาช่องทางนำ AI เข้าไปใช้ใน Operations ของตนเอง",
+          "example": "ใช้ Gemini วิเคราะห์ Data หลังบ้านที่ซับซ้อน"
+        },
+        {
+          "title": "ติดตามข่าวสาร",
+          "role": "ทั่วไป",
+          "description": "ดูการใช้งานของแฟนๆ ในอนาคต",
+          "example": "สังเกตความต่างของประสบการณ์ผ่าน Digital channels ของทีม"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "Gemini ได้รับเลือกเป็น AI Partner หลักของ Golden State",
+          "การบูรณาการระบบ AI เข้ากับประสบการณ์แฟนบาสเกตบอล"
+        ],
+        "watchouts": [
+          "รายละเอียดทางเทคนิคของระบบที่ใช้ภายในไม่ได้เปิดเผย",
+          "เป็นการร่วมมือเชิงธุรกิจ (Partnership) ไม่ใช่เครื่องมือใหม่สำหรับ Dev ทั่วไป"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "Google ผนึกกำลังกับ Golden State Warriors นำ Gemini เข้ามาเปลี่ยนวิธีการบริหารและประสบการณ์แฟนบาสเกตบอล",
+          "prerequisite_level": "เข้าใจคอนเซปต์ AI Agent เบื้องต้น",
+          "worth_deep_dive": "เหมาะสำหรับคนสนใจ Case Study การทำธุรกิจด้วย AI",
+          "context_lineage": "เป็นการนำ Gemini ไปใช้ในระดับ Enterprise จริง"
+        },
+        "glossary": [
+          {
+            "term": "Enterprise LLM",
+            "meaning": "การนำโมเดลภาษาขนาดใหญ่มาปรับใช้ในองค์กรธุรกิจที่มีความปลอดภัยสูง",
+            "analogy": "เหมือนเอารถถังมาบริหารงานออฟฟิศให้แม่นยำและรวดเร็วขึ้น"
+          },
+          {
+            "term": "AI Agents",
+            "meaning": "ระบบ AI ที่สามารถทำภารกิจหรือขั้นตอนงานแทนมนุษย์ได้",
+            "analogy": "เหมือนเลขาที่มีความสามารถรอบด้าน"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "การบูรณาการข้อมูล",
+            "detail": "เชื่อมต่อ Gemini เข้ากับ Data ขององค์กร"
+          },
+          {
+            "step": "สร้าง AI Agents",
+            "detail": "ปรับแต่ง Gemini ให้ทำงานเฉพาะทางตามคำสั่ง Business/Basketball"
+          },
+          {
+            "step": "Interactive Layer",
+            "detail": "เชื่อม Gemini กับระบบ Videoboard และ Digital Channel"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "ชื่อทีม",
+            "value": "Warriors, Valkyries, Chase Center",
+            "context": "ผู้ร่วมใช้เทคโนโลยี"
+          },
+          {
+            "metric": "ระยะเวลาเป็นพาร์ทเนอร์",
+            "value": "ตั้งแต่ปี 2019 (Founding Partner)",
+            "context": "ระยะเวลาความสัมพันธ์กับ Chase Center"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "ไม่มี (เป็นข่าวประชาสัมพันธ์)"
+          ],
+          "try_it_steps": [
+            "ศึกษาแนวทางการใช้ Vertex AI Agent ใน Google Cloud",
+            "ลองสร้าง Workflow ง่ายๆ ใน AI Studio",
+            "เปรียบเทียบความสามารถของ Gemini 1.5 Pro กับการจัดการ Data องค์กร"
+          ],
+          "next_to_learn": [
+            "Enterprise AI Strategy",
+            "Vertex AI Agent Builder"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Golden State Warriors จับมือ Google Gemini อย่างเป็นทางการ! 🏀🤖\n\nไม่ใช่แค่เรื่องบาสฯ แต่เป็นการยกระดับงานหลังบ้านด้วย Enterprise LLM และสร้างประสบการณ์แฟนกีฬาแบบ Interactive ทั้งใน Chase Center และออนไลน์\n\nจุดที่น่าสนใจคือการใช้ AI Agents มาช่วยดูแลงานธุรกิจและงานวางแผนการเล่น นี่คือเทรนด์ขององค์กรใหญ่ที่เอา AI ไปรัน Operations จริงๆ ไม่ใช่แค่เอาไว้ทำคอนเทนต์\n\n#GoogleGemini #GoldenStateWarriors #AI #EnterpriseAI #NBA"
+    },
+    {
+      "id": "gemini-models-gemini-4-neon-builders-22e762",
+      "title": "See what 5 builders are making with Gemini 4 Neon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-neon-builders/",
+      "source": "Google Official Blog",
+      "published_date": "2026-11-24",
+      "published_at": "2026-11-24T16:00:00.000Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
+      "first_seen_at": "2026-11-25T04:32:37.142Z",
+      "authors": [
+        "Zahra Thompson"
+      ],
+      "rss_categories": [
+        "Gemini models"
+      ],
+      "category": "Gemini & Models",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/5_Builders_Neon_herosocial.max-600x600.format-webp.webp",
+      "reading_time_minutes": 5,
+      "hook_headline": "Gemini 4 Neon เปิดตัวแล้ว! โมเดลที่เน้น 'Thinking' ในงาน Coding และงานสร้างสรรค์เชิงวิศวกรรม",
+      "short_teaser": "โมเดลใหม่ที่ปรับสมดุลความลึก (Depth) และประสิทธิภาพ (Efficiency) พร้อมฟีเจอร์ Thinking สำหรับสายงานซอฟต์แวร์",
+      "tldr_takeaways": [
+        "Gemini 4 Neon ถูกออกแบบมาเพื่องาน Coding เชิงซ้อน งาน Knowledge Work และวิทยาศาสตร์",
+        "มีฟีเจอร์ระดับ Thinking เช่น /swarm หรือโหมด High Thinking ให้ปรับใช้",
+        "ใช้งานได้ผ่าน Gemini API (Paid Tier) ใน AI Studio และ Android Studio รวมถึงแพลตฟอร์ม Google Antigravity"
+      ],
+      "layman_story": [
+        "Gemini 4 Neon คือก้าวต่อไปที่ Google พยายามจะบาลานซ์ระหว่างความฉลาดระดับ frontier กับความเร็วในการทำงานจบ (Fast end-to-end task completion) โมเดลนี้โดดเด่นเรื่องการทำ Coding เชิงซ้อนและการสร้างงาน 3D",
+        "ในเชิงสถาปัตยกรรม Neon มีจุดเด่นที่ความสามารถในการ 'คิด' (Thinking) ที่ผู้ใช้สามารถปรับระดับได้ ตั้งแต่ระดับความลึกในการคิดไปจนถึงการใช้งานคำสั่ง /swarm ซึ่งช่วยให้การสร้าง Code หรือ Shader ซับซ้อนทำได้เร็วขึ้นมาก",
+        "ตัวอย่างโปรเจกต์ที่เห็นได้ชัดคือการใช้ Neon ใน Google Antigravity เพื่อสร้างงาน Three.js หรือ Shader 3D ที่ซับซ้อน ซึ่งแสดงให้เห็นว่ามันไม่ได้เก่งแค่พิมพ์ข้อความ แต่เก่งด้านการวางแผน (Reasoning) ในเชิงโปรแกรมมิ่งด้วย"
+      ],
+      "impact_comparison": {
+        "before": "การเขียน Shader หรือ Code ซับซ้อนอาจต้องใช้เวลานานและมีการทวนคำสั่งบ่อย",
+        "after": "ใช้คำสั่ง Thinking/Swarm ร่วมกับ Neon ช่วยลดขั้นตอนการทำงานให้จบในเวลาไม่กี่นาที",
+        "why_it_matters": "เป็นโมเดลที่เหมาะสำหรับนักพัฒนาสาย Code และสาย Creative Engineer"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ลองใช้งานใน AI Studio",
+          "role": "นักพัฒนา",
+          "description": "เลือกโมเดล Gemini 4 Neon ใน drop-down แล้วใส่ Prompt งาน Coding",
+          "example": "ลองสั่งให้เขียน Three.js shader หรือ 3D wave simulation"
+        },
+        {
+          "title": "ทดสอบฟีเจอร์ Thinking",
+          "role": "นักพัฒนา",
+          "description": "ปรับระดับการคิด (High/xhigh) ในโหมด Thinking ของโมเดล",
+          "example": "สังเกตความแม่นยำของ Code เมื่อเพิ่ม Thinking level"
+        },
+        {
+          "title": "ทดลองใช้ /swarm",
+          "role": "นักพัฒนา",
+          "description": "ใช้คำสั่ง /swarm เพื่อทำโปรเจกต์รวดเร็ว",
+          "example": "ทดสอบสร้าง Web component หรือ Flame shader แบบโต้ตอบได้"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "โมเดล Gemini 4 Neon",
+          "คำสั่ง /swarm และระบบปรับระดับ Thinking"
+        ],
+        "watchouts": [
+          "ใช้งานได้เฉพาะใน Paid Tier เท่านั้น",
+          "การรันโมเดลที่ระดับ Thinking สูงอาจส่งผลต่อ Latency"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "Gemini 4 Neon คือโมเดลสำหรับ Coding/Creative ที่ปรับแต่งกระบวนการคิดให้เหมาะกับงานซับซ้อนได้",
+          "prerequisite_level": "เข้าใจการใช้งาน Gemini API และ AI Studio",
+          "worth_deep_dive": "คุ้มมาก สำหรับใครที่ทำงานสาย Code หรือ Visualization",
+          "context_lineage": "ต่อยอดจากโมเดลตระกูล Gemini โดยเน้น Optimization สำหรับงานวิศวกรรม"
+        },
+        "glossary": [
+          {
+            "term": "Thinking Levels",
+            "meaning": "ระบบปรับแต่งระดับการวิเคราะห์เชิงลึกของโมเดลก่อนตอบ",
+            "analogy": "เหมือนเลือกโหมดคิดเลขในใจหรือคิดเลขกระดาษ"
+          },
+          {
+            "term": "Google Antigravity",
+            "meaning": "แพลตฟอร์มเฉพาะสำหรับผู้ใช้ Paid Subscriptions เพื่อทดสอบโมเดลรุ่นใหม่",
+            "analogy": "สนามเด็กเล่นสำหรับ Dev รุ่นทดลอง"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "การเลือก Thinking Level",
+            "detail": "ผู้ใช้กำหนดความลึกในการคิดเพื่อให้โมเดลวางแผนงานซับซ้อน"
+          },
+          {
+            "step": "คำสั่ง /swarm",
+            "detail": "ใช้ AI แบบกระจายงาน (Agent-based) เพื่อสร้างผลลัพธ์ในเวลาสั้นๆ"
+          },
+          {
+            "step": "การเรนเดอร์/แสดงผล",
+            "detail": "นำเอาท์พุตไปใช้ใน DOM ของเบราว์เซอร์เพื่อแสดงผลแบบเรียลไทม์"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "เวลาในการ build",
+            "value": "ภายใต้ 5 นาที",
+            "context": "การ build interactive hexagon flame shader"
+          },
+          {
+            "metric": "แพลตฟอร์มที่ใช้",
+            "value": "AI Studio, Android Studio, Google Antigravity",
+            "context": "ช่องทางการใช้งาน Gemini 4 Neon"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "สมาชิก Google AI Pro หรือ Ultra, API Key"
+          ],
+          "try_it_steps": [
+            "Login เข้า Google AI Studio",
+            "เลือกโมเดล Gemini 4 Neon จากเมนู",
+            "ทดสอบสร้าง 3D Shader สั้นๆ ด้วย Prompt ระดับ High Thinking"
+          ],
+          "next_to_learn": [
+            "Three.js กับ LLM integration",
+            "Reasoning-based prompting"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Gemini 4 Neon มาแล้วครับ! ใครเป็นสาย Coding หรือ Creative Engineer ต้องลองตัวนี้เลย\n\nจุดเด่นคือ Gemini 4 Neon มาพร้อมระบบ 'Thinking' ที่เราปรับระดับได้ (High/xhigh) ทำให้มันวางแผนงานเขียน Code ซับซ้อนได้ฉลาดขึ้นมาก แถมมีคำสั่ง /swarm สำหรับสร้างโปรเจกต์เร็วๆ ในเวลาไม่กี่นาที\n\nใครเป็นสมาชิก Pro หรือ Ultra ใน AI Studio เข้าไปกดลองเล่นได้เลยครับ ลองเอาไปสร้าง Shader หรือ 3D Simulation ดู งานออกมาเนียนมาก\n\n#Gemini4Neon #GoogleAI #Coding #GenerativeAI #WebDev"
+    },
+    {
+      "id": "google-labs-women-in-film-india-google-flow-793067",
+      "title": "Independent filmmakers in India bring big-screen stories to life with Google Flow.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/women-in-film-india-google-flow/",
+      "source": "Google Labs",
+      "published_date": "2026-11-24",
+      "published_at": "2026-11-24T14:00:00.000Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
+      "first_seen_at": "2026-11-25T04:32:37.142Z",
+      "authors": [
+        "Prashant Paulose"
+      ],
+      "rss_categories": [
+        "Google Labs"
+      ],
+      "category": "Google Research & Labs",
+      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/resized_WIF_x_Google_Flow.max-600x600.format-webp.webp",
+      "reading_time_minutes": 2,
+      "hook_headline": "Google Flow: เครื่องมือ AI Creative Studio ที่พาผู้กำกับอิสระอินเดียสู่เทศกาลภาพยนตร์ระดับโลก",
+      "short_teaser": "การใช้ Google Flow ช่วยให้ผู้สร้างหนังอิสระในอินเดียสามารถสร้างภาพยนตร์จากไอเดียสู่จอภาพยนตร์โดยใช้ AI เป็นตัวขับเคลื่อนหลัก",
+      "tldr_takeaways": [
+        "Google Flow เป็นแพลตฟอร์ม AI Creative Studio ที่เน้นการสร้างสรรค์งานภาพยนตร์จากจินตนาการของผู้กำกับ",
+        "โปรเจกต์นี้ร่วมมือกับ Women in Film India (WIF India) เพื่อสร้างภาพยนตร์สั้น 5 เรื่องที่ฉายในเทศกาล International Film Festival of India",
+        "เน้นการทำเรื่องราวแนวทดลอง เช่น ภาพยนตร์แอนิเมชันไร้บทพูด (Nazar) และแนวสารคดีอาหาร (Bombay Mumbai - Vada Pav)"
+      ],
+      "layman_story": [
+        "ประกาศนี้คือความสำเร็จของเครื่องมือที่ชื่อว่า 'Google Flow' ซึ่งถูกวางตัวให้เป็น AI Creative Studio สำหรับคนทำหนัง โดยแก้ปัญหาคอขวดด้านงบประมาณและทรัพยากรในการผลิตงานระดับโปรดักชัน",
+        "สถาปัตยกรรมของเครื่องมือนี้ช่วยให้ผู้กำกับสามารถ Pairing จินตนาการของตนเข้ากับ AI เพื่อสร้างโลกเสมือนจริงและองค์ประกอบภาพขึ้นมาใหม่จากศูนย์ แทนการถ่ายทำแบบเดิม",
+        "แม้จะเป็นเครื่องมือที่ทรงพลัง แต่นี่ยังเป็นโปรเจกต์ในเชิงการทดลอง (Research & Lab) เพื่อพิสูจน์ศักยภาพของ AI ในการเล่าเรื่อง (Storytelling) มากกว่าเป็นสินค้าเชิงพาณิชย์สำหรับบุคคลทั่วไปในขณะนี้"
+      ],
+      "impact_comparison": {
+        "before": "การทำหนังอิสระมีข้อจำกัดเรื่องต้นทุนมหาศาลและการเข้าถึงทีมเทคนิคเฉพาะทาง",
+        "after": "ใช้ AI เข้ามาเป็นตัวช่วยสร้าง Visual Elements และ World-building ที่ซับซ้อนได้ภายในเวลาอันสั้น",
+        "why_it_matters": "สะท้อนให้เห็นว่า Generative AI กำลังเปลี่ยนผ่านจากการเป็นเพียงเครื่องมือช่วยพิมพ์งาน ไปสู่การเป็น 'Co-creator' ในงานศิลปะแขนงใหม่"
+      },
+      "actionable_playbook": [
+        {
+          "title": "ติดตามข่าวสาร Google Labs",
+          "role": "อัปเดตเทคโนโลยี",
+          "description": "ติดตามการประกาศผ่านหน้า Google Labs หากมีการเปิดให้ทดลองใช้ Public Beta ในอนาคต",
+          "example": "สมัครรับข่าวสารจากทาง Google Labs"
+        },
+        {
+          "title": "ศึกษา Workflow การสร้างงานศิลป์ด้วย AI",
+          "role": "เพิ่มทักษะ",
+          "description": "เรียนรู้วิธีการใช้ AI ในการสร้าง Storyboard หรือ Concept Art",
+          "example": "ทดลองใช้เครื่องมือที่มีอยู่แล้วอย่าง Gemini หรือ ImageFX เพื่อสร้าง Storyboard"
+        },
+        {
+          "title": "วิเคราะห์การใช้ Prompt สำหรับงาน Cinematic",
+          "role": "เชิงเทคนิค",
+          "description": "ฝึกเขียน Prompt ที่เน้นอารมณ์และองค์ประกอบภาพ (Visual Language)",
+          "example": "ทดลองสร้างภาพถ่ายตามทฤษฎีสีที่ใช้ในภาพยนตร์"
+        }
+      ],
+      "key_highlights": {
+        "whats_new": [
+          "การใช้ Google Flow เป็นโครงสร้างหลักในการผลิตภาพยนตร์สั้น",
+          "ความสำเร็จในการนำ AI-generated content ขึ้นฉายบนเทศกาลระดับนานาชาติ"
+        ],
+        "watchouts": [
+          "Google Flow ยังไม่มีการเปิดให้สาธารณะใช้งานอย่างแพร่หลายในขณะนี้",
+          "ต้นฉบับไม่ระบุข้อมูลทางเทคนิคของโมเดลที่ใช้เบื้องหลัง"
+        ]
+      },
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "การแสดงให้เห็นว่า Google Flow สามารถเปลี่ยนไอเดียผู้สร้างหนังให้เป็นผลงานจริงได้",
+          "prerequisite_level": "ไม่มีพื้นฐานเทคนิคก็อ่านเข้าใจได้ (เน้น Case Study)",
+          "worth_deep_dive": "เหมาะสำหรับคนที่สนใจด้าน Creative AI เพื่อดูความเป็นไปได้ในอนาคต",
+          "context_lineage": "ต่อยอดจากความพยายามของ Google ในการทำ AI เพื่อวงการบันเทิง"
+        },
+        "glossary": [
+          {
+            "term": "Google Flow",
+            "meaning": "แพลตฟอร์ม AI Creative Studio ของ Google ที่ใช้สำหรับผลิตงานภาพยนตร์",
+            "analogy": "เปรียบเสมือนสตูดิโอทำหนังติดอาวุธด้วย AI"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Ideation",
+            "detail": "ผู้กำกับนำเสนอวิสัยทัศน์หรือบทภาพยนตร์เข้าสู่ระบบ"
+          },
+          {
+            "step": "Generation",
+            "detail": "Google Flow ประมวลผลและสร้างองค์ประกอบภาพ (Visuals) หรือโลกในหนังขึ้นมาตามคำสั่ง"
+          },
+          {
+            "step": "Integration",
+            "detail": "นำเอาสื่อที่ AI สร้างมาตัดต่อและประกอบเป็นภาพยนตร์ฉบับสมบูรณ์"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "จำนวนภาพยนตร์ที่ได้รับรางวัล",
+            "value": "5 เรื่อง",
+            "context": "เป็นภาพยนตร์สั้นที่ถูกคัดเลือกจากโครงการ WIF India Filmathon"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "ไม่มีข้อกำหนดด้านเทคนิค เนื่องจากเป็นข่าวสารเชิงอุตสาหกรรมสร้างสรรค์"
+          ],
+          "try_it_steps": [
+            "ดูภาพยนตร์สั้นทั้ง 5 เรื่องที่เว็บไซต์หลักของ Google",
+            "วิเคราะห์จุดแข็งและจุดอ่อนของการใช้ AI ในงานภาพยนตร์จากผลงานที่ได้รับรางวัล",
+            "ลองร่าง Storyboard ของตัวเองด้วย AI Tools อื่นๆ เพื่อเปรียบเทียบ workflow"
+          ],
+          "next_to_learn": [
+            "Generative Video Workflow",
+            "AI-assisted Storytelling"
+          ]
+        },
+        "source_depth": "full_article"
+      },
+      "facebook_post": "Google โชว์ศักยภาพ AI ในงานภาพยนตร์ผ่านโปรเจกต์ 'Google Flow'! 🎬✨\n\nเมื่อผู้กำกับอิสระในอินเดียใช้ AI ในการสร้างผลงานสั้น 5 เรื่องจนได้เข้าฉายในงานเทศกาลหนังระดับโลก ใครบอกว่า AI ทำได้แค่เขียนโค้ด? นี่คือการพิสูจน์ว่า AI คือผู้ช่วยสร้างโลกจินตนาการได้จริง\n\nจุดที่น่าสนใจ:\n✅ Google Flow เป็น AI Creative Studio ที่ช่วยเปลี่ยน Vision ของคนทำหนังให้เป็นภาพได้\n✅ ผลงานมีความหลากหลาย ตั้งแต่หนังหลอนๆ ไปจนถึงแอนิเมชันลึกซึ้ง\n✅ เป็นก้าวสำคัญของการ democratize การผลิตหนังด้วยพลัง AI\n\nสาย Creative ที่อยากลองใช้ AI ช่วยงาน Storytelling ลองตามดูผลงานเหล่านี้เป็นแรงบันดาลใจได้เลยครับ\n\n#GoogleFlow #AIforFilm #GenerativeAI #GoogleLabs #Innovation"
+    },
     {
       "id": "gemini-models-gemini-4-hydrogen-builders-ea7cf6",
       "title": "See what 6 builders are making with Gemini 4 Hydrogen",
@@ -8,7 +510,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T18:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.868Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-24T05:28:25.868Z",
       "authors": [
         "Molly McHugh-Johnson"
@@ -133,7 +635,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T18:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.873Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-24T05:28:25.873Z",
       "authors": [],
       "rss_categories": [
@@ -250,7 +752,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-24T05:28:25.874Z",
       "authors": [
         "Robby Stein"
@@ -372,7 +874,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-24T05:28:25.874Z",
       "authors": [],
       "rss_categories": [
@@ -493,7 +995,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T16:12:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-24T05:28:25.874Z",
       "authors": [
         "Rohan Doshi",
@@ -617,7 +1119,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-20",
       "published_at": "2026-11-20T18:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-21T02:36:09.755Z",
       "authors": [],
       "rss_categories": [
@@ -735,7 +1237,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T20:30:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T04:27:43.483Z",
       "authors": [],
       "rss_categories": [
@@ -856,7 +1358,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T19:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T04:27:43.488Z",
       "authors": [],
       "rss_categories": [
@@ -983,7 +1485,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T18:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Lucia Loher",
@@ -1119,7 +1621,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Yulie Kwon Kim"
@@ -1240,7 +1742,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [],
       "rss_categories": [
@@ -1373,7 +1875,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Michael Friedman"
@@ -1497,7 +1999,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T07:22:30.577Z",
       "authors": [],
       "rss_categories": [
@@ -1613,7 +2115,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T07:22:30.578Z",
       "authors": [],
       "rss_categories": [
@@ -1986,7 +2488,7 @@
       "source": "Google Research",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T13:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Travis Beals"
@@ -2109,7 +2611,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T21:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-19T04:37:36.106Z",
       "authors": [
         "Koray Kavukcuoglu"
@@ -2242,7 +2744,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T18:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Diego Rivas",
@@ -2442,7 +2944,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Angus Logan"
@@ -2634,7 +3136,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T22:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.444Z",
       "authors": [
         "Lindsey Lanquist"
@@ -2835,7 +3337,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "The EmbeddingGemma 2 team"
@@ -2959,7 +3461,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Josh Woodward"
@@ -3221,7 +3723,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
@@ -3404,7 +3906,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T18:30:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Google Threat Intelligence Group (GTIG)"
@@ -3594,7 +4096,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T16:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
@@ -3786,7 +4288,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T14:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Maz Khorasani"
@@ -4040,7 +4542,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-13",
       "published_at": "2026-11-13T20:30:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Bala Muthukrishnan",
@@ -4301,7 +4803,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
+      "updated_at": "2026-11-25T04:32:37.142Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Robby Stein"
@@ -4423,398 +4925,6 @@
         "source_depth": "full_article"
       },
       "facebook_post": "Google Search ครั้งใหญ่! อัปเกรดเป็น Gemini 4 Hydrogen แล้ว\n\nการค้นหาแบบเดิมอาจจะหลบไป เพราะรอบนี้ Google เอาโมเดล Gemini 4 Hydrogen มาคุมเครื่อง ยกระดับการตอบคำถามแบบก้าวกระโดด:\n\n✅ เข้าใจคำถามซับซ้อน: ถามยาวๆ, พิมพ์ผิด, หรือคำถามหลายประเด็น โมเดลนี้เอาอยู่\n✅ ตอบเป็นตารางและภาพ: ไม่ต้องนั่งอ่าน Link เอง ระบบสรุปมาให้เป็นตารางเปรียบเทียบให้เลย\n✅ สืบค้นฉลาดขึ้น: ใช้เทคนิค Query fan-out ช่วยแตกประเด็นหาข้อมูลจากหลายแหล่งให้ครบถ้วน\n\nใครอยากรู้ว่าฉลาดแค่ไหน ลองถามคำถามยากๆ ใน Google Search ดูได้เลยครับ เริ่มทยอยใช้ได้ทั่วโลกแล้ว!\n\n#GoogleSearch #Gemini4Hydrogen #AI #SearchUpgrade #TechUpdate"
-    },
-    {
-      "id": "developers-tools-build-with-gemini-4-hydrogen-7954da",
-      "title": "Gemini 4 Hydrogen: everyday coding and agentic workflows for developers",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/",
-      "source": "Google Developers",
-      "published_date": "2026-11-12",
-      "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
-      "first_seen_at": "2026-11-18T04:52:36.449Z",
-      "authors": [],
-      "rss_categories": [
-        "Gemini models",
-        "Developer tools"
-      ],
-      "category": "Gemini & Models",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hydrogen_socialshare.max-600x600.format-webp.webp",
-      "reading_time_minutes": 5,
-      "hook_headline": "เปิดตัว Gemini 4 Hydrogen: โมเดลสายลุยสำหรับงาน Coding และ Agentic Workflows",
-      "short_teaser": "Google ปล่อย Gemini 4 Hydrogen ที่เน้นความเร็วและประสิทธิภาพสูงสำหรับการเขียนโปรแกรมและ Debugging พร้อมระบบ Orchestrator เพื่อการทำงานแบบ multi-model.",
-      "tldr_takeaways": [
-        "Gemini 4 Hydrogen ออกแบบมาเพื่อเป็น Daily driver ในงาน Coding งานซ่อมบั๊ก และงานเอกสาร",
-        "มีระบบ Orchestrator ใหม่ ช่วยสลับโมเดลระหว่าง Carbon, Argon และ Hydrogen อัตโนมัติใน Workflow เดียวกัน",
-        "ราคา Input อยู่ที่ $1.50/1M tokens และ Output ที่ $7.50/1M tokens"
-      ],
-      "layman_story": [
-        "Gemini 4 Hydrogen คือโมเดลระดับกลางถึงสูงที่ถูกปรับจูนมาเพื่อเป็น 'แรงงานหลัก' ในการพัฒนาซอฟต์แวร์โดยเฉพาะ ช่วยแก้ปัญหาการใช้โมเดลใหญ่เกินความจำเป็นในงานย่อยๆ ที่ต้องการความรวดเร็วและแม่นยำในการทำตามคำสั่ง",
-        "สถาปัตยกรรมรองรับ Thinking levels ถึง 4 ระดับ (low to xhigh) และสามารถรันแยกตัวเดียวหรือรันร่วมกับโมเดลใหญ่เพื่อทำหน้าที่เป็น Execution engine โดยมีจุดเด่นเรื่องการทำไฟล์ Batch read/search แบบขนาน ช่วยลด Token usage ลง 12-23% เมื่อเทียบกับรุ่น 3.8 Flash",
-        "อย่างไรก็ตาม แม้จะอ้างว่าเก่งกว่ารุ่นก่อนหน้าถึง 2.5 เท่า แต่การใช้งานต้องระวังเรื่องการเลือก Thinking level ให้เหมาะสมกับงาน หากใช้ระดับสูงสุดอาจแลกมาด้วย Latency ที่เพิ่มขึ้น ซึ่งต้องทดสอบผ่านระบบ Orchestrator ใน Google Antigravity เพื่อความคุ้มค่า"
-      ],
-      "impact_comparison": {
-        "before": "การใช้ LLM ในการเขียนโค้ดมักต้องพึ่งพาโมเดลตัวใหญ่ตัวเดียว หรือใช้ Flash ที่อาจขาดความแม่นยำในการสั่งการ",
-        "after": "ใช้ Hydrogen ทำงานย่อยๆ โดยโมเดลใหญ่ (Carbon/Argon) คอยคุมทิศทางสถาปัตยกรรม ทำให้ประหยัดงบและงานเสร็จไวขึ้น 19% บน Terminal-Bench 4.0",
-        "why_it_matters": "นี่คือจุดเปลี่ยนสำหรับสาย Dev ที่ต้องการ Workflow อัตโนมัติ (Agentic) ในระดับ Production โดยไม่ต้องการจ่ายค่า Token แพงเกินเหตุ"
-      },
-      "actionable_playbook": [
-        {
-          "title": "ทดลองตั้งค่า Thinking Level",
-          "role": "ทดสอบประสิทธิภาพ",
-          "description": "ลองปรับระดับ Thinking ของ Hydrogen ใน AI Studio เพื่อดูว่าระดับไหนที่ให้ผลลัพธ์ Code ถูกต้องโดยไม่เสียเวลารอนานเกินไป",
-          "example": "เปรียบเทียบผลลัพธ์ระหว่างระดับ high (Default) กับ xhigh ในการแก้บั๊กยากๆ"
-        },
-        {
-          "title": "ใช้ระบบ Orchestrator",
-          "role": "คุมต้นทุน",
-          "description": "ศึกษาการทำ Multi-model workflow ที่ให้ Carbon ตัดสินใจและ Hydrogen ทำงาน Routine",
-          "example": "สร้าง Pipeline ให้ Carbon วางโครงสร้างโปรเจกต์ และให้ Hydrogen เขียน Unit Test และ Fix บั๊ก"
-        },
-        {
-          "title": "อ่าน Google Antigravity Blog",
-          "role": "ศึกษาระบบใหม่",
-          "description": "ทำความเข้าใจการเชื่อมต่อโมเดลผ่าน Orchestrator ที่เป็นหัวใจหลักของ Gemini 4",
-          "example": "ศึกษา Tutorial การใช้ Orchestrator คู่กับงานเขียนโปรแกรมจริง"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "4 Configurable Thinking levels สำหรับปรับสมดุลความเร็วและคุณภาพ",
-          "การทำ Parallel file-read และ search เพื่อลด Token usage ในการอ่าน Repo"
-        ],
-        "watchouts": [
-          "ราคา Output tokens ค่อนข้างสูง ($7.50/1M) เมื่อเทียบกับโมเดลสาย Flash เดิม",
-          "ฟีเจอร์ Orchestrator และการเข้าถึงเต็มรูปแบบต้องทำผ่าน Google Antigravity เท่านั้น"
-        ]
-      },
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "โมเดลสาย Coding ที่เน้นประสิทธิภาพและราคาประหยัด มาพร้อมระบบ Multi-model orchestration",
-          "prerequisite_level": "เข้าใจพื้นฐาน Prompt Engineering และ Workflow ของการทำ Software Development",
-          "worth_deep_dive": "คุ้มมากสำหรับ Dev ที่ต้องทำ Automate coding agent",
-          "context_lineage": "ต่อยอดจาก Gemini 3.8 Flash เข้าสู่ Gemini 4 Series ที่เป็นระดับ Frontier"
-        },
-        "glossary": [
-          {
-            "term": "Agentic Workflows",
-            "meaning": "ระบบที่ให้ AI ทำงานเป็นขั้นตอนอัตโนมัติหลายๆ งานจนจบงานใหญ่เอง",
-            "analogy": "เหมือนจ้าง Junior Dev ที่ฉลาดมากมาจัดการงานย่อยๆ ให้เราตามโจทย์ที่วางไว้"
-          },
-          {
-            "term": "Orchestrator",
-            "meaning": "ระบบตัวกลางที่ตัดสินใจว่าต้องใช้โมเดลตัวไหน (ใหญ่/เล็ก) เพื่อแก้ปัญหาในตอนนั้น",
-            "analogy": "เหมือนหัวหน้าทีมที่สั่งงานตามความยากง่ายของโปรเจกต์"
-          },
-          {
-            "term": "Thinking levels",
-            "meaning": "การให้ AI ใช้เวลาคิดไตร่ตรองมากขึ้นก่อนตอบ โดยมีระดับความลึกให้เลือก",
-            "analogy": "เหมือนสวิตช์เลือกโหมด 'คิดเร็ว' หรือ 'คิดละเอียด' ก่อนพูด"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Input Processing",
-            "detail": "โมเดลอ่าน Repo ด้วยการทำ Parallel batch read เพื่อลดจำนวนโทเค็นและเวลาในการเข้าถึงไฟล์"
-          },
-          {
-            "step": "Dynamic Routing",
-            "detail": "Orchestrator วิเคราะห์ความยากของงานและเลือกระหว่าง Hydrogen, Carbon หรือ Argon"
-          },
-          {
-            "step": "Execution & Verification",
-            "detail": "Hydrogen รันงานโค้ด ทดสอบและซ่อมแซมตัวเองผ่าน Tool calls ในพื้นที่ Isolated workspace"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "ราคา Input/Output tokens",
-            "value": "$1.50 / $7.50 ต่อ 1 ล้าน tokens",
-            "context": "ราคามาตรฐานต่อ 1 ล้านโทเค็นใน context window 1 ล้านโทเค็น"
-          },
-          {
-            "metric": "Terminal-Bench 4.1 score",
-            "value": "57% vs 18.2%",
-            "context": "เทียบ Hydrogen กับ Gemini 3.8 Flash"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Google AI Studio API Key",
-            "ความเข้าใจในตัวอย่าง Repo เล็กๆ สำหรับทดสอบการ Debug"
-          ],
-          "try_it_steps": [
-            "ลองใช้ AI Studio ส่งคำสั่งให้ Hydrogen ช่วยเขียน Function ซับซ้อนและดูว่ามัน Batch ไฟล์อ่านอย่างไร",
-            "เปรียบเทียบคุณภาพของโค้ดเมื่อรันผ่านระดับ Medium และ xhigh",
-            "ลองสร้าง Prompt chain ที่ให้ AI ช่วยวางแผนงานก่อนสั่งให้เขียนโค้ดเพื่อทดสอบระบบ Agentic"
-          ],
-          "next_to_learn": [
-            "Multi-model prompting เพื่อเข้าใจวิธีใช้โมเดลหลายตัวทำงานร่วมกัน",
-            "Prompting technique สำหรับงาน Coding ที่ช่วยลดจำนวน Token ในการดึงข้อมูล Repo"
-          ]
-        },
-        "source_depth": "full_article"
-      },
-      "facebook_post": "Google เปิดตัว Gemini 4 Hydrogen แล้วครับ! ใครสาย Dev ที่ต้องการ Coding Agent ต้องดูตัวนี้เลย \n\nจุดเด่นคือถูกจูนมาเพื่องาน Coding และ Debugging โดยเฉพาะ ทำงานได้เร็วและแม่นยำขึ้นมากเมื่อเทียบกับรุ่นก่อน มีระบบ Orchestrator สลับโมเดลให้อัตโนมัติ ช่วยลด Token usage และประหยัดงบได้เยอะ\n\nFacts น่ารู้:\n- ราคา $1.50 (Input) / $7.50 (Output) ต่อ 1M tokens\n- มี Thinking levels 4 ระดับ เลือกปรับได้ตามงาน\n- เหนือกว่า 3.8 Flash ในแง่ความเร็วและการทำ Task ได้สำเร็จ\n- เหมาะมากสำหรับงานทำซ้ำๆ อย่าง Debugging หรือเขียน UI\n\nตอนนี้ลองเข้าไปเล่นได้เลยที่ Google AI Studio ใครลองแล้วเป็นไงบ้าง มาแชร์กัน!\n\n#Gemini4 #GoogleAI #CodingAssistant #DeveloperTools #AI"
-    },
-    {
-      "id": "gemini-models-introducing-gemini-4-hydrogen-ec9fd4",
-      "title": "Introducing Gemini 4 Hydrogen",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
-      "source": "Google Official Blog",
-      "published_date": "2026-11-12",
-      "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-24T05:28:25.874Z",
-      "first_seen_at": "2026-11-18T04:52:36.449Z",
-      "authors": [
-        "Koray Kavukcuoglu"
-      ],
-      "rss_categories": [
-        "Gemini models"
-      ],
-      "category": "Gemini & Models",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-element-hydrogen-light.max-600x600.format-webp.webp",
-      "reading_time_minutes": 8,
-      "hook_headline": "เปิดตัว Gemini 4 Hydrogen: โมเดลเน้นความเร็วระดับงาน Agentic Workflow",
-      "short_teaser": "Gemini 4 Hydrogen ออกแบบมาเพื่อการเขียนโค้ดและรัน Agentic Workflow ด้วยความเร็วที่สูงกว่ารุ่นก่อน พร้อมรองรับ Context Window 1 ล้านโทเค็นในราคาประหยัด",
-      "tldr_takeaways": [
-        "Gemini 4 Hydrogen ทำงานเร็วกว่ารุ่นเดิม 2.5 เท่า (ในค่าตั้งต้นสูง) และมีคะแนน Terminal-Bench 4.1 อยู่ที่ 57%",
-        "ราคาโมเดลอยู่ที่ $1.50 ต่อล้านโทเค็นขาเข้า และ $7.50 ต่อล้านโทเค็นขาออก (Context Window 1 ล้านโทเค็น)",
-        "เปิดตัว Orchestrator ใน Google Antigravity เพื่อสลับโมเดลอัตโนมัติระหว่าง Carbon และ Hydrogen เพิ่มความคุ้มค่าและลดการใช้ Quota"
-      ],
-      "layman_story": [
-        "Gemini 4 Hydrogen เป็นโมเดลใหม่ที่เน้นความเร็วและการทำงานแบบ Agentic (โมเดลที่ทำงานเองได้หลายขั้นตอน) โดยถูกวางตัวให้เป็น 'Daily Driver' สำหรับงานเขียนโค้ดและวิเคราะห์งานทั่วไป",
-        "สถาปัตยกรรมของ Hydrogen มุ่งเน้นการประมวลผลที่รวดเร็วเพื่อใช้คู่กับโมเดลรุ่นพี่อย่าง Carbon หรือ Argon ผ่านระบบ Orchestrator ซึ่งช่วยเลือกโมเดลที่เหมาะสมที่สุดในแต่ละขั้นตอนของงาน ทำให้ประหยัด Token และเร็วกว่าการใช้โมเดลใหญ่เพียงอย่างเดียว",
-        "แม้จะมีประสิทธิภาพสูง แต่ก็มีข้อจำกัดด้านการใช้งานในงานที่ต้องการ Deep Reasoning ระดับสูงมาก ซึ่งควรใช้โมเดลรุ่น Carbon หรือ Argon เป็นหลัก Hydrogen จึงเหมาะที่สุดสำหรับงาน Routine และการ Debugging ที่เน้นความฉับไว"
-      ],
-      "impact_comparison": {
-        "before": "การใช้โมเดลขนาดใหญ่เพียงอย่างเดียวทำให้สิ้นเปลือง Token และมี Latency สูงในงานเล็กๆ",
-        "after": "ใช้ Orchestrator สลับโมเดลอัตโนมัติ ช่วยลด Quota ลง 24% และทำงานเร็วขึ้น 20%+, ต้นทุนถูกลง",
-        "why_it_matters": "ช่วยให้บริษัทและนักพัฒนาจัดการ Workflow ของ Agent ได้คุ้มค่าและมีประสิทธิภาพระดับ Production"
-      },
-      "actionable_playbook": [
-        {
-          "title": "ทดสอบใน AI Studio",
-          "role": "ตรวจสอบประสิทธิภาพ",
-          "description": "ลองใช้งานโมเดล Hydrogen กับงาน Coding และวัดผล",
-          "example": "ทดสอบความเร็วในการ Debug โค้ดที่มีไฟล์ขนาดใหญ่"
-        },
-        {
-          "title": "ลองใช้งาน Orchestrator",
-          "role": "Optimize Workflows",
-          "description": "ตั้งค่า Workflow ที่สลับใช้โมเดลตามความยากของงาน",
-          "example": "ให้โมเดลใหญ่เลือกแนวทาง แล้วให้ Hydrogen ดำเนินการเขียนโค้ด"
-        },
-        {
-          "title": "เปรียบเทียบค่า Token",
-          "role": "บริหารงบประมาณ",
-          "description": "คำนวณต้นทุนต่อโปรเจกต์เทียบกับ Gemini 3.8 Flash",
-          "example": "ใช้ราคา $1.50/7.50 ต่อล้าน Token ในการวางงบ API"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "รองรับ 4 Thinking Levels สูงสุดถึง xhigh",
-          "เพิ่มประสิทธิภาพการอ่านไฟล์แบบ Parallel ทำให้เร็วกว่า 3.8 Flash ถึง 2.8 เท่า"
-        ],
-        "watchouts": [
-          "ราคาอ้างอิงตามต้นฉบับคือ $1.50 (Input) และ $7.50 (Output)",
-          "คะแนน Artificial Analysis Intelligence Index อยู่ที่ 51-54 ตามระดับ Thinking"
-        ]
-      },
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "โมเดลใหม่ที่เน้นความเร็วสำหรับ Agentic Workflows ในราคาที่เข้าถึงได้",
-          "prerequisite_level": "ต้องเข้าใจหลักการ API, Token, และ Agentic Workflow",
-          "worth_deep_dive": "คุ้มมากสำหรับทีม Dev ที่ต้องการประหยัด Token และเพิ่ม Speed ในงาน Coding",
-          "context_lineage": "ต่อยอดจากตระกูล Gemini 4 โดยเน้นประสิทธิภาพการทำงาน (Efficiency)"
-        },
-        "glossary": [
-          {
-            "term": "Agentic Workflows",
-            "meaning": "ระบบที่ AI สามารถทำงานหลายขั้นตอนต่อเนื่องกันเองเพื่อบรรลุเป้าหมาย",
-            "analogy": "เหมือนจ้างเลขาที่มีความสามารถรอบตัวที่ทำงานต่อกันได้เอง"
-          },
-          {
-            "term": "Orchestrator",
-            "meaning": "ระบบบริหารจัดการและเลือกโมเดลให้เหมาะสมกับงานนั้นๆ แบบอัตโนมัติ",
-            "analogy": "เหมือนหัวหน้างานที่แจกจ่ายงานให้ลูกน้องตามความถนัด"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Parallel Processing",
-            "detail": "โมเดลอ่านและค้นหาไฟล์หลายไฟล์พร้อมกัน ไม่รอทีละขั้นตอน"
-          },
-          {
-            "step": "Dynamic Orchestration",
-            "detail": "ใช้โมเดลใหญ่ (Carbon) วางแผน และโมเดลเล็ก (Hydrogen) ดำเนินการตามงานที่ได้รับ"
-          },
-          {
-            "step": "Thinking Levels",
-            "detail": "ผู้ใช้ปรับระดับการใช้ความพยายาม (Thinking) ได้ 4 ระดับ ตั้งแต่ low ถึง xhigh"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "ราคา",
-            "value": "$1.50 / 7.50 ต่อล้าน Token",
-            "context": "Input/Output Tokens"
-          },
-          {
-            "metric": "ความเร็วในการประมวลผล",
-            "value": "2.5 เท่า",
-            "context": "เทียบกับโมเดลเดิมในรุ่นเดียวกัน"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Google AI Studio / Vertex AI access",
-            "API Key"
-          ],
-          "try_it_steps": [
-            "นำโจทย์ Coding เดิมที่เคยรันด้วย 3.8 Flash มาทดสอบด้วย Hydrogen",
-            "ตั้งค่า Thinking Level เป็น 'High' หรือ 'xhigh' เพื่อวัดผลลัพธ์",
-            "ทดสอบความสามารถในการ Batch File read"
-          ],
-          "next_to_learn": [
-            "Agentic Workflow patterns",
-            "Multimodal Knowledge Agent (MKA) integration"
-          ]
-        },
-        "source_depth": "full_article"
-      },
-      "facebook_post": "สาย Dev เตรียมตัว! Google เปิดตัว 'Gemini 4 Hydrogen' โมเดลเน้นความเร็วและงาน Agentic Workflow ที่ทำงานไวขึ้นกว่าเดิม 2.5 เท่า! \n\nจุดเด่นที่น่าสนใจ:\n- ออกแบบมาเพื่อเขียนโค้ดและ Debug งาน Routine ได้เฉียบคม\n- ประหยัด Quota ด้วยระบบ Orchestrator สลับโมเดลอัจฉริยะ (ช่วยลดการใช้ Quota ได้ถึง 24%)\n- รองรับ 4 ระดับ Thinking Level (Low ถึง xhigh)\n- ราคาคุ้มค่า $1.50/7.50 ต่อล้าน Token (Input/Output)\n\nเหมาะมากสำหรับใครที่กำลังทำระบบ Auto-coding หรือ Agentic Workflow ที่ต้องการความไวระดับ Production-ready\n\n#Gemini4 #Hydrogen #GoogleAI #Coding #AgenticAI #DevLife"
-    },
-    {
-      "id": "gemini-app-research-with-gemini-in-chrome-7bc6a3",
-      "title": "Get quick answers from Gemini on any website.",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-app/research-with-gemini-in-chrome/",
-      "source": "Google Official Blog",
-      "published_date": "2026-11-12",
-      "published_at": "2026-11-12T17:00:00.000Z",
-      "updated_at": "2026-11-16T03:07:33.395Z",
-      "authors": [],
-      "rss_categories": [
-        "Gemini App"
-      ],
-      "category": "AI Products & Ecosystem",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_in_Chrome_OZMdZhz.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "Gemini ใน Google Chrome อัปเกรดใหม่: สรุปบทความ เทียบสินค้า และถามตอบจากหน้าเว็บได้ทันทีใน Side Panel",
-      "short_teaser": "Google เพิ่มความสามารถให้ Gemini ในแถบด้านข้างของ Chrome สามารถอ่านและสรุปหน้าเว็บใดก็ได้ เปรียบเทียบข้อมูล และอธิบายเรื่องยากให้เข้าใจทันทีโดยไม่ต้องสลับแท็บ",
-      "tldr_takeaways": [
-        "เรียกใช้ Gemini ผ่าน Side Panel ใน Chrome เพื่อสรุปบทความยาวๆ บนหน้าเว็บที่กำลังเปิดอยู่",
-        "ช่วยเปรียบเทียบข้อมูลสินค้าหรือบริการ รวมถึงอธิบายศัพท์เทคนิคที่พบในหน้าเว็บ",
-        "ลดการสลับหน้าต่างไปมาระหว่างเว็บที่อ่านกับแชตบอท AI"
-      ],
-      "layman_story": [
-        "เวลาอ่านบทความภาษาอังกฤษยาวๆ รายงาน PDF ออนไลน์ หรือหน้าสเปกสินค้าที่มีรายละเอียดเยอะ หลายคนมักต้องก๊อปปี้ข้อความแล้วสลับแท็บไปวางในแอป AI เพื่อขอให้ช่วยสรุป ซึ่งขัดจังหวะการอ่านมาก",
-        "ฟีเจอร์ Gemini ใน Chrome แก้ปัญหานี้ด้วยการฝังผู้ช่วยไว้ในแถบด้านข้าง (Side Panel) ของเบราว์เซอร์โดยตรง เพียงคลิกเดียว Gemini จะเข้าใจบริบทของหน้าเว็บที่เปิดอยู่ พร้อมสรุปประเด็นสำคัญ ตอบคำถามเจาะลึก หรือช่วยเทียบตัวเลือกให้ทันที",
-        "สำหรับคนที่ต้องอ่านข่าว หาข้อมูลทำงาน หรือช้อปปิ้งออนไลน์ทุกวัน นี่คือการนำ AI เข้าไปอยู่ในจุดที่คนใช้เวลาอยู่จริงมากที่สุดอย่างเว็บเบราว์เซอร์"
-      ],
-      "impact_comparison": {
-        "before": "ก่อนอัปเดต: ต้องคัดลอกข้อความหรือลิงก์จากหน้าเว็บไปวางในหน้าต่าง AI แยกต่างหาก",
-        "after": "หลังอัปเดต: ถามตอบ สรุป และวิเคราะห์เนื้อหาบนหน้าเว็บได้ทันทีใน Side Panel ของ Chrome",
-        "why_it_matters": "ลดแรงเสียดทานในการใช้งาน AI ประจำวัน ทำให้คนทั่วไปเข้าถึงความสามารถของ Gemini ได้เป็นธรรมชาติขึ้น"
-      },
-      "actionable_playbook": [
-        {
-          "title": "สรุปบทความวิจัยและเอกสารเทคนิคระหว่างทำงาน",
-          "role": "สำหรับนักพัฒนา / นักวิจัย",
-          "description": "เปิด Documentation หรือบทความต่างประเทศแล้วให้ Side Panel ช่วยดึงเฉพาะขั้นตอนติดตั้งหรือจุดสำคัญ",
-          "example": "ถาม Gemini บนหน้าเอกสาร API ว่ามี Breaking Changes อะไรบ้างเทียบกับเวอร์ชันเก่า"
-        },
-        {
-          "title": "เปรียบเทียบสเปกเครื่องมือหรือบริการ SaaS",
-          "role": "สำหรับผู้บริหาร / จัดซื้อ",
-          "description": "ใช้ช่วยสรุปตารางราคา ข้อจำกัด และจุดเด่นของซอฟต์แวร์หลายตัวขณะเปิดอ่านหน้า Pricing",
-          "example": "ขอให้สรุปความแตกต่างของแพ็กเกจ Enterprise ในหน้าเว็บผู้ให้บริการ"
-        },
-        {
-          "title": "ช่วยเรียนรู้ภาษาและเรื่องใหม่ที่ซับซ้อน",
-          "role": "สำหรับผู้ใช้งานทั่วไป / นักเรียน",
-          "description": "ไฮไลต์ส่วนที่ไม่เข้าใจแล้วสั่งให้อธิบายเป็นภาษาไทยง่ายๆ พร้อมยกตัวอย่างประกอบ",
-          "example": "เปิดข่าวการเงินหรือวิทยาศาสตร์ต่างประเทศแล้วให้สรุปเป็น 5 ข้ออ่านเร็ว"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "Gemini Side Panel ใน Chrome อ่านและสรุปหน้าเว็บได้แบบเรียลไทม์",
-          "รองรับการถามต่อยอด เทียบข้อมูล และอธิบายหัวข้อซับซ้อนบนหน้าเว็บ"
-        ],
-        "watchouts": [
-          "ตรวจสอบการตั้งค่าความเป็นส่วนตัวว่าอนุญาตให้แชร์เนื้อหาหน้าเว็บใดกับ AI บ้าง",
-          "หลีกเลี่ยงการใช้สรุปหน้าเว็บที่มีข้อมูลความลับภายในหรือข้อมูลส่วนบุคคลอ่อนไหวโดยไม่ได้รับอนุญาต"
-        ]
-      }
-    },
-    {
-      "id": "safety-security-intelligent-eyewear-privacy-prot-045415",
-      "title": "Designing for privacy on intelligent eyewear",
-      "url": "https://blog.google/innovation-and-ai/technology/safety-security/intelligent-eyewear-privacy-protections/",
-      "source": "Google Official Blog",
-      "published_date": "2026-11-12",
-      "published_at": "2026-11-12T14:00:00.000Z",
-      "updated_at": "2026-11-16T03:07:33.395Z",
-      "authors": [
-        "Shahram Izadi"
-      ],
-      "rss_categories": [
-        "Android",
-        "Safety & Security",
-        "XR and AR"
-      ],
-      "category": "AI Products & Ecosystem",
-      "thumbnail_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Banner_bnCZOSz.max-600x600.format-webp.webp",
-      "reading_time_minutes": 3,
-      "hook_headline": "เบื้องหลังระบบความเป็นส่วนตัวบนแว่นตาอัจฉริยะ Google Intelligent Eyewear ก่อนวางขายจริง",
-      "short_teaser": "Google เผยแนวทางออกแบบระบบรักษาความเป็นส่วนตัวและความปลอดภัยบนแว่นตา AI รุ่นใหม่ เพื่อสร้างความมั่นใจทั้งผู้สวมใส่และคนรอบข้าง",
-      "tldr_takeaways": [
-        "เปิดเผยกรอบการออกแบบ Privacy สำหรับแว่นตาอัจฉริยะที่มีกล้อง ไมโครโฟน และ AI บนตัวเครื่อง",
-        "เน้นความโปร่งใสต่อคนรอบข้าง เช่น ไฟสถานะชัดเจนเมื่อมีการบันทึกภาพหรือประมวลผล",
-        "วางมาตรการควบคุมสิทธิ์ข้อมูลและเปิดปิดเซนเซอร์ได้ทันทีจากตัวผู้สวมใส่"
-      ],
-      "layman_story": [
-        "แว่นตาอัจฉริยะที่ติดกล้องและ AI คอยมองเห็นโลกพร้อมกับเรามีประโยชน์มาก เช่น ช่วยแปลป้ายภาษาต่างประเทศหรือแนะนำเส้นทาง แต่ความกังวลใหญ่ที่สุดของสังคมตั้งแต่ยุค Google Glass คือ 'ความเป็นส่วนตัวของคนรอบข้าง'",
-        "ในบทความนี้ Google อธิบายหลักการออกแบบระบบ Privacy Protections ตั้งแต่ระดับฮาร์ดแวร์และซอฟต์แวร์บนแว่นตาอัจฉริยะรุ่นใหม่ ไม่ว่าจะเป็นสัญญาณไฟแจ้งเตือนที่มองเห็นได้ชัด การประมวลผลข้อมูลบนอุปกรณ์ (On-device) เท่าที่จำเป็น และการคุมสิทธิ์การแชร์ข้อมูลของแอป",
-        "การสื่อสารเรื่องความเป็นส่วนตัวควบคู่กับการเปิดจองแว่นตาอัจฉริยะสะท้อนว่า Google ต้องการพิสูจน์ว่าเทคโนโลยี AI Wearables รุ่นใหม่สามารถอยู่ร่วมกับสังคมได้อย่างปลอดภัยและน่าเชื่อถือ"
-      ],
-      "impact_comparison": {
-        "before": "ก่อนอัปเดต: อุปกรณ์สวมใส่มีกล้องมักถูกตั้งคำถามเรื่องการแอบบันทึกภาพและความไม่ชัดเจนในการเก็บข้อมูล",
-        "after": "หลังอัปเดต: มีมาตรฐานการออกแบบที่บังคับความโปร่งใส สัญญาณแจ้งเตือน และการควบคุมข้อมูลจากผู้ใช้โดยตรง",
-        "why_it_matters": "ความเป็นส่วนตัวคือกุญแจสำคัญที่จะชี้ชะตาว่าแว่นตา AI จะได้รับการยอมรับในชีวิตประจำวันหรือไม่"
-      },
-      "actionable_playbook": [
-        {
-          "title": "นำหลัก Privacy-by-Design ไปใช้กับแอป AI Camera/Audio",
-          "role": "สำหรับนักพัฒนาฮาร์ดแวร์ / Mobile Dev",
-          "description": "ออกแบบระบบแจ้งเตือนสถานะเซนเซอร์และการประมวลผลข้อมูลบนเครื่องให้ชัดเจนตั้งแต่ต้น",
-          "example": "แสดง Indicator ชัดเจนทุกครั้งที่แอปเปิดกล้องวิเคราะห์ภาพด้วย AI"
-        },
-        {
-          "title": "วางนโยบายการใช้งาน AI Wearables ในองค์กร",
-          "role": "สำหรับฝ่าย IT Security / HR",
-          "description": "เตรียมแนวทางกำหนดพื้นที่ห้ามบันทึกภาพหรือการใช้แว่นตาอัจฉริยะในห้องประชุมลับ",
-          "example": "อัปเดตนโยบายความปลอดภัยข้อมูลครอบคลุมอุปกรณ์ Smart Glasses รุ่นใหม่"
-        },
-        {
-          "title": "ประเมินความพร้อมก่อนเลือกซื้อแว่นตา AI",
-          "role": "สำหรับผู้บริโภค",
-          "description": "ตรวจสอบว่าอุปกรณ์มีสวิตช์ปิดกล้อง/ไมค์ และวิธีจัดการประวัติข้อมูลที่ชัดเจนเพียงพอหรือไม่",
-          "example": "อ่านคู่มือการตั้งค่า Privacy ก่อนเชื่อมต่อบัญชีหลักเข้ากับอุปกรณ์สวมใส่"
-        }
-      ],
-      "key_highlights": {
-        "whats_new": [
-          "เปิดเผยสถาปัตยกรรมและหลักการปกป้องความเป็นส่วนตัวสำหรับ Intelligent Eyewear",
-          "เน้นความโปร่งใสต่อทั้งผู้ใช้งานและบุคคลรอบข้าง"
-        ],
-        "watchouts": [
-          "กฎหมายเรื่องการบันทึกภาพในที่สาธารณะแตกต่างกันไปในแต่ละประเทศ",
-          "การใช้งานร่วมกับแอป Third-party ยังต้องคอยตรวจสอบการขอสิทธิ์เข้าถึงข้อมูล"
-        ]
-      }
     }
   ]
 }
