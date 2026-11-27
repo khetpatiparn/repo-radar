@@ -1,1420 +1,1418 @@
 {
   "today": [
     {
-      "id": "1229774092",
-      "name": "Claude-BugHunter",
-      "owner": "elementalsouls",
-      "url": "https://github.com/elementalsouls/Claude-BugHunter",
-      "stars": 24791,
-      "stars_today": 1597,
+      "id": "1133141258",
+      "name": "opensre",
+      "owner": "Tracer-Cloud",
+      "url": "https://github.com/Tracer-Cloud/opensre",
+      "stars": 16002,
+      "stars_today": 326,
       "language": "Python",
       "topics": [
-        "ai-security",
-        "anthropic",
-        "application-security",
-        "bug-bounty",
-        "bugbounty",
-        "bugcrowd",
-        "claude",
-        "claude-code",
-        "claude-skills",
-        "ethical-hacking",
-        "hackerone",
-        "offensive-security",
-        "pentesting",
-        "red-team",
-        "security-tools",
-        "web-security"
-      ],
-      "license": "MIT",
-      "open_issues": 10,
-      "one_liner": "ชุดคำสั่งและ Skill bundle สำหรับยกระดับ Claude Code ให้กลายเป็นผู้ช่วยสาย Bug Hunting และ Red Teaming ระดับมืออาชีพ",
-      "problem_solved": "นักพัฒนาสาย Security มักเสียเวลากับการทำโครงสร้างข้อมูลซ้ำๆ หรือการเปลี่ยนบริบทระหว่างเครื่องมือสแกนกับ LLM. โปรเจกต์นี้แก้ด้วยการใส่ Domain Knowledge เฉพาะทางลงไปใน Claude Code ทำให้มันรู้เทคนิคการทำ Recon, การสร้าง Payload, และการทำรายงานตามมาตรฐานที่ยอมรับได้ทันที. ช่วยลดภาระการพิมพ์คำสั่งยาวๆ และเปลี่ยนให้ LLM เป็น Operator ที่ทำงานตาม Scope ได้จริง.",
-      "alternative_comparison": "หากเทียบกับเครื่องมืออย่าง Burp Suite Extensions ทั่วไป ตัวนี้เน้นการทำ Agentic Workflow ที่เชื่อมต่อ LLM เข้ากับ Workflow การทำงานจริง ต่างจาก Extension ที่เน้นแค่การยิงสแกน; ควรเลือกใช้ตัวนี้เมื่อต้องการ Agent ที่คิดวิเคราะห์และจัดลำดับความสำคัญของช่องโหว่ได้เอง",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการจัดการ Versioning ผ่าน plugin marketplace อย่างเป็นระบบ และมีการเขียน CI pipeline เพื่อทำ smoke test ในหลาย OS อย่างชัดเจน",
-      "ai_opportunity": {
-        "monetization_idea": "ใช้สำหรับทำ Automated Triage ในโปรแกรม Bug Bounty ส่วนตัว เพื่อกรอง False Positive จากเครื่องมือสแกนก่อนส่งรายงานจริง",
-        "stack_synergy": "เข้าคู่กับ Claude Code ในการเป็นฐานหลัก, Burp Suite สำหรับทำ Traffic Proxy, และ Python สำหรับการเขียน Custom Script ต่อเชื่อมกับระบบอื่นๆ"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "มีฐานข้อมูลช่องโหว่ที่อ้างอิงจากรายงานจริงถึง 681 รายการ ช่วยให้การตัดสินใจของ LLM มีความแม่นยำทาง Security สูง",
-          "รองรับการใช้งานร่วมกับหลาย Agent Harness (OpenCode, Hermes, Gemini)"
-        ],
-        "gotchas_and_traps": [
-          "มีข้อจำกัดเรื่องความยาวของคำบรรยาย (description) ในไฟล์ SKILL.md ต้องระวังไม่ให้เกิน 1,024 ตัวอักษรตามมาตรฐานระบบ",
-          "การตั้งค่าไม่ถูกวิธีอาจทำให้เครื่องมือไม่ทำงานในสภาพแวดล้อม CI ที่ไม่มีการ mount path ที่ถูกต้อง"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "/plugin marketplace add elementalsouls/Claude-BugHunter\n/plugin install claude-bughunter@elementalsouls",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-18T04:42:47.808Z",
-      "deep_dive_paragraphs": [
-        "โปรเจกต์นี้เกิดจากความพยายามในการแก้คอขวดที่ว่า LLM ทั่วไปไม่เข้าใจบริบทลึกๆ ของงานสาย Red Team เช่น การทำ Evidence Hygiene หรือการจัดกลุ่มช่องโหว่ตามมาตรฐาน VRT. นักพัฒนาที่ต้องการทำโปรเจกต์นี้ไปใช้งานจะพบว่ามันช่วยลด 'ความว่างเปล่า' ของ LLM เมื่อเราสั่งงานด้าน Security ได้ดีมาก เพราะมันถูกสอน (ผ่าน Prompt/Skill) ให้คิดเป็นลำดับขั้นตอน (5-phase methodology) มากกว่าแค่สุ่มเดา",
-        "สถาปัตยกรรมภายในใช้สิ่งที่เรียกว่า Agent Skills ซึ่งเป็นรูปแบบไฟล์ .md ที่บรรจุทั้ง Instruction, ตัวอย่าง Payload และวิธีตรรกะการวิเคราะห์เอาไว้. โครงสร้างไฟล์ใน repo ถูกแยกตามหน้าที่อย่างชัดเจน เช่นโฟลเดอร์ engine สำหรับแกนหลัก, skills สำหรับชุดคำสั่งเฉพาะทาง, และ mcp สำหรับเชื่อมต่อกับ Burp. ตัวเครื่องมือใช้การ load อัตโนมัติตามบริบทที่คุณพิมพ์ ทำให้ไม่ต้องคอยเปิดใช้คำสั่งสลับไปมา",
-        "ในแง่ของวิศวกรรม โปรเจกต์นี้เป็นตัวอย่างที่ดีมากของการทำ modular design สำหรับ LLM. คุ้มค่ามากที่จะศึกษาโค้ดในส่วนของ `skills/` เพื่อเรียนรู้วิธีการเขียน prompt engineering ให้มีประสิทธิภาพสูงสำหรับงานเฉพาะทาง. อย่างไรก็ตาม ต้องเข้าใจว่านี่เป็นเครื่องมือเสริม ไม่ใช่เครื่องมือทดแทนความรู้ด้าน Security พื้นฐานของคุณ ดังนั้นการใช้ควรอยู่ภายใต้กรอบของจริยธรรมและการทำ Bug Bounty อย่างถูกต้องตามกติกาของแพลตฟอร์ม"
-      ],
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "การเปลี่ยน LLM ให้มีทักษะระดับ Expert Red Team โดยใช้ Skill bundle และโครงสร้างการคิดแบบเป็นระบบ",
-          "prerequisite_level": "เข้าใจพื้นฐานการใช้งาน CLI, รู้จักวิธีใช้ Claude Code (หรือ Agent Harness อื่นๆ), และมีพื้นฐานด้าน Web Security พอสมควร",
-          "worth_deep_dive": "คุ้มค่ามากสำหรับการศึกษาโครงสร้างการออกแบบ Agent ถ้าคุณสนใจเรื่อง AI Agentic workflow",
-          "context_lineage": "เป็นหนึ่งใน Ecosystem ของ Claude Code Skills ที่ออกแบบมาเพื่อรองรับงานเฉพาะทางระดับ Enterprise"
-        },
-        "glossary": [
-          {
-            "term": "VRT (Vulnerability Rating Taxonomy)",
-            "meaning": "ระบบมาตรฐานในการจัดหมวดหมู่และระดับความรุนแรงของช่องโหว่ที่ได้รับความนิยมในวงการ",
-            "analogy": "เหมือนกับระบบเรตติ้งของหนัง ที่ช่วยให้คนอ่านเข้าใจตรงกันว่าความรุนแรงระดับไหน"
-          },
-          {
-            "term": "MCP (Model Context Protocol)",
-            "meaning": "มาตรฐานการเชื่อมต่อระหว่าง LLM กับข้อมูลหรือเครื่องมือภายนอก",
-            "analogy": "เหมือนกับสาย USB ที่เอาไว้เสียบต่ออุปกรณ์ต่างๆ เข้ากับคอมพิวเตอร์"
-          },
-          {
-            "term": "Agent Harness",
-            "meaning": "สภาพแวดล้อมหรือ Platform ที่รันตัว AI Agent ของเรา",
-            "analogy": "เหมือนกับ OS หรือ Browser ที่รัน Application ของเรา"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Plugin Registration",
-            "detail": "ลงทะเบียน Skill เข้าสู่ระบบผ่าน Claude Code Marketplace เพื่อให้นามสกุลคำสั่ง (namespace) ทำงานอัตโนมัติ"
-          },
-          {
-            "step": "Context Injection",
-            "detail": "เมื่อผู้ใช้พิมพ์คำสั่ง Claude Code จะโหลด Skill ที่เกี่ยวข้องมาใส่ในบริบทการสนทนาตามคีย์เวิร์ดที่วิเคราะห์ได้"
-          },
-          {
-            "step": "Execution & Reporting",
-            "detail": "ใช้ Skill นั้นๆ ดึงเครื่องมือ (เช่น Burp หรือ OS Tools) มาทำงานตาม Methodology แล้วสรุปผลลัพธ์พร้อมทำ Evidence Hygiene"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "จำนวนทักษะ (Skills)",
-            "value": "83",
-            "context": "จำนวนทักษะเฉพาะทางที่พร้อมใช้งานภายใน Bundle"
-          },
-          {
-            "metric": "รูปแบบรายงานช่องโหว่ (Disclosed report patterns)",
-            "value": "681",
-            "context": "จำนวนฐานข้อมูลอ้างอิงจาก HackerOne ที่ใช้สอน LLM ในการวิเคราะห์"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "ติดตั้ง Claude Code (npm install -g @anthropic-ai/claude-code)",
-            "มี API Key ของ Claude/Anthropic",
-            "มีเครื่องมือพื้นฐานอย่าง Burp Suite (ถ้าต้องการใช้ MCP)"
-          ],
-          "try_it_steps": [
-            "ติดตั้ง plugin ด้วยคำสั่ง /plugin marketplace add elementalsouls/Claude-BugHunter ภายใน Claude Code",
-            "ลองพิมพ์โปรเจกต์ที่ได้รับอนุญาต (เช่น testphp.vulnweb.com) เพื่อดูว่ามันโหลดทักษะ recon ขึ้นมาอัตโนมัติหรือไม่",
-            "ใช้คำสั่ง cbh ใน terminal เพื่อสำรวจโครงสร้างและสั่งให้ตัว Agent ทำการ Scaffolding Engagement"
-          ],
-          "next_to_learn": [
-            "ศึกษาเรื่อง Agent Skills ของ Claude Code เพื่อสร้าง Skill ของตัวเอง",
-            "ศึกษาเรื่อง Vulnerability Rating Taxonomy ของ HackerOne เพื่อทำความเข้าใจการจัดระดับความรุนแรง"
-          ]
-        },
-        "source_depth": "readme_and_issues"
-      },
-      "facebook_post": "ใครเป็นสาย Bug Bounty หรือ Pentester แล้วเบื่อกับการที่ AI ช่วยงานได้ไม่สุด ต้องลองดูโปรเจกต์นี้ครับ: 'claude-bughunter'\n\nนี่ไม่ใช่แค่บอทตอบคำถามทั่วไป แต่มันคือการยัด 'ทักษะระดับ Expert' เข้าไปใน Claude Code ทำให้มันกลายเป็น Operator ที่ช่วยเรา Recon, หาช่องโหว่, และทำรายงานได้เป็นระบบ\n\nจุดเด่นที่น่าสนใจ:\n✅ มีทักษะให้ใช้ถึง 83 ชุด ครอบคลุมตั้งแต่วิธีคิดแบบ Red Team ยันการจัดการ Evidence\n✅ ใช้ฐานข้อมูลอ้างอิงจากรายงานจริงถึง 681 ฉบับ ทำให้น้อง Claude วิเคราะห์ช่องโหว่ได้คมขึ้นมาก\n✅ รองรับการเชื่อมต่อกับเครื่องมืออย่าง Burp Suite ผ่าน MCP (Model Context Protocol)\n✅ ไม่ต้องพิมพ์คำสั่งอะไรเยอะแยะ เพราะมันเลือก Skill มาให้เองตามบริบทที่เราทดสอบ\n\nเหมาะมากสำหรับคนอยากทำ Automated Workflow ให้เร็วขึ้น โดยไม่ต้องมาคอยจำคำสั่งยาวๆ หรือจัด Format รายงานเองทุกครั้ง\n\nใครลองแล้วผลเป็นไงมาแชร์กันครับ\n\n#ClaudeCode #BugBounty #RedTeam #CyberSecurity #AIAgent #Pentesting"
-    },
-    {
-      "id": "1073224795",
-      "name": "superpowers",
-      "owner": "obra",
-      "url": "https://github.com/obra/superpowers",
-      "stars": 327589,
-      "stars_today": 854,
-      "language": "Shell",
-      "topics": [
-        "ai",
-        "brainstorming",
-        "coding",
-        "obra",
-        "sdlc",
-        "skills",
-        "subagent-driven-development",
-        "superpowers"
-      ],
-      "license": "MIT",
-      "open_issues": 373,
-      "one_liner": "ชุดคำสั่งและเทคนิคที่เปลี่ยน Coding Agents ธรรมดาให้กลายเป็นระบบจัดการงานแบบมีโครงสร้างผ่าน Subagent-driven development",
-      "problem_solved": "นักพัฒนาที่ใช้ LLM มักเจอปัญหา AI ทำงานสะเปะสะปะ ขาดการวางแผนที่ชัดเจน และไม่ทำตาม Best practice อย่าง TDD หรือ YAGNI ทำให้โค้ดที่ได้มักไร้ระเบียบและเทสไม่ได้ ระบบนี้จึงเข้ามาใส่ 'Framework' ให้ Agent รู้จักขั้นตอนการคิด วิเคราะห์ และแบ่งงานเป็น Sub-task ก่อนลงมือเขียนจริง",
-      "alternative_comparison": "ต่างจาก Cursor หรือ Windsurf ตรงที่เป็น 'Plugin/Skills Layer' ที่ครอบทับบนเครื่องมือเหล่านั้นอีกทีเพื่อบังคับ Workflow ไม่ได้เป็น IDE ในตัว แต่เป็นตัวกำหนดกระบวนการคิดให้ Agent ของเราทำงานอย่างมีตรรกะมากขึ้น",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องผ่านจำนวน Issues ที่ค่อนข้างสูง (352 รายการ) และลักษณะของโปรเจกต์ที่เป็นการต่อยอดผ่าน Plugins หลากหลายแพลตฟอร์ม ทำให้ยังมีความไม่เสถียรในเชิง Integration หากใช้กับเครื่องมือหลายชนิดพร้อมกัน",
-      "ai_opportunity": {
-        "monetization_idea": "ใช้เป็นมาตรฐานการทำงานภายในทีม Solo Dev หรือ Agency ขนาดเล็ก เพื่อสร้าง Consistency ของโค้ดให้ Agent ทุกตัวทำงานภายใต้มาตรฐานเดียวกัน",
-        "stack_synergy": "เข้าคู่ได้ดีเยี่ยมกับเครื่องมือที่ใช้ LLM รุ่นใหม่ๆ เช่น Claude Code, Cursor Agent หรือ Gemini CLI เพื่อขยายขีดความสามารถในการทำ System Design"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "เปลี่ยน Agent ให้ทำงานแบบเป็นขั้นตอนชัดเจน ช่วยลดโอกาสที่ AI จะ 'มโน' หรือเขียนโค้ดมั่ว",
-          "รองรับเครื่องมือหลากหลายครอบคลุมตั้งแต่อินเตอร์เฟซ Command Line ไปจนถึง Plugin IDE หลักๆ"
-        ],
-        "gotchas_and_traps": [
-          "เป็นระบบที่เน้น 'Process' ถ้าตัว LLM พื้นฐานฉลาดไม่พอ ตัวระบบ Superpowers ก็อาจจะทำงานได้ไม่เต็มประสิทธิภาพ",
-          "การอัปเดต Plugin ของแต่ละเจ้ามีความแตกต่างกัน ต้องคอยดูแลรักษาการติดตั้งแยกตามเครื่องมือ"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "/plugin install superpowers@claude-plugins-official",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-18T04:43:07.390Z",
-      "deep_dive_paragraphs": [
-        "Superpowers เกิดขึ้นมาเพื่อแก้ปัญหาคอขวดที่ใหญ่ที่สุดของ Coding Agents ในปัจจุบัน นั่นคือ 'การขาดวินัยในการวางแผน' แทนที่ Agent จะพุ่งตัวไปเขียนโค้ดทันทีที่ได้รับคำสั่ง ตัวโปรเจกต์นี้จะบังคับให้มันหยุด คิด และสนทนากับมนุษย์เพื่อสร้าง Spec ที่ชัดเจนเสียก่อน เป็นการเปลี่ยนโหมดจากการรอคำสั่งแบบ 'Fire and Forget' ไปสู่การทำงานแบบ 'Deliberate Engineering' ที่เน้น TDD และ YAGNI",
-        "ภายใต้โครงสร้างที่เห็นใน repo โค้ดถูกจัดเก็บในรูปของ Plugin และ Skill sets ซึ่งจะไป Hook เข้ากับ CLI หรือ IDE Plugins ต่างๆ เช่น Claude Code หรือ Cursor หลักการทำงานหลักคือการใช้เทคนิค 'Subagent-driven development' ซึ่งจะแตกงานใหญ่ออกเป็นงานย่อยๆ โดยที่ Agent จะมีความสามารถในการ Review ตัวเองได้ในระดับหนึ่ง เพื่อให้มั่นใจว่าโค้ดที่ผลิตออกมาสอดคล้องกับแนวทางที่วางไว้แต่แรก",
-        "มุมมองส่วนตัวในฐานะ Engineer โปรเจกต์นี้คุ้มค่ามากสำหรับการศึกษา 'วิธีคิด' ของการทำ Autonomous Agents เพราะมันไม่ได้ขายแค่โปรดักต์ แต่ขาย 'Methodology' ข้อจำกัดที่ควรรู้คือคุณต้องเป็นคนที่เข้าใจเรื่อง SDLC และ TDD อยู่แล้วถึงจะดึงศักยภาพของมันออกมาได้สูงสุด หากคุณเป็นมือใหม่ที่หวังให้ AI กดปุ่มเดียวแล้วงานเสร็จโดยไม่รู้เรื่อง Software Engineering คุณอาจจะพบว่าสิ่งที่มันสร้างออกมาก็ยังมี Bug และ Logic พลาดได้เหมือนกัน"
-      ],
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "ใส่ระเบียบวิธีคิดแบบ Engineer ให้กับ AI Agent เพื่อป้องกันการเขียนโค้ดที่ไร้ทิศทาง",
-          "prerequisite_level": "ต้องมีความเข้าใจในกระบวนการ Software Development, TDD, และคุ้นเคยกับการใช้ Terminal/CLI เป็นหลัก",
-          "worth_deep_dive": "คุ้มค่ามากถ้าอยากเข้าใจวิธีเขียน System Prompt หรือ Plugin สำหรับควบคุม Agent ในระยะยาว",
-          "context_lineage": "ต่อยอดมาจากแนวคิดเรื่อง Multi-Agent Systems และ Agent-based Software Engineering"
-        },
-        "glossary": [
-          {
-            "term": "Subagent-driven development",
-            "meaning": "การที่ Agent หลักแตกงานออกเป็นงานย่อยแล้วส่งต่อให้ Agent ย่อยจัดการเฉพาะทาง",
-            "analogy": "เหมือนผู้จัดการโครงการที่จ้างทีม Freelance หลายคนมาช่วยทำแต่ละส่วนของงาน"
-          },
-          {
-            "term": "TDD (Test Driven Development)",
-            "meaning": "การเขียน Test ก่อนเขียนโค้ดจริง",
-            "analogy": "เหมือนการวางรากฐานบ้านให้แน่นก่อนก่ออิฐ"
-          },
-          {
-            "term": "YAGNI (You Aren't Gonna Need It)",
-            "meaning": "หลักการอย่าเพิ่งทำฟีเจอร์ถ้ายังไม่มีความจำเป็นต้องใช้จริงๆ",
-            "analogy": "เหมือนการไม่ซื้อของมาตุนล่วงหน้าจนกว่าจะรู้แน่ชัดว่าจะได้ใช้"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Brainstorming & Spec",
-            "detail": "Agent จะไม่เริ่มเขียนโค้ด แต่จะชวนคุยจนได้ความต้องการที่ชัดเจนก่อน"
-          },
-          {
-            "step": "Implementation Planning",
-            "detail": "สร้างแผนการทำงานแบบแบ่ง Chunk ที่ตรวจสอบได้ เพื่อลดความซับซ้อนของแต่ละงาน"
-          },
-          {
-            "step": "Subagent Execution",
-            "detail": "เริ่มลงมือทำทีละส่วนโดยมีการตรวจสอบ (Review) งานของตัวเองในทุกขั้นตอน"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "จำนวนทักษะ (Skills) ที่รองรับ",
-            "value": "ต้นฉบับไม่ระบุตัวเลข (แต่มีกล่าวถึงการสร้าง ZIP file สำหรับ 22 skills)",
-            "context": "เทียบกับความสามารถในการปรับแต่งและเพิ่มขีดความสามารถให้ Agent"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "ติดตั้งเครื่องมืออย่างใดอย่างหนึ่ง เช่น Claude Code หรือ Cursor",
-            "ต้องมี API Key ของ Model ที่รองรับ (เช่น Anthropic, OpenAI)"
-          ],
-          "try_it_steps": [
-            "ลองติดตั้งผ่าน Plugin Marketplace ของตัวที่คุณใช้งาน (เช่น /plugin install superpowers@claude-plugins-official ใน Claude Code)",
-            "เริ่มการสนทนาด้วยคำถามเชิง Brainstorming เพื่อทดสอบว่า Agent เข้าโหมดการทำงานของ Superpowers หรือไม่",
-            "สั่งงานให้ Agent สร้างโปรเจกต์ขนาดเล็ก (เช่น Todo list) และสังเกตการแตก Task ของมัน"
-          ],
-          "next_to_learn": [
-            "การเขียน Plugin สำหรับ AI เพื่อควบคุมพฤติกรรมในระดับลึก",
-            "ศึกษาเรื่อง Prompt Chaining และ Agentic Workflow เพื่อต่อยอดการควบคุม Agent"
-          ]
-        },
-        "source_depth": "readme_and_issues"
-      },
-      "facebook_post": "ใครที่กำลังหงุดหงิดกับการใช้ AI Coding Agent แล้วมันทำตัว 'มึน' หรือเขียนโค้ดแบบสะเปะสะปะ อยากให้ลองไปส่องโปรเจกต์ 'Superpowers' ใน GitHub ดูครับ\n\nตัวนี้ไม่ใช่แค่ Plugin ทั่วไป แต่มันคือการใส่ 'ระเบียบการคิด' เข้าไปในตัว Agent ให้มันรู้จักวางแผนก่อนเขียน (Brainstorming) และทำตามหลักวิศวกรรมซอฟต์แวร์ เช่น TDD (Test Driven Development) และ YAGNI \n\nจุดเด่น:\n- มีกลไกการทำ Subagent-driven development แตกงานใหญ่ให้เป็นงานย่อย\n- รองรับเครื่องมือดังๆ เยอะมาก ไม่ว่าจะเป็น Claude Code, Cursor, Devin, ยัน Gemini CLI\n- ช่วยลดอาการ Agent หลงทิศ หลงทางเวลาเจองานสเกลใหญ่\n\nเหมาะมากสำหรับคนที่เป็น Solo Dev ที่ต้องการให้ Agent ทำงานเสมือนมีจูเนียร์ที่ขยันและมีระบบช่วยงานเราอยู่จริงๆ ใครอยากอัปเกรด workflow ในการเขียนโปรแกรม ลองเอาไปปรับใช้ดูครับ \n\nดูรายละเอียดเพิ่มได้ที่: https://github.com/obra/superpowers\n\n#AI #CodingAgents #SoftwareEngineering #Superpowers #DevTools"
-    },
-    {
-      "id": "1176011916",
-      "name": "CLI-Anything",
-      "owner": "HKUDS",
-      "url": "https://github.com/HKUDS/CLI-Anything",
-      "stars": 66470,
-      "stars_today": 746,
-      "language": "Python",
-      "topics": [],
-      "license": "Apache-2.0",
-      "open_issues": 329,
-      "one_liner": "CLI-Anything คือโปรเจกต์ที่เปลี่ยนซอฟต์แวร์ทั่วไปให้กลายเป็น Agent-native ด้วยการสร้าง CLI layer ครอบการใช้งาน เพื่อให้ AI Agents สั่งการแอปพลิเคชันต่างๆ ได้โดยตรง",
-      "problem_solved": "นักพัฒนาที่ต้องการสร้าง AI Agent มักติดปัญหาว่าซอฟต์แวร์เดสก์ท็อปไม่มีอินเทอร์เฟซสำหรับโปรแกรมมิ่งที่เสถียร ทำให้ Agent ต้องใช้วิธี 'จิ้มหน้าจอ' แบบเปราะบาง ปัญหานี้ถูกแก้ด้วยการสร้าง CLI Harness ที่เป็นมาตรฐานเดียวกันสำหรับทุกแอป ทำให้ Agent สั่งงานผ่าน CLI ได้แม่นยำและตรวจสอบผลลัพธ์ได้จริง",
-      "alternative_comparison": "ต่างจาก MCP (Model Context Protocol) ตรงที่เน้นการสร้าง 'Command Line Harness' เพื่อคุมโปรแกรมฝั่ง Desktop โดยเฉพาะ ไม่ใช่แค่เชื่อมต่อข้อมูลผ่าน Protocol กลาง ควรเลือก CLI-Anything หากต้องการ Automate เครื่องมืออย่าง Blender, Calibre หรือ CAD tools ที่มี UI ซับซ้อน",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "แม้จะมีระบบ Test ที่แข็งแกร่ง (2,461 ผ่าน) และฟีเจอร์หลากหลาย แต่ตัวเลข Issues ที่ยังเปิดอยู่ถึง 272 รายการ และการพัฒนาที่เน้นการเพิ่ม Harness รายตัวบ่งบอกถึงสภาวะที่กำลังอยู่ในช่วงขยายตัวและทดลองใช้งานในวงกว้าง",
-      "ai_opportunity": {
-        "monetization_idea": "ใช้สร้าง Agent ช่วยทำงานในสายเฉพาะทาง เช่น สั่งงานซอฟต์แวร์สำนักพิมพ์ (Calibre) หรือซอฟต์แวร์ออกแบบ 3D เพื่อสร้างบริการจัดการไฟล์งานแบบอัตโนมัติ 100%",
-        "stack_synergy": "เข้าคู่กันได้ดีกับ Python 3.10+ และ Click CLI framework รวมถึงโปรเจกต์กลุ่ม Agent อย่าง Claude Code หรือ Cursor ที่ต้องการควบคุม Desktop environment"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "มีระบบ Harness ที่ทดสอบได้จริงด้วย Unit และ E2E tests ในแต่ละโมดูล",
-          "มี Community Registry ที่ชัดเจนและรองรับซอฟต์แวร์หลากหลาย (เช่น 3MF, Rekordbox, Calibre)"
-        ],
-        "gotchas_and_traps": [
-          "มีความเสี่ยงเรื่องความปลอดภัย (เช่น Path traversal ใน Token files) แม้จะมีการอัปเดตแก้แล้วก็ตาม",
-          "การพึ่งพา CLI-Hub และการดึงข้อมูลจากภายนอกอาจเกิดปัญหา Race condition หรือ Timeout หากไม่ได้จัดการ Lock ให้ดี"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "pip install cli-anything-hub && cli-hub install <name>",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-19T04:30:18.112Z",
-      "deep_dive_paragraphs": [
-        "ในยุคที่ AI เก่งขึ้นเรื่อยๆ คอขวดที่แท้จริงไม่ได้อยู่ที่ตัว Model แต่อยู่ที่ 'มือไม้' ของ Agent ที่จะไปสั่งซอฟต์แวร์เก่าๆ บนเดสก์ท็อปให้นั่งกดเอง CLI-Anything เข้ามาแก้ปัญหานี้โดยการสร้างชั้น Wrapper ที่เป็น CLI มาตรฐาน เพื่อให้ Agent ไม่ต้องเดาสุ่มกด UI แต่เป็นการสั่งงานผ่านคำสั่งที่ออกแบบมาเป็นระบบ",
-        "ในเชิงสถาปัตยกรรม โปรเจกต์นี้ใช้โครงสร้างโมดูลาร์สูง โดยเก็บ Harness ไว้ในไดเรกทอรีแยกตามแอปพลิเคชัน (เช่น /blender, /calibre) แต่ละส่วนประกอบด้วยการจัดการสถานะ (Session state), การสื่อสารผ่าน JSON และการใช้ Click CLI เพื่อเป็น API ปลายทางให้ AI Agent เรียกใช้งาน ข้อดีคือเมื่อมีปัญหา จะกระทบแค่ตัว Harness นั้นๆ ไม่พังทั้งระบบ",
-        "ในฐานะ Engineer ที่มองหาเครื่องมือช่วยงาน ผมมองว่าโปรเจกต์นี้คุ้มค่าที่จะอ่านโค้ดเพื่อเรียนรู้วิธีการออกแบบ Interface ให้ AI แต่ต้องระวังเรื่อง 'ความเสถียร' เพราะเป็นโปรเจกต์ที่ยังเติบโตเร็วและอาจมีบั๊กจาก Race conditions ในการจัดการไฟล์ หรือ Timeout จากการเรียกใช้ Backend ที่ไม่นิ่ง"
-      ],
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "เปลี่ยนซอฟต์แวร์ UI ให้รองรับคำสั่งจาก AI ผ่าน CLI เพื่อให้ Agent ใช้งานแอปพลิเคชันเดสก์ท็อปได้เหมือนมนุษย์",
-          "prerequisite_level": "ต้องเข้าใจพื้นฐาน Python, คุ้นเคยกับ Click framework และพอเข้าใจวิธีที่ LLM ใช้ Tool calling",
-          "worth_deep_dive": "คุ้มค่ามากสำหรับการศึกษา Patterns การเขียน CLI สำหรับ Agent",
-          "context_lineage": "เป็นหนึ่งในคลื่นของ Agentic Workflow ที่เปลี่ยนจากแค่แชท เป็นการลงมือทำจริง (Doing Agent)"
-        },
-        "glossary": [
-          {
-            "term": "Harness",
-            "meaning": "คือชุดโค้ดที่ทำหน้าที่ครอบโปรแกรมต้นทาง เพื่อเปลี่ยนให้เป็น Interface ที่คอมพิวเตอร์ (Agent) สั่งงานได้ง่าย",
-            "analogy": "เปรียบเหมือน 'รีโมทคอนโทรล' ที่ออกแบบมาให้หุ่นยนต์กดได้แม่นกว่านิ้วคน"
-          },
-          {
-            "term": "MCP",
-            "meaning": "Model Context Protocol เป็นมาตรฐานกลางที่ช่วยให้ AI เชื่อมต่อกับข้อมูลและ Tools ได้แบบปลั๊กแอนด์เพลย์",
-            "analogy": "เหมือนปลั๊กไฟมาตรฐานที่เสียบเครื่องใช้ไฟฟ้าได้ทุกยี่ห้อ"
-          },
-          {
-            "term": "Click",
-            "meaning": "Python library สำหรับสร้าง CLI application ที่มีความสามารถสูงและใช้งานง่าย",
-            "analogy": "เป็นเครื่องมือหลักที่ใช้สร้างคำสั่งบน Terminal ให้ดูเป็นมืออาชีพ"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "การทำ Harness",
-            "detail": "เขียน Python script ครอบฟังก์ชันของซอฟต์แวร์เป้าหมายโดยใช้ Click CLI"
-          },
-          {
-            "step": "Registry & Hub",
-            "detail": "ลงทะเบียน Harness ผ่าน Registry เพื่อให้ Agent ค้นหาและติดตั้งคำสั่งเหล่านั้นได้"
-          },
-          {
-            "step": "Execution Loop",
-            "detail": "Agent สั่งผ่าน CLI, โปรแกรมทำงานจริงใน Background และส่ง Output กลับเป็น JSON"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "จำนวนการทดสอบที่ผ่าน (Passing tests)",
-            "value": "2,461",
-            "context": "เป็นผลลัพธ์จากการรันชุดทดสอบที่ครอบคลุมถึงระดับ E2E"
-          },
-          {
-            "metric": "ความต้องการ Python version",
-            "value": "≥3.10",
-            "context": "เป็นข้อกำหนดขั้นต่ำสำหรับการติดตั้งและใช้งาน"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Python 3.10 ขึ้นไป",
-            "พื้นฐานการใช้ pip เพื่อติดตั้ง package"
-          ],
-          "try_it_steps": [
-            "รัน 'pip install cli-anything-hub' เพื่อติดตั้งตัวจัดการ Hub หลัก",
-            "ทดลองใช้คำสั่ง 'cli-hub install <name>' โดยเลือกชื่อแอปที่ต้องการจาก Registry เพื่อดูวิธีที่มันดาวน์โหลด Harness ลงมา",
-            "ลองอ่านโฟลเดอร์ใน /calibre หรือ /3MF เพื่อดูวิธีการเขียนไฟล์ CLI Wrapper ว่าใช้ Click framework อย่างไร"
-          ],
-          "next_to_learn": [
-            "ศึกษาเรื่อง Click framework documentation สำหรับการสร้าง Command-line interface",
-            "ศึกษาเรื่อง MCP (Model Context Protocol) เพื่อทำความเข้าใจการเชื่อมต่อ AI เข้ากับระบบภายนอก"
-          ]
-        },
-        "source_depth": "readme_and_issues"
-      },
-      "facebook_post": "ใครที่กำลังทำ AI Agent แล้วติดปัญหา 'อยากสั่งซอฟต์แวร์เดสก์ท็อปให้ทำงานแทน แต่ดันทำไม่ได้เพราะมันไม่มี API' ต้องดูโปรเจกต์นี้ครับ!\n\nCLI-Anything คือโปรเจกต์ที่เปลี่ยนโปรแกรมทั่วไปบนเครื่อง ให้กลายเป็น Agent-native! หลักการง่ายมาก คือการเขียน 'CLI Harness' ครอบแอปพลิเคชันเดิม เพื่อให้ AI Agent สามารถสั่งงานผ่าน Terminal ได้โดยตรง ไม่ต้องเดาคลิกหน้าจอเอง\n\nจุดที่น่าสนใจ:\n✅ มีระบบ Harness ให้ลองเล่นเยอะมาก (Blender, Calibre, 3MF และอื่นๆ)\n✅ ทดสอบมาแล้วกว่า 2,461 Test cases (มี E2E test ด้วย)\n✅ รองรับการติดตั้งผ่าน CLI-Hub ที่จัดการง่ายมาก\n\nเหมาะสำหรับคนสาย Automate ที่อยากเห็น AI ลงมือทำอะไรที่ซับซ้อนกว่าแค่แชท ใครสาย Python หรือชอบทำ Agent ควรค่าแก่การเข้าไปส่องโค้ดดูโครงสร้างการทำ Harness มากครับ!\n\n🔗 https://github.com/HKUDS/CLI-Anything\n\n#AI #Agents #Python #CLIAnything #SoftwareEngineering #Automation"
-    },
-    {
-      "id": "834369920",
-      "name": "minimind",
-      "owner": "jingyaogong",
-      "url": "https://github.com/jingyaogong/minimind",
-      "stars": 71771,
-      "stars_today": 702,
-      "language": "Python",
-      "topics": [
-        "artificial-intelligence",
-        "large-language-model"
-      ],
-      "license": "Apache-2.0",
-      "open_issues": 67,
-      "one_liner": "MiniMind คือโปรเจกต์โอเพนซอร์สที่สอนสร้างและฝึกสอน LLM ขนาดเล็ก (64M) ตั้งแต่ศูนย์ด้วย PyTorch โดยไม่ใช้ Library สำเร็จรูป เพื่อให้เข้าใจกลไกภายในของ AI อย่างแท้จริง",
-      "problem_solved": "นักพัฒนาส่วนใหญ่ติดอยู่ในกับดักของการเรียกใช้ API หรือใช้ Framework สำเร็จรูปที่ปกปิดการทำงานของอัลกอริทึมไว้ใต้ชั้นนามธรรมสูงๆ ทำให้ไม่เข้าใจว่าโมเดลเรียนรู้อย่างไร โปรเจกต์นี้แก้ปัญหานี้โดยการเขียนโค้ดตั้งแต่วงจร Pretrain, SFT จนถึง RLHF ด้วย PyTorch ดิบๆ เพื่อเปิด 'Black Box' ให้เห็นเนื้อในของ Transformer",
-      "alternative_comparison": "หากใช้ Transformers/TRL จะเน้นความเร็วในการใช้งานแต่เสียโอกาสเรียนรู้โครงสร้าง ในขณะที่ MiniMind เน้นการศึกษาเชิงลึกเหมือนการสร้างเครื่องยนต์จากชิ้นส่วนเหล็กเอง เหมาะสำหรับคนอยากเป็น AI Engineer ที่เข้าใจระดับ Kernel และ Architecture มากกว่าแค่คนใช้เครื่องมือ",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "โครงการนี้จัดเป็นสื่อการสอนเพื่อการเรียนรู้มากกว่าระบบที่พร้อมนำไปใช้จริงในระดับ Enterprise (Production) โดยมีจุดประสงค์หลักเพื่อการทดลองและสร้างความเข้าใจในกลไก AI เท่านั้น",
-      "ai_opportunity": {
-        "monetization_idea": "ใช้เป็นฐานในการสร้าง 'Custom Domain-Specific Model' ขนาดเล็กที่รันได้บน Edge Device โดยไม่ต้องพึ่งพาคลาวด์ หรือใช้ในการเรียนรู้เพื่อเขียนฟีเจอร์ปรับแต่งอัลกอริทึมเองเพื่อเพิ่มประสิทธิภาพงานเฉพาะทาง",
-        "stack_synergy": "เข้าคู่กับ Python, PyTorch (Native), Hugging Face (สำหรับการโหลด Dataset), และเครื่องมือติดตามผลอย่าง SwanLab หรือ WandB"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "ไม่ต้องพึ่งพา Wrapper library หนักๆ ทำให้เห็นการคำนวณ Tensor ทุกจุด",
-          "มี Workflow ครบวงจรตั้งแต่ Pretrain, SFT, DPO ไปจนถึง Agentic RL"
-        ],
-        "gotchas_and_traps": [
-          "เป็นโปรเจกต์เพื่อการศึกษา โค้ดบางส่วนอาจมีความซับซ้อนในระดับวิจัยที่ต้องการความเข้าใจคณิตศาสตร์ขั้นสูง",
-          "การฝึกเทรนโมเดลด้วยตัวเองแม้จะเล็ก แต่ยังคงต้องใช้ความรู้เรื่อง Hardware และ Memory Management เพื่อไม่ให้เกิด Memory Leak หรือ Loss ระเบิด"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "pip install -r requirements.txt",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-20T04:17:31.527Z",
-      "deep_dive_paragraphs": [
-        "ในยุคที่ LLM ถูกครอบงำด้วย API จากบริษัทใหญ่ ปัญหาคอขวดที่นักพัฒนาส่วนใหญ่เจอคือการเป็นได้เพียงแค่ 'User' ของ Model เท่านั้น โปรเจกต์ MiniMind เข้ามาแก้ไขปัญหานี้โดยการท้าทายแนวคิดเดิมๆ ที่ว่าการสร้างโมเดลต้องใช้ทรัพยากรมหาศาล ด้วยการออกแบบโครงสร้างที่เรียบง่ายแต่ทรงพลัง (Mini-Architecture) เพื่อให้ Developer เข้าใจว่า Parameter แต่ละตัวถูกอัปเดตอย่างไรในระหว่างการ Training",
-        "ภายใต้โครงสร้างของโปรเจกต์ มีการเขียน PyTorch ตั้งแต่ระดับต้น (From Scratch) ซึ่งแสดงให้เห็นถึงโครงสร้างที่เป็น Dense และ MoE (Mixture of Experts) ที่จำลองโครงสร้างของ Qwen3/Qwen3-MoE ซึ่งถือว่าเป็นมาตรฐานอุตสาหกรรมในปัจจุบัน โค้ดในโฟลเดอร์ trainer และ model สะท้อนให้เห็นถึงวงจรของ Data Loading, การทำ Tokenization แบบ BPE + ByteLevel ไปจนถึงเทคนิค RoPE และการทำ RLHF ด้วย GRPO/CISPO ที่ทันสมัยที่สุด",
-        "ในแง่ของความคุ้มค่า นี่คือ 'เหมืองทอง' สำหรับใครที่อยากจะก้าวข้ามจากการเป็นแค่ผู้ใช้ API มาเป็นคนสร้างโมเดล ความรู้ที่ได้จากการไล่โค้ดในโปรเจกต์นี้ประเมินค่าไม่ได้ แต่ต้องระวังว่ามันเป็นโปรเจกต์เพื่อการเรียนรู้ (Education-First) การเอาไปประยุกต์ใช้งานจริง (Production) อาจจะต้องผ่านการ Test และ Validate ในระดับที่เข้มข้นกว่านี้มาก หากคุณมีเวลา 2-3 วัน นี่คือสิ่งที่ควรค่าแก่การขลุกตัวอยู่ด้วยมากที่สุดใน GitHub ขณะนี้"
-      ],
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "เป็นการเผยแพร่โค้ดการสร้างโมเดลภาษา (LLM) ขนาดเล็กแบบ Full-stack ตั้งแต่ศูนย์ด้วย PyTorch",
-          "prerequisite_level": "ต้องมีความเข้าใจ Python, พื้นฐาน Neural Network (Linear Algebra, Backpropagation) และเคยใช้งานหรือเข้าใจโครงสร้าง Transformer มาก่อน",
-          "worth_deep_dive": "คุ้มค่ามากสำหรับคนที่อยากเปลี่ยนจากคนใช้งาน LLM เป็นนักพัฒนา AI ที่แท้จริง",
-          "context_lineage": "เป็นโปรเจกต์ที่ถอดรหัส (Replicate) แนวคิดโมเดลตระกูล Qwen และ LLM สมัยใหม่ มาให้อยู่ในขนาดที่รันบน GPU บ้านๆ ได้"
-        },
-        "glossary": [
-          {
-            "term": "MoE (Mixture of Experts)",
-            "meaning": "เทคนิคการแบ่งโมเดลออกเป็นส่วนเล็กๆ และเลือกใช้เฉพาะส่วนที่จำเป็นต่อการประมวลผลคำถามนั้นๆ",
-            "analogy": "เหมือนการมีผู้เชี่ยวชาญหลายคน แต่ละคนตอบเฉพาะเรื่องที่ตัวเองถนัด ทำให้ประหยัดพลังงานมากกว่าใช้คนเดียวตอบทุกอย่าง"
-          },
-          {
-            "term": "SFT (Supervised Fine-Tuning)",
-            "meaning": "การปรับจูนโมเดลด้วยชุดข้อมูลคำถาม-คำตอบที่มีเฉลย เพื่อให้โมเดลตอบได้ตรงใจผู้ใช้",
-            "analogy": "เปรียบเหมือนการติวหนังสือให้เด็กนักเรียนด้วยเฉลยข้อสอบเพื่อให้เขาเข้าใจวิธีตอบคำถาม"
-          },
-          {
-            "term": "RLAIF (Reinforcement Learning from AI Feedback)",
-            "meaning": "การใช้โมเดล AI อีกตัวช่วยให้คะแนนเพื่อปรับจูนโมเดลเป้าหมาย แทนที่จะใช้คนให้คะแนน",
-            "analogy": "เหมือนให้ครูอีกคนมาช่วยตรวจการบ้านแทนอาจารย์ใหญ่เพื่อความรวดเร็วและเป็นระบบ"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Pretraining (Data Preparation)",
-            "detail": "โมเดลจะเรียนรู้ภาษาจาก Raw Text จำนวนมหาศาลโดยการคาดเดาคำถัดไป (Next Token Prediction) จนเกิดความเข้าใจโครงสร้างประโยค"
-          },
-          {
-            "step": "SFT (Supervised Fine-Tuning)",
-            "detail": "นำโมเดลที่ผ่าน Pretrain มาฝึกด้วยข้อมูลที่เป็นรูปแบบคำสั่ง (Instruction Tuning) เพื่อให้สื่อสารกับมนุษย์ได้"
-          },
-          {
-            "step": "RLAIF / DPO (Alignment)",
-            "detail": "ใช้เทคนิค Reinforcement Learning ปรับจูนให้โมเดลตอบในรูปแบบที่ปลอดภัยและน่าเชื่อถือมากขึ้น (Align with human preference)"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "ขนาดโมเดล MiniMind-3",
-            "value": "64M parameters",
-            "context": "เทียบกับโมเดล GPT-3 ที่มีขนาดใหญ่กว่าถึง 2700 เท่า"
-          },
-          {
-            "metric": "เวลาและต้นทุนการเทรน",
-            "value": "2 ชั่วโมง / 3 บาท",
-            "context": "เป็นการวัดผล SFT ใน 1 epoch บนการเช่า GPU NVIDIA 3090"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Python 3.x",
-            "GPU ที่มี VRAM เพียงพอ (แนะนำ NVIDIA 3090 ตามต้นฉบับ)",
-            "PyTorch (ติดตั้งผ่าน pip ตาม requirements.txt)"
-          ],
-          "try_it_steps": [
-            "1. ติดตั้งสภาพแวดล้อมโดยใช้ `pip install -r requirements.txt` เพื่อเตรียม Library ที่จำเป็น",
-            "2. รันสคริปต์เทรนโมเดลในโฟลเดอร์ trainer/ เพื่อดูว่าโมเดลเริ่มเรียนรู้จากการคำนวณ Loss อย่างไร",
-            "3. ใช้งาน `web_demo.py` เพื่อทดสอบผลลัพธ์ของโมเดลที่ฝึกเสร็จแล้วผ่าน UI ที่รองรับการ Chat"
-          ],
-          "next_to_learn": [
-            "DeepSpeed / DDP (Data Parallelism) เพื่อเพิ่มความเร็วในการเทรนเมื่อมี GPU หลายใบ",
-            "ศึกษาเรื่อง Tokenizer เพื่อเข้าใจว่าเราเปลี่ยนคำให้เป็นตัวเลขให้โมเดลประมวลผลได้อย่างไร"
-          ]
-        },
-        "source_depth": "readme_and_issues"
-      },
-      "facebook_post": "ใครอยากรู้ว่า 'กล่องดำ' ของ LLM ข้างในมันทำงานยังไงกันแน่? อยากให้ลองดูโปรเจกต์ MiniMind ครับ!\n\nนี่คือโปรเจกต์ที่ไม่ได้แค่สอนให้เราเรียก API เป็น แต่สอนตั้งแต่การเขียนโค้ดสร้าง LLM ขนาดจิ๋วขึ้นมาตั้งแต่ศูนย์ (From Scratch) ด้วย PyTorch โดยตัดความซับซ้อนของ Library สำเร็จรูปออกไป เพื่อให้เห็นเนื้อในจริงๆ\n\nจุดเด่นที่น่าสนใจ:\n✅ ฝึกเทรนได้ตั้งแต่ Pretrain, SFT, จนถึง RLHF (DPO/PPO)\n✅ โครงสร้างโมเดลทันสมัย (Qwen3/MoE architecture)\n✅ เน้นความคุ้มค่า: ใช้เวลาเทรนแค่หลักชั่วโมง และค่าเช่า GPU หลักไม่กี่บาท\n\nเหมาะสำหรับ Developer ที่อยากก้าวข้ามจากการเป็นผู้ใช้ มาเป็นผู้สร้าง AI อย่างแท้จริงครับ ใครที่อยากลองรื้อโครงสร้าง Transformer แนะนำเลย!\n\nอ่านรายละเอียดเพิ่มเติมได้ที่: https://github.com/jingyaogong/minimind\n\n#MiniMind #LLM #PyTorch #ArtificialIntelligence #LearnAI #Programming"
-    },
-    {
-      "id": "1140229822",
-      "name": "plugins",
-      "owner": "cursor",
-      "url": "https://github.com/cursor/plugins",
-      "stars": 19816,
-      "stars_today": 270,
-      "language": "TypeScript",
-      "topics": [],
-      "license": null,
-      "open_issues": 707,
-      "one_liner": "แหล่งรวม Plugin มาตรฐานสำหรับ Cursor IDE เพื่อช่วยให้ AI Coding Agent ทำงานได้ลึกและแม่นยำขึ้นผ่าน Workflow ที่ออกแบบมาโดยเฉพาะ",
-      "problem_solved": "ปัญหาหลักคือนักพัฒนาต้องเจอกับ AI ที่ขาดบริบทลึกๆ ของโปรเจกต์และทำงานซ้ำซากไม่เป็นระบบ ซึ่ง Cursor Plugins เข้ามาแก้ด้วยการสร้าง Agent สภาพแวดล้อมเฉพาะทาง (เช่น การทำ PR Review, การทำ Memory, หรือการทดสอบแบบ Parallel) ที่ Agent สามารถเรียกใช้ได้ทันทีโดยไม่ต้องตั้งค่าใหม่ทุกครั้ง",
-      "alternative_comparison": "ต่างจาก VS Code Extensions ทั่วไปตรงที่เป็น 'Agent-first' ซึ่งเน้นการสั่งการ Agent ให้ทำตาม Flow (เช่นการแก้โค้ดแบบ Iterative) แทนที่จะเป็นแค่ UI Widgets ส่วน VS Code เน้น Extensibility ของ Editor, Cursor เน้น Capability ของ AI Model ในการจัดการ Repository",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "แม้จะมี Plugin จำนวนมากจาก Cursor ทีมหลัก แต่การจัดการ License ยังไม่ชัดเจน (None) และมี Open Issues สูงถึง 686 รายการ ซึ่งสะท้อนว่าเป็นโปรเจกต์ที่อยู่ในช่วงเร่งพัฒนาและทดลองฟีเจอร์ใหม่ๆ",
-      "ai_opportunity": {
-        "monetization_idea": "สร้าง Internal Plugin ในบริษัทเพื่อทำ Automated Security Audit หรือ Standardized PR Review ที่ดึงข้อมูลจากเครื่องมือภายในทีมโดยตรง",
-        "stack_synergy": "TypeScript SDK, Cursor IDE Environment, และ LLM API สำหรับสร้าง Agent Skills"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "มี Workflow สำเร็จรูปสำหรับงานยากๆ เช่น Deep Security Audit (Thermos) และการทำ Self-referential loop (Ralph Loop)",
-          "รองรับการเชื่อมต่อกับ Third-party Tools หลากหลายตั้งแต่ Gmail ไปจนถึง Salesforce ทำให้ Agent ทำงานนอก IDE ได้"
-        ],
-        "gotchas_and_traps": [
-          "Issues ค่อนข้างเยอะและบาง Plugin อาจติดตั้งลำบากหรือเจอปัญหา Auth (ตามที่เห็นใน Issue ของ Tailscale)",
-          "เอกสารการเขียน Plugin ของตัวเองยังมีค่อนข้างจำกัดและต้องอาศัยการแกะโค้ดจาก Plugin ตัวอย่าง"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "git clone https://github.com/cursor/plugins.git && cd plugins",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-18T04:43:00.358Z",
-      "deep_dive_paragraphs": [
-        "Cursor Plugins เกิดขึ้นมาเพื่อปิดช่องว่างระหว่าง 'การแชทกับ AI' และ 'การทำโปรเจกต์จริงให้สำเร็จ' ปัญหาของนักพัฒนาส่วนใหญ่คือ Agent ทั่วไปไม่มีบริบทของธุรกิจ หรือทำได้แค่แก้ทีละจุด (Symptom patches) โปรเจกต์นี้จึงเปลี่ยนผ่านจากการเป็นแค่ Chatbot มาเป็นระบบที่ Agent สามารถถือ 'Skills' ไปใช้จัดการ Pipeline งานจริง เช่น การอ่าน GitHub Issues, การตรวจสอบความปลอดภัย, หรือแม้แต่การทำ Voice Control",
-        "สถาปัตยกรรมภายในใช้แนวคิดของ Plugin Manifest (plugin.json) ซึ่งเป็นจุดเชื่อมต่อให้ Cursor IDE โหลดความสามารถเหล่านั้นเข้ามาเพิ่ม ตัว Plugin แต่ละตัวใน repo นี้ทำหน้าที่เป็น 'Skill' ให้ Agent เช่น `pstack` ที่เน้นการทำงานแบบ Deep First หรือ `orchestrate` ที่ทำหน้าที่เป็นตัวจัดการกระจายงาน (Fan-out) ให้ Agent ย่อยหลายตัวทำงานขนานกันแล้วค่อยรวมผลลัพธ์ เป็นโครงสร้างที่ออกแบบมาเพื่อลด Cognitive Load ของมนุษย์ในการคุม Agent เอง",
-        "สำหรับการนำไปใช้งานจริง ถือว่ามีประโยชน์มากสำหรับสาย Solo Dev หรือทีมขนาดเล็กที่อยากเพิ่มประสิทธิภาพการทำ Automation แต่ต้องเผื่อใจไว้ว่ามันยังเป็น Experimental การอ่านโค้ดใน `cursor-sdk` จะช่วยให้เข้าใจวิธีที่ Agent ดึงข้อมูลจาก Repository มาใช้จริงๆ แนะนำให้เริ่มศึกษาจาก Plugin ตัวเล็กๆ อย่าง `teaching` หรือ `create-plugin` เพื่อดูวิธีเขียนโค้ดสำหรับขยายขีดความสามารถของ Agent แทนการพยายามใช้ Plugin ใหญ่ๆ ที่ซับซ้อนในทันที"
-      ],
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "เป็นการเปลี่ยน Cursor ให้กลายเป็น Agentic IDE ที่รัน Workflow ซับซ้อนได้ผ่านชุดคำสั่งและเครื่องมือเสริม",
-          "prerequisite_level": "ต้องคุ้นเคยกับ TypeScript และโครงสร้างของ Node.js/CLI เครื่องมือ",
-          "worth_deep_dive": "คุ้มค่ามากสำหรับคนที่ต้องการสร้าง Workflow AI ของตัวเองให้เป็นระบบในระยะยาว",
-          "context_lineage": "ต่อยอดจากแนวคิดเรื่อง AI Agentic Workflow ที่พัฒนาขึ้นมาจากข้อจำกัดของ LLM พื้นฐาน"
-        },
-        "glossary": [
-          {
-            "term": "Agentic Workflow",
-            "meaning": "ระบบที่ AI สามารถทำงานต่อเนื่องหลายขั้นตอนด้วยตัวเองเพื่อบรรลุเป้าหมาย",
-            "analogy": "เหมือนมีหัวหน้าทีมที่เป็น AI คอยแบ่งงานให้ลูกน้องและตรวจสอบงานให้เสร็จ"
-          },
-          {
-            "term": "Skill-only Plugin",
-            "meaning": "Plugin ที่เพิ่มความสามารถเชิงคำสั่งหรือทักษะให้ Agent ใช้งานได้โดยไม่ต้องมี UI",
-            "analogy": "เหมือนการติดตั้ง Extension เพิ่มให้เครื่องมือช่างที่ใช้อยู่"
-          },
-          {
-            "term": "Manifest",
-            "meaning": "ไฟล์ json ที่กำหนดคุณสมบัติและการทำงานของ Plugin นั้นๆ",
-            "analogy": "เหมือนคู่มือประจำตัวที่บอกว่าเครื่องนี้ทำอะไรได้บ้างก่อนจะเริ่มสตาร์ท"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Manifest Loading",
-            "detail": "Cursor อ่านไฟล์ plugin.json ในโฟลเดอร์ Plugin เพื่อลงทะเบียนคำสั่ง (Skills) เข้าสู่ Context ของ Agent"
-          },
-          {
-            "step": "Skill Invocation",
-            "detail": "เมื่อผู้ใช้สั่งการที่เกี่ยวข้อง Agent จะเรียกใช้ logic ในไฟล์ TypeScript ที่ Plugin นั้นจัดเตรียมไว้"
-          },
-          {
-            "step": "Agent Hand-off",
-            "detail": "Plugin ประสานงานกับ LLM เพื่อรันงานเป็นขั้นตอน (Planner -> Worker -> Verifier) ตาม Workflow ของ Plugin"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "จำนวน Plugins ใน repo",
-            "value": "ต้นฉบับไม่ระบุตัวเลข (มีรายการแสดงในตาราง README ครอบคลุมตั้งแต่องค์กรจนถึง Productivity)",
-            "context": "เทียบกับความหลากหลายของ Ecosystem ที่ครอบคลุมงานหลายหมวดหมู่"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Cursor IDE ติดตั้งในเครื่อง",
-            "Node.js พร้อมใช้งาน"
-          ],
-          "try_it_steps": [
-            "Clone repo นี้ลงเครื่องเพื่อศึกษารูปแบบโฟลเดอร์และการตั้งค่าใน .cursor-plugin/plugin.json",
-            "ลองใช้ `create-plugin` เพื่อ scaffold plugin ส่วนตัวดูว่า Cursor สามารถมองเห็นและโหลด Plugin ที่เราสร้างเองได้หรือไม่",
-            "ลองอ่านโค้ดในโฟลเดอร์ `pstack` เพื่อเรียนรู้วิธีจัดการงานที่ต้องรันแบบขนาน (Parallel workflow)"
-          ],
-          "next_to_learn": [
-            "อ่านเอกสาร Cursor SDK เพื่อรู้วิธีสื่อสารกับ AI รุ่นต่างๆ ผ่านโค้ด",
-            "ศึกษาเรื่อง Agent Architecture (Planner-Worker pattern) เพื่อเข้าใจเบื้องหลังการ Orchestrate งาน"
-          ]
-        },
-        "source_depth": "readme_and_issues"
-      },
-      "facebook_post": "ใครใช้ Cursor IDE ต้องดูตัวนี้! GitHub repo 'cursor/plugins' คือขุมทรัพย์ของเหล่า Agent ที่ช่วยเปลี่ยนการเขียนโค้ดธรรมดาให้เป็นระบบอัตโนมัติแบบจริงจัง\n\nโปรเจกต์นี้ไม่ใช่แค่ Plugin แต่มันคือ 'Skills' ที่เรายัดใส่ให้ Cursor เพื่อให้มันทำงานที่ยุ่งยากแทนเราได้ เช่น:\n✅ ทำ PR Review แบบละเอียด (Thermos)\n✅ ทำงานแบบ Iterative Loop ด้วยตรรกะ AI (Ralph Loop)\n✅ เชื่อมต่อข้อมูลจากเครื่องมืออื่นๆ อย่าง Gmail, Jira, หรือ Salesforce\n\nเหมาะมากสำหรับใครที่อยากสร้าง Workflow การทำงานของตัวเองให้ AI เข้าไปช่วยจัดการตั้งแต่ต้นจนจบ ไม่ว่าจะเป็นการ Test, Review หรือจัดการ Memory ของโปรเจกต์\n\nใครเป็นสาย Dev ที่อยากลองทำ Agentic Workflow ลอง Clone ไปแกะโค้ดดูครับ ของดีที่แอบซ่อนอยู่เพียบ!\n\n#CursorIDE #AIAgent #DeveloperTools #TypeScript #CodingWorkflow"
-    },
-    {
-      "id": "787076358",
-      "name": "firecrawl",
-      "owner": "firecrawl",
-      "url": "https://github.com/firecrawl/firecrawl",
-      "stars": 211051,
-      "stars_today": 1046,
-      "language": "TypeScript",
-      "topics": [
-        "ai",
-        "ai-agents",
-        "ai-crawler",
-        "ai-scraping",
-        "ai-search",
-        "crawler",
-        "data-extraction",
-        "html-to-markdown",
+        "alerting",
+        "ci-cd",
+        "cli",
+        "datadog",
+        "devops",
+        "gitlab-ci",
+        "grafana",
+        "incident-management",
         "llm",
-        "markdown",
-        "scraper",
-        "scraping",
-        "web-crawler",
-        "web-data",
-        "web-data-extraction",
-        "web-scraper",
-        "web-scraping",
-        "web-search",
-        "webscraping"
+        "observability",
+        "ollama",
+        "remediation",
+        "root-cause-analysis",
+        "site-reliability-engineering",
+        "slack"
       ],
-      "license": "AGPL-3.0",
-      "open_issues": 930,
-      "one_liner": "Firecrawl คือโครงสร้างพื้นฐานสำหรับแปลงข้อมูลจากเว็บไซต์ให้อยู่ในรูปแบบ Markdown ที่สะอาดและพร้อมสำหรับนำไปใช้งานกับ AI Agents หรือ LLMs โดยตรง",
-      "problem_solved": "นักพัฒนาส่วนใหญ่เสียเวลาไปกับการเขียน Scraper รายเว็บไซต์เพื่อจัดการกับความซับซ้อนของ DOM และ JavaScript rendering ที่ไม่คงที่ งานนี้จึงเปลี่ยนหน้าเว็บเหล่านั้นให้กลายเป็น Markdown ที่เป็นระเบียบโดยอัตโนมัติ ช่วยให้ LLM เข้าใจเนื้อหาได้ดีขึ้นและประหยัด Token ในการประมวลผลข้อมูลขยะ",
-      "alternative_comparison": "หากเทียบกับ Scrapy หรือ Puppeteer ตัว Firecrawl เน้นที่ 'Output พร้อมสำหรับ AI' มากกว่าแค่การดึง raw HTML และยังมีโหมด Local ที่รันเป็น CLI ได้เลยในเครื่อง ส่วนเครื่องมือดั้งเดิมคุณต้องบริหารจัดการ Browser instance และการ Clean ข้อมูลเองทั้งหมด",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "ได้รับความนิยมสูงใน GitHub มีการจัดการโครงสร้างโปรเจกต์ที่ซับซ้อนชัดเจนทั้งส่วน Client, Server และ CLI รวมถึงมีระบบจัดการคิวและ Redis สำหรับรองรับการใช้งานระดับ Scale",
+      "license": "Apache-2.0",
+      "open_issues": 31,
+      "one_liner": "OpenSRE คือ CLI Agent สาย Open-source ที่เข้ามาช่วยวิเคราะห์และเสนอวิธีแก้ปัญหาเมื่อ CI/CD พัง หรือเกิด Incident ในระบบ Infrastructure โดยใช้โมเดลที่คุณควบคุมเอง",
+      "problem_solved": "นักพัฒนาต้องเสียเวลาไปกับการไล่ดู log ตอน build พัง หรือต้องรอคิวให้ Senior มาวิเคราะห์ปัญหาซ้ำๆ ซึ่งเสียเวลาและบั่นทอนความเร็วในการส่งมอบงาน โปรเจกต์นี้จึงสร้าง Agent ขึ้นมาอ่าน log ทำความเข้าใจบริบท และเสนอ Fix ที่ให้มนุษย์ตัดสินใจกดรีวิวแก้ได้ทันที เปลี่ยนจากการเสียเวลา Rerun CI แบบสุ่มสี่สุ่มห้า เป็นการแก้ไขที่ต้นเหตุของปัญหา",
+      "alternative_comparison": "ต่างจากเครื่องมืออย่าง Datadog หรือ New Relic ตรงที่เป็น Agent ที่เน้นการ 'ลงมือแก้' (Action-oriented) มากกว่าแค่แจ้งเตือน (Alert-only) และเน้นความเป็น Self-hosted ที่รันบน Infrastructure ของคุณเอง ไม่ได้ผูกติดกับ SaaS แบบปิด",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "สถานะโครงการระบุชัดเจนว่าเป็น Public Alpha และมีการเตือนว่า APIs กับ Integrations อาจมีการเปลี่ยนแปลงตลอดเวลา รวมถึงยังมี Issues ค้างอยู่พอสมควรที่บ่งบอกว่าอยู่ในช่วงเร่งพัฒนา",
       "ai_opportunity": {
-        "monetization_idea": "ใช้สร้าง Knowledge base ส่วนตัวโดยดึงข้อมูลจากเว็บไซต์เฉพาะทางมาอัปเดตใส่ RAG หรือทำระบบ Monitoring เว็บไซต์คู่แข่งแล้วสรุปผลแบบอัตโนมัติรายสัปดาห์",
-        "stack_synergy": "เข้าคู่กันได้ดีกับ Claude Desktop หรือ Cursor ผ่านการทำ MCP (Model Context Protocol) เพื่อให้ AI สามารถดึงข้อมูลจากเน็ตมาวิเคราะห์แบบ Real-time บนเครื่องเราได้เลย"
+        "monetization_idea": "ใช้เป็นเครื่องมือภายในทีมเพื่อลด 'Mean Time to Repair (MTTR)' ของทีม DevOps ขนาดเล็ก โดยให้ Agent ช่วยสรุป Root Cause ของ Production Incident ที่ซับซ้อนเกินกว่าจะไล่ดูเอง",
+        "stack_synergy": "เข้าคู่ได้ดีมากกับทีมที่ใช้ Python เป็นภาษาหลักในการจัดการ Automation และใช้มาตรฐานอย่าง Kubernetes (EKS/K8s) หรือ Grafana Stack ในการมอนิเตอร์ เพราะ OpenSRE รองรับการเชื่อมต่อกับเครื่องมือเหล่านี้โดยตรง"
       },
       "human_vibe_check": {
         "pros": [
-          "รองรับการแปลงหน้าเว็บที่ใช้ JS rendering หนักๆ ได้โดยไม่ต้องตั้งค่า Browser เอง",
-          "มีโหมด Local ที่ทำงานเป็น MCP Server สำหรับเชื่อมต่อกับ AI Editor ยอดนิยมได้ทันที"
+          "รองรับการเชื่อมต่อกับเครื่องมือ DevOps มาตรฐานสูง เช่น Prometheus/Grafana/EKS ซึ่งทำให้ไม่ต้องเปลี่ยน stack เดิม",
+          "เน้นความเป็นส่วนตัวและควบคุมข้อมูลได้เอง (Self-hosted) ต่างจาก AI Agent ทั่วไปที่ต้องส่งข้อมูลขึ้น Cloud"
         ],
         "gotchas_and_traps": [
-          "การรันในโหมด Local ต้องใช้ Rust และคอมไพเลอร์ C ซึ่งอาจเป็นอุปสรรคสำหรับผู้เริ่มต้นที่ไม่คุ้นกับระบบ build ของภาษา Rust",
-          "แม้จะมีโหมด Local แต่บางฟีเจอร์ขั้นสูงอย่างการดึงข้อมูลผ่าน Alexandria ยังคงต้องเรียกใช้ API จาก Cloud"
+          "ยังอยู่ในระยะ Alpha API อาจจะไม่นิ่ง หากใช้ในโปรดักชั่นต้องเผื่อใจเรื่อง Breaking Changes",
+          "การตั้งค่าให้ Agent เข้าใจบริบทของ Infrastructure คุณอย่างแม่นยำอาจต้องใช้เวลาปรับจูน Prompt หรือ Context ของโมเดลพอสมควร"
         ],
-        "hype_vs_reality": 8
+        "hype_vs_reality": 7
       },
-      "quick_start": "npx -y firecrawl-cli@latest scrape https://firecrawl.dev",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-20T04:17:42.546Z",
+      "quick_start": "curl -fsSL https://install.opensre.com | bash -s -- -gh",
+      "updated_at": "2026-11-27T13:54:32.246Z",
+      "first_seen_at": "2026-11-27T13:54:32.246Z",
       "deep_dive_paragraphs": [
-        "ความเจ็บปวดที่แท้จริงของนักพัฒนา AI คือการทำ Web Crawling ที่คุณภาพต่ำ ข้อมูลที่ดึงมามักจะมี Noise เยอะจนทำให้ LLM หลอนหรืออ่านเนื้อหาไม่รู้เรื่อง Firecrawl จึงเข้ามาแก้ปัญหานี้ด้วยการบังคับให้ Output เป็น Markdown ที่สะอาด ซึ่งเป็น Format ที่ LLM ทุกตัวคุ้นเคยที่สุด ช่วยลด Token เสียเปล่าและเพิ่มความแม่นยำในการทำ RAG",
-        "ในแง่ Architecture ตัวโปรเจกต์แบ่งส่วนประกอบชัดเจน โดยมี Firecrawl Local (เขียนด้วย Rust) ที่เป็น Binary เดียวช่วยให้รัน Scrape ได้ทันทีบนเครื่องโดยไม่ต้องมี Database และมีการทำ `init` เพื่อ Integrate กับ Tools อย่าง Claude Desktop หรือ Cursor ผ่าน MCP สถาปัตยกรรมภายในเน้นการใช้ Queue/Workers เพื่อจัดการงาน Crawl ขนาดใหญ่และใช้ Redis ในการทำ URL Deduplication เพื่อป้องกันการ Scrape ซ้ำซ้อน",
-        "ในมุมมองวิศวกรซอฟต์แวร์ ถือเป็นโปรเจกต์ที่น่าศึกษามาก โดยเฉพาะการจัดการ Pipeline ข้อมูลและการสร้าง CLI สำหรับ AI Agent อย่างไรก็ตาม ข้อควรระวังคือเรื่อง License แบบ AGPL-3.0 ซึ่งค่อนข้างเคร่งครัดหากคิดจะนำไปทำโปรดักต์เชิงพาณิชย์โดยไม่เปิดเผยซอร์สโค้ด และการพึ่งพา Cloud สำหรับฟีเจอร์ระดับสูงอาจเป็นคอขวดหากต้องการความเป็นส่วนตัว 100%"
+        "ปัญหาหลักของโปรเจกต์นี้คือ 'ความเงียบ' ของระบบ CI/CD ที่พังลงโดยไม่มีการบอกใบ้ว่าแก้ยังไง นักพัฒนามักจะติดหล่มอยู่กับการ Rerun เพื่อเช็คว่าเป็นแค่ Flaky test หรือบั๊กจริงๆ ซึ่ง OpenSRE เข้ามาเปลี่ยนเกมด้วยการเป็นตัวเชื่อมช่องว่างระหว่าง log ที่กระจัดกระจายกับโมเดลภาษาขนาดใหญ่ (LLM) เพื่อให้ได้คำตอบเชิงเทคนิคที่จับต้องได้",
+        "โครงสร้างภายในถูกออกแบบเป็น modular agent ที่มี core engine หลัก (สังเกตจาก dir core และ gateway) เพื่อรับ Input จากหลายแหล่งทั้ง CI และระบบ Monitor (Grafana, Prometheus) โดยมีการใช้แนวคิดเรื่อง 'In-flight lifecycle' เพื่อควบคุมการทำงานของ AI ในขณะที่มันกำลังวิเคราะห์หรือรันคำสั่งเชลล์ ทำให้เราสามารถสั่งหยุดหรือแก้ไขเป้าหมาย (goal) ได้ตลอดเวลา ซึ่งเป็นหัวใจสำคัญของการสร้างความเชื่อมั่นใน Agent",
+        "ในมุมของวิศวกร ผมมองว่านี่คือโปรเจกต์ที่น่าศึกษาโค้ดอย่างยิ่ง โดยเฉพาะถ้าคุณต้องการทำความเข้าใจว่าการ build 'AI-Native DevOps tool' ต้องวางโครงสร้างอย่างไรให้รองรับการเชื่อมต่อแบบกว้างขวาง (Integrations) ข้อจำกัดคือด้วยความเป็น Alpha หากจะเอาไปใช้ในงานที่สำคัญมากๆ อาจจะยังเร็วไปหน่อย แต่ถ้าจะอ่านเอาความรู้เรื่องการออกแบบ CLI ที่โต้ตอบกับ AI ได้แบบมีเสถียรภาพ นี่คือตำราเล่มดีเลยครับ"
       ],
       "reading_guide": {
         "pass1_triage": {
-          "core_idea": "เครื่องมือเปลี่ยนหน้าเว็บเป็น Markdown สำหรับ AI",
-          "prerequisite_level": "เข้าใจพื้นฐาน Command Line, Node.js และพอจะอ่านโค้ด TypeScript ได้",
-          "worth_deep_dive": "คุ้มค่ามากสำหรับการศึกษาเรื่องการทำ Automation และโครงสร้างโปรเจกต์สำหรับ AI-native applications",
-          "context_lineage": "เป็นหนึ่งในเครื่องมือยุคใหม่ที่เกิดขึ้นเพื่ออุดช่องว่างระหว่าง Data Extraction แบบดั้งเดิมและยุคสมัยของ LLM Agents"
+          "core_idea": "เปลี่ยน error ใน log ให้กลายเป็นบทสนทนาเชิงเทคนิคและการแก้ไขปัญหาผ่าน AI Agent",
+          "prerequisite_level": "เข้าใจ Python พอสมควรและรู้จักโครงสร้าง CI/CD หรือระบบ Monitoring อย่าง Grafana/Kubernetes",
+          "worth_deep_dive": "คุ้มค่ามากสำหรับการอ่านโค้ดส่วน `core` เพื่อดูวิธีการออกแบบ CLI Agent",
+          "context_lineage": "ต่อยอดจากแนวคิด SWE-bench ที่พยายามฝึก AI ให้แก้บั๊กได้จริงผ่านการลงมือทำใน terminal"
         },
         "glossary": [
           {
             "term": "MCP (Model Context Protocol)",
-            "meaning": "มาตรฐานที่ช่วยให้ AI Model คุยกับเครื่องมือต่างๆ (เช่น ฐานข้อมูลหรือ Web Crawler) ได้แบบมาตรฐานเดียว",
-            "analogy": "เหมือนกับ USB Port ที่เสียบเข้ากับอุปกรณ์อะไรก็ได้โดยไม่ต้องกังวลเรื่องการตั้งค่าเฉพาะตัว"
+            "meaning": "มาตรฐานการเชื่อมต่อที่ช่วยให้ AI สามารถคุยกับเครื่องมือหรือฐานข้อมูลภายนอกได้ง่ายขึ้น",
+            "analogy": "เหมือนปลั๊กไฟมาตรฐานที่เสียบเครื่องใช้ไฟฟ้าไหนก็ได้เข้ากับโครงข่าย AI"
           },
           {
-            "term": "Markdown",
-            "meaning": "รูปแบบข้อความที่มีโครงสร้าง (Structured text) ซึ่งอ่านง่ายสำหรับทั้งคนและ LLM",
-            "analogy": "เหมือนตารางข้อมูลที่เขียนด้วยภาษาคนปกติ ไม่ใช่ HTML ที่เต็มไปด้วย Tag ป้ายชื่อที่วุ่นวาย"
+            "term": "Root-cause-analysis",
+            "meaning": "กระบวนการสืบหาต้นตอที่แท้จริงของปัญหาว่าเกิดจากอะไรกันแน่ ไม่ใช่แค่แก้ที่ปลายเหตุ",
+            "analogy": "เหมือนนักสืบที่ไม่ได้จับคนร้ายที่เห็นอยู่ตรงหน้า แต่ตามสืบจนเจอคนบงการ"
           },
           {
-            "term": "Crawl/Map",
-            "meaning": "การไล่ตาม Link ไปเรื่อยๆ ทั่วเว็บไซต์เพื่อทำดัชนีข้อมูล",
-            "analogy": "เหมือนการส่งแมงมุมไปเดินเก็บแผนที่ทุกห้องในบ้าน"
+            "term": "Self-hosted",
+            "meaning": "การรันซอฟต์แวร์บน Server หรือ Infrastructure ของตัวเอง แทนการใช้บริการบน Cloud ของคนอื่น",
+            "analogy": "เหมือนทำกับข้าวทานเองที่บ้าน แทนที่จะสั่งเดลิเวอรี่"
           }
         ],
         "how_it_works": [
           {
-            "step": "รับ URL เข้าสู่ Pipeline",
-            "detail": "CLI หรือ API รับ URL เป้าหมายและส่งต่อไปยัง Worker ที่ทำหน้าที่ Fetch ข้อมูล"
+            "step": "Ingestion",
+            "detail": "OpenSRE เชื่อมต่อเข้ากับ CI/CD Pipeline หรือระบบ Monitor เช่น Grafana เพื่อดึง Log และเหตุการณ์ที่ผิดปกติมาเก็บไว้"
           },
           {
-            "step": "Render & Parse",
-            "detail": "หากเป็นเว็บ JS-heavy จะถูกส่งผ่าน Chrome/Chromium เพื่อ Render ก่อนจะดึงข้อมูล DOM มาทำความสะอาด"
+            "step": "Analysis",
+            "detail": "Agent จะวิเคราะห์ข้อผิดพลาดด้วย LLM โดยเทียบกับบริบทของ codebase และ stack ที่เราตั้งค่าไว้"
           },
           {
-            "step": "Convert to Markdown",
-            "detail": "เปลี่ยนเนื้อหาจาก DOM ที่ยุ่งเหยิงให้กลายเป็น Markdown ที่เป็นระเบียบเพื่อให้ LLM ใช้งานต่อได้"
+            "step": "Remediation",
+            "detail": "เสนอคำสั่งหรือแนวทางการแก้ไข และเปิดโอกาสให้มนุษย์สั่งรัน (shell_run) หรือรีวิวผ่านตัว CLI"
           }
         ],
         "hard_evidence": [
           {
-            "metric": "อัตราการครอบคลุมเว็บ",
-            "value": "96%",
-            "context": "อ้างอิงจากความสามารถในการครอบคลุมเว็บรวมถึง JS-heavy pages ตามที่ระบุใน README"
+            "metric": "สถานะการพัฒนา",
+            "value": "public alpha",
+            "context": "สถานะของโครงการที่ระบุใน README เพื่อเตือนผู้ใช้"
           },
           {
-            "metric": "ขีดจำกัดของจำนวนหน้า (Local)",
+            "metric": "SWE-bench",
             "value": "ต้นฉบับไม่ระบุตัวเลข",
-            "context": "ในการรัน Local จะขึ้นอยู่กับทรัพยากรเครื่องของผู้ใช้เอง"
+            "context": "อ้างอิงถึงเอกสารวิชาการที่ใช้เปรียบเทียบมาตรฐานการวัดผล AI Agents"
           }
         ],
         "pass3_hands_on": {
           "prerequisites": [
-            "Node.js 22+",
-            "Rust (สำหรับรัน Firecrawl Local)",
-            "Build-essential (สำหรับ Linux/Debian)"
+            "Python 3.10+",
+            "Git Repository ที่มีการใช้งาน CI",
+            "API Key สำหรับโมเดลที่ต้องการใช้"
           ],
           "try_it_steps": [
-            "ลองใช้ `npx -y firecrawl-cli@latest scrape https://firecrawl.dev` เพื่อดูว่ามันแปลงหน้าเว็บออกมาเป็น Markdown หน้าตาเป็นอย่างไร",
-            "รัน `cargo install firecrawl-local` แล้วใช้ `firecrawl-local init` เพื่อลองเชื่อมต่อกับ Cursor หรือ Claude Desktop ในเครื่อง",
-            "ทดลองใช้ `firecrawl-local serve` เพื่อจำลอง API Server ในเครื่องแล้วลองยิง Request ผ่าน SDK Python ตามตัวอย่าง"
+            "รันคำสั่งติดตั้งตามคู่มือเพื่อใช้งาน opensre ใน terminal ของคุณ",
+            "ทดลองใช้คำสั่ง `opensre` ในโปรเจกต์ที่มักจะมี build ปัญหาบ่อยๆ เพื่อให้มันเริ่มอ่านค่า CI",
+            "ศึกษาไฟล์ main.py ในโฟลเดอร์หลักเพื่อดูจุดเริ่มต้นของ Process และการเชื่อมต่อต่างๆ"
           ],
           "next_to_learn": [
-            "Model Context Protocol (MCP) เพื่อเข้าใจวิธีสร้างเครื่องมือให้ AI สั่งงานได้เอง",
-            "Web Scraping Best Practices เพื่อเข้าใจการหลบหลีกการถูกบล็อกในระยะยาว"
+            "Model Context Protocol (MCP) เพราะเป็นหัวใจของ Agent ในการคุยกับเครื่องมืออื่น",
+            "Shell Automation & Process Control เพื่อดูว่าโปรเจกต์นี้จัดการกับการรันคำสั่งใน terminal อย่างไรให้ปลอดภัย"
           ]
         },
         "source_depth": "readme_and_issues"
       },
-      "facebook_post": "สายทำ AI Agent ห้ามพลาด! ถ้าคุณกำลังเจอปัญหาดึงข้อมูลเว็บมาใช้งานแล้วเจอ HTML ขยะจน LLM อ่านไม่รู้เรื่อง ลองดูตัวนี้ครับ \"Firecrawl\"\n\nตัวนี้คือโครงสร้างพื้นฐานที่เปลี่ยนหน้าเว็บให้เป็น Markdown สะอาดๆ เหมาะกับทั้ง RAG และการทำ AI Agents โดยตรง\n\nจุดเด่นที่น่าสนใจ:\n✅ รันบนเครื่องตัวเองได้เลย (Local) ไม่ต้องพึ่ง Cloud ตลอดเวลา\n✅ มี CLI ใช้ง่าย แค่สั่ง `firecrawl-local crawl <url>` ข้อมูลก็มาเป็นไฟล์ Markdown เลย\n✅ เชื่อมต่อกับ Claude Desktop หรือ Cursor ได้ง่ายมากผ่านระบบ MCP\n✅ รองรับ JS-heavy pages ทำให้ไม่ต้องมานั่งกังวลเรื่อง Browser Rendering เอง\n\nใครกำลังทำโปรเจกต์ AI ที่ต้องดึงข้อมูลจากเว็บมาใช้งานจริงจัง แนะนำให้ไปลองศึกษาตัวนี้ครับ ช่วยประหยัดเวลาทำ Scraper เองได้เยอะมาก\n\nลองเข้าไปดูโค้ดและวิธีการติดตั้งได้ที่: https://github.com/firecrawl/firecrawl\n\n#AI #WebScraping #LLM #Firecrawl #DeveloperTools #TypeScript"
+      "facebook_post": "ใครเคยเบื่อบ้าง? CI พังทีไร ต้องมานั่งไล่ดู log ยาวเป็นกิโล พอรีรันผ่านก็จบไป ไม่ได้แก้ต้นเหตุสักที\n\nวันนี้ไปเจอโปรเจกต์ที่น่าสนใจมากชื่อ OpenSRE (https://github.com/Tracer-Cloud/opensre) มันคือ CLI Agent สำหรับชาว DevOps/SRE ที่ฉลาดพอจะ 'อ่าน' CI log ของเรา แล้ววิเคราะห์ว่าทำไมมันถึงพัง! \n\nจุดเด่นที่ผมชอบ:\n✅ มันเป็น Self-hosted: ข้อมูล Infrastructure เราไม่ต้องส่งขึ้น Cloud ใคร\n✅ มันต่อเชื่อมได้กับเครื่องมือที่ใช้อยู่: อย่าง K8s, Grafana, Datadog\n✅ เน้น Action-oriented: ไม่ใช่แค่แจ้งเตือน แต่ช่วยเสนอวิธีแก้ให้เรารีวิวด้วย\n\nตอนนี้โปรเจกต์อยู่ในช่วง Public Alpha นะครับ ใครที่ชอบอ่านโค้ดแนว Agent หรืออยากเอามาช่วยลด MTTR ในทีม ลองเข้าไปศึกษาโครงสร้างการทำงานดูได้เลย ตัวโค้ดเขียนด้วย Python และมีโครงสร้างที่ชัดเจนดีมากครับ\n\nใครลองแล้วเป็นยังไงมาแชร์กันครับ!\n\n#DevOps #OpenSRE #AI #Python #SRE #Automation"
     },
     {
-      "id": "37912398",
-      "name": "nginx",
-      "owner": "nginx",
-      "url": "https://github.com/nginx/nginx",
-      "stars": 33543,
-      "stars_today": 150,
-      "language": "C",
+      "id": "519859998",
+      "name": "AFFiNE",
+      "owner": "toeverything",
+      "url": "https://github.com/toeverything/AFFiNE",
+      "stars": 79220,
+      "stars_today": 469,
+      "language": "TypeScript",
       "topics": [
-        "content-cache",
-        "http",
-        "http2",
-        "http3",
-        "https",
-        "load-balancer",
-        "mail-proxy-server",
-        "nginx",
-        "quic",
-        "reverse-proxy",
-        "security",
-        "tcp-proxy-server",
-        "tls",
-        "udp-proxy-server",
-        "web-server"
+        "app",
+        "crdt",
+        "editor",
+        "electron",
+        "knowledge-base",
+        "markdown",
+        "miro",
+        "notes",
+        "notion",
+        "notion-alternative",
+        "rust",
+        "rust-lang",
+        "rust-language",
+        "table",
+        "tableview",
+        "whiteboard",
+        "wiki",
+        "workspace"
       ],
-      "license": "BSD-2-Clause",
-      "open_issues": 495,
-      "one_liner": "NGINX คือ Web Server และ Reverse Proxy ประสิทธิภาพสูงที่ถูกออกแบบมาเพื่อรองรับงานหนักระดับโลกด้วยสถาปัตยกรรม Event-driven ที่ประหยัดทรัพยากร",
-      "problem_solved": "เว็บเซิร์ฟเวอร์แบบดั้งเดิมมักใช้ Thread-per-request ซึ่งกิน RAM มหาศาลเมื่อเจอกับผู้ใช้จำนวนมากพร้อมกัน NGINX แก้ปัญหานี้ด้วยสถาปัตยกรรม Event-driven ที่จัดการหลาย Connection ได้ใน Process เดียว ช่วยลดการใช้ทรัพยากรและเพิ่มความเสถียรในการรองรับ Traffic มหาศาลได้อย่างมีประสิทธิภาพ",
-      "alternative_comparison": "Apache httpd เหมาะกับงานที่ต้องการความยืดหยุ่นสูงผ่าน .htaccess แต่ NGINX ชนะขาดเรื่องความเร็วและการประหยัด Memory, ส่วน Envoy อาจเป็นตัวเลือกที่ใหม่กว่าสำหรับ Microservices ที่ซับซ้อน แต่ NGINX ยังคงเป็นมาตรฐานอุตสาหกรรมที่นิ่งและเสถียรที่สุดในระดับ Edge Server",
+      "license": "NOASSERTION",
+      "open_issues": 658,
+      "one_liner": "AFFiNE คือโปรเจกต์โอเพนซอร์สแบบ Local-first ที่รวมฟีเจอร์การจดบันทึกแบบ Notion เข้ากับ Whiteboard แบบ Miro ไว้ในแพลตฟอร์มเดียว",
+      "problem_solved": "นักพัฒนาต้องสลับไปมาระหว่างแอปจดบันทึกและแอปวาดรูปบอร์ดทำให้ความต่อเนื่องของงานเสียไป AFFiNE จึงออกแบบให้ Doc และ Canvas เป็นเนื้อเดียวกันโดยใช้แนวคิด Block-based ที่ยืดหยุ่นกว่า การทำ Local-first ช่วยแก้ปัญหาเรื่องความเป็นส่วนตัวและการพึ่งพา Cloud เจ้าใหญ่เพียงอย่างเดียว",
+      "alternative_comparison": "หากเน้นใช้เฉพาะ Notion คุณจะได้ระบบ Database ที่แข็งแกร่งกว่า แต่ถ้าต้องการความยืดหยุ่นแบบ Canvas ผสมการพิมพ์ในเครื่องเดียวกัน AFFiNE จะตอบโจทย์กว่าโดยไม่ต้องมีค่าบริการรายเดือนและได้ความเป็นเจ้าของข้อมูล (Data Ownership) สูงกว่า",
       "maturity_rating": "Production-Ready",
-      "maturity_reason": "เป็นมาตรฐานโลกที่ใช้งานจริงในระดับโครงสร้างพื้นฐานทั่วโลก มีประวัติการพัฒนาที่ยาวนานและ Ecosystem ที่รองรับกว้างขวาง รวมถึงมีการจัดการ Security และ Patch อย่างต่อเนื่องในสถานะ Stable/Mainline",
+      "maturity_reason": "โปรเจกต์มีการใช้งานจริงและปล่อย Realeases ต่อเนื่อง เห็นได้จากจำนวน Stars ที่สูงมากและมีโครงสร้าง Repo ที่รองรับการพัฒนาที่ซับซ้อน เช่น การใช้ Rust ในส่วนของ Core ประสิทธิภาพสูง",
       "ai_opportunity": {
-        "monetization_idea": "ใช้ NGINX เป็นเกตเวย์หน้าด่านสำหรับ API ของโปรเจกต์ AI เพื่อทำ Rate Limiting และ Caching ผลลัพธ์จาก LLM ลดค่าใช้จ่ายในการเรียก API ซ้ำซ้อน",
-        "stack_synergy": "เข้าคู่ได้ดีเยี่ยมกับ Linux (Debian/Ubuntu/CentOS), Docker สำหรับ Container Orchestration, และ Lua (OpenResty) สำหรับการเขียน Script ปรับแต่งพฤติกรรมของ Server ในระดับ Runtime"
+        "monetization_idea": "ใช้ AFFiNE เป็นตัวจัดการความรู้ (Knowledge Base) สำหรับเก็บ Prompt Engineering และผลลัพธ์จาก AI เพื่อสรุปงานและวางแผนโปรเจกต์ในที่เดียว",
+        "stack_synergy": "เข้าคู่กับ Rust ในการจัดการ State ผ่าน CRDT และใช้ TypeScript/React ในการทำ Interface ที่ตอบสนองได้เร็ว"
       },
       "human_vibe_check": {
         "pros": [
-          "ประสิทธิภาพการจัดการ Concurrency สูงมากในระดับต่ำกว่า Process/Thread เดิมๆ",
-          "Configuration ยืดหยุ่นสูงผ่านระบบ Directives ที่ควบคุมได้ละเอียดถึงระดับโมดูล"
+          "รองรับการทำงานแบบ Local-first ข้อมูลอยู่ที่เครื่องผู้ใช้ไม่ต้องง้อ Cloud ตลอดเวลา",
+          "มีสถาปัตยกรรมที่รวม Doc และ Whiteboard เข้าด้วยกันแบบไร้รอยต่อ"
         ],
         "gotchas_and_traps": [
-          "การปรับจูน Performance ให้ถึงขีดสุดต้องอาศัยความเข้าใจเรื่อง OS kernel และ Network Stack อย่างลึกซึ้ง",
-          "หากเลือกใช้โมดูลแบบ Dynamic ต้องระวังเรื่องความเข้ากันได้ของเวอร์ชัน Binary"
-        ],
-        "hype_vs_reality": 9
-      },
-      "quick_start": "nginx -V",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-20T04:18:41.658Z",
-      "deep_dive_paragraphs": [
-        "NGINX เกิดมาเพื่อแก้ปัญหา C10k Problem หรือการรองรับผู้ใช้พร้อมกัน 10,000 ราย ซึ่งเป็นคอขวดสำคัญในสมัยก่อน ความเก่งของมันอยู่ที่การไม่สร้าง Process ใหม่ทุกครั้งที่มีการเชื่อมต่อเข้ามา แต่ใช้ Master Process และ Worker Process ในการจัดการ Connection ผ่าน Event Loop ทำให้ประหยัดทรัพยากรเครื่องอย่างมหาศาล",
-        "ในแง่ของโครงสร้าง ไฟล์ในโฟลเดอร์ src คือหัวใจสำคัญของสถาปัตยกรรมแบบ Modules มันไม่ได้เป็นก้อนเดียว แต่แบ่งการทำงานผ่าน Core และ Modules เสริม การ Configure ผ่านไฟล์ .conf ทำให้ Dev สามารถเขียน Logic ตั้งแต่ Load Balancing ไปจนถึง SSL Termination ได้โดยไม่ต้องแก้ไข Code หลัก สิ่งนี้ช่วยให้ NGINX ทำหน้าที่เป็นทั้ง Reverse Proxy, API Gateway และ Content Cache ได้ในตัวเดียว",
-        "หากคุณเป็น Developer การอ่าน Source Code ของ NGINX คือการเรียนรู้ C programming ระดับ High-performance ที่ดีที่สุดตัวหนึ่ง แต่ถ้าจะใช้ในงานจริง ต้องระวังเรื่อง Configuration ที่ผิดพลาดอาจเปิดช่องโหว่ด้านความปลอดภัยได้ การศึกษา NGINX จะเปลี่ยนมุมมองเรื่องการทำ Network Infrastructure ของคุณไปตลอดกาล เพราะมันคือพื้นฐานของระบบที่ Scale ได้ระดับล้าน Request ต่อวัน"
-      ],
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "เครื่องมือระดับโลกสำหรับการจัดการ Traffic ของเว็บแอปพลิเคชันด้วยประสิทธิภาพสูงสุด",
-          "prerequisite_level": "เข้าใจพื้นฐาน Network (TCP/IP, HTTP), Linux CLI และทักษะการอ่าน Code ภาษา C",
-          "worth_deep_dive": "คุ้มค่ามาก โดยเฉพาะในเชิงสถาปัตยกรรมของระบบเซิร์ฟเวอร์",
-          "context_lineage": "เป็นหนึ่งในโปรเจกต์โอเพนซอร์สที่เป็นรากฐานของโครงสร้างพื้นฐานอินเทอร์เน็ตในปัจจุบัน"
-        },
-        "glossary": [
-          {
-            "term": "Reverse Proxy",
-            "meaning": "ตัวแทนรับคำขอจากภายนอกแทน Server หลัก เพื่อความปลอดภัยและกระจายโหลด",
-            "analogy": "เหมือนเลขาหน้าห้องที่คอยคัดกรองงานให้บอส"
-          },
-          {
-            "term": "Worker Process",
-            "meaning": "Process ที่ทำหน้าที่จัดการ Network Connection จริงๆ",
-            "analogy": "คนงานในโรงงานที่คอยหยิบของใส่กล่อง"
-          },
-          {
-            "term": "Directives",
-            "meaning": "คำสั่งในไฟล์ Config ที่บอก NGINX ว่าต้องทำงานอย่างไร",
-            "analogy": "เมนูคำสั่งที่กำหนดพฤติกรรมของเครื่องจักร"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Master Process Initialization",
-            "detail": "อ่านไฟล์ Config และสร้าง Worker Processes ตามจำนวนที่ระบุเพื่อเตรียมรับ Request"
-          },
-          {
-            "step": "Event-driven Processing",
-            "detail": "Worker Processes รอรับ Event ของ Network Connection โดยใช้ Non-blocking I/O ทำให้หนึ่ง Process จัดการหลาย Connection ได้พร้อมกัน"
-          },
-          {
-            "step": "Module Execution",
-            "detail": "Request จะวิ่งผ่าน Chain ของ Modules (เช่น HTTP, SSL, Caching) ตามที่กำหนดไว้ใน Config จนกระทั่งส่ง Response กลับไปยัง Client"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "จำนวน Open Issues",
-            "value": "484",
-            "context": "สถานะความค้างคาทั่วไปของโปรเจกต์ขนาดใหญ่"
-          },
-          {
-            "metric": "Star Count",
-            "value": "32411",
-            "context": "ความนิยมใน GitHub ณ ปัจจุบัน"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Linux environment, GCC compiler, Make"
-          ],
-          "try_it_steps": [
-            "ดาวน์โหลด Source Code และรันคำสั่ง ./configure เพื่อตรวจสอบ Dependencies ของระบบ",
-            "รัน make เพื่อ Compile Source code ให้กลายเป็น Binary executable",
-            "ทดสอบด้วยคำสั่ง ./nginx -t เพื่อตรวจสอบว่า Config เริ่มต้นถูกต้องหรือไม่"
-          ],
-          "next_to_learn": [
-            "ศึกษาเรื่อง Event Loop ใน C เพื่อเข้าใจการทำ High-performance I/O",
-            "ศึกษาการเขียน NGINX Module ด้วยภาษา C เพื่อขยายขีดความสามารถของเซิร์ฟเวอร์"
-          ]
-        },
-        "source_depth": "readme_and_issues"
-      },
-      "facebook_post": "ใครอยากรู้ว่า Web Server ที่รองรับ Traffic ระดับโลกทำงานยังไง ห้ามพลาดโปรเจกต์ NGINX ครับ! 🚀\n\nในฐานะวิศวกรซอฟต์แวร์ การได้แกะโค้ด NGINX คือการเรียนรู้ระดับสูงในแง่ของระบบ Network และ C Programming สิ่งที่ทำให้ NGINX ต่างจาก Web Server ทั่วไปคือสถาปัตยกรรมแบบ Event-driven ที่ทิ้งการใช้ Thread-per-request ไป ทำให้เครื่องหนึ่งเครื่องสามารถรับ Concurrent Request ได้มหาศาลโดยกินทรัพยากรต่ำ\n\nสรุปจุดเด่นที่น่าสนใจ:\n✅ เป็นทั้ง Web Server, Reverse Proxy และ Load Balancer ในตัวเดียว\n✅ พัฒนาด้วย C ที่เน้นประสิทธิภาพและเสถียรภาพสูงสุด\n✅ ระบบ Module ที่ยืดหยุ่นมาก ปรับแต่งได้ละเอียดผ่าน config\n\nสำหรับใครที่อยากลองเริ่ม แนะนำให้ลอง Compile จาก Source Code บน Linux ของคุณเอง จะเห็นภาพเลยว่ากว่าจะได้ Binary ที่ใช้งานได้จริง ต้องผ่านกระบวนการอะไรบ้าง เป็นพื้นฐานที่ดีมากสำหรับคนทำ Infrastructure และ Backend ครับ\n\nอ่านรายละเอียดเพิ่มเติมได้ที่: https://github.com/nginx/nginx\n\n#NGINX #SoftwareEngineering #SystemDesign #OpenSource #HighPerformance #Backend"
-    },
-    {
-      "id": "153097643",
-      "name": "openvino",
-      "owner": "openvinotoolkit",
-      "url": "https://github.com/openvinotoolkit/openvino",
-      "stars": 12840,
-      "stars_today": 176,
-      "language": "C++",
-      "topics": [
-        "ai",
-        "computer-vision",
-        "deep-learning",
-        "deploy-ai",
-        "diffusion-models",
-        "generative-ai",
-        "good-first-issue",
-        "inference",
-        "llm-inference",
-        "natural-language-processing",
-        "nlp",
-        "openvino",
-        "optimize-ai",
-        "performance-boost",
-        "recommendation-system",
-        "speech-recognition",
-        "stable-diffusion",
-        "transformers",
-        "yolo"
-      ],
-      "license": "Apache-2.0",
-      "open_issues": 1198,
-      "one_liner": "OpenVINO คือ Toolkit ประสิทธิภาพสูงจาก Intel ที่ออกแบบมาเพื่อแปลงและทำ Inference โมเดล Deep Learning ให้ทำงานได้เร็วที่สุดบน Hardware ตระกูล x86, ARM และ NPU",
-      "problem_solved": "นักพัฒนาส่วนใหญ่เจอปัญหาโมเดลจาก PyTorch หรือ TensorFlow กินทรัพยากรสูงและช้าเกินไปเมื่อรันบนเครื่องทั่วไปหรือ Edge Device เพราะไม่ได้ออกแบบมาเพื่อ Hardware เฉพาะทาง OpenVINO เข้ามาจัดการแปลง Graph ของโมเดลให้เป็น Format ที่ Optimized เพื่อลด Latency และเพิ่ม Throughput บน CPU/GPU/NPU ของ Intel โดยตรง",
-      "alternative_comparison": "หากเทียบกับ ONNX Runtime ตัว OpenVINO จะเจาะจงไปที่การรีดประสิทธิภาพบน Hardware ของ Intel มากกว่า ส่วน TensorRT นั้นเน้นไปที่ NVIDIA GPU ล้วนๆ ถ้าคุณต้องรัน AI บนโน้ตบุ๊กหรืออุปกรณ์ Edge ที่มี CPU Intel เป็นหลัก OpenVINO คือตัวเลือกที่ให้ประสิทธิภาพสูงสุด",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "เป็นโปรเจกต์ระดับ Core Infrastructure ที่มีประวัติยาวนาน มีระบบ CI/CD ที่แข็งแกร่ง (Jenkinsfile) และมีการรองรับมาตรฐานอุตสาหกรรมในวงกว้างระดับ Enterprise",
-      "ai_opportunity": {
-        "monetization_idea": "สร้างระบบ Edge AI สำหรับงาน Computer Vision หรือ Local LLM Chatbot บนอุปกรณ์ประหยัดพลังงาน ทำให้ลดค่าเช่า Cloud GPU ได้มหาศาลสำหรับงานที่ไม่ต้องพึ่งพา Server ขนาดใหญ่",
-        "stack_synergy": "ใช้คู่กับ PyTorch หรือ Hugging Face Transformers โดยผ่าน Library 'Optimum Intel' เพื่อดึงศักยภาพ Hardware ออกมาโดยไม่ต้องเปลี่ยน Workflow การพัฒนา"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับ Hardware หลากหลายมาก ทั้ง CPU, GPU และ NPU ภายใต้ API เดียวกัน",
-          "มี Ecosystem ของ Notebooks และตัวอย่างโค้ดที่พร้อมใช้งานจริงค่อนข้างมาก"
-        ],
-        "gotchas_and_traps": [
-          "ต้องมีการแปลงโมเดล (Model Conversion) ซึ่งอาจเจอปัญหาเรื่อง Ops ที่ไม่รองรับในบางกรณี",
-          "เป็นเครื่องมือที่เน้น Hardware Intel เป็นหลัก หากใช้ Hardware อื่นอาจเห็นผลลัพธ์ไม่เต็มที่เท่าที่ควร"
+          "ด้วยฟีเจอร์ที่เยอะมาก การตั้งค่า self-host ด้วยตัวเองมีความซับซ้อนในระดับหนึ่ง",
+          "การจัดการไฟล์ขนาดใหญ่จากภายนอกที่ import เข้ามาอาจมีปัญหากับระบบ Sync ในบางกรณี"
         ],
         "hype_vs_reality": 8
       },
-      "quick_start": "pip install -U openvino",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-20T04:18:56.217Z",
+      "quick_start": "yarn install && yarn dev",
+      "updated_at": "2026-11-27T13:55:08.349Z",
+      "first_seen_at": "2026-11-27T13:55:08.349Z",
       "deep_dive_paragraphs": [
-        "ในโลกของการทำ AI ปัญหาคอขวดไม่ได้อยู่ที่โมเดลเก่งแค่ไหน แต่อยู่ที่ว่า 'รันแล้วช้า' หรือ 'กินทรัพยากรมากเกินไป' จนใช้งานจริงในระดับ Production ไม่ได้ OpenVINO เข้ามาแก้ปัญหานี้โดยการเข้าไปปรับปรุง Model Representation ให้สอดคล้องกับสถาปัตยกรรมของตัวประมวลผล ทำให้โมเดลหนักๆ อย่าง LLM หรือ Stable Diffusion สามารถทำงานบน Hardware ระดับ Consumer ได้อย่างราบรื่น",
-        "กลไกการทำงานของมันเริ่มตั้งแต่การนำโมเดลจาก Framework มาตรฐาน (PyTorch/TF/ONNX) เข้าสู่ Model Optimizer เพื่อเปลี่ยนโครงสร้างเป็น IR (Intermediate Representation) ซึ่งประกอบด้วยไฟล์ .xml และ .bin จากนั้น Inference Engine จะทำหน้าที่อ่านไฟล์เหล่านี้และจัดสรร Workload ให้ตรงกับหน่วยประมวลผลที่เลือก (CPU/GPU/NPU) ทำให้เกิดการใช้ Instruction Set พิเศษของ Intel เช่น VNNI หรือ AMX อย่างคุ้มค่า",
-        "ในแง่ของวิศวกร OpenVINO เป็น Library ที่ 'คุ้มค่า' แก่การศึกษาอย่างยิ่ง หากคุณอยากรู้วิธีการทำ Deep Learning Deployment ระดับมืออาชีพ ข้อจำกัดเพียงอย่างเดียวคือคุณต้องพร้อมที่จะแก้ปัญหาเรื่องความเข้ากันได้ของ Operator ในช่วงแปลงโมเดล ซึ่งต้องอาศัยทักษะการ debug ระดับ Low-level บ้างเป็นบางครั้ง แต่ผลตอบแทนเรื่อง Performance ที่ได้ถือว่าคุ้มค่าเหนื่อย"
+        "AFFiNE เกิดขึ้นมาเพื่อทลายกำแพงระหว่างพื้นที่การพิมพ์ข้อความ (Docs) และพื้นที่ระดมสมอง (Whiteboard) ซึ่งเป็นจุดที่โปรดักต์ในตลาดส่วนใหญ่แยกจากกันอย่างสิ้นเชิง ปัญหานี้สร้างคอขวดให้กับนักพัฒนาที่ต้องสลับแอปไปมาเพื่อเชื่อมโยงไอเดีย AFFiNE จึงเลือกใช้สถาปัตยกรรม Block-based ที่ช่วยให้ทุกอย่างเป็นองค์ประกอบอิสระที่วางบน Canvas ได้ทันที",
+        "เบื้องหลังความแข็งแกร่งคือการใช้ Rust ในการจัดการ Core Logic ร่วมกับ Yjs เพื่อทำ Local-first data synchronization ทำให้รองรับ Real-time collaboration ได้โดยไม่ต้องพึ่งพาเซิร์ฟเวอร์ส่วนกลางตลอดเวลา โครงสร้างภายในมีการแยกส่วนชัดเจนระหว่างการจัดการ State (ผ่าน Blocksuite) และตัว Client ที่เน้น UI ประสิทธิภาพสูงด้วย TypeScript ซึ่งช่วยให้การขยายฟีเจอร์ใหม่ๆ ทำได้ง่ายและรวดเร็ว",
+        "ในแง่ของวิศวกรรม โปรเจกต์นี้ถือเป็นแหล่งเรียนรู้ที่ยอดเยี่ยมสำหรับคนชอบดูการทำ Local-first และระบบจัดการ State ที่ซับซ้อน แต่ถ้าคุณมองหาแอปที่เบาหวิวอาจจะผิดหวังเพราะฟีเจอร์ที่อัดมาแน่นส่งผลต่อขนาดของแอป การศึกษาโค้ดในส่วน Blocksuite จะทำให้คุณเข้าใจเทคนิคการสร้าง Editor แบบสมัยใหม่ที่ทรงพลังที่สุดในปัจจุบัน"
       ],
       "reading_guide": {
         "pass1_triage": {
-          "core_idea": "เครื่องมือแปลงโมเดล AI ให้รันได้เร็วและประหยัดทรัพยากรบน Hardware ของ Intel",
-          "prerequisite_level": "เข้าใจพื้นฐาน Python และเคยทำ Inference ด้วย PyTorch หรือ TensorFlow มาก่อน",
-          "worth_deep_dive": "คุ้มค่ามาก โดยเฉพาะถ้ามี CPU หรือ NPU ของ Intel ในเครื่องที่ใช้พัฒนา",
-          "context_lineage": "เป็นเครื่องมือหลักของ Intel ในการครองตลาด AI ฝั่ง Client และ Edge Device"
+          "core_idea": "สร้างแพลตฟอร์ม All-in-one ที่รวม Wiki, Canvas, และ Database เข้าด้วยกันในระบบ Local-first",
+          "prerequisite_level": "ต้องเข้าใจพื้นฐาน TypeScript, React และแนวคิดเรื่องระบบกระจายข้อมูลหรือ CRDT เบื้องต้น",
+          "worth_deep_dive": "คุ้มค่ามากสำหรับการศึกษาโครงสร้างการจัดการ State และระบบ Editor ระดับซับซ้อน",
+          "context_lineage": "เป็นทางเลือกโอเพนซอร์สของ Notion และ Miro ที่เน้นความเป็นเจ้าของข้อมูลตามแนวคิด Local-first"
         },
         "glossary": [
           {
-            "term": "Inference",
-            "meaning": "กระบวนการนำโมเดลที่ฝึกสอนเสร็จแล้วมาใช้งานจริงเพื่อทำนายผล",
-            "analogy": "เหมือนการเอาข้อสอบมาให้นักเรียนที่เรียนจบแล้วลองทำจริง"
+            "term": "CRDT",
+            "meaning": "กลไกช่วยให้ข้อมูลอัปเดตตรงกันโดยไม่ต้องมีเซิร์ฟเวอร์เป็นตัวกลาง",
+            "analogy": "เหมือน Google Docs ที่ทุกคนแก้ไขพร้อมกันได้แม้จะออฟไลน์แล้วค่อยซิงค์ทีหลัง"
           },
           {
-            "term": "IR (Intermediate Representation)",
-            "meaning": "รูปแบบไฟล์โมเดลที่ถูกแปลงมาให้อยู่ใน Format ของ OpenVINO (.xml และ .bin)",
-            "analogy": "เหมือนการแปลภาษาต่างดาวให้เป็นภาษาที่เครื่องจักรเข้าใจง่าย"
+            "term": "Blocksuite",
+            "meaning": "หัวใจหลักที่ใช้จัดการเนื้อหาภายใน AFFiNE ในรูปแบบบล็อก",
+            "analogy": "เหมือน Lego ที่ประกอบกันเป็นเอกสารหรือกระดานวาดรูป"
           },
           {
-            "term": "Optimization",
-            "meaning": "การปรับแต่งโครงสร้างโมเดลเพื่อลดขนาดหรือเพิ่มความเร็ว",
-            "analogy": "เหมือนการจัดกระเป๋าให้เบาขึ้นเพื่อให้นักวิ่งวิ่งได้เร็วขึ้นโดยไม่สูญเสียของสำคัญ"
+            "term": "Local-first",
+            "meaning": "แนวคิดที่ข้อมูลต้องอยู่กับผู้ใช้งานเป็นอันดับแรก ก่อนจะเชื่อมต่อคลาวด์",
+            "analogy": "เหมือนไฟล์ในคอมพิวเตอร์ที่ใช้งานได้ทันทีไม่ต้องมีเน็ต"
           }
         ],
         "how_it_works": [
           {
-            "step": "Model Conversion",
-            "detail": "ใช้ ov.convert_model เพื่อแปลง PyTorch/TF graph ให้เป็น OpenVINO IR"
+            "step": "Data Block Decomposition",
+            "detail": "ย่อยข้อมูลทุกอย่างในเอกสารให้เป็น Block เล็กๆ เพื่อให้จัดการได้อิสระ"
           },
           {
-            "step": "Model Compilation",
-            "detail": "ใช้ core.compile_model เพื่อจองและเตรียม Hardware (CPU/GPU) ให้พร้อมรับข้อมูลเข้า"
+            "step": "CRDT Synchronization",
+            "detail": "ใช้อัลกอริทึม CRDT เพื่อจัดการความขัดแย้งของข้อมูลเมื่อมีการแก้ไขพร้อมกันหลายเครื่อง"
           },
           {
-            "step": "Async Inference",
-            "detail": "ส่ง Tensor ข้อมูลเข้าไปใน compiled_model เพื่อให้ Engine ประมวลผลและคืนผลลัพธ์ออกมา"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "จำนวน Framework ที่รองรับ",
-            "value": "6 (PyTorch, TensorFlow, ONNX, Keras, PaddlePaddle, JAX/Flax)",
-            "context": "ครอบคลุม Framework หลักในปัจจุบันเกือบทั้งหมด"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "Python 3.x",
-            "pip install openvino"
-          ],
-          "try_it_steps": [
-            "ติดตั้ง Library ด้วย pip เพื่อเตรียมเครื่องมือหลัก",
-            "ลองโหลดโมเดลเล็กๆ อย่าง MobileNetV2 แล้วใช้ ov.convert_model เพื่อทดสอบการแปลงโมเดล",
-            "รันโค้ด inference บน CPU เพื่อวัดความเร็วเมื่อเทียบกับการรันโมเดลเดิมผ่าน PyTorch"
-          ],
-          "next_to_learn": [
-            "Quantization (INT8) เพื่อลดขนาดโมเดลและเพิ่มความเร็วให้สูงขึ้นไปอีก",
-            "OpenVINO Notebooks เพื่อดูวิธีการ Deployment โมเดล GenAI ตัวใหม่ๆ"
-          ]
-        },
-        "source_depth": "readme_and_issues"
-      },
-      "facebook_post": "ใครทำสาย AI บนเครื่องตัวเองแล้วรู้สึกว่าโมเดลมัน 'อืด' หรือ 'กินแรม' เกินไป ต้องรู้จัก OpenVINO ครับ! \n\nOpenVINO คือ Toolkit จาก Intel ที่ช่วย Optimize โมเดลจาก PyTorch/TensorFlow ให้รันได้แรงขึ้นหลายเท่าตัวบน CPU หรือ GPU ของ Intel โดยเฉพาะ ไม่ต้องย้ายไป Cloud ให้เปลืองงบ \n\nทำไมต้องลอง?\n✅ รองรับทุกเฟรมเวิร์กยอดฮิต (PyTorch, TF, ONNX)\n✅ รีดประสิทธิภาพ Hardware Intel จนสุด (ใช้ได้ทั้ง CPU/GPU/NPU)\n✅ เหมาะมากสำหรับคนที่ทำ Local LLM หรือ Computer Vision บนโน้ตบุ๊ก\n✅ มีตัวอย่าง Notebook ให้ลองเยอะมาก ไม่ต้องเริ่มนับหนึ่งใหม่\n\nใครสนใจเริ่มลองตัวนี้เลย: pip install openvino\n\nอ่านรายละเอียดเพิ่มเติมได้ที่ github.com/openvinotoolkit/openvino\n\n#OpenVINO #AI #DeepLearning #Intel #ComputerVision #DeveloperTools"
-    },
-    {
-      "id": "1212769188",
-      "name": "diagram-design",
-      "owner": "cathrynlavery",
-      "url": "https://github.com/cathrynlavery/diagram-design",
-      "stars": 73955,
-      "stars_today": 955,
-      "language": "HTML",
-      "topics": [
-        "agent-skills",
-        "claude-code",
-        "codex",
-        "data-visualization",
-        "diagrams",
-        "drawio",
-        "mermaid",
-        "svg"
-      ],
-      "license": "MIT",
-      "open_issues": 33,
-      "one_liner": "เครื่องมือ Agent Skill สำหรับสร้าง Diagram คุณภาพระดับ Editorial 51 รูปแบบในไฟล์ HTML+SVG เดียว โดยตัดปัญหาเรื่อง Mermaid หรือสไตล์ที่ดูเหมือนหลุดมาจากยุค 90",
-      "problem_solved": "นักพัฒนาส่วนใหญ่มักประสบปัญหาเขียน Diagram สวยงามด้วยเครื่องมือ Drag-and-drop ไม่ได้และผลลัพธ์จาก Mermaid ก็มีข้อจำกัดในการปรับแต่งสไตล์อย่างมาก โปรเจกต์นี้จึงเปลี่ยนการสั่งงานผ่าน Text เป็นการสร้างไฟล์ SVG ที่ออกแบบมาให้สะอาดและเป็นมาตรฐานแบรนด์ขององค์กรโดยตรง การใช้ไฟล์ HTML+SVG ช่วยให้การสื่อสารระหว่างคนและเครื่องจักร (Agent) เป็นไปอย่างราบรื่นและไม่ต้องพึ่งพา Runtime อื่นๆ ในการ Render",
-      "alternative_comparison": "ต่างจาก Draw.io หรือ Mermaid ตรงที่เน้น 'การวาด' แบบโปรแกรมมิ่งที่ Agent ควบคุมได้เต็มที่เพื่อให้ได้งานออกแบบที่สะอาด (No shadows, No slop) โดยออกแบบมาเพื่อใช้เป็น Skill เสริมในตัวแทน AI (Agent) ต่างจากเครื่องมือวาดทั่วไปที่เน้น User Interface บน Web ครับ",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการจัดการ CI Workflow อย่างเป็นระบบและมีการอัปเดต Changelog ที่ชัดเจน รวมถึงรองรับการใช้งานผ่าน Marketplace ของเครื่องมือ AI Agent ชื่อดังหลายตัวอย่างมั่นคง",
-      "ai_opportunity": {
-        "monetization_idea": "ใช้เป็นเครื่องมือสร้างภาพประกอบ Technical Documentation หรือ Architecture Diagram ให้ลูกค้าโดยอัตโนมัติผ่าน Prompt เพียงครั้งเดียว",
-        "stack_synergy": "เข้าคู่กับ Claude Code, Cursor, หรือ CLI Agent อื่นๆ ได้ดีเยี่ยม เพราะเน้นการทำงานผ่านบรรทัดคำสั่งและการดึงข้อมูลจาก Context ของโปรเจกต์มาเปลี่ยนเป็นภาพ"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับ Diagram ได้ถึง 51 ประเภท ครอบคลุมตั้งแต่งานสถาปัตยกรรมจนถึงกลยุทธ์",
-          "ไฟล์ที่ได้เป็น Self-contained HTML+SVG สามารถส่งให้เพื่อนร่วมงานหรือใส่ใน Wiki ได้ทันทีโดยไม่ต้องติดตั้งซอฟต์แวร์เพิ่ม"
-        ],
-        "gotchas_and_traps": [
-          "เครื่องมือนี้เป็น 'Skill' ของ Agent ดังนั้นประสิทธิภาพขึ้นอยู่กับความฉลาดของ LLM ที่คุณใช้เป็นตัวขับเคลื่อน (Host)",
-          "ไม่สามารถแก้ไข Diagram ในระดับ Visual แบบ Drag-and-drop ได้ ต้องใช้คำสั่งสั่งให้ Agent แก้ไขและเจนใหม่เท่านั้น"
-        ],
-        "hype_vs_reality": 8
-      },
-      "quick_start": "npx skills add cathrynlavery/diagram-design",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-20T04:19:07.575Z",
-      "deep_dive_paragraphs": [
-        "โปรเจกต์นี้แก้ปัญหา 'ความลำบากใจของดีไซเนอร์' เมื่อเจอผลลัพธ์จากเครื่องมือวาด Diagram อัตโนมัติทั่วไปที่มักจะดูรกหรือไม่เป็นระเบียบ นักพัฒนาที่ต้องการทำ Docs ให้ดูสะอาดตาและเป็น Professional มักจะติดหล่มกับการใช้เวลาปรับแต่ง Mermaid หรือเครื่องมือเก่าๆ ซึ่งโปรเจกต์นี้เข้ามาตัดวงจรนั้นด้วยการใช้ LLM ในการวาง Layout ให้สมบูรณ์แบบตั้งแต่วินาทีแรก",
-        "ภายใต้ฝากระโปรง โปรเจกต์นี้ทำงานในลักษณะที่เป็น 'Agent Skill' ซึ่งใช้โครงสร้าง directory แบบ `.agents` หรือ `.claude-plugin` เพื่อให้เครื่องมืออย่าง Claude Code หรือ Cursor รู้จักคำสั่งและส่ง Context ของโปรเจกต์เข้าไปได้ ตัวโค้ดมีการใช้ `scripts` และ `prompts` ในการกำหนดกฎเกณฑ์ (Grammar) ของแต่ละ Diagram ซึ่งทำให้มันสามารถเจนไฟล์ SVG ที่สะอาดผ่าน Template ได้โดยไม่ต้องพึ่งพา Mermaid Renderer ที่ควบคุมสไตล์ได้ยาก",
-        "ในแง่ของวิศวกรรม นี่คือตัวอย่างที่ยอดเยี่ยมของการทำ 'Agent-first tooling' ผมแนะนำให้ศึกษาโครงสร้าง `skills/` ของเขาว่ามีการกำหนด `SKILL.md` อย่างไร นี่คือสิ่งที่นักพัฒนาที่อยากทำ AI Agent ของตัวเองต้องเรียนรู้ครับ ข้อจำกัดเพียงอย่างเดียวคือคุณต้องยอมรับกระบวนการทำงานแบบ Command-driven หากคุณชอบลากวางแบบเดิม ตัวนี้อาจจะไม่ตอบโจทย์เท่าการเขียน Command สั้นๆ เพื่อให้มันเจนภาพออกมา"
-      ],
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "เปลี่ยน Prompt ภาษาคน ให้เป็น Diagram คุณภาพสูงแบบ SVG ด้วย AI Agent",
-          "prerequisite_level": "คุ้นเคยกับการใช้ Terminal, เข้าใจการใช้งาน AI Coding Agents (เช่น Cursor หรือ Claude Code)",
-          "worth_deep_dive": "คุ้มค่ามากสำหรับสายเขียน Docs หรือ System Architect ที่อยาก Automate การสร้าง Diagram",
-          "context_lineage": "ต่อยอดจากแนวคิดการสร้าง Plugin สำหรับ AI Agents เพื่อเพิ่มขีดความสามารถในการ Visualize ข้อมูล"
-        },
-        "glossary": [
-          {
-            "term": "Agent Skill",
-            "meaning": "ฟีเจอร์หรือความสามารถที่ติดตั้งเพิ่มเข้าไปในตัว AI Agent เพื่อให้มันทำงานเฉพาะทางได้",
-            "analogy": "เปรียบเหมือนการติดตั้ง Extension ให้กับเบราว์เซอร์เพื่อให้มันทำอะไรเพิ่มได้นั่นเอง"
-          },
-          {
-            "term": "SVG",
-            "meaning": "ไฟล์รูปภาพแบบ Vector ที่เขียนด้วยคำสั่ง XML ซึ่งเป็นหัวใจหลักของ Diagram ที่คมชัดและแก้ไขสเกลได้",
-            "analogy": "เหมือนไฟล์พิมพ์เขียวที่ขยายขนาดเท่าไหร่ภาพก็ไม่แตก"
-          },
-          {
-            "term": "Markdown (README)",
-            "meaning": "ภาษาที่ใช้ในการจัดทำเอกสารและวิธีการใช้งานเครื่องมือนี้",
-            "analogy": "เหมือนคู่มือการใช้โปรแกรมที่ทำหน้าที่เป็นทั้งโบรชัวร์และตัวติดตั้งโปรแกรม"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Installation",
-            "detail": "ใช้คำสั่ง npx เพื่อดึง Skill มาติดตั้งในโปรเจกต์ ซึ่งตัว CLI จะจัดการเชื่อมต่อไฟล์ลงใน Directory ให้พร้อมใช้งาน"
-          },
-          {
-            "step": "Prompting",
-            "detail": "คุณพิมพ์คำสั่งภาษาธรรมชาติ เช่น 'ทำ diagram ของระบบ login' ตัว LLM จะตีความและเลือกประเภท Diagram จาก 51 แบบที่มี"
-          },
-          {
-            "step": "Rendering",
-            "detail": "Agent จะเขียนไฟล์ .html ที่มีโค้ด SVG ฝังอยู่ ทำให้คุณเปิดดูผลลัพธ์ผ่าน Browser ได้ทันทีโดยไม่ต้องรัน Server ใดๆ"
-          }
-        ],
-        "hard_evidence": [
-          {
-            "metric": "จำนวนประเภทของ Diagram ที่รองรับ",
-            "value": "51 ประเภท",
-            "context": "เป็นการการันตีความหลากหลายของงานภาพที่สามารถผลิตได้ผ่าน Skill นี้"
-          }
-        ],
-        "pass3_hands_on": {
-          "prerequisites": [
-            "ติดตั้ง Node.js สำหรับรัน npx",
-            "มี AI Agent host ที่รองรับ (เช่น Cursor, Claude Code)"
-          ],
-          "try_it_steps": [
-            "รันคำสั่ง `npx skills add cathrynlavery/diagram-design` ในโฟลเดอร์โปรเจกต์ของคุณ",
-            "เปิดโปรแกรม Agent (เช่น Cursor) แล้วลองพิมพ์ในแชทว่า '/diagram สรุปการทำงานของฟังก์ชัน X ของฉัน'",
-            "รอ Agent เจนไฟล์ HTML ออกมา แล้วคลิกเปิดผ่านเบราว์เซอร์เพื่อตรวจความถูกต้องของสไตล์"
-          ],
-          "next_to_learn": [
-            "ศึกษาเรื่อง Prompt Engineering สำหรับ Visual Tasks",
-            "เรียนรู้การปรับแต่ง Palette สีของแบรนด์ให้เข้ากับ Skill ผ่านไฟล์ config"
-          ]
-        },
-        "source_depth": "readme_and_issues"
-      },
-      "facebook_post": "ใครที่เบื่อ Mermaid ยุค 90 หรือปวดหัวกับการวาด Diagram เองในทุกๆ งานเอกสาร ต้องลองดู repo นี้ครับ! \n\nCathryn Lavery ปล่อย 'diagram-design' ซึ่งเป็น Agent Skill ที่เทพมาก มันไม่ได้แค่เจนภาพมั่วๆ แต่มันเป็นเครื่องมือเจนไฟล์ HTML+SVG ที่สะอาดและดู Professional สุดๆ\n\nจุดเด่นที่น่าสนใจ:\n✅ รองรับ Diagram ถึง 51 แบบ (ตั้งแต่ Architecture ยัน Quadrant)\n✅ เน้นดีไซน์สะอาด (No shadows, No slop) ดูแล้วรู้เลยว่าผ่านมือโปร\n✅ ทำงานเป็น Agent Skill ติดตั้งผ่าน npx ได้เลย ไม่ต้องเซตอัปเยอะ\n✅ ใช้ร่วมกับ Cursor หรือ Claude Code ได้ทันที\n\nใครทำงานสาย Architect หรือชอบเขียน Technical Docs แล้วอยากให้ Diagram มัน Match กับสไตล์แบรนด์ตัวเอง ลองติดตั้งตามนี้ครับ:\n`npx skills add cathrynlavery/diagram-design`\n\nโปรเจกต์นี้เปิดโอกาสให้เราใช้ AI มาช่วยดูแลเรื่อง 'Visual documentation' ได้แบบจริงจังมาก สาย Dev ที่เน้นความเร็วและความสวยงาม ต้องไปลองครับ!\n\n#DeveloperTools #AI #CodingAgent #SystemDesign #Automation"
-    },
-    {
-      "id": "1140843380",
-      "name": "last30days-skill",
-      "owner": "mvanhorn",
-      "url": "https://github.com/mvanhorn/last30days-skill",
-      "stars": 75867,
-      "stars_today": 759,
-      "language": "Python",
-      "topics": [
-        "agent-skills",
-        "artificial-intelligence",
-        "automation",
-        "bot",
-        "command-line",
-        "data-science",
-        "dsh",
-        "dsh-plugin",
-        "golang",
-        "instagram",
-        "llms",
-        "nlp",
-        "osint",
-        "polymarket",
-        "python3",
-        "reddit",
-        "terminal",
-        "tiktok",
-        "twitter",
-        "youtube"
-      ],
-      "license": "MIT",
-      "open_issues": 14,
-      "one_liner": "เครื่องมือ AI Agent สำหรับทำ Research เชิงลึกที่ดึงข้อมูลจากแหล่งข่าวเรียลไทม์อย่าง Reddit, X, GitHub, และ Polymarket เพื่อสังเคราะห์ผลลัพธ์ที่สดใหม่ที่สุด",
-      "problem_solved": "เครื่องมือค้นหาปกติอย่าง Google มักแสดงผลลัพธ์เก่าหรือเน้นที่บรรณาธิการคัดกรอง แต่โปรเจกต์นี้แก้ปัญหาโดยใช้ Agent วิ่งไปดึงข้อมูลจากแหล่งที่มีการโต้ตอบของผู้คนจริงๆ ในช่วง 30 วันที่ผ่านมา เพื่อให้ได้ความเห็นที่สดใหม่และอ้างอิงจากกิจกรรมของผู้ใช้งานจริง",
-      "alternative_comparison": "ต่างจาก Perplexity ที่ใช้ LLM สรุปจาก Web Search ทั่วไปตรงที่ตัวนี้เน้น 'Recency' และเข้าถึง 'Walled Gardens' (เช่น Reddit, TikTok, X) โดยตรงผ่าน Agent ที่ปรับแต่งมาเพื่อดึง Data จากแหล่งที่ AI ทั่วไปมักเข้าถึงไม่ได้",
-      "maturity_rating": "Experimental",
-      "maturity_reason": "มีการพัฒนาฟีเจอร์อย่างต่อเนื่องและมีการจัดการ Issue เรื่องความปลอดภัย (SECURITY.md) แต่โครงสร้างยังเป็นแบบ plugin-based ที่ต้องพึ่งพาการตั้งค่าของผู้ใช้สูงและมีการเปลี่ยนแปลงโครงสร้างไฟล์บ่อยครั้ง",
-      "ai_opportunity": {
-        "monetization_idea": "ใช้เป็นเครื่องมือทำ Due Diligence ส่วนตัวก่อนตัดสินใจลงทุนหรือรับงานโปรเจกต์ใหม่ เพื่อเช็กความเคลื่อนไหวล่าสุดของบริษัทหรือบุคคลนั้นๆ ว่ากำลังทำอะไรอยู่จริงในรอบเดือนที่ผ่านมา",
-        "stack_synergy": "เข้าคู่กันได้ดีกับ Claude Code หรือ Cursor สำหรับนักพัฒนาที่ต้องการทำ RAG (Retrieval-Augmented Generation) บนข้อมูลที่สดใหม่ที่สุดโดยไม่ต้องรอ Crawlers ของ Google"
-      },
-      "human_vibe_check": {
-        "pros": [
-          "รองรับแหล่งข้อมูลที่หลากหลายและเป็นจุดที่มีการเคลื่อนไหวสูง (X, Reddit, Polymarket, arXiv)",
-          "เน้นการทำ Context-aware synthesis ที่ช่วยลดงานสรุปข้อมูลจากหลายแพลตฟอร์มด้วยตัวเอง"
-        ],
-        "gotchas_and_traps": [
-          "จำเป็นต้องจัดการ API Key และการเชื่อมต่อด้วยตัวเองในหลายๆ แพลตฟอร์ม (Walled Gardens)",
-          "ความแม่นยำขึ้นอยู่กับ Prompting ของ Agent และคุณภาพของข้อมูลที่ดึงมาได้ ซึ่งอาจมี noise สูง"
-        ],
-        "hype_vs_reality": 7
-      },
-      "quick_start": "npx skills add mvanhorn/last30days-skill -g",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-18T04:42:47.808Z",
-      "deep_dive_paragraphs": [
-        "ในยุคที่ AI ให้ข้อมูลได้รวดเร็ว ปัญหาใหญ่ของนักพัฒนาและนักวิจัยคือ 'ข้อมูลเก่า' หรือ 'ข้อมูลที่ถูกคัดกรองโดย Editor' ทำให้พลาด Signal สำคัญจาก Community ที่แท้จริง โปรเจกต์ last30days-skill เข้ามาแก้คอขวดนี้ด้วยการสร้าง Layer ที่ดึงข้อมูลจากแพลตฟอร์มที่ผู้คนใช้คุยกันจริงๆ (Reddit, HN, X) ทำให้เราเห็นภาพรวมของ 'ความจริง' ในช่วง 30 วันที่ผ่านมา แทนที่จะเป็นบทความ SEO สรุปความรู้อายุ 3 ปี",
-        "สถาปัตยกรรมของโปรเจกต์นี้ไม่ได้ทำงานแบบ Search Engine ทั่วไป แต่ใช้โมเดลของ 'Agentic Skills' โดยมีโครงสร้างไฟล์แยกตาม Plugin (เช่น .agents, .claude-plugin) กลไกหลักคือการใช้ Agent เข้าไปอ่านข้อมูลตามความต้องการของผู้ใช้ ผ่านการเชื่อมต่อที่หลากหลาย และสรุปผ่านตัวตัดสิน (Judge) ซึ่งช่วยคัดกรองสัญญาณรบกวนออกไป โดยตัวมันเองไม่ใช่ตัวดึงข้อมูลแบบดั้งเดิม แต่เป็นตัวเชื่อม (Bridge) ที่ดึงขีดความสามารถของแต่ละแพลตฟอร์มมาทำงานร่วมกัน",
-        "สำหรับการศึกษา โค้ดนี้คุ้มค่าที่จะอ่านเพราะแสดงให้เห็นวิธีทำ Agentic Pipeline ที่ต่อเชื่อมกับ API หลากหลายประเภท หากคุณสนใจเรื่อง Automation Agent นี่คือแหล่งเรียนรู้ที่ยอดเยี่ยม แต่อย่าคาดหวังว่ามันจะเป็นโปรดักต์ที่กดปุ่มเดียวแล้วทำงานได้สมบูรณ์แบบโดยไม่ต้องตั้งค่า เพราะตัวแปรอย่าง Auth หรือ API Rate Limit เป็นสิ่งที่ผู้ใช้ต้องดูแลเองตามธรรมชาติของ Third-party access"
-      ],
-      "reading_guide": {
-        "pass1_triage": {
-          "core_idea": "สร้าง Agent ที่คอยทำหน้าที่เป็นนักวิจัยข่าวสารและกิจกรรมในโลกโซเชียลแบบเรียลไทม์เพื่อสรุปข้อมูลให้เรา",
-          "prerequisite_level": "เข้าใจการใช้งาน Python, พื้นฐานการใช้งาน CLI, และมีความเข้าใจเบื้องต้นเกี่ยวกับ LLM/Agents",
-          "worth_deep_dive": "คุ้มค่ามากสำหรับการศึกษาโครงสร้างการเขียน Agentic Skills ในรูปแบบ Open Source",
-          "context_lineage": "ต่อยอดจากแนวคิด AI Agent และการเข้าถึงข้อมูลแบบโปรแกรมมิ่ง (Programmable Search) ในยุคที่แพลตฟอร์มต่างๆ มีกำแพงกั้น"
-        },
-        "glossary": [
-          {
-            "term": "Agentic Skills",
-            "meaning": "ความสามารถของ AI Agent ที่ถูกสอนมาให้ใช้งานเครื่องมือภายนอกหรือดึงข้อมูลผ่าน API เฉพาะทาง",
-            "analogy": "เหมือนการสอน AI ให้เป็นนักสืบที่รู้วิธีเดินไปดูข้อมูลจากหอสมุดต่างๆ เองได้"
-          },
-          {
-            "term": "Walled Garden",
-            "meaning": "แพลตฟอร์มที่ไม่เปิดเผยข้อมูลให้ Google หรือ Search Engine ทั่วไปเข้าถึงได้ง่ายๆ",
-            "analogy": "เหมือนสวนที่มีกำแพงสูงล้อมรอบ ต้องมีบัตรผ่าน (API/Login) ถึงจะเข้าไปดูได้"
-          },
-          {
-            "term": "Recency",
-            "meaning": "ความสดใหม่ของข้อมูลที่ดึงมา",
-            "analogy": "เปรียบเหมือนการกินอาหารที่เพิ่งปรุงเสร็จใหม่ๆ แทนที่จะเป็นอาหารกระป๋องที่ค้างสต็อกมาเป็นปี"
-          }
-        ],
-        "how_it_works": [
-          {
-            "step": "Input Processing",
-            "detail": "รับ Topic ที่ผู้ใช้ต้องการค้นหาเข้าสู่ระบบ ผ่าน Command Line หรือผ่าน Claude plugin"
-          },
-          {
-            "step": "Multi-Source Retrieval",
-            "detail": "Agent จะกระจายคำสั่งไปดึงข้อมูลจากแหล่งที่เกี่ยวข้อง (Reddit, X, YT, etc.) โดยใช้ Credentials ของผู้ใช้"
-          },
-          {
-            "step": "Synthesis & Scoring",
-            "detail": "รวบรวมและให้คะแนนข้อมูลตามความสำคัญ (Upvotes, Likes, Odds) แล้วให้ LLM สรุปผลสรุปที่อ่านง่ายให้"
+            "step": "Rendering Engine",
+            "detail": "แปลง Block เหล่านี้เป็น UI ผ่าน React โดยรองรับทั้งมุมมองแบบเอกสารและมุมมองแบบ Whiteboard"
           }
         ],
         "hard_evidence": [
           {
             "metric": "GitHub Stars",
-            "value": "71005",
-            "context": "จำนวนดาวที่สะท้อนถึงความสนใจจากคอมมูนิตี้ในปัจจุบัน"
+            "value": "79220",
+            "context": "ความนิยมในฐานะโปรเจกต์โอเพนซอร์สบน GitHub"
           },
           {
-            "metric": "Daily growth",
-            "value": "+954",
-            "context": "อัตราการเติบโตของผู้ติดตามในวันที่ตรวจวัด"
+            "metric": "Open Issues",
+            "value": "658",
+            "context": "จำนวนบั๊กหรือฟีเจอร์ที่รอการจัดการ"
           }
         ],
         "pass3_hands_on": {
           "prerequisites": [
-            "ติดตั้ง Python และ pip",
-            "มี API Key หรือช่องทางเข้าถึงแพลตฟอร์มโซเชียลที่ต้องการ",
-            "ใช้งานผ่าน Claude Code หรือ CLI ตามที่ README แนะนำ"
+            "Node.js (แนะนำเวอร์ชัน LTS), Yarn, และพื้นฐานการ build โปรเจกต์ TypeScript"
           ],
           "try_it_steps": [
-            "ติดตั้งตัว Plugin ตามคำสั่งใน README เพื่อทดสอบการเรียกใช้ผ่าน CLI",
-            "ทดลองรันคำสั่ง /last30days เพื่อดูว่าข้อมูลสรุปออกมาเป็นอย่างไร",
-            "ตรวจสอบไฟล์ในโฟลเดอร์ .agents เพื่อศึกษาว่าแต่ละแหล่งข้อมูลถูกดึงมาอย่างไร"
+            "Clone โปรเจกต์ลงเครื่องเพื่อให้เห็นโครงสร้างไฟล์จริงทั้งหมด",
+            "ลองรันคำสั่ง build ตามเอกสารใน README เพื่อตรวจสอบ dependencies และความพร้อมของสภาพแวดล้อม",
+            "เข้าไปดูที่โฟลเดอร์ blocksuite เพื่อทำความเข้าใจว่าเขากำหนดโครงสร้าง Block ต่างๆ อย่างไร"
           ],
           "next_to_learn": [
-            "ศึกษาเรื่อง Agent-based RAG เพื่อเข้าใจวิธีดึงข้อมูลนอกเหนือจาก Database ทั่วไป",
-            "อ่านเรื่องการทำ Authentication กับ Third-party APIs อย่างปลอดภัย"
+            "CRDT (Conflict-free Replicated Data Types) เพื่อเข้าใจการทำระบบ Sync",
+            "Block-based Editor architecture สำหรับการออกแบบ UI ที่มีความยืดหยุ่นสูง"
           ]
         },
         "source_depth": "readme_and_issues"
       },
-      "facebook_post": "ถ้าคุณเหนื่อยกับการ Google หาข้อมูลแล้วเจอแต่ SEO เก่าๆ หรือ Content สรุปความที่ไม่อัปเดต ต้องดูโปรเจกต์ 'last30days-skill' นี้เลยครับ!\n\nนี่คือ AI Agent ที่ไม่ได้มาแค่ Search แต่ไปดึงข้อมูลจาก 'ความจริง' ที่ผู้คนคุยกันบน Reddit, X, YouTube, หรือแม้แต่ Polymarket มาสรุปให้คุณแบบเรียลไทม์\n\nจุดที่น่าสนใจ:\n✅ ดึงข้อมูลจากแหล่งที่ Google เข้าไม่ถึง (Walled Gardens)\n✅ ใช้คะแนน Engagement จริงจากผู้ใช้ (Likes, Upvotes) เป็นตัวให้น้ำหนักข้อมูล\n✅ เหมาะมากสำหรับใช้ทำ Research ก่อนประชุม หรืออัปเดตเรื่องเทคโนโลยีรายวัน\n\nโปรเจกต์นี้เปิดโอกาสให้เราลองเขียน Agent ที่ต่อเชื่อมกับหลาย API พร้อมกัน ซึ่งเป็นทักษะที่สำคัญมากสำหรับยุค AI Agent ในปัจจุบันครับ\n\nลองไปส่องโค้ดหรือลองใช้กันดูได้ที่นี่เลย: https://github.com/mvanhorn/last30days-skill\n\n#AI #Python #AgenticWorkflow #TechResearch #DeveloperTools"
+      "facebook_post": "ใครกำลังเบื่อกับการต้องสลับแอปจดงานไปมา ระหว่าง Notion (ที่เก่งเรื่องข้อมูล) กับ Miro (ที่เก่งเรื่องวาดไอเดีย) ต้องมาดู AFFiNE ครับ! \n\nAFFiNE คือโปรเจกต์โอเพนซอร์สที่รวมความสามารถของทั้งสองตัวนี้เข้าด้วยกันในสถาปัตยกรรมแบบ Local-first คือเน้นเก็บข้อมูลไว้ในเครื่องเราจริงๆ ไม่ต้องพึ่งพา Cloud เจ้าใหญ่ตลอดเวลา ทำให้ทั้งความเป็นส่วนตัวและความเร็วในการเข้าถึงข้อมูลอยู่ในระดับสูง\n\nจุดเด่นที่น่าสนใจ:\n✅ ทุกอย่างเป็น Block: จะพิมพ์งานหรือวาดรูปทำได้ในหน้าเดียว\n✅ Local-first: ข้อมูลอยู่ที่เรา จะออฟไลน์ก็ยังทำงานได้\n✅ โอเพนซอร์สเต็มตัว: สามารถ self-host หรือจะ fork ไปต่อยอดเองก็ได้\n✅ มี AI Partner: ช่วยสรุปงาน จัดการ Mindmap หรือร่างโครงร่างโปรเจกต์ได้แบบมือโปร\n\nใครเป็นสายจัดการความรู้ หรือสาย Productivity ที่อยากคุม Data เอง ลองเข้าไปดู Source Code หรือทดลองใช้กันได้เลยครับ เป็นโปรเจกต์ที่น่าศึกษาเรื่องการทำระบบแบบซับซ้อนได้ดีมาก\n\nพิกัด: https://github.com/toeverything/AFFiNE\n\n#AFFiNE #OpenSource #LocalFirst #NotionAlternative #DeveloperTools"
     },
     {
-      "id": "1135847870",
-      "name": "stitch-skills",
-      "owner": "google-labs-code",
-      "url": "https://github.com/google-labs-code/stitch-skills",
-      "stars": 13330,
-      "stars_today": 309,
-      "language": "TypeScript",
-      "topics": [],
-      "license": "Apache-2.0",
-      "open_issues": 25,
-      "one_liner": "Stitch Skills คือคอลเลกชันเครื่องมือเสริมพลังให้ AI Agent สามารถจัดการงานด้าน Design และ Frontend ได้โดยตรงผ่านโปรโตคอลกลางแบบ Open Standard",
-      "problem_solved": "นักพัฒนามักเจอปัญหาการเชื่อมต่อระหว่างเครื่องมือเขียนโค้ดกับเครื่องมือออกแบบที่แยกส่วนกันอย่างสิ้นเชิง ทำให้ต้องเสียเวลา Manual สลับหน้าจอและคัดลอกข้อมูลเอง โปรเจกต์นี้แก้ด้วยการสร้าง Skill ที่ให้ Agent สั่งการดึง/ส่งข้อมูลดีไซน์หรือแปลง Code เป็น Design ได้แบบอัตโนมัติ ช่วยลดภาระการทำซ้ำซ้อนในขั้นตอนการพัฒนา UI",
-      "alternative_comparison": "หากเทียบกับเครื่องมืออย่าง Vercel v0 หรือ Bolt.new ที่เน้นการ Generate UI แบบเบ็ดเสร็จในตัว Stitch Skills จะเน้นที่การเป็น 'ปลั๊กอิน' เสริมให้ Agent ตัวหลักที่คุณใช้อยู่แล้ว (เช่น Claude Code หรือ Cursor) เก่งขึ้นเฉพาะทางด้าน Design-to-Code โดยเฉพาะ ไม่ใช่แพลตฟอร์มสำเร็จรูป",
+      "id": "679086250",
+      "name": "Ghost-Downloader-3",
+      "owner": "XiaoYouChR",
+      "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
+      "stars": 19606,
+      "stars_today": 843,
+      "language": "Python",
+      "topics": [
+        "async",
+        "asyncio",
+        "bittorent",
+        "bt",
+        "cross-platform",
+        "download-manager",
+        "downloader",
+        "fluent-design",
+        "ftp",
+        "http3",
+        "magnet",
+        "pyqt",
+        "pyside6",
+        "python",
+        "qt",
+        "quic",
+        "react",
+        "software",
+        "streaming"
+      ],
+      "license": "GPL-3.0",
+      "open_issues": 120,
+      "one_liner": "โปรแกรม Download Manager โอเพนซอร์สที่รวมโปรโตคอลหลากหลายและรองรับการดึงข้อมูลจากแพลตฟอร์มวิดีโอผ่านส่วนขยายเบราว์เซอร์อย่างไร้รอยต่อ",
+      "problem_solved": "การต้องใช้โปรแกรมแยกกันหลายตัวสำหรับโปรโตคอลที่ต่างกันสร้างความรุงรังให้กับ Workflow ของผู้ใช้ แก้ไขด้วยการรวมศูนย์การจัดการทั้ง HTTP, BT, M3U8 ไว้ที่เดียว ส่วนขยายเบราว์เซอร์ช่วยลดขั้นตอนการคัดลอกลิงก์ด้วยการส่งข้อมูล Authentication state ไปยังโปรแกรมได้โดยตรง โปรแกรมรองรับการปรับแต่ง Proxy และ Header ได้แบบ Real-time แม้ในขณะที่การดาวน์โหลดกำลังดำเนินอยู่",
+      "alternative_comparison": "ต่างจาก IDM ตรงที่เป็น Open-source และข้ามแพลตฟอร์ม (Windows/macOS/Linux/Android) ในขณะที่ aria2 ให้ความเร็วที่สูงแต่ขาด UI ที่ทันสมัย ผู้ใช้ควรเลือกโปรเจกต์นี้หากต้องการความสะดวกแบบ GUI ที่รองรับฟีเจอร์สมัยใหม่ครบจบในตัวเดียว",
       "maturity_rating": "Experimental",
-      "maturity_reason": "สถานะการพัฒนาเน้นการทดลองและรองรับการใช้งานผ่านเครื่องมือ Agent หลากหลายตัว แต่ยังมีประเด็นเรื่องความเสถียรของ API การเข้าถึงข้อมูลและการตั้งค่าระบบความปลอดภัยที่ยังเป็นงานกำลังพัฒนา",
+      "maturity_reason": "ยังมี Issue แจ้งเรื่องฟีเจอร์พื้นฐานอย่างปุ่ม Pause ไม่ทำงาน และการพัฒนาส่วนขยายที่ยังอยู่ในช่วงปรับปรุงโครงสร้างทดสอบ แม้จะมีการรองรับหลายแพลตฟอร์มแต่ยังพบปัญหาในการรันบนบาง Distro อย่าง Arch Linux",
       "ai_opportunity": {
-        "monetization_idea": "ใช้เป็นเครื่องมือสร้าง Custom Workflow ภายในทีมเพื่อทำ Design System Audit หรือแปลง UI ที่รื้อฟื้นจาก Legacy Code เป็น component library ใหม่ได้อัตโนมัติ",
-        "stack_synergy": "เข้าคู่ได้ดีเยี่ยมกับ MCP (Model Context Protocol) และ AI Code Editors เช่น Cursor หรือ Claude Code ซึ่งเป็นเทรนด์หลักของเครื่องมือช่วยพัฒนาในปัจจุบัน"
+        "monetization_idea": "ใช้เป็นเครื่องมือพื้นฐาน (Local Backend) สำหรับทำ Automation Pipeline ในการดึงข้อมูลจากเว็บไซต์หรือคลังข้อมูลขนาดใหญ่เพื่อส่งต่อให้ Local LLM ประมวลผลต่อ",
+        "stack_synergy": "ใช้ร่วมกับ Python (PySide6) ในการสร้าง GUI ที่ซับซ้อน และใช้ uv ในการจัดการ Dependency ที่รวดเร็ว"
       },
       "human_vibe_check": {
         "pros": [
-          "รองรับการใช้งานหลาย Agent (Codex, Claude Code, Cursor, OpenCode) ไม่ผูกติดกับตัวใดตัวหนึ่ง",
-          "มีชุดคำสั่งครอบคลุมตั้งแต่การสกัด HTML ไปจนถึงการจัดการ Design System"
+          "รองรับโปรโตคอลครอบคลุมตั้งแต่ HTTP, Magnet ไปจนถึง M3U8 และ MPEG-DASH",
+          "มีระบบ Browser Extension ที่ช่วยจัดการ Authentication state ให้การดึงข้อมูลจากเว็บวิดีโอสะดวกมาก"
         ],
         "gotchas_and_traps": [
-          "การตั้งค่าเบื้องต้นซับซ้อน โดยเฉพาะการต้องทำความเข้าใจ MCP server และการจัดการ Environment Variables",
-          "มีปัญหาเรื่องการเข้าถึงข้อมูลบางส่วนที่ต้องผ่าน Google Sign-in ใน API ของตัวแม่ (Stitch MCP)"
+          "Qt 6.6+ ต้องการ CPU ที่รองรับชุดคำสั่ง AVX ซึ่งอาจรันบนเครื่องเก่าไม่ได้",
+          "การจัดการสถานะการดาวน์โหลดในบางฟีเจอร์ยังไม่เสถียร (เช่น ปุ่ม Pause มีปัญหาตามที่แจ้งใน Issue)"
         ],
         "hype_vs_reality": 7
       },
-      "quick_start": "npx plugins add google-labs-code/stitch-skills --scope project --target claude-code",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-18T04:42:47.809Z",
+      "quick_start": "git clone https://github.com/XiaoYouChR/Ghost-Downloader-3 && cd Ghost-Downloader-3 && uv sync && python Ghost-Downloader-3.py",
+      "updated_at": "2026-11-27T13:55:19.473Z",
+      "first_seen_at": "2026-11-27T13:55:19.473Z",
       "deep_dive_paragraphs": [
-        "ในยุคที่ AI เขียนโค้ดได้เก่งขึ้น ปัญหาหลักที่นักพัฒนาเจอไม่ใช่แค่เรื่อง syntax แต่คือการ 'เชื่อมโยง' ข้อมูลระหว่างความต้องการเชิงดีไซน์กับโครงสร้าง Frontend จริงๆ Stitch Skills เข้ามาแก้คอขวดนี้โดยการทำตัวเป็นตัวเชื่อม (Adapter) ที่ช่วยให้ Agent เข้าใจว่า 'Design คืออะไร' โดยไม่ต้องให้เราแคปจอหรืออธิบายปากเปล่าซ้ำซาก",
-        "ภายใต้โครงสร้างโปรเจกต์ โค้ดถูกจัดระเบียบผ่านโฟลเดอร์ plugins ซึ่งแบ่งแยกตามฟังก์ชันชัดเจน เช่น stitch-design ที่เน้นการคุยกับไฟล์ .stitch/DESIGN.md หรือการสกัดโครงสร้างหน้าเว็บ โปรเจกต์ใช้หลักการของ Agent Skills มาตรฐาน เพื่อให้ Agent ดึง 'Skill' ไปติดตั้งเหมือนลง Plugin ใน IDE ช่วยให้การส่งคำสั่งข้าม Platform เป็นเรื่องที่เป็นระบบมากขึ้นแทนที่จะเป็นแค่การ Prompt แบบเดาสุ่ม",
-        "ในเชิงวิศวกรรม โปรเจกต์นี้คุ้มค่ามากแก่การศึกษาในแง่ของ 'Plugin Architecture' สำหรับ AI Agent แต่สำหรับการใช้งานจริงในโปรดักชันต้องระวังเรื่องพึ่งพา (Dependency) ของระบบ Stitch ภายนอก หากคุณเป็นสายชอบปรับแต่งและต้องการขยายขีดความสามารถของ Cursor หรือ Claude ให้ทำมากกว่าแค่เขียนโค้ดทั่วไป นี่คือแหล่งเรียนรู้ชั้นดีครับ"
+        "โปรเจกต์นี้เกิดจากความต้องการแก้ปัญหาเรื่องความกระจัดกระจายของเครื่องมือดาวน์โหลด (Fragmented toolchain) สำหรับผู้ที่ต้องจัดการไฟล์ขนาดใหญ่จากหลายแหล่งในชีวิตประจำวัน คอขวดสำคัญที่โปรเจกต์นี้แก้คือการลดขั้นตอน 'Copy Link -> Paste -> Set Auth' ให้เหลือเพียงคลิกเดียวผ่าน Browser Extension ซึ่งเป็นจุดที่โปรแกรมจัดการดาวน์โหลดทั่วไปมักจะเข้าไม่ถึงข้อมูล Session ของเบราว์เซอร์",
+        "ในแง่ของสถาปัตยกรรม Ghost-Downloader-3 ใช้ Python เป็นแกนหลักขับเคลื่อนด้วย PySide6 สำหรับ UI ที่สวยงามตามแนวทาง Fluent Design และใช้กลไกการสื่อสารผ่าน RPC ที่เข้ากันได้กับ aria2 เบื้องหลังมีการจัดการ Chunking ข้อมูลแบบอัจฉริยะที่ช่วยเพิ่มความเร็วในการดาวน์โหลดบนเครือข่ายที่คุณภาพต่ำ และใช้เทคนิค Real-browser TLS fingerprinting เพื่อหลบเลี่ยง Anti-bot ซึ่งเป็นกลไกที่ซับซ้อนกว่าการดาวน์โหลดไฟล์ทั่วไป",
+        "ในมุมมองวิศวกร โปรเจกต์นี้เป็นตัวอย่างที่ดีของการเรียนรู้การเขียน GUI แอปพลิเคชันที่ซับซ้อนด้วย Qt ใน Python รวมถึงการจัดการกระบวนการ Asynchronous หนักๆ อย่างไรก็ตาม ด้วยสถานะที่ยังมีการแจ้ง Issue เกี่ยวกับฟังก์ชันพื้นฐาน การนำไปใช้งานระดับ Mission-critical ในตอนนี้ยังคงมีความเสี่ยงสูง ควรศึกษาก่อนใช้งานเพื่อทำความเข้าใจการเชื่อมต่อระหว่างส่วนขยายและตัวโปรแกรมหลัก"
       ],
       "reading_guide": {
         "pass1_triage": {
-          "core_idea": "การสร้างชุดคำสั่งที่ AI Agent สามารถเรียนรู้และนำไปใช้จัดการงาน Design ได้อัตโนมัติ",
-          "prerequisite_level": "เข้าใจการใช้งาน CLI, มีพื้นฐานการตั้งค่า Environment Variables และรู้จักการใช้ AI Code Editor",
-          "worth_deep_dive": "คุ้มค่าสำหรับการศึกษาโครงสร้างการเชื่อมต่อ Agent หากต้องการต่อยอดเครื่องมือพัฒนาตัวเอง",
-          "context_lineage": "ต่อยอดมาจากแนวคิด Model Context Protocol (MCP) และการขยายขีดความสามารถของ AI Agent ให้ทำงานเฉพาะทางได้ดีขึ้น"
+          "core_idea": "โปรแกรมจัดการดาวน์โหลดที่รวมทุกอย่างใน GUI เดียวพร้อม Browser Extension ช่วยอำนวยความสะดวก",
+          "prerequisite_level": "เข้าใจพื้นฐาน Python และโครงสร้างการทำงานของ GUI Framework อย่าง PySide6/Qt",
+          "worth_deep_dive": "คุ้มค่ามากสำหรับการศึกษาการทำ Cross-platform Desktop App และการเขียน Plugin/Extension ระบบดาวน์โหลด",
+          "context_lineage": "เป็นวิวัฒนาการถัดไปจากเครื่องมือประเภท Downloader ยุคเก่าที่เน้นความเร็วอย่าง aria2 มาสู่ยุคสมัยที่เน้น User Experience และการเชื่อมต่อกับเว็บ"
+        },
+        "glossary": [
+          {
+            "term": "PySide6",
+            "meaning": "ชุดคำสั่ง Python สำหรับสร้างหน้าจอโปรแกรม (GUI) ที่ใช้เทคโนโลยี Qt",
+            "analogy": "เปรียบเหมือน 'บล็อกตัวต่อ' ที่ใช้สร้างหน้าต่างปุ่มกดต่างๆ บนหน้าจอ"
+          },
+          {
+            "term": "M3U8",
+            "meaning": "รูปแบบไฟล์ที่ใช้เก็บรายการวิดีโอสำหรับ Streaming แบบแบ่งส่วนย่อย",
+            "analogy": "เหมือนกับ 'เมนูอาหาร' ที่บอกว่าต้องไปหยิบชิ้นส่วนวิดีโอจากไหนบ้าง"
+          },
+          {
+            "term": "TLS Fingerprinting",
+            "meaning": "การเลียนแบบลักษณะการเชื่อมต่อของเบราว์เซอร์จริง เพื่อไม่ให้เซิร์ฟเวอร์รู้ว่าเป็นบอท",
+            "analogy": "เหมือนการปลอมตัวให้ดูเหมือนคนปกติที่สุดเพื่อให้ผ่านจุดตรวจ"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Browser Sniffing",
+            "detail": "ส่วนขยายเบราว์เซอร์ทำหน้าที่ตรวจจับลิงก์สื่อและดึงค่า Authentication state ส่งผ่าน API ไปยังโปรแกรมหลัก"
+          },
+          {
+            "step": "Protocol Routing",
+            "detail": "โปรแกรมวิเคราะห์ URL และเลือก Engine การดาวน์โหลดที่เหมาะสม (HTTP, BT, FTP) เพื่อเริ่มการทำงาน"
+          },
+          {
+            "step": "Smart Chunking",
+            "detail": "แบ่งไฟล์ออกเป็นส่วนเล็กๆ และดาวน์โหลดขนานกันผ่านการจัดการ Thread แบบ Asynchronous เพื่อเพิ่มประสิทธิภาพ"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "จำนวน IP สำหรับ Proxy",
+            "value": "90M+",
+            "context": "จำนวนฐานข้อมูล IP ในระบบ Proxy ที่โฆษณาใน README"
+          },
+          {
+            "metric": "Success rate ของ Proxy",
+            "value": "99.9%",
+            "context": "อัตราความสำเร็จในการเชื่อมต่อที่ระบุโดยผู้ให้บริการ IPStar"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Python 3.10+",
+            "CPU ที่มีชุดคำสั่ง AVX (สำหรับ Qt 6.6+)",
+            "ความรู้เบื้องต้นในการรันคำสั่งผ่าน Terminal"
+          ],
+          "try_it_steps": [
+            "Clone repo และติดตั้งสภาพแวดล้อมด้วย uv sync เพื่อจำลองการจัดการ Dependency ที่โปรเจกต์นี้เลือกใช้",
+            "ลองรันไฟล์ Ghost-Downloader-3.py เพื่อดูหน้า UI ว่าโหลดขึ้นบน OS ของคุณได้สมบูรณ์หรือไม่",
+            "ศึกษาส่วนโฟลเดอร์ browser_extension เพื่อดูว่ามันส่งข้อมูล Auth ผ่าน WebExtension API อย่างไร"
+          ],
+          "next_to_learn": [
+            "Qt Event Loop สำหรับจัดการ Process ดาวน์โหลดที่ทำงานค้างคืน",
+            "WebExtension API เพื่อเข้าใจวิธีการสื่อสารข้ามระหว่าง Browser กับ Desktop App"
+          ]
+        },
+        "source_depth": "readme_and_issues"
+      },
+      "facebook_post": "ใครกำลังเบื่อกับการเปิดโปรแกรมดาวน์โหลดหลายตัวสลับไปมา? แนะนำให้รู้จักกับ Ghost-Downloader-3 เครื่องมือจัดการดาวน์โหลดสาย Open-source ที่รวมฟีเจอร์เด็ดไว้ในที่เดียว!\n\nทำไมตัวนี้ถึงน่าสนใจ?\n✅ รวมโปรโตคอลครบ: HTTP, Magnet/BT, FTP, M3U8, MPEG-DASH\n✅ ชีวิตง่ายขึ้น: มี Extension ช่วยตรวจจับวิดีโอหน้าเว็บแล้วส่งให้โปรแกรมโหลดอัตโนมัติ ไม่ต้องคอย Copy Link\n✅ ข้ามแพลตฟอร์ม: ใช้ได้ทั้ง Windows, macOS, Linux แถมมีบน Android ด้วย\n✅ ปรับแต่งได้ดั่งใจ: ปรับ Proxy หรือ Header ได้แม้ดาวน์โหลดอยู่ ไม่ต้องกดเริ่มใหม่\n\nโปรเจกต์นี้เขียนด้วย Python (PySide6) เหมาะมากสำหรับคนที่อยากแกะโค้ดดูการทำ Desktop App ที่ซับซ้อน หรือใครที่อยากลองเครื่องมือที่เน้น Workflow การโหลดข้อมูลจริงจัง\n\n⚠️ หมายเหตุ: โปรเจกต์อยู่ในช่วงพัฒนา อาจมีบั๊กเล็กน้อย และต้องใช้ CPU ที่รองรับ AVX นะครับ\n\nใครเป็นสายโหลด หรือสาย Automate ข้อมูล แนะนำให้ลองเข้าไปดูใน GitHub เลยครับ\n\n#Python #OpenSource #DownloadManager #DevLife #GhostDownloader"
+    },
+    {
+      "id": "1015815983",
+      "name": "autoclip",
+      "owner": "zhouxiaoka",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "stars": 17386,
+      "stars_today": 733,
+      "language": "Python",
+      "topics": [
+        "ai-agent",
+        "ai-video-editor",
+        "claude-code",
+        "content-repurposing",
+        "desktop-app",
+        "douyin",
+        "instagram-reels",
+        "local-first",
+        "mcp",
+        "mcp-server",
+        "open-source",
+        "opusclip-alternative",
+        "podcast",
+        "subtitles",
+        "tiktok",
+        "video-clipping",
+        "video-editing-software",
+        "whisper",
+        "xiaohongshu",
+        "youtube-shorts"
+      ],
+      "license": "MIT",
+      "open_issues": 34,
+      "one_liner": "แอปเดสก์ท็อปโอเพนซอร์สสำหรับตัดต่อคลิปวิดีโอสั้นจากวิดีโอยาวแบบ Local-first โดยใช้ AI ช่วยคัดเลือกไฮไลท์และใส่ซับไตเติ้ลอัตโนมัติ",
+      "problem_solved": "นักสร้างคอนเทนต์เสียเวลาจำนวนมหาศาลในการนั่งดูฟุตเทจยาวเพื่อหาช่วงที่น่าสนใจและตัดต่อด้วยมือ แอปนี้เข้ามาแก้คอขวดด้วยการใช้ LLM วิเคราะห์เนื้อหาและตัดวิดีโอแบบอัตโนมัติ โดยลดต้นทุนที่ต้องจ่ายให้เครื่องมือ SaaS แบบรายเดือนและรักษาความเป็นส่วนตัวด้วยการประมวลผลบนเครื่องตัวเอง",
+      "alternative_comparison": "ต่างจาก OpusClip หรือแพลตฟอร์ม Cloud SaaS ตรงที่เป็น Local-first ทำงานบนเครื่องผู้ใช้ 100% ปราศจากค่ารายเดือนแต่ต้องพึ่งพาสเปกเครื่องตัวเอง ในขณะที่เครื่องมืออย่าง Streamcut หรือ Subclippy มักเป็นเพียง Python script เฉพาะทาง แต่ AutoClip พัฒนาเป็น Desktop App ที่ครบวงจรและจัดการไฟล์ในเครื่องได้ดีกว่า",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "แม้จะมีฟีเจอร์ที่ดูครบเครื่องและ UI ที่สวยงาม แต่จำนวน Issues ใน GitHub ที่รายงานเกี่ยวกับความไม่เสถียรของแอปและการจัดการ Token/API ที่สิ้นเปลือง สะท้อนว่ายังอยู่ในช่วงพัฒนาที่ต้องอาศัยการปรับจูนสูง",
+      "ai_opportunity": {
+        "monetization_idea": "ทำบริการรับจ้างตัดต่อวิดีโอแบบ Automated สเกลใหญ่โดยใช้ AutoClip เป็น Engine หลังบ้านเพื่อลดต้นทุนค่าแรงมนุษย์ หรือสร้าง Service แนะนำการตั้งค่า Prompt ให้เหมาะสมกับประเภทคอนเทนต์แต่ละแนว",
+        "stack_synergy": "เข้าคู่กับ Ollama สำหรับการรัน LLM แบบ Local เพื่อเลี่ยงค่า API Cost และโปรแกรม OBS Studio สำหรับการดึง Stream มาประมวลผลต่อ"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ไม่ต้องจ่ายค่า Subscription รายเดือนเพราะเป็น Local-first",
+          "รองรับการดึงข้อมูลจากแหล่งที่หลากหลาย ทั้งไฟล์ในเครื่องและ Live Stream ผ่าน OBS WebSocket"
+        ],
+        "gotchas_and_traps": [
+          "กินทรัพยากรเครื่องสูงมาก หากสเปกไม่ถึงการประมวลผลวิดีโอยาวอาจล้มเหลวหรือค้างได้",
+          "การตั้งค่า API Model ที่ไม่เหมาะสมอาจทำให้ค่าใช้จ่ายบานปลายโดยไม่รู้ตัว"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "git clone https://github.com/zhouxiaoka/autoclip && cd autoclip && pip install -r requirements.txt",
+      "updated_at": "2026-11-27T13:55:37.724Z",
+      "first_seen_at": "2026-11-27T13:55:37.724Z",
+      "deep_dive_paragraphs": [
+        "ในฐานะวิศวกร คอขวดสำคัญที่โปรเจกต์นี้แก้คือ 'ความเร็วในการทำคอนเทนต์' สำหรับเหล่า Streamer หรือ Vlogger ที่ต้องจัดการฟุตเทจยาวๆ วิธีปกติคือต้องนำวิดีโอไปโยนบน Cloud ซึ่งเสี่ยงต่อความเป็นส่วนตัวและเสียเงินรายเดือนสูงมาก AutoClip จึงเปลี่ยนแนวคิดมาเป็นการใช้พลังประมวลผลบนเครื่อง (Local-first) ผ่านโครงสร้าง Desktop App ทำให้จบงานได้ในที่เดียว",
+        "ภายใต้ฝากระโปรงโปรเจกต์นี้ใช้ Python เป็นแกนกลางในการจัดการ Pipeline โดยมีการแบ่งส่วน Backend สำหรับจัดการงานคำนวณและวิเคราะห์วิดีโอ ส่วน Frontend ใช้ Tauri ในการแสดงผล UI ที่รวดเร็ว กลไกการทำงานหลักคือการส่ง Content เข้า LLM เพื่อวิเคราะห์ Timestamps ที่น่าสนใจ ก่อนจะใช้ FFmpeg หรือเครื่องมือจัดการวิดีโอตัดต่อตามที่ AI สั่งการ โดยมีส่วนสำคัญคือการรองรับ MCP (Model Context Protocol) เพื่อให้ AI Agent อื่นๆ เข้ามาเชื่อมต่อสั่งงานได้",
+        "ความคุ้มค่าของการศึกษาโค้ดชุดนี้คือการได้เห็นวิธีรวมเอา AI เข้ากับ Desktop Application อย่างเป็นระบบ โดยเฉพาะการจัดการไฟล์ขนาดใหญ่และการทำ Work-queue ในฝั่ง Client แต่ถ้าจะเอาไปใช้ในงาน Production จริงๆ ต้องเตือนเรื่องความเสถียรและการจัดการ Memory ที่ใน Issue ยังพบปัญหาอยู่มาก แนะนำให้ลองศึกษาสถาปัตยกรรมของมันเพื่อปรับใช้ในงานส่วนตัวมากกว่าจะฝากความหวังกับเวอร์ชันปัจจุบันทั้งหมด"
+      ],
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "ใช้ AI วิเคราะห์เนื้อหาวิดีโอแล้วตัดคลิปสั้นไฮไลท์โดยทำทุกอย่างบนคอมเครื่องเดียว",
+          "prerequisite_level": "เข้าใจพื้นฐาน Python, ระบบไฟล์ในเครื่อง, การรันโมเดล Local (เช่น Ollama), และการใช้งาน API Key",
+          "worth_deep_dive": "คุ้มค่าหากคุณต้องการสร้างเครื่องมือ Automation ของตัวเอง แนะนำให้ศึกษาส่วนของการจัดการ Queue และการสั่งงานวิดีโอผ่านโค้ด",
+          "context_lineage": "ต่อยอดจากแนวคิด AI Video Clipping ยุคใหม่ที่เปลี่ยนจาก Cloud-based ไปสู่การรันบนเครื่องเพื่อแก้ปัญหาค่าใช้จ่าย"
         },
         "glossary": [
           {
             "term": "MCP (Model Context Protocol)",
-            "meaning": "มาตรฐานการเชื่อมต่อที่ช่วยให้ AI เข้าถึงข้อมูลและเครื่องมือในเครื่องเราได้อย่างปลอดภัยและเป็นระบบ",
-            "analogy": "เหมือนเป็นภาษากลางที่ทำให้ AI คุยกับโปรแกรมอื่นในเครื่องเราได้เหมือนคุยกับมนุษย์"
+            "meaning": "มาตรฐานการเชื่อมต่อที่ช่วยให้ AI Agent คุยกับเครื่องมือในเครื่องเราได้ง่ายขึ้น",
+            "analogy": "เปรียบเหมือนปลั๊กไฟมาตรฐานที่ AI เอามาเสียบเพื่อสั่งงานโปรแกรมในเครื่องเราได้"
           },
           {
-            "term": "Sparse Checkout",
-            "meaning": "เทคนิคการดึงไฟล์จาก Git เฉพาะโฟลเดอร์ที่จำเป็น แทนที่จะโหลดทั้ง Repository",
-            "analogy": "เหมือนการเลือกซื้อของเฉพาะชิ้นที่อยากได้ แทนที่จะเหมาทั้งร้าน"
+            "term": "Local-first",
+            "meaning": "เน้นการเก็บข้อมูลและทำงานบนเครื่องผู้ใช้เป็นหลัก ไม่พึ่งพาเซิร์ฟเวอร์ภายนอก",
+            "analogy": "เหมือนการทำอาหารกินเองที่บ้าน แทนการสั่ง Delivery มาจากร้านไกลๆ"
           },
           {
-            "term": "Skill",
-            "meaning": "ชุดคำสั่งหรือโปรแกรมเล็กๆ ที่ให้ AI เรียกใช้เพื่อทำงานเฉพาะเจาะจง",
-            "analogy": "เหมือนฟังก์ชันในโปรแกรมที่เราเปิดให้ AI เรียกกดใช้เองตามสถานการณ์"
+            "term": "FFmpeg",
+            "meaning": "เครื่องมือหลักที่ใช้จัดการวิดีโอและเสียงผ่าน Command line",
+            "analogy": "มีดทำครัวสารพัดประโยชน์ของโปรแกรมเมอร์ที่ใช้ตัด ต่อ แปลงไฟล์วิดีโอ"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Ingestion",
+            "detail": "รับ Input จากไฟล์, Link, หรือ OBS WebSocket แล้วดึงข้อมูลวิดีโอเข้ามาใน Queue"
+          },
+          {
+            "step": "Transcription & Analysis",
+            "detail": "ใช้โมเดล Whisper/SenseVoice ถอดเสียงเป็นข้อความ แล้วส่งให้ LLM วิเคราะห์เพื่อหาจุดที่น่าสนใจ (Highlights)"
+          },
+          {
+            "step": "Clipping & Rendering",
+            "detail": "ตัดวิดีโอตาม timestamp ที่ AI เลือกมา พร้อมใส่ซับไตเติ้ลและ Export ตาม Preset ของแพลตฟอร์ม"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "จำนวนแหล่งข้อมูล Live Replay ที่รองรับ",
+            "value": "6 แหล่ง",
+            "context": "รองรับ OBS Studio, Twitch, YouTube, Kick, Discord และไฟล์ในเครื่อง"
+          },
+          {
+            "metric": "เกณฑ์ความยาวของคลิปไฮไลท์",
+            "value": "8 วินาทีขึ้นไป",
+            "context": "เป็นค่าที่ระบบใช้ในการตัดสินใจตัดช่วงที่น่าสนใจ"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Python 3.10+, FFmpeg ติดตั้งในเครื่อง, API Key ของ OpenAI หรือโมเดล Local เช่น Ollama"
+          ],
+          "try_it_steps": [
+            "Clone repo และติดตั้ง dependencies ตาม requirements.txt (แนะนำให้เช็ค Issue ใน GitHub เกี่ยวกับไลบรารีที่ขาดหาย)",
+            "ตั้งค่า `env.example` ให้เป็น `.env` พร้อมใส่ API Key ที่จำเป็นสำหรับการวิเคราะห์ข้อมูล",
+            "รันแอปผ่าน Python เพื่อลองดึงวิดีโอในเครื่องมาทดสอบตัดคลิปสั้นขนาดไม่เกิน 5 นาทีเพื่อดูผลลัพธ์ก่อน"
+          ],
+          "next_to_learn": [
+            "ศึกษาเรื่อง FFmpeg command line เพื่อเข้าใจการตัดวิดีโอที่แม่นยำขึ้น",
+            "ศึกษาแนวทางการเชื่อมต่อ MCP Server เพื่อสร้าง Automation อื่นๆ ในเครื่องเพิ่ม"
+          ]
+        },
+        "source_depth": "readme_and_issues"
+      },
+      "facebook_post": "ใครที่เบื่อกับการนั่งตัดคลิปสั้นลง TikTok, Reels หรือ YouTube Shorts เอง แนะนำให้ลองส่องโปรเจกต์ 'AutoClip' ครับ! \n\nโปรเจกต์นี้เป็น Open-source สาย Local-first ที่กำลังฮิตสุดๆ ใน GitHub ฟีเจอร์ที่น่าสนใจคือมันใช้ AI ช่วยเลือกไฮไลท์จากวิดีโอยาวๆ หรือดึงจาก Stream ของเราผ่าน OBS ได้เลย โดยที่ทุกอย่างทำงานบนคอมพิวเตอร์ของเรา ไม่ต้องง้อ Cloud และไม่มีค่ารายเดือนครับ\n\nจุดเด่น:\n✅ ทำงานบนเครื่องเรา 100% รักษาความเป็นส่วนตัว\n✅ ตัดคลิป, ใส่ซับไตเติ้ล, เจนหน้าปก อัตโนมัติ\n✅ รองรับ Live Stream Replays จากทั้ง Twitch, YouTube, Kick และ Discord\n\nแต่ต้องเตือนไว้ก่อนว่าเครื่องที่รันต้องสเปกแรงพอตัว เพราะการประมวลผล AI และวิดีโอพร้อมกันนั้นกินทรัพยากรสูง และตัวโปรเจกต์ยังอยู่ในช่วง Experimental ใครสาย Technical อยากลองเอาไปรันหรือศึกษาโค้ด Python เพื่อสร้าง Workflow ส่วนตัวถือว่าน่าสนใจมากครับ\n\nใครลองแล้วผลลัพธ์เป็นไงมาแชร์กันได้นะ!\n\n#AutoClip #AI #VideoEditing #OpenSource #Python #ContentCreation"
+    },
+    {
+      "id": "1301657572",
+      "name": "treg",
+      "owner": "superdesigndev",
+      "url": "https://github.com/superdesigndev/treg",
+      "stars": 9695,
+      "stars_today": 501,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "api-keys",
+        "cli",
+        "credentials",
+        "developer-tools",
+        "dsh-plugin",
+        "mcp",
+        "proxy",
+        "python",
+        "registry",
+        "secrets"
+      ],
+      "license": "NOASSERTION",
+      "open_issues": 426,
+      "one_liner": "Treg คือ Proxy ศูนย์กลางสำหรับเชื่อมต่อ Agent เข้ากับเครื่องมือและ API ภายนอกนับพันรายการโดยไม่ต้องสมัครสมาชิกรายเจ้า",
+      "problem_solved": "นักพัฒนาต้องเจอกับกำแพงราคาและการสมัครสมาชิกแยกย่อยสำหรับเครื่องมือเฉพาะทางจำนวนมาก ทำให้ Agent ขาดความสามารถในการทำงานจริง Treg เข้ามาแก้ด้วยการทำหน้าที่เป็นตัวกลางจ่ายเงินต่อครั้ง (Pay-per-call) ในที่เดียว และจัดการการ Auth ให้เสร็จสรรพ ทำให้ไม่ต้องเก็บ API Key ของ Provider ไว้ที่ฝั่งตัวแทน (Agent) หรือเครื่องส่วนตัว",
+      "alternative_comparison": "ต่างจาก OpenRouter ที่โฟกัสเฉพาะ Model LLM แต่ Treg โฟกัสไปที่ Tool/API (เช่น ข้อมูล SEO, เว็บสแครปปิ้ง) และต่างจาก RapidAPI ตรงที่เน้น Workflow ของ Agent และรองรับการทำ Proxy แบบไม่ต้องผ่านเว็บ UI โดยตรงสำหรับโปรแกรมเมอร์",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "แม้จะมีระบบ Marketplace และการรองรับที่หลากหลาย แต่ยังมีจำนวน Issue ที่สูง (426 รายการ) และสถานะ Open Source ที่ยังไม่มีการระบุไลเซนส์ชัดเจน (NOASSERTION) บ่งบอกถึงสถานะที่กำลังพัฒนาอย่างรวดเร็ว",
+      "ai_opportunity": {
+        "monetization_idea": "ใช้สำหรับงานวิเคราะห์ข้อมูลที่ต้องใช้หลาย API เช่น โปรเจกต์ Lead Generation หรือ Market Research ที่ต้องดึงข้อมูลบริษัท/Social Media โดยให้เราจ่ายเงินตามการเรียกใช้งานจริงแทนการเหมาจ่ายรายเดือน",
+        "stack_synergy": "เข้าคู่ได้ดีมากกับ Claude Code, Cursor หรือ LangChain สำหรับการสร้าง 'Agentic Workflow' ที่ต้องการ Tooling ที่เสถียรและหลากหลายผ่าน endpoint เดียว"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ลดความซับซ้อนในการจัดการ Credential เพราะ Auth ถูกจัดการผ่าน Proxy ฝั่งเซิร์ฟเวอร์",
+          "มี Catalog เครื่องมือให้เลือกใช้เยอะมากโดยไม่ต้องสมัครสมาชิกใหม่ทีละเจ้า"
+        ],
+        "gotchas_and_traps": [
+          "เครื่องมือบางตัวมีเงื่อนไข Strict Query ที่เข้มงวด หากส่งพารามิเตอร์ผิด format จะถูกตีกลับทันที",
+          "การพึ่งพา Proxy ตัวกลางมีความเสี่ยงด้านความเป็นส่วนตัวของข้อมูลที่ส่งไปยัง Third-party API ผ่าน Treg"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "curl -fsSL https://treg.to/install.sh | sh",
+      "updated_at": "2026-11-27T13:55:50.485Z",
+      "first_seen_at": "2026-11-27T13:55:50.485Z",
+      "deep_dive_paragraphs": [
+        "Treg เกิดมาเพื่อแก้ปัญหาคอขวดที่ Agent ของนักพัฒนาส่วนใหญ่ทำได้แค่ 'พูด' แต่ 'ลงมือทำ' ได้ยากเพราะติดกำแพง subscription ของ API เฉพาะทาง เช่น เครื่องมือ SEO หรือข้อมูลธุรกิจ ซึ่งส่วนใหญ่มีราคาแพงและยุ่งยากเกินกว่าจะสมัครเพื่อใช้งานเพียงไม่กี่ครั้งต่อเดือน Treg จึงทำหน้าที่เป็น Aggregator ที่รวม API เหล่านั้นมาไว้ในพอร์ตเดียว",
+        "ภายใต้ฝากระโปรง Treg ใช้สถาปัตยกรรม Proxy ที่ทำหน้าที่ Relay คำขอและ Inject Auth/Credential ฝั่งเซิร์ฟเวอร์อย่างสมบูรณ์แบบ ข้อมูลภายในระบุถึงการจัดการ bindings ของ secrets สำหรับแต่ละ tool และรองรับทั้งรูปแบบ API endpoint และการเรียกใช้ CLI ของ Vendor โดยตรง ทำให้ code ของเราไม่ต้องยุ่งเกี่ยวกับ API key โดยตรงเลย",
+        "ในมุมมองวิศวกร ระบบนี้คุ้มค่ามากสำหรับการศึกษาเรื่องการทำ API Gateway สำหรับ Agent หรือการทำ Service abstraction แต่ข้อควรระวังคือการเป็นระบบรวมศูนย์ (Centralized) ที่เราต้องเชื่อใจผู้ให้บริการ Treg ในเรื่องการรักษาความปลอดภัยของ credential และความพร้อมของระบบเมื่อต้องพึ่งพาบริการ Third-party ผ่านตัวกลางอีกทอด"
+      ],
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "ตัวกลาง (Proxy) ที่รวบรวม API สำหรับ Agent เพื่อตัดปัญหาเรื่องค่าสมาชิกและ API Key",
+          "prerequisite_level": "เข้าใจพื้นฐานการใช้งาน CLI, HTTP Requests/API และแนวคิดของ Agentic Workflow",
+          "worth_deep_dive": "คุ้มค่ามากหากต้องการสร้างระบบ AI ที่เชื่อมต่อกับเครื่องมือภายนอกจำนวนมาก",
+          "context_lineage": "เป็นวิวัฒนาการถัดไปของ API Gateway ที่ปรับแต่งให้เข้ากับยุค LLM Agent"
+        },
+        "glossary": [
+          {
+            "term": "Tool",
+            "meaning": "เครื่องมือหรือชุดคำสั่งที่ Agent เรียกใช้เพื่อทำงานเฉพาะเจาะจง",
+            "analogy": "เปรียบเหมือนปลั๊กอินหรือฟังก์ชันใน Toolbox ของช่าง"
+          },
+          {
+            "term": "Credential Bindings",
+            "meaning": "การเชื่อมโยงความลับ (Secret) เข้ากับ request ก่อนส่งไปยัง API ปลายทาง",
+            "analogy": "เหมือนการส่งพนักงานไปทำงานโดยใช้ตรายางของบริษัทประทับตราแทนเรา"
+          },
+          {
+            "term": "MCP (Model Context Protocol)",
+            "meaning": "โปรโตคอลมาตรฐานที่ทำให้ AI สามารถสื่อสารกับระบบข้อมูลหรือเครื่องมือภายนอกได้",
+            "analogy": "เหมือนภาษามาตรฐานที่ทำให้คนต่างชาติคุยกันรู้เรื่องผ่านล่าม"
           }
         ],
         "how_it_works": [
           {
             "step": "Registry Discovery",
-            "detail": "Agent จะมองหาการตั้งค่า plugin ผ่านการติดตั้งแบบ local หรือผ่าน marketplace ของตัวจัดการอย่าง Codex"
+            "detail": "นักพัฒนาใช้ CLI ค้นหาเครื่องมือ (tools) ที่ต้องการใน catalog ตามฟังก์ชันที่อยากให้ Agent ทำงาน"
           },
           {
-            "step": "Tool Mapping",
-            "detail": "ตัวโปรเจกต์จะแมปชื่อไฟล์ในโฟลเดอร์ plugin เข้ากับ Tool definition ของ Agent เพื่อให้ AI รู้ว่าเมื่อสั่งงาน จะต้องไปเรียกใช้ไฟล์ใด"
+            "step": "Auth Injection",
+            "detail": "เมื่อเรียกใช้ tool ผ่าน Proxy ทางเซิร์ฟเวอร์จะ Inject Credential ที่เหมาะสมเข้าไปในคำขอโดยอัตโนมัติ"
           },
           {
-            "step": "Execution",
-            "detail": "เมื่อ Agent ได้รับคำสั่ง จะทำการดึงข้อมูลจาก source (เช่น .stitch หรือ HTML) แล้วประมวลผลผ่าน logic ของ skill ที่ถูกติดตั้งไว้"
+            "step": "Relay Execution",
+            "detail": "Treg ส่งคำขอไปยัง Vendor ปลายทางโดยตรงโดยไม่ครอบหรือแปลงข้อมูล (Never models) เพื่อความถูกต้องของผลลัพธ์"
           }
         ],
         "hard_evidence": [
           {
-            "metric": "จำนวนปลั๊กอินหลัก",
-            "value": "3",
-            "context": "มีปลั๊กอินหลัก 3 ตัว คือ stitch-design, stitch-build และ stitch-utilities"
+            "metric": "ราคาเริ่มต้นของเครื่องมือใน Catalog",
+            "value": "ราคาเศษเสี้ยวของหนึ่งเซนต์ (fractions of a cent)",
+            "context": "เทียบกับการสมัครสมาชิกรายเดือนของ Vendor เช่น Semrush ($139/mo)"
           },
           {
-            "metric": "จำนวน Issues",
-            "value": "25",
-            "context": "อ้างอิงจากสถานะหน้า GitHub ณ เวลาที่ตรวจสอบ (ต้นฉบับไม่ระบุตัวเลขอื่นที่สำคัญกว่านี้)"
+            "metric": "เครดิตฟรีสำหรับผู้ใช้ใหม่",
+            "value": "$1.00",
+            "context": "ให้ครั้งเดียวเมื่อสร้าง Team ที่เข้าเกณฑ์"
           }
         ],
         "pass3_hands_on": {
           "prerequisites": [
-            "Node.js สำหรับใช้ npx",
-            "Claude Code หรือ Cursor ที่ติดตั้งเสร็จแล้ว",
-            "บัญชีที่เชื่อมต่อกับ Stitch MCP ได้"
+            "Python 3.x",
+            "ความเข้าใจเบื้องต้นเกี่ยวกับ API Key / OAuth"
           ],
           "try_it_steps": [
-            "รันคำสั่ง npx เพื่อติดตั้ง plugin ตามคำแนะนำใน README ของตัวที่ใช้ (Cursor หรือ Claude)",
-            "ลองทดสอบด้วยการสั่ง Agent ด้วย Prompt เช่น 'Upload frontend code at path to my Stitch project'",
-            "ตรวจสอบผลลัพธ์ผ่านโฟลเดอร์ .stitch ในโปรเจกต์ว่ามีการ Generate ไฟล์คอนฟิกหรือไฟล์ดีไซน์ออกมาถูกต้องหรือไม่"
+            "ติดตั้ง CLI โดยใช้คำสั่ง curl ที่ให้ไว้เพื่อทดสอบว่าตัวเครื่องมือตอบสนองกับ environment ของเราหรือไม่",
+            "ใช้คำสั่ง 'treg catalog search' เพื่อสำรวจเครื่องมือที่มีอยู่จริง",
+            "ทดสอบการเรียกใช้เครื่องมือผ่าน API แบบง่ายเพื่อสังเกต response ที่ได้รับกลับมา"
           ],
           "next_to_learn": [
-            "Model Context Protocol (MCP) Docs เพื่อเข้าใจว่า Agent คุยกับเครื่องเราอย่างไร",
-            "Stitch SDK เพื่อดูว่าเบื้องหลังมันส่งข้อมูลไปเก็บที่ไหนอย่างไร"
+            "ศึกษาเรื่อง MCP (Model Context Protocol) เพื่อทำความเข้าใจการเชื่อมต่อ Agent มาตรฐาน",
+            "ศึกษาเรื่องการจัดการ Proxy ในระดับ Enterprise เพื่อทำความเข้าใจความปลอดภัยของข้อมูล"
           ]
         },
         "source_depth": "readme_and_issues"
       },
-      "facebook_post": "ใครที่ใช้ Claude Code หรือ Cursor อยู่ แล้วรู้สึกว่าอยากให้ AI ช่วยงาน Design หรือจัดการหน้า UI แบบฉลาดขึ้น ต้องดู repo นี้ครับ: google-labs-code/stitch-skills \n\nนี่ไม่ใช่แค่ AI ทั่วไป แต่มันคือการเอา 'Stitch Skills' เข้าไปเสียบให้ AI Agent ของเรากลายเป็นผู้ช่วยดีไซน์เนอร์แบบครบวงจร\n\nจุดเด่นที่น่าสนใจ:\n✅ รองรับทั้ง Claude Code, Cursor, และ Codex\n✅ มีคำสั่งสำเร็จรูป เช่น code-to-design (เปลี่ยนโค้ดเป็นดีไซน์) และ extract-static-html (ดึงโค้ดออกมาทำ UI)\n✅ ช่วยให้การจัดการ Design System ในทีมง่ายขึ้นด้วยเครื่องมือ extract-design-md\n\nเหมาะสำหรับใคร?\nคนที่เป็น Solo Dev ที่อยากทำ UI ให้จบไวขึ้น และชอบทดลองเครื่องมือสาย Agentic Workflow บอกเลยว่าโปรเจกต์นี้เป็นการเปิดประตูไปสู่การทำ Software แบบยุคใหม่ที่ AI จัดการงาน Manual ให้หมด\n\nข้อควรระวัง: การติดตั้งต้องมีความรู้เรื่องการเซต MCP พอสมควร และยังอยู่ในช่วงทดลอง (Experimental) ใครสายลองของใหม่ต้องจัดแล้ว!\n\nอ่านรายละเอียดเพิ่มเติม: https://github.com/google-labs-code/stitch-skills\n\n#AI #Coding #Developer #Cursor #ClaudeCode #DesignSystem #WebDevelopment"
+      "facebook_post": "ใครที่กำลังสร้าง AI Agent แล้วปวดหัวเรื่องต้องไปสมัครสมาชิก API หลายเจ้า หรือไม่อยากเก็บ API Key ไว้ที่เครื่องบ้าง? ผมไปเจอโปรเจกต์น่าสนใจชื่อ 'Treg' (treg.to) มาครับ มันเปรียบเสมือน OpenRouter แต่สำหรับ Tool และ API\n\nจุดเด่นที่น่าสนใจ:\n✅ รวม Catalog เครื่องมือเพียบ ตั้งแต่ข้อมูล SEO, Social, ไปจนถึงการทำเว็บสแครปปิ้ง\n✅ จ่ายเงินตามจริง (Pay-per-call) ราคาหลักเซนต์ ไม่ต้องติดสัญญารายเดือน\n✅ ไม่ต้องถือ API Key ไว้เอง Proxy ของเขาจัดการให้หมด\n✅ รองรับการติดตั้งเป็น Claude Code plugin ได้เลย ใช้งานง่ายมาก\n\nโปรเจกต์นี้เหมาะกับ Dev ที่กำลังทำ Agentic Workflow แล้วต้องการดึงข้อมูลภายนอกมาประกอบการตัดสินใจแบบ real-time ถือเป็นเครื่องมือที่ช่วยลดกำแพงเรื่องต้นทุนได้ดีมาก ใครสาย Automation/Agentic แนะนำให้ลองไปศึกษาครับ\n\n#AI #AgenticWorkflow #Python #DeveloperTools #TechDeepDive"
     },
     {
-      "id": "1261204838",
-      "name": "app-store-compliance",
-      "owner": "mjmirza",
-      "url": "https://github.com/mjmirza/app-store-compliance",
-      "stars": 7098,
-      "stars_today": 562,
-      "language": "Shell",
-      "topics": [
-        "accessibility",
-        "ai-agents",
-        "android",
-        "app-review-guidelines",
-        "app-store",
-        "app-store-connect",
-        "app-store-rejection",
-        "app-store-review",
-        "claude-code",
-        "coppa",
-        "data-safety",
-        "eu-ai-act",
-        "gdpr",
-        "google-play",
-        "google-play-policy",
-        "ios",
-        "mobile-compliance",
-        "play-console",
-        "pre-submission-checklist",
-        "privacy-manifest"
-      ],
-      "license": "NOASSERTION",
-      "open_issues": 37,
-      "one_liner": "เครื่องมือ CLI อัตโนมัติที่สแกนโปรเจกต์ iOS/Android เพื่อหาจุดเสี่ยงก่อนส่งขึ้น App Store/Google Play ช่วยลดโอกาสโดนปฏิเสธจาก Policy",
-      "problem_solved": "นักพัฒนาส่วนใหญ่เจอปัญหา 'Rejection Loop' ที่เสียเวลาเป็นสัปดาห์จากการรอ Apple/Google ตรวจสอบแล้วค่อยแจ้งผลแบบคลุมเครือ โปรเจกต์นี้แก้ด้วยการทำ Static Analysis เชิงนโยบายมาเป็นด่านแรกก่อนกด Submit จริง เพื่อให้แก้จุดผิดได้ทันทีในเครื่องตัวเอง ลดความไม่แน่นอนของกระบวนการอนุมัติแอป",
-      "alternative_comparison": "ต่างจากเครื่องมืออย่าง Fastlane ตรงที่ Fastlane เน้น Automation ของ Build/Deploy แต่ตัวนี้เน้น Compliance Intelligence ที่มีฐานข้อมูลกฎของ App Store มาคุมเกม ช่วยวิเคราะห์ 'ทำไมแอปถึงจะโดน Reject' มากกว่า 'จะทำยังไงให้ Build ผ่าน'",
-      "maturity_rating": "Production-Ready",
-      "maturity_reason": "มีการพัฒนาต่อเนื่องผ่านการจัดการ Issues ที่ชัดเจน (เช่นการ monitor-apple.py) และมีโครงสร้างการประเมินความปลอดภัยที่ครอบคลุมถึงปี 2026 ถือว่าเป็นเครื่องมือที่ผ่านการทดสอบมาแล้วในเชิง Practical",
+      "id": "975734319",
+      "name": "opencode",
+      "owner": "anomalyco",
+      "url": "https://github.com/anomalyco/opencode",
+      "stars": 229557,
+      "stars_today": 249,
+      "language": "TypeScript",
+      "topics": [],
+      "license": "MIT",
+      "open_issues": 4176,
+      "one_liner": "OpenCode คือ AI Coding Agent ที่รันบน Terminal ช่วยนักพัฒนาในการเขียน แก้ไข และสำรวจโค้ดผ่านระบบ Agent สองสถานะคือ 'build' และ 'plan'",
+      "problem_solved": "นักพัฒนามักเจอปัญหา Context Switching ระหว่าง IDE กับ Browser เพื่อค้นหาหรือแก้โค้ดที่ซับซ้อนด้วยตัวเอง OpenCode จึงเข้ามาปิดช่องว่างนี้ด้วยการเป็น Agent ที่เข้าถึงไฟล์ในระบบได้โดยตรงเพื่อทำความเข้าใจและจัดการโค้ดเบสแบบอัตโนมัติ ช่วยลดภาระในการจดจำหรือสำรวจโค้ดที่ผู้อื่นเขียนไว้",
+      "alternative_comparison": "หากเทียบกับ Cursor หรือ Windsurf ที่เน้นการบูรณาการใน IDE ตัว OpenCode เน้นการเป็น Terminal-based Agent ที่คล่องตัวกว่าสำหรับคนที่ชอบใช้ CLI เป็นหลัก ต่างจาก GitHub Copilot CLI ที่มักเน้นแค่คำแนะนำสั้นๆ แต่ OpenCode เน้นการรัน Task ที่ซับซ้อนกว่าในโปรเจกต์",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "แม้จะมีฟีเจอร์ครบและ UI สวยงาม แต่ Issues ใน GitHub ยังมีรายงานเรื่องบั๊กการใช้งานฟรีและการเชื่อมต่อกับโมเดลต่างๆ เป็นจำนวนมาก รวมถึงการระบุว่าสถานะ Desktop App เป็นรุ่นเบต้า",
       "ai_opportunity": {
-        "monetization_idea": "ใช้เป็นส่วนหนึ่งของ CI/CD Pipeline สำหรับ Agency ที่รับจ้างพัฒนาแอปมือถือ เพื่อรับประกันคุณภาพก่อนส่งงานลูกค้า ช่วยลดภาระงานซ่อมแอปหลังการ Rejected ได้มหาศาล",
-        "stack_synergy": "เข้าคู่กับ Claude Code หรือ GitHub Copilot ได้ดีเยี่ยม โดยใช้เป็น Pre-commit Hook เพื่อให้ AI Coding Agent ของคุณช่วยแก้ไขข้อผิดพลาด Compliance ไปพร้อมกับการเขียนโค้ด"
+        "monetization_idea": "ใช้เป็นเครื่องมือช่วย Refactor โค้ดเลกาซี่ในโปรเจกต์ส่วนตัวที่ซับซ้อนโดยใช้โหมด 'plan' เพื่อศึกษาโครงสร้างก่อนทำการเปลี่ยนแปลงจริง",
+        "stack_synergy": "เข้าคู่กับ Node.js, TypeScript ecosystem และเครื่องมือจัดการสภาพแวดล้อมอย่าง mise หรือ Homebrew ได้เป็นอย่างดี"
       },
       "human_vibe_check": {
         "pros": [
-          "ลดเวลาการรอคอยจาก Apple Review ได้จริง โดยการดักจับข้อผิดพลาดพื้นฐานที่พบบ่อย",
-          "มีข้อมูลอ้างอิงจากแหล่งต้นทาง (Apple/Google Guidelines) ทำให้มั่นใจได้ว่าคำแนะนำมีความน่าเชื่อถือ"
+          "รองรับการทำงานแบบ Agent ที่สลับโหมดได้ชัดเจนระหว่างการรันคำสั่ง(build) กับการอ่านเพื่อทำความเข้าใจ(plan)",
+          "การติดตั้งทำได้ง่ายผ่านหลายช่องทางทั้ง CLI, Homebrew, และ Nix"
         ],
         "gotchas_and_traps": [
-          "เครื่องมือนี้ไม่ได้การันตีว่าแอปจะผ่าน 100% เพราะ Apple อาจมีการเปลี่ยนนโยบายหรือดุลยพินิจของรีวิวเวอร์ที่นอกเหนือจาก Rule-based ที่เขียนไว้",
-          "ต้องระมัดระวังในการตั้งค่า Path ของ Project ให้แม่นยำ ไม่อย่างนั้น Script อาจจะอ่านไฟล์ไม่ครบหรือสแกนไม่ครอบคลุม"
+          "ระบบ Free Tier มักมีปัญหาเรื่องการจำกัดโควต้าการใช้งานที่เข้มงวดและบั๊กในบางโมเดล",
+          "การรองรับระบบปฏิบัติการ Windows ยังไม่สมบูรณ์และพบปัญหาบ่อยตามที่มีรายงานใน Issues"
         ],
-        "hype_vs_reality": 8
+        "hype_vs_reality": 7
       },
-      "quick_start": "git clone https://github.com/mjmirza/app-store-compliance ~/repositories/app-store-compliance && bash ~/repositories/app-store-compliance/agent-os/hooks/app-store-compliance-guard.sh \"/path/to/your/app\"",
-      "updated_at": "2026-11-27T03:40:49.589Z",
-      "first_seen_at": "2026-11-20T04:19:18.536Z",
+      "quick_start": "curl -fsSL https://opencode.ai/v2/install | bash",
+      "updated_at": "2026-11-27T13:56:15.694Z",
+      "first_seen_at": "2026-11-27T13:56:15.694Z",
       "deep_dive_paragraphs": [
-        "โปรเจกต์นี้ตอบโจทย์คอขวดที่เจ็บปวดที่สุดของนักพัฒนาแอปมือถือคือ 'ความไม่รู้' ว่าทำไมแอปถึงโดน Reject หลายครั้งที่เราเสียเวลาหลายวันเพียงเพื่อรออีเมลปฏิเสธจากทาง Apple หรือ Google ที่แจ้งเหตุผลกว้างๆ ทำให้เราต้องเดาทางแก้ไปเรื่อยๆ เครื่องมือนี้เข้ามาตัดวงจรความล้มเหลวโดยเปลี่ยนการรีวิวแอปให้กลายเป็นกระบวนการตรวจสอบแบบ Automation ที่ทำได้บนเครื่องนักพัฒนาเองก่อนกด Submit",
-        "กลไกข้างในอาศัย Shell Scripting เป็นแกนหลักเพื่อเข้าถึงโครงสร้างโปรเจกต์ (Xcode/Android) และใช้ความสามารถในการอ่านไฟล์ configuration เช่น app.json หรือไฟล์ Permission ต่างๆ โดยมีส่วนสำคัญคือ 'agent-os/hooks' และชุดข้อมูลในโฟลเดอร์ 'data' ที่เก็บรวบรวมกฎเกณฑ์และรูปแบบการ Reject ยอดฮิตไว้ (Mistake Patterns) ซึ่งเมื่อรันผ่าน CLI มันจะไล่สแกนโค้ดและเปรียบเทียบกับรายการ 'Banned Words' หรือ 'Compliance Patterns' ที่ระบุไว้ก่อนจะให้ Verdict ออกมาว่า CLEAR หรือ BLOCKED",
-        "ในเชิงวิศวกรรม ผมมองว่ามันเป็น Tool ที่ 'Must-have' สำหรับ solo dev เพราะมันไม่ได้ทำอะไรซับซ้อนเกินจำเป็น แต่มันมีค่าตรงที่เป็นคลังความรู้ที่รวมเอาประสบการณ์ความเจ็บปวดจากการถูก Reject มาทำเป็นระบบ หากคุณไม่อยากเสียเวลาเดาทาง Apple ผมแนะนำให้ศึกษาโครงสร้างโฟลเดอร์ 'scripts' เพื่อดูวิธีที่เขาเขียน Parser มาตรวจสอบไฟล์โปรเจกต์ ข้อควรระวังเดียวคือต้องติดตามการอัปเดตของตัวโปรเจกต์สม่ำเสมอ เพราะนโยบายของ Store เปลี่ยนแปลงบ่อยมาก"
+        "OpenCode เกิดมาเพื่อแก้ปัญหาคอขวดที่นักพัฒนาต้องสลับบริบทระหว่างการค้นหาไฟล์ การอ่านเอกสาร และการเขียนโค้ดเองในเทอร์มินัล โปรเจกต์นี้จึงเปลี่ยนประสบการณ์จากการใช้ LLM ในเว็บเบราว์เซอร์ให้กลายมาเป็น Agent ที่รู้เท่าทันโครงสร้างไฟล์จริงในโปรเจกต์และสามารถออกคำสั่งปฏิบัติการได้ทันที ซึ่งตอบโจทย์การพัฒนาซอฟต์แวร์ที่ต้องยุ่งกับหลายไฟล์พร้อมกัน",
+        "กลไกข้างในขับเคลื่อนด้วยการบริหารจัดการ 'Agents' ผ่าน TypeScript โดยแบ่งแยกหน้าที่ระหว่าง 'build' ที่มีสิทธิ์แก้ไขไฟล์และรันเชลล์สคริปต์ กับ 'plan' ที่จำกัดการอ่านเท่านั้นเพื่อความปลอดภัยในการตรวจสอบโค้ด โครงสร้างโปรเจกต์มีการใช้เครื่องมืออย่าง Husky สำหรับ Git hooks และ Oxlint เพื่อคุมคุณภาพโค้ด ซึ่งสะท้อนถึงความตั้งใจในการพัฒนาเครื่องมือที่มีมาตรฐานในระยะยาว",
+        "สำหรับผู้ที่ต้องการศึกษาโค้ด โปรเจกต์นี้เป็นแหล่งเรียนรู้ที่ดีในการดูว่าการออกแบบ AI Agent ที่ต้องสื่อสารกับระบบไฟล์ (OS-level interaction) ทำงานอย่างไร อย่างไรก็ตาม ในเชิงการนำมาใช้งานจริงในงานโปรดักชั่นต้องเผื่อใจกับเรื่องโควต้าและการจัดการ API Key รวมถึงสถานะของฟีเจอร์ที่ยังมีการเปลี่ยนแปลงค่อนข้างรวดเร็ว"
       ],
       "reading_guide": {
         "pass1_triage": {
-          "core_idea": "เป็น Compliance Guard แบบ Local ที่ใช้ชุดกฎการตรวจสอบแทนคน ช่วยลดความเสี่ยงก่อนส่งขึ้น Store",
-          "prerequisite_level": "เข้าใจการใช้งาน Terminal/Bash เบื้องต้น และรู้โครงสร้างพื้นฐานของ Xcode/Android Project",
-          "worth_deep_dive": "คุ้มค่ามากสำหรับคนที่ทำแอปเป็นอาชีพหรือมีหลายโปรเจกต์ใน Store เพราะช่วยประหยัดเวลาได้เป็นวันๆ",
-          "context_lineage": "ต่อยอดจากแนวคิด 'Regulatory Intelligence' และการทำ Pre-submission Checklist ให้เป็นรูปแบบ Automated Agent"
+          "core_idea": "AI Coding Agent ที่ควบคุมผ่าน Terminal ช่วยทำความเข้าใจและจัดการโปรเจกต์ขนาดใหญ่",
+          "prerequisite_level": "เข้าใจพื้นฐาน Node.js/TypeScript และการทำงานของ Terminal/CLI",
+          "worth_deep_dive": "คุ้มค่าสำหรับการศึกษา Architecture ของ AI Agent ที่เชื่อมต่อกับระบบปฏิบัติการ",
+          "context_lineage": "เป็นวิวัฒนาการต่อจาก LLM-based coding assistant ที่เน้นการรันในเครื่อง (Local-first/Terminal-centric)"
         },
         "glossary": [
           {
-            "term": "App Store Connect",
-            "meaning": "พอร์ทัลหลักที่นักพัฒนาใช้จัดการแอปบน iOS รวมถึงขั้นตอนการส่งรีวิว",
-            "analogy": "เปรียบเหมือนเคาน์เตอร์เช็คอินสนามบินที่แอปของคุณต้องผ่านด่านนี้ก่อนขึ้นเครื่อง"
+            "term": "Agent",
+            "meaning": "ระบบ AI ที่สามารถตัดสินใจและลงมือทำตามขั้นตอนเพื่อให้งานสำเร็จลุล่วงได้โดยไม่ต้องสั่งทีละบรรทัด",
+            "analogy": "เหมือนมี Junior Developer ที่คอยอ่านไฟล์และรันคำสั่งในเทอร์มินัลให้คุณ"
           },
           {
-            "term": "Static Analysis",
-            "meaning": "การตรวจสอบโค้ดหรือไฟล์โดยไม่ต้องรันโปรแกรมจริง เพื่อหาข้อผิดพลาดตามรูปแบบที่กำหนด",
-            "analogy": "การตรวจคำผิดในเอกสารก่อนส่งสำนักพิมพ์ โดยใช้ระบบเปรียบเทียบกับพจนานุกรม"
+            "term": "CLI",
+            "meaning": "Command Line Interface อินเทอร์เฟซที่ใช้พิมพ์คำสั่งเพื่อโต้ตอบกับโปรแกรม",
+            "analogy": "เหมือนช่องพิมพ์ข้อความลับที่สั่งงานคอมพิวเตอร์ได้โดยตรงไม่ต้องคลิกเมาส์"
           },
           {
-            "term": "Privacy Manifest",
-            "meaning": "ไฟล์ที่ระบุข้อมูลส่วนบุคคลที่แอปเก็บ และวัตถุประสงค์ในการเก็บข้อมูลนั้นๆ ตามที่ Apple บังคับ",
-            "analogy": "เหมือนฉลากโภชนาการข้างซองขนมที่บอกว่ามีสารอะไรผสมอยู่บ้าง"
+            "term": "TypeScript",
+            "meaning": "ภาษาโปรแกรมที่ต่อยอดจาก JavaScript โดยเพิ่มระบบระบุชนิดของข้อมูล (Type)",
+            "analogy": "เหมือนการวางผังบ้านที่กำหนดชัดเจนว่าห้องไหนใช้อะไร ป้องกันการวางของผิดที่"
           }
         ],
         "how_it_works": [
           {
-            "step": "Scanning Environment",
-            "detail": "CLI จะเข้าสู่ Root Folder ของโปรเจกต์และดึงไฟล์โครงสร้าง Xcode (.xcodeproj) หรือไฟล์ Android manifest ออกมาวิเคราะห์"
+            "step": "รับคำสั่งจากผู้ใช้",
+            "detail": "ผู้ใช้พิมพ์คำสั่งผ่านเทอร์มินัล ซึ่งตัว CLI จะดึงบริบทของไฟล์ในไดเรกทอรีปัจจุบันส่งไปให้ AI"
           },
           {
-            "step": "Matching Patterns",
-            "detail": "เทียบค่าในไฟล์ Configuration กับฐานข้อมูล 'Mistake Patterns' และ 'Banned Words' ที่รวบรวมมาจากเคส Reject จริง"
+            "step": "Agent ดำเนินการ",
+            "detail": "โมเดลประมวลผลและเลือกใช้เครื่องมือที่มี (Tool use) เพื่ออ่านไฟล์หรือแก้ไขโค้ดตามโหมดที่เลือกไว้ (build/plan)"
           },
           {
-            "step": "Report & Suggest",
-            "detail": "แสดงผลลัพธ์ผ่าน Terminal พร้อมบอกว่าบรรทัดไหนในไฟล์ใดที่มีความเสี่ยงสูง (Critical) และต้องแก้ไขอย่างไร"
+            "step": "สรุปและยืนยัน",
+            "detail": "Agent แสดงผลลัพธ์หรือสิ่งที่ทำลงไปให้ผู้ใช้ตรวจสอบ หรือขออนุญาตก่อนรันคำสั่งที่มีความเสี่ยง"
           }
         ],
         "hard_evidence": [
           {
-            "metric": "จำนวนโดเมนความปลอดภัย",
-            "value": "17 domains",
-            "context": "ครอบคลุมมาตรฐานการรักษาความปลอดภัยมือถือและแนวปฏิบัติที่ดีที่สุดของแพลตฟอร์มปี 2026"
+            "metric": "จำนวนสาขาภาษา README",
+            "value": "22 ภาษา",
+            "context": "สะท้อนถึงการรองรับชุมชนนักพัฒนาทั่วโลกตามที่ระบุในรายการไฟล์ README"
           },
           {
-            "metric": "จำนวนการตรวจสอบ Apple Developer Requirements",
-            "value": "25 specific updates",
-            "context": "ตรวจสอบการอัปเดตข้อกำหนดนักพัฒนาของ Apple ผ่านระบบ Monitoring"
+            "metric": "จำนวน Issues",
+            "value": "4176",
+            "context": "เป็นจำนวนบั๊กและคำขอที่เปิดอยู่ซึ่งบ่งบอกถึงสถานะความเป็น Experimental ของโปรเจกต์"
           }
         ],
         "pass3_hands_on": {
           "prerequisites": [
-            "Git และ Bash ที่ติดตั้งอยู่ในเครื่อง",
-            "Python 3.10+ (จำเป็นสำหรับเครื่องมือเสริม)"
+            "เครื่องที่ติดตั้ง Node.js, CLI ของระบบปฏิบัติการที่รองรับ (macOS/Linux/Arch)"
           ],
           "try_it_steps": [
-            "Clone repo ลงในเครื่องด้วยคำสั่ง git clone",
-            "รัน bash hook ตัวหลักชี้ไปที่โฟลเดอร์โปรเจกต์มือถือของคุณ เพื่อดูว่ามีจุดไหนที่เสี่ยงโดน Rejected บ้าง",
-            "ศึกษาไฟล์ในโฟลเดอร์ 'docs/MISTAKE-PATTERNS.md' เพื่อทำความเข้าใจรูปแบบความผิดพลาดที่คนอื่นมักทำกัน"
+            "รันคำสั่งติดตั้งด้วย curl เพื่อลองใช้งาน CLI",
+            "เปิดโปรเจกต์เก่าๆ แล้วลองสลับโหมดด้วยปุ่ม Tab เพื่อดูการเปลี่ยนสถานะระหว่าง Build และ Plan",
+            "ลองสอบถามข้อมูลเกี่ยวกับโค้ดเบสในเครื่องเพื่อดูว่า Agent เข้าใจไฟล์ได้แม่นยำเพียงใด"
           ],
           "next_to_learn": [
-            "Apple Privacy Manifest Documentation เพื่อเข้าใจลึกซึ้งว่าทำไม Apple ถึงเข้มงวดเรื่องนี้",
-            "Static Analysis ในระดับ AST (Abstract Syntax Tree) เพื่อประยุกต์สร้าง Rule ของตัวเองในอนาคต"
+            "Tool Calling ใน AI เพื่อศึกษาว่า AI เรียกใช้คำสั่งในเครื่องได้อย่างไร",
+            "System Prompts ของ Agent เพื่อดูวิธีการกำหนดกฎระเบียบให้ AI ไม่ทำไฟล์พัง"
           ]
         },
         "source_depth": "readme_and_issues"
       },
-      "facebook_post": "ใครที่เคยโดน Apple หรือ Google ปฏิเสธแอป (App Rejection) แล้วต้องรอแก้เป็นอาทิตย์ ผมเจอของดีมาแนะนำครับ!\n\nโปรเจกต์ 'App Store Compliance Playbook' ตัวนี้คือเพื่อนแท้ของนักพัฒนาแอปมือถือ มันไม่ได้ช่วยเขียนโค้ดให้ แต่ทำตัวเป็น 'ด่านตรวจ' ที่สแกนหาจุดเสี่ยงในโปรเจกต์ก่อนที่เราจะกด Submit ขึ้น Store จริงๆ\n\nทำไมต้องลอง?\n✅ เช็ค Privacy Manifest และ Permission ต่างๆ ที่มักเป็นเหตุให้โดน Reject\n✅ มีระบบเปรียบเทียบกับ Guideline ล่าสุดของ Apple/Google\n✅ รันผ่าน Terminal ได้เลย ไม่ต้องติดตั้งอะไรวุ่นวาย\n✅ ลดเวลาการคาดเดาจากอีเมล Reject ที่เขียนมาแบบคลุมเครือ\n\nผมลองดูโครงสร้างโค้ดแล้ว ถือว่ามีประโยชน์มากสำหรับคนที่อยากทำแอปให้ผ่านตั้งแต่รอบแรก หรือไม่อยากเสียเวลาลองผิดลองถูกกับนโยบายที่เปลี่ยนบ่อยๆ ใครอยากลองเอาไปติดไว้ใน Workflow ของตัวเองลองเข้าไปดูใน Repo นี้ได้เลยครับ มันช่วยประหยัดเวลาได้เยอะจริงๆ!\n\nอ่านเพิ่มเติม: https://github.com/mjmirza/app-store-compliance\n\n#AppDevelopment #iOS #Android #DeveloperTools #AppStoreCompliance #CleanCode"
+      "facebook_post": "ลองเล่น OpenCode กันหรือยังครับ? \n\nใครเป็นสาย Terminal หรือชอบทำงานแบบ CLI ต้องรู้จักตัวนี้เลยครับ OpenCode คือ AI Coding Agent ที่รันบน Terminal ช่วยจัดการโปรเจกต์ได้แบบไม่ต้องสลับหน้าจอไปมาให้เสียเวลา สิ่งที่น่าสนใจคือเขามีระบบจัดการ Agent ที่เราเลือกได้ว่าจะให้มันเป็นแค่นักอ่าน (Plan Mode) หรือจะให้มันช่วยเขียนโค้ดและรันคำสั่ง (Build Mode) ก็เลือกได้ตามใจ\n\nจุดเด่น:\n✅ ใช้งานสะดวกผ่าน CLI \n✅ สลับโหมดการทำงานได้ตามความต้องการ\n✅ เหมาะมากสำหรับคนที่อยากให้ AI มาช่วยสำรวจไฟล์ในโปรเจกต์ใหญ่ๆ\n\nข้อควรระวัง:\n⚠️ โปรเจกต์ยังมีสถานะ Experimental ต้องระวังเรื่องการใช้โควต้า และบั๊กที่อาจจะเจอได้ในบาง OS ครับ\n\nใครสายลองของใหม่ไปจัดกันได้เลยที่ https://opencode.ai/ ลองใช้แล้วเป็นยังไงมาแชร์กันครับ\n\n#AI #CodingAgent #Terminal #OpenCode #DeveloperTools"
+    },
+    {
+      "id": "299354207",
+      "name": "rustdesk",
+      "owner": "rustdesk",
+      "url": "https://github.com/rustdesk/rustdesk",
+      "stars": 131801,
+      "stars_today": 224,
+      "language": "Rust",
+      "topics": [
+        "android",
+        "anydesk",
+        "dart",
+        "flatpak",
+        "flutter",
+        "flutter-apps",
+        "ios",
+        "linux",
+        "macos",
+        "p2p",
+        "rdp",
+        "remote-control",
+        "remote-desktop",
+        "rust",
+        "rust-lang",
+        "teamviewer",
+        "vnc",
+        "wayland",
+        "windows"
+      ],
+      "license": "AGPL-3.0",
+      "open_issues": 237,
+      "one_liner": "ซอฟต์แวร์ Remote Desktop แบบ Open Source ที่เขียนด้วย Rust โดยเน้นความปลอดภัยและการควบคุมข้อมูลด้วยตัวเองแทนที่ TeamViewer หรือ AnyDesk",
+      "problem_solved": "ซอฟต์แวร์ Remote Desktop กระแสหลักมักจำกัดการใช้งานฟรีและบังคับให้ข้อมูลต้องผ่าน Server ของบริษัทเขาเสมอ ทำให้เกิดปัญหาด้านความเป็นส่วนตัวและการใช้งานในระบบปิดที่ต้องการความเร็วสูง โปรเจกต์นี้จึงเปิดโอกาสให้เรา Self-host Rendezvous/Relay server เองได้ 100% เพื่อลด Latency และคุมความเป็นส่วนตัวได้แบบเบ็ดเสร็จ การแก้ปัญหาบน Linux เช่น Wayland ก็รองรับได้ลึกกว่าด้วยการเข้าถึง DRM/KMS โดยตรง",
+      "alternative_comparison": "หากเทียบกับ TeamViewer หรือ AnyDesk, RustDesk ให้คุณเป็นเจ้าของโครงสร้างพื้นฐานเองทั้งหมด ซึ่งเหมาะมากสำหรับทีม Dev ที่ต้องการระบบ Remote ภายในองค์กร แต่ถ้าคุณต้องการความง่ายระดับกดคลิกเดียวใช้ได้โดยไม่ต้องตั้งค่า Server เลย เครื่องมือฝั่ง SaaS เหล่านั้นจะยังมีความสะดวกในแง่ของ User Experience ที่ขัดเกลากว่า",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "มีการใช้งานที่แพร่หลายในวงกว้าง มีระบบ Build Pipeline ที่ซับซ้อนรองรับหลาย Platform (Windows, Linux, macOS, Android, iOS) และมี Community ที่ช่วยกัน Patch ฟีเจอร์ระดับต่ำอย่าง Wayland และ DRM/KMS อยู่ตลอด",
+      "ai_opportunity": {
+        "monetization_idea": "ใช้ RustDesk เป็น Gateway ในการทำ Automation หรือจัดการเครื่อง Remote สำหรับ AI Agent ที่ต้องเข้าถึง GUI แอปพลิเคชันเดิมที่ไม่มี API รองรับ",
+        "stack_synergy": "Rust สำหรับงาน System Programming ที่ต้องการประสิทธิภาพสูง, Flutter สำหรับ Cross-platform UI ที่ Responsive, และการใช้ libvpx/libyuv สำหรับ Video Codec ประสิทธิภาพสูง"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการ Self-hosting แบบสมบูรณ์ ปลอดภัยต่อความเป็นส่วนตัว",
+          "มีระบบการทำงานที่รองรับโปรโตคอลระดับลึกอย่าง Wayland และ pipewire ใน Linux"
+        ],
+        "gotchas_and_traps": [
+          "การ Build บน Linux ต้องเตรียม Dependency และ vcpkg ที่ซับซ้อนมากสำหรับมือใหม่",
+          "การจัดการ Sciter หรือ Flutter binary ต้องทำเองบางส่วนตามคำแนะนำใน README"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "git clone --recurse-submodules https://github.com/rustdesk/rustdesk && cd rustdesk && cargo run",
+      "updated_at": "2026-11-27T13:57:06.091Z",
+      "first_seen_at": "2026-11-27T13:57:06.091Z",
+      "deep_dive_paragraphs": [
+        "ในโลกที่ซอฟต์แวร์ Remote Desktop กลายเป็นโมเดลแบบ SaaS ที่ปิดกั้นการเข้าถึงข้อมูล RustDesk เข้ามาอุดช่องว่างนี้ด้วยแนวคิดที่ว่า 'คุณต้องเป็นเจ้าของข้อมูลตัวเอง' คอขวดสำคัญที่นักพัฒนาเจอบ่อยคือการถูกจำกัดสิทธิ์ในเวอร์ชันฟรี หรือการทำงานในระบบปิด (Intranet) ที่เข้าถึงอินเทอร์เน็ตไม่ได้ ทำให้ RustDesk กลายเป็นคำตอบที่ตอบโจทย์ความยืดหยุ่นในการตั้งค่า Relay server เองได้โดยไม่ต้องพึ่งพาส่วนกลาง",
+        "ในแง่สถาปัตยกรรม RustDesk เลือกใช้ภาษา Rust เพื่อรีดประสิทธิภาพในส่วนของ Network Stack และ Video Encoding ผ่านการเรียกใช้ library มาตรฐานอย่าง libvpx และ opus ทำให้ Latency ต่ำและมีความปลอดภัยสูง ในส่วนของ Frontend ใช้ Flutter สำหรับ Desktop และ Mobile ซึ่งช่วยให้โค้ดส่วน UI จัดการได้ง่ายขึ้นเมื่อเทียบกับสมัยก่อนที่ใช้ Sciter ส่วนกลไกการเชื่อมต่อใช้หลักการ Rendezvous เพื่อเจาะทะลุ NAT ทำให้สองฝั่งสามารถเชื่อมต่อกันได้แม้ไม่ได้อยู่ในวงแลนเดียวกัน",
+        "หากคุณเป็นสายลุยที่ต้องการระบบ Remote ส่วนตัวที่เชื่อถือได้ นี่คือโปรเจกต์ที่น่าศึกษาที่สุดในแง่ของ System Software ด้วยการจัดการกับ Low-level API ของ OS ต่างๆ ทั้ง Linux Wayland หรือ Windows และการออกแบบระบบ P2P ที่เสถียร ข้อควรระวังคือถ้าคุณไม่ใช่สาย System หรือไม่เคยแตะ Rust/C++ มาก่อน การ Compile ครั้งแรกอาจใช้เวลาและพลังงานในการ Setup สภาพแวดล้อมพอสมควร แต่ในเชิงความรู้ถือว่าคุ้มค่ามาก"
+      ],
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "เครื่องมือ Remote Desktop แบบ P2P ที่ให้คุณเป็นเจ้าของ Server เอง เพื่อความปลอดภัยและการเชื่อมต่อที่ไม่มีข้อจำกัด",
+          "prerequisite_level": "เข้าใจพื้นฐาน Rust หรือ C++ และมีความรู้ด้าน Network (NAT/Firewall) เบื้องต้น",
+          "worth_deep_dive": "คุ้มค่ามากสำหรับคนที่สนใจงาน System Programming และการเขียนแอปที่ต้องยุ่งกับ GPU/Video Encoding",
+          "context_lineage": "เป็นทางเลือก Open Source ที่ถูกสร้างขึ้นมาเพื่อแก้จุดอ่อนด้านราคาและการควบคุมของ TeamViewer"
+        },
+        "glossary": [
+          {
+            "term": "Rendezvous Server",
+            "meaning": "เซิร์ฟเวอร์ที่ทำหน้าที่เป็นตัวกลางในการเชื่อมต่อ (Handshake) ระหว่างเครื่องต้นทางและปลายทาง",
+            "analogy": "เปรียบเสมือนโอเปอเรเตอร์ที่ช่วยบอกว่า 'คุณอยู่ที่ไหน' และ 'ฉันอยู่ที่ไหน' เพื่อให้มาเจอกันได้"
+          },
+          {
+            "term": "libvpx",
+            "meaning": "ชุดซอฟต์แวร์สำหรับเข้ารหัสวิดีโอ (VP8/VP9) ที่มีประสิทธิภาพสูง",
+            "analogy": "เหมือนเครื่องบีบอัดวิดีโอขนาดพกพาที่ช่วยลดขนาดข้อมูลภาพให้ส่งผ่านเน็ตได้เร็วขึ้น"
+          },
+          {
+            "term": "Wayland",
+            "meaning": "โปรโตคอลระบบแสดงผลยุคใหม่บน Linux ที่มาแทนที่ X11",
+            "analogy": "เปลี่ยนระบบการวาดภาพบนหน้าจอใหม่ทั้งหมดเพื่อความเร็วและปลอดภัยกว่าเดิม"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Handshake",
+            "detail": "Client ทำการติดต่อ Rendezvous Server เพื่อแลกเปลี่ยนข้อมูล IP และ Port ของทั้งสองฝั่ง"
+          },
+          {
+            "step": "P2P Connection",
+            "detail": "เมื่อรู้ที่อยู่กันแล้ว ทั้งสองฝั่งพยายามเชื่อมต่อหากันโดยตรงเพื่อลดภาระเซิร์ฟเวอร์"
+          },
+          {
+            "step": "Stream & Control",
+            "detail": "ใช้ libvpx เข้ารหัสหน้าจอฝั่งหนึ่งส่งไปอีกฝั่ง พร้อมรับ Event เมาส์และคีย์บอร์ดกลับมา"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "จำนวนดาวบน GitHub",
+            "value": "131801",
+            "context": "สะท้อนความนิยมและการใช้งานจริงของชุมชน Open Source ในปัจจุบัน"
+          },
+          {
+            "metric": "จำนวน Issues ที่เปิดอยู่",
+            "value": "237",
+            "context": "สะท้อนความ active ของโปรเจกต์ในการรับ Feedback และแก้ปัญหา"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Rust toolchain (cargo/rustup)",
+            "vcpkg (สำหรับจัดการ C++ dependencies)",
+            "Build environment (cmake, nasm, yasm, gcc)"
+          ],
+          "try_it_steps": [
+            "ติดตั้ง vcpkg และติดตั้ง libvpx, libyuv, opus ตามที่ระบุใน README เพื่อเตรียม Library จำเป็น",
+            "Clone repo พร้อม submodules: git clone --recurse-submodules https://github.com/rustdesk/rustdesk",
+            "รัน cargo run ในไดเรกทอรีโปรเจกต์ เพื่อคอมไพล์และทดสอบรันแอปพลิเคชันขึ้นมา"
+          ],
+          "next_to_learn": [
+            "NAT Traversal techniques: ศึกษาว่า P2P เชื่อมต่อผ่าน Firewall ได้อย่างไร",
+            "WebRTC: โปรโตคอลที่ใกล้เคียงกับแนวคิด P2P Video Streaming นี้มากที่สุด"
+          ]
+        },
+        "source_depth": "readme_and_issues"
+      },
+      "facebook_post": "ใครที่เบื่อ TeamViewer หรือ AnyDesk ที่วันดีคืนดีก็บล็อกการใช้งานเพราะหาว่าเราใช้เชิงพาณิชย์ หรือกังวลเรื่องความเป็นส่วนตัว วันนี้อยากแนะนำให้รู้จัก RustDesk ครับ \n\nRustDesk คือซอฟต์แวร์ Remote Desktop ที่เขียนด้วยภาษา Rust แบบเน้นประสิทธิภาพสูง ตัวเครื่องมือนี้เจ๋งตรงที่เป็น Open Source (AGPL-3.0) และเราสามารถ Self-host เซิร์ฟเวอร์ของเราเองได้เลย ข้อมูลการเชื่อมต่อจะไม่ต้องผ่านบริษัทอื่นให้เสี่ยง\n\nจุดที่น่าสนใจ:\n✅ ควบคุมข้อมูลได้ 100% ตั้งเซิร์ฟเวอร์ Relay เองได้\n✅ รองรับ Linux ได้ดีมาก (รวมถึง Wayland ที่กำลังมาแรง)\n✅ ใช้ Flutter ทำ UI เลยรันได้ลื่นๆ แทบทุก Platform\n\nสำหรับสาย Dev นี่คือโปรเจกต์ที่น่าศึกษาโค้ดมาก เพราะมีการจัดการเรื่อง Network, Video Encoding และ Low-level System Interaction ที่ลึกซึ้ง ถ้าใครกำลังมองหาโปรเจกต์อ่านช่วงหยุดยาว RustDesk คือตัวเลือกอันดับต้นๆ เลยครับ\n\nใครลองเอาไป Build เองหรือติดตั้งเป็น Self-host แล้วเป็นไงบ้าง มาแชร์กันได้ครับ!\n\n#RustDesk #OpenSource #RustLang #RemoteDesktop #SystemProgramming"
+    },
+    {
+      "id": "1035029907",
+      "name": "pi",
+      "owner": "earendil-works",
+      "url": "https://github.com/earendil-works/pi",
+      "stars": 124234,
+      "stars_today": 213,
+      "language": "TypeScript",
+      "topics": [],
+      "license": "MIT",
+      "open_issues": 313,
+      "one_liner": "Pi คือ Command-line Interface (CLI) แบบ Minimal สำหรับนักพัฒนาที่ต้องการสร้างและปรับแต่ง AI Coding Agent ของตัวเองให้เข้ากับเวิร์กโฟลว์เฉพาะตัว",
+      "problem_solved": "นักพัฒนาส่วนใหญ่ติดปัญหาการใช้งาน AI Agent แบบกล่องดำที่ปรับแต่งไม่ได้ (Hard-coded flow) และต้องเปลี่ยนวิธีทำงานตามเครื่องมือ Pi จึงออกแบบมาให้เป็น Agent Harness ที่ปรับแต่งได้ผ่าน Extensions และ Skills โดยไม่มีการบังคับ Plan mode หรือ Sub-agents ที่ไม่จำเป็น ทำให้คุม Workflow เองได้ 100%",
+      "alternative_comparison": "ต่างจาก Cursor หรือ Windsurf ที่เป็น IDE จบในตัว Pi เน้นความเบาและโมดูลาร์ผ่าน CLI/SDK เหมาะกับคนที่ต้องการ 'ประกอบ' Agent เองด้วย TypeScript และรันผ่าน CLI โดยไม่ต้องพึ่งพา IDE ปิดตาย",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "Issue ใน GitHub ยังคงมีการรายงานบั๊กเกี่ยวกับการใช้งานในหลายแพลตฟอร์ม (เช่น Windows, macOS CPU Spike) และมีการเตือนว่า PR จากผู้ใช้ใหม่จะถูกปิดอัตโนมัติเพื่อรอการรีวิวจากทีมงาน",
+      "ai_opportunity": {
+        "monetization_idea": "สร้างและแจกจ่าย Pi Packages หรือ Skills เฉพาะทางสำหรับ Framework นอกกระแส หรือ Automate งานเฉพาะอย่างเช่นการทำ Unit Test Automation ใน Legacy Codebase",
+        "stack_synergy": "ใช้งานร่วมกับ Nix เพื่อทำ Environment Isolation ที่สมบูรณ์แบบ และใช้ TypeScript SDK ในการต่อยอดทำโปรเจกต์อย่าง OpenClaw"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "สถาปัตยกรรมมีความเป็น Modular สูง (แยก Package ชัดเจน เช่น ai, durable, agent-core)",
+          "รองรับการทำงานแบบ RPC และมี TypeScript SDK ให้ทำ Integration ได้ลึกกว่าแค่แชท"
+        ],
+        "gotchas_and_traps": [
+          "ยังไม่มีระบบ Permission ภายในที่รัดกุมสำหรับ File System หรือ Network (ต้องใช้ Docker/Sandbox ครอบเอง)",
+          "การใช้งานบนบาง OS ยังมีปัญหา Performance และบั๊กเกี่ยวกับ TUI (Terminal UI)"
+        ],
+        "hype_vs_reality": 6
+      },
+      "quick_start": "curl -fsSL https://pi.dev/install.sh | sh",
+      "updated_at": "2026-11-27T13:57:19.311Z",
+      "first_seen_at": "2026-11-27T13:57:19.311Z",
+      "deep_dive_paragraphs": [
+        "ในยุคที่เครื่องมือ AI Coding มักจะถูกแพ็กมาเป็น 'สำเร็จรูป' จนปรับจูนอะไรไม่ได้ ปัญหาที่นักพัฒนาเจอคือเมื่อโปรเจกต์เริ่มซับซ้อนขึ้น Agent แบบกล่องดำมักจะพยายามทำงานเกินความจำเป็น (Over-planning) หรือขัดจังหวะการทำงาน Pi เข้ามาแก้ปัญหานี้ด้วยการเป็น 'ตัวเชื่อม' (Harness) ที่ให้เรากำหนดได้ว่า Agent ของเราจะทำอะไรบ้าง ผ่านการติดตั้ง Extension หรือกำหนด Skill เอง",
+        "หัวใจสำคัญของ Pi คือการแบ่งงานผ่านแพ็กเกจย่อยๆ โดยมี @earendil-works/pi-agent-core เป็นตัวคุมสถานะและ Tool calling ขณะที่ตัว CLI พึ่งพา @earendil-works/pi-ai เพื่อสลับ Provider (OpenAI, Anthropic, Google) ได้อย่างอิสระ โครงสร้างโค้ดมีการใช้ Vite/Vitest สำหรับทดสอบ และมีไฟล์ Nix เพื่อการทำ Reproducible Build ที่แม่นยำ เหมาะกับคนที่ชอบเซตอัพ Dev environment แบบสะอาด",
+        "ถ้าคุณเป็นสาย Tinker ที่ชอบปรับจูนเครื่องมือให้เข้ามือ Pi เป็นเครื่องมือที่น่าศึกษาโค้ดมาก เพราะมันไม่ได้มี Feature บวม แต่ถ้าคุณคาดหวังความนิ่งระดับโปรดักชันที่พร้อมใช้ทันทีโดยไม่เจอบั๊กเล็กๆ น้อยๆ ใน Terminal อาจจะต้องรอเวอร์ชันที่เสถียรกว่านี้ หรือต้องพร้อมที่จะช่วย Patch โค้ดเองผ่านระบบ Extension ของมัน"
+      ],
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "Pi คือ Platform ของ Agent ที่เน้นความโปร่งใส ปรับแต่งได้ และรันผ่าน Terminal เป็นหลัก",
+          "prerequisite_level": "เข้าใจ TypeScript/Node.js และพอเข้าใจพื้นฐานของ LLM API/Tool calling",
+          "worth_deep_dive": "คุ้มค่ามากสำหรับคนที่อยากรู้วิธีสร้าง Agent Framework แบบ Custom ตั้งแต่ต้น",
+          "context_lineage": "ต่อยอดจากแนวคิด Agent-as-a-service ที่เน้นความยืดหยุ่นในระดับ CLI"
+        },
+        "glossary": [
+          {
+            "term": "Agent Harness",
+            "meaning": "เฟรมเวิร์กที่ทำหน้าที่เป็นโครงสร้างรองรับการรัน Agent โดยเราเสียบปลั๊ก Logic เข้าไปเพิ่มได้",
+            "analogy": "เหมือนกรอบรูปที่คุณเปลี่ยนภาพข้างในได้ตามชอบ"
+          },
+          {
+            "term": "Tool calling",
+            "meaning": "ความสามารถของ LLM ในการเลือกใช้ฟังก์ชันภายนอกเพื่อประมวลผลงาน",
+            "analogy": "เหมือนการที่ AI หยิบเครื่องคิดเลขขึ้นมาใช้แทนที่จะคิดเลขในหัว"
+          },
+          {
+            "term": "Nix",
+            "meaning": "เครื่องมือบริหารจัดการสภาพแวดล้อมที่การันตีว่าซอฟต์แวร์จะรันได้เหมือนกันทุกที่",
+            "analogy": "เหมือนการทำ Docker image ที่เบากว่าและใช้ระบบ Functional Programming"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Initialization",
+            "detail": "CLI โหลด Config และตั้งค่า Provider ผ่าน @earendil-works/pi-ai"
+          },
+          {
+            "step": "Agent Runtime",
+            "detail": "Core loop ใน pi-agent-core รับ Input, ตรวจสอบสถานะ (Durable State) และตัดสินใจเรียก Tool"
+          },
+          {
+            "step": "Execution",
+            "detail": "รันคำสั่งที่ได้รับมอบหมายผ่าน Shell หรือ SDK พร้อมแสดงผลลัพธ์ผ่าน TUI"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "Node.js Requirement",
+            "value": "22.19 or newer",
+            "context": "เป็นเวอร์ชันขั้นต่ำที่ระบุใน README"
+          },
+          {
+            "metric": "Memory usage (reported issue)",
+            "value": "600-800MB",
+            "context": "จากการรายงานของผู้ใช้ใน GitHub Issues บน macOS ในเซสชันที่ยาวนาน"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Node.js 22.19+",
+            "API Key ของ LLM Provider"
+          ],
+          "try_it_steps": [
+            "รัน curl ตาม README เพื่อติดตั้ง Pi CLI ลงในเครื่อง",
+            "ใช้คำสั่ง pi ภายในโปรเจกต์ที่ต้องการทดสอบ เพื่อดูพฤติกรรมของ TUI",
+            "ใช้ /login ภายในโปรแกรมเพื่อเชื่อมต่อ API Key และทดลองสั่งงานง่ายๆ เพื่อดูการตอบสนองของ Agent"
+          ],
+          "next_to_learn": [
+            "ศึกษาเรื่อง Durable State (pi-durable) เพื่อเข้าใจว่าทำไม Agent ถึงจำสถานะการทำงานได้",
+            "ศึกษาการเขียน Extensions ใน packages/coding-agent เพื่อลองสร้างเครื่องมือช่วยงานตัวเอง"
+          ]
+        },
+        "source_depth": "readme_and_issues"
+      },
+      "facebook_post": "สาย Dev ที่กำลังเบื่อ AI Coding Agent สำเร็จรูปที่ปรับแต่งอะไรไม่ได้เลย ต้องมาดูโปรเจกต์ 'Pi' จาก earendil-works ครับ!\n\nPi ไม่ใช่แค่แอปแชท AI แต่เป็น 'Agent Harness' สำหรับนักพัฒนาที่เน้นความ Minimal ปรับแต่งได้ตาม workflow ของเราเอง 100% ไม่ว่าจะเป็น Extension, Skill หรือ Prompt template ทำได้หมด\n\nทำไมโปรเจกต์นี้ถึงน่าสนใจ?\n✅ Modular Architecture: แยกแพ็กเกจย่อยชัดเจน อ่านโค้ดง่าย\n✅ ไม่ยัดเยียด: ไม่มีระบบ Plan mode หรือ Sub-agent ที่เกินความจำเป็น ถ้าอยากได้ค่อยเพิ่มเข้าไป\n✅ รองรับการ Custom: เหมาะกับคนที่ต้องการสร้าง Agent ของตัวเองโดยใช้ TypeScript SDK เป็นแกนหลัก\n\n⚠️ ข้อควรระวัง: ยังเป็นโปรเจกต์ Experimental นะครับ ใครจะเอาไปใช้ในงานด่วนต้องลองทดสอบก่อน และระวังเรื่อง Permission เพราะ Pi ยังไม่มีระบบจำกัดสิทธิ์ในตัว (แนะนำรันใน Sandbox/Docker)\n\nใครเป็นสาย Infrastructure หรือชอบปรับจูนเครื่องมือเอง แนะนำให้ไปลองเล่นผ่านคำสั่ง `curl -fsSL https://pi.dev/install.sh | sh` ได้เลยครับ\n\nอ่านรายละเอียดเพิ่มเติมได้ที่: https://github.com/earendil-works/pi\n\n#AI #CodingAgent #TypeScript #OpenSource #DevTools #earendil"
+    },
+    {
+      "id": "1133707766",
+      "name": "multica",
+      "owner": "multica-ai",
+      "url": "https://github.com/multica-ai/multica",
+      "stars": 58181,
+      "stars_today": 173,
+      "language": "Go",
+      "topics": [],
+      "license": "NOASSERTION",
+      "open_issues": 2148,
+      "one_liner": "Multica คือ Workspace ส่วนกลางที่รวม AI Coding Agents หลายเจ้ามาไว้บนบอร์ดเดียว เพื่อให้การมอบหมายงาน ติดตามผล และรีวิวโค้ดทำได้เหมือนมีเพื่อนร่วมงานเป็น AI",
+      "problem_solved": "นักพัฒนามักใช้ Agent หลายตัวต่าง CLI กันทำให้ Context กระจัดกระจายและสูญหายหลังปิด Session, Multica จึงเข้ามาเป็นตัวกลางรวบรวม Intent, ประวัติการรัน, และ Diff ไว้ใน Issue เดียว, ทำให้ Agent สามารถรับงานและรายงานผลต่อหน้ามนุษย์ได้อย่างเป็นระบบ",
+      "alternative_comparison": "ต่างจากเครื่องมืออย่าง Cursor หรือ Claude Code ตรงที่ Multica เน้นการทำงานแบบ Team-oriented และการบริหารจัดการ Workflow ในขณะที่เครื่องมืออื่นเน้นการเป็น IDE ส่วนตัว, หากคุณทำงานคนเดียวแบบชิลๆ อาจไม่จำเป็น แต่ถ้าต้องคุม Agent หลายตัวข้ามหลายโปรเจกต์ Multica จะตอบโจทย์กว่า",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "แม้มีจำนวน Stars สูงและรองรับหลาย Agent แต่มี Issue เปิดค้างอยู่จำนวนมากถึง 2148 รายการ ซึ่งบ่งชี้ว่าระบบยังอยู่ในช่วงการพัฒนาอย่างรวดเร็วและอาจมีความเสถียรไม่เท่ากับเครื่องมือระดับ Enterprise",
+      "ai_opportunity": {
+        "monetization_idea": "ใช้เป็น Platform สำหรับการทำ AI Audit ประจำโปรเจกต์ โดยตั้งให้ Agent ตรวจสอบความปลอดภัยของโค้ดอัตโนมัติทุกครั้งที่มีการ Merge PR",
+        "stack_synergy": "Go (ภาษาหลักที่ใช้เขียน Daemon), Docker (สำหรับ Containerized Runtime), และเครื่องมือ CLI ต่างๆ เช่น Claude Code หรือ Cursor ที่มีอยู่แล้ว"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการเชื่อมต่อ Agent หลากหลายยี่ห้อ (Claude, Cursor, Kimi, etc.) ในที่เดียว",
+          "มีระบบ Runtime ที่รันบนเครื่องตัวเอง (Self-hosted) มั่นใจได้ว่าซอร์สโค้ดไม่หลุดออกนอกเครื่อง"
+        ],
+        "gotchas_and_traps": [
+          "ถ้าคุณเป็น Solo Dev ที่ต้องการแค่ Terminal + Diff Viewer แบบง่ายๆ โปรเจกต์นี้อาจจะ Overkill เกินความจำเป็น",
+          "การตั้งค่า Self-hosting ต้องมีการจัดการ Infrastructure ของตัวเอง ไม่เหมาะกับคนที่ไม่ต้องการดูแล Server/Daemon"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "git clone https://github.com/multica-ai/multica && cd multica && make help",
+      "updated_at": "2026-11-27T13:57:33.456Z",
+      "first_seen_at": "2026-11-27T13:57:33.456Z",
+      "deep_dive_paragraphs": [
+        "ความเจ็บปวดจริงของนักพัฒนาที่ใช้ AI ช่วยเขียนโค้ดคือ 'Context Fragmentation' หรือการที่ Agent แต่ละตัวไม่รู้เรื่องราวของกันและกัน และมักจะลืมสิ่งที่เคยทำไปเมื่อเราปิดหน้าต่าง Terminal ทิ้ง โปรเจกต์นี้จึงไม่ได้ถูกสร้างมาเพื่อเป็นตัวแทนของ LLM ใหม่ แต่สร้างมาเพื่อ 'คุม' AI เหล่านั้นให้ทำงานได้เหมือนพนักงานคนหนึ่งที่มีสถานะชัดเจนว่ากำลังทำอะไร อยู่ในสเตจไหน และมีบล็อกเกอร์อะไรบ้าง",
+        "ภายใต้ฝากระโปรง Multica ใช้ Go เป็นภาษาหลักในการจัดการ Daemon ที่ทำหน้าที่เป็นตัวกลางสื่อสารกับ CLI ของ Agent ต่างๆ โดยมีแนวคิด 'Runtime you control' เป็นหัวใจสำคัญ โครงสร้างไฟล์ในโปรเจกต์เน้นไปที่การจัดการ Agents, สกิล (Skills), และ Squads ที่เชื่อมต่อกับ Issue Tracker งานที่ Agent ทำจะถูก Sync กลับมายัง Workspace กลาง ทำให้สถานะของการเขียนโค้ด (Intent) กับผลลัพธ์ (Diff) ผูกติดกับ Issue เสมอ",
+        "ในเชิงวิศวกรรม ผมมองว่านี่คือการทดลองที่น่าสนใจมากในการเปลี่ยนจาก 'Prompt-to-Code' เป็น 'Task-to-Outcome' อย่างไรก็ตาม ด้วยจำนวน Issue ที่มหาศาลและความซับซ้อนในการตั้งค่า Self-hosting หากคุณไม่ใช่ Dev ที่พร้อมจะ Debug ระบบเอง ก็อาจจะยังไม่เหมาะสำหรับงาน Production ที่ต้องการความนิ่งสนิท แต่ถ้าคุณต้องการเรียนรู้สถาปัตยกรรมของ Agent Orchestration โปรเจกต์นี้เป็นแหล่งขุมทรัพย์ชั้นดี"
+      ],
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "เปลี่ยนจากการรัน AI Agents แยกส่วน มาเป็นการจัดการผ่าน Board กลางแบบมืออาชีพ",
+          "prerequisite_level": "เข้าใจการใช้งาน CLI, Docker พื้นฐาน และพอทราบหลักการทำงานของ API ที่ LLM ใช้งาน",
+          "worth_deep_dive": "คุ้มค่ามากสำหรับการศึกษาโครงสร้างของ Agent Workflow Manager",
+          "context_lineage": "เป็นหนึ่งในคลื่นลูกใหม่ของเครื่องมือ Agent Management ที่ต่อยอดมาจากความนิยมของ Claude Code และ Cursor"
+        },
+        "glossary": [
+          {
+            "term": "Daemon",
+            "meaning": "โปรแกรมคอมพิวเตอร์ที่ทำงานอยู่เบื้องหลังเงียบๆ เพื่อคอยฟังคำสั่งหรือรัน Task ตามเวลา",
+            "analogy": "เหมือนพนักงานคีย์ข้อมูลที่นั่งเฝ้าโต๊ะทำงานตลอดเวลาเพื่อรอรับคำสั่งจากคุณ"
+          },
+          {
+            "term": "Runtime",
+            "meaning": "สภาพแวดล้อมที่โค้ดหรือ Agent ถูกรันจริง (ในที่นี้คือเครื่องของคุณเอง)",
+            "analogy": "เหมือนสนามแข่งที่ให้รถแข่งวิ่ง ไม่ใช่แค่ในกระดาษเขียนแบบ"
+          },
+          {
+            "term": "Autopilot",
+            "meaning": "ฟีเจอร์ที่ยอมให้ Agent ทำงานซ้ำๆ เช่น ตรวจสอบ dependency หรือสรุป Standup ได้เอง",
+            "analogy": "เหมือนการตั้งตารางเวลาอัตโนมัติให้หุ่นยนต์ทำงานแทนเราทุกเช้า"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Assign Task",
+            "detail": "ผู้ใช้สร้าง Issue ใน Board และระบุ Assignee เป็น AI Agent ที่ต้องการ"
+          },
+          {
+            "step": "Agent Execution",
+            "detail": "Daemon บนเครื่องของผู้ใช้รับงานไปรันผ่าน CLI ของ Agent นั้นๆ ภายใน Runtime ที่กำหนด"
+          },
+          {
+            "step": "Feedback Loop",
+            "detail": "Agent รายงานสถานะ บันทึก Diff และส่งคืนผลงานเพื่อให้มนุษย์ตรวจสอบบน Board อีกครั้ง"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "จำนวนสถานะของ Issues (Issues Open)",
+            "value": "2148",
+            "context": "เป็นข้อมูลจาก GitHub Issue ที่สะท้อนถึงขนาดของ Community และงานที่ยังค้างอยู่ในระบบ"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Docker, Go runtime (ถ้าจะรันจากซอร์ส), และเครื่องมือ AI CLI (เช่น Claude Code)"
+          ],
+          "try_it_steps": [
+            "ลองอ่าน SELF_HOSTING.md เพื่อดูว่า Daemon ต้องใช้ทรัพยากรอะไรบ้าง",
+            "ลองสร้างบอร์ดจำลองในเครื่องเพื่อทดสอบการเชื่อมต่อกับ Agent 1 ตัว",
+            "ลองทดสอบการสร้าง 'Skill' (ชุดคำสั่งที่กำหนดไว้) ให้ Agent ลองหยิบไปใช้ซ้ำ"
+          ],
+          "next_to_learn": [
+            "Event-driven architecture ใน Go (เพื่อดูว่ามันจัดการสถานะงานได้อย่างไร)",
+            "Agent Orchestration Design Patterns (เพื่อดูว่าทำไมถึงต้องมีการแบ่งงานให้ Agent)"
+          ]
+        },
+        "source_depth": "readme_and_issues"
+      },
+      "facebook_post": "ใครที่ใช้ AI Coding Agent จนเริ่มคุมไม่อยู่ ต้องลองดูโปรเจกต์ 'Multica' ครับ! \n\nถ้าคุณใช้ทั้ง Claude Code, Cursor, หรือ Kimi จนเปิดหลาย Tab แล้วลืมว่าตัวไหนทำอะไรถึงไหน โปรเจกต์นี้เข้ามาแก้ปัญหาด้วยการสร้าง 'Workspace ส่วนกลาง' ให้เรา Assign งานให้ AI เหมือนสั่งงานเพื่อนร่วมงานจริงๆ \n\nจุดที่น่าสนใจ:\n- รวบรวมทุก Agent มาไว้บนบอร์ดเดียว เห็นสถานะชัดเจน\n- รันบนเครื่องตัวเอง (Self-hosted) ไม่ต้องห่วงโค้ดหลุด\n- ทำงานผ่านระบบ Daemon บนเครื่องเราเอง ทำให้ context ไม่หาย\n\nเหมาะสำหรับ: ทีมที่มี Agent หลายตัว หรือ Dev ที่อยากจัดการ Workflow การเขียนโค้ดด้วย AI ให้เป็นระบบมากขึ้น\n\n⚠️ ข้อควรระวัง: ตอนนี้ยังเป็นโปรเจกต์ที่ Active มาก (และ Issue เยอะมาก) เหมาะสำหรับคนที่ชอบทดลองของใหม่และพร้อม Debug เองครับ\n\nไปส่องได้ที่: https://github.com/multica-ai/multica\n\n#Multica #AICoding #DeveloperTools #GoLang #SelfHosted"
+    },
+    {
+      "id": "888092115",
+      "name": "markitdown",
+      "owner": "microsoft",
+      "url": "https://github.com/microsoft/markitdown",
+      "stars": 198707,
+      "stars_today": 164,
+      "language": "Python",
+      "topics": [
+        "autogen",
+        "autogen-extension",
+        "langchain",
+        "markdown",
+        "microsoft-office",
+        "openai",
+        "pdf"
+      ],
+      "license": "MIT",
+      "open_issues": 832,
+      "one_liner": "เครื่องมือ Python สำหรับแปลงไฟล์เอกสารหลากหลายฟอร์แมต (PDF, Word, PPTX, Excel) ให้เป็น Markdown เพื่อรองรับการทำ Data Ingestion ให้กับ LLM โดยเฉพาะ",
+      "problem_solved": "นักพัฒนาทั่วไปเจอปัญหา 'Data Munging' เมื่อต้องการนำไฟล์เอกสารที่มีโครงสร้างซับซ้อนไปให้ LLM อ่าน เพราะไลบรารีเดิมอย่าง textract มักไม่ได้เน้นรักษาโครงสร้าง (Heading/Table/Link) ที่ LLM ต้องการ วิธีนี้จึงเปลี่ยนทุกอย่างให้เป็น Markdown ซึ่งเป็น Token-efficient format ที่โมเดลอย่าง GPT-4o เข้าใจได้ดีที่สุด",
+      "alternative_comparison": "หากเทียบกับ textract ตัวนี้เน้น 'Structure-preservation' เพื่อ AI มากกว่า หากเทียบกับ Azure Document Intelligence ตัวนี้เป็น Local-first (ใช้ Library ภายในเครื่อง) แต่รองรับ Plugin เสริมหากต้องการคุณภาพสูงขึ้น",
+      "maturity_rating": "Production-Ready",
+      "maturity_reason": "มีการจัดการ Dependency ที่ชัดเจนผ่าน PyPI รองรับไฟล์หลายประเภทอย่างเป็นระบบ และมีการใช้งานแพร่หลายใน Ecosystem ของ Microsoft อย่าง AutoGen",
+      "ai_opportunity": {
+        "monetization_idea": "ใช้เป็น Data Pre-processing pipeline เพื่อทำ RAG (Retrieval-Augmented Generation) บนเอกสารบริษัทที่มักจะอยู่ในรูปแบบ PDF หรือ Docx โดยแปลงเป็น Markdown ก่อนทำ Vector Indexing",
+        "stack_synergy": "เข้าคู่ได้ดีเยี่ยมกับ AutoGen สำหรับการสร้าง Agentic workflow ที่ต้องอ่านไฟล์เอกสาร หรือใช้คู่กับ LangChain เพื่อทำ Loader ในระบบ RAG pipeline"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับไฟล์ครอบคลุม ตั้งแต่ไฟล์ Office ไปจนถึง Audio transcription",
+          "มีกลไก Plugin (เช่น ocr) ที่ยืดหยุ่นโดยไม่ต้องแก้ไขโค้ดหลัก"
+        ],
+        "gotchas_and_traps": [
+          "การทำงานขึ้นอยู่กับสิทธิ์ของ Process ที่รัน ต้องระวังเรื่องความปลอดภัยในการเปิดไฟล์จากแหล่งที่ไม่น่าเชื่อถือ",
+          "คุณภาพ Output ขึ้นอยู่กับโมเดลตัวแปลงที่ใช้ บางไฟล์ซับซ้อนเกินกว่าตัว Parser พื้นฐานจะจัดการได้ดี"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "markitdown path-to-file.pdf > document.md",
+      "updated_at": "2026-11-27T13:57:44.470Z",
+      "first_seen_at": "2026-11-27T13:57:44.470Z",
+      "deep_dive_paragraphs": [
+        "ในปัจจุบัน LLM กลายเป็นมาตรฐานใหม่ของงานจัดการข้อมูล แต่คอขวดที่ใหญ่ที่สุดคือ 'การเตรียมข้อมูล' (Data Ingestion) นักพัฒนาต้องปวดหัวกับ PDF ตารางที่พัง หรือเอกสาร Word ที่มี Layout ซับซ้อน ซึ่งส่งผลโดยตรงต่อการทำ RAG เมื่อ Context ที่ได้จากเอกสารผิดเพี้ยน MarkItDown เข้ามาแก้จุดนี้ด้วยการบังคับ Output ให้อยู่ในรูป Markdown ซึ่งเป็นภาษาที่ LLM ยุคใหม่ถูกฝึกฝนมาให้เข้าใจโครงสร้างได้แม่นยำที่สุด",
+        "หัวใจสำคัญของโปรเจกต์คือความเรียบง่ายของโครงสร้างไฟล์ มันทำงานเหมือนเลเยอร์ตัวกลาง (Adapter) ที่ครอบไลบรารีต่าง ๆ เช่น pymupdf4llm สำหรับ PDF หรือตัวจัดการตารางของ Pandas สำหรับ Excel ไฮไลต์คือการจัดการ 'Plugins' ที่อนุญาตให้ Developer เสียบความสามารถพิเศษ เช่น OCR เข้าไปในขั้นตอนการอ่านไฟล์โดยใช้ LLM Vision ช่วยตีความข้อมูลที่ตัว Parser อ่านไม่ออก ทำให้ Pipeline นี้มีความยืดหยุ่นสูง",
+        "คำแนะนำในฐานะ Principal Engineer: นี่เป็นหนึ่งในเครื่องมือที่ 'ต้องมี' ติดคลังแสงหากคุณทำ AI Application หากคุณกำลังทำระบบ RAG โปรเจกต์นี้จะประหยัดเวลาการทำ Data Cleaning ไปได้มหาศาล อย่างไรก็ตามต้องระวังว่านี่ไม่ใช่เครื่องมือทำ Document Conversion เพื่อให้คนอ่านแบบสวยงาม 100% แต่เน้นให้ 'AI อ่านรู้เรื่อง' หากต้องการความแม่นยำระดับองค์กรต้องใช้ร่วมกับ Azure Document Intelligence หรือปลั๊กอิน OCR เท่านั้น"
+      ],
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "แปลงสารพัดไฟล์เอกสารให้เป็น Markdown มาตรฐานที่ LLM อ่านง่ายและประหยัด Token",
+          "prerequisite_level": "เข้าใจการติดตั้ง Python Virtual Environment และการใช้ CLI เบื้องต้น",
+          "worth_deep_dive": "คุ้มค่ามาก โดยเฉพาะการอ่านโค้ดส่วน `packages/markitdown` เพื่อเรียนรู้การเขียน Architecture แบบ Plugin",
+          "context_lineage": "เป็นเครื่องมือในตระกูล Microsoft's AI tools ที่ต่อยอดจากงานวิจัยด้านการเชื่อมต่อเอกสารกับ LLM (LLM-based Data Ingestion)"
+        },
+        "glossary": [
+          {
+            "term": "Markdown",
+            "meaning": "ภาษาที่ใช้จัดรูปแบบข้อความแบบเบาบาง ใช้ตัวอักษรพิเศษในการกำหนดหัวข้อหรือตาราง",
+            "analogy": "เปรียบเหมือนการจดบันทึกแบบเป็นระเบียบที่คอมพิวเตอร์อ่านง่ายที่สุด"
+          },
+          {
+            "term": "RAG (Retrieval-Augmented Generation)",
+            "meaning": "เทคนิคการให้ LLM ค้นหาข้อมูลจากฐานข้อมูลส่วนตัวก่อนตอบคำถาม",
+            "analogy": "เหมือนการให้ AI เปิดหนังสืออ้างอิงอ่านก่อนจะสรุปคำตอบให้คุณ"
+          },
+          {
+            "term": "Token",
+            "meaning": "หน่วยข้อมูลที่ LLM ใช้คำนวณและประมวลผล",
+            "analogy": "เปรียบเหมือนจำนวนคำหรือส่วนประกอบของคำที่ AI รับเข้าไปประมวลผล"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "File Recognition & Routing",
+            "detail": "โปรแกรมตรวจสอบนามสกุลไฟล์และเลือก Converter ที่เหมาะสมจากรายการที่ติดตั้งไว้"
+          },
+          {
+            "step": "Parser Transformation",
+            "detail": "แปลงไฟล์ต้นฉบับผ่านไลบรารีเฉพาะทาง (เช่น pymupdf4llm) ให้กลายเป็นโครงสร้าง Data ภายใน"
+          },
+          {
+            "step": "Markdown Serialization",
+            "detail": "เขียนข้อมูลที่ได้ลงในไฟล์หรือ Stream ให้อยู่ในรูปแบบ Markdown โดยรักษาลำดับ Heading, List, Table"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "Python versions support",
+            "value": "3.10 through 3.14",
+            "context": "ข้อกำหนดสภาพแวดล้อมขั้นต่ำที่ระบุใน README เพื่อรันโค้ด"
+          },
+          {
+            "metric": "Supported file formats",
+            "value": "ต้นฉบับไม่ระบุตัวเลข",
+            "context": "ระบุเป็นรายการไฟล์ที่ครอบคลุมตั้งแต่ PDF ถึง YouTube URL แต่ไม่ได้นับจำนวนเจาะจง"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Python 3.10+",
+            "Virtual Environment (venv/uv/conda)"
+          ],
+          "try_it_steps": [
+            "ติดตั้งผ่าน `pip install 'markitdown[all]'` เพื่อให้แน่ใจว่ารองรับทุกฟอร์แมต",
+            "ทดสอบแปลงไฟล์ PDF ในเครื่องด้วยคำสั่ง `markitdown doc.pdf > output.md` เพื่อดูคุณภาพการแปลง",
+            "ศึกษา `packages/markitdown-sample-plugin` เพื่อดูวิธีการสร้าง Custom Converter ของตัวเอง"
+          ],
+          "next_to_learn": [
+            "ศึกษาเรื่อง RAG Pipeline เพื่อนำ Output ไปใช้ต่อใน Vector Database",
+            "ศึกษาการทำ Custom Plugin เพื่อปรับแต่งการดึงข้อมูลจากเอกสารเฉพาะทางของธุรกิจ"
+          ]
+        },
+        "source_depth": "readme_and_issues"
+      },
+      "facebook_post": "สาย AI ห้ามพลาด! Microsoft เพิ่งปล่อย 'MarkItDown' เครื่องมือที่ช่วยเปลี่ยนไฟล์เอกสารสุดปวดหัว (PDF, Word, PPTX, Excel) ให้กลายเป็น Markdown สวยๆ ที่ LLM อ่านง่ายสุดๆ \n\nทำไมตัวนี้ถึงน่าสนใจ?\n✅ แก้ปัญหา Data Ingestion ที่เป็นคอขวดตอนทำ RAG\n✅ รักษาโครงสร้างตารางและหัวข้อ ไม่ใช่แค่เทกซ์ดิบๆ\n✅ รองรับ Plugin เสริม เช่น OCR ถ้าไฟล์เป็นรูปภาพก็จัดการได้\n✅ ใช้ร่วมกับ GPT-4o หรือ AutoGen ได้เนียนๆ\n\nตัวนี้ไม่ได้ทำมาให้คนอ่านสวยๆ แต่ทำมาให้ AI 'ย่อยง่าย' ประหยัด Token และแม่นยำขึ้นมาก ใครทำโปรเจกต์ RAG หรือ Agentic Workflow แนะนำให้ลองติดตั้งใช้งานผ่าน `pip install 'markitdown[all]'` เลยครับ คุ้มเวลาแน่นอน\n\n#AI #Python #Microsoft #Markdown #RAG #Developer"
+    },
+    {
+      "id": "1104535633",
+      "name": "Antigravity-Manager",
+      "owner": "lbjlaq",
+      "url": "https://github.com/lbjlaq/Antigravity-Manager",
+      "stars": 34326,
+      "stars_today": 158,
+      "language": "Rust",
+      "topics": [
+        "account-manager",
+        "antigravity"
+      ],
+      "license": "NOASSERTION",
+      "open_issues": 1569,
+      "one_liner": "โปรแกรม Desktop ที่ทำหน้าที่เป็นตัวกลาง (Proxy/Relay) เพื่อแปลงการใช้งานเว็บเบราว์เซอร์สำหรับ AI ค่ายต่างๆ ให้กลายเป็น API ที่ใช้งานผ่านเครื่องมือ Dev อื่นๆ ได้สะดวกขึ้น",
+      "problem_solved": "นักพัฒนามักเจอปัญหาความไม่เสถียรเมื่อใช้งาน API ตรงจากค่าย AI และการจัดการหลายบัญชีในเวิร์กโฟลว์เดียวมีความยุ่งยากสูง โปรเจกต์นี้แก้ด้วยการจำลองระบบ Proxy ให้ใช้งานง่ายเหมือน API มาตรฐาน ทำให้สลับบัญชีและคุมโควตาผ่าน GUI ได้ในตัว ไม่ต้องเขียนโค้ดต่อ API แยกเองในทุกโปรเจกต์",
+      "alternative_comparison": "หากเทียบกับ One-API หรือโครงการ Relay อื่นๆ โปรเจกต์นี้เน้นฝั่งผู้ใช้งาน Desktop (Tauri/React) มากกว่าสาย Server-side relay ทำให้เหมาะกับการใช้บนเครื่องตัวเองเพื่อจัดการบัญชีส่วนตัว มากกว่าการตั้ง Server ให้คนอื่นใช้",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "แม้จะมีฟีเจอร์ครบ แต่มี Issue ร้องเรียนเรื่องระบบ 403 และ 429 จำนวนมากใน GitHub แสดงถึงความไม่เสถียรอย่างสูงในการเลียนแบบ Web Protocol ของ AI ค่ายใหญ่",
+      "ai_opportunity": {
+        "monetization_idea": "ใช้เป็นเครื่องมือจัดการ AI Agent ส่วนตัวเพื่อทำ Automate task หลายบัญชีพร้อมกัน โดยเก็บ Telemetry การใช้งานผ่าน SQLite ที่มีมาในตัวเพื่อคำนวณต้นทุนต่อโปรเจกต์",
+        "stack_synergy": "Rust สำหรับ Backend Logic (ความเร็วและความปลอดภัย), Tauri สำหรับ GUI (Native Desktop experience), และ SQLite สำหรับเก็บ Log การเรียกใช้งาน"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "รองรับการทำงานแบบ Multi-account matrix ทำให้สลับใช้งานบัญชี AI ได้รวดเร็ว",
+          "ใช้ Tauri และ Rust ทำให้แอปมีขนาดเบาและตอบสนองไวกว่า Electron แอปทั่วไป"
+        ],
+        "gotchas_and_traps": [
+          "เสี่ยงต่อการถูกแบนบัญชี (Account Ban) สูงเนื่องจากเป็นการทำ Request Manipulation ที่ฝ่าฝืนข้อตกลงของค่าย AI",
+          "ความผันผวนของระบบ (429/403 Errors) เกิดขึ้นบ่อยตาม Issue ใน GitHub เพราะค่าย AI ปรับเปลี่ยน Protocol ฝั่ง Web บ่อยครั้ง"
+        ],
+        "hype_vs_reality": 7
+      },
+      "quick_start": "brew install --cask antigravity-tools",
+      "updated_at": "2026-11-27T13:57:55.614Z",
+      "first_seen_at": "2026-11-27T13:57:55.614Z",
+      "deep_dive_paragraphs": [
+        "โปรเจกต์นี้แก้ปัญหา 'ความวุ่นวายของการจัดการบัญชี AI' สำหรับ Dev ที่ต้องการใช้ AI หลายตัวพร้อมกันโดยไม่อยากจ่ายค่า API แพงๆ หรือไม่อยากสลับหน้า Browser ไปมา ปัญหาหลักคือแต่ละค่ายมี Protocol และข้อจำกัดที่ต่างกัน ซึ่ง Antigravity เข้ามาเป็นตัวกลางคอยจัดการ Proxy เพื่อทำลายกำแพงเหล่านั้นลง",
+        "ภายใต้ฝากระโปรง ระบบถูกเขียนด้วย Rust ร่วมกับ Tauri ทำให้มันทำงานเป็น Native Desktop App ที่มีความปลอดภัยสูงและจัดการ Memory ได้ดี ตัว Architecture แยกส่วนระหว่างตัวจัดการบัญชี (Account Manager) และตัว Proxy (Relay Station) ซึ่งจะคอยดักจับ Web Session แล้วแปลงออกมาเป็นรูปแบบ API มาตรฐานที่ซอฟต์แวร์อื่นใช้งานต่อได้",
+        "ในแง่ของวิศวกรซอฟต์แวร์ โปรเจกต์นี้เป็นตัวอย่างที่ดีในการศึกษาเรื่อง Protocol Proxying และการออกแบบ GUI สำหรับเครื่องมือ Dev แต่ต้องเตือนว่ามันเป็น 'Cat and Mouse game' กับผู้ให้บริการ AI การใช้งานจริงในระยะยาวมีความเสี่ยงเรื่องบัญชีถูกระงับสูงมาก เหมาะสำหรับศึกษาโค้ดหรือใช้แบบระมัดระวังมากกว่าการนำไปรันในระบบ Production จริงจัง"
+      ],
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "แปลง Web-based AI Session ให้กลายเป็น API มาตรฐานด้วยเครื่องมือ Desktop",
+          "prerequisite_level": "เข้าใจพื้นฐาน HTTP Proxy, การทำ Reverse Engineering เบื้องต้น และมีความเข้าใจใน Rust/Tauri Architecture",
+          "worth_deep_dive": "คุ้มค่ามากหากต้องการเรียนรู้การทำ Desktop App ที่คุยกับ Network Layer",
+          "context_lineage": "เป็นหนึ่งในเครื่องมือตระกูล AI Relay Station ที่เปลี่ยนจากฝั่ง Server มาเป็น Desktop-first approach"
+        },
+        "glossary": [
+          {
+            "term": "Tauri",
+            "meaning": "เฟรมเวิร์กสร้างแอปเดสก์ท็อปที่ใช้ Web Frontend ร่วมกับ Rust Backend",
+            "analogy": "เหมือน Electron แต่เบากว่าและปลอดภัยกว่าเพราะใช้ Rust คุมทุกอย่าง"
+          },
+          {
+            "term": "Protocol Proxy",
+            "meaning": "ตัวกลางที่คอยรับส่งข้อมูลแทนผู้ใช้งาน เพื่อแปลงรูปแบบข้อมูลให้ตรงตามความต้องการ",
+            "analogy": "เหมือนล่ามแปลภาษาที่นั่งอยู่ตรงกลางระหว่างคนพูดกับคนฟัง"
+          },
+          {
+            "term": "Web Session",
+            "meaning": "ข้อมูลสถานะการ Login ของผู้ใช้ในบราวเซอร์",
+            "analogy": "เหมือนบัตรผ่านเข้าอาคารที่พกติดตัวไว้ตลอดเวลา"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "Authentication Catching",
+            "detail": "แอปดึง Session ของผู้ใช้จาก Browser เพื่อยืนยันตัวตนกับ AI Provider"
+          },
+          {
+            "step": "Request Transformation",
+            "detail": "แปลง Request ที่ส่งจากโค้ดของผู้ใช้ ให้กลายเป็นรูปแบบที่ AI Provider ยอมรับเหมือนใช้งานผ่านหน้าเว็บ"
+          },
+          {
+            "step": "Relay Dispatching",
+            "detail": "ส่งต่อคำสั่งไปยัง AI ปลายทางและรับ Response กลับมาเพื่อส่งให้ผู้ใช้ในรูปแบบมาตรฐาน"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "Version",
+            "value": "5.0.4",
+            "context": "เวอร์ชันปัจจุบันตามที่ระบุใน README"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Rust toolchain ติดตั้งในเครื่อง",
+            "Node.js สำหรับการจัดการ Frontend",
+            "มีความรู้เรื่องการตั้งค่า Local Proxy"
+          ],
+          "try_it_steps": [
+            "Clone repo ลงมาและติดตั้ง dependencies ด้วย npm install เพื่อดูโครงสร้างโปรเจกต์",
+            "รันคำสั่ง npm run tauri dev เพื่อทดลอง build ตัวแอปในโหมดนักพัฒนา",
+            "ลองเชื่อมต่อ API ของตัวเองผ่าน Proxy พอร์ตที่แอปเปิดไว้และสังเกต log ใน Network tab"
+          ],
+          "next_to_learn": [
+            "การทำ Request Interception ใน Rust",
+            "ความปลอดภัยของ Session Storage ใน Desktop App"
+          ]
+        },
+        "source_depth": "readme_and_issues"
+      },
+      "facebook_post": "ใครที่เบื่อการสลับ Browser ไปมาเพื่อใช้งาน AI หลายๆ ค่ายต้องดูตัวนี้ครับ! 🚀\n\nAntigravity Tools เป็นเครื่องมือ Desktop แบบ Open-source (เขียนด้วย Rust/Tauri) ที่ทำตัวเป็น 'Local AI Relay Station' มันช่วยเปลี่ยนบัญชี AI ที่เราใช้ผ่าน Web Browser ทั่วไป ให้กลายเป็น API มาตรฐานได้\n\nจุดเด่น:\n✅ บริหารจัดการหลายบัญชีได้ในที่เดียว (Matrix dispatch)\n✅ มี Dashboard สวยงามดูโควตาการใช้งานได้แบบ Real-time\n✅ ใช้ Rust ทำให้แอปเบาและกินทรัพยากรน้อยกว่า Electron\n\nข้อควรระวัง:\n⚠️ การทำแบบนี้เป็นการดึง Session จากเบราว์เซอร์ไปใช้นอกช่องทางปกติ ซึ่งมีความเสี่ยงสูงที่จะถูกค่าย AI แบนบัญชีได้ (เช็ค Issue ใน GitHub จะเห็นว่ามีคนเจอ 403/429 บ่อยมาก)\n⚠️ เป็นโปรเจกต์เชิงทดลอง (Experimental) เหมาะกับสาย Dev ที่อยากศึกษา Codebase หรือทำโปรเจกต์ส่วนตัวมากกว่างาน Production\n\nสรุป: เป็นเครื่องมือที่น่าสนใจมากในแง่ Architecture สำหรับสาย Tooling ที่ต้องการทำ AI Relay ไว้ใช้ในเครื่องตัวเองครับ\n\n#Antigravity #AITools #RustLang #Tauri #DeveloperTools #TechDeepDive"
+    },
+    {
+      "id": "1061041576",
+      "name": "heretic",
+      "owner": "p-e-w",
+      "url": "https://github.com/p-e-w/heretic",
+      "stars": 43411,
+      "stars_today": 134,
+      "language": "Python",
+      "topics": [
+        "abliteration",
+        "anti-censorship",
+        "anticensorship",
+        "censorship",
+        "censorship-resistance",
+        "llm",
+        "transformer"
+      ],
+      "license": "AGPL-3.0",
+      "open_issues": 77,
+      "one_liner": "เครื่องมือแก้ไขพฤติกรรม LLM ในระดับโครงสร้างโดยไม่ต้อง Train ใหม่ ช่วยให้ปรับจูนโมเดลให้เลิกปฏิเสธคำสั่งหรือลดความเยิ่นเย้อได้บนคอมพิวเตอร์ส่วนตัว",
+      "problem_solved": "การลบข้อจำกัดหรือปรับจูนพฤติกรรม LLM แบบดั้งเดิมต้องใช้การ Fine-tuning ที่กินทรัพยากรมหาศาลและซับซ้อนเกินไปสำหรับนักพัฒนาทั่วไป Heretic เข้ามาแก้ปัญหานี้ด้วยการใช้เทคนิคทางคณิตศาสตร์สเตียร์พฤติกรรม (steering) โดยตรงกับ weights ของโมเดล ทำให้ปรับแต่งได้โดยไม่ต้องอาศัย Compute ระดับ Data Center",
+      "alternative_comparison": "หากเทียบกับ LoRA หรือ QLoRA ที่เน้นการสอนโมเดลใหม่ Heretic จะเน้นการปรับทิศทางของโมเดลเดิม (Abliteration) ให้แสดงพฤติกรรมที่ต้องการโดยรักษาความสามารถเดิมไว้ ซึ่งประหยัดเวลากว่ามากและเป็นงานแบบ Inference-time optimization",
+      "maturity_rating": "Experimental",
+      "maturity_reason": "มีการเคลื่อนไหวของ Issue อย่างต่อเนื่องและการปรับปรุงโครงสร้างจาก v1 เป็น v2 ที่มี Breaking changes ตลอดเวลา สะท้อนว่าเป็นซอฟต์แวร์ที่ยังอยู่ในระยะพัฒนาอย่างรวดเร็วและพร้อมสำหรับการทดลองใช้งานจริงมากกว่าการนำไปใช้ใน Production ระบบใหญ่",
+      "ai_opportunity": {
+        "monetization_idea": "ใช้เป็นเครื่องมือสร้าง Custom Model ที่มีความเฉพาะตัวสูง (เช่น โมเดลที่กวนประสาทน้อยลงหรือตอบสั้นลง) เพื่อแจกจ่ายเป็น Open Weights บน Hugging Face หรือรับจ้างปรับแต่งโมเดลให้เฉพาะเจาะจงกับ Workflow ขององค์กร",
+        "stack_synergy": "เข้าคู่ได้ดีเยี่ยมกับ PyTorch, Hugging Face `transformers`, และ `bitsandbytes` สำหรับการโหลดโมเดลแบบ 4-bit เพื่อประหยัด VRAM ในเครื่อง"
+      },
+      "human_vibe_check": {
+        "pros": [
+          "ไม่ต้องอาศัยเครื่องมือระดับ Data Center สามารถรันบน Gaming PC ได้เลย",
+          "มีระบบ Scorer ที่ยืดหยุ่นมาก นักพัฒนาสามารถเขียนปลั๊กอินด้วย Python เพื่อปรับแต่งพฤติกรรมอะไรก็ได้ตามใจชอบ"
+        ],
+        "gotchas_and_traps": [
+          "Configuration ของ v1 ใช้ร่วมกับ v2 ไม่ได้ ต้องศึกษาคู่มือการย้ายเวอร์ชันให้ดี",
+          "การปรับแต่งโมเดลด้วยวิธีนี้อาจส่งผลต่อความแม่นยำ (Accuracy) ของงานบางประเภท จึงจำเป็นต้องทำ Benchmark เทียบเสมอ"
+        ],
+        "hype_vs_reality": 8
+      },
+      "quick_start": "pip install -U heretic-llm && heretic Qwen/Qwen3-4B-Instruct-2507",
+      "updated_at": "2026-11-27T13:58:13.335Z",
+      "first_seen_at": "2026-11-27T13:58:13.335Z",
+      "deep_dive_paragraphs": [
+        "ในโลกของ Generative AI คอขวดที่นักพัฒนาเจอไม่ใช่แค่เรื่อง API ที่แพง แต่เป็น 'Alignment' ที่ค่ายโมเดลยัดเยียดมาให้จนโมเดลปฏิเสธการทำงาน (Refusal) หรือตอบแบบซ้ำซาก (Slop) Heretic เข้ามาทำหน้าที่เป็น 'ศัลยแพทย์' ให้กับไฟล์น้ำหนัก (weights) ของโมเดล โดยใช้วิธีทางคณิตศาสตร์เพื่อตัดหรือลดอิทธิพลของเลเยอร์ที่คอยควบคุมพฤติกรรมเหล่านั้นออกไป โดยที่คุณไม่ต้อง Train โมเดลใหม่จากศูนย์",
+        "ข้างใน Heretic ทำงานผ่านการปรับจูน Weights โดยใช้ Scoring System ที่เชื่อมโยงเข้ากับระบบ `Scorer` interface ใน `src/heretic/scorer.py` กลไกนี้จะคำนวณ 'ทิศทาง' ของพฤติกรรมผ่าน KL Divergence หรือ Keyword Rate จากนั้นใช้การคำนวณเชิงเส้น (Linear Algebra) เพื่อบีบให้โมเดลมีพฤติกรรมตามที่ตั้งค่าไว้ในไฟล์ `.toml` เช่น `config.noslop.toml` หรือ `config.terse.toml` ซึ่งทุกอย่างถูกรันบน local machine ผ่านไลบรารีอย่าง PyTorch และ bitsandbytes",
+        "ในแง่การใช้งาน Heretic ถือเป็นโปรเจกต์ที่ทรงพลังมากสำหรับนักพัฒนาที่อยากเข้าใจ Deep Dive ภายในของ Transformer Architecture ผ่านการปรับจูนจริง ไม่ใช่แค่การอ่านทฤษฎี ถึงแม้ว่าตัวซอฟต์แวร์จะยังอยู่ในช่วง Experimental และมี Issue เปิดอยู่จำนวนมาก แต่โครงสร้างโค้ดนั้นสะอาดและ Modular สูง เหมาะแก่การ Fork ไปศึกษาหรือเขียน Scorer ของตัวเองเพื่อสร้างพฤติกรรม AI ที่ตอบโจทย์เฉพาะทางครับ"
+      ],
+      "reading_guide": {
+        "pass1_triage": {
+          "core_idea": "การแก้ไขพฤติกรรมของ LLM ด้วยการปรับจูน Weights โดยตรงผ่านเทคนิคทางคณิตศาสตร์โดยไม่ต้องอาศัยการ Train ใหม่",
+          "prerequisite_level": "เข้าใจ Python เบื้องต้น และรู้ว่า LLM มี Weights และทำงานอย่างไร (Transformer Architecture)",
+          "worth_deep_dive": "คุ้มค่ามากสำหรับคนที่อยากเข้าใจว่าเราจะ 'ควบคุม' พฤติกรรม AI ได้ลึกกว่าแค่ระบบ Prompt Engineering อย่างไร",
+          "context_lineage": "ต่อยอดจากแนวคิดด้าน 'Abliteration' และ 'Model Steering' ในวงการ Open-source AI"
+        },
+        "glossary": [
+          {
+            "term": "Abliteration",
+            "meaning": "เทคนิคการลบอิทธิพลของชุดข้อมูลหรือเงื่อนไขการปฏิเสธที่ถูกสอนมาในโมเดลด้วยการปรับทิศทางของ weights",
+            "analogy": "เหมือนการลบ 'สวิตช์' ในวงจรที่สั่งให้โมเดลหยุดตอบคำถามบางอย่างออกไป"
+          },
+          {
+            "term": "KL Divergence",
+            "meaning": "ตัวชี้วัดความแตกต่างของการกระจายตัวของข้อมูลสองชุดว่าต่างกันแค่ไหน",
+            "analogy": "เปรียบเหมือนการวัดว่าโมเดลหลังโดนแก้แล้ว พฤติกรรมเปลี่ยนไปจากเดิมแค่ไหนเมื่อเทียบกับโมเดลต้นฉบับ"
+          },
+          {
+            "term": "Slop",
+            "meaning": "คำเรียกภาษาแสลงสำหรับภาษาที่เยิ่นเย้อหรือเป็นแพทเทิร์นแบบ AI ที่เราต้องการกำจัดออก",
+            "analogy": "เปรียบเหมือน 'น้ำขยะ' หรือคำฟุ่มเฟือยที่ AI มักชอบใส่มาท้ายประโยคโดยไม่จำเป็น"
+          }
+        ],
+        "how_it_works": [
+          {
+            "step": "การประเมินสภาวะ (System Benchmarking)",
+            "detail": "โปรแกรมจะรันการทดสอบ Hardware ของคุณเพื่อกำหนด Batch size ที่เหมาะสมที่สุดสำหรับ VRAM ที่มีอยู่"
+          },
+          {
+            "step": "การคำนวณทิศทางพฤติกรรม (Scoring)",
+            "detail": "โมเดลจะถูกประเมินโดย Scorers (เช่น keyword_rate) เพื่อหาจุดที่ต้องแก้ไขพฤติกรรมตามที่ระบุในไฟล์ TOML"
+          },
+          {
+            "step": "การปรับจูนด้วยวิธีทางคณิตศาสตร์ (Abliteration)",
+            "detail": "ทำการปรับปรุงน้ำหนัก (weights) ผ่านเทคนิคทางคณิตศาสตร์ที่สอดคล้องกับ scoring function จนกว่าจะบรรลุผลลัพธ์ที่ต้องการ"
+          }
+        ],
+        "hard_evidence": [
+          {
+            "metric": "เวลาในการประมวลผล (Processing time)",
+            "value": "30-40 นาที",
+            "context": "บนการ์ดจอ RTX 3090 เมื่อปรับจูนโมเดล Qwen3-4B-Instruct-2507"
+          },
+          {
+            "metric": "เทคนิคการโหลดโมเดล (Load Optimization)",
+            "value": "4-bit quantization",
+            "context": "ใช้ไลบรารี bitsandbytes ช่วยประหยัด VRAM ทำให้รันบน GPU ทั่วไปได้"
+          }
+        ],
+        "pass3_hands_on": {
+          "prerequisites": [
+            "Python 3.10+",
+            "PyTorch 2.6+",
+            "GPU ที่รองรับ (แนะนำ VRAM 16GB ขึ้นไป)"
+          ],
+          "try_it_steps": [
+            "ติดตั้งผ่าน pip โดยใช้คำสั่ง `pip install -U heretic-llm` เพื่อเตรียมสภาพแวดล้อม",
+            "เตรียมไฟล์ config โดยอ้างอิงจาก `config.default.toml` เพื่อกำหนดสิ่งที่จะแก้ไขในโมเดล",
+            "สั่งรันคำสั่ง `heretic <MODEL_ID>` เพื่อทดลองปรับพฤติกรรมโมเดลด้วยตัวเอง"
+          ],
+          "next_to_learn": [
+            "ศึกษาเรื่อง 'Projected Abliteration' เพื่อเข้าใจว่าทำไมวิธีนี้ถึงรักษาความฉลาดของโมเดลไว้ได้",
+            "ลองเขียน `Scorer` ปลั๊กอินของตัวเองใน `src/heretic/scorers` เพื่อปรับแต่งพฤติกรรมในรูปแบบใหม่ๆ"
+          ]
+        },
+        "source_depth": "readme_and_issues"
+      },
+      "facebook_post": "สายขุดโค้ด AI ต้องดู! โปรเจกต์ 'Heretic' กำลังมาแรงมากสำหรับคนที่อยากคุมโมเดล LLM ให้อยู่หมัด\n\nปกติเวลาเราใช้โมเดล Open Weights อย่าง Qwen หรือ Llama บางทีมันชอบปฏิเสธคำสั่ง (Refusal) หรือตอบแบบ AI แพทเทิร์นจ๋าๆ (Slop) จนขัดใจ แต่จะไป Fine-tune เองก็กินสเปกโหดเกินไป\n\nHeretic มาแก้ Pain point นี้ด้วยเทคนิคที่เรียกว่า 'Abliteration' ครับ:\n✅ ไม่ต้อง Train ใหม่ ไม่ต้องใช้ Compute ฟาร์ม\n✅ ปรับจูนพฤติกรรม (Steer) ได้โดยตรงบนคอมฯ เราเอง\n✅ มีระบบ Scorer ให้เขียนปลั๊กอินปรับแต่งเองได้ เช่น อยากให้ AI ตอบสั้นลง หรือเลิกเล่นมุกแป้ก\n✅ รองรับ 4-bit Quantization รันบนการ์ดจอ Gaming ทั่วไปได้เลย\n\nใครอยากรู้ว่า Weights ของ LLM มันทำงานยังไง หรืออยากทำโมเดลเฉพาะทางของตัวเอง ลองไปขุดโค้ด Python ใน Repo นี้ได้เลยครับ เข้าใจกลไกการปรับพฤติกรรม AI ได้ลึกกว่าอ่านเอกสารแน่นอน\n\n🔗 https://github.com/p-e-w/heretic\n\n#AI #LLM #Abliteration #OpenSource #Heretic #Python #DeveloperLife"
     }
   ],
   "yesterday": [
@@ -2834,5 +2832,127 @@
       },
       "facebook_post": "ใครที่เคยโดน Apple หรือ Google ปฏิเสธแอป (App Rejection) แล้วต้องรอแก้เป็นอาทิตย์ ผมเจอของดีมาแนะนำครับ!\n\nโปรเจกต์ 'App Store Compliance Playbook' ตัวนี้คือเพื่อนแท้ของนักพัฒนาแอปมือถือ มันไม่ได้ช่วยเขียนโค้ดให้ แต่ทำตัวเป็น 'ด่านตรวจ' ที่สแกนหาจุดเสี่ยงในโปรเจกต์ก่อนที่เราจะกด Submit ขึ้น Store จริงๆ\n\nทำไมต้องลอง?\n✅ เช็ค Privacy Manifest และ Permission ต่างๆ ที่มักเป็นเหตุให้โดน Reject\n✅ มีระบบเปรียบเทียบกับ Guideline ล่าสุดของ Apple/Google\n✅ รันผ่าน Terminal ได้เลย ไม่ต้องติดตั้งอะไรวุ่นวาย\n✅ ลดเวลาการคาดเดาจากอีเมล Reject ที่เขียนมาแบบคลุมเครือ\n\nผมลองดูโครงสร้างโค้ดแล้ว ถือว่ามีประโยชน์มากสำหรับคนที่อยากทำแอปให้ผ่านตั้งแต่รอบแรก หรือไม่อยากเสียเวลาลองผิดลองถูกกับนโยบายที่เปลี่ยนบ่อยๆ ใครอยากลองเอาไปติดไว้ใน Workflow ของตัวเองลองเข้าไปดูใน Repo นี้ได้เลยครับ มันช่วยประหยัดเวลาได้เยอะจริงๆ!\n\nอ่านเพิ่มเติม: https://github.com/mjmirza/app-store-compliance\n\n#AppDevelopment #iOS #Android #DeveloperTools #AppStoreCompliance #CleanCode"
     }
-  ]
+  ],
+  "seen_history": {
+    "elementalsouls/claude-bughunter": {
+      "first_seen_date": "2026-11-18",
+      "last_seen_date": "2026-11-27",
+      "appearances": 10
+    },
+    "obra/superpowers": {
+      "first_seen_date": "2026-11-18",
+      "last_seen_date": "2026-11-27",
+      "appearances": 10
+    },
+    "hkuds/cli-anything": {
+      "first_seen_date": "2026-11-19",
+      "last_seen_date": "2026-11-27",
+      "appearances": 9
+    },
+    "jingyaogong/minimind": {
+      "first_seen_date": "2026-11-20",
+      "last_seen_date": "2026-11-27",
+      "appearances": 8
+    },
+    "cursor/plugins": {
+      "first_seen_date": "2026-11-18",
+      "last_seen_date": "2026-11-27",
+      "appearances": 10
+    },
+    "firecrawl/firecrawl": {
+      "first_seen_date": "2026-11-20",
+      "last_seen_date": "2026-11-27",
+      "appearances": 8
+    },
+    "nginx/nginx": {
+      "first_seen_date": "2026-11-20",
+      "last_seen_date": "2026-11-27",
+      "appearances": 8
+    },
+    "openvinotoolkit/openvino": {
+      "first_seen_date": "2026-11-20",
+      "last_seen_date": "2026-11-27",
+      "appearances": 8
+    },
+    "cathrynlavery/diagram-design": {
+      "first_seen_date": "2026-11-20",
+      "last_seen_date": "2026-11-27",
+      "appearances": 8
+    },
+    "mvanhorn/last30days-skill": {
+      "first_seen_date": "2026-11-18",
+      "last_seen_date": "2026-11-27",
+      "appearances": 10
+    },
+    "google-labs-code/stitch-skills": {
+      "first_seen_date": "2026-11-18",
+      "last_seen_date": "2026-11-27",
+      "appearances": 10
+    },
+    "mjmirza/app-store-compliance": {
+      "first_seen_date": "2026-11-20",
+      "last_seen_date": "2026-11-27",
+      "appearances": 8
+    },
+    "tracer-cloud/opensre": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "toeverything/affine": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "xiaoyouchr/ghost-downloader-3": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "zhouxiaoka/autoclip": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "superdesigndev/treg": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "anomalyco/opencode": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "rustdesk/rustdesk": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "earendil-works/pi": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "multica-ai/multica": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "microsoft/markitdown": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "lbjlaq/antigravity-manager": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    },
+    "p-e-w/heretic": {
+      "first_seen_date": "2026-11-27",
+      "last_seen_date": "2026-11-27",
+      "appearances": 1
+    }
+  }
 }

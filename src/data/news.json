@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T03:56:50.328Z",
+  "updated_at": "2026-11-27T14:01:42.050Z",
   "articles": [
     {
       "id": "google-deepmind-humanitys-first-exam-18e10c",
@@ -8,7 +8,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-24",
       "published_at": "2026-11-24T19:30:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.317Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-25T04:32:37.134Z",
       "authors": [
         "Oran Kelly"
@@ -136,7 +136,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-24",
       "published_at": "2026-11-24T16:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.317Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-25T04:32:37.142Z",
       "authors": [],
       "rss_categories": [
@@ -264,7 +264,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-24",
       "published_at": "2026-11-24T16:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.317Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-25T04:32:37.142Z",
       "authors": [
         "Zahra Thompson"
@@ -392,7 +392,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-24",
       "published_at": "2026-11-24T14:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.317Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-25T04:32:37.142Z",
       "authors": [
         "Prashant Paulose"
@@ -510,7 +510,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T18:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.317Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-24T05:28:25.868Z",
       "authors": [
         "Molly McHugh-Johnson"
@@ -635,7 +635,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T18:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.317Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-24T05:28:25.873Z",
       "authors": [],
       "rss_categories": [
@@ -752,7 +752,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-24T05:28:25.874Z",
       "authors": [
         "Robby Stein"
@@ -874,7 +874,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-24T05:28:25.874Z",
       "authors": [],
       "rss_categories": [
@@ -995,7 +995,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-23",
       "published_at": "2026-11-23T16:12:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-24T05:28:25.874Z",
       "authors": [
         "Rohan Doshi",
@@ -1119,7 +1119,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-20",
       "published_at": "2026-11-20T18:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-21T02:36:09.755Z",
       "authors": [],
       "rss_categories": [
@@ -1237,7 +1237,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T20:30:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T04:27:43.483Z",
       "authors": [],
       "rss_categories": [
@@ -1358,7 +1358,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T19:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T04:27:43.488Z",
       "authors": [],
       "rss_categories": [
@@ -1485,7 +1485,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T18:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Lucia Loher",
@@ -1621,7 +1621,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [
         "Yulie Kwon Kim"
@@ -1742,7 +1742,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T04:27:43.489Z",
       "authors": [],
       "rss_categories": [
@@ -1875,7 +1875,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Michael Friedman"
@@ -1999,7 +1999,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T07:22:30.577Z",
       "authors": [],
       "rss_categories": [
@@ -2115,7 +2115,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T07:22:30.578Z",
       "authors": [],
       "rss_categories": [
@@ -2488,7 +2488,7 @@
       "source": "Google Research",
       "published_date": "2026-11-19",
       "published_at": "2026-11-19T13:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-20T04:27:43.490Z",
       "authors": [
         "Travis Beals"
@@ -2611,7 +2611,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T21:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-19T04:37:36.106Z",
       "authors": [
         "Koray Kavukcuoglu"
@@ -2744,7 +2744,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T18:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Diego Rivas",
@@ -2944,7 +2944,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-18",
       "published_at": "2026-11-18T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-19T04:37:36.109Z",
       "authors": [
         "Angus Logan"
@@ -3136,7 +3136,7 @@
       "source": "Google DeepMind",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T22:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.444Z",
       "authors": [
         "Lindsey Lanquist"
@@ -3337,7 +3337,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "The EmbeddingGemma 2 team"
@@ -3461,7 +3461,7 @@
       "source": "Google Labs",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Josh Woodward"
@@ -3723,7 +3723,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-17",
       "published_at": "2026-11-17T17:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
@@ -3906,7 +3906,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T18:30:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Google Threat Intelligence Group (GTIG)"
@@ -4096,7 +4096,7 @@
       "source": "Google Cloud",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T16:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [],
       "rss_categories": [
@@ -4288,7 +4288,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-16",
       "published_at": "2026-11-16T14:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Maz Khorasani"
@@ -4542,7 +4542,7 @@
       "source": "Google Developers",
       "published_date": "2026-11-13",
       "published_at": "2026-11-13T20:30:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Bala Muthukrishnan",
@@ -4803,7 +4803,7 @@
       "source": "Google Official Blog",
       "published_date": "2026-11-12",
       "published_at": "2026-11-12T18:00:00.000Z",
-      "updated_at": "2026-11-27T03:56:50.318Z",
+      "updated_at": "2026-11-27T14:01:42.041Z",
       "first_seen_at": "2026-11-18T04:52:36.449Z",
       "authors": [
         "Robby Stein"
