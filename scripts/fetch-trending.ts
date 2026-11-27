@@ -10,6 +10,24 @@ import {
   hasRefreshLatestFlag,
   sanitizeReadingGuide,
 } from "./lib/deep-reading";
+import {
+  COOLDOWN_DAYS,
+  MAX_CONSECUTIVE_DAYS,
+  MAX_STREAK_SLOTS,
+  TARGET_REPO_COUNT,
+  bootstrapSeenHistory,
+  classifyCandidate,
+  isInterestingCodeRepo,
+  mergeCandidatePools,
+  normalizeRepoKey,
+  parseTrendingHtml,
+  selectRotatedCandidates,
+  toBangkokDate,
+  updateSeenHistory,
+  type RawTrendingCandidate,
+  type RepoHistoryMap,
+  type TrendingSourceTier,
+} from "./lib/repo-rotation";
 
 dotenv.config({ path: ".env.local" });
 
@@ -48,19 +66,12 @@ interface HNSearchResponse {
   hits: HNStory[];
 }
 
-const TARGET_REPO_COUNT = 12;
-
-function isInterestingCodeRepo(name: string, topics: string[] = []): boolean {
-  const lower = name.toLowerCase();
-  const excludedKeywords = ["awesome", "list", "interview", "book", "roadmap", "tutorial", "course"];
-  if (excludedKeywords.some((kw) => lower.includes(kw))) {
-    return false;
-  }
-  if (topics.some((t) => t === "awesome-list" || t === "interview-questions")) {
-    return false;
-  }
-  return true;
-}
+const LANGUAGE_TRENDING_URLS = [
+  "https://github.com/trending/python?since=daily",
+  "https://github.com/trending/typescript?since=daily",
+  "https://github.com/trending/rust?since=daily",
+  "https://github.com/trending/go?since=daily",
+];
 
 function getStarsTodayApprox(repo: GitHubSearchRepoItem): number {
   if (typeof repo.stars_today === "number" && repo.stars_today > 0) {
@@ -74,12 +85,67 @@ function getStarsTodayApprox(repo: GitHubSearchRepoItem): number {
   return 50;
 }
 
+async function scrapeTrendingPage(
+  url: string,
+  tier: TrendingSourceTier
+): Promise<RawTrendingCandidate[]> {
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; RepoRadar/2.0)" },
+    });
+    if (!res.ok) {
+      console.warn(`Trending page ${url} returned ${res.status}: ${res.statusText}`);
+      return [];
+    }
+    const html = await res.text();
+    return parseTrendingHtml(html, tier);
+  } catch (error) {
+    console.warn(`Could not scrape ${url}:`, error);
+    return [];
+  }
+}
+
+function countEligibleCandidates(
+  candidates: RawTrendingCandidate[],
+  seenHistory: RepoHistoryMap,
+  todayIct: string
+): { fresh: number; streak: number; usable: number } {
+  let fresh = 0;
+  let streak = 0;
+  const seen = new Set<string>();
+
+  for (const c of candidates) {
+    const key = normalizeRepoKey(c.fullName);
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const status = classifyCandidate(key, seenHistory, todayIct, {
+      maxConsecutiveDays: MAX_CONSECUTIVE_DAYS,
+      cooldownDays: COOLDOWN_DAYS,
+    });
+    if (status === "fresh") fresh++;
+    else if (status === "streak") streak++;
+  }
+
+  return {
+    fresh,
+    streak,
+    usable: fresh + Math.min(streak, MAX_STREAK_SLOTS),
+  };
+}
+
 /**
- * Fetch trending & breakout repositories:
- * 1. Real daily trending repositories from https://github.com/trending?since=daily (with real stars today)
- * 2. Supplement up to TARGET_REPO_COUNT (12) with breakout repositories created within the last 30 days
+ * Fetch trending & breakout repositories using a 4-tier waterfall with 14-day cooldown rotation:
+ * Tier 1: https://github.com/trending?since=daily (all articles, real stars today)
+ * Tier 2: Language-specific daily trending pages (python, typescript, rust, go) — real stars today
+ * Tier 2b: https://github.com/trending?since=weekly (daily-averaged stars) if still short
+ * Tier 3: GitHub Search API breakout repos created in the last 14 days (non-cooldown)
+ * Tier 4: Graceful cooldown fallback only if all tiers combined still yield < TARGET_REPO_COUNT
  */
-async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
+async function fetchGitHubTrending(
+  seenHistory: RepoHistoryMap,
+  todayIct: string
+): Promise<GitHubSearchRepoItem[]> {
   const headers: HeadersInit = {
     Accept: "application/vnd.github.v3+json",
     "User-Agent": "RepoRadar-Script",
@@ -89,54 +155,178 @@ async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
     headers["Authorization"] = `token ${GITHUB_TOKEN}`;
   }
 
-  const collected: GitHubSearchRepoItem[] = [];
-  const seen = new Set<string>();
+  // Buffer extra candidates so topic-filtering or metadata fetch errors still leave >= TARGET_REPO_COUNT
+  const desiredEligibleBuffer = TARGET_REPO_COUNT + 4;
 
-  try {
-    const trendingRes = await fetch("https://github.com/trending?since=daily", {
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; RepoRadar/2.0)" },
-    });
-    if (trendingRes.ok) {
-      const html = await trendingRes.text();
-      const articles = html.split('<article class="Box-row">').slice(1);
+  // Tier 1: Global Daily Trending
+  const dailyCandidates = await scrapeTrendingPage(
+    "https://github.com/trending?since=daily",
+    "daily"
+  );
+  const pools: RawTrendingCandidate[][] = [dailyCandidates];
+  let eligibleStats = countEligibleCandidates(dailyCandidates, seenHistory, todayIct);
+  console.log(
+    `Tier 1 (Daily Trending): scraped ${dailyCandidates.length} candidates (${eligibleStats.fresh} fresh, ${eligibleStats.streak} streak eligible).`
+  );
 
-      for (const article of articles) {
-        if (collected.length >= TARGET_REPO_COUNT) break;
-        const repoMatch = article.match(/<h2[\s\S]*?<a[^>]*href="\/([^/"\s]+\/[^/"\s]+)"/);
-        const todayMatch = article.match(/([\d,]+)\s+stars today/);
-        const fullName = repoMatch?.[1];
-        if (!fullName || seen.has(fullName.toLowerCase())) continue;
-
-        const repoName = fullName.split("/")[1] || "";
-        if (!isInterestingCodeRepo(repoName)) continue;
-
-        const starsToday = todayMatch ? parseInt(todayMatch[1].replace(/,/g, ""), 10) : 0;
-
-        try {
-          const metaRes = await fetch(`https://api.github.com/repos/${fullName}`, { headers });
-          if (metaRes.ok) {
-            const repoData = (await metaRes.json()) as GitHubSearchRepoItem;
-            if (!isInterestingCodeRepo(repoData.name, repoData.topics || [])) continue;
-            repoData.stars_today = starsToday > 0 ? starsToday : getStarsTodayApprox(repoData);
-            collected.push(repoData);
-            seen.add(repoData.full_name.toLowerCase());
-          }
-        } catch {
-          console.warn(`Could not fetch metadata for trending repo ${fullName}`);
-        }
-      }
-      console.log(`Fetched ${collected.length} repositories from GitHub Daily Trending.`);
-    }
-  } catch (error) {
-    console.warn("Could not scrape github.com/trending, falling back to search API:", error);
+  // Tier 2: Language-specific Daily Trending (when global daily board is frozen or saturated with cooldown repos)
+  if (eligibleStats.usable < desiredEligibleBuffer) {
+    const langPools = await Promise.all(
+      LANGUAGE_TRENDING_URLS.map((url) => scrapeTrendingPage(url, "language"))
+    );
+    pools.push(...langPools);
+    const mergedSoFar = mergeCandidatePools(pools);
+    eligibleStats = countEligibleCandidates(mergedSoFar, seenHistory, todayIct);
+    console.log(
+      `Tier 2 (Language Daily Trending): pool now ${mergedSoFar.length} unique (${eligibleStats.fresh} fresh, ${eligibleStats.streak} streak eligible).`
+    );
   }
 
-  if (collected.length < TARGET_REPO_COUNT) {
-    const thirtyDaysAgo = new Date();
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-    const dateStr = thirtyDaysAgo.toISOString().split("T")[0];
+  // Tier 2b: Weekly Trending (only if still short on eligible candidates)
+  if (eligibleStats.usable < desiredEligibleBuffer) {
+    const weeklyCandidates = await scrapeTrendingPage(
+      "https://github.com/trending?since=weekly",
+      "weekly"
+    );
+    pools.push(weeklyCandidates);
+    const mergedSoFar = mergeCandidatePools(pools);
+    eligibleStats = countEligibleCandidates(mergedSoFar, seenHistory, todayIct);
+    console.log(
+      `Tier 2b (Weekly Trending): pool now ${mergedSoFar.length} unique (${eligibleStats.fresh} fresh, ${eligibleStats.streak} streak eligible).`
+    );
+  }
 
-    const query = `created:>=${dateStr} stars:>200 has:license`;
+  const mergedPool = mergeCandidatePools(pools);
+
+  // Partition scraped candidates into non-cooldown eligible, streak overflow, and cooldown reserve
+  const eligibleShortlist: RawTrendingCandidate[] = [];
+  const streakOverflow: RawTrendingCandidate[] = [];
+  const cooldownReserve: RawTrendingCandidate[] = [];
+  const { selected: prioritizedAll } = selectRotatedCandidates(
+    mergedPool,
+    seenHistory,
+    todayIct,
+    {
+      targetCount: mergedPool.length,
+      maxStreakSlots: MAX_STREAK_SLOTS,
+      maxConsecutiveDays: MAX_CONSECUTIVE_DAYS,
+      cooldownDays: COOLDOWN_DAYS,
+    }
+  );
+
+  let eligibleStreaksAllowed = 0;
+  for (const candidate of prioritizedAll) {
+    const status = classifyCandidate(candidate.fullName, seenHistory, todayIct, {
+      maxConsecutiveDays: MAX_CONSECUTIVE_DAYS,
+      cooldownDays: COOLDOWN_DAYS,
+    });
+    if (status === "fresh") {
+      eligibleShortlist.push(candidate);
+    } else if (status === "streak") {
+      if (eligibleStreaksAllowed < MAX_STREAK_SLOTS) {
+        eligibleShortlist.push(candidate);
+        eligibleStreaksAllowed++;
+      } else {
+        streakOverflow.push(candidate);
+      }
+    } else {
+      cooldownReserve.push(candidate);
+    }
+  }
+
+  const collected: GitHubSearchRepoItem[] = [];
+  const seen = new Set<string>();
+  let collectedStreaks = 0;
+  let rateLimited = false;
+
+  const fetchAndCollect = async (
+    candidates: RawTrendingCandidate[],
+    options: { allowCooldown?: boolean; enforceStreakCap?: boolean } = {}
+  ) => {
+    const { allowCooldown = false, enforceStreakCap = true } = options;
+
+    for (const candidate of candidates) {
+      if (collected.length >= TARGET_REPO_COUNT || rateLimited) break;
+      const key = normalizeRepoKey(candidate.fullName);
+      if (seen.has(key)) continue;
+
+      try {
+        const metaRes = await fetch(`https://api.github.com/repos/${candidate.fullName}`, {
+          headers,
+        });
+        if (
+          metaRes.status === 429 ||
+          (metaRes.status === 403 && metaRes.headers.get("x-ratelimit-remaining") === "0")
+        ) {
+          console.warn(
+            `GitHub REST API rate limit reached (${metaRes.status}) while fetching ${candidate.fullName}. Short-circuiting metadata fetches.`
+          );
+          rateLimited = true;
+          break;
+        }
+        if (!metaRes.ok) {
+          console.warn(
+            `GitHub API returned ${metaRes.status} for ${candidate.fullName}, skipping.`
+          );
+          continue;
+        }
+        const repoData = (await metaRes.json()) as GitHubSearchRepoItem;
+        const resolvedKey = normalizeRepoKey(repoData.full_name);
+
+        // Guard against renamed/redirected repos duplicating an already-collected or cooldown repo
+        if (seen.has(resolvedKey)) {
+          seen.add(key);
+          continue;
+        }
+        if (!isInterestingCodeRepo(repoData.name, repoData.topics || [])) {
+          seen.add(key);
+          seen.add(resolvedKey);
+          continue;
+        }
+
+        const resolvedStatus = classifyCandidate(resolvedKey, seenHistory, todayIct, {
+          maxConsecutiveDays: MAX_CONSECUTIVE_DAYS,
+          cooldownDays: COOLDOWN_DAYS,
+        });
+        if (!allowCooldown && resolvedStatus === "cooldown") {
+          seen.add(key);
+          seen.add(resolvedKey);
+          continue;
+        }
+        if (enforceStreakCap && resolvedStatus === "streak" && collectedStreaks >= MAX_STREAK_SLOTS) {
+          continue;
+        }
+
+        repoData.stars_today =
+          candidate.starsToday > 0 ? candidate.starsToday : getStarsTodayApprox(repoData);
+        collected.push(repoData);
+        if (resolvedStatus === "streak") {
+          collectedStreaks++;
+        }
+        seen.add(resolvedKey);
+        seen.add(key);
+      } catch {
+        console.warn(`Could not fetch metadata for trending repo ${candidate.fullName}`);
+      }
+    }
+  };
+
+  // Fetch metadata for eligible (fresh + capped streak) scraped candidates first
+  await fetchAndCollect(eligibleShortlist, {
+    allowCooldown: false,
+    enforceStreakCap: true,
+  });
+  console.log(
+    `Collected ${collected.length}/${TARGET_REPO_COUNT} repositories from Trending tiers (${collectedStreaks} streaks).`
+  );
+
+  // Tier 3: GitHub Search API breakout repos (last 14 days) — only non-cooldown repos & respecting MAX_STREAK_SLOTS
+  if (collected.length < TARGET_REPO_COUNT && !rateLimited) {
+    const fourteenDaysAgo = new Date();
+    fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
+    const dateStr = fourteenDaysAgo.toISOString().split("T")[0];
+
+    const query = `created:>=${dateStr} stars:>150 has:license`;
     const url = `https://api.github.com/search/repositories?q=${encodeURIComponent(query)}&sort=stars&order=desc&per_page=30`;
 
     try {
@@ -145,20 +335,55 @@ async function fetchGitHubTrending(): Promise<GitHubSearchRepoItem[]> {
         const data = (await res.json()) as GithubSearchRepoResponse;
         for (const repo of data.items || []) {
           if (collected.length >= TARGET_REPO_COUNT) break;
-          const key = repo.full_name.toLowerCase();
+          const key = normalizeRepoKey(repo.full_name);
           if (seen.has(key)) continue;
           if (!isInterestingCodeRepo(repo.name, repo.topics || [])) continue;
+          const status = classifyCandidate(key, seenHistory, todayIct, {
+            maxConsecutiveDays: MAX_CONSECUTIVE_DAYS,
+            cooldownDays: COOLDOWN_DAYS,
+          });
+          if (status === "cooldown") continue;
+          if (status === "streak" && collectedStreaks >= MAX_STREAK_SLOTS) continue;
 
           repo.stars_today = getStarsTodayApprox(repo);
           collected.push(repo);
+          if (status === "streak") {
+            collectedStreaks++;
+          }
           seen.add(key);
         }
+        console.log(
+          `After Tier 3 (Search API breakout): collected ${collected.length}/${TARGET_REPO_COUNT} repositories.`
+        );
       } else {
         console.warn(`GitHub Search API returned ${res.status}: ${res.statusText}`);
       }
     } catch (error) {
       console.error("Error fetching breakout GitHub repos:", error);
     }
+  }
+
+  // Tier 4a: Overflow streak repos before cooldown repos if still short
+  if (collected.length < TARGET_REPO_COUNT && !rateLimited && streakOverflow.length > 0) {
+    console.warn(
+      `Only ${collected.length} repos after Tier 3 — backfilling from streak overflow before cooldown reserve.`
+    );
+    await fetchAndCollect(streakOverflow, {
+      allowCooldown: false,
+      enforceStreakCap: false,
+    });
+  }
+
+  // Tier 4b: Graceful fallback to highest-velocity cooldown repos only if all above tiers fell short
+  if (collected.length < TARGET_REPO_COUNT && !rateLimited && cooldownReserve.length > 0) {
+    console.warn(
+      `Only ${collected.length} fresh/streak repos available — backfilling remaining slots from cooldown reserve.`
+    );
+    const sortedReserve = [...cooldownReserve].sort((a, b) => b.starsToday - a.starsToday);
+    await fetchAndCollect(sortedReserve, {
+      allowCooldown: true,
+      enforceStreakCap: false,
+    });
   }
 
   return collected.slice(0, TARGET_REPO_COUNT);
@@ -410,12 +635,14 @@ Provide the output strictly in the following JSON structure:
   return null;
 }
 
-async function loadPreviousFeed(): Promise<{
+async function loadPreviousFeed(todayIct: string): Promise<{
   yesterdayRepos: RepositoryData[];
   cachedById: Map<string, RepositoryData>;
+  seenHistory: RepoHistoryMap;
 }> {
   const cachedById = new Map<string, RepositoryData>();
   let yesterdayRepos: RepositoryData[] = [];
+  let seenHistory: RepoHistoryMap = {};
 
   try {
     const raw = await fs.readFile(REPOS_FILE_PATH, "utf-8");
@@ -425,8 +652,9 @@ async function loadPreviousFeed(): Promise<{
       yesterdayRepos = parsed as RepositoryData[];
       for (const r of yesterdayRepos) {
         cachedById.set(r.id, r);
-        cachedById.set(`${r.owner}/${r.name}`.toLowerCase(), r);
+        cachedById.set(normalizeRepoKey(r.owner, r.name), r);
       }
+      seenHistory = bootstrapSeenHistory(undefined, [], yesterdayRepos, todayIct);
     } else if (parsed && typeof parsed === "object") {
       const prevToday: RepositoryData[] = Array.isArray(parsed.today) ? parsed.today : [];
       const prevYesterday: RepositoryData[] = Array.isArray(parsed.yesterday)
@@ -435,42 +663,38 @@ async function loadPreviousFeed(): Promise<{
 
       for (const r of [...prevYesterday, ...prevToday]) {
         cachedById.set(r.id, r);
-        cachedById.set(`${r.owner}/${r.name}`.toLowerCase(), r);
+        cachedById.set(normalizeRepoKey(r.owner, r.name), r);
       }
 
-      const toBangkokDate = (isoOrDate: string | Date | undefined): string | null => {
-        if (!isoOrDate) return null;
-        const d = typeof isoOrDate === "string" ? new Date(isoOrDate) : isoOrDate;
-        if (Number.isNaN(d.getTime())) return null;
-        return new Intl.DateTimeFormat("en-CA", {
-          timeZone: "Asia/Bangkok",
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-        }).format(d);
-      };
-
       const prevDate = toBangkokDate(prevToday[0]?.updated_at);
-      const currDate = toBangkokDate(new Date());
 
-      if ((prevDate && currDate && prevDate !== currDate) || prevYesterday.length === 0) {
+      if ((prevDate && todayIct && prevDate !== todayIct) || prevYesterday.length === 0) {
         yesterdayRepos = prevToday;
       } else {
         yesterdayRepos = prevYesterday;
       }
+
+      seenHistory = bootstrapSeenHistory(
+        parsed.seen_history,
+        prevToday,
+        prevYesterday,
+        todayIct
+      );
     }
   } catch {
     console.warn("Could not read existing repos.json, starting fresh.");
   }
 
-  return { yesterdayRepos, cachedById };
+  return { yesterdayRepos, cachedById, seenHistory };
 }
 
 async function main() {
   const refreshLatest = hasRefreshLatestFlag();
   const backfill3Pass = hasBackfill3PassFlag();
+  const todayIct = toBangkokDate(new Date()) || new Date().toISOString().slice(0, 10);
+
   console.log(
-    `Starting RepoRadar Data Pipeline...${
+    `Starting RepoRadar Data Pipeline (${todayIct} ICT)...${
       backfill3Pass
         ? " [BACKFILL 3-PASS MODE]"
         : refreshLatest
@@ -490,9 +714,10 @@ async function main() {
     }
   }
 
-  const { yesterdayRepos, cachedById } = await loadPreviousFeed();
+  const { yesterdayRepos, cachedById, seenHistory } = await loadPreviousFeed(todayIct);
+  console.log(`Loaded seen_history with ${Object.keys(seenHistory).length} tracked repos (14-day window).`);
 
-  const repos = await fetchGitHubTrending();
+  const repos = await fetchGitHubTrending(seenHistory, todayIct);
   if (repos.length === 0) {
     console.log("No repos fetched. Pipeline finished.");
     return;
@@ -505,7 +730,7 @@ async function main() {
   for (const repo of repos) {
     const existing =
       cachedById.get(repo.id.toString()) ||
-      cachedById.get(repo.full_name.toLowerCase());
+      cachedById.get(normalizeRepoKey(repo.full_name));
 
     if (existing && !refreshLatest && existing.reading_guide) {
       console.log(
@@ -567,17 +792,29 @@ async function main() {
   }
 
   if (results.length > 0) {
+    const nextSeenHistory = updateSeenHistory(seenHistory, results, todayIct);
     const payload = {
       today: results,
       yesterday: yesterdayRepos,
+      seen_history: nextSeenHistory,
     };
     await fs.writeFile(REPOS_FILE_PATH, JSON.stringify(payload, null, 2));
     console.log(
-      `Successfully wrote ${results.length} today repos and ${yesterdayRepos.length} yesterday repos to ${REPOS_FILE_PATH}`
+      `Successfully wrote ${results.length} today repos, ${yesterdayRepos.length} yesterday repos, and ${Object.keys(nextSeenHistory).length} history entries to ${REPOS_FILE_PATH}`
     );
   } else {
     console.log("No repositories were successfully processed. Keeping existing data.");
   }
 }
 
-main().catch(console.error);
+const isDirectRun =
+  typeof process !== "undefined" &&
+  process.argv[1] &&
+  process.argv[1].endsWith("fetch-trending.ts");
+
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error("Failed in fetch-trending.ts:", err);
+    process.exitCode = 1;
+  });
+}
