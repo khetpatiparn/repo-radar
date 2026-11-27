@@ -86,9 +86,16 @@ export const RepositorySchema = z.object({
 
 export type RepositoryData = z.infer<typeof RepositorySchema>;
 
+export interface RepoHistoryEntry {
+  first_seen_date: string; // YYYY-MM-DD (Asia/Bangkok)
+  last_seen_date: string; // YYYY-MM-DD (Asia/Bangkok)
+  appearances: number;
+}
+
 export interface ReposFeedData {
   today: RepositoryData[];
   yesterday: RepositoryData[];
+  seen_history?: Record<string, RepoHistoryEntry>;
 }
 
 export const PAPER_CATEGORIES = [
